@@ -37,10 +37,19 @@
   .panel h2 { font-size: 0.95rem; margin: 0 0 0.2rem; }
   svg { width: 100%; height: 100%; min-height: 7rem; display: block; overflow: visible; }
   svg text { font-size: 11px; fill: var(--muted); font-family: inherit; }
-  @media (max-width: 720px) {
-    .app { grid-template-columns: 1fr; }
+  /* Medium widths, such as a handout's content column: controls in a compact
+     grid across the top, then the two plot panels side by side. */
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem 1rem; align-items: start; overflow: visible; }
+    .controls h1 { grid-column: 1 / -1; margin: 0; }
+    .plots { min-height: 24rem; }
+  }
+  /* Phones: two control columns and the plots stacked. */
+  @media (max-width: 560px) {
+    .controls { grid-template-columns: 1fr 1fr; }
     .plots { grid-template-columns: 1fr; }
-    .panel { min-height: 20rem; }
+    .panel { min-height: 18rem; }
   }
 </style>
 </head>
