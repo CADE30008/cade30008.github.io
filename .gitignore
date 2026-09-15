@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+.venv/
+# build outputs
+site/
+.cache/
+docs/slides/
+docs/downloads/
+# OS
+.DS_Store

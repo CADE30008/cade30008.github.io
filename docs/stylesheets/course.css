@@ -1,0 +1,93 @@
+/* Course-wide additions on top of the Flight Lab palette (flightlab.css). */
+
+/* Figures: plots are white-background SVGs, so give them a card in dark mode. */
+.md-typeset figure img {
+  border-radius: 4px;
+}
+[data-md-color-scheme="flightlab_dark"] .md-typeset figure img {
+  background: #fff;
+  padding: 4px;
+}
+.md-typeset figcaption {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+/* Interactive applets: an iframe on screen, a still image in print. */
+.md-typeset .applet {
+  margin: 1.5em 0;
+}
+.md-typeset .applet iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 460px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: #fff;
+}
+.md-typeset .applet .applet-fallback {
+  display: none;
+}
+
+/* Links from a handout to its slides, example sheet and solutions. */
+.md-typeset .lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.md-typeset .lesson-links a {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.md-typeset .lesson-links a:hover {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+/* Marks and timings on example-sheet questions. */
+.md-typeset .marks {
+  float: right;
+  margin-left: 1rem;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+}
+
+@media print {
+  .md-typeset .applet iframe,
+  .md-typeset .lesson-links {
+    display: none;
+  }
+  .md-typeset .applet .applet-fallback {
+    display: block;
+    max-width: 100%;
+  }
+  /* Show every code tab, each headed by its language. */
+  .md-typeset .tabbed-set > .tabbed-labels {
+    display: none;
+  }
+  .md-typeset .tabbed-set > .tabbed-content > .tabbed-block {
+    display: block !important;
+  }
+  .md-typeset .tabbed-block .language-python::before,
+  .md-typeset .tabbed-block .language-matlab::before {
+    display: block;
+    margin: 0.6em 0 0.2em;
+    font-size: 0.75em;
+    font-weight: 700;
+  }
+  .md-typeset .tabbed-block .language-python::before { content: "Python"; }
+  .md-typeset .tabbed-block .language-matlab::before { content: "MATLAB"; }
+  .md-typeset details {
+    display: block;
+  }
+  .md-typeset details > :not(summary) {
+    display: block !important;
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "plant": "40/(s(s+2)(s+10))",
+  "N": 10,
+  "u_max_deg": 20.0,
+  "designs": {
+    "P": {
+      "Kp": 1.0,
+      "Ki": 0.0,
+      "Kd": 0.0,
+      "note": "P, Kp = 1",
+      "Ti": null,
+      "Td": null,
+      "GM": 6.000000000000002,
+      "GM_dB": 15.563025007672875,
+      "PM_deg": 43.209845307369505,
+      "wc": 1.5586864008484684,
+      "w180": 4.47213595499958,
+      "rise_time": 0.7649999999999999,
+      "overshoot_pct": 25.36540949038296,
+      "settling_time": 4.397,
+      "peak_elevator_deg_per_10deg_step": 10.0,
+      "dist_final_per_unit": 1.0000000000000102,
+      "dist_peak_per_unit": 1.2536540949038424
+    },
+    "P_pm60": {
+      "Kp": 0.509,
+      "Ki": 0.0,
+      "Kd": 0.0,
+      "note": "P tuned for 60 deg PM",
+      "Ti": null,
+      "Td": null,
+      "GM": 11.787819253438116,
+      "GM_dB": 21.428669360937697,
+      "PM_deg": 60.01751338584546,
+      "wc": 0.9208062559756216,
+      "w180": 4.47213595499958,
+      "rise_time": 1.373,
+      "overshoot_pct": 8.068264795607625,
+      "settling_time": 4.344,
+      "peak_elevator_deg_per_10deg_step": 5.09,
+      "dist_final_per_unit": 1.964636542239643,
+      "dist_peak_per_unit": 2.123148620738807
+    },
+    "PD": {
+      "Kp": 1.86,
+      "Ki": 0.0,
+      "Kd": 0.649,
+      "note": "PD, wc = 3 rad/s, PM = 60 deg",
+      "Ti": null,
+      "Td": 0.3489247311827957,
+      "GM": 12.397878577516042,
+      "GM_dB": 21.86694757276312,
+      "PM_deg": 60.05331085584277,
+      "wc": 2.9982408394267415,
+      "w180": 16.23710769262972,
+      "rise_time": 0.789,
+      "overshoot_pct": 0.49564598823149403,
+      "settling_time": 1.315,
+      "peak_elevator_deg_per_10deg_step": 18.6,
+      "dist_final_per_unit": 0.5376344086021414,
+      "dist_peak_per_unit": 0.54029917197973
+    },
+    "PID": {
+      "Kp": 2.03,
+      "Ki": 0.678,
+      "Kd": 0.661,
+      "note": "PID, wc = 3 rad/s, PM = 55 deg, Ti = 3 s",
+      "Ti": 2.9941002949852504,
+      "Td": 0.32561576354679805,
+      "GM": 12.453437255968485,
+      "GM_dB": 21.905784739913493,
+      "PM_deg": 55.03629739199087,
+      "wc": 2.9980600677412417,
+      "w180": 16.55078122177899,
+      "rise_time": 0.598,
+      "overshoot_pct": 18.719480437648635,
+      "settling_time": 6.869,
+      "peak_elevator_deg_per_10deg_step": 20.444137820358954,
+      "dist_final_per_unit": 0.0,
+      "dist_peak_per_unit": 0.4592869186483655
+    }
+  },
+  "kick": {
+    "peak_elevator_deg_D_on_error": 204.60000000000005,
+    "formula_Kp_N_plus_1_times_step_deg": 204.60000000000002
+  },
+  "windup": {
+    "linear": {
+      "overshoot_pct": 18.719480437652184,
+      "settling_time": 6.8685
+    },
+    "saturated": {
+      "overshoot_pct": 25.354625555897126,
+      "settling_time": 8.006
+    },
+    "anti_windup": {
+      "overshoot_pct": 8.656083515814233,
+      "settling_time": 5.4425
+    }
+  }
+}

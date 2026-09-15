@@ -1,0 +1,70 @@
+[data-md-color-scheme="flightlab"] {
+    --md-primary-fg-color:        #B01C2E;
+    --md-primary-fg-color--light: #B01C2E;
+    --md-primary-fg-color--dark:  #B01C2E;
+    --md-code-hl-comment-color:   #00aa00;
+  }
+
+[data-md-color-scheme="flightlab_dark"] {
+  /* Red branding */
+  --md-primary-fg-color:        #B01C2E;
+  --md-primary-fg-color--light: #B01C2E;
+  --md-primary-fg-color--dark:  #B01C2E;
+
+  /* Dark grey background */
+  --md-default-bg-color:        #1e1e24;  /* like 'slate' */
+  --md-footer-bg-color:         #1e1e24;
+  --md-header-bg-color:         #1e1e24;
+  --md-tabs-bg-color:           #2a2a30;
+  --md-shadow-z1:               0 1px 2px rgba(0, 0, 0, 0.5);
+
+  /* Text & header colors */
+  --md-typeset-color:           #b8b8b8;
+  --md-typeset-a-color:         #ff5f5f;
+  --md-typeset-mark-color:      #ffe082;
+  --md-typeset-kbd-color:       #eeeeee;
+  --md-typeset-table-color:     #cccccc;
+
+  /* Headings override */
+  --md-typeset-heading-color:   #b8b8b8;
+
+  /* Code blocks */
+  --md-code-bg-color:           #2e2e35;  /* different from page background */
+  --md-code-fg-color:           #e0e0e0;
+
+  /* Code highlighting */
+  --md-code-hl-color:           #e14b1e;
+  --md-code-hl-number-color:    #f78c6c;
+  --md-code-hl-string-color:    #c3e88d;
+  --md-code-hl-keyword-color:   #c792ea;
+  --md-code-hl-function-color:  #82aaff;
+  --md-code-hl-variable-color:  #f07178;
+  --md-code-hl-comment-color:   #00aa00;
+  --md-code-hl-punctuation-color: #89ddff;
+  --md-code-hl-constant-color:  #ffcb6b;
+  --md-code-hl-special-color:   #ff5370;
+  --md-code-hl-builtin-color:   #d6b6b2;
+  --md-code-hl-operator-color:   #ff5c57;
+  --md-code-hl-name-color:      #ff5c57;
+
+  /* Scrollbar and selection */
+  --md-accent-fg-color:         #B01C2E;
+  --md-scrollbar-color:         #333;
+  --md-scrollbar-hover-color:   #444;
+}
+[data-md-color-scheme="flightlab_dark"] .md-typeset h1,
+[data-md-color-scheme="flightlab_dark"] .md-typeset h2,
+[data-md-color-scheme="flightlab_dark"] .md-typeset h3,
+[data-md-color-scheme="flightlab_dark"] .md-typeset h4,
+[data-md-color-scheme="flightlab_dark"] .md-typeset h5,
+[data-md-color-scheme="flightlab_dark"] .md-typeset h6,
+[data-md-color-scheme="flightlab_dark"] .md-sidebar h2.md-nav__title 
+[data-md-color-scheme="flightlab_dark"] .md-sidebar .md-nav__title{
+  color: #b8b8b8;
+
+}
+[data-md-color-scheme="flightlab_dark"] .md-sidebar h1,
+[data-md-color-scheme="flightlab_dark"] .md-sidebar h2,
+[data-md-color-scheme="flightlab_dark"] .md-sidebar .md-nav__title {
+  color: #b8b8b8 !important;
+}

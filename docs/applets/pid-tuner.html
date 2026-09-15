@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PID tuner: pitch-attitude loop</title>
+<style>
+  :root {
+    --red: #B01C2E; --teal: #00A89E; --orange: #EE7219; --purple: #9278D1;
+    --ink: #1D1D1B; --muted: #5f6462; --grid: #e3e6e5; --panel: #f6f7f7; --paper: #ffffff;
+    font-family: "Trebuchet MS", "Fira Sans", Helvetica, Arial, sans-serif;
+    font-size: clamp(11px, 1.25vw, 15px);
+    color: var(--ink); background: var(--paper);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { display: flex; }
+  .app { flex: 1; display: grid; grid-template-columns: minmax(12.5rem, 15rem) 1fr; gap: 0.8rem; padding: 0.7rem; min-height: 0; }
+  .controls { background: var(--panel); border-radius: 6px; padding: 0.7rem 0.8rem; display: flex; flex-direction: column; gap: 0.45rem; overflow: auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 0.2rem; color: var(--red); }
+  .slider label { display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; }
+  .slider output { font-variant-numeric: tabular-nums; font-weight: 400; }
+  input[type=range] { width: 100%; accent-color: var(--red); margin: 0.1rem 0 0; }
+  .opts label { display: flex; gap: 0.4rem; align-items: baseline; font-size: 0.86rem; margin: 0.15rem 0; }
+  .opts input:disabled + span { color: #aaa; }
+  .presets { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  button { font: inherit; font-size: 0.82rem; padding: 0.2rem 0.55rem; border: 1px solid var(--red); background: var(--paper); color: var(--red); border-radius: 999px; cursor: pointer; }
+  button:hover, button:focus-visible { background: var(--red); color: #fff; }
+  table.readout { border-collapse: collapse; font-size: 0.84rem; width: 100%; font-variant-numeric: tabular-nums; }
+  .readout td { padding: 0.08rem 0; }
+  .readout td:last-child { text-align: right; font-weight: 700; }
+  .status { font-weight: 700; font-size: 0.86rem; }
+  .status.bad { color: var(--red); }
+  .status.ok { color: var(--teal); }
+  .plots { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; min-height: 0; }
+  .panel { display: grid; grid-template-rows: auto 1fr 1fr; min-height: 0; }
+  .panel h2 { font-size: 0.95rem; margin: 0 0 0.2rem; }
+  svg { width: 100%; height: 100%; min-height: 7rem; display: block; overflow: visible; }
+  svg text { font-size: 11px; fill: var(--muted); font-family: inherit; }
+  @media (max-width: 720px) {
+    .app { grid-template-columns: 1fr; }
+    .plots { grid-template-columns: 1fr; }
+    .panel { min-height: 20rem; }
+  }
+</style>
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Controller settings">
+    <h1>PID tuner</h1>
+    <div class="slider"><label for="kp">K<sub>p</sub> <output id="kp-out"></output></label><input id="kp" type="range" min="0.05" max="8" step="0.01"></div>
+    <div class="slider"><label for="ki">K<sub>i</sub> <output id="ki-out"></output></label><input id="ki" type="range" min="0" max="3" step="0.005"></div>
+    <div class="slider"><label for="kd">K<sub>d</sub> <output id="kd-out"></output></label><input id="kd" type="range" min="0" max="2" step="0.005"></div>
+    <div class="slider"><label for="n">Filter N <output id="n-out"></output></label><input id="n" type="range" min="2" max="30" step="1"></div>
+    <div class="slider"><label for="step">Step size <output id="step-out"></output></label><input id="step" type="range" min="1" max="40" step="1"></div>
+    <div class="opts">
+      <label><input id="derr" type="checkbox"><span>D acts on error (kick)</span></label>
+      <label><input id="lim" type="checkbox"><span>Elevator limit ±20°</span></label>
+      <label><input id="aw" type="checkbox"><span>Anti-windup</span></label>
+      <label><input id="dist" type="checkbox"><span>2° disturbance at t = 6 s</span></label>
+    </div>
+    <div class="presets" aria-label="Presets">
+      <button data-preset="p">P</button><button data-preset="pd">PD</button><button data-preset="pid">PID</button>
+    </div>
+    <table class="readout" aria-live="polite">
+      <tr><td>Crossover ω<sub>c</sub></td><td id="r-wc"></td></tr>
+      <tr><td>Phase margin</td><td id="r-pm"></td></tr>
+      <tr><td>Gain margin</td><td id="r-gm"></td></tr>
+      <tr><td>Rise time</td><td id="r-tr"></td></tr>
+      <tr><td>Overshoot</td><td id="r-os"></td></tr>
+      <tr><td>Settling (2%)</td><td id="r-ts"></td></tr>
+      <tr><td>Peak elevator</td><td id="r-u"></td></tr>
+    </table>
+    <div id="status" class="status"></div>
+  </section>
+  <section class="plots">
+    <div class="panel"><h2>Loop gain L(jω)</h2><svg id="mag" role="img" aria-label="Loop gain magnitude"></svg><svg id="phase" role="img" aria-label="Loop gain phase"></svg></div>
+    <div class="panel"><h2>Step response</h2><svg id="theta" role="img" aria-label="Pitch attitude response"></svg><svg id="elev" role="img" aria-label="Elevator demand"></svg></div>
+  </section>
+</main>
+<script src="pid-core.js"></script>
+<script>
+const { loopResponse, margins, simulate, stepMetrics } = globalThis.PidCore;
+
+const $ = (id) => document.getElementById(id);
+const D2R = Math.PI / 180;
+const PRESETS = {
+  p:   { kp: 1.0,  ki: 0,     kd: 0,     n: 10 },
+  pd:  { kp: 1.86, ki: 0,     kd: 0.649, n: 10 },
+  pid: { kp: 2.03, ki: 0.678, kd: 0.661, n: 10 },
+};
+const T_DIST = 6, T_END = 12;
+
+// ---- initial state from the URL, e.g. ?kp=2.03&ki=0.678&kd=0.661&n=10&step=10
+const q = new URLSearchParams(location.search);
+const init = { ...PRESETS.pid, step: 10 };
+for (const k of ["kp", "ki", "kd", "n", "step"]) if (q.has(k)) init[k] = parseFloat(q.get(k));
+for (const k of ["kp", "ki", "kd", "n", "step"]) $(k).value = init[k];
+for (const k of ["derr", "lim", "aw", "dist"]) $(k).checked = q.get(k) === "1";
+
+// ---- tiny SVG plotter
+const NS = "http://www.w3.org/2000/svg";
+const el = (name, attrs, parent) => {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+};
+function niceTicks(lo, hi, count = 5) {
+  const raw = (hi - lo) / count, mag = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => raw <= s);
+  const ticks = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) ticks.push(+v.toFixed(10));
+  return ticks;
+}
+function plot(svg, cfg) {
+  const { width: W, height: H } = svg.getBoundingClientRect();
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.replaceChildren();
+  const m = { l: 46, r: 8, t: 6, b: cfg.xlabel ? 30 : 16 };
+  const pw = W - m.l - m.r, ph = H - m.t - m.b;
+  const tx = cfg.xlog ? Math.log10 : (v) => v;
+  const [x0, x1] = cfg.xlim.map(tx), [y0, y1] = cfg.ylim;
+  const X = (v) => m.l + ((tx(v) - x0) / (x1 - x0)) * pw;
+  const Y = (v) => m.t + (1 - (v - y0) / (y1 - y0)) * ph;
+  const id = svg.id + "-clip";
+  el("rect", { x: m.l, y: m.t, width: pw, height: ph }, el("clipPath", { id }, el("defs", {}, svg)));
+  const grid = el("g", { stroke: "var(--grid)", "stroke-width": 1 }, svg);
+  const xt = cfg.xlog ? niceLogTicks(cfg.xlim) : niceTicks(...cfg.xlim);
+  for (const v of xt) {
+    el("line", { x1: X(v), x2: X(v), y1: m.t, y2: m.t + ph }, grid);
+    const t = el("text", { x: X(v), y: m.t + ph + 12, "text-anchor": "middle" }, svg);
+    t.textContent = cfg.xlog ? fmtLog(v) : v;
+  }
+  for (const v of cfg.yticks || niceTicks(y0, y1, 4)) {
+    el("line", { x1: m.l, x2: m.l + pw, y1: Y(v), y2: Y(v) }, grid);
+    const t = el("text", { x: m.l - 5, y: Y(v) + 4, "text-anchor": "end" }, svg);
+    t.textContent = v;
+  }
+  el("rect", { x: m.l, y: m.t, width: pw, height: ph, fill: "none", stroke: "#9aa09e" }, svg);
+  if (cfg.xlabel) {
+    const t = el("text", { x: m.l + pw / 2, y: H - 3, "text-anchor": "middle" }, svg);
+    t.textContent = cfg.xlabel;
+  }
+  const yl = el("text", { x: 11, y: m.t + ph / 2, "text-anchor": "middle", transform: `rotate(-90 11 ${m.t + ph / 2})` }, svg);
+  yl.textContent = cfg.ylabel;
+  const g = el("g", { "clip-path": `url(#${id})` }, svg);
+  for (const b of cfg.bands || []) {
+    el("rect", { x: m.l, width: pw, y: Y(b.hi), height: Y(b.lo) - Y(b.hi), fill: b.color, opacity: 0.1 }, g);
+  }
+  for (const h of cfg.hlines || []) el("line", { x1: m.l, x2: m.l + pw, y1: Y(h.y), y2: Y(h.y), stroke: h.color || "var(--ink)", "stroke-dasharray": h.dash || "", "stroke-width": 1 }, g);
+  for (const v of cfg.vlines || []) if (v.x) el("line", { x1: X(v.x), x2: X(v.x), y1: m.t, y2: m.t + ph, stroke: v.color, "stroke-dasharray": "4 3", "stroke-width": 1.2 }, g);
+  for (const s of cfg.series) {
+    const pts = [];
+    for (let i = 0; i < s.x.length; i++) {
+      if (!Number.isFinite(s.y[i])) continue;
+      const yv = Math.max(y0 - 1e3, Math.min(y1 + 1e3, s.y[i]));
+      pts.push(`${X(s.x[i]).toFixed(1)},${Y(yv).toFixed(1)}`);
+    }
+    el("polyline", { points: pts.join(" "), fill: "none", stroke: s.color, "stroke-width": s.width || 2, "stroke-dasharray": s.dash || "" }, g);
+  }
+  for (const a of cfg.notes || []) {
+    const t = el("text", { x: X(a.x) + 4, y: Y(a.y) - 4, fill: a.color, style: `fill:${a.color};font-weight:700` }, svg);
+    t.textContent = a.text;
+  }
+}
+function niceLogTicks([lo, hi]) {
+  const out = [];
+  for (let e = Math.ceil(Math.log10(lo)); e <= Math.floor(Math.log10(hi)); e++) out.push(10 ** e);
+  return out;
+}
+const fmtLog = (v) => (v >= 1 ? String(v) : v.toString());
+const fmt = (v, d = 2, unit = "") => (v === null || !Number.isFinite(v) ? "—" : v.toFixed(d) + unit);
+
+// ---- update
+function read() {
+  return {
+    gains: { kp: +$("kp").value, ki: +$("ki").value, kd: +$("kd").value, n: +$("n").value },
+    step: +$("step").value, dErr: $("derr").checked, lim: $("lim").checked,
+    aw: $("aw").checked, dist: $("dist").checked,
+  };
+}
+function update() {
+  const s = read();
+  $("aw").disabled = !s.lim;
+  $("kp-out").textContent = s.gains.kp.toFixed(2);
+  $("ki-out").textContent = s.gains.ki.toFixed(3);
+  $("kd-out").textContent = s.gains.kd.toFixed(3);
+  $("n-out").textContent = s.gains.n;
+  $("step-out").textContent = s.step + "°";
+
+  const resp = loopResponse(s.gains);
+  const mg = margins(resp);
+  const sim = simulate({
+    gains: s.gains, step: s.step * D2R, uMax: s.lim ? 20 * D2R : Infinity,
+    antiWindup: s.lim && s.aw, dOnError: s.dErr,
+    dStep: s.dist ? 2 * D2R : 0, tDist: T_DIST, tEnd: T_END,
+  });
+  const met = stepMetrics(sim, s.dist ? T_DIST : Infinity);
+  const theta = sim.y.map((v) => v / D2R), elev = sim.u.map((v) => v / D2R);
+  const peakU = Math.max(...elev.map(Math.abs));
+
+  $("r-wc").textContent = fmt(mg.wc, 2, " rad/s");
+  $("r-pm").textContent = fmt(mg.pm, 1, "°");
+  $("r-gm").textContent = Number.isFinite(mg.gmDb) ? `${mg.gmDb.toFixed(1)} dB` : "∞";
+  $("r-tr").textContent = fmt(met.riseTime, 2, " s");
+  $("r-os").textContent = fmt(met.overshoot, 1, "%");
+  $("r-ts").textContent = fmt(met.settlingTime, 2, " s");
+  $("r-u").textContent = fmt(peakU, 1, "°");
+  const st = $("status");
+  st.textContent = mg.stable ? "Closed loop stable" : "Closed loop unstable";
+  st.className = "status " + (mg.stable ? "ok" : "bad");
+
+  const w = resp.w;
+  plot($("mag"), {
+    xlog: true, xlim: [0.01, 1000], ylim: [-80, 80], yticks: [-80, -40, 0, 40, 80], ylabel: "dB",
+    series: [{ x: w, y: resp.mag, color: "var(--red)" }],
+    hlines: [{ y: 0 }],
+    vlines: [{ x: mg.wc, color: "var(--teal)" }, { x: mg.w180, color: "var(--orange)" }],
+    notes: mg.w180 ? [{ x: mg.w180, y: -mg.gmDb, text: `GM ${fmt(mg.gmDb, 1)} dB`, color: "var(--orange)" }] : [],
+  });
+  plot($("phase"), {
+    xlog: true, xlim: [0.01, 1000], ylim: [-300, -60], yticks: [-270, -180, -90], ylabel: "deg",
+    xlabel: "Frequency (rad/s)",
+    series: [{ x: w, y: resp.phase, color: "var(--red)" }],
+    hlines: [{ y: -180 }],
+    vlines: [{ x: mg.wc, color: "var(--teal)" }, { x: mg.w180, color: "var(--orange)" }],
+    notes: mg.wc ? [{ x: mg.wc, y: -180 + mg.pm, text: `PM ${fmt(mg.pm, 0)}°`, color: "var(--teal)" }] : [],
+  });
+  const yMax = Math.max(s.step * 1.8, ...theta.filter(Number.isFinite).map(Math.abs).slice(0, 1));
+  const thMax = Math.min(Math.max(...theta.filter(Number.isFinite)), s.step * 3);
+  plot($("theta"), {
+    xlim: [0, T_END], ylim: [Math.min(0, Math.min(...theta.filter(Number.isFinite))), Math.max(s.step * 1.4, thMax * 1.05)],
+    ylabel: "θ (deg)",
+    series: [{ x: sim.t, y: sim.t.map(() => s.step), color: "var(--ink)", width: 1, dash: "5 4" },
+             { x: sim.t, y: theta, color: "var(--red)" }],
+    vlines: s.dist ? [{ x: T_DIST, color: "var(--purple)" }] : [],
+  });
+  const uLim = Math.min(Math.max(25, peakU * 1.1), 260);
+  plot($("elev"), {
+    xlim: [0, T_END], ylim: [-uLim, uLim], ylabel: "δe (deg)", xlabel: "Time (s)",
+    series: [{ x: sim.t, y: elev, color: "var(--teal)" }],
+    bands: [{ lo: -20, hi: 20, color: "var(--teal)" }],
+    hlines: [{ y: 0, color: "#9aa09e" }],
+  });
+  void yMax;
+}
+
+for (const id of ["kp", "ki", "kd", "n", "step"]) $(id).addEventListener("input", update);
+for (const id of ["derr", "lim", "aw", "dist"]) $(id).addEventListener("change", update);
+document.querySelectorAll("[data-preset]").forEach((b) =>
+  b.addEventListener("click", () => {
+    const p = PRESETS[b.dataset.preset];
+    for (const k of ["kp", "ki", "kd", "n"]) $(k).value = p[k];
+    update();
+  }));
+new ResizeObserver(update).observe(document.querySelector(".plots"));
+update();
+</script>
+</body>
+</html>

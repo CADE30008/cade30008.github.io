@@ -1,0 +1,63 @@
+# Build the course site, decks and PDFs, and publish to GitHub Pages from main.
+#
+# Note: package.json currently takes the Flight Lab Marp theme from a sibling
+# folder (file:../flightlab-marp-template). Before this workflow can run on
+# GitHub, point that dependency at the published theme repository, for
+# example "github:BristolFlightLab/marp-template".
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install -r requirements.txt
+      - run: npm ci
+
+      # Numbers: rerun the design script and check it still agrees with the
+      # committed MATLAB results.
+      - run: python models/pitch.py > /dev/null
+      - run: python models/compare.py
+
+      # Code snippets shown to students must run.
+      - run: for f in docs/*/code/*.py; do echo "== $f"; python "$f"; done
+
+      - run: node scripts/test-applets.mjs
+      - run: npm run check
+      - run: npm run slides
+      - run: npm run site
+      - run: npm run pdf
+        env:
+          CHROME_PATH: /usr/bin/google-chrome
+
+      - if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

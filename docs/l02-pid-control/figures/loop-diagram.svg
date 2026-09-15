@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 190" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>Unity-feedback loop with controller C(s), plant G(s) and input disturbance d</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+  </defs>
+  <rect width="660" height="190" fill="#ffffff"/>
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <!-- reference into first summing junction -->
+    <line x1="14" y1="80" x2="96" y2="80" marker-end="url(#arrow)"/>
+    <circle cx="110" cy="80" r="14"/>
+    <!-- error into controller -->
+    <line x1="124" y1="80" x2="186" y2="80" marker-end="url(#arrow)"/>
+    <rect x="188" y="52" width="96" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- controller output into second junction -->
+    <line x1="284" y1="80" x2="350" y2="80" marker-end="url(#arrow)"/>
+    <circle cx="364" cy="80" r="14"/>
+    <!-- disturbance from above -->
+    <line x1="364" y1="14" x2="364" y2="64" marker-end="url(#arrow)"/>
+    <!-- into plant -->
+    <line x1="378" y1="80" x2="428" y2="80" marker-end="url(#arrow)"/>
+    <rect x="430" y="52" width="96" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- output -->
+    <line x1="526" y1="80" x2="640" y2="80" marker-end="url(#arrow)"/>
+    <!-- feedback path -->
+    <polyline points="590,80 590,160 110,160 110,96" marker-end="url(#arrow)"/>
+  </g>
+  <circle cx="590" cy="80" r="3.5" fill="#1D1D1B"/>
+  <g fill="#1D1D1B">
+    <text x="18" y="68">θ<tspan font-size="12" dy="4">ref</tspan></text>
+    <text x="84" y="70" font-size="14">+</text>
+    <text x="116" y="110" font-size="16">−</text>
+    <text x="146" y="68" font-style="italic">e</text>
+    <text x="236" y="87" text-anchor="middle" font-style="italic">C(s)</text>
+    <text x="236" y="126" text-anchor="middle" font-size="13" fill="#555">controller</text>
+    <text x="306" y="68" font-style="italic">u</text>
+    <text x="298" y="100" font-size="12" fill="#555">elevator</text>
+    <text x="372" y="28" font-style="italic">d</text>
+    <text x="372" y="60" font-size="14">+</text>
+    <text x="340" y="70" font-size="14">+</text>
+    <text x="478" y="87" text-anchor="middle" font-style="italic">G(s)</text>
+    <text x="478" y="126" text-anchor="middle" font-size="13" fill="#555">aircraft</text>
+    <text x="612" y="68">θ</text>
+  </g>
+</svg>

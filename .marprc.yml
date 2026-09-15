@@ -1,0 +1,4 @@
+# Marp CLI configuration for the lecture decks in slides/.
+themeSet: node_modules/marp-template/themes
+html: true              # needed for applet iframes and <div class="columns">
+allowLocalFiles: true   # lets PDF export read figures from docs/
