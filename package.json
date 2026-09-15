@@ -11,7 +11,10 @@
     "site": ".venv/bin/zensical build --clean",
     "serve": ".venv/bin/zensical serve",
     "pdf": "node scripts/build-pdfs.mjs",
-    "build": "npm run slides && npm run site && npm run pdf && npm run check"
+    "build": "npm run slides && npm run site && npm run pdf && npm run check",
+    "models": ".venv/bin/python models/pitch.py > /dev/null && .venv/bin/python models/example_sheet.py > /dev/null && .venv/bin/python models/compare.py",
+    "stills": "node scripts/capture-stills.mjs",
+    "test": "node scripts/test-applets.mjs && npm run check"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.1",

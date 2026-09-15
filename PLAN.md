@@ -66,9 +66,9 @@ Tick milestones and add notes to the log at the bottom as work lands.
 - [x] M4 Applets (PID tuner and any others), with fallback images
 - [x] M5 Lecture deck, speaker notes and handout citations
 - [x] M6 Example sheet and solutions, all code run in both languages
-- [ ] M7 Framework: sync checker, lock file, AGENTS.md, CI workflow, PDF script
-- [ ] M8 Build and verify: site, deck HTML and PDF, handout PDFs, screenshots, check passes
-- [ ] M9 Wrap-up: local server running, summary
+- [x] M7 Framework: sync checker, lock file, AGENTS.md, CI workflow, PDF script
+- [x] M8 Build and verify: site, deck HTML and PDF, handout PDFs, screenshots, check passes
+- [x] M9 Wrap-up: local server running, summary
 
 ## Log
 
@@ -84,3 +84,8 @@ Tick milestones and add notes to the log at the bottom as work lands.
   Next: browser verification, sync:accept, final build, commit, summary.
   The dev server runs via Bash on :8000, because preview_start reads the old
   project's launch.json.
+- 2026-09-15: M7-M9 done. Full build clean: 29-slide deck as HTML and PDF,
+  site, and handout, example-sheet and solutions PDFs. Sync baseline accepted
+  (initial authoring, no prior state), so the check reports 0 errors and 0
+  warnings. Applet fixes: label layout, 0.001 slider steps, and no drawing
+  while hidden. README added. Dev server restarted for Steve on :8000.

@@ -48,11 +48,11 @@
 <main class="app">
   <section class="controls" aria-label="Controller settings">
     <h1>PID tuner</h1>
-    <div class="slider"><label for="kp">K<sub>p</sub> <output id="kp-out"></output></label><input id="kp" type="range" min="0.05" max="8" step="0.01"></div>
-    <div class="slider"><label for="ki">K<sub>i</sub> <output id="ki-out"></output></label><input id="ki" type="range" min="0" max="3" step="0.005"></div>
-    <div class="slider"><label for="kd">K<sub>d</sub> <output id="kd-out"></output></label><input id="kd" type="range" min="0" max="2" step="0.005"></div>
-    <div class="slider"><label for="n">Filter N <output id="n-out"></output></label><input id="n" type="range" min="2" max="30" step="1"></div>
-    <div class="slider"><label for="step">Step size <output id="step-out"></output></label><input id="step" type="range" min="1" max="40" step="1"></div>
+    <div class="slider"><label for="kp"><span>K<sub>p</sub></span><output id="kp-out"></output></label><input id="kp" type="range" min="0.05" max="8" step="0.001"></div>
+    <div class="slider"><label for="ki"><span>K<sub>i</sub></span><output id="ki-out"></output></label><input id="ki" type="range" min="0" max="3" step="0.001"></div>
+    <div class="slider"><label for="kd"><span>K<sub>d</sub></span><output id="kd-out"></output></label><input id="kd" type="range" min="0" max="2" step="0.001"></div>
+    <div class="slider"><label for="n"><span>Filter N</span><output id="n-out"></output></label><input id="n" type="range" min="2" max="30" step="1"></div>
+    <div class="slider"><label for="step"><span>Step size</span><output id="step-out"></output></label><input id="step" type="range" min="1" max="40" step="1"></div>
     <div class="opts">
       <label><input id="derr" type="checkbox"><span>D acts on error (kick)</span></label>
       <label><input id="lim" type="checkbox"><span>Elevator limit ±20°</span></label>
@@ -115,9 +115,11 @@ function niceTicks(lo, hi, count = 5) {
 }
 function plot(svg, cfg) {
   const { width: W, height: H } = svg.getBoundingClientRect();
+  const m = { l: 46, r: 8, t: 6, b: cfg.xlabel ? 30 : 16 };
+  // Hidden or not yet laid out (e.g. on an inactive slide): draw when visible.
+  if (W < m.l + m.r + 40 || H < m.t + m.b + 30) return;
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.replaceChildren();
-  const m = { l: 46, r: 8, t: 6, b: cfg.xlabel ? 30 : 16 };
   const pw = W - m.l - m.r, ph = H - m.t - m.b;
   const tx = cfg.xlog ? Math.log10 : (v) => v;
   const [x0, x1] = cfg.xlim.map(tx), [y0, y1] = cfg.ylim;

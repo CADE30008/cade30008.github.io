@@ -1,0 +1,99 @@
+{
+  "l02-pid-control": {
+    "recap": {
+      "handout": "10f30778c1aa",
+      "slides": "f57d68398db4",
+      "slideNumbers": [
+        3,
+        4
+      ]
+    },
+    "pitch-loop": {
+      "handout": "38e271247269",
+      "slides": "e9e5c228fb68",
+      "slideNumbers": [
+        5,
+        6
+      ]
+    },
+    "proportional": {
+      "handout": "122e3a1c5137",
+      "slides": "750db304ee87",
+      "slideNumbers": [
+        8,
+        9,
+        10
+      ]
+    },
+    "margins-to-time": {
+      "handout": "8e8dee958a38",
+      "slides": "1c9d7ac8907c",
+      "slideNumbers": [
+        11,
+        12
+      ]
+    },
+    "steady-state": {
+      "handout": "5c44276e8dbd",
+      "slides": "fd0780f7053e",
+      "slideNumbers": [
+        13,
+        14
+      ]
+    },
+    "derivative": {
+      "handout": "b03461fc039f",
+      "slides": "98578d08cc05",
+      "slideNumbers": [
+        16,
+        17,
+        18,
+        19
+      ]
+    },
+    "derivative-kick": {
+      "handout": "e37a295174fc",
+      "slides": "68b7294f1a57",
+      "slideNumbers": [
+        20
+      ]
+    },
+    "integral": {
+      "handout": "9770b9d2637c",
+      "slides": "25649457686c",
+      "slideNumbers": [
+        22,
+        23
+      ]
+    },
+    "pid-tuning": {
+      "handout": "7b05616fc1f1",
+      "slides": "b475a77b34a9",
+      "slideNumbers": [
+        24,
+        25
+      ]
+    },
+    "applet": {
+      "handout": "a3472d303c22",
+      "slides": "79f874dcd36e",
+      "slideNumbers": [
+        26
+      ]
+    },
+    "windup": {
+      "handout": "fa2c0d78f73e",
+      "slides": "e94e7b53817a",
+      "slideNumbers": [
+        27
+      ]
+    },
+    "summary": {
+      "handout": "68edd787383a",
+      "slides": "4d5a2ffd31cc",
+      "slideNumbers": [
+        28
+      ]
+    }
+  }
+}

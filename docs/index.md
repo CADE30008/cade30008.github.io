@@ -22,4 +22,4 @@ Each lecture has four parts:
 Code appears in both Python and MATLAB. Pick your language on any code block, and the whole site will switch to it.
 
 !!! info "PDF copies"
-    Each page and deck can also be printed or saved as PDF. Interactive applets appear as still images in printed copies.
+    Lecture 2 as PDF: [handout](downloads/l02-pid-control-handout.pdf), [example sheet](downloads/l02-pid-control-example-sheet.pdf), [solutions](downloads/l02-pid-control-solutions.pdf) and [slides](slides/l02-pid-control/slides.pdf). Interactive applets appear as still images in printed copies.
