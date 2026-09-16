@@ -21,8 +21,13 @@ IDs are stable, as in [PEDAGOGY.md](PEDAGOGY.md).
   term. The final submission is the only thing marked.
 - **AP3. Formative support throughout.** Formative submission checkpoints,
   one-to-one peer feedback, and top-level notes from the lecturer to the cohort.
-- **AP4. Generative AI is permitted,** including agentic AI in MATLAB and
-  Simulink. The brief names the Bristol category (AQ3).
+- **AP4. Generative AI: Bristol Category 3, Selective.** AI is permitted,
+  including agentic AI in MATLAB and Simulink, for the purposes the brief lists.
+  The brief makes two things clear:
+  - AI is **not required** to complete the assessment.
+  - Using AI without understanding the fundamental principles and the design
+    cycle, and without communicating that understanding, is likely to score
+    poorly.
 - **AP5. Collaboration has clear boundaries.** The brief states what students may
   work on together and what is forbidden.
 - **AP6. Self-checks, with participation visible to the lecturer.** Numbas and
@@ -49,6 +54,28 @@ IDs are stable, as in [PEDAGOGY.md](PEDAGOGY.md).
   the default; 3, Selective, for defined purposes; and 4, Integral, where
   students critique and improve AI output. The brief must name the category,
   explain why, and have marking criteria that fit it.
+
+## Baseline: the 2025 coursework
+
+The starting point, from last year's released brief:
+
+- **One coursework, two sections,** A (flight dynamics) and B (control), 50 marks
+  each and assessed separately. Submitted as a single PDF of up to 20 pages, 10
+  per section, plus a single `.zip` of code that runs on a University MATLAB
+  computer and outputs all data and figures used.
+- **Question-based.** Section B was a sequence of set questions, not a design
+  paper.
+- **Rubric:** three criteria, benchmarked against the University's level 6
+  marking criteria on the 21-point scale: methodological approach and accuracy
+  (40%), argument and critique (30%), and explanation and communication (30%).
+- **AI:** Category 2, Minimal.
+- **Timing:** released in the middle of the term, due near its end.
+
+What carries forward: the single PDF and code `.zip`, 10 pages for Part B, code
+that regenerates every result, and level 6 benchmarking. What changes: a design
+paper in place of set questions, Category 3 AI use, a rubric built on the design
+cycle, and an assessment that builds through the term, which needs the brief
+released much earlier (AQ2).
 
 ## The shape of Part B
 
@@ -77,7 +104,12 @@ AQ1 and AQ5.
    figure in the paper from a single run (P6).
 
 The example submission (AP9) sets the exact format of both, on a system distinct
-from the assessed one.
+from the assessed one. Proposal: a multirotor altitude-hold design, one of the
+course's three systems, written once the brief and rubric settle, and built with
+the same reproducible pipeline as the course materials, so that its numbers and
+figures are generated rather than typed. It should be good but not perfect: a
+paper in the 60s, whose annotated weaknesses give students something to find
+when they mark it against the rubric.
 
 ### Through the term: an assessment that builds on itself (proposed)
 
@@ -103,29 +135,38 @@ with built-in peer review, which distributes submissions randomly and
 anonymously, with separate submission and review deadlines. FeedbackFruits,
 which Bristol also supports, is the alternative for peer review.
 
-### Marking criteria (to develop, AP10)
+### Marking criteria (draft v0, AP10)
 
-A starting point for the rubric work, to be reconciled with last year's rubric,
-the preferred examples and University guidance.
+The full draft is in `private/assessment/drafts/`, as a spreadsheet and a
+Markdown copy generated from one script. It follows the structure of the
+EMATM0055 dissertation workbook: weighted criteria with descriptions and what to
+look for, band descriptors as numbered points on the University's level 6 bands,
+a mapping of every numbered point to a row of the University's level 6 criteria,
+and a bank of example feedback statements for marking at scale.
 
-| Criterion | ILO | Carries the boundary at |
-|---|---|---|
-| Requirements and modelling | 6 | 40 |
-| Design | 5 | 40 |
-| Stability and robustness analysis | 4 | 50 |
-| Verification, including of any AI-generated work | 5, 6 | 50 |
-| Design linked to theory | 4, 5 | **60** |
-| Limitations, assumptions and transfer | 4, 5, 6 | **70** |
-| Communication and reproducibility | all | all |
+| Criterion | Weight | Assesses | ILOs |
+|---|---|---|---|
+| 1. Design problem and model | 20% | Requirements; model; assumptions | 6, 5, 4 |
+| 2. Control design and analysis | 35% | Design method; stability and robustness; verification, including of AI-generated work | 5, 4, 6 |
+| 3. Theory, argument and critique | 30% | Explanation through theory; decisions and argument; limitations and transfer | 4, 5, 6 |
+| 4. Communication and reproducibility | 15% | Structure and writing; figures and referencing; code and statements | All |
 
-| Mark | In short | SOLO |
-|---|---|---|
-| Below 40 | The design doesn't work, isn't evidenced, or misapplies the procedure | Prestructural |
-| 40 to 49 | A working design with gaps in requirements, verification or evidence; little justification | Unistructural |
-| 50 to 59 | A sound design that meets its requirements and is verified; the procedure described correctly, but justification is descriptive | Multistructural |
-| 60 to 69 | Design choices explained through theory, with trade-offs made explicit | Relational |
-| 70 to 79 | Assumptions and limits analysed critically; results generalised beyond the case; alternatives compared | Extended abstract |
-| 80 and above | An original extension with real depth, at a level suited to advanced study or research | Extended abstract |
+**Why this shape.** Criteria 1, 2 and 4 reward applied design and its evidence,
+so sound applied work passes (P10). Criterion 3 rewards understanding, so it
+separates the 50s from the 60s and 70s, and it is where output without
+understanding, from AI or otherwise, earns little. Illustrative profiles, as
+criterion marks and weighted total:
+
+| Profile | 1 | 2 | 3 | 4 | Total |
+|---|---|---|---|---|---|
+| Sound design, explanation only descriptive | 55 | 55 | 45 | 55 | 52 |
+| AI-generated design, unverified and little understood | 50 | 45 | 30 | 50 | 42 |
+| Good design, theory well linked | 62 | 65 | 68 | 62 | 65 |
+| First-class | 72 | 75 | 75 | 68 | 73 |
+
+SOLO levels sit alongside the University bands: unistructural at 40 to 49,
+multistructural at 50 to 59, relational at 60 to 69, and extended abstract at 70
+and above.
 
 ## Assuring the work is the student's own (proposed)
 
@@ -187,18 +228,30 @@ never misconduct.
 
 - **AQ1. Part A.** What Part A covers, how marks split between Parts A and B, and
   whether the two parts could share a system (option C).
-- **AQ2. Timing.** The final deadline, and dates for the three checkpoints.
-- **AQ3. Generative AI category.** Category 3, Selective, with a broad list of
-  permitted purposes including agentic MATLAB and Simulink workflows; or
-  Category 4, Integral, if the brief makes AI-assisted model-based design and its
-  critique part of the task.
+- **AQ2. Timing.** The release date, the final deadline, and dates for the three
+  checkpoints. In 2025 the brief was released mid-term; an assessment that builds
+  from early lectures needs Part B's brief, or at least its design problem,
+  released in the first week or two.
+- **AQ3. Generative AI category.** Decided: Category 3, Selective (AP4). Still
+  to write: the brief's list of permitted purposes.
 - **AQ4. Marking resource.** Any second markers, and the moderation required.
-- **AQ5. The laboratory.** Whether Quanser sessions are individual or in groups,
-  and whether laboratory data can feature in Part B.
-- **AQ6. Volume.** Page limit for the design paper section, and the format of the
-  code upload.
-- **AQ7. Existing material.** Last year's brief and rubric, the preferred rubric
-  examples, and University guidance, to be uploaded to `private/`.
+- **AQ5. The laboratory.** In 2025 the Quanser lab was formative and
+  unsupervised: system identification and PID control of the elevation axis, in
+  pairs, over two one-hour sessions on four stations, with support ending at
+  coursework release. Its handout said the summative assessment may build on it.
+  Each station's dynamics differ slightly, which gives natural variation between
+  identified models. A second set of materials covers state feedback and LQR on
+  elevation and travel. Open: whether this year's two two-hour sessions stay in
+  pairs, and whether Part B uses each student's own laboratory data, which would
+  need individual analysis of data gathered as a pair.
+- **AQ6. Volume.** Likely 10 pages for Part B, as in 2025. Whether the
+  statements and references sit outside that limit.
+- **AQ7. Existing material.** Received in `private/assessment/`: the 2025 brief
+  and rubric, the EMATM0055 dissertation rubric workbook, and the University's
+  level 6 marking criteria. A draft Part B brief is in
+  `private/assessment/drafts/`.
+- **AQ9. Part A.** Whether Part A keeps the 2025 rubric or adopts the same
+  structure, and whether the two parts' briefs are released together.
 - **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
   with journals and assignment peer review available. The Original course view
   retires at the end of 2026.
