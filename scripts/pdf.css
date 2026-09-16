@@ -1,0 +1,57 @@
+/* Print styles for documents built with scripts/md-to-pdf.mjs. */
+
+/* Override pandoc's default screen styling. */
+html {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+  color: #1a1a1a;
+  background: #fff;
+}
+body {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  hyphens: manual;
+}
+
+h1, h2, h3 {
+  color: #b01c2e;
+  line-height: 1.2;
+  break-after: avoid;
+}
+h1 { font-size: 17pt; margin: 0 0 4pt; }
+h1 ~ h1 { break-before: page; }   /* each appendix starts a page */
+h2 { font-size: 12.5pt; margin: 12pt 0 3pt; }
+h3 { font-size: 10.5pt; margin: 10pt 0 2pt; }
+
+p, li { margin: 0 0 4pt; }
+ul, ol { margin: 0 0 6pt; padding-left: 16pt; }
+.meta { color: #555; font-size: 9pt; margin-bottom: 8pt; }
+
+table {
+  width: 100%;
+  margin: 4pt 0 8pt;
+  border-collapse: collapse;
+  font-size: 8.5pt;
+  line-height: 1.3;
+}
+thead { display: table-header-group; }   /* repeat header rows across pages */
+tr { break-inside: avoid; }
+th, td {
+  padding: 3pt 4pt;
+  border: 0.5pt solid #bfbfbf;
+  text-align: left;
+  vertical-align: top;
+}
+th { background: #3a3a3a; color: #fff; }
+
+blockquote {
+  margin: 6pt 0;
+  padding: 4pt 8pt;
+  border-left: 3pt solid #b01c2e;
+  background: #f4f5f5;
+  color: inherit;
+}
+code { font-family: Menlo, Consolas, monospace; font-size: 9pt; }
+pre { white-space: pre-wrap; font-size: 8.5pt; }

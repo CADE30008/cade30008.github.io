@@ -235,6 +235,34 @@ immune, so these concentrate on what matters most.
 If in doubt, name it in the collaboration statement. Acknowledged discussion is
 never misconduct.
 
+## Individual inputs, marking and feedback (proposed)
+
+The full proposal is in `private/assessment/drafts/`, as Markdown and PDF. In
+short:
+
+- **Individual inputs** are generated deterministically from each username and a
+  cohort secret, and checked across the whole cohort for solvability and similar
+  difficulty before release. Students reach them through one MATLAB toolbox: their
+  inputs, the virtual flight test, a formative self-check, and submission
+  validation. Everything it returns carries a fingerprint of the student's variant.
+- **A submission contract** makes checking automatic: the paper, a `run_all.m`
+  that runs unattended, a results file to a fixed schema, and numbered figures.
+  Students can run the same checks before they submit.
+- **One marking pipeline** runs at every checkpoint and at the final submission:
+  intake, reproduction in an isolated environment, independent recomputation,
+  cross-checks between the paper and its results, integrity signals, a marker
+  sheet, and release. Automation finds facts, and suggests bands only for
+  evidence-based rubric points. Criterion B3 and every other judgement stays with
+  the marker.
+- **Feedback** is assembled from structured marking records: comment codes, a few
+  sentences from the marker, individual PDF reports, a gradebook upload, and
+  cohort notes drawn from the marking data.
+- **Policy.** At Bristol, summative coursework with formative feedback on drafts is
+  exempt from anonymous first marking, but moderation should still be anonymous,
+  so the pipeline uses pseudonymous IDs. Moderation samples at least eight scripts
+  or 10 per cent. No generative AI is used in marking without School, Faculty and
+  central approval.
+
 ## Open questions
 
 - **AQ1. Part A.** Taught and assessed by Tom. The integrated-but-separate
@@ -267,6 +295,12 @@ never misconduct.
 - **AQ9. Part A rubric.** A comparable Part A rubric is proposed; Tom may prefer
   a more granular, criteria-based one. Also whether the two parts' briefs are
   released together.
+- **AQ10. Running student code.** Where the pipeline can run untrusted student
+  code at scale: a dedicated University machine or virtual machine with MATLAB,
+  no network access, and time limits.
+- **AQ11. Returning feedback.** Whether Bristol's Blackboard Ultra supports bulk
+  upload of feedback files, alongside marks and text feedback by gradebook upload,
+  and how submissions appear in a bulk download.
 - **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
   with journals and assignment peer review available. The Original course view
   retires at the end of 2026.

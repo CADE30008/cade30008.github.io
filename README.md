@@ -48,6 +48,7 @@ course while the content is written.
 | `npm run slides` | Build each deck to HTML and PDF in `docs/slides/` |
 | `npm run site` | Build the site into `site/` |
 | `npm run pdf` | Print handouts, example sheets and solutions to PDF |
+| `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc |
 | `npm run check` | Check slides against handouts |
 | `npm run sync:accept` | Record the current state as in sync, after reviewing |
 | `npm run models` | Rerun the design scripts and compare Python with MATLAB |
