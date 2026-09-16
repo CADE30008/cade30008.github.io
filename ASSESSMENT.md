@@ -248,7 +248,8 @@ short:
 - **A submission contract** makes checking automatic: the paper, a `run_all.m`
   that runs unattended, a results file to a fixed schema, and numbered figures.
   Students can run the same checks before they submit.
-- **One marking pipeline** runs at every checkpoint and at the final submission:
+- **Code-assisted marking,** with no generative AI, runs at every checkpoint and
+  at the final submission:
   intake, reproduction in an isolated environment, independent recomputation,
   cross-checks between the paper and its results, integrity signals, a marker
   sheet, and release. Automation finds facts, and suggests bands only for
@@ -257,11 +258,18 @@ short:
 - **Feedback** is assembled from structured marking records: comment codes, a few
   sentences from the marker, individual PDF reports, a gradebook upload, and
   cohort notes drawn from the marking data.
+- **Optional LLM support,** described separately and additive to the above: it
+  could locate evidence in papers, extract claims for cross-checking, draft
+  feedback for markers to edit, prompt for consistency, and summarise cohort
+  themes. It must never award or suggest bands, judge whether text was written
+  by AI, or inform misconduct decisions, and it would be piloted on synthetic
+  scripts first.
 - **Policy.** At Bristol, summative coursework with formative feedback on drafts is
   exempt from anonymous first marking, but moderation should still be anonymous,
   so the pipeline uses pseudonymous IDs. Moderation samples at least eight scripts
-  or 10 per cent. No generative AI is used in marking without School, Faculty and
-  central approval.
+  or 10 per cent. The core process uses no generative AI. The LLM option needs
+  agreement from the School and Faculty Education Directors and the central AI
+  team, and students must be told how it is used.
 
 ## Open questions
 
