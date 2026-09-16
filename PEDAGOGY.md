@@ -363,10 +363,11 @@ MATLAB Online and Simulink Online are not supported on tablets. Tablet users can
 run the Python material in the browser, but need a laptop, or a partner's, for
 MATLAB and Simulink.
 
-## Live feedback in lectures (proposed)
+## Live feedback in lectures (open question)
 
-Use Mentimeter, which Bristol supports, alongside the slide deck. It has two
-formats that do different jobs, and only one of them can be summarised by AI:
+Undecided; see Q3. One candidate is Mentimeter, which Bristol supports, run
+alongside the slide deck. It has two formats that do different jobs, and only one
+of them can be summarised by AI:
 
 | Format | Use it for | AI grouping and summary |
 |---|---|---|
@@ -449,14 +450,14 @@ Recorded so they are not lost. Numbered for reference in discussion.
   - Still open: whether runnable Python appears as a Run button on code in the
     page or as linked notebooks, and whether slides run Python live or keep to
     the JavaScript applets.
-- **Q2. Assessment design.** Structure, artefacts, timing and rubric for the
-  coursework, and how the control half combines with the other half's mark. To
-  discuss soon. Note a tension to resolve: P10 names two bands, pass below 60 and
-  excel above, while the aims describe a first-class graduate, which is 70 and
-  above. The rubric probably needs three tiers, and SOLO maps onto them naturally.
+- **Q2. Assessment design.** Being designed in [ASSESSMENT.md](ASSESSMENT.md),
+  including the tension between P10's two bands and the aims' first-class
+  graduate, which the draft resolves with SOLO-mapped descriptors at 40, 60 and
+  70.
 - **Q3. In-lecture activities and feedback.** About 200 students in a large
-  lecture theatre, most with laptops, and no teaching assistants assumed. The
-  proposed pattern is under "Live feedback in lectures". Still open: whether the
+  lecture theatre, most with laptops, and no teaching assistants assumed. Which
+  live feedback tool and format to use is undecided; a candidate pattern is under
+  "Live feedback in lectures". Also open: whether the
   AI features are enabled on Bristol's Mentimeter account (Mentimeter includes
   them for all users from January 2026; confirm with Digital Education), and
   whether data protection allows student responses to be processed by them.
