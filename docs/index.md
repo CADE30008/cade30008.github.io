@@ -6,6 +6,9 @@ icon: lucide/plane
 
 These pages hold the lecture handouts, slides, example sheets and worked solutions for CADE30008 at the University of Bristol. They assume you have taken the year 2 unit Dynamics and Control of Linear Systems. You should be comfortable with Laplace transforms, transfer functions, Bode plots and the standard step-response specifications.
 
+!!! tip "Before Lecture 1"
+    Work through [Preparing for Control](preparing/index.md). It checks that your laptop, tablet or MATLAB set-up can run the course code, and lists the MathWorks Onramp courses to complete.
+
 ## Lectures
 
 Lecture 2 is written. The rest are placeholders: the pages, decks and example

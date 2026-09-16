@@ -49,6 +49,34 @@
   color: #fff;
 }
 
+/* Python run in the browser (javascripts/py-runner.js). */
+.md-typeset .py-runnable .py-run {
+  margin: 0.2rem 0 0.6rem;
+}
+.md-typeset .py-output {
+  margin-bottom: 1em;
+  padding: 0.4rem 0.8rem;
+  border-left: 0.2rem solid var(--md-default-fg-color--lighter);
+  background: var(--md-code-bg-color);
+}
+.md-typeset .py-output pre {
+  margin: 0;
+  font-size: 0.8em;
+  white-space: pre-wrap;
+}
+.md-typeset .py-output img {
+  display: block;
+  max-width: 100%;
+  margin: 0.6rem 0;
+  background: #fff;
+}
+@media print {
+  .md-typeset .py-run,
+  .md-typeset .py-output {
+    display: none;
+  }
+}
+
 /* Marks and timings on example-sheet questions. */
 .md-typeset .marks {
   float: right;

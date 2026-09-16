@@ -56,12 +56,14 @@ nav = [
     { "Example sheet" = "l09-guidance/example-sheet.md" },
     { "Solutions" = "l09-guidance/solutions.md" },
   ] },
+  { "Preparing for Control" = "preparing/index.md" },
   { "About these materials" = "about.md" },
 ]
 
 extra_css = ["stylesheets/flightlab.css", "stylesheets/course.css"]
 extra_javascript = [
   "javascripts/mathjax.js",
+  "javascripts/py-runner.js",
   "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
 ]
 

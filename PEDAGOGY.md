@@ -42,6 +42,16 @@ pairs or threes, building week on week towards a complete design cycle. Students
 also have about four hours of laboratory time on a Quanser 3-DoF helicopter,
 likely in two two-hour sittings.
 
+**Lecture 1** introduces the Quanser helicopter in person, so it runs to a fixed
+plan: about 30 minutes of taught introduction, a 5-minute break, 30 minutes
+demonstrating the Quanser and showing students how to use it, a 5-minute break,
+30 minutes of students working examples on their laptops, and 20 minutes to wrap
+up and look ahead. The Quanser can come back into the lecture for demonstrations
+in later weeks.
+
+**In the room.** Most students bring laptops; those who don't share with those
+who do. Assume no teaching assistants, although some may join.
+
 **Preferred text.** Dorf and Bishop, *Modern Control Systems*, chiefly for its
 framing of the control design cycle.
 
@@ -134,9 +144,19 @@ code, it is shown plainly in the flow of the material, not hidden.
 Each session is a lectured element and then supervised implementation, alone or
 in small groups. The week's build is a step of the full design cycle.
 
-- Every lecture has a defined activity with a deliverable a student can finish or take away.
+- **A floor.** Every activity has a first result that every student, or every
+  pair, can definitely reach in the time available.
+- **A feedback moment at the floor.** Students check their result with a
+  neighbour, and a sample is shared with the room, for example through
+  Mentimeter.
+- **A ceiling above it.** The rest of the build and its extensions continue past
+  the floor. Quicker students stretch themselves in the session; others finish
+  afterwards. Not finishing in the room is expected, not a failure.
+- **Unblockable without staff.** With no teaching assistants assumed, instructions,
+  starter code and checkpoints must let students get themselves and each other
+  unstuck.
 - Activities compound: week *n* consumes the output of week *n* − 1.
-- **Review check:** does the lecture have an activity, and does it use last week's result?
+- **Review check:** what is the floor, can every student reach it in the time, and does the activity use last week's result?
 
 ### P9. Three systems, revisited
 
@@ -227,6 +247,22 @@ sources linked; all need checking against the primary report before teaching.
 | Boeing 737 MAX, MCAS (2018, 2019) | Automatic trim commanded from a single angle-of-attack sensor. Sensing, control authority and the pilot in the loop | To find |
 | Air France 447 (2009) | Pitot icing, autopilot disconnection and degraded control laws. What happens when automation hands the aircraft back | To find |
 
+### P16 (proposed). A short challenge each week
+
+A low-stakes, automatically marked challenge each week, open for a set window: a
+diagnostic in week 1, then one challenge per lecture that rehearses that week's
+build. It gives spaced retrieval (P11) outside the lecture, and tells students
+and staff early who is struggling.
+
+- Mathematics and concept questions in Numbas, which Bristol supports through
+  Blackboard, with randomised values so that each student works their own
+  numbers.
+- Code challenges in MATLAB Grader, if the University's MathWorks licence allows
+  its Blackboard integration.
+- Formative: feedback rather than marks, unless the assessment design (Q2) says
+  otherwise.
+- **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
+
 ## Models we are drawing on
 
 Named here so we can write about this later, and so choices are defensible. Each
@@ -290,6 +326,11 @@ has an accessible summary and an original source.
   the context where it is used transfers better than knowledge learned abstractly.
   - Summaries: [Authentic learning](https://en.wikipedia.org/wiki/Authentic_learning), [Situated cognition](https://en.wikipedia.org/wiki/Situated_cognition)
   - Originals: Brown, J. S., Collins, A. and Duguid, P. (1989). Situated cognition and the culture of learning. *Educational Researcher*, 18(1), 32–42. [doi:10.3102/0013189X018001032](https://doi.org/10.3102/0013189X018001032). Herrington, J. and Oliver, R. (2000). An instructional design framework for authentic learning environments. *Educational Technology Research and Development*, 48(3), 23–48. [doi:10.1007/BF02319856](https://doi.org/10.1007/BF02319856)
+- **Low floor, high ceiling, wide walls (Papert, Resnick).** Behind P8: an
+  activity everyone can start and reach a result in, with room for the quickest
+  to go much further, and more than one route through it.
+  - Summary: [Designing for wide walls (Resnick)](https://mres.medium.com/designing-for-wide-walls-323bdb4e7277)
+  - Originals: Papert, S. (1980). *Mindstorms: Children, Computers, and Powerful Ideas*. Basic Books. Resnick, M. and Silverman, B. (2005). Some reflections on designing construction kits for kids. *Proceedings of the 2005 Conference on Interaction Design and Children*, 117–122. [doi:10.1145/1109540.1109556](https://doi.org/10.1145/1109540.1109556)
 - **Multimedia learning (Mayer).** How words and figures are best combined.
   Supports P4 and P14.
   - Original: Mayer, R. E. (2009). *Multimedia Learning*, 2nd edition. Cambridge University Press. [doi:10.1017/CBO9780511811678](https://doi.org/10.1017/CBO9780511811678)
@@ -297,16 +338,39 @@ has an accessible summary and an original source.
   - Summaries: [Universal Design for Learning](https://en.wikipedia.org/wiki/Universal_Design_for_Learning), [CAST UDL guidelines](https://udlguidelines.cast.org/)
   - Standard: [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/)
 
-## Demonstrations for future years
+## Preparation before Lecture 1
+
+Students complete these before the first lecture. The course site's
+[Preparing for Control](docs/preparing/index.md) page lists them and checks each
+student's set-up.
+
+- **A device check.** Scripts confirming that Python, MATLAB and Simulink work,
+  with the same expected numbers in each, and Python that runs in the browser
+  for tablets and Chromebooks.
+- **MathWorks Onramps:** MATLAB Onramp, Simulink Onramp, and Control Design
+  Onramp with Simulink. Free and self-paced.
+- **A diagnostic** on the prerequisite mathematics and control (P16).
+
+MathWorks online courses and MATLAB Grader both integrate with Blackboard through
+LTI 1.3 and report progress back. Both need a suitable MathWorks licence, a
+Campus-Wide Licence in MATLAB Grader's case, and the licence administrator to set
+up the integration. [MathWorks' page for Bristol](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html)
+shows MATLAB and Simulink available through the University's licence, so the
+licence requirement looks met; the integration still needs the licence
+administrator.
+
+MATLAB Online and Simulink Online are not supported on tablets. Tablet users can
+run the Python material in the browser, but need a laptop, or a partner's, for
+MATLAB and Simulink.
+
+## Demonstrations
 
 The lecture theatre takes 200 students and has room for large demonstrations.
-Once the first lectures are solid, plan for:
 
-- a Quanser 3-DoF helicopter brought into the lecture;
-- Crazyflie nano quadcopters;
-- a propeller and motor on a balance beam, which needs designing and building.
-
-This year relies on applets and video.
+- **This year:** the Quanser 3-DoF helicopter, from Lecture 1 onwards.
+- **Future years,** once the first lectures are solid: Crazyflie nano
+  quadcopters, and a propeller and motor on a balance beam, which needs designing
+  and building.
 
 ## Reviewing content against these principles
 
@@ -359,9 +423,13 @@ Recorded so they are not lost. Numbered for reference in discussion.
   discuss soon. Note a tension to resolve: P10 names two bands, pass below 60 and
   excel above, while the aims describe a first-class graduate, which is 70 and
   above. The rubric probably needs three tiers, and SOLO maps onto them naturally.
-- **Q3. In-lecture activities.** About 200 students in a large lecture theatre.
-  Still open: whether students bring laptops, what teaching support is present,
-  and how progress is seen or checked at that scale.
+- **Q3. In-lecture activities.** About 200 students in a large lecture theatre,
+  most with laptops, and no teaching assistants assumed. Feedback from the room
+  comes through a live tool. Bristol supports Mentimeter, Padlet and TurningPoint.
+  Mentimeter can group open-ended responses into themes using AI and summarise
+  them on request, which fits gathering responses live and summarising when asked.
+  Still open: whether Bristol's Mentimeter licence has the AI features enabled,
+  and whether data protection allows student responses to be processed by them.
 - **Q4. Quanser resources.** The existing MATLAB, Simulink and PDF materials, to
   be uploaded, and how the two laboratory sittings are scheduled against the
   lecture sequence.
@@ -375,8 +443,9 @@ Recorded so they are not lost. Numbered for reference in discussion.
   - Other cohorts take this unit too: aerospace MSc, Engineering Design and
     Study Abroad students, and possibly others. Their backgrounds vary, and may
     be weaker or stronger.
-  - This gives P3 real weight. Consider a short diagnostic in week 1 and a
-    self-study primer on the prerequisites.
+  - This gives P3 real weight. The plan: a diagnostic in week 1 (P16), the
+    MathWorks Onramps and the Preparing for Control page before Lecture 1, and
+    links back to prerequisite material throughout.
   - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.

@@ -6,6 +6,10 @@ Each lecture has a **handout**, which is the authoritative written version, and 
 
 The numbers, plots and code all come from one design script per lecture. Every code snippet you see in Python and MATLAB has been run, and both languages give the same numbers.
 
+## Preparing for the course
+
+Before the first lecture, work through [Preparing for Control](preparing/index.md). It checks that your laptop or tablet can run the course code, and lists the MathWorks Onramp courses to complete.
+
 ## Interactive applets
 
 Some sections include small interactive applets, such as a PID tuner with sliders. They run entirely in your browser and don't send anything anywhere. The same applets appear in the lecture slides.
