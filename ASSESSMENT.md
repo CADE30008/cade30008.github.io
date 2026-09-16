@@ -90,8 +90,15 @@ cycle, applied to a system or axis students haven't built in lectures.
 | **B. A new system or axis** | For example, an axis of the Quanser helicopter or a multirotor loop not built in lectures | Tests transfer; can draw on laboratory data | Depends on every student getting rig time in good time |
 | **C. Shared with Part A** | Part A models an aircraft (ILOs 1 to 3); Part B designs its flight control (ILOs 4 to 6) | One authentic story across the coursework | Needs agreement with the Part A staff, and couples the two parts |
 
-**Proposal:** per-student parameters (A) in any case, within B or C depending on
-AQ1 and AQ5.
+**Proposal: integrated but separate (C, with A inside it).** Parts A and B stay
+separate sections, taught, marked and weighted separately, but tell one story.
+Part A characterises an aircraft and delivers a model package in an agreed
+format. Part B validates that model against data from a shared virtual flight
+test, then designs and flight-tests a controller to fix the deficiencies Part A
+identified. A reference model means no student is penalised in Part B for errors
+in Part A, and no skill is assessed in both parts. The case study is Tom's
+choice: any fixed-wing aircraft works. A proposal note for Tom, with comparable
+draft rubrics for both parts, is in `private/assessment/drafts/`.
 
 ### What students submit (decided in outline)
 
@@ -135,7 +142,11 @@ with built-in peer review, which distributes submissions randomly and
 anonymously, with separate submission and review deadlines. FeedbackFruits,
 which Bristol also supports, is the alternative for peer review.
 
-### Marking criteria (draft v0, AP10)
+### Marking criteria (draft v1, AP10)
+
+v1 re-scopes criterion 1 to model validation and requirements, since deriving
+the model is assessed in Part A, and adds a comparable Part A rubric in the same
+shape.
 
 The full draft is in `private/assessment/drafts/`, as a spreadsheet and a
 Markdown copy generated from one script. It follows the structure of the
@@ -146,7 +157,7 @@ and a bank of example feedback statements for marking at scale.
 
 | Criterion | Weight | Assesses | ILOs |
 |---|---|---|---|
-| 1. Design problem and model | 20% | Requirements; model; assumptions | 6, 5, 4 |
+| 1. Model validation and requirements | 20% | Requirements; model validation; uncertainty and assumptions | 6, 5, 4 |
 | 2. Control design and analysis | 35% | Design method; stability and robustness; verification, including of AI-generated work | 5, 4, 6 |
 | 3. Theory, argument and critique | 30% | Explanation through theory; decisions and argument; limitations and transfer | 4, 5, 6 |
 | 4. Communication and reproducibility | 15% | Structure and writing; figures and referencing; code and statements | All |
@@ -226,8 +237,11 @@ never misconduct.
 
 ## Open questions
 
-- **AQ1. Part A.** What Part A covers, how marks split between Parts A and B, and
-  whether the two parts could share a system (option C).
+- **AQ1. Part A.** Taught and assessed by Tom. The integrated-but-separate
+  proposal puts these questions to him: the case study; whether Part A produces a
+  linear model at trim; Part A's deficiencies as Part B's requirements; a
+  modelling checkpoint in week 4 or 5; per-student variants shared by both parts;
+  and using the virtual flight test in Part A.
 - **AQ2. Timing.** The release date, the final deadline, and dates for the three
   checkpoints. In 2025 the brief was released mid-term; an assessment that builds
   from early lectures needs Part B's brief, or at least its design problem,
@@ -250,8 +264,9 @@ never misconduct.
   and rubric, the EMATM0055 dissertation rubric workbook, and the University's
   level 6 marking criteria. A draft Part B brief is in
   `private/assessment/drafts/`.
-- **AQ9. Part A.** Whether Part A keeps the 2025 rubric or adopts the same
-  structure, and whether the two parts' briefs are released together.
+- **AQ9. Part A rubric.** A comparable Part A rubric is proposed; Tom may prefer
+  a more granular, criteria-based one. Also whether the two parts' briefs are
+  released together.
 - **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
   with journals and assignment peer review available. The Original course view
   retires at the end of 2026.
