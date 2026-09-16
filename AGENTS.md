@@ -75,3 +75,5 @@ npm run build       # all of the above
 - Don't invent numbers. Derive them from the scripts in `models/`, and run any code you add.
 - Keep University of Bristol branding as it is. See the theme repository's `BRAND.md`.
 - The site theme is `docs/stylesheets/flightlab.css`, which brands the stock `default` and `slate` colour schemes to match the slide template. Its artwork is copied into `docs/assets/brand/`; if the template's artwork changes, copy it across again rather than editing it here.
+- Read [PEDAGOGY.md](PEDAGOGY.md) before drafting or revising teaching content. It records how these materials are meant to teach, as numbered principles.
+- When reviewing content against those principles, report findings citing principle IDs, in the format `PEDAGOGY.md` gives, and change nothing until a person agrees. Flagging a mismatch is the job; some mismatches are the principle's fault, not the content's.
