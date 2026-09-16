@@ -247,7 +247,7 @@ sources linked; all need checking against the primary report before teaching.
 | Boeing 737 MAX, MCAS (2018, 2019) | Automatic trim commanded from a single angle-of-attack sensor. Sensing, control authority and the pilot in the loop | To find |
 | Air France 447 (2009) | Pitot icing, autopilot disconnection and degraded control laws. What happens when automation hands the aircraft back | To find |
 
-### P16 (proposed). A short challenge each week
+### P16. A short challenge each week
 
 A low-stakes, automatically marked challenge each week, open for a set window: a
 diagnostic in week 1, then one challenge per lecture that rehearses that week's
@@ -257,8 +257,8 @@ and staff early who is struggling.
 - Mathematics and concept questions in Numbas, which Bristol supports through
   Blackboard, with randomised values so that each student works their own
   numbers.
-- Code challenges in MATLAB Grader, if the University's MathWorks licence allows
-  its Blackboard integration.
+- Code challenges in MATLAB Grader. The University's licence covers it; its
+  Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
   otherwise.
 - **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
@@ -354,14 +354,45 @@ student's set-up.
 MathWorks online courses and MATLAB Grader both integrate with Blackboard through
 LTI 1.3 and report progress back. Both need a suitable MathWorks licence, a
 Campus-Wide Licence in MATLAB Grader's case, and the licence administrator to set
-up the integration. [MathWorks' page for Bristol](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html)
-shows MATLAB and Simulink available through the University's licence, so the
-licence requirement looks met; the integration still needs the licence
+up the integration. The University's licence is campus-wide, and includes the
+Control System Toolbox, the Aerospace Toolbox and most other toolboxes, so the
+licence requirement is met; the integration still needs the licence
 administrator.
 
 MATLAB Online and Simulink Online are not supported on tablets. Tablet users can
 run the Python material in the browser, but need a laptop, or a partner's, for
 MATLAB and Simulink.
+
+## Live feedback in lectures (proposed)
+
+Use Mentimeter, which Bristol supports, alongside the slide deck. It has two
+formats that do different jobs, and only one of them can be summarised by AI:
+
+| Format | Use it for | AI grouping and summary |
+|---|---|---|
+| **Q&A, switched on for every slide** | The live chat. Students post questions whenever they arise, anonymously, and upvote each other's, so the most wanted rise to the top | No |
+| **Open Ended slides**, at planned moments | Anything you want summarised: results at an activity's floor, what's still unclear, explanations after a prediction | Yes, on request |
+
+A lecture's rhythm then runs:
+
+1. **Opening (P11).** A short quiz or multiple-choice question on earlier weeks.
+2. **Throughout.** Q&A open on every slide. Don't read it while lecturing; take
+   the top-voted questions at each break and at the wrap-up.
+3. **Before a demo (P12).** A multiple-choice prediction.
+4. **At the activity's floor (P8).** An Open Ended slide where pairs post their
+   result or sticking point. Group the responses with AI, show the themes, and
+   address the largest.
+5. **Wrap-up.** An Open Ended "muddiest point" slide, summarised with AI, which
+   also shapes the opening of the next lecture.
+
+The deck shows the Mentimeter joining code in its header, so students can join
+at any point, and each planned Mentimeter moment has a matching slide in the
+deck.
+
+Microsoft Teams with Copilot can also summarise a chat, but needs a Microsoft
+365 Copilot licence and a Team for the unit, and fits a lecture theatre less
+naturally. Padlet has AI features for creating boards, but none confirmed for
+summarising posts.
 
 ## Demonstrations
 
@@ -423,13 +454,12 @@ Recorded so they are not lost. Numbered for reference in discussion.
   discuss soon. Note a tension to resolve: P10 names two bands, pass below 60 and
   excel above, while the aims describe a first-class graduate, which is 70 and
   above. The rubric probably needs three tiers, and SOLO maps onto them naturally.
-- **Q3. In-lecture activities.** About 200 students in a large lecture theatre,
-  most with laptops, and no teaching assistants assumed. Feedback from the room
-  comes through a live tool. Bristol supports Mentimeter, Padlet and TurningPoint.
-  Mentimeter can group open-ended responses into themes using AI and summarise
-  them on request, which fits gathering responses live and summarising when asked.
-  Still open: whether Bristol's Mentimeter licence has the AI features enabled,
-  and whether data protection allows student responses to be processed by them.
+- **Q3. In-lecture activities and feedback.** About 200 students in a large
+  lecture theatre, most with laptops, and no teaching assistants assumed. The
+  proposed pattern is under "Live feedback in lectures". Still open: whether the
+  AI features are enabled on Bristol's Mentimeter account (Mentimeter includes
+  them for all users from January 2026; confirm with Digital Education), and
+  whether data protection allows student responses to be processed by them.
 - **Q4. Quanser resources.** The existing MATLAB, Simulink and PDF materials, to
   be uploaded, and how the two laboratory sittings are scheduled against the
   lecture sequence.
@@ -449,5 +479,12 @@ Recorded so they are not lost. Numbered for reference in discussion.
   - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.
-- **Q7. Eight lectures, nine scaffolds.** The site is scaffolded for nine
-  lectures. Which topic goes, or merges, is part of sketching the course.
+- **Q7. Where guest lectures go.** The site has eight lectures and a separate
+  Guest lectures page. Two options:
+  - *Separate slots.* Guests take two of the ten teaching weeks on their own.
+    The eight-lecture build is untouched.
+  - *Second-half slots.* Guests take the second half of two lectures, in place of
+    that week's activity. That frees two weeks, but those two weeks' builds need
+    another home, such as a take-home step, or P8 is broken for them.
+  Topics for all eight lectures are still placeholders, and are settled when
+  sketching the course.

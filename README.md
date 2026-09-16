@@ -30,7 +30,8 @@ Then open `http://localhost:8000`.
 
 ## Course structure
 
-The course is nine lectures. Each one is a folder under `docs/` holding its
+The course is eight lectures, with guest lectures listed on a page of their own.
+Each lecture is a folder under `docs/` holding its
 handout (`index.md`), example sheet and solutions, with its deck in the matching
 folder under `slides/`. In the site's navigation each lecture is a collapsible
 section whose own link is the handout.

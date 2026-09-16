@@ -23,7 +23,7 @@ MATLAB.
 
 | Tool | What it's for | Where to get it |
 |---|---|---|
-| MATLAB, with the Control System Toolbox | The main tool for the course | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html). Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser |
+| MATLAB, with the Control System Toolbox | The main tool for the course | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html). Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes |
 | Simulink | Block-diagram simulation, for activities and the Quanser laboratory | Comes with MATLAB. Select it when you install |
 | Python, with the `control` package | A free alternative for everything except Simulink | Install it on your computer, or run it in your browser on this page |
 

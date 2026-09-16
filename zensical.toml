@@ -51,11 +51,7 @@ nav = [
     { "Example sheet" = "l08-state-space/example-sheet.md" },
     { "Solutions" = "l08-state-space/solutions.md" },
   ] },
-  { "Lecture 9: Guidance and tracking" = [
-    { "Handout" = "l09-guidance/index.md" },
-    { "Example sheet" = "l09-guidance/example-sheet.md" },
-    { "Solutions" = "l09-guidance/solutions.md" },
-  ] },
+  { "Guest lectures" = "guest-lectures/index.md" },
   { "Preparing for Control" = "preparing/index.md" },
   { "About these materials" = "about.md" },
 ]

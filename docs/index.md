@@ -24,7 +24,8 @@ sheets exist in their final shape, but their topics and content are provisional.
 | 6 | Stability augmentation | [Handout](l06-stability-augmentation/index.md) · [Slides](slides/l06-stability-augmentation/index.html) · [Example sheet](l06-stability-augmentation/example-sheet.md) · [Solutions](l06-stability-augmentation/solutions.md) | Placeholder |
 | 7 | Autopilot modes | [Handout](l07-autopilot-modes/index.md) · [Slides](slides/l07-autopilot-modes/index.html) · [Example sheet](l07-autopilot-modes/example-sheet.md) · [Solutions](l07-autopilot-modes/solutions.md) | Placeholder |
 | 8 | State-space methods | [Handout](l08-state-space/index.md) · [Slides](slides/l08-state-space/index.html) · [Example sheet](l08-state-space/example-sheet.md) · [Solutions](l08-state-space/solutions.md) | Placeholder |
-| 9 | Guidance and tracking | [Handout](l09-guidance/index.md) · [Slides](slides/l09-guidance/index.html) · [Example sheet](l09-guidance/example-sheet.md) · [Solutions](l09-guidance/solutions.md) | Placeholder |
+
+Guest lectures are listed on their own [page](guest-lectures/index.md).
 
 Each lecture has four parts:
 
