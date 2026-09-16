@@ -17,6 +17,10 @@ Two kinds of entry appear below. Unmarked principles are agreed. Those marked
 cent individual coursework across all six intended learning outcomes. A 20
 credit unit is about 200 hours of student effort in total.
 
+**Naming.** The course site calls this *Flight Dynamics & Control*. For control,
+this unit is the introduction; a separate advanced unit at year 4 master's level
+is planned, and "advanced" is kept for that.
+
 This half of the unit covers **ILOs 4, 5 and 6**, paraphrased:
 
 | ILO | In short |
@@ -30,10 +34,13 @@ the aircraft modes, and the reading of flight data against handling qualities.
 They are delivered in parallel by other staff. The catalogue holds the
 authoritative wording; the table above is a working paraphrase.
 
-**Delivery.** Nine two-hour lectures. Each is a lectured element followed by
-students implementing what was covered, individually or in pairs or threes,
-building week on week towards a complete design cycle. Students also have about
-four hours of laboratory time on a Quanser 3-DoF helicopter.
+**Delivery.** The unit runs for 12 weeks. Week 6 is reading week and week 12 is
+revision week, leaving 10 teaching weeks. This half has eight two-hour lectures,
+which leaves room for some guest lectures for flavour. Each lecture is a lectured
+element followed by students implementing what was covered, individually or in
+pairs or threes, building week on week towards a complete design cycle. Students
+also have about four hours of laboratory time on a Quanser 3-DoF helicopter,
+likely in two two-hour sittings.
 
 **Preferred text.** Dorf and Bishop, *Modern Control Systems*, chiefly for its
 framing of the control design cycle.
@@ -49,7 +56,9 @@ that underpins it, through accessible descriptions, figures and interactive
 demonstrations, with extensions for those confident in the mathematics.
 
 The measure of success: a graduate of this half can *do* credible aerospace
-control design, and can say why it works.
+control design, and can say why it works. A first-class graduate will also have
+the deeper theoretical and mathematical underpinning to progress to an advanced
+course or a PhD.
 
 ## Principles
 
@@ -106,7 +115,9 @@ Students can see and re-run the code behind anything we show, but it does not
 clutter the argument.
 
 - Figure and applet code is available, folded away or linked to source.
-- Ideally in Python and MATLAB or Octave. The mechanism is an open question (Q1).
+- Python, runnable in the browser where that helps. MATLAB as an accompanying
+  Live Script or code to paste, and Simulink models shared from MATLAB Drive.
+  Delivery details are still open (Q1).
 - **Review check:** for each figure, can a student reach the code that made it?
 
 ### P7. Code students are meant to run is prominent
@@ -147,59 +158,155 @@ room for extension.
 - Nothing is assessed that was not practised; nothing is practised that leads nowhere.
 - **Review check:** for each assessment criterion, which lecture activity rehearses it?
 
-### P11 (proposed). Each lecture opens by retrieving the last
+### P11. Each lecture opens by retrieving the last
 
-A few minutes of recall or prediction on the previous week, before new material.
-Spacing and retrieval are among the best evidenced effects in learning, and this
+A few minutes of recall or prediction on earlier weeks, before new material.
+Retrieval and spacing are among the best evidenced effects in learning, and this
 course's week-on-week build gives them for free.
 
-### P12 (proposed). Demos follow predict, observe, explain
+- Open with two or three questions that students answer before any answer is shown.
+- Prefer questions that ask for prediction or reasoning over recall of definitions.
+- Reach back beyond the previous week at times, so that practice is spaced.
+- **Review check:** does the lecture open with questions students answer, and do some reach further back than last week?
+
+### P12. Demos follow predict, observe, explain
 
 Ask for a prediction before running a demo, then show the result, then explain
 the gap. A demo that is merely watched teaches much less than one that has been
 bet on.
 
-### P13 (proposed). Misconceptions are named
+- Students commit to a prediction first: a show of hands, a vote, or a sentence written down.
+- The explanation addresses the gap between what was predicted and what happened.
+- In the handout, pose the prediction as a question and fold the result away beneath it.
+- **Review check:** is there a prediction prompt before every demo and applet experiment?
+
+### P13. Misconceptions are named
 
 Where students reliably go wrong, say so explicitly rather than only stating the
-correct version. Candidates: margins as a safety guarantee, derivative action as
-noise-free prediction, cancelling a plant pole, linearisation valid far from trim.
+correct version. Explanations that confront a misconception teach better than
+those that only present the right answer.
 
-### P14 (proposed). Accessible by construction
+- State the misconception, show why it is tempting, then show where it fails.
+- Keep a list per lecture. Candidates so far: margins as a safety guarantee,
+  derivative action as noise-free prediction, cancelling a plant pole,
+  linearisation valid far from trim.
+- **Review check:** are the lecture's known misconceptions named and confronted?
+
+### P14. Accessible by construction
 
 Figures carry meaningful alternative text, colour is never the only channel of
 information, applets are operable from the keyboard, and every figure's meaning
 survives in the printed PDF.
 
+- Alternative text says what a figure shows, not only what it is.
+- Lines are distinguished by style, marker or direct label, not by colour alone.
+- Applets work from the keyboard and expose their controls to screen readers.
+- Video carries captions.
+- **Review check:** could a student using a screen reader, or a greyscale printout, follow the lecture?
+
+### P15. Real-world context shows why it matters
+
+Anchor the material in real aerospace systems and events, so that students see
+why a technique exists, what it made possible, and what happened when it was
+missing or misapplied. Wider engineering examples are welcome where they make
+the point better.
+
+- Each lecture uses at least one real system, programme or incident to show the stakes of its topic.
+- Describe incidents from primary sources, such as investigation reports and agency accounts. State the control lesson precisely, and don't overstate it.
+- People died in several of these events. Treat them with care, and keep the focus on the engineering lesson.
+- **Review check:** does the lecture show a real case that makes its topic matter, and cite a source for it?
+
+Candidate cases. The first three have been checked in outline against the
+sources linked; all need checking against the primary report before teaching.
+
+| Case | What it shows | Source |
+|---|---|---|
+| Ingenuity Mars helicopter, flight 6 (2021) | A lost navigation image corrupted timestamps and caused large oscillations. The controller's stability margins let it land safely anyway. Robustness, ILO 4 | [NASA](https://science.nasa.gov/blog/surviving-an-in-flight-anomaly-what-happened-on-ingenuitys-sixth-flight/) |
+| X-15 flight 3-65-97 (1967) | The MH-96 adaptive flight control system entered diverging pitch and roll oscillations on re-entry. The aircraft broke up and Michael Adams was killed. Adaptive control, limit cycles | [Summary](https://en.wikipedia.org/wiki/X-15_Flight_3-65-97), [NASA NESC analysis](https://nescacademy.nasa.gov/video/afbbfa1bb74243aeab139db4c110c2021d) |
+| YF-22 (1992) | Pilot-induced oscillation with the stabilator at its software rate limit, and over half a second of lag round the pilot loop. Actuator limits and delay | [Aviation Safety Network](https://aviation-safety.net/wikibase/46043) |
+| Boeing 737 MAX, MCAS (2018, 2019) | Automatic trim commanded from a single angle-of-attack sensor. Sensing, control authority and the pilot in the loop | To find |
+| Air France 447 (2009) | Pitot icing, autopilot disconnection and degraded control laws. What happens when automation hands the aircraft back | To find |
+
 ## Models we are drawing on
 
-Named here so we can write about this later, and so choices are defensible.
+Named here so we can write about this later, and so choices are defensible. Each
+has an accessible summary and an original source.
 
 - **Four-component instructional design (van Merriënboer).** The overarching
   fit: complex skills are learned through whole tasks of increasing complexity,
   supported by just-in-time information and part-task practice. Our week-on-week
   build to a full design cycle is precisely this. Supports A1, P8.
+  - Summary: [4C/ID](https://www.4cid.org/)
+  - Original: van Merriënboer, J. J. G., Clark, R. E. and de Croock, M. B. M. (2002). Blueprints for complex learning: the 4C/ID-model. *Educational Technology Research and Development*, 50(2), 39–61. [doi:10.1007/BF02504993](https://doi.org/10.1007/BF02504993)
 - **Cognitive load theory (Sweller).** The constraint behind P3 and P4. Keep
   extraneous load down, and stage intrinsic load deliberately.
+  - Summary: [Cognitive load](https://en.wikipedia.org/wiki/Cognitive_load)
+  - Original: Sweller, J. (1988). Cognitive load during problem solving: effects on learning. *Cognitive Science*, 12(2), 257–285. [doi:10.1207/s15516709cog1202_4](https://doi.org/10.1207/s15516709cog1202_4)
+  - Further: Sweller, J., van Merriënboer, J. J. G. and Paas, F. (1998). Cognitive architecture and instructional design. *Educational Psychology Review*, 10(3), 251–296. [doi:10.1023/A:1022193728205](https://doi.org/10.1023/A:1022193728205)
 - **Worked example effect, and the expertise reversal effect (Kalyuga).** Start
   with fully worked designs, then completion problems, then open design. What
   helps a novice hinders an expert, so support fades week by week.
+  - Summaries: [Worked-example effect](https://en.wikipedia.org/wiki/Worked-example_effect), [Expertise reversal effect](https://en.wikipedia.org/wiki/Expertise_reversal_effect)
+  - Originals: Sweller, J. and Cooper, G. A. (1985). The use of worked examples as a substitute for problem solving in learning algebra. *Cognition and Instruction*, 2(1), 59–89. [doi:10.1207/s1532690xci0201_3](https://doi.org/10.1207/s1532690xci0201_3). Kalyuga, S., Ayres, P., Chandler, P. and Sweller, J. (2003). The expertise reversal effect. *Educational Psychologist*, 38(1), 23–31. [doi:10.1207/S15326985EP3801_4](https://doi.org/10.1207/S15326985EP3801_4)
+  - On fading support: Renkl, A. and Atkinson, R. K. (2003). Structuring the transition from example study to problem solving in cognitive skill acquisition. *Educational Psychologist*, 38(1), 15–22. [doi:10.1207/S15326985EP3801_3](https://doi.org/10.1207/S15326985EP3801_3)
 - **Constructive alignment (Biggs).** ILOs, activities and assessment stated in
   the same terms. Supports P10.
+  - Summary: [Constructive alignment](https://en.wikipedia.org/wiki/Constructive_alignment)
+  - Original: Biggs, J. (1996). Enhancing teaching through constructive alignment. *Higher Education*, 32(3), 347–364. [doi:10.1007/BF00138871](https://doi.org/10.1007/BF00138871)
 - **SOLO taxonomy (Biggs and Collis).** A defensible language for the pass and
   excellence split in P10: applying a procedure correctly is one level, relating
   it to the theory that justifies it is the next.
+  - Summary: [Structure of observed learning outcome](https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)
+  - Original: Biggs, J. B. and Collis, K. F. (1982). *Evaluating the Quality of Learning: The SOLO Taxonomy*. Academic Press. [doi:10.1016/C2013-0-10375-3](https://doi.org/10.1016/C2013-0-10375-3)
 - **Variation theory (Marton).** Understanding comes from what is varied against
   a fixed background. Revisiting three systems (P9) is what makes the invariant
   principles visible.
+  - Summary: [Phenomenography](https://en.wikipedia.org/wiki/Phenomenography), from which variation theory grew
+  - Original: Marton, F. and Pang, M. F. (2006). On some necessary conditions of learning. *Journal of the Learning Sciences*, 15(2), 193–220. [doi:10.1207/s15327809jls1502_2](https://doi.org/10.1207/s15327809jls1502_2)
 - **Predict, observe, explain (White and Gunstone).** Behind P12.
+  - Summary: [Predict, Observe, Explain (NZCER)](https://arbs.nzcer.org.nz/predict-observe-explain-poe)
+  - Original: White, R. and Gunstone, R. (1992). *Probing Understanding*. Falmer Press; reissued by Routledge, 2014. [doi:10.4324/9780203761342](https://doi.org/10.4324/9780203761342)
 - **Peer instruction (Mazur).** For the in-lecture activity in pairs and threes.
+  - Summary: [Peer instruction](https://en.wikipedia.org/wiki/Peer_instruction)
+  - Original: Crouch, C. H. and Mazur, E. (2001). Peer Instruction: ten years of experience and results. *American Journal of Physics*, 69(9), 970–977. [doi:10.1119/1.1374249](https://doi.org/10.1119/1.1374249)
 - **Productive failure (Kapur).** Letting students attempt a design before being
   given the tool can prepare them to learn it. A candidate for the opening of
   some lectures.
+  - Summary: [Manu Kapur](https://www.manukapur.com/)
+  - Original: Kapur, M. (2008). Productive failure. *Cognition and Instruction*, 26(3), 379–424. [doi:10.1080/07370000802212669](https://doi.org/10.1080/07370000802212669)
+  - Further: Kapur, M. (2016). Examining productive failure, productive success, unproductive failure, and unproductive success in learning. *Educational Psychologist*, 51(2), 289–299. [doi:10.1080/00461520.2016.1155457](https://doi.org/10.1080/00461520.2016.1155457)
 - **Threshold concepts (Meyer and Land).** Some ideas are gateways and are worth
   dwelling on: feedback itself, stability margin as robustness, the cost of
   bandwidth.
+  - Summary: [Threshold knowledge](https://en.wikipedia.org/wiki/Threshold_knowledge)
+  - Original: Meyer, J. H. F. and Land, R. (2005). Threshold concepts and troublesome knowledge (2). *Higher Education*, 49(3), 373–388. [doi:10.1007/s10734-004-6779-5](https://doi.org/10.1007/s10734-004-6779-5)
+- **Retrieval practice and spacing.** Behind P11.
+  - Summaries: [Testing effect](https://en.wikipedia.org/wiki/Testing_effect), [Spacing effect](https://en.wikipedia.org/wiki/Spacing_effect)
+  - Originals: Roediger, H. L. and Butler, A. C. (2011). The critical role of retrieval practice in long-term retention. *Trends in Cognitive Sciences*, 15(1), 20–27. [doi:10.1016/j.tics.2010.09.003](https://doi.org/10.1016/j.tics.2010.09.003). Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T. and Rothstein, T. (2006). Distributed practice in verbal recall tasks. *Psychological Bulletin*, 132(3), 354–380. [doi:10.1037/0033-2909.132.3.354](https://doi.org/10.1037/0033-2909.132.3.354)
+- **Conceptual change, and teaching through misconceptions.** Behind P13.
+  - Summary: [Conceptual change](https://en.wikipedia.org/wiki/Conceptual_change)
+  - Originals: Posner, G. J., Strike, K. A., Hewson, P. W. and Gertzog, W. A. (1982). Accommodation of a scientific conception. *Science Education*, 66(2), 211–227. [doi:10.1002/sce.3730660207](https://doi.org/10.1002/sce.3730660207). Muller, D. A., Bewes, J., Sharma, M. D. and Reimann, P. (2008). Saying the wrong thing: improving learning with multimedia by including misconceptions. *Journal of Computer Assisted Learning*, 24(2), 144–155. [doi:10.1111/j.1365-2729.2007.00248.x](https://doi.org/10.1111/j.1365-2729.2007.00248.x)
+- **Authentic learning and situated cognition.** Behind P15: knowledge learned in
+  the context where it is used transfers better than knowledge learned abstractly.
+  - Summaries: [Authentic learning](https://en.wikipedia.org/wiki/Authentic_learning), [Situated cognition](https://en.wikipedia.org/wiki/Situated_cognition)
+  - Originals: Brown, J. S., Collins, A. and Duguid, P. (1989). Situated cognition and the culture of learning. *Educational Researcher*, 18(1), 32–42. [doi:10.3102/0013189X018001032](https://doi.org/10.3102/0013189X018001032). Herrington, J. and Oliver, R. (2000). An instructional design framework for authentic learning environments. *Educational Technology Research and Development*, 48(3), 23–48. [doi:10.1007/BF02319856](https://doi.org/10.1007/BF02319856)
+- **Multimedia learning (Mayer).** How words and figures are best combined.
+  Supports P4 and P14.
+  - Original: Mayer, R. E. (2009). *Multimedia Learning*, 2nd edition. Cambridge University Press. [doi:10.1017/CBO9780511811678](https://doi.org/10.1017/CBO9780511811678)
+- **Universal design for learning, and web accessibility.** Behind P14.
+  - Summaries: [Universal Design for Learning](https://en.wikipedia.org/wiki/Universal_Design_for_Learning), [CAST UDL guidelines](https://udlguidelines.cast.org/)
+  - Standard: [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/)
+
+## Demonstrations for future years
+
+The lecture theatre takes 200 students and has room for large demonstrations.
+Once the first lectures are solid, plan for:
+
+- a Quanser 3-DoF helicopter brought into the lecture;
+- Crazyflie nano quadcopters;
+- a propeller and motor on a balance beam, which needs designing and building.
+
+This year relies on applets and video.
 
 ## Reviewing content against these principles
 
@@ -234,15 +341,44 @@ IDs, and changes nothing until a person agrees.
 
 Recorded so they are not lost. Numbered for reference in discussion.
 
-- **Q1. Two languages, one web page.** How to offer MATLAB alongside Python for
-  runnable code, given that a browser cannot run MATLAB.
+- **Q1. Two languages, one web page.**
+  - *Python* runs in the browser through [Pyodide](https://pyodide.org/): the
+    standard Python interpreter compiled to WebAssembly, which fetches NumPy,
+    SciPy and Matplotlib from a CDN and installs python-control from PyPI.
+    Tested on 16 September 2026: Pyodide 314.0.7 with python-control 0.10.2
+    reproduces Lecture 2's margins exactly, with about four seconds of set-up
+    after the first download, which the browser then caches.
+  - *MATLAB* cannot run in a page. Offer an accompanying Live Script or code to
+    paste, with an "Open in MATLAB Online" link where useful.
+  - *Simulink* models are shared publicly from MATLAB Drive.
+  - Still open: whether runnable Python appears as a Run button on code in the
+    page or as linked notebooks, and whether slides run Python live or keep to
+    the JavaScript applets.
 - **Q2. Assessment design.** Structure, artefacts, timing and rubric for the
-  coursework, and how the control half combines with the other half's mark.
-- **Q3. In-lecture activities.** Room, kit, class size and teaching support, all
-  of which constrain what the activity can be.
-- **Q4. Quanser resources.** The existing MATLAB, Simulink and PDF materials,
-  and how laboratory time is scheduled against the lecture sequence.
-- **Q5. Prior knowledge.** What year 2 covered exactly, and what the parallel
-  half will have covered by each week of ours.
+  coursework, and how the control half combines with the other half's mark. To
+  discuss soon. Note a tension to resolve: P10 names two bands, pass below 60 and
+  excel above, while the aims describe a first-class graduate, which is 70 and
+  above. The rubric probably needs three tiers, and SOLO maps onto them naturally.
+- **Q3. In-lecture activities.** About 200 students in a large lecture theatre.
+  Still open: whether students bring laptops, what teaching support is present,
+  and how progress is seen or checked at that scale.
+- **Q4. Quanser resources.** The existing MATLAB, Simulink and PDF materials, to
+  be uploaded, and how the two laboratory sittings are scheduled against the
+  lecture sequence.
+- **Q5. Prior knowledge.**
+  - Aerospace undergraduates have [CADE20002 Dynamics and Control of Linear
+    Systems](https://www.bris.ac.uk/unit-programme-catalogue/UnitDetails.jsa?ayrCode=26%2F27&unitCode=CADE20002)
+    as a prerequisite. Its outcomes include feedback stability and
+    single-input single-output controller design, with MATLAB and Simulink
+    laboratories, but control and PID come at the end in three sessions and are
+    covered lightly.
+  - Other cohorts take this unit too: aerospace MSc, Engineering Design and
+    Study Abroad students, and possibly others. Their backgrounds vary, and may
+    be weaker or stronger.
+  - This gives P3 real weight. Consider a short diagnostic in week 1 and a
+    self-study primer on the prerequisites.
+  - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.
+- **Q7. Eight lectures, nine scaffolds.** The site is scaffolded for nine
+  lectures. Which topic goes, or merges, is part of sketching the course.
