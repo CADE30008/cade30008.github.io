@@ -14,6 +14,16 @@ Before the first lecture, work through [Preparing for Control](preparing/index.m
 
 Some sections include small interactive applets, such as a PID tuner with sliders. They run entirely in your browser and don't send anything anywhere. The same applets appear in the lecture slides.
 
+## Generative AI
+
+Generative AI tools, including Claude, made by Anthropic, were used to help
+develop these learning resources.
+
+Teaching, and all formative and summative assessment, are carried out by people.
+Automated scripts help with technical checks, such as whether your code runs and
+reproduces your results. Those scripts are conventional code, not generative AI or
+large language models, and they don't award marks.
+
 ## Building a local copy
 
 You need Python 3.10 or later, Node.js and Google Chrome.
