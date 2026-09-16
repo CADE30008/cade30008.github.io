@@ -21,6 +21,7 @@ IDs are stable, as in [PEDAGOGY.md](PEDAGOGY.md).
   term. The final submission is the only thing marked.
 - **AP3. Formative support throughout.** Formative submission checkpoints,
   one-to-one peer feedback, and top-level notes from the lecturer to the cohort.
+  Checkpoints are expected, but can't be made compulsory.
 - **AP4. Generative AI: Bristol Category 3, Selective.** AI is permitted,
   including agentic AI in MATLAB and Simulink, for the purposes the brief lists.
   The brief makes two things clear:
@@ -120,14 +121,18 @@ when they mark it against the rubric.
 
 ### Through the term: an assessment that builds on itself (proposed)
 
-Three formative checkpoints, each building on the last, and all feeding the one
-final submission:
+Three checkpoints, each building on the last, and all feeding the one final
+submission. A checkpoint is a point where students are expected, but can't be
+required, to submit interim work. Every checkpoint submission gets automated,
+individual verification and feedback, and every checkpoint is followed by
+general feedback to the cohort. Nothing is marked: grades are awarded only
+against the final submission.
 
 | Checkpoint | Contents | Feedback |
 |---|---|---|
 | **1. Requirements and model** | Requirements, the plant model and its assumptions | Automated checks against each student's parameters; lecturer's cohort notes |
-| **2. Design and analysis** | A first design, with its margins and step response | **Peer review** (AP8): each student reviews two others against rubric criteria |
-| **3. Draft paper** | The paper in draft, with code | Lecturer's cohort notes on common strengths and gaps |
+| **2. Design and analysis** | A first design, with its margins and step response | Automated checks; **peer review** (AP8), in which each student reviews two others against rubric criteria |
+| **3. Draft paper** | The paper in draft, with code | Automated checks; lecturer's cohort notes on common strengths and gaps |
 
 Alongside them:
 
@@ -249,13 +254,18 @@ short:
 - **A submission contract** makes checking automatic: the paper, a `run_all.m`
   that runs unattended, a results file to a fixed schema, and numbered figures.
   Students can run the same checks before they submit.
-- **Code-assisted marking,** with no generative AI, runs at every checkpoint and
-  at the final submission:
+- **Formative and assessment pipelines,** both code-assisted, with no generative
+  AI. Formative pipelines run on checkpoint submissions and return individual
+  reports and cohort statistics. The assessment pipeline runs on the final
+  submission and supports marking. Between them:
   intake, reproduction in an isolated environment, independent recomputation,
   cross-checks between the paper and its results, integrity signals, a marker
   sheet, and release. Automation finds facts, and suggests bands only for
   evidence-based rubric points. Criterion B3 and every other judgement stays with
-  the marker.
+  the marker. Grades are awarded only against the summative submission.
+  Formative pipelines can support an integrity review by showing how a design
+  developed, but never lower a mark by themselves, and not submitting at a
+  checkpoint is never a flag.
 - **Feedback** is assembled from structured marking records: comment codes, a few
   sentences from the marker, individual PDF reports, a gradebook upload, and
   cohort notes drawn from the marking data.
@@ -311,9 +321,10 @@ short:
 - **AQ10. Running student code.** Where the pipeline can run untrusted student
   code at scale: a dedicated University machine or virtual machine with MATLAB,
   no network access, and time limits.
-- **AQ11. Returning feedback.** Whether Bristol's Blackboard Ultra supports bulk
-  upload of feedback files, alongside marks and text feedback by gradebook upload,
-  and how submissions appear in a bulk download.
+- **AQ11. Returning feedback.** Bristol's Blackboard set-up permits bulk upload of
+  feedback files (confirmed), alongside marks and text feedback by gradebook
+  upload. Still open: how submissions, including checkpoint submissions, appear in
+  a bulk download.
 - **AQ12. The LLM trial.** Approval from the School and Faculty Education
   Directors and the central AI team; whether a notice with an opt-out is enough
   or consent is needed; and whether to seek ethics approval now, in case the
