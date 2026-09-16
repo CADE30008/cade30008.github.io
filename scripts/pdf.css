@@ -64,5 +64,9 @@ blockquote {
   background: #f4f5f5;
   color: inherit;
 }
+/* Source and reference lists: smaller, and no entry split across pages. */
+#sources ~ ul, #references ~ ul { font-size: 8.5pt; }
+#sources ~ ul li, #references ~ ul li { break-inside: avoid; }
+
 code { font-family: Menlo, Consolas, monospace; font-size: 9pt; }
 pre { white-space: pre-wrap; font-size: 8.5pt; }
