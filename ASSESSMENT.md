@@ -211,7 +211,8 @@ immune, so these concentrate on what matters most.
    and 70 boundaries, ask students to explain their own design's behaviour: why
    *this* margin gave *this* overshoot, what fails if an assumption breaks. Those
    explanations are specific to the student's numbers.
-7. **Detection where it exists.** Turnitin on the paper, which Bristol supports.
+7. **Detection where it exists.** Turnitin on the paper: Bristol uses its
+   similarity report and AI-writing indicator as flags for a person to weigh.
    Common code-similarity tools don't clearly support MATLAB; per-student
    parameters and the reproduction check do more for code.
 8. **Students understand quality before they submit.** In a lecture activity,
@@ -258,18 +259,22 @@ short:
 - **Feedback** is assembled from structured marking records: comment codes, a few
   sentences from the marker, individual PDF reports, a gradebook upload, and
   cohort notes drawn from the marking data.
-- **Optional LLM support,** described separately and additive to the above: it
-  could locate evidence in papers, extract claims for cross-checking, draft
-  feedback for markers to edit, prompt for consistency, and summarise cohort
-  themes. It must never award or suggest bands, judge whether text was written
-  by AI, or inform misconduct decisions, and it would be piloted on synthetic
-  scripts first.
+- **LLM support is not used in marking in 2026/27** (decided). Instead, subject
+  to approval, it is trialled on already-marked, pseudonymised work after the
+  relevant exam boards, so the trial can't affect any student's mark or feedback.
+  Students are told in the brief before they submit. The trial tests evidence
+  location, claim extraction, feedback drafting, consistency prompts and cohort
+  themes against the real marking records, and decides whether any of it is
+  adopted in later years. It never awards or suggests bands, and never judges
+  whether text was written by AI.
 - **Policy.** At Bristol, summative coursework with formative feedback on drafts is
   exempt from anonymous first marking, but moderation should still be anonymous,
   so the pipeline uses pseudonymous IDs. Moderation samples at least eight scripts
-  or 10 per cent. The core process uses no generative AI. The LLM option needs
-  agreement from the School and Faculty Education Directors and the central AI
-  team, and students must be told how it is used.
+  or 10 per cent. Live marking uses no generative AI. Bristol uses Turnitin's
+  similarity report and AI-writing indicator as flags for a person to weigh. The
+  trial on marked work needs agreement from the School and Faculty Education
+  Directors and the central AI team, and students must be told about it before
+  they submit.
 
 ## Open questions
 
@@ -309,6 +314,10 @@ short:
 - **AQ11. Returning feedback.** Whether Bristol's Blackboard Ultra supports bulk
   upload of feedback files, alongside marks and text feedback by gradebook upload,
   and how submissions appear in a bulk download.
+- **AQ12. The LLM trial.** Approval from the School and Faculty Education
+  Directors and the central AI team; whether a notice with an opt-out is enough
+  or consent is needed; and whether to seek ethics approval now, in case the
+  results are written up. All must be settled before this year's submission.
 - **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
   with journals and assignment peer review available. The Original course view
   retires at the end of 2026.
