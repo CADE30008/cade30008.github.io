@@ -1,5 +1,9 @@
 # Assessment design: CADE30008, control half
 
+> Drafted with the assistance of Claude, an AI model made by Anthropic.[^checked]
+
+[^checked]: The final versions of all process and assignment documents, and of all student-facing and back-office code, will be fully checked manually.
+
 This file records how this half of the unit is assessed, and why. The fixed
 principles below are rigid: changing one takes a University change cycle or two,
 at 10 to 12 months each. Everything after them is design within those limits,

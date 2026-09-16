@@ -29,6 +29,17 @@ p, li { margin: 0 0 4pt; }
 ul, ol { margin: 0 0 6pt; padding-left: 16pt; }
 .meta { color: #555; font-size: 9pt; margin-bottom: 8pt; }
 
+/* Front-page provenance: version, AI-assistance note, and its footnote. */
+.provenance {
+  margin: 0 0 10pt;
+  padding-bottom: 6pt;
+  border-bottom: 0.5pt solid #bfbfbf;
+}
+.provenance .meta { margin-bottom: 2pt; }
+.provenance .ai-note { margin: 0 0 2pt; font-size: 9pt; font-style: italic; color: #555; }
+.provenance .footnote { margin: 0; font-size: 7.5pt; color: #666; }
+sup { line-height: 0; }
+
 table {
   width: 100%;
   margin: 4pt 0 8pt;
