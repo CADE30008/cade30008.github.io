@@ -1,6 +1,6 @@
 # Assessment design: CADE30008, control half
 
-> Drafted with the assistance of Claude, an AI model made by Anthropic.[^checked]
+> Drafted with the assistance of generative AI tools.[^checked]
 
 [^checked]: The final versions of all process and assignment documents, and of all student-facing and back-office code, will be fully checked manually.
 
