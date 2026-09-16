@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "slides": "node scripts/build-slides.mjs",
+    "new:lesson": "node scripts/new-lesson.mjs",
     "check": "node scripts/check-sync.mjs",
     "sync:accept": "node scripts/check-sync.mjs --accept",
     "site": ".venv/bin/zensical build --clean",

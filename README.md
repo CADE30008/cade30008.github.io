@@ -28,10 +28,22 @@ Then open `http://localhost:8000`.
 | `scripts/` | Build, sync-check, PDF and test scripts |
 | `AGENTS.md` | How to edit the materials, by hand or with an AI assistant |
 
+## Course structure
+
+The course is nine lectures. Each one is a folder under `docs/` holding its
+handout (`index.md`), example sheet and solutions, with its deck in the matching
+folder under `slides/`. In the site's navigation each lecture is a collapsible
+section whose own link is the handout.
+
+Lecture 2 is written. The rest are scaffolds produced by `npm run new:lesson`,
+with provisional topics, so that the navigation and the build cover the whole
+course while the content is written.
+
 ## Commands
 
 | Command | What it does |
 |---|---|
+| `npm run new:lesson <n> <slug> "<title>"` | Scaffold a lecture: handout, example sheet, solutions and deck |
 | `npm run slides` | Build each deck to HTML and PDF in `docs/slides/` |
 | `npm run site` | Build the site into `site/` |
 | `npm run pdf` | Print handouts, example sheets and solutions to PDF |

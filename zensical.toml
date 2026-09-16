@@ -5,12 +5,56 @@ site_author = "Dr. Steve Bullock"
 site_url = "http://localhost:8000/"
 copyright = "Teaching materials &copy; 2026 Dr. Steve Bullock, University of Bristol"
 
+# Each lecture is a collapsible section whose own link is the handout
+# (navigation.indexes puts docs/<lesson>/index.md on the section itself, so it
+# is not repeated as a child). Decks are built files, so they are linked from
+# the handout rather than listed here.
 nav = [
   { "Home" = "index.md" },
+  { "Lecture 1: Course introduction" = [
+    { "Handout" = "l01-course-introduction/index.md" },
+    { "Example sheet" = "l01-course-introduction/example-sheet.md" },
+    { "Solutions" = "l01-course-introduction/solutions.md" },
+  ] },
   { "Lecture 2: PID control" = [
     { "Handout" = "l02-pid-control/index.md" },
     { "Example sheet" = "l02-pid-control/example-sheet.md" },
     { "Solutions" = "l02-pid-control/solutions.md" },
+  ] },
+  { "Lecture 3: Loop shaping" = [
+    { "Handout" = "l03-loop-shaping/index.md" },
+    { "Example sheet" = "l03-loop-shaping/example-sheet.md" },
+    { "Solutions" = "l03-loop-shaping/solutions.md" },
+  ] },
+  { "Lecture 4: Longitudinal dynamics" = [
+    { "Handout" = "l04-longitudinal-dynamics/index.md" },
+    { "Example sheet" = "l04-longitudinal-dynamics/example-sheet.md" },
+    { "Solutions" = "l04-longitudinal-dynamics/solutions.md" },
+  ] },
+  { "Lecture 5: Lateral-directional dynamics" = [
+    { "Handout" = "l05-lateral-directional/index.md" },
+    { "Example sheet" = "l05-lateral-directional/example-sheet.md" },
+    { "Solutions" = "l05-lateral-directional/solutions.md" },
+  ] },
+  { "Lecture 6: Stability augmentation" = [
+    { "Handout" = "l06-stability-augmentation/index.md" },
+    { "Example sheet" = "l06-stability-augmentation/example-sheet.md" },
+    { "Solutions" = "l06-stability-augmentation/solutions.md" },
+  ] },
+  { "Lecture 7: Autopilot modes" = [
+    { "Handout" = "l07-autopilot-modes/index.md" },
+    { "Example sheet" = "l07-autopilot-modes/example-sheet.md" },
+    { "Solutions" = "l07-autopilot-modes/solutions.md" },
+  ] },
+  { "Lecture 8: State-space methods" = [
+    { "Handout" = "l08-state-space/index.md" },
+    { "Example sheet" = "l08-state-space/example-sheet.md" },
+    { "Solutions" = "l08-state-space/solutions.md" },
+  ] },
+  { "Lecture 9: Guidance and tracking" = [
+    { "Handout" = "l09-guidance/index.md" },
+    { "Example sheet" = "l09-guidance/example-sheet.md" },
+    { "Solutions" = "l09-guidance/solutions.md" },
   ] },
   { "About these materials" = "about.md" },
 ]
@@ -23,6 +67,9 @@ extra_javascript = [
 
 [project.theme]
 language = "en"
+# navigation.sections is deliberately absent: it renders the top level as flat
+# groups, which cannot be collapsed. Without it each lecture is a collapsible
+# section, and navigation.indexes keeps the handout as the section's own page.
 features = [
   "content.code.annotate",
   "content.code.copy",
@@ -35,7 +82,6 @@ features = [
   "navigation.instant",
   "navigation.instant.prefetch",
   "navigation.path",
-  "navigation.sections",
   "navigation.top",
   "navigation.tracking",
   "search.highlight",
