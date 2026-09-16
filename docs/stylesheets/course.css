@@ -4,7 +4,7 @@
 .md-typeset figure img {
   border-radius: 4px;
 }
-[data-md-color-scheme="flightlab_dark"] .md-typeset figure img {
+[data-md-color-scheme="slate"] .md-typeset figure img {
   background: #fff;
   padding: 4px;
 }

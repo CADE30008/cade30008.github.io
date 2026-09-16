@@ -1,70 +1,277 @@
-[data-md-color-scheme="flightlab"] {
-    --md-primary-fg-color:        #B01C2E;
-    --md-primary-fg-color--light: #B01C2E;
-    --md-primary-fg-color--dark:  #B01C2E;
-    --md-code-hl-comment-color:   #00aa00;
+/*
+ * Bristol Flight Lab site theme.
+ *
+ * Gives the Zensical site the same identity as the Flight Lab slide template:
+ * the brand red header band with the edge artwork and University crest, the red
+ * footer rule, Trebuchet typography, red-ruled code blocks and red table heads.
+ *
+ * Colours, layout and artwork are University of Bristol brand identity. The
+ * artwork in assets/brand/ is copied from the slide template; keep the two in
+ * step if either changes.
+ *
+ * The palette in zensical.toml uses the stock `default` and `slate` schemes, so
+ * both inherit a complete set of theme variables. Everything below is a brand
+ * override on top of them.
+ */
+
+:root {
+  /* Brand palette, matching src/flightlab.css in the slide template. */
+  --fl-red: #b01c2e;
+  --fl-red-light: #e2394d;
+  --fl-grey: #e3e6e5;
+  --fl-teal: #00c0b5;
+  --fl-cyan: #0cc6de;
+  --fl-orange: #ee7219;
+  --fl-purple: #9278d1;
+  --fl-magenta: #e0249a;
+  --fl-lime: #bed600;
+
+  /* Brand furniture. The edge artwork is 204 x 76 px on a 76 px band; here it
+     is scaled to the header height, so only the clear width matters. */
+  --fl-header-art: 8.6rem;
+
+  /* Typography, matching the deck. */
+  --md-text-font: "Trebuchet MS", "Fira Sans", "Helvetica Neue";
+  --md-code-font: "SF Mono", Menlo, Consolas, "Liberation Mono";
+}
+
+/* ---------- Colour schemes ---------- */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:          #b01c2e;
+  --md-primary-fg-color--light:   #c94759;
+  --md-primary-fg-color--dark:    #8c1624;
+  --md-primary-bg-color:          #ffffff;
+  --md-primary-bg-color--light:   #ffffffb3;
+
+  --md-accent-fg-color:           #b01c2e;
+  --md-accent-fg-color--transparent: #b01c2e1a;
+
+  --md-typeset-a-color:           #b01c2e;
+  --md-code-bg-color:             #eef0ef;
+  --md-code-hl-comment-color:     #00aa00;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 240;
+
+  --md-primary-fg-color:          #b01c2e;
+  --md-primary-fg-color--light:   #c94759;
+  --md-primary-fg-color--dark:    #8c1624;
+  --md-primary-bg-color:          #ffffff;
+  --md-primary-bg-color--light:   #ffffffb3;
+
+  /* Red is too dark to read as a link on a dark ground, so links and hover
+     states lift to a lighter tint of the same hue. */
+  --md-accent-fg-color:           #ff5f5f;
+  --md-accent-fg-color--transparent: #ff5f5f1f;
+  --md-typeset-a-color:           #ff5f5f;
+
+  --md-default-bg-color:          #1e1e24;
+  --md-code-bg-color:             #2e2e35;
+  --md-code-fg-color:             #e0e0e0;
+  --md-code-hl-comment-color:     #00aa00;
+  --md-footer-bg-color:           #1e1e24;
+}
+
+/* ---------- Header: the red band ---------- */
+
+.md-header {
+  color: var(--md-primary-bg-color);
+  background-color: var(--fl-red);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background-repeat: no-repeat;
+  background-position: right 0 top 0;
+  background-size: auto 100%;
+}
+
+/* The edge artwork sits at the right end of the band, as on a slide. It only
+   appears once the window is wide enough to clear the 61rem content column. */
+@media screen and (min-width: 80em) {
+  .md-header {
+    background-image: url("../assets/brand/edge-header.svg");
   }
-
-[data-md-color-scheme="flightlab_dark"] {
-  /* Red branding */
-  --md-primary-fg-color:        #B01C2E;
-  --md-primary-fg-color--light: #B01C2E;
-  --md-primary-fg-color--dark:  #B01C2E;
-
-  /* Dark grey background */
-  --md-default-bg-color:        #1e1e24;  /* like 'slate' */
-  --md-footer-bg-color:         #1e1e24;
-  --md-header-bg-color:         #1e1e24;
-  --md-tabs-bg-color:           #2a2a30;
-  --md-shadow-z1:               0 1px 2px rgba(0, 0, 0, 0.5);
-
-  /* Text & header colors */
-  --md-typeset-color:           #b8b8b8;
-  --md-typeset-a-color:         #ff5f5f;
-  --md-typeset-mark-color:      #ffe082;
-  --md-typeset-kbd-color:       #eeeeee;
-  --md-typeset-table-color:     #cccccc;
-
-  /* Headings override */
-  --md-typeset-heading-color:   #b8b8b8;
-
-  /* Code blocks */
-  --md-code-bg-color:           #2e2e35;  /* different from page background */
-  --md-code-fg-color:           #e0e0e0;
-
-  /* Code highlighting */
-  --md-code-hl-color:           #e14b1e;
-  --md-code-hl-number-color:    #f78c6c;
-  --md-code-hl-string-color:    #c3e88d;
-  --md-code-hl-keyword-color:   #c792ea;
-  --md-code-hl-function-color:  #82aaff;
-  --md-code-hl-variable-color:  #f07178;
-  --md-code-hl-comment-color:   #00aa00;
-  --md-code-hl-punctuation-color: #89ddff;
-  --md-code-hl-constant-color:  #ffcb6b;
-  --md-code-hl-special-color:   #ff5370;
-  --md-code-hl-builtin-color:   #d6b6b2;
-  --md-code-hl-operator-color:   #ff5c57;
-  --md-code-hl-name-color:      #ff5c57;
-
-  /* Scrollbar and selection */
-  --md-accent-fg-color:         #B01C2E;
-  --md-scrollbar-color:         #333;
-  --md-scrollbar-hover-color:   #444;
 }
-[data-md-color-scheme="flightlab_dark"] .md-typeset h1,
-[data-md-color-scheme="flightlab_dark"] .md-typeset h2,
-[data-md-color-scheme="flightlab_dark"] .md-typeset h3,
-[data-md-color-scheme="flightlab_dark"] .md-typeset h4,
-[data-md-color-scheme="flightlab_dark"] .md-typeset h5,
-[data-md-color-scheme="flightlab_dark"] .md-typeset h6,
-[data-md-color-scheme="flightlab_dark"] .md-sidebar h2.md-nav__title 
-[data-md-color-scheme="flightlab_dark"] .md-sidebar .md-nav__title{
-  color: #b8b8b8;
 
+/* The University crest replaces the generic logo icon. */
+.md-header .md-logo {
+  width: 4.4rem;
+  height: 1.2rem;
+  background: url("../assets/brand/logo-bristol-white.svg") no-repeat center /
+    contain;
 }
-[data-md-color-scheme="flightlab_dark"] .md-sidebar h1,
-[data-md-color-scheme="flightlab_dark"] .md-sidebar h2,
-[data-md-color-scheme="flightlab_dark"] .md-sidebar .md-nav__title {
-  color: #b8b8b8 !important;
+
+.md-header .md-logo svg,
+.md-header .md-logo img {
+  display: none;
+}
+
+.md-header__title {
+  font-weight: 700;
+}
+
+/* The search button's default tints are near-invisible on red. */
+.md-search__button {
+  color: var(--md-primary-bg-color);
+  background-color: #ffffff26;
+}
+
+.md-search__button:hover {
+  color: var(--md-primary-bg-color);
+  background-color: #ffffff40;
+}
+
+.md-search__button::before {
+  background-color: var(--md-primary-bg-color);
+}
+
+/* ---------- Navigation ---------- */
+
+.md-nav__title {
+  color: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: var(--md-accent-fg-color);
+}
+
+/* The mobile drawer header carries the band too. The theme's own drawer rules
+   are written as `.md-nav .md-nav__title[for=__drawer] ...`, so these match
+   that specificity rather than losing to it. */
+.md-nav .md-nav__title[for="__drawer"] {
+  color: var(--md-primary-bg-color);
+  background: var(--fl-red);
+  border-bottom: 0;
+}
+
+.md-nav .md-nav__title[for="__drawer"] .md-logo {
+  width: 5rem;
+  height: 1.6rem;
+  background: url("../assets/brand/logo-bristol-white.svg") no-repeat center /
+    contain;
+}
+
+.md-nav .md-nav__title[for="__drawer"] .md-logo img,
+.md-nav .md-nav__title[for="__drawer"] .md-logo svg {
+  display: none;
+}
+
+/* ---------- Typography ---------- */
+
+/* A red rule under the page title, echoing the band above the slide title. */
+.md-typeset h1 {
+  padding-bottom: 0.3em;
+  margin-bottom: 0.9em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--md-default-fg-color);
+  border-bottom: 0.15rem solid var(--fl-red);
+}
+
+.md-typeset h2 {
+  color: var(--md-default-fg-color);
+}
+
+/* Third-level headings are red on a slide, and red here. */
+.md-typeset h3 {
+  font-weight: 700;
+  color: var(--fl-red);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---------- Code, tables, quotes ---------- */
+
+/* The deck rules its code blocks down the left in red. */
+.md-typeset pre > code {
+  border-left: 0.2rem solid var(--fl-red);
+  border-radius: 0 0.2rem 0.2rem 0;
+}
+
+.md-typeset table:not([class]) th {
+  font-weight: 700;
+  color: var(--md-primary-bg-color);
+  background-color: var(--fl-red);
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) td {
+  background-color: var(--md-typeset-table-color--light);
+}
+
+.md-typeset blockquote {
+  padding: 0.6rem 0.8rem;
+  color: var(--md-default-fg-color);
+  background-color: var(--md-default-fg-color--lightest);
+  border-left: 0.2rem solid var(--fl-red);
+}
+
+/* Brand furniture is square-cornered; soften the theme's rounding to match. */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.1rem;
+}
+
+/* Language tabs pick up the brand red rather than the default ink. */
+.md-typeset .tabbed-labels::before {
+  background: var(--fl-red);
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  font-weight: 700;
+  color: var(--fl-red);
+}
+
+.md-typeset .tabbed-labels > label:hover {
+  color: var(--fl-red);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels::before,
+[data-md-color-scheme="slate"] .md-typeset .tabbed-set > input:checked + label,
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels > label:hover {
+  color: var(--md-accent-fg-color);
+  background-color: initial;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .tabbed-labels::before {
+  background: var(--md-accent-fg-color);
+}
+
+/* ---------- Footer: the red rule ---------- */
+
+.md-footer-meta {
+  color: var(--md-primary-bg-color);
+  background-color: var(--fl-red);
+}
+
+.md-footer-meta.md-typeset a,
+.md-footer-meta.md-typeset a:not(:focus, :hover) {
+  color: var(--md-primary-bg-color);
+}
+
+.md-footer-meta.md-typeset a:hover {
+  text-decoration: underline;
+}
+
+.md-copyright__highlight {
+  color: var(--md-primary-bg-color);
+}
+
+/* ---------- Accent text, matching the deck's utility classes ---------- */
+
+.md-typeset .red { color: var(--fl-red); }
+.md-typeset .teal { color: var(--fl-teal); }
+.md-typeset .cyan { color: var(--fl-cyan); }
+.md-typeset .orange { color: var(--fl-orange); }
+.md-typeset .purple { color: var(--fl-purple); }
+.md-typeset .magenta { color: var(--fl-magenta); }
+.md-typeset .lime { color: var(--fl-lime); }
+
+@media print {
+  .md-typeset h1 {
+    border-bottom-color: var(--fl-red);
+  }
 }

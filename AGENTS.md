@@ -74,3 +74,4 @@ npm run build       # all of the above
 - Don't run `npm run sync:accept` on your own judgement. Report what you changed, and let a person review and accept.
 - Don't invent numbers. Derive them from the scripts in `models/`, and run any code you add.
 - Keep University of Bristol branding as it is. See the theme repository's `BRAND.md`.
+- The site theme is `docs/stylesheets/flightlab.css`, which brands the stock `default` and `slate` colour schemes to match the slide template. Its artwork is copied into `docs/assets/brand/`; if the template's artwork changes, copy it across again rather than editing it here.
