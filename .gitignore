@@ -8,3 +8,6 @@ docs/slides/
 docs/downloads/
 # OS
 .DS_Store
+# private material: assessment briefs, rubrics, last year's work, licensed resources
+private/*
+!private/README.md

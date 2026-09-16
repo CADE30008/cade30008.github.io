@@ -70,6 +70,20 @@ control design, and can say why it works. A first-class graduate will also have
 the deeper theoretical and mathematical underpinning to progress to an advanced
 course or a PhD.
 
+## Course themes
+
+Threads that run through the lectures, alongside the principles below.
+
+- **Model-based design.** Introduced early, as the industrial form of the design
+  cycle (P1): requirements, models, simulation, verification and implementation
+  worked from the same models. A guest lecture from MathWorks is likely to focus
+  on it.
+- **AI-assisted engineering.** Students may use AI throughout, including
+  MathWorks' copilots in MATLAB and Simulink, and agentic workflows through the
+  MATLAB MCP Server and the MATLAB and Simulink agentic toolkits. Verifying what
+  an AI tool produces is taught as part of good design practice, and assessed
+  (see [ASSESSMENT.md](ASSESSMENT.md)).
+
 ## Principles
 
 ### P1. The design cycle is the spine
