@@ -66,6 +66,10 @@ extra_javascript = [
 
 [project.theme]
 language = "en"
+# The mark is a step response: rise, overshoot, settle onto the target. Two
+# colourways of one drawing — red for the browser tab, white for the red header.
+logo = "assets/brand/logo.svg"
+favicon = "assets/brand/favicon.svg"
 # navigation.sections is deliberately absent: it renders the top level as flat
 # groups, which cannot be collapsed. Without it each lecture is a collapsible
 # section, and navigation.indexes keeps the handout as the section's own page.
@@ -99,8 +103,6 @@ scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
 
-[project.theme.icon]
-logo = "lucide/plane"
 
 [project.markdown_extensions]
 abbr = {}
@@ -124,6 +126,9 @@ pymdownx.mark = {}
 pymdownx.smartsymbols = {}
 pymdownx.snippets.base_path = ["docs"]
 pymdownx.snippets.check_paths = true
+# Glossary abbreviations are appended to every page, so a term defined once in
+# docs/includes/glossary-abbr.md gets a tooltip wherever it appears.
+pymdownx.snippets.auto_append = ["includes/glossary-abbr.md"]
 pymdownx.superfences = {}
 pymdownx.tabbed.alternate_style = true
 pymdownx.tabbed.combine_header_slug = true

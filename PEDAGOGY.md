@@ -380,6 +380,42 @@ it. See "Case-based learning" below for what was changed and why.
 - **Review check:** what is the week's artifact, what is the gap it ends on, and
   which session resolves it?
 
+### P19. Load is budgeted, and content can be removed
+
+Courses accrete. Every review so far has been able to add material and has had
+no mechanism for taking any out, which over a few years produces a unit that is
+technically excellent and impossible to follow. Load is treated as a budget that
+can be overspent, and removal is a normal outcome of a review, not a failure.
+
+- **The budget is the clock.** P17's slots are fixed. Material that does not fit
+  them is not "covered quickly"; it is cut, moved to an aside (P4), or moved to
+  the extension hours. A session that reliably overruns is over budget, whatever
+  its quality.
+- **Count what is new.** Per session, a rough ceiling: **two** new concepts that
+  a student must hold to follow the argument, **one** new tool or method they
+  must operate, and **one** new piece of notation. Anything beyond that is
+  either an aside, a recall of something already met, or evidence the session
+  needs splitting.
+- **Cumulative load is reviewed across the course, not only per session.** Three
+  sessions each just inside budget can still stack into an unfollowable term,
+  particularly where week *n* consumes week *n* − 1's output (P8).
+- **Every review names a candidate for removal.** If a review of a lecture
+  proposes only additions, it is not finished. The candidate may be rejected,
+  and saying "nothing, and here is why" is a valid answer — but it has to be
+  asked and answered explicitly.
+- **Prefer reducing to cutting.** In order: move it to an aside, move it to the
+  extension hours, replace it with a shorter treatment, cut it. Cutting a
+  worked example usually costs more than cutting the derivation beside it.
+- **Removal is recorded.** A review that removes something says what and why, so
+  that a later reader does not helpfully add it back.
+- **Review check:** what is new in this session, does it fit the counts above,
+  what was proposed for removal, and what happened to it?
+
+The obvious place this bites first is the glossary abbreviations
+(`docs/includes/glossary-abbr.md`), which are appended to every page. If a page
+becomes a thicket of dotted underlines, the fix is to trim that file, not to
+stop defining terms.
+
 ## Case-based learning
 
 Steve's Q8 asked whether the Vet School's case-based learning transfers to this
@@ -645,6 +681,28 @@ is fixed and the file is named from their username. This is better than a
 free-text poll: the values arrive as numbers, they can be read straight into
 MATLAB, and it rehearses the coursework's submission contract in miniature.
 
+The file carries a **display name** alongside the gains, which is what goes on
+screen when a set is flown. Students choose it, and it can be a nickname, a team
+name or an alias; the field is free text and it is stated plainly that it does
+not have to be their real name. The username stays in the file so that we know
+who submitted what, and is never displayed. Fields:
+
+| Field | What it is |
+|---|---|
+| `display_name` | Free text, shown on screen. Anything they like |
+| `username` | Their University username, for our records only |
+| `Kp`, `Ki`, `Kd` | The gains |
+| `model` | The transfer function they identified, so we can see whose model was off |
+| `predicted` | What their simulation said the response would be |
+
+Two reasons the alias matters. Being named on a screen in front of 200 people
+is a real deterrent to submitting at all, and a wrong answer flown badly in
+public is exactly the thing a nervous student will avoid; and the extreme sets
+in round 1 are chosen *because* they misbehave, so somebody's name is going on
+a failure. An alias removes that cost without removing the fun. `predicted` also
+lets round 3 be framed as "whose simulation was closest to the rig", which
+rewards a careful model rather than a lucky one.
+
 **Flying the gains, in three rounds.** The rounds are the teaching, not the
 spectacle:
 
@@ -692,6 +750,90 @@ regulatory controllers using PID feedback.
 - A line from Arthur Richards would sit better in a Bristol lecture than a
   textbook epigraph. Worth asking him for one, with permission to use it.
 
+## The Quanser laboratory: scheduling and its consequences
+
+Both laboratory sittings must be done by the end of reading week 6. The window
+is the Wednesday to Friday of week 1, the four full teaching weeks 2 to 5, and
+reading week 6. Four stations, used exclusively by this unit. Year 3 students
+have about 21 free hours in a normal week, and 4 more on a Wednesday afternoon
+for those not playing sport.
+
+**The cohort.** 190 listed for 2026/27, of whom about 10 are provisional or
+unregistered. Expected to reach 300 to 380 within a couple of years.
+
+**Raw capacity.** At four 2-hour slots a day, four stations give 16 group
+sessions a day and 80 in a full week:
+
+| | Sessions available |
+|---|---|
+| Week 1, Wednesday to Friday | 48 |
+| Weeks 2 to 5 | 320 |
+| Reading week 6 | 80 |
+| **Whole window** | **448** |
+| **Weeks 2 to 5 only** | **320** |
+
+**Demand.** Each group needs two sessions.
+
+| Cohort | Groups | Sessions needed | Of the whole window | Of weeks 2 to 5 only |
+|---|---|---|---|---|
+| 190 in pairs | 95 | 190 | 42% | 59% |
+| 190 in threes | 64 | 128 | 29% | 40% |
+| 300 in pairs | 150 | 300 | 67% | 94% |
+| 380 in pairs | 190 | 380 | 85% | **119%, impossible** |
+| 380 in threes | 127 | 254 | 57% | 79% |
+
+**What this says.**
+
+- **This year works, in pairs, with real slack.** 190 sessions against 448.
+  Even excluding week 1 and reading week it is 59 per cent, which leaves room
+  for no-shows, rescheduling and equipment failure.
+- **Reading week is capacity we should not count on.** Students travel, other
+  units make demands on it, and a laboratory that can only be finished in
+  reading week will generate complaints. Treat weeks 2 to 5 as the real window
+  and week 1 and week 6 as overflow.
+- **Utilisation is not the binding constraint; timetable matching is.** Each
+  student has about ten candidate 2-hour windows a week, and we offer twenty
+  slots. At 59 per cent utilisation almost everyone finds two that fit. Above
+  about 70 per cent it becomes a bin-packing problem, and the students who lose
+  are the ones with the least flexible timetables, which is a fairness problem
+  as much as a logistics one.
+- **The growth case fails, and it fails soon.** At 300 students in pairs the
+  laboratory consumes 94 per cent of the realistic window. At 380 it is
+  arithmetically impossible. Threes at 380 is 79 per cent, which by the point
+  above is already beyond workable. So one of these has to happen before the
+  cohort grows: more stations, a longer window, groups of three, or an activity
+  that does not need a station per group. Deciding late means deciding under
+  pressure, in the year it breaks.
+- **A scalable redevelopment is the option worth starting now,** because it is
+  the only one that does not cost money or timetable. The shape: every group
+  gets *data* from a station, but the analysis, design and verification happen
+  off it. That turns a 2-hour station booking into perhaps 30 minutes of station
+  time, and it is already how the coursework's virtual flight test works. The
+  hardware keeps the thing that only hardware gives — a real machine, really
+  misbehaving — and gives up the part that a simulation does equally well.
+
+**The consequence for teaching, which matters more than the logistics.**
+
+Pairs will do their first sitting anywhere between week 1 and week 6. So **the
+laboratory cannot depend on lecture content beyond Lecture 1**, and the two
+sittings cannot depend on each other in a fixed order unless both are booked
+together. This is a hard constraint on the laboratory's design:
+
+- Everything a sitting needs is either in Lecture 1 or in its own material.
+- A pair arriving in week 2 and a pair arriving in week 6 must both be able to
+  do it, and the week 6 pair should not find it trivial.
+- It sits awkwardly against P8's week-on-week compounding, and against P18's
+  weekly case. The resolution: the laboratory is a **parallel strand**, not a
+  week's activity. Lectures may refer to it as a shared experience but must
+  never require it to have happened.
+- Booking both sittings together, as a pair of slots a fortnight apart, removes
+  the ordering problem and costs nothing. Worth doing.
+
+Related: AQ5 in [ASSESSMENT.md](ASSESSMENT.md) asks whether Part B uses each
+student's own laboratory data. The spread of dates above is an argument against
+it: a student whose data arrives in week 6 has much less time to use it than one
+whose data arrives in week 2.
+
 ## Demonstrations
 
 The lecture theatre takes 200 students and has room for large demonstrations.
@@ -708,6 +850,22 @@ judgement part, and is done by reading.
 
 **When.** When a lecture first reaches draft; before the week it is taught;
 and once across the whole course each time the principles change.
+
+**A load and complexity pass runs alongside every review (P19).** Per lecture,
+it counts what is new against P19's budget and names at least one candidate for
+removal. Across the course, it asks a question a single-lecture review cannot:
+
+- Where does new material stack up fastest, and does anything need moving to a
+  lighter week?
+- Which terms, tools and notations are introduced once and never used again?
+  Those are the cheapest cuts available.
+- Which sessions reliably overrun when taught? Those are over budget regardless
+  of how good the content is.
+- Is anything now taught twice, in two lectures that were drafted separately?
+
+The whole-course pass runs at the same times as the whole-course principles
+review, and its output goes in the same review note, under a heading of its own
+so that removals are easy to find later.
 
 **How.** Read the handout, then the deck, then the example sheet, against the
 principles above. Flag mismatches. Do not silently rewrite: the point is to
@@ -773,8 +931,10 @@ Recorded so they are not lost. Numbered for reference in discussion.
   them for all users from January 2026; confirm with Digital Education), and
   whether data protection allows student responses to be processed by them.
 - **Q4. Quanser resources.** The existing MATLAB, Simulink and PDF materials, to
-  be uploaded, and how the two laboratory sittings are scheduled against the
-  lecture sequence.
+  be uploaded. Scheduling is worked through under "The Quanser laboratory"
+  above; what remains open is when the booking system opens, whether both
+  sittings are booked together as a pair, and the decision on scalability before
+  the cohort reaches 300.
 - **Q5. Prior knowledge.**
   - Aerospace undergraduates have [CADE20002 Dynamics and Control of Linear
     Systems](https://www.bris.ac.uk/unit-programme-catalogue/UnitDetails.jsa?ayrCode=26%2F27&unitCode=CADE20002)
@@ -791,15 +951,14 @@ Recorded so they are not lost. Numbered for reference in discussion.
   - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.
-- **Q7. Where guest lectures go.** The site has eight lectures and a separate
-  Guest lectures page. Two options:
-  - *Separate slots.* Guests take two of the ten teaching weeks on their own.
-    The eight-lecture build is untouched.
-  - *Second-half slots.* Guests take the second half of two lectures, in place of
-    that week's activity. That frees two weeks, but those two weeks' builds need
-    another home, such as a take-home step, or P8 is broken for them.
-  Topics for all eight lectures are still placeholders, and are settled when
-  sketching the course.
+- **Q7. Where guest lectures go.** Decided: guests take a whole teaching week,
+  not the second hour of a taught week. An hour of lecture and questions, with
+  room to overrun a little, then the second hour as free-form questions and
+  student activity. This keeps the eight-lecture build intact and P18's weekly
+  case cycle unbroken, and it gives guests a better slot than a half. Still
+  open: which two weeks, which needs the speakers confirmed; and whether the
+  guest week still carries independent work of its own, or is a deliberate
+  lighter week in the term's load (P19).
 - **Q8. Case-based learning**, after
   [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
   Largely settled: adopted in adapted form as P18, with the reasoning and the

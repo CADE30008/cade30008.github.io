@@ -124,3 +124,28 @@
     display: block !important;
   }
 }
+
+/* ---------- Site mark ---------- */
+
+/* The course mark is a step response: rise, overshoot, settle onto the target.
+   It is the browser favicon (assets/brand/favicon.svg) and the Home nav icon.
+   The header logo slot is not available: flightlab.css fills it with the
+   University wordmark, which stays as it is. Here the mark replaces the stock
+   plane icon on the Home entry, as a mask so it follows the nav's own colour in
+   both schemes. Keep the path in step with assets/brand/favicon.svg. */
+.md-nav__link svg.lucide-plane {
+  display: none;
+}
+.md-nav__link:has(svg.lucide-plane)::before {
+  content: "";
+  flex-shrink: 0;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.3em;
+  background-color: currentColor;
+  mask: var(--fl-mark) no-repeat center / contain;
+  -webkit-mask: var(--fl-mark) no-repeat center / contain;
+}
+:root {
+  --fl-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
