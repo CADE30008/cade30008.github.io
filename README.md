@@ -72,6 +72,8 @@ See [AGENTS.md](AGENTS.md) for the full contract.
 
 `package.json` takes the Flight Lab Marp theme from a sibling folder, `../flightlab-marp-template`. Once the theme is published, change that dependency to `github:BristolFlightLab/marp-template` so that CI can install it.
 
-## Copyright
+## Licence
 
-Teaching content is © 2026 Dr. Steve Bullock. The University of Bristol and Bristol Flight Lab names, logos, colours and visual design are University brand assets, and are not licensed for reuse.
+© 2026 Dr Steve Bullock, University of Bristol. Teaching content, scripts, applets and planning documents are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): share and adapt, with credit.
+
+University of Bristol and Bristol Flight Lab branding, Quanser and MathWorks material, third-party libraries and everything under `private/` are excluded. See [LICENSE.md](LICENSE.md) for the full terms and the complete exclusion list.

@@ -59,7 +59,9 @@ under "Lecture 1: the Quanser session" below. The Quanser can come back into the
 lecture for demonstrations in later weeks.
 
 **In the room.** Most students bring laptops; those who don't share with those
-who do. Assume no teaching assistants, although some may join.
+who do. Assume no teaching assistants, although some may join. The one planned
+exception is a session with hardware in the theatre, where a technician is
+booked for transport, set-up and safety; Lecture 1 is the first of these.
 
 **Preferred text.** Dorf and Bishop, *Modern Control Systems*, chiefly for its
 framing of the control design cycle.
@@ -301,7 +303,7 @@ teaching value, and it lets the material vary without the format varying.
 
 | Slot | Min | What happens | Serves |
 |---|---|---|---|
-| **Recall and resolve** | 5 | Two or three questions on earlier weeks, answered before any answer is shown; then the resolution of last week's hook | P11, P18 |
+| **Hook and recall** | 5 | Resolve last week's cliffhanger; then two or three questions on earlier weeks, answered before any answer is shown | P11, P18 |
 | **Block A** | 15 | Taught: the idea, opened on something concrete | P2, P4 |
 | **Do A** | 10 | Pairs: the smallest real use of the idea. Floor result, sampled to the room | P8 |
 | **Block B** | 15 | Taught: the method or tool that acts on the idea | P2, P4 |
@@ -310,13 +312,13 @@ teaching value, and it lets the material vary without the format varying.
 | **Case brief** | 5 | The artifact arrives. What do we see, what matters here | P18 |
 | **Case build** | 25 | Deploy the week's work on the case. Floor, then ceiling | P8, P18 |
 | **Converge** | 10 | Sample results to the room, name the disagreement, resolve it | P8, P18 |
-| **The hook** | 10 | What this week's tool cannot do. Students name what they would need; the independent work is set | P18, P15 |
+| **Cliffhanger** | 10 | What this week's tool cannot do. Students name what they would need; the independent work is set | P18, P15 |
 
 - **Practice is interleaved, not banked.** Two taught blocks back to back, with
   the practice afterwards, lets block A decay before it is used and hides a
   failed block A until it is too late to change block B.
-- **The session ends on the hook, never on the build.** The build will always
-  want the extra ten minutes. It does not get them.
+- **The session ends on the cliffhanger, never on the build.** The build will
+  always want the extra ten minutes. It does not get them.
 - **Slot names are printed in the deck and the handout.** Students should be able
   to name the slot they are in.
 - **Lectures may deviate, and say so.** Lecture 1 does. A guest lecture may take
@@ -350,14 +352,23 @@ independent study cannot happen in a lecture theatre.
 This is an adaptation of case-based learning as the University's Vet School runs
 it. See "Case-based learning" below for what was changed and why.
 
+**Two words, used strictly.** A session opens on a **hook** and closes on a
+**cliffhanger**. The hook is the grab at the start: it resolves the previous
+session's cliffhanger, and it gives students a reason to want the next 110
+minutes. The cliffhanger is the gap at the end: the thing this week's tool
+cannot do, which next week answers. Each week's cliffhanger becomes the next
+week's hook, which is what makes the sessions a sequence rather than a list.
+Do not use "hook" for the closing gap; that ambiguity cost us a naming pass
+already.
+
 | Step, in the Vet School's form | Where it happens here |
 |---|---|
 | 1–2. Read the case, define terms, identify its key aspects | Case brief, 5 min |
 | 3. Share what you already know | Case build in pairs and threes, 25 min |
 | 4. Arrange explanations, identify gaps | Converge, 10 min |
-| 5. Establish learning objectives | **The hook**, 10 min: the case is built so the week's tool takes students most of the way, and the residual gap is next week's topic, which they name themselves |
+| 5. Establish learning objectives | **Cliffhanger**, 10 min: the case is built so the week's tool takes students most of the way, and the residual gap is next week's topic, which they name themselves |
 | 6. Independent study | The week's independent work, all three parts |
-| 7. Share and reflect | Recall and resolve, at the start of the next session |
+| 7. Share and reflect | Hook and recall, at the start of the next session |
 
 - **A case opens with evidence, not a problem statement.** A telemetry trace, a
   pilot's complaint, a page of an investigation report, a requirements document
@@ -367,9 +378,10 @@ it. See "Case-based learning" below for what was changed and why.
 - **Two grains of case, kept distinct.** The *running case* is the design thread
   on our three systems (P9); it compounds week on week and is what the coursework
   rehearses (P10). The *incident case* is a short real one (P15), used for the
-  hook and for critique and transfer, which is where the higher marks live.
-- **Every hook is paid off** in the next session's opener. One unpaid hook and
-  students stop investing in them.
+  cliffhanger and for critique and transfer, which is where the higher marks
+  live.
+- **Every cliffhanger is paid off** in the next session's hook. One unpaid
+  cliffhanger and students stop investing in them.
 - **The gap must be real.** Test each case by asking whether a practising
   engineer would actually reach for the new tool here. A manufactured gap, where
   the week's tool would have worked and something was hidden, reads as a trick.
@@ -471,8 +483,9 @@ So the claim available to us is a reasonable one: case-based learning adapted
 from the health professions to a large, unfacilitated engineering cohort, by
 distributing the cycle across the week and scaffolding the learning-objective
 step. If we want to make that claim, we should collect something while teaching
-it — hook-to-resolution attendance, the quality of the objectives students
-name at the hook, and the weekly challenge results (P16).
+it — attendance between a cliffhanger and its resolution, the quality of the
+objectives students name at the cliffhanger, and the weekly challenge results
+(P16).
 
 **To read when we engage with the pedagogy properly.** Not now.
 
@@ -639,7 +652,7 @@ properly. It deviates from P17's shape, which is stated to students.
 cannot be flown without one". Controller selection is deliberately skipped: we
 use PID because it is what everyone reaches for first, and we say plainly that
 we will spend a later week finding out when that is the wrong answer. Naming the
-omission is better than hiding it, and it is the first hook (P18).
+omission is better than hiding it, and it is the first cliffhanger (P18).
 
 **Hour 1.**
 
@@ -660,7 +673,7 @@ attempt, plus a clean measured response from the rig.
 | 10 | **System identification** from the measured response, in a MATLAB Live Script |
 | 15 | **Tune a PID** in simulation against the stated requirement, and submit gains |
 | 15 | **Fly the submitted gains** on the real rig, in three rounds |
-| 10 | **The hook** |
+| 10 | **The cliffhanger** |
 
 **System identification.** The elevation axis is lightly damped and second
 order, so a manual fit is genuinely readable: the oscillation period gives the
@@ -713,17 +726,18 @@ spectacle:
 2. **The cohort average.** Rarely the best, and occasionally worse than most of
    its parts, which is a point worth making.
 3. **A few of the best.** Best against the stated requirement, which is the
-   setup for the hook.
+   setup for the cliffhanger.
 
 **Safety.** A student is flying an unstable machine in a room of 200. An e-stop
-on the amplifier, in Steve's hand, is the primary measure. The submitted gains
+on the amplifier, in reach of the lecturer or the technician throughout, is the
+primary measure. The submitted gains
 are filtered before anything reaches the hardware: anything predicted unstable,
 or demanding more than the actuators can give, is rejected by the selection tool
 and not flown. Guarding, tethering and the rig's own limits apply as in the
 laboratory. Sight lines matter too: 200 seats need a camera on the rig with the
 feed on the main screen.
 
-**The hook.** Two gaps, both real:
+**The cliffhanger.** Two gaps, both real:
 
 - **There is no right answer until you say what you want.** The three rounds are
   ranked differently under different requirements. Change the requirement and

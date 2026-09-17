@@ -3,7 +3,14 @@ site_name = "CADE30008 Flight Dynamics & Control"
 site_description = "Lectures, handouts and example sheets for CADE30008 Flight Dynamics & Control at the University of Bristol."
 site_author = "Dr. Steve Bullock"
 site_url = "http://localhost:8000/"
-copyright = "Teaching materials &copy; 2026 Dr. Steve Bullock, University of Bristol"
+# The footer is raw HTML and is NOT link-rewritten per page, so the About link
+# must be root-relative. That assumes the site is served at the root of its
+# domain, as site_url says; if it ever moves under a sub-path, put the prefix in
+# here too.
+copyright = """Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed \
+<a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. \
+University branding, and third-party material including Quanser's and MathWorks', are excluded &mdash; \
+see <a href="/about/#licence">About these materials</a>."""
 
 # Each lecture is a collapsible section whose own link is the handout
 # (navigation.indexes puts docs/<lesson>/index.md on the section itself, so it

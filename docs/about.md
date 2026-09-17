@@ -36,6 +36,30 @@ npm run serve
 
 The site then runs at `http://localhost:8000`.
 
-## Copyright
+## Licence
 
-Teaching content is © 2026 Dr. Steve Bullock. The University of Bristol and Bristol Flight Lab names, logos and visual identity are University brand assets and are not licensed for reuse.
+These materials are © 2026 Dr Steve Bullock, University of Bristol, and are
+published under the
+[Creative Commons Attribution 4.0 International Licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+You are free to share and adapt them, including commercially, provided you give
+credit, link to the licence, and say if you made changes. That covers the
+handouts, slides, example sheets, solutions, figures, glossary, applets and the
+scripts that produce them.
+
+> Bullock, S. (2026). *CADE30008 Flight Dynamics & Control: course materials*.
+> University of Bristol. CC BY 4.0.
+
+Some things in these pages are not ours to license, and are **not** covered:
+
+- the University of Bristol and Bristol Flight Lab names, logos and visual
+  identity, which are University brand assets and trade marks;
+- Quanser's laboratory materials, models and software;
+- MathWorks material, including MATLAB, Simulink and the Onramp courses;
+- assessment material, which is not published here;
+- quotations, figures and data from published work, which are cited where they
+  are used.
+
+If you reuse this material, replace the University branding with your own. The
+full terms, and the complete list of what is excluded, are in `LICENSE.md` in
+the source repository.
