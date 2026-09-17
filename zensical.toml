@@ -53,6 +53,7 @@ nav = [
   ] },
   { "Guest lectures" = "guest-lectures/index.md" },
   { "Preparing for Control" = "preparing/index.md" },
+  { "Glossary" = "glossary.md" },
   { "About these materials" = "about.md" },
 ]
 
