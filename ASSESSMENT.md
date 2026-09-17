@@ -290,8 +290,60 @@ short:
   Directors and the central AI team, and students must be told about it before
   they submit.
 
+## Where this stands, 17 September 2026
+
+Assessment design is parked here while curriculum and learning design are worked
+on. The state of it:
+
+**Out for comment.** Three v0.1 documents were sent to unit colleagues on 17
+September: the Part B brief, *Parts A and B as one story*, and *Individual
+inputs, code-assisted marking and efficient feedback*. Sources are in
+`private/assessment/drafts/`. They are consistent with each other; a scripted
+check covers criterion names, paper sections, checkpoint names, toolbox
+functions, the AI category, marks and the page limit. Nothing moves until Tom
+and colleagues reply (AQ1).
+
+**Decided and not to be reopened without reason.** Category 3 Selective; 50
+marks and roughly 10 pages for Part B; integrated-but-separate Parts A and B
+with a reference model, so neither part's mark depends on the other; per-student
+variants; the submission contract; no generative AI in live marking in 2026/27;
+checkpoints never compulsory and never a flag.
+
+**Outstanding, in the order they will bite.**
+
+1. **Tom's answers (AQ1),** which unblock the case study, the model package and
+   the shared virtual flight test. Everything else waits on these.
+2. **Dates (AQ2).** Part B's design problem must be released in week 1 or 2 for
+   the term-long build to work, so this is needed before teaching starts.
+3. **Checkpoint incentives (AQ13),** below. The current brief wording is usable
+   but is the weakest part of the draft.
+4. **Placeholders in the brief (AQ14),** below.
+5. **Build work.** The variant generator, reference model, virtual flight test
+   and `cade30008` toolbox, tested on University MATLAB machines. Independent of
+   the case study, so it can start once the interfaces are agreed.
+6. **Approvals.** Running student code at scale (AQ10), the LLM trial (AQ12),
+   and Blackboard and MATLAB Grader integrations (AQ8, and the licence
+   administrator in [PEDAGOGY.md](PEDAGOGY.md)).
+
+Curriculum work touches assessment at two points, and should not drift from it:
+the weekly challenge (P16) is the same machinery as the formative pipelines, and
+the in-lecture build (P8) is what P10 says the coursework must mirror.
+
 ## Open questions
 
+- **AQ13. What makes a checkpoint worth submitting.** Checkpoints are not
+  compulsory, so they must pay. Cohort-level feedback alone permits loafing, and
+  non-submission must never read as suspicion. Ideas raised but not adopted:
+  hold-out validation data or unseen flight-test conditions released only through
+  a checkpoint report; an indicative band without a mark; a personal rather than
+  cohort report; limiting what the local `check` returns so the checkpoint gives
+  something the student cannot get alone. Each needs testing against AP-level
+  fairness for students who cannot submit on the day. The brief's current wording
+  says checkpoint work "may be looked at if questions arise", which is honest but
+  sits awkwardly beside "not submitting is never held against you".
+- **AQ14. Placeholders in the Part B brief.** The aircraft and control task, the
+  criterion weights, the page limit, the `run_all.m` run-time limit, the
+  permitted AI purposes, and the opt-out wording for the LLM trial.
 - **AQ1. Part A.** Taught and assessed by Tom. The integrated-but-separate
   proposal puts these questions to him: the case study; whether Part A produces a
   linear model at trim; Part A's deficiencies as Part B's requirements; a

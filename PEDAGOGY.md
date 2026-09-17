@@ -507,3 +507,8 @@ Recorded so they are not lost. Numbered for reference in discussion.
     another home, such as a take-home step, or P8 is broken for them.
   Topics for all eight lectures are still placeholders, and are settled when
   sketching the course.
+- **Q8. Considering case-based learning** a la [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
+  - Steps: 1. Read the case and define terms; 2. Define the key aspects of the case; 3. Share what you (already) know; 4. Arrange explanations and identify gaps in knowledge; 5. Establish and review learning objectives; 6. Independent study; 7. Share and reflect.
+  - Vet School take a week over each cycle of this.
+  - Lots to draw upon, not sure if it's the best fit for this.
+  - Some people have tried similar. Check them out. https://doi.org/10.1109/TE.2007.909361, https://doi.org/10.54097/8csbk196
