@@ -3,7 +3,7 @@ title: "Lecture 2: Closed-loop PID control"
 description: "PID control of aircraft pitch attitude, designed and understood through Bode plots and step responses."
 lesson: l02-pid-control
 order: 2
-duration: 50 min
+duration: 110 min
 ---
 
 # Lecture 2: Closed-loop PID control

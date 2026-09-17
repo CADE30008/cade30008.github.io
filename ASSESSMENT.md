@@ -371,6 +371,10 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   and rubric, the EMATM0055 dissertation rubric workbook, and the University's
   level 6 marking criteria. A draft Part B brief is in
   `private/assessment/drafts/`.
+- **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
+  with journals and assignment peer review available. The Original course view
+  retires at the end of 2026.
+
 - **AQ9. Part A rubric.** A comparable Part A rubric is proposed; Tom may prefer
   a more granular, criteria-based one. Also whether the two parts' briefs are
   released together.
@@ -385,10 +389,6 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   Directors and the central AI team; whether a notice with an opt-out is enough
   or consent is needed; and whether to seek ethics approval now, in case the
   results are written up. All must be settled before this year's submission.
-- **AQ8. Blackboard.** Confirm that Bristol's courses use Ultra course view,
-  with journals and assignment peer review available. The Original course view
-  retires at the end of 2026.
-
 ## References
 
 - Villarroel, V., Bloxham, S., Bruna, D., Bruna, C. and Herrera-Seda, C. (2018). Authentic assessment: creating a blueprint for course design. *Assessment & Evaluation in Higher Education*, 43(5), 840–854. [doi:10.1080/02602938.2017.1412396](https://doi.org/10.1080/02602938.2017.1412396)

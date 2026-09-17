@@ -3,7 +3,7 @@ title: "Lecture 6: Stability augmentation systems"
 description: "Placeholder. Topic and content for lecture 6 are provisional."
 lesson: l06-stability-augmentation
 order: 6
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

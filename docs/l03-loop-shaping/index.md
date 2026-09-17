@@ -3,7 +3,7 @@ title: "Lecture 3: Loop shaping and frequency-domain design"
 description: "Placeholder. Topic and content for lecture 3 are provisional."
 lesson: l03-loop-shaping
 order: 3
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

@@ -1,3 +1,10 @@
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
 *[BIBO]: bounded input, bounded output: a bounded input never produces an unbounded output
 *[CAA]: Civil Aviation Authority
 *[DoF]: degree of freedom: one independent way a system can move
@@ -18,10 +25,6 @@
 *[ZOH]: zero-order hold: holding a sampled value constant until the next sample
 *[trim]: a steady condition the aircraft holds, with the forces balanced
 *[plant]: the thing being controlled, and everything outside the controller
-*[phase margin]: how much extra phase lag the loop can take before it goes unstable
-*[gain margin]: how much extra gain the loop can take before it goes unstable
-*[crossover frequency]: the frequency at which the loop gain passes through 1
-*[windup]: the integral term accumulating while the actuator is saturated
 *[saturation]: an actuator reaching its limit and unable to give more
 *[rate limit]: a limit on how fast an actuator can move, as distinct from how far
 *[damping ratio]: how quickly an oscillation dies away: 0 rings forever, 1 does not oscillate
@@ -32,7 +35,6 @@
 *[spiral mode]: the slow lateral divergence or convergence in bank
 *[roll subsidence]: the rapid damping of roll rate
 *[handling qualities]: how an aircraft behaves to the pilot flying it, against published standards
-*[loop shaping]: designing by deciding what the loop gain should look like against frequency
 *[observer]: something that reconstructs unmeasured states from measured ones
 *[controllability]: whether the inputs can move every state
 *[observability]: whether the outputs reveal every state

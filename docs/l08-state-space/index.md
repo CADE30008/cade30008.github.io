@@ -3,7 +3,7 @@ title: "Lecture 8: State-space models and full-state feedback"
 description: "Placeholder. Topic and content for lecture 8 are provisional."
 lesson: l08-state-space
 order: 8
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

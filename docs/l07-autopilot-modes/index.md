@@ -3,7 +3,7 @@ title: "Lecture 7: Autopilot modes: attitude and altitude hold"
 description: "Placeholder. Topic and content for lecture 7 are provisional."
 lesson: l07-autopilot-modes
 order: 7
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

@@ -3,7 +3,7 @@ title: "Lecture 4: Longitudinal dynamics and modes"
 description: "Placeholder. Topic and content for lecture 4 are provisional."
 lesson: l04-longitudinal-dynamics
 order: 4
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

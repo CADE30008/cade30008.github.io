@@ -3,7 +3,7 @@ title: "Lecture 1: Course introduction and aircraft models"
 description: "Placeholder. Topic and content for lecture 1 are provisional."
 lesson: l01-course-introduction
 order: 1
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 

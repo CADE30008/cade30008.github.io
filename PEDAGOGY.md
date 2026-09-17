@@ -292,6 +292,8 @@ and staff early who is struggling.
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
   otherwise.
+- Guest weeks carry no challenge, so there are eight plus the week 1 diagnostic
+  across ten teaching weeks (Q7).
 - **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
 
 ### P17. One shape every week
@@ -648,105 +650,57 @@ Lecture 1 runs the whole design cycle once, on the Quanser 3-DoF helicopter's
 elevation axis, in front of the room. Everything after it is that cycle done
 properly. It deviates from P17's shape, which is stated to students.
 
+**The operational plan is [teaching/l01.md](teaching/l01.md)** — timings,
+files, set-up, contingencies. What follows is only the reasoning behind it,
+which is what this file is for. Keep the plan out of here: it was duplicated in
+both places once, and the two had already begun to drift.
+
 **The narrative.** Not "here is a control system", but "here is a machine that
 cannot be flown without one". Controller selection is deliberately skipped: we
 use PID because it is what everyone reaches for first, and we say plainly that
 we will spend a later week finding out when that is the wrong answer. Naming the
 omission is better than hiding it, and it is the first cliffhanger (P18).
 
-**Hour 1.**
+**Why the open-loop flight attempt carries the session.** A student volunteer,
+flying the elevation axis with direct control of each motor on two joysticks,
+cannot hold it. It is predict-observe-explain (P12) with the whole room having
+bet first, it is the authentic case P15 asks for, and it makes the need for
+feedback a thing the room watched rather than a thing it was told. Everything
+after it in the unit refers back to it.
 
-1. Why control exists, and the design cycle as the spine of the unit (P1).
-2. The rig: what it is, how it is driven, how it is made safe.
-3. **The open-loop flight attempt.** A student volunteer flies the elevation axis
-   open loop, with direct control of each motor on two joysticks. They will not
-   be able to hold it. This is the demonstration the whole unit hangs off, and it
-   follows predict-observe-explain (P12): the room votes first on how long they
-   will last.
-4. What a requirement is, and the requirement we will design to today.
+**Why system identification comes before any theory.** The floor is a manual
+second-order fit: the oscillation period gives the damped frequency, the ratio
+of successive peaks gives the damping ratio, the steady state gives the gain.
+Everyone reaches a model, which makes the point that a model is something you
+*get*, not something you are handed (P8's floor). `tfest` is the ceiling. The
+existing laboratory material puts this axis near a damping ratio of 0.06, so
+the ringing is readable by eye, and it carries two alternative fits from
+different rigs — a free demonstration that two honest engineers get two
+different models.
 
-**Hour 2, the case hour.** The artifact is the recording of the open-loop
-attempt, plus a clean measured response from the rig.
+**Why gains come back as files, not as a poll.** The values arrive as numbers
+that read straight into MATLAB, and it rehearses the coursework's submission
+contract in miniature (P10). The file carries a student-chosen `display_name`,
+which may be an alias: round 1 flies the extremes *because* they misbehave, so
+somebody's name goes on a public failure, and being named in front of 200
+people is exactly what stops a nervous student submitting at all. It also
+carries their `predicted` response, so round 3 can ask whose simulation came
+closest to the rig — rewarding a careful model rather than a lucky guess.
 
-| Min | What |
-|---|---|
-| 10 | **System identification** from the measured response, in a MATLAB Live Script |
-| 15 | **Tune a PID** in simulation against the stated requirement, and submit gains |
-| 15 | **Fly the submitted gains** on the real rig, in three rounds |
-| 10 | **The cliffhanger** |
+**Why three rounds.** Extremes first, so cause and effect are seen before any
+good answer; then the cohort average, which is often worse than most of its
+parts; then the best few, which sets up the cliffhanger.
 
-**System identification.** The elevation axis is lightly damped and second
-order, so a manual fit is genuinely readable: the oscillation period gives the
-damped frequency, the ratio of successive peaks gives the damping ratio, and the
-steady state gives the gain. That is the floor, reachable by everyone. The
-ceiling is `tfest`, in the same Live Script, for those who can. The Live Script
-offers both routes; the measured data is distributed through MATLAB Drive.
-`private/quanser/Quanser Lab/Quanser Lab 1 - System ID and PID/` already holds a
-system-identification Live Script and matching data from the existing
-laboratory, which is the thing to adapt rather than write fresh. It models the
-axis as second order with a damping ratio near 0.06, and carries two
-alternative fits from different rigs, which is a ready-made illustration that
-two honest engineers get two different models.
-
-**Getting gains back.** Students drop a small results file into a shared MATLAB
-Drive folder, one per student or pair, written by the Live Script so the format
-is fixed and the file is named from their username. This is better than a
-free-text poll: the values arrive as numbers, they can be read straight into
-MATLAB, and it rehearses the coursework's submission contract in miniature.
-
-The file carries a **display name** alongside the gains, which is what goes on
-screen when a set is flown. Students choose it, and it can be a nickname, a team
-name or an alias; the field is free text and it is stated plainly that it does
-not have to be their real name. The username stays in the file so that we know
-who submitted what, and is never displayed. Fields:
-
-| Field | What it is |
-|---|---|
-| `display_name` | Free text, shown on screen. Anything they like |
-| `username` | Their University username, for our records only |
-| `Kp`, `Ki`, `Kd` | The gains |
-| `model` | The transfer function they identified, so we can see whose model was off |
-| `predicted` | What their simulation said the response would be |
-
-Two reasons the alias matters. Being named on a screen in front of 200 people
-is a real deterrent to submitting at all, and a wrong answer flown badly in
-public is exactly the thing a nervous student will avoid; and the extreme sets
-in round 1 are chosen *because* they misbehave, so somebody's name is going on
-a failure. An alias removes that cost without removing the fun. `predicted` also
-lets round 3 be framed as "whose simulation was closest to the rig", which
-rewards a careful model rather than a lucky one.
-
-**Flying the gains, in three rounds.** The rounds are the teaching, not the
-spectacle:
-
-1. **A few individual sets, chosen to be extreme.** A small selection tool picks
-   submissions from the edges of the cohort's spread: the most aggressive, the
-   most sluggish, the one with the most integral. Students see the shape of
-   cause and effect before they see a good answer.
-2. **The cohort average.** Rarely the best, and occasionally worse than most of
-   its parts, which is a point worth making.
-3. **A few of the best.** Best against the stated requirement, which is the
-   setup for the cliffhanger.
+**The cliffhanger.** Two gaps, both real. There is no right answer until you
+say what you want — re-rank the rounds under a different requirement and the
+winner changes, which motivates the requirements strand and the coursework's
+first criterion. And simulation and hardware disagree, which motivates model
+validation and the virtual flight test.
 
 **Safety.** A student is flying an unstable machine in a room of 200. An e-stop
 on the amplifier, in reach of the lecturer or the technician throughout, is the
-primary measure. The submitted gains
-are filtered before anything reaches the hardware: anything predicted unstable,
-or demanding more than the actuators can give, is rejected by the selection tool
-and not flown. Guarding, tethering and the rig's own limits apply as in the
-laboratory. Sight lines matter too: 200 seats need a camera on the rig with the
-feed on the main screen.
-
-**The cliffhanger.** Two gaps, both real:
-
-- **There is no right answer until you say what you want.** The three rounds are
-  ranked differently under different requirements. Change the requirement and
-  the winner changes. This motivates the whole of the requirements strand and
-  the coursework's first criterion.
-- **Simulation and hardware disagree.** Gains that won in simulation will not
-  behave the same on the rig, because of what the model left out: noise,
-  saturation, delay, unmodelled dynamics. That is the model-validation strand
-  and the coursework's virtual flight test.
+primary measure, and submitted gains are filtered before anything reaches the
+hardware. The rest is in the run sheet.
 
 **A quote for the PID week.** Åström and Murray open their PID chapter with
 "PID control is by far the most common way of using feedback", above an epigraph
@@ -972,7 +926,12 @@ Recorded so they are not lost. Numbered for reference in discussion.
   case cycle unbroken, and it gives guests a better slot than a half. Still
   open: which two weeks, which needs the speakers confirmed; and whether the
   guest week still carries independent work of its own, or is a deliberate
-  lighter week in the term's load (P19).
+  lighter week in the term's load (P19). Two consequences found in the review of
+  17 September: eight lectures plus two guest weeks is *exactly* the ten teaching
+  weeks, so the term has no slack for a cancellation or an overrun; and a guest
+  week breaks P18's chain, because a cliffhanger set in week *n* is then resolved
+  in week *n* + 2. Placing guest weeks at act boundaries, where a cliffhanger is
+  closing anyway, solves the second and not the first.
 - **Q8. Case-based learning**, after
   [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
   Largely settled: adopted in adapted form as P18, with the reasoning and the
@@ -984,3 +943,14 @@ Recorded so they are not lost. Numbered for reference in discussion.
     teaching starts, not after.
   - How the case grain interacts with the guest lectures (Q7), since a guest
     taking the case hour breaks that week's cycle.
+- **Q9. The student effort budget.** It doesn't close. A 20 credit unit is about
+  200 hours, so this half is about 100. Contact accounts for 24 — eight sessions,
+  two guest weeks and four laboratory hours — and P17's core independent work for
+  20. That leaves **56 hours unaccounted**, more than half the total. Three
+  possible answers, and they lead to different courses:
+  - the coursework endgame really is that large, in which case it belongs in the
+    published term plan, because students plan against what we publish;
+  - P17's two core hours a week are too few, and should be three or four;
+  - the split with Part A is not 50/50.
+  This has to be settled before the week-by-week grid: it decides how much can be
+  asked of a week. Raised by the review of 17 September (F1).

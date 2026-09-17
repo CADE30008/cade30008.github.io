@@ -3,7 +3,7 @@ title: "Lecture 5: Lateral-directional dynamics and modes"
 description: "Placeholder. Topic and content for lecture 5 are provisional."
 lesson: l05-lateral-directional
 order: 5
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 
