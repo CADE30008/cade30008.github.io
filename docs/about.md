@@ -16,12 +16,17 @@ Some sections include small interactive applets, such as a PID tuner with slider
 
 ## Generative AI
 
-Generative AI tools were used to help develop these learning resources.
+Generative AI tools were used to help develop these learning resources. The
+pedagogy and content are mine, and I have checked and rewritten all of it.
 
 Teaching, and all formative and summative assessment, are carried out by people.
 Automated scripts help with technical checks, such as whether your code runs and
 reproduces your results. Those scripts are conventional code, not generative AI or
 large language models, and they don't award marks.
+
+How I think about AI in engineering and in learning, why I built these materials
+the way I did, and how to send me feedback, are on
+[AI in this course](ai.md).
 
 ## Building a local copy
 

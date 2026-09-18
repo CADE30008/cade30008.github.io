@@ -4,15 +4,26 @@
 
 [^checked]: The final versions of all process and assignment documents, and of all student-facing and back-office code, will be fully checked manually.
 
-**Status: proposal, 18 September 2026. Nothing here is committed except Lecture
-1.** Every other session in the site's navigation is a placeholder (see
-[CONTENT.md](CONTENT.md)). This document proposes what the unit should teach, in
-what order, and where the boundaries sit, so that the week-by-week can be agreed
-and then written.
+**Status, 18 September 2026: option B agreed** (§7). The nine lectures are
+scoped — titles, learning outcomes, activities, cases — in
+[curriculum/lectures.yaml](curriculum/lectures.yaml), and mapped onto this
+year's twelve weeks in
+[curriculum/schedule-2026-27.yaml](curriculum/schedule-2026-27.yaml). The scope
+is a proposal for Steve's review; only Lecture 1's plan was agreed first. No
+lecture content is written except Lecture 3's, which predates all of this.
+
+This document holds the *reasoning*: the constraint, the capabilities, the
+concept tiers, the benchmarks, the options, and the decisions. It does not
+repeat the per-lecture detail, which lives in the YAML and is rendered by
+`npm run curriculum` as a planning diagram in `planning/lecture-map.html`.
 
 It sits between [PEDAGOGY.md](PEDAGOGY.md), which says *how* we teach, and
-[CONTENT.md](CONTENT.md), which says what exists. When a scope is agreed here,
-CONTENT.md's rows move from **placeholder** to **scoped**.
+[CONTENT.md](CONTENT.md), which says what exists.
+
+**Lectures and weeks are decoupled.** A lecture has a stable number and a
+topic-named folder. Which week it falls in belongs to a year's schedule. So
+this document refers to lectures by number (L1 to L9), never by week, except
+where it is talking about this particular year.
 
 ---
 
@@ -148,49 +159,38 @@ flight control software.
 
 ---
 
-## 5. The proposed arc
+## 5. The arc
 
-Three acts (as agreed), mapped onto this year's nine control sessions.
+Three acts, nine lectures. Each lecture's design question, outcomes, activities,
+case, hook and cliffhanger are in `curriculum/lectures.yaml`; the planning
+diagram shows them together.
 
-### Act I — the loop you can build
-
-By the end of Act I, every student has been round the whole design cycle
-twice: once on hardware they watched, once properly.
-
-| Wk | Session | Design question | Focus | System | Case | Cliffhanger |
-|---|---|---|---|---|---|---|
-| 1 | **The design cycle, end to end** | Can we make it fly? | Whole cycle | Quanser elevation | The open-loop flight attempt | No right answer without a goal; simulation disagrees with hardware |
-| 3 | **Requirements and models you can trust** | What do we want, and what do we know? | Requirements, model validation | Quanser, then fixed-wing | Lecture 1's simulation-hardware gap | A model you trust, a requirement you can test — and a controller that still saturates |
-| 4 | **PID, properly** | Why does the obvious controller usually work, and when doesn't it? | Design, implementation | Fixed-wing pitch | An actuator-limited loop; windup | It worked — but how close to the edge is it? |
-
-*Week 2 is Flight Dynamics this year. Act I's second session is week 3.*
-
-### Guest week
-
-| Wk | Session | Note |
+| Act | Lectures | By the end of the act |
 |---|---|---|
-| 5 | **Guest: model-based design with agentic AI** (proposed topic) | Reading week. MathWorks' own agentic AI control demo — requirements to deployment on a rotary pendulum — maps directly onto our Quanser. Hour 2 open Q&A. The P18 chain is suspended here, by agreement |
+| **I — the loop you can build** | L1 The design cycle, end to end · L2 Requirements and models you can trust · L3 PID, properly | Every student has been round the whole cycle twice: once on hardware they watched, once properly |
+| **II — analysis and design that scale** | L4 Stability and margins · L5 Robustness and trade-offs · L6 Loop shaping | They can say how stable a loop is, what that does and doesn't guarantee, and design to a specification rather than tune |
+| **III — aircraft and modern methods** | L7 Flight control architecture · L8 State space and state feedback · L9 What comes next | They can place a controller in an aircraft's architecture, design by state feedback, and see what lies beyond the unit |
 
-### Act II — analysis and design that scales
+The guest lecture is unnumbered, sits outside the acts, and is proposed as
+MathWorks on agentic AI for model-based design: their own demonstration takes
+a rotary pendulum from requirements to deployment, which maps directly onto the
+Quanser.
 
-| Wk | Session | Design question | Focus | System | Case | Cliffhanger |
-|---|---|---|---|---|---|---|
-| 6 | **Stability and margins** | How close to the edge are we? | Analysis | Fixed-wing | YF-22: rate limit and delay | Big margins, and it still went unstable — margins measure the wrong thing |
-| 7 | **Robustness and trade-offs** | What happens when the model is wrong? | Analysis, requirements | Multirotor | Ingenuity flight 6 | We know what we want the loop to look like — now build it |
-| 8 | **Loop shaping** | How do we design to a spec, not tune by eye? | Design | Fixed-wing | Revisit week 4's PID as a shaped loop | One loop at a time works — until the loops talk to each other |
+### This year: one lecture over
 
-### Act III — aircraft and modern methods
+2026/27 has room for eight lectures, not nine: week 2 is given to Flight
+Dynamics, week 5 has the guest lecture, week 6 is reading week, and week 11's
+second hour is coursework Q&A. Options, **for Steve to decide**:
 
-| Wk | Session | Design question | Focus | System | Case | Cliffhanger |
-|---|---|---|---|---|---|---|
-| 9 | **Flight control architecture** | Who is flying, and which loop is doing what? | Whole cycle, architecture | Fixed-wing | Boeing 737 MAX MCAS; Air France 447 | Loops that interact need a method that sees all the states at once |
-| 10 | **State space and state feedback** | What if we could use everything the system knows? | Design | Quanser, all three axes | Why the Quanser's travel axis defeats a single PID | What sits above this course |
-| 11 | **Horizon, then coursework Q&A** | What comes next — and does your design hold up? | Implementation, limits | All three | X-15 3-65-97: adaptive control | — (the unit closes) |
+| | Option | Costs | Keeps |
+|---|---|---|---|
+| **R1** | **L5 and L6 in one session, week 8** (proposed) | Each gets half a session. The P19 budget holds only because block A carries S and T and block B carries shaping — which is P17's idea-then-method structure exactly | State space keeps a full session in week 10, before the deadline; L9 keeps week 11; nothing is cut |
+| R2 | L9 becomes a handout page | State space moves to week 11's single hour, two days before the deadline — the most overloaded lecture in the thinnest slot | L5 and L6 separate |
+| R3 | Use week 12, if the Tuesday slot exists | Revision week, after submission, when attendance will be thin and students are revising for exams in other units. State space or L9 would fall after the deadline | Nothing cut. Needs the timetable checked |
+| R4 | L4 and L5 together | Two threshold concepts — margin as distance, and feedback as a trade — in one session. Over budget | L6 separate |
 
-**Week 11 is also the buffer.** If a session is lost earlier in the term, week
-11's first hour absorbs it and the horizon material moves to the handout. That
-is the term's only slack, and it should be spent deliberately rather than
-planned into.
+**Recommendation: R1.** It costs least and fits P17 unusually well. From
+2027/28, with week 2 back, nine lectures fit with half a session to spare.
 
 ### How the coursework tracks the arc
 
@@ -203,97 +203,98 @@ AQ2) fall at the end of each act, so each lands just after its material:
 | 2. Design and analysis | end of 8 | Act II | 3–4, plus peer review |
 | 3. Draft paper | end of 9 | Architecture | All |
 
-**One collision to resolve.** State space (week 10) is taught *after* the last
-checkpoint and one week before the deadline. If Part B *requires* a
-state-space design, students meet it too late to use well. Recommendation:
-make it **optional and rewarded** — a route to higher marks under criterion B2,
-not a requirement. Recorded as AQ15 in ASSESSMENT.md.
+**State space in the coursework — decided for now.** L8 is taught after the last
+checkpoint and just before the deadline, so a state-space design is **optional
+and rewarded** under criterion B2, not required (AQ15). It may leave the
+coursework entirely. Either way it stays in the lectures, as the foundation the
+year 4 advanced unit builds on.
 
 ### Where things land
 
 **The three systems (P9).** Each has a job, and each appears in more than one
 act, which is what makes comparison possible (variation theory):
 
-| System | Where | Why there |
+| System | Lectures | Why there |
 |---|---|---|
-| Quanser 3-DoF | 1, 3, 10, laboratory | Real hardware, really unstable open loop. Genuinely multi-axis, which makes it the natural state-space case |
-| Fixed-wing | 3, 4, 6, 8, 9 | The coursework plant. Carries the aircraft-specific material |
-| Multirotor | 7, and example sheets throughout | Fast, open-loop unstable, easy to reason about. Robustness bites visibly |
+| Quanser 3-DoF | L1, L2, L4, L8, and the laboratory | Real hardware, really unstable open loop. Genuinely multi-axis, which makes it the natural state-space case |
+| Fixed-wing | L2, L3, L4, L6, L7 | The coursework plant. Carries the aircraft-specific material |
+| Multirotor | L5, and example sheets throughout | Fast, open-loop unstable, easy to reason about. Robustness bites visibly |
 
-**The real-world cases (P15).** One per session where the lesson is precise;
+**The real-world cases (P15).** One per lecture where the lesson is precise;
 none where it would be decoration:
 
-| Case | Session | The control lesson, stated precisely |
+| Case | Lecture | The control lesson, stated precisely |
 |---|---|---|
-| YF-22 (1992) | 6 | Rate limiting and loop delay produce a PIO that linear margins don't predict |
-| Ingenuity flight 6 (2021) | 7 | Margins and robustness bought survival when the model's assumptions broke |
-| 737 MAX MCAS | 9 | Authority, sensing redundancy, and the pilot as a loop element — **to find** a primary source |
-| Air France 447 | 9 | Automation handing back a degraded aircraft — **to find** a primary source |
-| X-15 3-65-97 (1967) | 11 | An adaptive system entering a limit cycle; why adaptive and learned control are hard to certify |
+| YF-22 (1992) | L4 | Rate limiting and loop delay produce a PIO that linear margins don't predict |
+| Ingenuity flight 6 (2021) | L5 | Margins and robustness bought survival when the model's assumptions broke |
+| 737 MAX MCAS | L7 | Authority, sensing redundancy, and the pilot as a loop element — **to find** a primary source |
+| Air France 447 | L7 | Automation handing back a degraded aircraft — **to find** a primary source |
+| X-15 3-65-97 (1967) | L9 | An adaptive system entering a limit cycle; why adaptive and learned control are hard to certify |
 
-MCAS and AF447 both land on week 9 — the architecture session — which is where
-they are most instructive. Both still need primary sources (P15, as agreed).
+MCAS and AF447 both land on L7, the architecture lecture, which is where they
+are most instructive. Both still need primary sources (P15, kept as agreed).
 
 **Emerging trends.**
 
 | Trend | Where | How much |
 |---|---|---|
-| **Agentic AI for model-based design** — Simulink Agentic Toolkit, MATLAB MCP server | Guest week 5; a theme throughout (PEDAGOGY's course themes); permitted in the coursework (Category 3) | A thread, not a topic. Students *use* it, and verification of its output is taught and assessed |
-| **Model-based design** | Every session's case hour; Lecture 1's live demo is MBD in miniature | A thread |
-| **Reinforcement learning and learned control** | Week 11, horizon | About ten minutes. Framed by the X-15: what it is, where it is genuinely used, and why the certification story is the hard part. That framing is the aerospace-specific insight a general ML course won't give |
-| **Digital implementation** | Week 4's handout; week 11 | Enough to know that what runs is discrete, and what that costs |
+| **Agentic AI for model-based design** — Simulink Agentic Toolkit, MATLAB MCP server | The guest lecture; a theme throughout (PEDAGOGY's course themes); permitted in the coursework (Category 3) | A thread, not a topic. Students *use* it, and verification of its output is taught and assessed |
+| **Model-based design** | Every case hour; L1's live demonstration is model-based design in miniature | A thread |
+| **Reinforcement learning and learned control** | L9 | About ten minutes. Framed by the X-15: what it is, where it is genuinely used, and why certification is the hard part — the aerospace-specific insight a general machine-learning course won't give |
+| **Digital implementation** | L3's handout; L9 | Enough to know that what runs is discrete, and what that costs |
 
 ---
 
-## 6. Loading: does each session fit P19's budget?
+## 6. Loading: does each lecture fit P19's budget?
 
 Two new concepts, one new tool, one new notation, **in the taught blocks**.
+The counts live in each lecture's `budget` in `lectures.yaml`, and
+`npm run curriculum` checks them, so this section records only the verdicts and
+what to do about them. At present it warns on four things:
 
-| Wk | New concepts | New tool | New notation | Verdict |
-|---|---|---|---|---|
-| 1 | Feedback as a trade; requirement as design input | Manual second-order fit | — | **Fits** |
-| 3 | Model validity; requirement from handling qualities | Model-vs-data comparison | — | **Fits** |
-| 4 | Derivative filtering; windup | Anti-windup | $K_p, K_i, K_d$ in frequency form | **Fits.** Tier 0 PID is retrieval, not new |
-| 6 | Nyquist stability; margin as distance | Nyquist plot | $L(j\omega)$, encirclement | **Borderline** on notation |
-| 7 | S and T; the waterbed | Sensitivity plots | $S$, $T$ | **Over** unless S and T are taught as one idea — "the two ways a loop responds" — with the waterbed as the second concept |
-| 8 | Loop gain is the design | Lead–lag | — | **Fits** |
-| 9 | Layered control; handling qualities as requirements | Loop architecture diagrams | — | **Fits** |
-| 10 | State; state feedback; *observer*; *controllability*; *LQR* | Pole placement; LQR | $\dot x = Ax + Bu$ | **Over by two or three.** See below |
-| 11 | — | — | — | Horizon: awareness only, budget doesn't apply |
+| Lecture | Verdict | What to do |
+|---|---|---|
+| L4 Stability and margins | Borderline: two notations, $L(j\omega)$ and encirclement | $L(j\omega)$ is tier 0 in principle. Check the week 1 diagnostic before deciding |
+| L5 Robustness | Fits only if S and T are taught as one idea | Teach them as a pair from the start — "the two ways a loop responds". That is also the better way: S + T = 1 *is* the threshold |
+| L8 State space | At budget only because observers and controllability are handout-only; two tools, pole placement and LQR | See below. **Steve to spend time on this lecture when we reach it** |
+| This year's week 8 | Two lectures in one session (R1) | Block A carries S and T, block B carries shaping |
 
-**Week 10 is the problem**, and it is the one every benchmark agrees on: state
-space is big. Three ways to fit it:
+**L8 is the problem**, and it is the one every benchmark agrees on: state space
+is big. Three ways to fit it:
 
-1. **Scope it hard (recommended).** Teach *state* and *state feedback by pole
+1. **Scope it hard (current).** Teach *state* and *state feedback by pole
    placement*, with LQR introduced as "a tuning knob instead of choosing poles
    by hand". Observers, controllability and observability move to the handout
    (tier 3). Every student can then design a state-feedback controller on a
    model with all states measured, which is what C6 asks. The Quanser's second
    laboratory material already covers LQR, so the laboratory carries it too.
-2. **Two sessions.** Take week 11's first hour. Costs the term's only buffer.
-3. **Move it earlier and thinner.** Introduce state in week 3 alongside models,
-   so week 10 builds rather than starts. Better learning, but week 3 is already
-   full.
-
-**Week 7** fits if S and T are taught as a pair from the start. That is also
-the better way to teach them: the identity S + T = 1 *is* the threshold concept.
+2. **Two sessions.** Possible from 2027/28, with the half-session to spare.
+3. **Introduce state earlier and thinner,** in L2 alongside models, so L8 builds
+   rather than starts. Better learning, but L2 is already full.
 
 ---
 
 ## 7. Options on the boundaries
 
-The recommended arc is **B** below. The others are real alternatives, each with
-a cost.
+**Option B was agreed on 18 September.** The others are recorded because the
+classical–modern balance is to be reviewed again (see below).
 
 | | Option | What changes | Buys | Costs |
 |---|---|---|---|---|
-| **A** | **Classical only** | State space drops to the horizon session. Week 10 becomes a second design session | Depth. Two full sessions on design | **Fails ILO 5**, which says "classical and modern". Not viable without a catalogue change |
-| **B** | **Balanced (recommended)** | As §5. One scoped state-space session | Covers every ILO; aircraft architecture gets a full session | State space is thin — the door, not the building |
-| **C** | **Modern-first** (Caltech order) | State space in Act I, frequency domain in Act II | Mathematically cleaner; state space properly taught | Fights the prerequisite, fights P2, and fights the classical coursework. Students arrive knowing Bode, not $\dot x = Ax + Bu$ |
-| **D** | **Depth over coverage** | Six topics, two sessions each on the hardest | Real mastery of margins and state space | Drops a whole session. Architecture (ILO 6) becomes reading only — the one thing no benchmark teaches, and our differentiator |
+| A | Classical only | State space drops to L9 | Depth. Two full lectures on design | **Fails ILO 5**, which says "classical and modern". Not viable without a catalogue change |
+| **B** | **Balanced — agreed** | As §5. One scoped state-space lecture | Covers every ILO; aircraft architecture gets a full lecture | State space is thin — the door, not the building |
+| C | Modern-first (Caltech's order) | State space in Act I, frequency domain in Act II | Mathematically cleaner; state space properly taught | Fights the prerequisite, fights P2, and fights the classical coursework |
+| D | Depth over coverage | Six topics, two lectures each on the hardest | Real mastery of margins and state space | Architecture (ILO 6) becomes reading only — the one thing no benchmark teaches, and our differentiator |
 
-**On student loading** — independent study is 52 hours, about five a week. If
-that proves too much in practice (watch P16's completion data from week 3):
+**To review in future: the classical–modern balance.** Option B gives modern
+control one lecture of nine. That is defensible for an introductory unit that
+feeds a year 4 advanced one, but it should be revisited once both units exist,
+with three questions: is one lecture enough for the advanced unit to build on;
+should state space stay in the coursework at all (AQ15); and whether L2 should
+introduce *state* early so L8 has less to do.
+
+**On student loading** — independent study is about 54 hours, some five a week.
+If that proves too much in practice (watch P16's completion data from week 3):
 
 | Lever | What gives | Keep |
 |---|---|---|
@@ -306,36 +307,31 @@ that proves too much in practice (watch P16's completion data from week 3):
 
 ## 8. What to cut first, if a session is lost
 
-In order. Decided now so it is not decided in a panic in week 8.
+In order. Decided now so it is not decided in a panic mid-term. This year is
+already one over, so the first line of this list is already spent (§5, R1).
 
-1. **Week 11's horizon hour.** It becomes a handout page. That is what the
-   buffer is for.
-2. **Week 8, loop shaping.** Fold its core — "loop gain is the design" — into
-   week 6's second block. Lead–lag moves to the handout.
-3. **Week 3's second half.** Model validation is essential; requirements from
-   handling qualities can be carried by week 9's architecture session.
+1. **L5 and L6 share a session** — this year's resolution, already applied.
+2. **L9 becomes a handout page.** Its hour then holds whatever slipped.
+3. **L2's second half.** Model validation is essential; requirements from
+   handling qualities can be carried by L7.
 
-**Never cut:** Lecture 1; margins (week 6); architecture (week 9). Those carry
-ILO 4, ILO 6, and the unit's reason for existing.
+**Never cut:** L1; L4, margins; L7, architecture. Those carry ILO 4, ILO 6, and
+the unit's reason for existing.
 
 ---
 
-## 9. Decisions needed
+## 9. Decisions
 
-| # | Decision | Recommendation |
+| # | Decision | Status |
 |---|---|---|
-| D1 | Which option, A to D? | **B** |
-| D2 | Week 10 state space: scope hard, two sessions, or earlier? | **Scope hard**; laboratory carries LQR |
-| D2a | Does Part B require state space, given it is taught in week 10? (AQ15) | **Optional and rewarded**, not required |
-| D3 | Guest week 5 topic: agentic AI for MBD? | **Yes**, if MathWorks can do it — it maps onto our rig |
-| D4 | Reinforcement learning: in or out? | **In, briefly**, in week 11, framed by certification |
-| D5 | Lectures 4 and 5 placeholders | **Retire both.** Their slots become weeks 6 and 7 above |
-| D6 | Week 2 next year, when it returns | Hold for now. The obvious use is splitting week 10, which option B leaves tight |
-
-Once D1 and D2 are agreed, the site's navigation, lesson folders and titles can
-be regenerated to match, and CONTENT.md's rows move to **scoped**.
-
----
+| D1 | Option A to D | **B, agreed 18 September** |
+| D2 | L8 state space: scope hard, two sessions, or earlier? | **Deferred** — Steve to work through it when we reach it. Scoped hard for now |
+| D2a | Does Part B require state space? (AQ15) | **Optional and rewarded, for now.** May be removed from the coursework; stays in the lectures |
+| D3 | Guest lecture topic: agentic AI for model-based design? | Open. Recommended, if MathWorks can do it |
+| D4 | Reinforcement learning | Open. Recommended in, briefly, in L9 |
+| D5 | The two flight-dynamics placeholders | **Retired, 18 September** |
+| D7 | This year's one-over: R1 to R4 | **Open.** R1 recommended, and applied provisionally in the schedule |
+| D8 | Classical–modern balance | **To review in future**, once the year 4 unit exists |
 
 ## Sources
 

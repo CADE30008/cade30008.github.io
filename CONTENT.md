@@ -1,7 +1,7 @@
 # Content status
 
 What actually exists, as opposed to what the navigation implies. Kept current
-because the site looks complete and is not: a visitor sees eight lectures with
+because the site looks complete and is not: a visitor sees nine lectures with
 handouts, decks, example sheets and solutions, and all but one are scaffolds.
 
 Update this in the same change as the content it describes.
@@ -16,22 +16,38 @@ Update this in the same change as the content it describes.
 | **reviewed** | Been through a principles review (PEDAGOGY.md), findings recorded in `reviews/` |
 | **taught** | Delivered, and the run sheet updated with real timings |
 
-## Sessions
+## Lectures
 
-Topics below are **provisional except where marked**. The proposed scope is in
-[CURRICULUM.md](CURRICULUM.md); when a session's scope is agreed there, its row
-here moves to **scoped** and its title changes to match.
+Nine lectures, **scoped** on 18 September — titles, outcomes, activities, cases,
+hooks and cliffhangers — in [curriculum/lectures.yaml](curriculum/lectures.yaml),
+and mapped to this year's weeks in `curriculum/schedule-2026-27.yaml`. The
+reasoning is in [CURRICULUM.md](CURRICULUM.md). Scoped means agreed in outline
+and awaiting Steve's review; it does not mean written.
 
-| # | Current title | Status | Topic committed? | Notes |
+| # | Lecture | Folder | Status | Notes |
 |---|---|---|---|---|
-| 1 | Course introduction and aircraft models | placeholder | **Yes** — the Quanser session | Title is wrong; plan is in `teaching/l01.md` and PEDAGOGY. Content not written |
-| 2 | Closed-loop PID control | drafted | No | The only written lecture. Predates P8 and P11–P19; still shaped as a 50-minute lecture plus a separate example sheet. Reviewed 16 Sep against P1–P10; findings open |
-| 3 | Loop shaping and frequency-domain design | placeholder | No | |
-| 4 | Longitudinal dynamics and modes | placeholder | No | **Wrong half of the unit.** ILOs 1–3, Tom's material. Must be repointed |
-| 5 | Lateral-directional dynamics and modes | placeholder | No | **Wrong half of the unit.** As above |
-| 6 | Stability augmentation systems | placeholder | No | |
-| 7 | Autopilot modes: attitude and altitude hold | placeholder | No | |
-| 8 | State-space models and full-state feedback | placeholder | No | |
+| 1 | The design cycle, end to end | `design-cycle` | scoped | Plan agreed; run sheet in `teaching/design-cycle.md`. Handout has its outcomes, the schedule and the AI section; the rest is scaffold. Its build items (below) are the critical path |
+| 2 | Requirements and models you can trust | `requirements-and-models` | scoped | New |
+| 3 | PID, properly | `pid-control` | **drafted, pre-scope** | The only written lecture, formerly Lecture 2. Its content predates P8 and P11–P19 and the scope; redraft to P17's shape rather than edit. Its sync state needs re-accepting (see below) |
+| 4 | Stability and margins | `stability-margins` | scoped | New |
+| 5 | Robustness and trade-offs | `robustness` | scoped | New. Shares week 8 with L6 this year, provisionally |
+| 6 | Loop shaping | `loop-shaping` | scoped | Formerly Lecture 3's placeholder |
+| 7 | Flight control architecture | `flight-control-architecture` | scoped | Replaces the "Stability augmentation" and "Autopilot modes" placeholders. MCAS and AF447 still need primary sources |
+| 8 | State space and state feedback | `state-space` | scoped | Over P19's budget unless scoped hard. **Steve to work through it when we reach it** |
+| 9 | What comes next | `beyond-this-course` | scoped | New. One hour; week 11's buffer |
+
+**Retired 18 September:** the "Longitudinal dynamics" and "Lateral-directional
+dynamics" placeholders, which were ILOs 1–3 and Part A's material, and
+"Autopilot modes", merged into L7. Folders were renamed from `lNN-topic` to
+`topic` so that numbers no longer appear in paths.
+
+**Sync state after the renames.** `sync.lock.json` is keyed by folder, so the
+PID lecture's accepted state is still recorded under its old name,
+`l02-pid-control`, and the check now reports its sections as not yet accepted.
+Its content is unchanged. A person should check it and run
+`npm run sync:accept`, which rewrites the lock under the new names — and, as a
+side effect, accepts the placeholders as a baseline, which is what F10 of the
+17 September review asked for.
 
 ## Other material
 
@@ -39,8 +55,8 @@ here moves to **scoped** and its title changes to match.
 |---|---|---|
 | Glossary | drafted | ~80 terms, deliberately ahead of the lectures |
 | Preparing for Control | drafted | Device checks work, including the browser Python runner |
-| Guest lectures page | placeholder | One guest booked, week 5; speaker and topic unconfirmed |
-| Run sheets | 1 of 8 | Only `teaching/l01.md`. The pattern is unproven on a normal session |
+| Guest lecture page | placeholder | One guest, week 5 this year; speaker and topic unconfirmed. Unnumbered |
+| Run sheets | 1 of 8 | Only `teaching/design-cycle.md`. The pattern is unproven on a normal session |
 | Applets | 1 | The PID tuner, tested against `models/pitch_numbers.json` |
 | `models/` | 1 lecture | `pitch.py` and its MATLAB check. 41/41 numbers agree |
 | Example sheets | 1 real | Lecture 2's. The rest are scaffolds |
@@ -49,9 +65,17 @@ here moves to **scoped** and its title changes to match.
 
 ## What this means in practice
 
-- **One lecture of eight is written,** and it needs re-drafting to P17's shape
+- **One lecture of nine is written,** and it needs re-drafting to P17's shape
   rather than editing.
-- **Every topic except Lecture 1's is a guess,** including the two that are
-  demonstrably the wrong half of the unit.
+- **Every lecture is now scoped, but none except Lecture 1 has an agreed plan.**
+  The scope is a proposal for review.
 - **Week 1 has hard dependencies that do not exist yet** — the last row of the
   table above. Those are the real critical path, not the lectures.
+
+## The AI page
+
+`docs/ai.md`, linked from the About page and from Lecture 1. Written in Steve's
+voice from his brief of 18 September; **needs his read**, since it states his
+opinions. The GitHub link for raising issues is marked "link to follow": the
+repository has no remote yet. When it does, add it there and set `repo_url` in
+`zensical.toml`.

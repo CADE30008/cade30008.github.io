@@ -11,56 +11,64 @@ copyright = """Teaching materials &copy; 2026 Dr Steve Bullock, University of Br
 <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. \
 Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>."""
 
-# Each lecture is a collapsible section whose own link is the handout
-# (navigation.indexes puts docs/<lesson>/index.md on the section itself, so it
-# is not repeated as a child). Decks are built files, so they are linked from
-# the handout rather than listed here.
+# Lectures are numbered and ordered by curriculum/lectures.yaml, and folders
+# are named by topic, so a lecture's number never appears in a path.
+# scripts/build_curriculum.py checks that these entries match that file.
+# Guest lectures are not numbered. Each lecture is a collapsible section
+# whose own link is the handout (navigation.indexes), so the handout is not
+# repeated as a child. Decks are built files, linked from the handout.
 nav = [
   { "Home" = "index.md" },
-  { "Lecture 1: Course introduction" = [
-    { "Handout" = "l01-course-introduction/index.md" },
-    { "Example sheet" = "l01-course-introduction/example-sheet.md" },
-    { "Solutions" = "l01-course-introduction/solutions.md" },
+  { "Lecture 1: The design cycle, end to end" = [
+    { "Handout" = "design-cycle/index.md" },
+    { "Example sheet" = "design-cycle/example-sheet.md" },
+    { "Solutions" = "design-cycle/solutions.md" },
   ] },
-  { "Lecture 2: PID control" = [
-    { "Handout" = "l02-pid-control/index.md" },
-    { "Example sheet" = "l02-pid-control/example-sheet.md" },
-    { "Solutions" = "l02-pid-control/solutions.md" },
+  { "Lecture 2: Requirements and models you can trust" = [
+    { "Handout" = "requirements-and-models/index.md" },
+    { "Example sheet" = "requirements-and-models/example-sheet.md" },
+    { "Solutions" = "requirements-and-models/solutions.md" },
   ] },
-  { "Lecture 3: Loop shaping" = [
-    { "Handout" = "l03-loop-shaping/index.md" },
-    { "Example sheet" = "l03-loop-shaping/example-sheet.md" },
-    { "Solutions" = "l03-loop-shaping/solutions.md" },
+  { "Lecture 3: PID, properly" = [
+    { "Handout" = "pid-control/index.md" },
+    { "Example sheet" = "pid-control/example-sheet.md" },
+    { "Solutions" = "pid-control/solutions.md" },
   ] },
-  { "Lecture 4: Longitudinal dynamics" = [
-    { "Handout" = "l04-longitudinal-dynamics/index.md" },
-    { "Example sheet" = "l04-longitudinal-dynamics/example-sheet.md" },
-    { "Solutions" = "l04-longitudinal-dynamics/solutions.md" },
+  { "Lecture 4: Stability and margins" = [
+    { "Handout" = "stability-margins/index.md" },
+    { "Example sheet" = "stability-margins/example-sheet.md" },
+    { "Solutions" = "stability-margins/solutions.md" },
   ] },
-  { "Lecture 5: Lateral-directional dynamics" = [
-    { "Handout" = "l05-lateral-directional/index.md" },
-    { "Example sheet" = "l05-lateral-directional/example-sheet.md" },
-    { "Solutions" = "l05-lateral-directional/solutions.md" },
+  { "Lecture 5: Robustness and trade-offs" = [
+    { "Handout" = "robustness/index.md" },
+    { "Example sheet" = "robustness/example-sheet.md" },
+    { "Solutions" = "robustness/solutions.md" },
   ] },
-  { "Lecture 6: Stability augmentation" = [
-    { "Handout" = "l06-stability-augmentation/index.md" },
-    { "Example sheet" = "l06-stability-augmentation/example-sheet.md" },
-    { "Solutions" = "l06-stability-augmentation/solutions.md" },
+  { "Lecture 6: Loop shaping" = [
+    { "Handout" = "loop-shaping/index.md" },
+    { "Example sheet" = "loop-shaping/example-sheet.md" },
+    { "Solutions" = "loop-shaping/solutions.md" },
   ] },
-  { "Lecture 7: Autopilot modes" = [
-    { "Handout" = "l07-autopilot-modes/index.md" },
-    { "Example sheet" = "l07-autopilot-modes/example-sheet.md" },
-    { "Solutions" = "l07-autopilot-modes/solutions.md" },
+  { "Lecture 7: Flight control architecture" = [
+    { "Handout" = "flight-control-architecture/index.md" },
+    { "Example sheet" = "flight-control-architecture/example-sheet.md" },
+    { "Solutions" = "flight-control-architecture/solutions.md" },
   ] },
-  { "Lecture 8: State-space methods" = [
-    { "Handout" = "l08-state-space/index.md" },
-    { "Example sheet" = "l08-state-space/example-sheet.md" },
-    { "Solutions" = "l08-state-space/solutions.md" },
+  { "Lecture 8: State space and state feedback" = [
+    { "Handout" = "state-space/index.md" },
+    { "Example sheet" = "state-space/example-sheet.md" },
+    { "Solutions" = "state-space/solutions.md" },
   ] },
-  { "Guest lectures" = "guest-lectures/index.md" },
+  { "Lecture 9: What comes next" = [
+    { "Handout" = "beyond-this-course/index.md" },
+    { "Example sheet" = "beyond-this-course/example-sheet.md" },
+    { "Solutions" = "beyond-this-course/solutions.md" },
+  ] },
+  { "Guest lecture" = "guest-lectures/index.md" },
   { "Preparing for Control" = "preparing/index.md" },
   { "Glossary" = "glossary.md" },
   { "About these materials" = "about.md" },
+  { "AI in this course" = "ai.md" },
 ]
 
 extra_css = ["stylesheets/flightlab.css", "stylesheets/course.css"]

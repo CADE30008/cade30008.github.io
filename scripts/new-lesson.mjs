@@ -1,12 +1,16 @@
 // Scaffold a lecture: handout, example sheet, solutions and deck.
 //
 // Usage:
-//   node scripts/new-lesson.mjs 3 loop-shaping "Loop shaping and frequency-domain design"
+//   node scripts/new-lesson.mjs 6 loop-shaping "Loop shaping"
 //
-// Creates docs/l03-loop-shaping/{index.md,example-sheet.md,solutions.md} and
-// slides/l03-loop-shaping/index.md, wired to each other and following the sync
+// Creates docs/loop-shaping/{index.md,example-sheet.md,solutions.md} and
+// slides/loop-shaping/index.md, wired to each other and following the sync
 // contract in AGENTS.md: the handout's sections carry stable IDs, and every
 // content slide cites the section it covers.
+//
+// Folders are named by topic only. The lecture number is a label, stored in the
+// front matter and the nav, and set by curriculum/lectures.yaml; keeping it out
+// of the folder name means renumbering never moves a file.
 //
 // Existing files are never overwritten; the script reports them and moves on.
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
@@ -25,8 +29,7 @@ if (!Number.isInteger(n) || n < 1) {
 }
 
 const root = resolve(import.meta.dirname, "..");
-const pad = String(n).padStart(2, "0");
-const lesson = `l${pad}-${slug}`;
+const lesson = slug;
 
 // Placeholder bodies deliberately carry no figures and no numerals: the sync
 // check verifies that every number on a slide appears in the handout section it
@@ -36,7 +39,7 @@ title: "Lecture ${n}: ${title}"
 description: "Placeholder. Topic and content for lecture ${n} are provisional."
 lesson: ${lesson}
 order: ${n}
-duration: 50 min
+duration: 110 min
 status: draft
 ---
 
@@ -48,19 +51,16 @@ status: draft
 [Solutions](solutions.md)
 </div>
 
-!!! warning "Placeholder"
-    This lecture is a scaffold. The topic, structure and every section below are
-    provisional, and are here so that the navigation, the slide deck and the
-    example sheet exist in their final shape.
+!!! warning "Not yet written"
+    This lecture is scoped but not written. Its title, learning outcomes and
+    place in the unit are set; the sections below are placeholders, there so
+    that the navigation, the slide deck and the example sheet exist in their
+    final shape.
 
 One paragraph saying what this lecture does, and how it follows from the last one.
 
-!!! abstract "Learning outcomes"
-    By the end of this lecture you should be able to:
-
-    - first outcome;
-    - second outcome;
-    - third outcome.
+<!-- outcomes:start -->
+<!-- outcomes:end -->
 
 ## Where we are {#recap}
 

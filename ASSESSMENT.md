@@ -341,13 +341,13 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   fairness for students who cannot submit on the day. The brief's current wording
   says checkpoint work "may be looked at if questions arise", which is honest but
   sits awkwardly beside "not submitting is never held against you".
-- **AQ15. Does Part B require state space?** CURRICULUM.md places state
-  feedback in week 10, one week before the deadline and after the last
-  checkpoint. If the brief requires a state-space design, students meet it too
-  late to use it well. Options: make state space optional in the brief, a route
-  to higher marks under B2 rather than a requirement; move it earlier; or accept
-  a classical-only Part B and assess state space nowhere, which leaves ILO 5's
-  "modern" unassessed. **Recommendation: optional, and rewarded.**
+- **AQ15. Does Part B require state space?** **Decided for now** (18
+  September): **optional and rewarded** — a route to higher marks under
+  criterion B2, not a requirement — because L8 is taught after the last
+  checkpoint and just before the deadline. It may be removed from the
+  coursework altogether; it stays in the lectures regardless, as the foundation
+  for the year 4 advanced unit. Revisit with PEDAGOGY Q12, the classical–modern
+  balance.
 - **AQ14. Placeholders in the Part B brief.** The aircraft and control task, the
   criterion weights, the page limit, the `run_all.m` run-time limit, the
   permitted AI purposes, and the opt-out wording for the LLM trial.
@@ -366,14 +366,15 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
 
   | Checkpoint | After | Week | Covers |
   |---|---|---|---|
-  | 1. Requirements and model | Act I | end of 4 | Sections 1–2 |
-  | 2. Design and analysis | Act II | end of 8 | Sections 3–4, and the peer review |
-  | 3. Draft paper | Act III's first session | end of 9 | The whole paper |
+  | 1. Requirements and model | Act I (L1–L3) | end of 4 | Sections 1–2 |
+  | 2. Design and analysis | Act II (L4–L6) | end of 8 | Sections 3–4, and the peer review |
+  | 3. Draft paper | L7 | end of 9 | The whole paper |
 
   Checkpoint 3 at week 9 rather than 10 leaves a clear week to act on its
-  feedback before the Thursday of week 11. State space (week 10) is then taught
-  after the last checkpoint, which is acceptable only if the coursework does
-  not require it — see AQ15.
+  feedback before the Thursday of week 11. L8, state space, is then taught
+  after the last checkpoint, which is why it is optional in the coursework
+  (AQ15). The coursework's week-by-week steps are in
+  `curriculum/schedule-2026-27.yaml`.
 - **AQ3. Generative AI category.** Decided: Category 3, Selective (AP4). Still
   to write: the brief's list of permitted purposes.
 - **AQ4. Marking resource.** Any second markers, and the moderation required.

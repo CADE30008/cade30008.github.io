@@ -38,40 +38,40 @@ the aircraft modes, and the reading of flight data against handling qualities.
 They are delivered in parallel by other staff. The catalogue holds the
 authoritative wording; the table above is a working paraphrase.
 
-**The term.** Twelve weeks. **Week 5 is reading week** and week 12 is revision
-week, for units with exams, leaving ten teaching weeks: 1 to 4, and 6 to 11.
-Lectures are on **Tuesdays**. Each session runs to a fixed shape (P17): a taught
-hour, then a 50-minute case hour in which students deploy what was covered,
-individually or in pairs or threes. The timetabled second hour is 50 minutes,
-not 60.
+**The term.** Twelve weeks. **Week 6 is reading week**, and no lecture of any
+kind is held in it. Week 12 is revision week, for units with exams. That leaves
+ten teaching weeks: 1 to 5, and 7 to 11. Lectures are on **Tuesdays**. Each
+session runs to a fixed shape (P17): a taught hour, then a 50-minute case hour
+in which students deploy what was covered, individually or in pairs or threes.
+The timetabled second hour is 50 minutes, not 60.
 
-**This year's shape, 2026/27.** It is not the steady state, and the differences
-are deliberate rather than accidents to design around:
+**Lectures are decoupled from weeks.** A lecture is a unit of content with a
+stable number and a topic-named folder; which week it falls in is a property of
+a particular year's schedule, not of the lecture. Lectures are numbered
+sequentially; guest lectures are not numbered. The lecture set is defined in
+[curriculum/lectures.yaml](curriculum/lectures.yaml), and each year's mapping to
+the twelve weeks in `curriculum/schedule-<year>.yaml`. Everything else — the
+term map in Lecture 1, the planning diagram, the checks — is generated from
+those two files.
 
-| Week | Session | Note |
-|---|---|---|
-| 1 | Control | Quanser in the theatre; the whole design cycle once |
-| 2 | *Flight Dynamics* | Steve away. Given to the other half **this year only** |
-| 3, 4 | Control | |
-| 5 | Guest lecture | In reading week — **confirm this is intended** (Q10) |
-| 6 to 10 | Control | |
-| 11 | Control, then Q&A | Coursework due **Thursday of week 11**, so the case hour is coursework Q&A |
-| 12 | — | Revision week |
-
-That gives **nine control sessions**, of which week 11's second hour is not new
-material: eight full sessions of content plus one half. The steady-state plan of
-eight lectures therefore fits this year with one session spare, and the spare
-should be held rather than filled — the term has no other slack.
+**This year, 2026/27.** Nine lectures are designed, and this year has room for
+eight: week 2 is given to Flight Dynamics (Steve away, this year only), week 5
+has the guest lecture, week 6 is reading week, and the second hour of week 11 is
+coursework Q&A. **So the term is one lecture over.** The proposed resolution,
+pending Steve's decision, is to deliver Lectures 5 and 6 — robustness, and loop
+shaping — together in week 8; the reasoning and the alternatives are in
+[CURRICULUM.md](CURRICULUM.md). From 2027/28, with week 2 back, nine lectures
+fit with half a session to spare.
 
 **Student effort.** About 100 hours for this half of a 20 credit unit. The
-budget, settled 18 September:
+budget, settled 18 September, for 2026/27:
 
 | | Hours | How it arises |
 |---|---|---|
-| Contact | 20 | Nine control sessions at 2 h, plus the guest lecture |
+| Contact | 18 | Eight control sessions at 2 h, plus the guest lecture. From 2027/28, nine sessions and 20 h |
 | Laboratory | 4 | Quanser, self-scheduled by students |
 | Coursework | 24 | 2 h a week averaged across the twelve weeks |
-| Independent study | 52 | The remainder: about 5 h a week in a teaching week |
+| Independent study | 54 | The remainder: about 5 h a week in a teaching week |
 | **Total** | **100** | |
 
 Coursework is averaged deliberately. Real effort on it rises steeply towards the
@@ -82,7 +82,7 @@ a week is the planning figure, not a prediction of any particular week.
 design cycle once, so it departs from the standard shape: there is no previous
 week to retrieve, and the case hour is built round the hardware. Its reasoning is
 under "Lecture 1: the Quanser session" below and its plan in
-[teaching/l01.md](teaching/l01.md). The Quanser can come back into the lecture
+[teaching/design-cycle.md](teaching/design-cycle.md). The Quanser can come back into the lecture
 for demonstrations in later weeks.
 
 **In the room.** Most students bring laptops; those who don't share with those
@@ -325,10 +325,10 @@ and staff early who is struggling.
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
   otherwise.
-- One challenge per control session, plus the week 1 diagnostic. This year
-  that is eight challenges — weeks 3, 4 and 6 to 10 — plus the diagnostic;
-  week 11 has none, because its second hour is coursework Q&A, and the guest
-  session has none.
+- One challenge per lecture, plus the week 1 diagnostic. Lecture 9, the
+  closing lecture, has none, and neither does the guest lecture. When two
+  lectures share a week, as Lectures 5 and 6 are proposed to this year, their
+  challenges are combined.
 - **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
 
 ### P17. One shape every week
@@ -691,7 +691,7 @@ Lecture 1 runs the whole design cycle once, on the Quanser 3-DoF helicopter's
 elevation axis, in front of the room. Everything after it is that cycle done
 properly. It deviates from P17's shape, which is stated to students.
 
-**The operational plan is [teaching/l01.md](teaching/l01.md)** — timings,
+**The operational plan is [teaching/design-cycle.md](teaching/design-cycle.md)** — timings,
 files, set-up, contingencies. What follows is only the reasoning behind it,
 which is what this file is for. Keep the plan out of here: it was duplicated in
 both places once, and the two had already begun to drift.
@@ -771,25 +771,27 @@ timetabling one.
 unregistered. Expected to reach 300 to 380 within a couple of years.
 
 **Capacity, in station-hours.** Four stations open eight hours a day, five days
-a week, over the weeks before and including reading week 5:
+a week. The window runs from the Wednesday after Lecture 1 to the end of
+reading week 6: half of week 1, the four full teaching weeks 2 to 5, then
+reading week.
 
-| Window | Station-hours |
-|---|---|
-| Weeks 1 to 4 | 640 |
-| Weeks 1 to 6, including reading week | 960 |
+| Window | Days | Station-hours |
+|---|---|---|
+| Week 1 (Wednesday to Friday) and weeks 2 to 5 | 23 | 736 |
+| The same, plus reading week 6 | 28 | 896 |
 
-| Cohort | Groups | Hours needed | Of weeks 1 to 4 | Of weeks 1 to 6 |
+| Cohort | Groups | Hours needed | Of teaching weeks | Including reading week |
 |---|---|---|---|---|
-| 190 in pairs | 95 | 380 | 59% | 40% |
-| 190 in threes | 64 | 256 | 40% | 27% |
-| 300 in pairs | 150 | 600 | 94% | 63% |
-| 380 in pairs | 190 | 760 | **119%, impossible** | 79% |
-| 380 in threes | 127 | 508 | 79% | 53% |
+| 190 in pairs | 95 | 380 | 52% | 42% |
+| 190 in threes | 64 | 256 | 35% | 29% |
+| 300 in pairs | 150 | 600 | 82% | 67% |
+| 380 in pairs | 190 | 760 | **103%, impossible** | 85% |
+| 380 in threes | 127 | 508 | 69% | 57% |
 
 **What this says.**
 
-- **This year works comfortably in pairs**, at 40 to 59 per cent depending on
-  how much of the window is real.
+- **This year works comfortably in pairs**, at 42 to 52 per cent depending on
+  whether reading week counts.
 - **Open access removes the matching problem but not the queueing one.**
   Booked slots failed when a student's free hours missed every offered slot;
   open access fails differently, by everyone arriving in the same two days. The
@@ -800,8 +802,8 @@ a week, over the weeks before and including reading week 5:
 - **Publish live station availability** if there is any cheap way to do it, even
   a page someone updates. It converts a queue into a decision.
 - **The growth case fails, and soon.** At 380 in pairs the laboratory cannot fit
-  in weeks 1 to 4 at all, and needs reading week plus a flat arrival profile to
-  fit in six. Before the cohort reaches 300: more stations, a longer window,
+  in the teaching weeks at all, and needs reading week plus a flat arrival
+  profile to fit in six. Before the cohort reaches 300: more stations, a longer window,
   groups of three, or an activity that does not need a station per group.
 - **A scalable redevelopment is the option that costs neither money nor
   timetable.** Every group gets *data* from a station, but the analysis, design
@@ -948,16 +950,13 @@ Recorded so they are not lost. Numbered for reference in discussion.
   definition under `models/`, used by every lecture.
 - **Q7. Guest lectures.** Decided. A guest takes a whole session: an hour of
   lecture and questions, with room to overrun a little, then the second hour as
-  open question-and-answer and student activity. **This year there is one**,
-  booked for week 5; the second is dropped for 2026/27. A guest session breaks
-  P18's chain, and **that is accepted** (18 September): the lecturer links back
-  and forward live. It is the one place in the term where P18's rule is knowingly
-  suspended, rather than quietly broken. Still open: the speaker and topic (a
-  MathWorks session on agentic AI for model-based design is proposed in
-  [CURRICULUM.md](CURRICULUM.md)); and Q10, whether reading week is the right
-  week for it. The earlier concern that the term had no slack is superseded:
-  with week 2 given away and the guest in reading week, there are nine control
-  sessions for eight lectures, and week 11 is the buffer.
+  open question-and-answer and student activity. Guest lectures are not
+  numbered. **This year there is one**, in week 5; the second is dropped for
+  2026/27. A guest session breaks P18's chain, and **that is accepted** (18
+  September): the lecturer links back and forward live. It is the one place in
+  the term where P18's rule is knowingly suspended, rather than quietly broken.
+  Still open: the speaker and topic. A MathWorks session on agentic AI for
+  model-based design is proposed in [CURRICULUM.md](CURRICULUM.md).
 - **Q8. Case-based learning**, after
   [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
   Largely settled: adopted in adapted form as P18, with the reasoning and the
@@ -975,9 +974,20 @@ Recorded so they are not lost. Numbered for reference in discussion.
   Still worth watching rather than closing: whether 5 hours of independent study
   is actually taken up, which the weekly challenge completion (P16) will show
   early.
-- **Q10. The guest lecture in reading week.** One guest lecture is booked for
-  week 5, which is reading week. Confirm this is deliberate. Against it:
-  attendance in reading week is usually poor, and a guest deserves an audience.
-  For it: it costs no teaching slot, it breaks no case chain, and it is
-  genuinely optional material. If it moves, it takes a control session with it
-  and the eight-lecture plan loses its only spare.
+- **Q10. The guest lecture in reading week.** Closed, 18 September. Reading
+  week is week 6, not week 5, and no lecture is held in it; the guest lecture is
+  in teaching week 5. The question arose from a mis-stated week number.
+- **Q11. What is public, and what belongs in Blackboard.** For a future review.
+  The site is licensed for reuse (CC BY and MIT), and should be usable by
+  anyone teaching control — which argues for moving what is specific to *this*
+  cohort into Blackboard: this year's dates and schedule, the coursework's
+  timings, arrangements that name staff, and anything that only makes sense to
+  a student registered on the unit. What stays public: lectures, handouts,
+  example sheets, applets, the glossary, and the principles behind them. **For
+  now the schedule stays in Lecture 1's slides and handout**, as agreed on 18
+  September. When this is reviewed, the curriculum sources make it cheap: the
+  schedule is generated, so it can be generated into Blackboard instead.
+- **Q12. The classical–modern balance.** For a future review, once the year 4
+  advanced unit exists. Option B gives state space one lecture of nine. See
+  [CURRICULUM.md](CURRICULUM.md) §7 for the three questions to ask.
+

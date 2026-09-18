@@ -6,6 +6,9 @@ This file is for anyone editing the course materials, whether by hand or with an
 
 | Path | What it is | Edit it? |
 |---|---|---|
+| `curriculum/lectures.yaml` | **What each lecture is**: number, title, outcomes, activities, case, hook, cliffhanger, P19 budget | Yes. The source for everything below that is generated |
+| `curriculum/schedule-<year>.yaml` | **Which week each lecture falls in**, this year, and the coursework's weekly steps | Yes, once a year and when plans change |
+| `planning/lecture-map.html`, `docs/design-cycle/figures/term-map.svg`, the home page's lecture table, Lecture 1's schedule table | Generated from the two files above by `npm run curriculum` | Never by hand |
 | `docs/<lesson>/index.md` | Handout: the authoritative written version of a lecture | Yes |
 | `docs/<lesson>/example-sheet.md`, `solutions.md` | Example sheet and worked solutions | Yes |
 | `docs/<lesson>/code/*.py`, `*.m` | Code shown to students, included into pages with `--8<--` | Yes, then run it |
@@ -13,12 +16,29 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `docs/glossary.md` | The one place each term is defined. Lectures follow its wording | Yes, with the lecture change that prompts it |
 | `slides/<lesson>/index.md` | Lecture deck (Marp). A condensed view of the handout | Yes |
 | `docs/applets/` | Interactive applets, plain HTML and JavaScript with no dependencies | Yes, then run the applet test |
-| `teaching/l0N.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
+| `teaching/<slug>.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session | Yes, with every content change |
 | `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed | Only once a scope decision is agreed |
 | `models/` | Design scripts: the single source of every number and plot | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |
+
+## Lectures and weeks
+
+Lectures and weeks are decoupled. A lecture is a unit of content with a stable
+number and a folder named by topic (`docs/loop-shaping/`, never
+`docs/l06-loop-shaping/`). Which week it falls in belongs to a year's schedule.
+Lectures are numbered sequentially; guest lectures are not numbered.
+
+- **Adding, removing or reordering a lecture** starts in `curriculum/lectures.yaml`.
+  Then create or move the folders (`npm run new:lesson <number> <slug> "<title>"`
+  scaffolds one), update the nav, and run `npm run curriculum`: it fails, and
+  says what to fix, until the handouts, decks and nav agree with the YAML.
+- **Changing which week something happens** is an edit to the schedule file
+  only. Nothing else should need to change, and if it does, that is a bug.
+- **Never write a week number into a handout, deck or run sheet.** Refer to
+  lectures by number. The one exception is Lecture 1's schedule section, which
+  is generated.
 
 ## The sync contract
 
@@ -73,7 +93,8 @@ npm run site        # build the site into site/
 npm run serve       # live preview at http://localhost:8000
 npm run pdf         # print handouts and example sheets to PDF
 npm run check       # slide and handout sync check
-npm run build       # all of the above
+npm run curriculum  # check the curriculum; regenerate the term map, planning diagram and tables
+npm run build       # all of the above, curriculum first
 ```
 
 ## Rules for AI assistants

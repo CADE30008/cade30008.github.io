@@ -11,30 +11,35 @@ These pages hold the lecture handouts, slides, example sheets and worked solutio
 
 ## Lectures
 
-Lecture 2 is written. The rest are placeholders: the pages, decks and example
-sheets exist in their final shape, but their topics and content are provisional.
+Nine lectures, numbered in the order they build on each other. Lecture 3 has
+written content; the rest are placeholders whose topics are scoped but whose
+content is still to be written. Which week each lecture falls in is on the
+schedule in [Lecture 1](design-cycle/index.md#schedule).
 
-| Lecture | Topic | Materials | Status |
-|---|---|---|---|
-| 1 | Course introduction | [Handout](l01-course-introduction/index.md) · [Slides](slides/l01-course-introduction/index.html) · [Example sheet](l01-course-introduction/example-sheet.md) · [Solutions](l01-course-introduction/solutions.md) | Placeholder |
-| 2 | Closed-loop PID control | [Handout](l02-pid-control/index.md) · [Slides](slides/l02-pid-control/index.html) · [Example sheet](l02-pid-control/example-sheet.md) · [Solutions](l02-pid-control/solutions.md) | Written |
-| 3 | Loop shaping | [Handout](l03-loop-shaping/index.md) · [Slides](slides/l03-loop-shaping/index.html) · [Example sheet](l03-loop-shaping/example-sheet.md) · [Solutions](l03-loop-shaping/solutions.md) | Placeholder |
-| 4 | Longitudinal dynamics | [Handout](l04-longitudinal-dynamics/index.md) · [Slides](slides/l04-longitudinal-dynamics/index.html) · [Example sheet](l04-longitudinal-dynamics/example-sheet.md) · [Solutions](l04-longitudinal-dynamics/solutions.md) | Placeholder |
-| 5 | Lateral-directional dynamics | [Handout](l05-lateral-directional/index.md) · [Slides](slides/l05-lateral-directional/index.html) · [Example sheet](l05-lateral-directional/example-sheet.md) · [Solutions](l05-lateral-directional/solutions.md) | Placeholder |
-| 6 | Stability augmentation | [Handout](l06-stability-augmentation/index.md) · [Slides](slides/l06-stability-augmentation/index.html) · [Example sheet](l06-stability-augmentation/example-sheet.md) · [Solutions](l06-stability-augmentation/solutions.md) | Placeholder |
-| 7 | Autopilot modes | [Handout](l07-autopilot-modes/index.md) · [Slides](slides/l07-autopilot-modes/index.html) · [Example sheet](l07-autopilot-modes/example-sheet.md) · [Solutions](l07-autopilot-modes/solutions.md) | Placeholder |
-| 8 | State-space methods | [Handout](l08-state-space/index.md) · [Slides](slides/l08-state-space/index.html) · [Example sheet](l08-state-space/example-sheet.md) · [Solutions](l08-state-space/solutions.md) | Placeholder |
+<!-- lectures:start -->
+| Lecture | Topic | Materials |
+|---|---|---|
+| 1 | The design cycle, end to end | [Handout](design-cycle/index.md) · [Slides](slides/design-cycle/index.html) · [Example sheet](design-cycle/example-sheet.md) · [Solutions](design-cycle/solutions.md) |
+| 2 | Requirements and models you can trust | [Handout](requirements-and-models/index.md) · [Slides](slides/requirements-and-models/index.html) · [Example sheet](requirements-and-models/example-sheet.md) · [Solutions](requirements-and-models/solutions.md) |
+| 3 | PID, properly | [Handout](pid-control/index.md) · [Slides](slides/pid-control/index.html) · [Example sheet](pid-control/example-sheet.md) · [Solutions](pid-control/solutions.md) |
+| 4 | Stability and margins | [Handout](stability-margins/index.md) · [Slides](slides/stability-margins/index.html) · [Example sheet](stability-margins/example-sheet.md) · [Solutions](stability-margins/solutions.md) |
+| 5 | Robustness and trade-offs | [Handout](robustness/index.md) · [Slides](slides/robustness/index.html) · [Example sheet](robustness/example-sheet.md) · [Solutions](robustness/solutions.md) |
+| 6 | Loop shaping | [Handout](loop-shaping/index.md) · [Slides](slides/loop-shaping/index.html) · [Example sheet](loop-shaping/example-sheet.md) · [Solutions](loop-shaping/solutions.md) |
+| 7 | Flight control architecture | [Handout](flight-control-architecture/index.md) · [Slides](slides/flight-control-architecture/index.html) · [Example sheet](flight-control-architecture/example-sheet.md) · [Solutions](flight-control-architecture/solutions.md) |
+| 8 | State space and state feedback | [Handout](state-space/index.md) · [Slides](slides/state-space/index.html) · [Example sheet](state-space/example-sheet.md) · [Solutions](state-space/solutions.md) |
+| 9 | What comes next | [Handout](beyond-this-course/index.md) · [Slides](slides/beyond-this-course/index.html) · [Example sheet](beyond-this-course/example-sheet.md) · [Solutions](beyond-this-course/solutions.md) |
+<!-- lectures:end -->
 
-Guest lectures are listed on their own [page](guest-lectures/index.md).
+The guest lecture has its own [page](guest-lectures/index.md), and is not numbered.
 
 Each lecture has four parts:
 
 - **Handout.** The full written treatment, with derivations, worked examples and interactive applets. Read it before or after the lecture.
 - **Slides.** The deck used in the lecture. It opens in your browser. Press ++f++ for full screen and ++p++ for presenter view.
-- **Example sheet.** About an hour of questions, with hand calculations first and a computational question at the end.
+- **Example sheet.** About two hours of questions, with hand calculations first and a computational question at the end.
 - **Solutions.** Worked solutions for the example sheet. Try the questions first.
 
 Code appears in both Python and MATLAB. Pick your language on any code block, and the whole site will switch to it.
 
 !!! info "PDF copies"
-    Lecture 2 as PDF: [handout](downloads/l02-pid-control-handout.pdf), [example sheet](downloads/l02-pid-control-example-sheet.pdf), [solutions](downloads/l02-pid-control-solutions.pdf) and [slides](slides/l02-pid-control/slides.pdf). Interactive applets appear as still images in printed copies.
+    Lecture 3 as PDF: [handout](downloads/pid-control-handout.pdf), [example sheet](downloads/pid-control-example-sheet.pdf), [solutions](downloads/pid-control-solutions.pdf) and [slides](slides/pid-control/slides.pdf). Interactive applets appear as still images in printed copies.

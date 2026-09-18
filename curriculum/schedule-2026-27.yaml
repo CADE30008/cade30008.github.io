@@ -1,0 +1,51 @@
+# How the lecture set maps onto the twelve university weeks, for 2026/27.
+#
+# One file per year. The lectures themselves, and their numbers, are defined in
+# lectures.yaml and do not change between years; only this mapping does.
+# Lectures are on Tuesdays.
+#
+# kind: lecture | guest | other | reading | revision
+#   lecture  — one or more of our numbered lectures (usually one)
+#   guest    — a guest lecture; not numbered
+#   other    — the slot is used by someone else
+#   reading  — reading week; no lecture of any kind
+#   revision — revision week, for units with exams
+
+year: 2026/27
+day: Tuesday
+
+weeks:
+  - {week: 1, kind: lecture, lectures: [1], note: Quanser in the lecture theatre}
+  - {week: 2, kind: other, label: Flight Dynamics, note: "Steve away. Given to the other half of the unit, this year only"}
+  - {week: 3, kind: lecture, lectures: [2]}
+  - {week: 4, kind: lecture, lectures: [3]}
+  - {week: 5, kind: guest, label: Guest lecture, note: "Speaker and topic to be confirmed. Hour 2 open Q&A"}
+  - {week: 6, kind: reading, label: Reading week, note: No lectures}
+  - {week: 7, kind: lecture, lectures: [4]}
+  - {week: 8, kind: lecture, lectures: [5, 6], note: "PROPOSED. Two lectures in one session, because this year is one lecture over. Needs Steve's decision"}
+  - {week: 9, kind: lecture, lectures: [7]}
+  - {week: 10, kind: lecture, lectures: [8]}
+  - {week: 11, kind: lecture, lectures: [9], second_hour: Coursework Q&A, note: "Lecture 9 is one hour. Also the term's buffer"}
+  - {week: 12, kind: revision, label: Revision week}
+
+# The coursework follows the calendar, not the lectures, so its weekly step
+# lives here. "step" is P17's "feed the design" part for that week.
+coursework:
+  deadline: {week: 11, day: Thursday}
+  steps:
+    - {week: 1, event: Brief released, step: "Read the brief; get your variant from cade30008.inputs; first decision-log entry"}
+    - {week: 2, step: "Explore your aircraft variant and the flight-test tool"}
+    - {week: 3, step: "Draft section 1, requirements, and section 2, model validation"}
+    - {week: 4, event: Checkpoint 1, step: "Finish sections 1 and 2; submit checkpoint 1 by the end of the week"}
+    - {week: 5, step: "Act on checkpoint 1's automated feedback"}
+    - {week: 6, step: "Reading week: catch up, or begin the design"}
+    - {week: 7, step: "Stability analysis of your first design; draft section 4"}
+    - {week: 8, event: Checkpoint 2, step: "Robustness and the designed controller; sections 3 and 4; submit checkpoint 2, then peer review"}
+    - {week: 9, event: Checkpoint 3, step: "Verification and the whole draft paper; submit checkpoint 3"}
+    - {week: 10, step: "Act on checkpoint 3's feedback. Optional: a state-feedback design, for credit under criterion B2"}
+    - {week: 11, event: Deadline, step: "Final checks with cade30008.validate_submission; submit by Thursday"}
+
+laboratory:
+  from_week: 1
+  to_week: 6
+  note: Open access and self-scheduled; reading week is overflow

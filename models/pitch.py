@@ -5,7 +5,7 @@ handout and slides. Run it from the repository root:
 
     .venv/bin/python models/pitch.py
 
-It writes the figures to docs/l02-pid-control/figures/ and the numbers to
+It writes the figures to docs/pid-control/figures/ and the numbers to
 models/pitch_numbers.json. models/pitch_check.m recomputes the same numbers
 in MATLAB, and models/compare.py checks that the two agree.
 """
@@ -22,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-FIG = ROOT / "docs" / "l02-pid-control" / "figures"
+FIG = ROOT / "docs" / "pid-control" / "figures"
 NUMBERS = ROOT / "models" / "pitch_numbers.json"
 
 # --------------------------------------------------------------------------

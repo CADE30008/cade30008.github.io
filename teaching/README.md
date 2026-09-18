@@ -1,16 +1,24 @@
 # Run sheets
 
-One file per session, `l0N.md`, written for the person standing at the front.
-Not student-facing, and not built into the site.
+One file per lecture, named by the lecture's slug (`design-cycle.md`), written
+for the person standing at the front. Not student-facing, and not built into the
+site. Named by slug rather than number, like the lecture folders, so that
+renumbering a lecture never renames its run sheet.
 
-A run sheet is derived from three things and holds nothing that belongs in any
+A run sheet is derived from four things and holds nothing that belongs in any
 of them:
 
-- **[PEDAGOGY.md](../PEDAGOGY.md)** gives the session's shape (P17's slots), its
-  case, hook and cliffhanger (P18), and any plan recorded for that session.
+- **[curriculum/lectures.yaml](../curriculum/lectures.yaml)** gives the
+  lecture's outcomes, what goes in each of P17's slots, its case, its hook and
+  its cliffhanger. The run sheet turns those into timings and logistics.
+- **[PEDAGOGY.md](../PEDAGOGY.md)** gives the session's shape (P17's slots), how
+  the case runs (P18), and the reasoning behind any lecture with a plan of its
+  own, such as Lecture 1.
 - **The handout** (`docs/<lesson>/index.md`) is authoritative for every fact,
   number and equation. A run sheet never restates one; it points at the section.
 - **The deck** (`slides/<lesson>/index.md`) gives the slide order.
+
+Which *week* a lecture falls in is not in the run sheet: it changes between years, and lives in `curriculum/schedule-<year>.yaml`.
 
 So a run sheet answers only: what happens, when, with what in front of you, and
 what to do when it goes wrong. If you find yourself writing content into one,

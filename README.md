@@ -24,6 +24,9 @@ Then open `http://localhost:8000`.
 | `docs/` | The site. Each lecture has a folder holding its handout (`index.md`), example sheet, solutions, figures and code |
 | `docs/applets/` | Interactive applets, in plain HTML and JavaScript |
 | `slides/` | Lecture decks, one folder per lecture, matching `docs/` |
+| `curriculum/` | What each lecture is (`lectures.yaml`) and which week it falls in each year (`schedule-<year>.yaml`). The source for the planning views and schedules |
+| `planning/` | Generated planning views, such as `lecture-map.html`. Not part of the site |
+| `teaching/` | Lecturer run sheets, one per lecture |
 | `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check |
 | `scripts/` | Build, sync-check, PDF and test scripts |
 | `AGENTS.md` | How to edit the materials, by hand or with an AI assistant |
@@ -51,6 +54,7 @@ course while the content is written.
 | `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc |
 | `npm run check` | Check slides against handouts |
 | `npm run sync:accept` | Record the current state as in sync, after reviewing |
+| `npm run curriculum` | Check the lecture set and schedule against each other and the site; regenerate the term map, planning diagram and tables |
 | `npm run models` | Rerun the design scripts and compare Python with MATLAB |
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |
