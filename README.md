@@ -30,7 +30,7 @@ Then open `http://localhost:8000`.
 
 ## Course structure
 
-The course is eight lectures, with guest lectures listed on a page of their own.
+The course is eight lectures plus a guest lecture, which has a page of its own. The content scope is proposed in [CURRICULUM.md](CURRICULUM.md), and what actually exists is tracked in [CONTENT.md](CONTENT.md): at present one lecture is written and the rest are placeholders.
 Each lecture is a folder under `docs/` holding its
 handout (`index.md`), example sheet and solutions, with its deck in the matching
 folder under `slides/`. In the site's navigation each lecture is a collapsible

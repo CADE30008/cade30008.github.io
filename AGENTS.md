@@ -15,6 +15,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `docs/applets/` | Interactive applets, plain HTML and JavaScript with no dependencies | Yes, then run the applet test |
 | `teaching/l0N.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session | Yes, with every content change |
+| `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed | Only once a scope decision is agreed |
 | `models/` | Design scripts: the single source of every number and plot | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |

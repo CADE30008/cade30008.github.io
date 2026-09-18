@@ -341,6 +341,13 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   fairness for students who cannot submit on the day. The brief's current wording
   says checkpoint work "may be looked at if questions arise", which is honest but
   sits awkwardly beside "not submitting is never held against you".
+- **AQ15. Does Part B require state space?** CURRICULUM.md places state
+  feedback in week 10, one week before the deadline and after the last
+  checkpoint. If the brief requires a state-space design, students meet it too
+  late to use it well. Options: make state space optional in the brief, a route
+  to higher marks under B2 rather than a requirement; move it earlier; or accept
+  a classical-only Part B and assess state space nowhere, which leaves ILO 5's
+  "modern" unassessed. **Recommendation: optional, and rewarded.**
 - **AQ14. Placeholders in the Part B brief.** The aircraft and control task, the
   criterion weights, the page limit, the `run_all.m` run-time limit, the
   permitted AI purposes, and the opt-out wording for the LLM trial.
@@ -349,10 +356,24 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   linear model at trim; Part A's deficiencies as Part B's requirements; a
   modelling checkpoint in week 4 or 5; per-student variants shared by both parts;
   and using the virtual flight test in Part A.
-- **AQ2. Timing.** The release date, the final deadline, and dates for the three
-  checkpoints. In 2025 the brief was released mid-term; an assessment that builds
-  from early lectures needs Part B's brief, or at least its design problem,
-  released in the first week or two.
+- **AQ2. Timing.** **Deadline known: Thursday of week 11** (18 September), two
+  days after the last control session, whose second hour is coursework Q&A.
+  Still open: the release date and the checkpoint dates. An assessment that
+  builds from early lectures needs Part B's design problem released in week 1.
+  Proposed checkpoints, aligned to the end of each act in
+  [CURRICULUM.md](CURRICULUM.md) so that each one lands when its material has
+  just been taught:
+
+  | Checkpoint | After | Week | Covers |
+  |---|---|---|---|
+  | 1. Requirements and model | Act I | end of 4 | Sections 1–2 |
+  | 2. Design and analysis | Act II | end of 8 | Sections 3–4, and the peer review |
+  | 3. Draft paper | Act III's first session | end of 9 | The whole paper |
+
+  Checkpoint 3 at week 9 rather than 10 leaves a clear week to act on its
+  feedback before the Thursday of week 11. State space (week 10) is then taught
+  after the last checkpoint, which is acceptable only if the coursework does
+  not require it — see AQ15.
 - **AQ3. Generative AI category.** Decided: Category 3, Selective (AP4). Still
   to write: the brief's list of permitted purposes.
 - **AQ4. Marking resource.** Any second markers, and the moderation required.

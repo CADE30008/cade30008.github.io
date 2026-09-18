@@ -18,8 +18,9 @@ Update this in the same change as the content it describes.
 
 ## Sessions
 
-Topics below are **provisional except where marked**, and are settled by the
-content scope in "The unit arc" (to be written into this file when agreed).
+Topics below are **provisional except where marked**. The proposed scope is in
+[CURRICULUM.md](CURRICULUM.md); when a session's scope is agreed there, its row
+here moves to **scoped** and its title changes to match.
 
 | # | Current title | Status | Topic committed? | Notes |
 |---|---|---|---|---|

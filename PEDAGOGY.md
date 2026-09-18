@@ -325,8 +325,10 @@ and staff early who is struggling.
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
   otherwise.
-- Guest weeks carry no challenge, so there are eight plus the week 1 diagnostic
-  across ten teaching weeks (Q7).
+- One challenge per control session, plus the week 1 diagnostic. This year
+  that is eight challenges — weeks 3, 4 and 6 to 10 — plus the diagnostic;
+  week 11 has none, because its second hour is coursework Q&A, and the guest
+  session has none.
 - **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
 
 ### P17. One shape every week
@@ -737,7 +739,7 @@ first criterion. And simulation and hardware disagree, which motivates model
 validation and the virtual flight test.
 
 **Safety.** A student is flying an unstable machine in a room of 200. An e-stop
-on the amplifier, in reach of the lecturer or the technician throughout, is the
+on the amplifier, in reach of the lecturer or a TA throughout, is the
 primary measure, and submitted gains are filtered before anything reaches the
 hardware. The rest is in the run sheet.
 
@@ -944,21 +946,18 @@ Recorded so they are not lost. Numbered for reference in discussion.
   - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.
-- **Q7. Where guest lectures go.** Decided: guests take a whole teaching week,
-  not the second hour of a taught week. An hour of lecture and questions, with
-  room to overrun a little, then the second hour as free-form questions and
-  student activity. This keeps the eight-lecture build intact and P18's weekly
-  case cycle unbroken, and it gives guests a better slot than a half. Still
-  open: which two weeks, which needs the speakers confirmed; and whether the
-  guest week still carries independent work of its own, or is a deliberate
-  lighter week in the term's load (P19). Two consequences found in the review of
-  17 September: eight lectures plus two guest weeks is *exactly* the ten teaching
-  weeks, so the term has no slack for a cancellation or an overrun; and a guest
-  week breaks P18's chain, because a cliffhanger set in week *n* is then resolved
-  in week *n* + 2. **The chain break is accepted** (18 September): the guest's
-  second hour is open question-and-answer, and the lecturer links back and
-  forward live. That is the one place in the term where P18's rule is knowingly
-  suspended, and it is suspended rather than quietly broken.
+- **Q7. Guest lectures.** Decided. A guest takes a whole session: an hour of
+  lecture and questions, with room to overrun a little, then the second hour as
+  open question-and-answer and student activity. **This year there is one**,
+  booked for week 5; the second is dropped for 2026/27. A guest session breaks
+  P18's chain, and **that is accepted** (18 September): the lecturer links back
+  and forward live. It is the one place in the term where P18's rule is knowingly
+  suspended, rather than quietly broken. Still open: the speaker and topic (a
+  MathWorks session on agentic AI for model-based design is proposed in
+  [CURRICULUM.md](CURRICULUM.md)); and Q10, whether reading week is the right
+  week for it. The earlier concern that the term had no slack is superseded:
+  with week 2 given away and the guest in reading week, there are nine control
+  sessions for eight lectures, and week 11 is the buffer.
 - **Q8. Case-based learning**, after
   [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
   Largely settled: adopted in adapted form as P18, with the reasoning and the
