@@ -38,19 +38,24 @@ The site then runs at `http://localhost:8000`.
 
 ## Licence
 
-These materials are © 2026 Dr Steve Bullock, University of Bristol, and are
-published under the
-[Creative Commons Attribution 4.0 International Licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+© 2026 Dr Steve Bullock, University of Bristol. Two licences, both of which ask
+for attribution:
 
-You are free to share and adapt them, including commercially, provided you give
-credit, link to the licence, and say if you made changes. That covers the
-handouts, slides, example sheets, solutions, figures, glossary, applets and the
-scripts that produce them.
+- **Teaching material** — handouts, slides, example sheets, solutions, figures
+  and the glossary — under
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Share and adapt it,
+  including commercially, provided you give credit, link to the licence, and say
+  if you changed anything.
+- **Software** — the applets, the scripts that generate the figures and numbers,
+  and the build tooling — under the
+  [MIT licence](https://opensource.org/license/mit). Reusing it means keeping the
+  copyright notice, which is how the attribution travels with the code.
 
 > Bullock, S. (2026). *CADE30008 Flight Dynamics & Control: course materials*.
 > University of Bristol. CC BY 4.0.
 
-Some things in these pages are not ours to license, and are **not** covered:
+Some things in these pages are **not** ours to license, and neither licence
+covers them:
 
 - the University of Bristol and Bristol Flight Lab names, logos and visual
   identity, which are University brand assets and trade marks;

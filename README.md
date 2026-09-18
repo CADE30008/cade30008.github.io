@@ -70,10 +70,26 @@ See [AGENTS.md](AGENTS.md) for the full contract.
 
 ## The slide theme
 
-`package.json` takes the Flight Lab Marp theme from a sibling folder, `../flightlab-marp-template`. Once the theme is published, change that dependency to `github:BristolFlightLab/marp-template` so that CI can install it.
+`package.json` takes the Flight Lab Marp theme from a sibling folder, `"marp-template": "file:../flightlab-marp-template"`. That works on Steve's machine and nowhere else: a fresh clone, a colleague, or CI cannot build the slides.
+
+Once the theme repository is published, **pin to a release tag rather than to a branch**:
+
+```json
+"marp-template": "github:BristolFlightLab/marp-template#v1.0.0"
+```
+
+npm resolves that to a tarball of the tag, so the build is reproducible: `main` moving does not silently restyle every deck, and a deck built today builds the same in a year. Upgrading is then a deliberate one-line change.
+
+What the theme repository needs for this to work:
+
+- a `package.json` with matching `name` and `version`, and the CSS in `files` (or no `.npmignore` excluding it) — npm installs the repo as a package, not as a folder of loose files;
+- no build step, or a `prepare` script, since npm runs `prepare` when installing from git;
+- semver tags, `v1.0.0` style.
+
+Alternatives, if the repository stays private: `#semver:^1.0.0` tracks compatible releases rather than one tag, at the cost of reproducibility; a GitHub Actions token or deploy key is needed either way for CI to read a private repository. Publishing to npm under a scope avoids the token problem entirely and is worth considering if the theme is meant to be reused across units.
 
 ## Licence
 
-© 2026 Dr Steve Bullock, University of Bristol. Teaching content, scripts, applets and planning documents are licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): share and adapt, with credit.
+© 2026 Dr Steve Bullock, University of Bristol. Teaching material — handouts, slides, example sheets, solutions, figures, glossary and the planning documents — is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Software — `models/`, `scripts/`, `docs/applets/`, `docs/javascripts/` and the lesson `code/` folders — is [MIT](https://opensource.org/license/mit). Both require attribution; MIT carries it in the copyright notice.
 
-University of Bristol and Bristol Flight Lab branding, Quanser and MathWorks material, third-party libraries and everything under `private/` are excluded. See [LICENSE.md](LICENSE.md) for the full terms and the complete exclusion list.
+University of Bristol and Bristol Flight Lab branding, Quanser and MathWorks material, third-party libraries and everything under `private/` are excluded. See [LICENSE.md](LICENSE.md).

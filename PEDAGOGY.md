@@ -38,30 +38,63 @@ the aircraft modes, and the reading of flight data against handling qualities.
 They are delivered in parallel by other staff. The catalogue holds the
 authoritative wording; the table above is a working paraphrase.
 
-**Delivery.** The unit runs for 12 weeks. Week 6 is reading week and week 12 is
-revision week, leaving 10 teaching weeks. This half has eight two-hour lectures,
-which leaves room for some guest lectures for flavour. Each session runs to a
-fixed shape (P17): a taught hour, then a 50-minute case hour in which students
-deploy what was covered, individually or in pairs or threes. The timetabled
-second hour is 50 minutes, not 60. Students also have about four hours of
-laboratory time on a Quanser 3-DoF helicopter, likely in two two-hour sittings.
+**The term.** Twelve weeks. **Week 5 is reading week** and week 12 is revision
+week, for units with exams, leaving ten teaching weeks: 1 to 4, and 6 to 11.
+Lectures are on **Tuesdays**. Each session runs to a fixed shape (P17): a taught
+hour, then a 50-minute case hour in which students deploy what was covered,
+individually or in pairs or threes. The timetabled second hour is 50 minutes,
+not 60.
 
-**Student effort between lectures.** Two hours a week for a mid-range student,
-with up to two more available for those who want them. The first two hours are
-the expectation and everything assessed depends only on them; the extension
-hours are genuine depth, not catch-up for people who were slower in the room.
-See P17 for how those hours are divided.
+**This year's shape, 2026/27.** It is not the steady state, and the differences
+are deliberate rather than accidents to design around:
+
+| Week | Session | Note |
+|---|---|---|
+| 1 | Control | Quanser in the theatre; the whole design cycle once |
+| 2 | *Flight Dynamics* | Steve away. Given to the other half **this year only** |
+| 3, 4 | Control | |
+| 5 | Guest lecture | In reading week — **confirm this is intended** (Q10) |
+| 6 to 10 | Control | |
+| 11 | Control, then Q&A | Coursework due **Thursday of week 11**, so the case hour is coursework Q&A |
+| 12 | — | Revision week |
+
+That gives **nine control sessions**, of which week 11's second hour is not new
+material: eight full sessions of content plus one half. The steady-state plan of
+eight lectures therefore fits this year with one session spare, and the spare
+should be held rather than filled — the term has no other slack.
+
+**Student effort.** About 100 hours for this half of a 20 credit unit. The
+budget, settled 18 September:
+
+| | Hours | How it arises |
+|---|---|---|
+| Contact | 20 | Nine control sessions at 2 h, plus the guest lecture |
+| Laboratory | 4 | Quanser, self-scheduled by students |
+| Coursework | 24 | 2 h a week averaged across the twelve weeks |
+| Independent study | 52 | The remainder: about 5 h a week in a teaching week |
+| **Total** | **100** | |
+
+Coursework is averaged deliberately. Real effort on it rises steeply towards the
+week 11 deadline, and the checkpoints exist to pull some of that earlier; 2 hours
+a week is the planning figure, not a prediction of any particular week.
 
 **Lecture 1** introduces the Quanser helicopter in person and runs the whole
 design cycle once, so it departs from the standard shape: there is no previous
-week to retrieve, and the case hour is built round the hardware. Its plan is
-under "Lecture 1: the Quanser session" below. The Quanser can come back into the
-lecture for demonstrations in later weeks.
+week to retrieve, and the case hour is built round the hardware. Its reasoning is
+under "Lecture 1: the Quanser session" below and its plan in
+[teaching/l01.md](teaching/l01.md). The Quanser can come back into the lecture
+for demonstrations in later weeks.
 
 **In the room.** Most students bring laptops; those who don't share with those
-who do. Assume no teaching assistants, although some may join. The one planned
-exception is a session with hardware in the theatre, where a technician is
-booked for transport, set-up and safety; Lecture 1 is the first of these.
+who do. Three kinds of staff, which are not interchangeable:
+
+- **Technical services.** A member of technical services staff maintains the
+  Quanser laboratory. They are not teaching support, and their time is not ours
+  to allocate.
+- **Teaching assistants.** Two, with at least one joining the Quanser
+  demonstration lectures. Plan ordinary sessions as though there were none, so
+  that a TA's presence improves a session rather than being load-bearing (P8).
+- **The lecturer.** Present throughout, and the only person guaranteed to be.
 
 **Preferred text.** Dorf and Bishop, *Modern Control Systems*, chiefly for its
 framing of the control design cycle.
@@ -326,23 +359,29 @@ teaching value, and it lets the material vary without the format varying.
 - **Lectures may deviate, and say so.** Lecture 1 does. A guest lecture may take
   the case hour (Q7). Deviating silently is the thing to avoid.
 
-Between sessions, three parts in the same order every week, two hours for a
-mid-range student and up to two more for those who want them:
+Between sessions, four parts in the same order every week. About seven hours in a
+teaching week, from the budget under "The unit": five of independent study and
+two of coursework.
 
-| Part | Core | Extension | What it is |
-|---|---|---|---|
-| **1. Close the loop** | 45 min | +30 min | Finish the ceiling of the in-lecture build; that week's challenge in Numbas and MATLAB Grader (P16) |
-| **2. Feed the design** | 60 min | +75 min | The coursework step for the week, and a decision-log entry |
-| **3. Meet next week's case** | 15 min | +15 min | One small artifact to read or watch before the next session (P18) |
+| Part | Hours | What it is |
+|---|---|---|
+| **1. Close the loop** | 1.5 | Re-read the handout; finish the ceiling of the in-lecture build; that week's challenge in Numbas and MATLAB Grader (P16) |
+| **2. Work the examples** | 2 | The week's example sheet, then its solutions |
+| **3. Feed the design** | 2 | The coursework step for the week, and a decision-log entry |
+| **4. Meet next week's case** | 0.25 | One small artifact to read or watch before the next session (P18) |
+| *Unallocated* | 1.25 | Reading, the laboratory when their slot falls, catching up, going deeper |
 
-- **The core two hours are sufficient.** Nothing assessed requires the extension,
-  and the extension is depth rather than catch-up (P8's ceiling, not its floor).
-- **Part 3 stays small.** Compliance with pre-reading falls away sharply past
-  about twenty minutes. The next session's opener should reward having done it
+- **The unallocated hour and a quarter is real,** not a rounding error. It is
+  where the laboratory's four hours land, where a hard week overruns, and where
+  a strong student goes further. A plan with no slack in it is a plan students
+  fall behind against in week 3.
+- **Parts 1 to 3 are what everything assessed depends on.** A student who does
+  those and nothing else can get a first.
+- **Part 4 stays small.** Compliance with pre-reading falls away sharply past
+  about twenty minutes. The next session's hook should reward having done it
   without punishing not having.
 - **Review check:** does the week's material fit these slots and these hours, and
-  would a student who did only the core two hours be able to do everything
-  assessed?
+  would a student who did only parts 1 to 3 be able to do everything assessed?
 
 ### P18. A case runs the week, not the hour
 
@@ -718,89 +757,75 @@ regulatory controllers using PID feedback.
 - A line from Arthur Richards would sit better in a Bristol lecture than a
   textbook epigraph. Worth asking him for one, with permission to use it.
 
-## The Quanser laboratory: scheduling and its consequences
+## The Quanser laboratory
 
-Both laboratory sittings must be done by the end of reading week 6. The window
-is the Wednesday to Friday of week 1, the four full teaching weeks 2 to 5, and
-reading week 6. Four stations, used exclusively by this unit. Year 3 students
-have about 21 free hours in a normal week, and 4 more on a Wednesday afternoon
-for those not playing sport.
+**Open access, self-scheduled.** The laboratory is not booked into slots by us.
+Students turn up, in pairs, and work through the material themselves; a member
+of technical services staff maintains the rigs. Four stations, four budgeted
+hours per pair. What follows is therefore a *capacity* question, not a
+timetabling one.
 
 **The cohort.** 190 listed for 2026/27, of whom about 10 are provisional or
 unregistered. Expected to reach 300 to 380 within a couple of years.
 
-**Raw capacity.** At four 2-hour slots a day, four stations give 16 group
-sessions a day and 80 in a full week:
+**Capacity, in station-hours.** Four stations open eight hours a day, five days
+a week, over the weeks before and including reading week 5:
 
-| | Sessions available |
+| Window | Station-hours |
 |---|---|
-| Week 1, Wednesday to Friday | 48 |
-| Weeks 2 to 5 | 320 |
-| Reading week 6 | 80 |
-| **Whole window** | **448** |
-| **Weeks 2 to 5 only** | **320** |
+| Weeks 1 to 4 | 640 |
+| Weeks 1 to 6, including reading week | 960 |
 
-**Demand.** Each group needs two sessions.
-
-| Cohort | Groups | Sessions needed | Of the whole window | Of weeks 2 to 5 only |
+| Cohort | Groups | Hours needed | Of weeks 1 to 4 | Of weeks 1 to 6 |
 |---|---|---|---|---|
-| 190 in pairs | 95 | 190 | 42% | 59% |
-| 190 in threes | 64 | 128 | 29% | 40% |
-| 300 in pairs | 150 | 300 | 67% | 94% |
-| 380 in pairs | 190 | 380 | 85% | **119%, impossible** |
-| 380 in threes | 127 | 254 | 57% | 79% |
+| 190 in pairs | 95 | 380 | 59% | 40% |
+| 190 in threes | 64 | 256 | 40% | 27% |
+| 300 in pairs | 150 | 600 | 94% | 63% |
+| 380 in pairs | 190 | 760 | **119%, impossible** | 79% |
+| 380 in threes | 127 | 508 | 79% | 53% |
 
 **What this says.**
 
-- **This year works, in pairs, with real slack.** 190 sessions against 448.
-  Even excluding week 1 and reading week it is 59 per cent, which leaves room
-  for no-shows, rescheduling and equipment failure.
-- **Reading week is capacity we should not count on.** Students travel, other
-  units make demands on it, and a laboratory that can only be finished in
-  reading week will generate complaints. Treat weeks 2 to 5 as the real window
-  and week 1 and week 6 as overflow.
-- **Utilisation is not the binding constraint; timetable matching is.** Each
-  student has about ten candidate 2-hour windows a week, and we offer twenty
-  slots. At 59 per cent utilisation almost everyone finds two that fit. Above
-  about 70 per cent it becomes a bin-packing problem, and the students who lose
-  are the ones with the least flexible timetables, which is a fairness problem
-  as much as a logistics one.
-- **The growth case fails, and it fails soon.** At 300 students in pairs the
-  laboratory consumes 94 per cent of the realistic window. At 380 it is
-  arithmetically impossible. Threes at 380 is 79 per cent, which by the point
-  above is already beyond workable. So one of these has to happen before the
-  cohort grows: more stations, a longer window, groups of three, or an activity
-  that does not need a station per group. Deciding late means deciding under
-  pressure, in the year it breaks.
-- **A scalable redevelopment is the option worth starting now,** because it is
-  the only one that does not cost money or timetable. The shape: every group
-  gets *data* from a station, but the analysis, design and verification happen
-  off it. That turns a 2-hour station booking into perhaps 30 minutes of station
-  time, and it is already how the coursework's virtual flight test works. The
-  hardware keeps the thing that only hardware gives — a real machine, really
-  misbehaving — and gives up the part that a simulation does equally well.
+- **This year works comfortably in pairs**, at 40 to 59 per cent depending on
+  how much of the window is real.
+- **Open access removes the matching problem but not the queueing one.**
+  Booked slots failed when a student's free hours missed every offered slot;
+  open access fails differently, by everyone arriving in the same two days. The
+  load will not be flat: expect peaks immediately after a session that needs the
+  rig, and in the last week before the data is needed. Above about 60 per cent
+  average utilisation those peaks become queues, and a queue is worse than a
+  booking because the student has already travelled.
+- **Publish live station availability** if there is any cheap way to do it, even
+  a page someone updates. It converts a queue into a decision.
+- **The growth case fails, and soon.** At 380 in pairs the laboratory cannot fit
+  in weeks 1 to 4 at all, and needs reading week plus a flat arrival profile to
+  fit in six. Before the cohort reaches 300: more stations, a longer window,
+  groups of three, or an activity that does not need a station per group.
+- **A scalable redevelopment is the option that costs neither money nor
+  timetable.** Every group gets *data* from a station, but the analysis, design
+  and verification happen off it. That turns four station-hours into perhaps
+  one, and it is already how the coursework's virtual flight test works. The
+  hardware keeps the thing only hardware gives — a real machine, really
+  misbehaving — and gives up what a simulation does equally well.
 
-**The consequence for teaching, which matters more than the logistics.**
+**The consequence for teaching, which matters more than the capacity.**
 
-Pairs will do their first sitting anywhere between week 1 and week 6. So **the
-laboratory cannot depend on lecture content beyond Lecture 1**, and the two
-sittings cannot depend on each other in a fixed order unless both are booked
-together. This is a hard constraint on the laboratory's design:
+Students self-schedule across weeks 1 to 6, so **the laboratory cannot depend on
+lecture content beyond Lecture 1**, and its two halves cannot depend on each
+other in a fixed order. This is a hard constraint on its design:
 
 - Everything a sitting needs is either in Lecture 1 or in its own material.
-- A pair arriving in week 2 and a pair arriving in week 6 must both be able to
+- A pair arriving in week 1 and a pair arriving in week 6 must both be able to
   do it, and the week 6 pair should not find it trivial.
-- It sits awkwardly against P8's week-on-week compounding, and against P18's
-  weekly case. The resolution: the laboratory is a **parallel strand**, not a
-  week's activity. Lectures may refer to it as a shared experience but must
-  never require it to have happened.
-- Booking both sittings together, as a pair of slots a fortnight apart, removes
-  the ordering problem and costs nothing. Worth doing.
+- It sits awkwardly against P8's week-on-week compounding and P18's weekly case.
+  The resolution: the laboratory is a **parallel strand**, not a week's activity.
+  Lectures may refer to it as a shared experience but must never require it to
+  have happened.
 
 Related: AQ5 in [ASSESSMENT.md](ASSESSMENT.md) asks whether Part B uses each
-student's own laboratory data. The spread of dates above is an argument against
-it: a student whose data arrives in week 6 has much less time to use it than one
-whose data arrives in week 2.
+student's own laboratory data. Self-scheduling is an argument against it — a
+student who goes in week 6 has much less time to use their data than one who
+goes in week 1, and that difference is not of their making.
 
 ## Demonstrations
 
@@ -930,8 +955,10 @@ Recorded so they are not lost. Numbered for reference in discussion.
   17 September: eight lectures plus two guest weeks is *exactly* the ten teaching
   weeks, so the term has no slack for a cancellation or an overrun; and a guest
   week breaks P18's chain, because a cliffhanger set in week *n* is then resolved
-  in week *n* + 2. Placing guest weeks at act boundaries, where a cliffhanger is
-  closing anyway, solves the second and not the first.
+  in week *n* + 2. **The chain break is accepted** (18 September): the guest's
+  second hour is open question-and-answer, and the lecturer links back and
+  forward live. That is the one place in the term where P18's rule is knowingly
+  suspended, and it is suspended rather than quietly broken.
 - **Q8. Case-based learning**, after
   [Bristol Vet School](https://www.bristol.ac.uk/vet-school/study/undergraduate/key-information/case-based-learning/).
   Largely settled: adopted in adapted form as P18, with the reasoning and the
@@ -943,14 +970,15 @@ Recorded so they are not lost. Numbered for reference in discussion.
     teaching starts, not after.
   - How the case grain interacts with the guest lectures (Q7), since a guest
     taking the case hour breaks that week's cycle.
-- **Q9. The student effort budget.** It doesn't close. A 20 credit unit is about
-  200 hours, so this half is about 100. Contact accounts for 24 — eight sessions,
-  two guest weeks and four laboratory hours — and P17's core independent work for
-  20. That leaves **56 hours unaccounted**, more than half the total. Three
-  possible answers, and they lead to different courses:
-  - the coursework endgame really is that large, in which case it belongs in the
-    published term plan, because students plan against what we publish;
-  - P17's two core hours a week are too few, and should be three or four;
-  - the split with Part A is not 50/50.
-  This has to be settled before the week-by-week grid: it decides how much can be
-  asked of a week. Raised by the review of 17 September (F1).
+- **Q9. The student effort budget.** Settled 18 September; the figures are under
+  "The unit". Contact 20, laboratory 4, coursework 24 at 2 hours a week averaged
+  over the term, and independent study 52, about 5 hours in a teaching week.
+  Still worth watching rather than closing: whether 5 hours of independent study
+  is actually taken up, which the weekly challenge completion (P16) will show
+  early.
+- **Q10. The guest lecture in reading week.** One guest lecture is booked for
+  week 5, which is reading week. Confirm this is deliberate. Against it:
+  attendance in reading week is usually poor, and a guest deserves an audience.
+  For it: it costs no teaching slot, it breaks no case chain, and it is
+  genuinely optional material. If it moves, it takes a control session with it
+  and the eight-lecture plan loses its only spare.

@@ -149,3 +149,39 @@
 :root {
   --fl-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
 }
+
+/* ---------- Footer legibility ---------- */
+
+/* The footer band is brand red (flightlab.css). Material renders the copyright
+   line in a dimmed foreground, which on red is too low-contrast to read, and
+   its links then sit at the same lightness as the text around them. Lift the
+   text to full white and give links a persistent underline so they read as
+   links by shape as well as by colour (P14: never colour alone). */
+.md-footer-meta .md-copyright,
+.md-footer-meta .md-copyright__highlight {
+  color: #fff;
+  opacity: 1;
+}
+.md-footer-meta .md-copyright {
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.md-footer-meta.md-typeset a,
+.md-footer-meta.md-typeset a:not(:focus, :hover) {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #ffffffa6;
+}
+.md-footer-meta.md-typeset a:hover,
+.md-footer-meta.md-typeset a:focus {
+  color: #fff;
+  text-decoration-color: #fff;
+  text-decoration-thickness: 2px;
+}
+.md-footer-meta.md-typeset a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}

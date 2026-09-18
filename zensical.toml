@@ -9,8 +9,7 @@ site_url = "http://localhost:8000/"
 # here too.
 copyright = """Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed \
 <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. \
-University branding, and third-party material including Quanser's and MathWorks', are excluded &mdash; \
-see <a href="/about/#licence">About these materials</a>."""
+Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>."""
 
 # Each lecture is a collapsible section whose own link is the handout
 # (navigation.indexes puts docs/<lesson>/index.md on the section itself, so it

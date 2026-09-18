@@ -14,6 +14,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `slides/<lesson>/index.md` | Lecture deck (Marp). A condensed view of the handout | Yes |
 | `docs/applets/` | Interactive applets, plain HTML and JavaScript with no dependencies | Yes, then run the applet test |
 | `teaching/l0N.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
+| `CONTENT.md` | What actually exists versus what the nav implies, per session | Yes, with every content change |
 | `models/` | Design scripts: the single source of every number and plot | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |
@@ -59,7 +60,7 @@ When slides and handout match again, a person runs `npm run sync:accept` and com
 
 **Changing a design.** Edit the relevant script in `models/`, then rerun it together with the MATLAB check and the comparison. Update the handout, slides, solutions and applet presets from the new numbers. Run the applet test and the sync check.
 
-**You drafted or changed a session.** Update its run sheet in `teaching/` in the same change: slot timings, any new file it needs, and anything that moved between slots. [teaching/README.md](teaching/README.md) gives the template. A run sheet holds no facts — those live in the handout — only what happens, when, with what, and what to do when it fails.
+**You drafted or changed a session.** Update [CONTENT.md](CONTENT.md)'s status row for it in the same change — the site looks finished and is not, and that table is the only honest record. Then update its run sheet in `teaching/` in the same change: slot timings, any new file it needs, and anything that moved between slots. [teaching/README.md](teaching/README.md) gives the template. A run sheet holds no facts — those live in the handout — only what happens, when, with what, and what to do when it fails.
 
 **You wrote or revised a lecture.** Before calling it done, go through [docs/glossary.md](docs/glossary.md): add every term the lecture introduces, in the glossary's plain style; check that the lecture doesn't define an existing term differently; and drop anything the glossary holds that nothing uses. Put the glossary change in the same commit as the lecture change. A lecture whose terms aren't in the glossary isn't finished.
 
