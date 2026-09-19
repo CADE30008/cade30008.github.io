@@ -3,14 +3,13 @@
 // Usage:
 //   node scripts/new-lesson.mjs 6 loop-shaping "Loop shaping"
 //
-// Creates docs/l06-loop-shaping/{index.md,example-sheet.md,solutions.md} and
-// slides/l06-loop-shaping/index.md, wired to each other and following the sync
+// Creates docs/w08-loop-shaping/{index.md,example-sheet.md,solutions.md} and
+// slides/w08-loop-shaping/index.md, wired to each other and following the sync
 // contract in AGENTS.md: the handout's sections carry stable IDs, and every
 // content slide cites the section it covers.
 //
-// Folders are lNN-topic, where NN is the lecture's number in
-// curriculum/lectures.yaml. That is the lecture's number, not a week: which
-// week a lecture falls in is set by the year's schedule.
+// Folders are wNN-topic, where NN is the University week: the course is
+// designed to the calendar, and "Week n" is how students see it.
 //
 // Existing files are never overwritten; the script reports them and moves on.
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
@@ -18,7 +17,7 @@ import { join, resolve } from "node:path";
 
 const [numberArg, slug, title] = process.argv.slice(2);
 if (!numberArg || !slug || !title) {
-  console.error('usage: node scripts/new-lesson.mjs <number> <slug> "<title>"');
+  console.error('usage: node scripts/new-lesson.mjs <week> <topic> "<title>"');
   process.exit(1);
 }
 
@@ -29,21 +28,21 @@ if (!Number.isInteger(n) || n < 1) {
 }
 
 const root = resolve(import.meta.dirname, "..");
-const lesson = `l${String(n).padStart(2, "0")}-${slug}`;
+const lesson = `w${String(n).padStart(2, "0")}-${slug}`;
 
 // Placeholder bodies deliberately carry no figures and no numerals: the sync
 // check verifies that every number on a slide appears in the handout section it
 // cites, and there is nothing to verify against yet.
 const handout = `---
-title: "Lecture ${n}: ${title}"
-description: "Placeholder. Topic and content for lecture ${n} are provisional."
+title: "Week ${n}: ${title}"
+description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: ${lesson}
 order: ${n}
 duration: 110 min
 status: draft
 ---
 
-# Lecture ${n}: ${title}
+# Week ${n}: ${title}
 
 <div class="lesson-links" markdown>
 [Slides](../slides/${lesson}/index.html)
@@ -52,7 +51,7 @@ status: draft
 </div>
 
 !!! warning "Not yet written"
-    This lecture is scoped but not written. Its title, learning outcomes and
+    This week is scoped but not written. Its title, learning outcomes and
     place in the unit are set; the sections below are placeholders, there so
     that the navigation, the slide deck and the example sheet exist in their
     final shape.
@@ -94,9 +93,9 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Lecture ${n}"
-title: "Lecture ${n}: ${title}"
-description: "Placeholder deck for lecture ${n}."
+footer: "Dr. Steve Bullock · Week ${n}"
+title: "Week ${n}: ${title}"
+description: "Placeholder deck for week ${n}."
 author: "Dr. Steve Bullock"
 ---
 
@@ -104,7 +103,7 @@ author: "Dr. Steve Bullock"
 
 # ${title}
 
-## Lecture ${n} · CADE30008 Flight Dynamics & Control
+## Week ${n} · CADE30008 Flight Dynamics & Control
 
 Dr. Steve Bullock
 
@@ -165,8 +164,8 @@ content, and does not appear on the slide itself.
 `;
 
 const exampleSheet = `---
-title: "Lecture ${n} example sheet: ${title}"
-description: "Placeholder example sheet for lecture ${n}."
+title: "Week ${n} example sheet: ${title}"
+description: "Placeholder example sheet for week ${n}."
 lesson: ${lesson}
 ---
 
@@ -202,8 +201,8 @@ Control System Toolbox.
 `;
 
 const solutions = `---
-title: "Lecture ${n} solutions: ${title}"
-description: "Placeholder solutions for the lecture ${n} example sheet."
+title: "Week ${n} solutions: ${title}"
+description: "Placeholder solutions for the week ${n} example sheet."
 lesson: ${lesson}
 ---
 
@@ -254,5 +253,5 @@ for (const [file, body] of files) {
 }
 
 if (written) {
-  console.log(`\nAdd "Lecture ${n}: ${title}" to nav in zensical.toml, then run npm run build.`);
+  console.log(`\nAdd "Week ${n}: ${title}" to nav in zensical.toml and an entry to curriculum/weeks.yaml, then run npm run curriculum.`);
 }

@@ -1,6 +1,6 @@
 ---
 title: Preparing for Control
-description: Check that your device can run the course code, and complete the MathWorks Onramp courses, before Lecture 1.
+description: Check that your device can run the course code, and complete the MathWorks Onramp courses, before week 1.
 ---
 
 # Preparing for Control
@@ -43,7 +43,7 @@ someone who has a laptop for MATLAB, Simulink and the Onramp courses.
 
 ## Check your device {#check}
 
-Each check runs the same small example: the pitch-attitude loop from Lecture 2.
+Each check runs the same small example: the pitch-attitude loop from week 3.
 Wherever you run it, it should report a phase margin of 43.21° at 1.559 rad/s and
 a gain margin of 6.00, and draw a step response.
 
@@ -129,7 +129,7 @@ blocks, then close it without saving.
 | `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
 | `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected |
 | The browser run stalls, or reports an error | Use an up-to-date browser, and try another network: some block large downloads |
-| Anything else | Pair up with someone whose set-up works, and bring the error message to Lecture 1 |
+| Anything else | Pair up with someone whose set-up works, and bring the error message to week 1's lecture |
 
 ## MathWorks Onramp courses {#onramps}
 

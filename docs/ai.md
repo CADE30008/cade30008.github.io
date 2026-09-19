@@ -28,8 +28,7 @@ responsibly and effectively. An engineer who understands the domain can use a mo
 go faster. One who doesn't can only use it to be wrong faster, and won't know.
 
 !! danger
-  A design produced by a tool you don't understand and can't check runs the risk of being a guess that
-you're taking responsibility for. That's not engineering.
+  A design in a domain you don't understand, produced by a tool you don't understand and can't check, runs the risk of being a gamble that it's right. That's not responsible, not ethical, and not engineering.
 
 ### Work, or gym?
 
@@ -51,7 +50,7 @@ obscure Simulink error at eleven at night, when you already understand what your
 model should do, is (mostly) work. Working out why your loop has less phase margin
 than you expected is the gym: the struggle is what _changes you_.
 
-### What that means in this unit
+## What that means in this unit
 
 - **You may use AI**, including the AI and agentic tools in MATLAB and Simulink,
   in the ways the coursework brief lists. The coursework is in the University's

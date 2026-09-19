@@ -50,9 +50,9 @@ plain documents in the repository:
   numbered principles, and the reasoning behind them.
 - [**CURRICULUM.md**][curriculum] — what the unit teaches, in what order, and why,
   with the options that were weighed.
-- [**The lecture set**][lectures] — every lecture's learning outcomes,
-  activities, case, hook and cliffhanger, in one file from which much of this
-  site is generated.
+- [**The week-by-week plan**][lectures] — every week's learning outcomes,
+  activities, case, hook and cliffhanger, and the consolidation week's
+  activities, in one file from which much of this site is generated.
 - [**ASSESSMENT.md**][assessment] — how the coursework is designed.
 - [**AGENTS.md**][agents] — how the materials are built, checked and edited,
   whether by a person or an AI assistant.
@@ -63,12 +63,13 @@ plain documents in the repository:
 
 Planning views, for anyone teaching this material or building something like it:
 
-- [**The lecture map**](planning/lecture-map.html) — every lecture's outcomes,
+- [**The lecture map**](planning/lecture-map.html) — every week's outcomes,
   what happens in each part of the session, the work between sessions, the
-  cliffhanger chain, and the student workload model, on one page.
-- [**The term map**](l01-design-cycle/index.md#schedule) — which lecture falls in
-  which week this year.
-- [**Run sheets**][teaching] — the lecturer's plan for each session: timings,
+  consolidation week, the cliffhanger chain, and the student workload model, on
+  one page.
+- [**The term map**](w01-design-cycle/index.md#schedule) — the twelve weeks at
+  a glance, with the coursework and the laboratory.
+- [**Run sheets**][teaching] — the lecturer's plan for each lecture: timings,
   files, set-up, and what to do when it goes wrong.
 - [**Review notes**][reviews] — reviews of the materials against the principles,
   including what was removed and why.
@@ -81,7 +82,7 @@ Planning views, for anyone teaching this material or building something like it:
 [repo-models]: https://github.com/BristolFlightLab/aero-control-course/tree/main/models
 [pedagogy]: https://github.com/BristolFlightLab/aero-control-course/blob/main/PEDAGOGY.md
 [curriculum]: https://github.com/BristolFlightLab/aero-control-course/blob/main/CURRICULUM.md
-[lectures]: https://github.com/BristolFlightLab/aero-control-course/blob/main/curriculum/lectures.yaml
+[lectures]: https://github.com/BristolFlightLab/aero-control-course/blob/main/curriculum/weeks.yaml
 [assessment]: https://github.com/BristolFlightLab/aero-control-course/blob/main/ASSESSMENT.md
 [agents]: https://github.com/BristolFlightLab/aero-control-course/blob/main/AGENTS.md
 [content]: https://github.com/BristolFlightLab/aero-control-course/blob/main/CONTENT.md

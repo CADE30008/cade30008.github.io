@@ -6,9 +6,9 @@ This file is for anyone editing the course materials, whether by hand or with an
 
 | Path | What it is | Edit it? |
 |---|---|---|
-| `curriculum/lectures.yaml` | **What each lecture is**: number, title, outcomes, activities, case, hook, cliffhanger, P19 budget | Yes. The source for everything below that is generated |
-| `curriculum/schedule-<year>.yaml` | **Which week each lecture falls in**, this year, and the coursework's weekly steps | Yes, once a year and when plans change |
-| `docs/planning/lecture-map.html` (the lecture map, served on the site but not in the nav), `docs/l01-design-cycle/figures/term-map.svg`, the home page's lecture table, Lecture 1's schedule and workload tables, and each unwritten lecture's outcomes | Generated from the two files above by `npm run curriculum` | Never by hand |
+| `curriculum/weeks.yaml` | **What each week is**: the lecture weeks' title, outcomes, activities, case, hook, cliffhanger and P19 budget; the guest week; the consolidation week's recommended activities; the acts | Yes. The source for everything below that is generated |
+| `curriculum/term.yaml` | **Term-level facts**: the year, the consolidation and revision weeks, the coursework's deadline and weekly steps, the laboratory window, and the workload model | Yes, once a year and when plans change |
+| `docs/planning/lecture-map.html` (the lecture map, served on the site but not in the nav), `docs/w01-design-cycle/figures/term-map.svg`, the home page's week table, week 1's schedule and workload tables, the consolidation week's activity table, and each unwritten week's outcomes | Generated from the two files above by `npm run curriculum` | Never by hand |
 | `docs/<lesson>/index.md` | Handout: the authoritative written version of a lecture | Yes |
 | `docs/<lesson>/example-sheet.md`, `solutions.md` | Example sheet and worked solutions | Yes |
 | `docs/<lesson>/code/*.py`, `*.m` | Code shown to students, included into pages with `--8<--` | Yes, then run it |
@@ -23,26 +23,25 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `sync.lock.json` | Last confirmed sync state between slides and handouts | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |
 
-## Lectures and weeks
+## Weeks
 
-Lectures and weeks are decoupled. A lecture has a number, its place in the
-sequence of lectures, and a folder `lNN-topic` carrying that number
-(`docs/l06-loop-shaping/`). **Lecture numbers are not week numbers**, and the
-two don't map one to one: this year Lecture 6 is in week 8. Which week a
-lecture falls in belongs to a year's schedule, and the term map in Lecture 1
-shows the mapping. Lectures are numbered sequentially; guest lectures are not
-numbered.
+The control half is designed to the University calendar. **"Week n" is week n
+of teaching block 1**, and that is how every student-facing page names it; there
+is no separate lecture numbering. Folders are `wNN-topic`, NN the week
+(`docs/w08-loop-shaping/`). Eleven weeks of content: nine lecture weeks, the
+guest lecture in week 5, and the consolidation week in week 6, which has no
+lecture of any kind. Week 12 is revision week and carries nothing.
 
-- **Adding, removing or reordering a lecture** starts in `curriculum/lectures.yaml`.
-  Then create or rename the folders to match (`npm run new:lesson <number> <topic> "<title>"`
-  scaffolds one as `lNN-topic`), update the nav, and run `npm run curriculum`: it
-  fails, and says what to fix, until folders, handouts, decks and nav agree with
-  the YAML. Renumbering a lecture means renaming its folders; use `git mv`.
-- **Changing which week something happens** is an edit to the schedule file
-  only. Nothing else should need to change, and if it does, that is a bug.
-- **Never write a week number into a handout, deck or run sheet.** Refer to
-  lectures by number. The one exception is Lecture 1's schedule section, which
-  is generated.
+- **Changing what a week covers** starts in `curriculum/weeks.yaml`. Then run
+  `npm run curriculum`: it fails, and says what to fix, until folders, handouts,
+  decks, sheets and nav agree with the YAML.
+- **Adding a lecture week** means `npm run new:lesson <week> <topic> "<title>"`,
+  which scaffolds `wNN-topic`, then an entry in `weeks.yaml` and the nav.
+- **Moving content to a different week** means renaming its folders (`git mv`),
+  its entry in `weeks.yaml`, and every "week n" that refers to it. Content is
+  tied to the calendar deliberately, so this is rare and should feel like it.
+- **Refer to other weeks as "week n"** in handouts, decks and run sheets, never
+  as "lecture n".
 
 ## The sync contract
 

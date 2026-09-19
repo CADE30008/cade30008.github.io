@@ -303,7 +303,7 @@ with the aircraft. A control problem with a human in the loop.
 ## Our systems and tools
 
 **Quanser 3-DoF helicopter.** The laboratory rig: two motors on a beam, free to
-move in elevation, pitch and travel. Used from Lecture 1 onwards.
+move in elevation, pitch and travel. Used from week 1 onwards.
 
 **Elevation, pitch, travel.** The rig's three axes: how high the beam is, how
 the rotor head is tilted, and how far round the base it has rotated.

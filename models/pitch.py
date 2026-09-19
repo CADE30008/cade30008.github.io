@@ -1,11 +1,11 @@
-"""Pitch-attitude loop for CADE30008 Lecture 2: model, designs, numbers and figures.
+"""Pitch-attitude loop for CADE30008 week 3 (PID): model, designs, numbers and figures.
 
-This script is the single source for every number and plot in the Lecture 2
+This script is the single source for every number and plot in the week 3 (PID)
 handout and slides. Run it from the repository root:
 
     .venv/bin/python models/pitch.py
 
-It writes the figures to docs/l03-pid-control/figures/ and the numbers to
+It writes the figures to docs/w03-pid-control/figures/ and the numbers to
 models/pitch_numbers.json. models/pitch_check.m recomputes the same numbers
 in MATLAB, and models/compare.py checks that the two agree.
 """
@@ -22,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-FIG = ROOT / "docs" / "pid-control" / "figures"
+FIG = ROOT / "docs" / "w03-pid-control" / "figures"
 NUMBERS = ROOT / "models" / "pitch_numbers.json"
 
 # --------------------------------------------------------------------------

@@ -1,0 +1,2002 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="505.282969pt" height="340.639504pt" viewBox="0 0 505.282969 340.639504" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-19T15:48:43.050926</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 340.639504 
+L 505.282969 340.639504 
+L 505.282969 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 51.682969 142.295176 
+L 498.082969 142.295176 
+L 498.082969 11.255176 
+L 51.682969 11.255176 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 71.973878 142.295176 
+L 71.973878 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m00840b1451" d="M 0 0 
+L 0 3.5 
+" style="stroke: #1d1d1b; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m00840b1451" x="71.973878" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 207.246605 142.295176 
+L 207.246605 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m00840b1451" x="207.246605" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 342.519332 142.295176 
+L 342.519332 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m00840b1451" x="342.519332" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 477.79206 142.295176 
+L 477.79206 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m00840b1451" x="477.79206" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <defs>
+       <path id="mb3ca19c30c" d="M 0 0 
+L 0 2 
+" style="stroke: #1d1d1b; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="58.864596" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="65.784137" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="112.695026" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="136.515371" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="153.416175" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="166.525457" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="177.23652" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="186.292595" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="194.137323" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="201.056865" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="247.967754" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="271.788098" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="288.688902" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_22">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="301.798184" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_19">
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="312.509247" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_20">
+     <g id="line2d_24">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="321.565322" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_21">
+     <g id="line2d_25">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="329.410051" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_26">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="336.329592" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_23">
+     <g id="line2d_27">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="383.240481" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_24">
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="407.060826" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_25">
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="423.961629" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_26">
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="437.070911" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_27">
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="447.781974" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_28">
+     <g id="line2d_32">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="456.838049" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_29">
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="464.682778" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_30">
+     <g id="line2d_34">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="471.602319" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_35">
+      <path d="M 51.682969 142.295176 
+L 498.082969 142.295176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_36">
+      <defs>
+       <path id="m08d2a49184" d="M 0 0 
+L -3.5 0 
+" style="stroke: #1d1d1b; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="142.295176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <!-- −60 -->
+      <g style="fill: #1d1d1b" transform="translate(27.378594 146.350352) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-ee" d="M 3000 2206 
+L 3000 1766 
+L 381 1766 
+L 381 2206 
+L 3000 2206 
+z
+" transform="scale(0.015625)"/>
+        <path id="TrebuchetMS-19" d="M 2100 4659 
+L 2403 4325 
+Q 2128 4216 1608 3586 
+Q 1088 2956 1031 2616 
+Q 1291 2866 1753 2866 
+Q 2359 2866 2725 2478 
+Q 3091 2091 3091 1413 
+Q 3091 741 2714 331 
+Q 2338 -78 1769 -78 
+Q 263 -78 263 1919 
+Q 263 2750 852 3620 
+Q 1441 4491 2100 4659 
+z
+M 919 1431 
+Q 919 453 1722 453 
+Q 2059 453 2254 708 
+Q 2450 963 2450 1381 
+Q 2450 1816 2244 2075 
+Q 2038 2334 1713 2334 
+Q 919 2334 919 1431 
+z
+" transform="scale(0.015625)"/>
+        <path id="TrebuchetMS-13" d="M 200 2428 
+Q 200 3416 600 4037 
+Q 1000 4659 1725 4659 
+Q 2444 4659 2805 4140 
+Q 3166 3622 3166 2328 
+Q 3166 1216 2787 576 
+Q 2409 -63 1681 -63 
+Q 953 -63 576 453 
+Q 200 969 200 2428 
+z
+M 825 2372 
+Q 825 469 1638 469 
+Q 2103 469 2322 891 
+Q 2541 1313 2541 2369 
+Q 2541 3097 2456 3437 
+Q 2372 3778 2184 3953 
+Q 1997 4128 1709 4128 
+Q 825 4128 825 2372 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-19" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(104.875 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_37">
+      <path d="M 51.682969 116.087176 
+L 498.082969 116.087176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_38">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="116.087176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <!-- −40 -->
+      <g style="fill: #1d1d1b" transform="translate(27.378594 120.142352) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-17" d="M 2756 1247 
+L 2756 0 
+L 2163 0 
+L 2163 1247 
+L 78 1247 
+L 78 1603 
+L 2538 4597 
+L 2756 4597 
+L 2756 1728 
+L 3219 1728 
+L 3219 1247 
+L 2756 1247 
+z
+M 2163 3350 
+L 819 1728 
+L 2163 1728 
+L 2163 3350 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-17" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(104.875 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_39">
+      <path d="M 51.682969 89.879176 
+L 498.082969 89.879176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_40">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="89.879176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <!-- −20 -->
+      <g style="fill: #1d1d1b" transform="translate(27.378594 93.934352) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-15" d="M 216 0 
+L 216 125 
+L 1650 2322 
+Q 2100 3013 2100 3494 
+Q 2100 4128 1384 4128 
+Q 1131 4128 909 3995 
+Q 688 3863 588 3659 
+L 184 3991 
+Q 291 4297 602 4478 
+Q 913 4659 1353 4659 
+Q 2013 4659 2384 4354 
+Q 2756 4050 2756 3494 
+Q 2756 2978 2263 2194 
+L 1234 563 
+L 3028 563 
+L 3028 0 
+L 216 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-15" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(104.875 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_41">
+      <path d="M 51.682969 63.671176 
+L 498.082969 63.671176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_42">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="63.671176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <!-- 0 -->
+      <g style="fill: #1d1d1b" transform="translate(38.914844 67.726352) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-13"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_43">
+      <path d="M 51.682969 37.463176 
+L 498.082969 37.463176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_44">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="37.463176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <!-- 20 -->
+      <g style="fill: #1d1d1b" transform="translate(33.146719 41.518352) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-15"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.4375 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_45">
+      <path d="M 51.682969 11.255176 
+L 498.082969 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_46">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="11.255176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <!-- 40 -->
+      <g style="fill: #1d1d1b" transform="translate(33.146719 15.310352) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-17"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.4375 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_7">
+     <!-- Magnitude (dB) -->
+     <g style="fill: #1d1d1b" transform="translate(21.078906 114.026504) rotate(-90) scale(0.11 -0.11)">
+      <defs>
+       <path id="TrebuchetMS-30" d="M 3916 0 
+L 3372 2941 
+L 2372 -63 
+L 2216 -63 
+L 1188 2941 
+L 656 0 
+L 63 0 
+L 919 4578 
+L 1203 4578 
+L 2294 1238 
+L 3300 4578 
+L 3581 4578 
+L 4509 0 
+L 3916 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-44" d="M 2313 384 
+Q 1956 -63 1222 -63 
+Q 828 -63 539 223 
+Q 250 509 250 934 
+Q 250 1444 695 1795 
+Q 1141 2147 1831 2147 
+Q 2019 2147 2256 2066 
+Q 2256 2878 1531 2878 
+Q 975 2878 675 2578 
+L 425 3075 
+Q 594 3213 892 3311 
+Q 1191 3409 1463 3409 
+Q 2191 3409 2520 3078 
+Q 2850 2747 2850 2025 
+L 2850 825 
+Q 2850 384 3113 238 
+L 3113 -59 
+Q 2750 -59 2570 44 
+Q 2391 147 2313 384 
+z
+M 2256 1644 
+Q 1975 1706 1863 1706 
+Q 1413 1706 1128 1475 
+Q 844 1244 844 928 
+Q 844 406 1459 406 
+Q 1909 406 2256 834 
+L 2256 1644 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-4a" d="M 300 -916 
+L 622 -441 
+Q 1141 -788 1578 -788 
+Q 1981 -788 2214 -648 
+Q 2447 -509 2447 -303 
+Q 2447 103 1859 103 
+Q 1759 103 1496 53 
+Q 1234 3 1088 3 
+Q 375 3 375 541 
+Q 375 706 542 840 
+Q 709 975 956 1034 
+Q 250 1366 250 2184 
+Q 250 2709 615 3059 
+Q 981 3409 1519 3409 
+Q 2013 3409 2291 3206 
+L 2588 3563 
+L 2975 3197 
+L 2619 2928 
+Q 2847 2631 2847 2153 
+Q 2847 1647 2531 1303 
+Q 2216 959 1703 909 
+L 1213 859 
+Q 1125 850 978 792 
+Q 831 734 831 641 
+Q 831 513 1138 513 
+Q 1272 513 1556 561 
+Q 1841 609 1978 609 
+Q 2472 609 2748 373 
+Q 3025 138 3025 -281 
+Q 3025 -744 2611 -1028 
+Q 2197 -1313 1563 -1313 
+Q 1238 -1313 878 -1197 
+Q 519 -1081 300 -916 
+z
+M 1559 2931 
+Q 1250 2931 1054 2712 
+Q 859 2494 859 2181 
+Q 859 1831 1048 1601 
+Q 1238 1372 1559 1372 
+Q 1875 1372 2053 1595 
+Q 2231 1819 2231 2181 
+Q 2231 2494 2039 2712 
+Q 1847 2931 1559 2931 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-51" d="M 2481 0 
+L 2481 1947 
+Q 2481 2481 2320 2695 
+Q 2159 2909 1781 2909 
+Q 1578 2909 1356 2787 
+Q 1134 2666 1016 2488 
+L 1016 0 
+L 422 0 
+L 422 3347 
+L 828 3347 
+L 1016 2916 
+Q 1309 3409 1975 3409 
+Q 3075 3409 3075 2072 
+L 3075 0 
+L 2481 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-4c" d="M 1034 4613 
+Q 1188 4613 1295 4505 
+Q 1403 4397 1403 4247 
+Q 1403 4094 1295 3986 
+Q 1188 3878 1034 3878 
+Q 884 3878 776 3986 
+Q 669 4094 669 4247 
+Q 669 4400 775 4506 
+Q 881 4613 1034 4613 
+z
+M 709 0 
+L 709 2847 
+L 250 2847 
+L 250 3347 
+L 1303 3347 
+L 1303 0 
+L 709 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-57" d="M 634 2878 
+L 247 2878 
+L 247 3347 
+L 634 3347 
+L 634 4047 
+L 1228 4275 
+L 1228 3347 
+L 2147 3347 
+L 2147 2878 
+L 1228 2878 
+L 1228 1216 
+Q 1228 794 1370 616 
+Q 1513 438 1828 438 
+Q 2056 438 2300 553 
+L 2388 31 
+Q 2019 -63 1578 -63 
+Q 1181 -63 907 232 
+Q 634 528 634 978 
+L 634 2878 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-58" d="M 984 3347 
+L 984 1213 
+Q 984 438 1656 438 
+Q 1950 438 2194 606 
+Q 2438 775 2516 997 
+L 2516 3347 
+L 3109 3347 
+L 3109 0 
+L 2516 0 
+L 2516 463 
+Q 2416 266 2114 101 
+Q 1813 -63 1525 -63 
+Q 975 -63 683 253 
+Q 391 569 391 1150 
+L 391 3347 
+L 984 3347 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-47" d="M 2544 3 
+L 2544 250 
+Q 2234 -59 1644 -59 
+Q 1016 -59 625 391 
+Q 234 841 234 1591 
+Q 234 2344 684 2876 
+Q 1134 3409 1756 3409 
+Q 2275 3409 2544 3166 
+L 2544 4719 
+L 3138 4719 
+L 3138 3 
+L 2544 3 
+z
+M 2544 2572 
+Q 2319 2909 1928 2909 
+Q 1450 2909 1154 2553 
+Q 859 2197 859 1647 
+Q 859 438 1959 438 
+Q 2100 438 2297 527 
+Q 2494 616 2544 716 
+L 2544 2572 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-48" d="M 3241 1616 
+L 828 1616 
+Q 828 1028 1150 713 
+Q 1434 438 1881 438 
+Q 2391 438 2731 734 
+L 2981 306 
+Q 2844 169 2559 69 
+Q 2203 -63 1766 -63 
+Q 1134 -63 694 366 
+Q 203 838 203 1634 
+Q 203 2463 706 2963 
+Q 1156 3409 1772 3409 
+Q 2488 3409 2894 3006 
+Q 3288 2619 3288 1978 
+Q 3288 1781 3241 1616 
+z
+M 1800 2909 
+Q 1403 2909 1134 2653 
+Q 878 2409 844 2047 
+L 2697 2047 
+Q 2697 2406 2472 2647 
+Q 2225 2909 1800 2909 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-3" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-b" d="M 1931 4609 
+L 1931 4350 
+Q 1313 3456 1313 1741 
+Q 1313 -297 1931 -1009 
+L 1931 -1338 
+Q 1300 -897 951 -73 
+Q 603 750 603 1747 
+Q 603 2597 1000 3464 
+Q 1397 4331 1931 4609 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-25" d="M 1775 0 
+L 469 0 
+L 469 4578 
+Q 1303 4619 1672 4619 
+Q 2350 4619 2722 4326 
+Q 3094 4034 3094 3491 
+Q 3094 3172 2856 2909 
+Q 2619 2647 2331 2581 
+Q 2875 2450 3123 2147 
+Q 3372 1844 3372 1322 
+Q 3372 719 2930 359 
+Q 2488 0 1775 0 
+z
+M 1094 4078 
+L 1094 2763 
+Q 1291 2744 1581 2744 
+Q 2469 2744 2469 3466 
+Q 2469 4100 1653 4100 
+Q 1341 4100 1094 4078 
+z
+M 1094 2278 
+L 1094 531 
+Q 1416 500 1588 500 
+Q 2175 500 2445 720 
+Q 2716 941 2716 1422 
+Q 2716 1869 2458 2081 
+Q 2200 2294 1597 2294 
+L 1094 2278 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-c" d="M 603 -1338 
+L 603 -1009 
+Q 1222 -297 1222 1741 
+Q 1222 3456 603 4350 
+L 603 4609 
+Q 1138 4331 1534 3464 
+Q 1931 2597 1931 1747 
+Q 1931 750 1582 -73 
+Q 1234 -897 603 -1338 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#TrebuchetMS-30"/>
+      <use xlink:href="#TrebuchetMS-44" transform="translate(70.953125 0)"/>
+      <use xlink:href="#TrebuchetMS-4a" transform="translate(123.5 0)"/>
+      <use xlink:href="#TrebuchetMS-51" transform="translate(173.703125 0)"/>
+      <use xlink:href="#TrebuchetMS-4c" transform="translate(228.34375 0)"/>
+      <use xlink:href="#TrebuchetMS-57" transform="translate(256.859375 0)"/>
+      <use xlink:href="#TrebuchetMS-58" transform="translate(296.515625 0)"/>
+      <use xlink:href="#TrebuchetMS-47" transform="translate(351.15625 0)"/>
+      <use xlink:href="#TrebuchetMS-48" transform="translate(406.875 0)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(461.421875 0)"/>
+      <use xlink:href="#TrebuchetMS-b" transform="translate(491.546875 0)"/>
+      <use xlink:href="#TrebuchetMS-47" transform="translate(528.265625 0)"/>
+      <use xlink:href="#TrebuchetMS-25" transform="translate(583.984375 0)"/>
+      <use xlink:href="#TrebuchetMS-c" transform="translate(640.578125 0)"/>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_47">
+    <path d="M 71.973878 29.58856 
+L 142.573036 43.413328 
+L 172.539585 49.495582 
+L 192.855889 53.839509 
+L 208.601025 57.426843 
+L 221.806623 60.652321 
+L 233.996406 63.854804 
+L 245.170373 67.012654 
+L 256.344341 70.402852 
+L 267.518308 74.033502 
+L 278.692276 77.903613 
+L 289.866243 82.007847 
+L 301.040211 86.341877 
+L 312.214178 90.905795 
+L 323.388146 95.704048 
+L 334.562113 100.741914 
+L 345.736081 106.020114 
+L 357.417956 111.785835 
+L 369.607738 118.047971 
+L 383.321244 125.346767 
+L 399.06638 133.98299 
+L 418.874777 145.112995 
+L 446.301788 160.799946 
+L 477.79206 178.991291 
+L 477.79206 178.991291 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #b01c2e; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_48">
+    <path d="M 233.321606 142.295176 
+L 233.321606 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #b01c2e; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_49">
+    <path d="M 71.973878 22.516857 
+L 162.88934 40.262274 
+L 196.91915 47.123151 
+L 221.298716 52.258077 
+L 244.154558 57.303474 
+L 269.042031 63.033857 
+L 292.405781 68.62668 
+L 309.166733 72.855266 
+L 322.37233 76.408319 
+L 334.054206 79.779316 
+L 344.720265 83.086047 
+L 354.878418 86.465159 
+L 365.03657 90.085503 
+L 374.686814 93.757164 
+L 384.337059 97.658672 
+L 394.495211 102.012575 
+L 404.653364 106.61289 
+L 415.319423 111.693313 
+L 426.493391 117.264539 
+L 438.683174 123.591648 
+L 452.904587 131.23632 
+L 469.665538 140.510559 
+L 477.79206 145.080446 
+L 477.79206 145.080446 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #ee7219; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_50">
+    <path d="M 271.753639 142.295176 
+L 271.753639 11.255176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #ee7219; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_51">
+    <path d="M 51.682969 63.671176 
+L 498.082969 63.671176 
+" clip-path="url(#p9284b780d2)" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 51.682969 142.295176 
+L 51.682969 11.255176 
+" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 51.682969 142.295176 
+L 498.082969 142.295176 
+" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="legend_1">
+    <g id="line2d_52">
+     <path d="M 61.582969 109.239316 
+L 72.582969 109.239316 
+L 83.582969 109.239316 
+" style="fill: none; stroke: #b01c2e; stroke-width: 2.2; stroke-linecap: square"/>
+    </g>
+    <g id="text_8">
+     <!-- P, $K_p = 1$ -->
+     <g transform="translate(92.382969 113.089316) scale(0.11 -0.11)">
+      <defs>
+       <path id="TrebuchetMS-33" d="M 1094 1763 
+L 1094 0 
+L 469 0 
+L 469 4578 
+Q 1178 4609 1325 4609 
+Q 3319 4609 3319 3275 
+Q 3319 1731 1556 1731 
+Q 1450 1731 1094 1763 
+z
+M 1094 4016 
+L 1094 2325 
+Q 1491 2294 1513 2294 
+Q 2675 2294 2675 3209 
+Q 2675 4047 1434 4047 
+Q 1309 4047 1094 4016 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-f" d="M 700 -1134 
+L 541 -909 
+Q 1078 -469 1078 -159 
+Q 1078 -22 984 116 
+Q 716 244 716 484 
+Q 716 650 844 758 
+Q 972 866 1166 866 
+Q 1338 866 1473 716 
+Q 1609 566 1609 366 
+Q 1609 -50 1436 -383 
+Q 1263 -716 700 -1134 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-Oblique-2e" d="M 1081 4666 
+L 1716 4666 
+L 1331 2700 
+L 3781 4666 
+L 4622 4666 
+L 1850 2438 
+L 3878 0 
+L 3109 0 
+L 1247 2272 
+L 806 0 
+L 172 0 
+L 1081 4666 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-Oblique-53" d="M 3175 2156 
+Q 3175 2616 2975 2859 
+Q 2775 3103 2400 3103 
+Q 2144 3103 1911 2972 
+Q 1678 2841 1497 2591 
+Q 1319 2344 1212 1994 
+Q 1106 1644 1106 1300 
+Q 1106 863 1306 627 
+Q 1506 391 1875 391 
+Q 2147 391 2380 519 
+Q 2613 647 2778 891 
+Q 2956 1147 3065 1494 
+Q 3175 1841 3175 2156 
+z
+M 1394 2969 
+Q 1625 3272 1939 3428 
+Q 2253 3584 2638 3584 
+Q 3175 3584 3472 3232 
+Q 3769 2881 3769 2247 
+Q 3769 1728 3584 1258 
+Q 3400 788 3053 416 
+Q 2822 169 2531 39 
+Q 2241 -91 1919 -91 
+Q 1547 -91 1294 64 
+Q 1041 219 916 525 
+L 556 -1331 
+L -19 -1331 
+L 922 3500 
+L 1497 3500 
+L 1394 2969 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-20" d="M 678 2906 
+L 4684 2906 
+L 4684 2381 
+L 678 2381 
+L 678 2906 
+z
+M 678 1631 
+L 4684 1631 
+L 4684 1100 
+L 678 1100 
+L 678 1631 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-14" d="M 794 531 
+L 1825 531 
+L 1825 4091 
+L 703 3866 
+L 703 4441 
+L 1819 4666 
+L 2450 4666 
+L 2450 531 
+L 3481 531 
+L 3481 0 
+L 794 0 
+L 794 531 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#TrebuchetMS-33" transform="translate(0 0.09375)"/>
+      <use xlink:href="#TrebuchetMS-f" transform="translate(35.761719 0.09375)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(72.480469 0.09375)"/>
+      <use xlink:href="#DejaVuSans-Oblique-2e" transform="translate(102.607422 0.09375)"/>
+      <use xlink:href="#DejaVuSans-Oblique-53" transform="translate(168.183594 -14.906201) scale(0.7)"/>
+      <use xlink:href="#DejaVuSans-20" transform="translate(234.833984 0.09375)"/>
+      <use xlink:href="#DejaVuSans-14" transform="translate(338.105469 0.09375)"/>
+     </g>
+    </g>
+    <g id="line2d_53">
+     <path d="M 61.582969 126.289316 
+L 72.582969 126.289316 
+L 83.582969 126.289316 
+" style="fill: none; stroke: #ee7219; stroke-width: 2.2; stroke-linecap: square"/>
+    </g>
+    <g id="text_9">
+     <!-- PD, $\omega_c = 3$ rad/s -->
+     <g transform="translate(92.382969 130.139316) scale(0.11 -0.11)">
+      <defs>
+       <path id="TrebuchetMS-27" d="M 1391 0 
+L 469 0 
+L 469 4578 
+Q 1350 4609 1597 4609 
+Q 2556 4609 3115 4026 
+Q 3675 3444 3675 2475 
+Q 3675 0 1391 0 
+z
+M 1094 4016 
+L 1094 594 
+Q 1303 563 1613 563 
+Q 2269 563 2644 1055 
+Q 3019 1547 3019 2422 
+Q 3019 4047 1559 4047 
+Q 1472 4047 1094 4016 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-Oblique-35d" d="M 1369 -91 
+Q 72 -91 434 1766 
+Q 575 2500 1256 3500 
+L 1875 3500 
+Q 1231 2500 1088 1750 
+Q 819 397 1519 397 
+Q 2166 397 2478 2078 
+L 3009 2078 
+Q 2669 388 3316 397 
+Q 4013 403 4275 1750 
+Q 4419 2500 4169 3500 
+L 4788 3500 
+Q 5075 2500 4934 1766 
+Q 4578 -94 3278 -91 
+Q 2428 -88 2503 844 
+Q 2194 -91 1369 -91 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-Oblique-46" d="M 3431 3366 
+L 3316 2797 
+Q 3109 2947 2876 3022 
+Q 2644 3097 2394 3097 
+Q 2119 3097 1870 3000 
+Q 1622 2903 1453 2725 
+Q 1184 2453 1037 2087 
+Q 891 1722 891 1331 
+Q 891 859 1127 628 
+Q 1363 397 1844 397 
+Q 2081 397 2348 469 
+Q 2616 541 2906 684 
+L 2797 116 
+Q 2547 13 2283 -39 
+Q 2019 -91 1741 -91 
+Q 1044 -91 669 257 
+Q 294 606 294 1253 
+Q 294 1797 489 2255 
+Q 684 2713 1069 3078 
+Q 1331 3328 1684 3456 
+Q 2038 3584 2456 3584 
+Q 2700 3584 2940 3529 
+Q 3181 3475 3431 3366 
+z
+" transform="scale(0.015625)"/>
+       <path id="DejaVuSans-16" d="M 2597 2516 
+Q 3050 2419 3304 2112 
+Q 3559 1806 3559 1356 
+Q 3559 666 3084 287 
+Q 2609 -91 1734 -91 
+Q 1441 -91 1130 -33 
+Q 819 25 488 141 
+L 488 750 
+Q 750 597 1062 519 
+Q 1375 441 1716 441 
+Q 2309 441 2620 675 
+Q 2931 909 2931 1356 
+Q 2931 1769 2642 2001 
+Q 2353 2234 1838 2234 
+L 1294 2234 
+L 1294 2753 
+L 1863 2753 
+Q 2328 2753 2575 2939 
+Q 2822 3125 2822 3475 
+Q 2822 3834 2567 4026 
+Q 2313 4219 1838 4219 
+Q 1578 4219 1281 4162 
+Q 984 4106 628 3988 
+L 628 4550 
+Q 988 4650 1302 4700 
+Q 1616 4750 1894 4750 
+Q 2613 4750 3031 4423 
+Q 3450 4097 3450 3541 
+Q 3450 3153 3228 2886 
+Q 3006 2619 2597 2516 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-55" d="M 2241 2775 
+Q 2047 2909 1850 2909 
+Q 1534 2909 1298 2618 
+Q 1063 2328 1063 1919 
+L 1063 0 
+L 469 0 
+L 469 3347 
+L 1063 3347 
+L 1063 2813 
+Q 1388 3409 2028 3409 
+Q 2188 3409 2488 3353 
+L 2241 2775 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-12" d="M 1094 0 
+L 591 0 
+L 2250 4597 
+L 2747 4597 
+L 1094 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-56" d="M 203 200 
+L 413 763 
+Q 909 438 1213 438 
+Q 1763 438 1763 900 
+Q 1763 1231 1231 1469 
+Q 822 1656 680 1753 
+Q 538 1850 433 1973 
+Q 328 2097 276 2236 
+Q 225 2375 225 2534 
+Q 225 2947 525 3178 
+Q 825 3409 1309 3409 
+Q 1675 3409 2231 3178 
+L 2063 2628 
+Q 1709 2909 1353 2909 
+Q 1141 2909 995 2809 
+Q 850 2709 850 2556 
+Q 850 2234 1216 2069 
+L 1641 1875 
+Q 2031 1697 2209 1469 
+Q 2388 1241 2388 897 
+Q 2388 447 2072 192 
+Q 1756 -63 1197 -63 
+Q 669 -63 203 200 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#TrebuchetMS-33" transform="translate(0 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-27" transform="translate(55.761719 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-f" transform="translate(117.089844 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(153.808594 0.78125)"/>
+      <use xlink:href="#DejaVuSans-Oblique-35d" transform="translate(183.935547 0.78125)"/>
+      <use xlink:href="#DejaVuSans-Oblique-46" transform="translate(267.675781 -14.218701) scale(0.7)"/>
+      <use xlink:href="#DejaVuSans-20" transform="translate(328.378906 0.78125)"/>
+      <use xlink:href="#DejaVuSans-16" transform="translate(431.650391 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(495.273438 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-55" transform="translate(525.400391 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-44" transform="translate(564.267578 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-47" transform="translate(616.806641 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-12" transform="translate(672.519531 0.78125)"/>
+      <use xlink:href="#TrebuchetMS-56" transform="translate(724.960938 0.78125)"/>
+     </g>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 51.682969 299.543176 
+L 498.082969 299.543176 
+L 498.082969 168.503176 
+L 51.682969 168.503176 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_31">
+     <g id="line2d_54">
+      <path d="M 71.973878 299.543176 
+L 71.973878 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_55">
+      <g>
+       <use xlink:href="#m00840b1451" x="71.973878" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <!-- $\mathdefault{10^{-1}}$ -->
+      <g style="fill: #1d1d1b" transform="translate(61.963878 316.663176) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-14" d="M 1556 0 
+L 1556 3509 
+L 625 2928 
+L 625 3513 
+Q 978 3691 1376 4003 
+Q 1775 4316 1994 4597 
+L 2181 4597 
+L 2181 0 
+L 1556 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-14" transform="translate(0 0.420313)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.441406 0.420313)"/>
+       <use xlink:href="#TrebuchetMS-ee" transform="translate(105.839844 41.720313) scale(0.7)"/>
+       <use xlink:href="#TrebuchetMS-14" transform="translate(142.548828 41.720313) scale(0.7)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_32">
+     <g id="line2d_56">
+      <path d="M 207.246605 299.543176 
+L 207.246605 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_57">
+      <g>
+       <use xlink:href="#m00840b1451" x="207.246605" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <!-- $\mathdefault{10^{0}}$ -->
+      <g style="fill: #1d1d1b" transform="translate(199.216605 316.773176) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-14" transform="translate(0 0.742188)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.441406 0.742188)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(105.839844 42.042187) scale(0.7)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_33">
+     <g id="line2d_58">
+      <path d="M 342.519332 299.543176 
+L 342.519332 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_59">
+      <g>
+       <use xlink:href="#m00840b1451" x="342.519332" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <!-- $\mathdefault{10^{1}}$ -->
+      <g style="fill: #1d1d1b" transform="translate(334.489332 316.663176) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-14" transform="translate(0 0.420313)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.441406 0.420313)"/>
+       <use xlink:href="#TrebuchetMS-14" transform="translate(105.839844 41.720313) scale(0.7)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_34">
+     <g id="line2d_60">
+      <path d="M 477.79206 299.543176 
+L 477.79206 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_61">
+      <g>
+       <use xlink:href="#m00840b1451" x="477.79206" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <!-- $\mathdefault{10^{2}}$ -->
+      <g style="fill: #1d1d1b" transform="translate(469.76206 316.773176) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-14" transform="translate(0 0.742188)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(52.441406 0.742188)"/>
+       <use xlink:href="#TrebuchetMS-15" transform="translate(105.839844 42.042187) scale(0.7)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_35">
+     <g id="line2d_62">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="58.864596" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_36">
+     <g id="line2d_63">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="65.784137" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_37">
+     <g id="line2d_64">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="112.695026" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_38">
+     <g id="line2d_65">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="136.515371" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_39">
+     <g id="line2d_66">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="153.416175" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_40">
+     <g id="line2d_67">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="166.525457" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_41">
+     <g id="line2d_68">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="177.23652" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_42">
+     <g id="line2d_69">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="186.292595" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_43">
+     <g id="line2d_70">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="194.137323" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_44">
+     <g id="line2d_71">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="201.056865" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_45">
+     <g id="line2d_72">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="247.967754" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_46">
+     <g id="line2d_73">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="271.788098" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_47">
+     <g id="line2d_74">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="288.688902" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_48">
+     <g id="line2d_75">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="301.798184" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_49">
+     <g id="line2d_76">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="312.509247" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_50">
+     <g id="line2d_77">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="321.565322" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_51">
+     <g id="line2d_78">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="329.410051" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_52">
+     <g id="line2d_79">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="336.329592" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_53">
+     <g id="line2d_80">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="383.240481" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_54">
+     <g id="line2d_81">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="407.060826" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_55">
+     <g id="line2d_82">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="423.961629" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_56">
+     <g id="line2d_83">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="437.070911" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_57">
+     <g id="line2d_84">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="447.781974" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_58">
+     <g id="line2d_85">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="456.838049" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_59">
+     <g id="line2d_86">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="464.682778" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_60">
+     <g id="line2d_87">
+      <g>
+       <use xlink:href="#mb3ca19c30c" x="471.602319" y="299.543176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_14">
+     <!-- Frequency (rad/s) -->
+     <g style="fill: #1d1d1b" transform="translate(230.448125 331.139816) scale(0.11 -0.11)">
+      <defs>
+       <path id="TrebuchetMS-29" d="M 1094 4016 
+L 1094 2744 
+L 2703 2744 
+L 2703 2213 
+L 1094 2213 
+L 1094 0 
+L 469 0 
+L 469 4578 
+L 3297 4578 
+L 3297 4016 
+L 1094 4016 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-54" d="M 2566 -1313 
+L 2566 197 
+Q 2306 -63 1697 -63 
+Q 1013 -63 623 395 
+Q 234 853 234 1666 
+Q 234 2469 679 2939 
+Q 1125 3409 1825 3409 
+Q 2263 3409 2641 3094 
+L 2800 3347 
+L 3159 3347 
+L 3159 -1313 
+L 2566 -1313 
+z
+M 2566 2653 
+Q 2309 2909 1925 2909 
+Q 1422 2909 1140 2568 
+Q 859 2228 859 1666 
+Q 859 1084 1140 761 
+Q 1422 438 1900 438 
+Q 2328 438 2566 656 
+L 2566 2653 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-46" d="M 2947 3075 
+L 2653 2656 
+Q 2563 2747 2333 2828 
+Q 2103 2909 1881 2909 
+Q 1397 2909 1112 2570 
+Q 828 2231 828 1641 
+Q 828 1053 1118 745 
+Q 1409 438 1925 438 
+Q 2325 438 2731 747 
+L 2966 247 
+Q 2488 -63 1781 -63 
+Q 1097 -63 650 396 
+Q 203 856 203 1641 
+Q 203 2441 667 2925 
+Q 1131 3409 1938 3409 
+Q 2197 3409 2500 3300 
+Q 2803 3191 2947 3075 
+z
+" transform="scale(0.015625)"/>
+       <path id="TrebuchetMS-5c" d="M 1700 -569 
+Q 1584 -888 1214 -1100 
+Q 844 -1313 388 -1313 
+L 388 -781 
+Q 759 -781 1025 -607 
+Q 1291 -434 1291 -184 
+Q 1291 91 1194 358 
+Q 1097 625 944 1019 
+L 38 3347 
+L 644 3347 
+L 1628 759 
+L 2513 3347 
+L 3119 3347 
+L 1700 -569 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#TrebuchetMS-29"/>
+      <use xlink:href="#TrebuchetMS-55" transform="translate(52.484375 0)"/>
+      <use xlink:href="#TrebuchetMS-48" transform="translate(91.359375 0)"/>
+      <use xlink:href="#TrebuchetMS-54" transform="translate(145.90625 0)"/>
+      <use xlink:href="#TrebuchetMS-58" transform="translate(201.625 0)"/>
+      <use xlink:href="#TrebuchetMS-48" transform="translate(256.265625 0)"/>
+      <use xlink:href="#TrebuchetMS-51" transform="translate(310.8125 0)"/>
+      <use xlink:href="#TrebuchetMS-46" transform="translate(365.453125 0)"/>
+      <use xlink:href="#TrebuchetMS-5c" transform="translate(414.96875 0)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(464.28125 0)"/>
+      <use xlink:href="#TrebuchetMS-b" transform="translate(494.40625 0)"/>
+      <use xlink:href="#TrebuchetMS-55" transform="translate(531.125 0)"/>
+      <use xlink:href="#TrebuchetMS-44" transform="translate(570 0)"/>
+      <use xlink:href="#TrebuchetMS-47" transform="translate(622.546875 0)"/>
+      <use xlink:href="#TrebuchetMS-12" transform="translate(678.265625 0)"/>
+      <use xlink:href="#TrebuchetMS-56" transform="translate(730.703125 0)"/>
+      <use xlink:href="#TrebuchetMS-c" transform="translate(771.1875 0)"/>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_88">
+      <path d="M 51.682969 171.951597 
+L 498.082969 171.951597 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_89">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="171.951597" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <!-- −90 -->
+      <g style="fill: #1d1d1b" transform="translate(27.378594 176.006773) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-1c" d="M 1222 -78 
+L 919 256 
+Q 1191 366 1714 994 
+Q 2238 1622 2291 1963 
+Q 2034 1716 1569 1716 
+Q 963 1716 597 2103 
+Q 231 2491 231 3169 
+Q 231 3841 607 4250 
+Q 984 4659 1553 4659 
+Q 3059 4659 3059 2663 
+Q 3059 1831 2470 961 
+Q 1881 91 1222 -78 
+z
+M 2403 3150 
+Q 2403 4128 1600 4128 
+Q 1263 4128 1067 3873 
+Q 872 3619 872 3200 
+Q 872 2766 1078 2506 
+Q 1284 2247 1609 2247 
+Q 2403 2247 2403 3150 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-1c" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(104.875 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_90">
+      <path d="M 51.682969 202.987386 
+L 498.082969 202.987386 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_91">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="202.987386" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <!-- −135 -->
+      <g style="fill: #1d1d1b" transform="translate(21.610469 207.042562) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-16" d="M 341 325 
+L 641 806 
+Q 947 469 1416 469 
+Q 2284 469 2284 1319 
+Q 2284 1706 2031 1948 
+Q 1778 2191 1359 2191 
+L 1309 2191 
+L 1309 2697 
+L 1338 2697 
+Q 2131 2697 2131 3397 
+Q 2131 4128 1384 4128 
+Q 978 4128 738 3856 
+L 459 4281 
+Q 750 4659 1431 4659 
+Q 2031 4659 2409 4339 
+Q 2788 4019 2788 3519 
+Q 2788 3138 2577 2844 
+Q 2366 2550 2081 2450 
+Q 2475 2322 2708 2014 
+Q 2941 1706 2941 1269 
+Q 2941 631 2537 284 
+Q 2134 -63 1406 -63 
+Q 1100 -63 806 51 
+Q 513 166 341 325 
+z
+" transform="scale(0.015625)"/>
+        <path id="TrebuchetMS-18" d="M 725 2234 
+L 513 2381 
+L 513 4597 
+L 2791 4597 
+L 2791 4066 
+L 1106 4066 
+L 1106 2953 
+Q 1338 3125 1694 3125 
+Q 2331 3125 2667 2744 
+Q 3003 2363 3003 1659 
+Q 3003 -63 1469 -63 
+Q 828 -63 406 294 
+L 647 816 
+Q 1072 469 1466 469 
+Q 2347 469 2347 1569 
+Q 2347 2594 1478 2594 
+Q 1059 2594 725 2234 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-14" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-16" transform="translate(104.875 0)"/>
+       <use xlink:href="#TrebuchetMS-18" transform="translate(157.3125 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_92">
+      <path d="M 51.682969 234.023176 
+L 498.082969 234.023176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_93">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="234.023176" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <!-- −180 -->
+      <g style="fill: #1d1d1b" transform="translate(21.610469 238.078352) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-1b" d="M 1103 2547 
+Q 813 2703 628 2981 
+Q 444 3259 444 3556 
+Q 444 4066 789 4362 
+Q 1134 4659 1681 4659 
+Q 2272 4659 2597 4362 
+Q 2922 4066 2922 3553 
+Q 2922 3253 2725 2942 
+Q 2528 2631 2269 2484 
+Q 3094 2022 3094 1269 
+Q 3094 634 2712 285 
+Q 2331 -63 1666 -63 
+Q 278 -63 278 1269 
+Q 278 1653 515 2025 
+Q 753 2397 1103 2547 
+z
+M 1869 2741 
+Q 2294 3141 2294 3569 
+Q 2294 3825 2123 3976 
+Q 1953 4128 1681 4128 
+Q 1069 4128 1069 3563 
+Q 1069 3144 1869 2741 
+z
+M 1591 2275 
+Q 903 1903 903 1269 
+Q 903 928 1115 698 
+Q 1328 469 1666 469 
+Q 2016 469 2242 694 
+Q 2469 919 2469 1269 
+Q 2469 1522 2312 1745 
+Q 2156 1969 1591 2275 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-14" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-1b" transform="translate(104.875 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(157.3125 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_94">
+      <path d="M 51.682969 265.058965 
+L 498.082969 265.058965 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_95">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="265.058965" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <!-- −225 -->
+      <g style="fill: #1d1d1b" transform="translate(21.610469 269.114141) scale(0.11 -0.11)">
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-15" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-15" transform="translate(104.875 0)"/>
+       <use xlink:href="#TrebuchetMS-18" transform="translate(157.3125 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_96">
+      <path d="M 51.682969 296.094755 
+L 498.082969 296.094755 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #d9dcdb; stroke-width: 0.6; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_97">
+      <g>
+       <use xlink:href="#m08d2a49184" x="51.682969" y="296.094755" style="fill: #1d1d1b; stroke: #1d1d1b; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <!-- −270 -->
+      <g style="fill: #1d1d1b" transform="translate(21.610469 300.149931) scale(0.11 -0.11)">
+       <defs>
+        <path id="TrebuchetMS-1a" d="M 1338 0 
+L 644 0 
+Q 875 734 1422 1942 
+Q 1969 3150 2422 4003 
+L 263 4003 
+L 263 4597 
+L 3231 4597 
+L 3231 4353 
+L 2828 3559 
+Q 2625 3156 2403 2675 
+Q 2181 2194 1968 1694 
+Q 1756 1194 1597 766 
+Q 1438 338 1338 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#TrebuchetMS-ee"/>
+       <use xlink:href="#TrebuchetMS-15" transform="translate(52.4375 0)"/>
+       <use xlink:href="#TrebuchetMS-1a" transform="translate(104.875 0)"/>
+       <use xlink:href="#TrebuchetMS-13" transform="translate(157.3125 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_20">
+     <!-- Phase (deg) -->
+     <g style="fill: #1d1d1b" transform="translate(15.310781 262.476223) rotate(-90) scale(0.11 -0.11)">
+      <defs>
+       <path id="TrebuchetMS-4b" d="M 2484 0 
+L 2484 2103 
+Q 2484 2478 2300 2693 
+Q 2116 2909 1781 2909 
+Q 1566 2909 1348 2782 
+Q 1131 2656 1016 2488 
+L 1016 0 
+L 422 0 
+L 422 4719 
+L 1016 4719 
+L 1016 2978 
+Q 1134 3163 1398 3286 
+Q 1663 3409 1944 3409 
+Q 2475 3409 2776 3059 
+Q 3078 2709 3078 2103 
+L 3078 0 
+L 2484 0 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#TrebuchetMS-33"/>
+      <use xlink:href="#TrebuchetMS-4b" transform="translate(51.078125 0)"/>
+      <use xlink:href="#TrebuchetMS-44" transform="translate(105.71875 0)"/>
+      <use xlink:href="#TrebuchetMS-56" transform="translate(158.265625 0)"/>
+      <use xlink:href="#TrebuchetMS-48" transform="translate(198.75 0)"/>
+      <use xlink:href="#TrebuchetMS-3" transform="translate(253.296875 0)"/>
+      <use xlink:href="#TrebuchetMS-b" transform="translate(283.421875 0)"/>
+      <use xlink:href="#TrebuchetMS-47" transform="translate(320.140625 0)"/>
+      <use xlink:href="#TrebuchetMS-48" transform="translate(375.859375 0)"/>
+      <use xlink:href="#TrebuchetMS-4a" transform="translate(430.40625 0)"/>
+      <use xlink:href="#TrebuchetMS-c" transform="translate(480.609375 0)"/>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_98">
+    <path d="M 71.973878 174.320899 
+L 89.242737 175.128746 
+L 103.972057 176.030743 
+L 117.177655 177.05292 
+L 129.367438 178.218839 
+L 140.541405 179.514806 
+L 150.699558 180.916368 
+L 160.349802 182.476533 
+L 169.492139 184.188494 
+L 178.126569 186.038803 
+L 186.25309 188.007119 
+L 194.379612 190.211508 
+L 201.998226 192.503162 
+L 209.616841 195.017999 
+L 217.235455 197.755345 
+L 225.361977 200.911647 
+L 233.996406 204.511853 
+L 243.138743 208.563977 
+L 253.804803 213.538081 
+L 267.518308 220.194901 
+L 290.374151 231.582213 
+L 327.959314 250.298869 
+L 341.67282 256.863767 
+L 352.33888 261.722214 
+L 361.481217 265.644701 
+L 370.115646 269.101146 
+L 378.242168 272.108998 
+L 385.860782 274.701002 
+L 393.479396 277.069325 
+L 401.09801 279.217297 
+L 409.224532 281.275019 
+L 417.351054 283.105987 
+L 425.985483 284.822245 
+L 435.12782 286.406396 
+L 444.778065 287.847316 
+L 454.936217 289.139811 
+L 466.110185 290.333536 
+L 477.79206 291.366034 
+L 477.79206 291.366034 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #b01c2e; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_99">
+    <path d="M 233.321606 299.543176 
+L 233.321606 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #b01c2e; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_100">
+    <defs>
+     <path id="mcb82e8cc30" d="M 0 3 
+C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
+C 2.683901 1.55874 3 0.795609 3 0 
+C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
+C 1.55874 -2.683901 0.795609 -3 0 -3 
+C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 
+C -2.683901 -1.55874 -3 -0.795609 -3 0 
+C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 
+C -1.55874 2.683901 -0.795609 3 0 3 
+z
+" style="stroke: #b01c2e"/>
+    </defs>
+    <g clip-path="url(#p767177517c)">
+     <use xlink:href="#mcb82e8cc30" x="233.321606" y="204.222028" style="fill: #b01c2e; stroke: #b01c2e"/>
+    </g>
+   </g>
+   <g id="line2d_101">
+    <path d="M 71.973878 172.942832 
+L 97.877166 173.490112 
+L 119.209286 174.158471 
+L 137.49396 174.952524 
+L 153.239096 175.851957 
+L 167.460509 176.877725 
+L 180.666107 178.044188 
+L 193.363797 179.383714 
+L 206.061487 180.950195 
+L 218.759178 182.743697 
+L 231.964776 184.837064 
+L 245.170373 187.150901 
+L 257.868064 189.599086 
+L 268.534124 191.870836 
+L 278.184368 194.153974 
+L 286.818798 196.432205 
+L 294.437412 198.664288 
+L 302.056026 201.132281 
+L 309.166733 203.665683 
+L 316.277439 206.429454 
+L 323.388146 209.423241 
+L 331.00676 212.8758 
+L 339.133282 216.814183 
+L 347.767711 221.247664 
+L 357.925863 226.72062 
+L 371.639369 234.387263 
+L 398.558472 249.489498 
+L 408.716624 254.904752 
+L 417.351054 259.274461 
+L 425.477576 263.145795 
+L 433.09619 266.534983 
+L 440.714804 269.674966 
+L 447.825511 272.373802 
+L 454.936217 274.848537 
+L 462.554831 277.256939 
+L 470.173445 279.424578 
+L 477.79206 281.365907 
+L 477.79206 281.365907 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #ee7219; stroke-width: 2.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_102">
+    <path d="M 271.753639 299.543176 
+L 271.753639 168.503176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #ee7219; stroke-width: 0.9"/>
+   </g>
+   <g id="line2d_103">
+    <defs>
+     <path id="m4addd9ceed" d="M 0 3 
+C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
+C 2.683901 1.55874 3 0.795609 3 0 
+C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
+C 1.55874 -2.683901 0.795609 -3 0 -3 
+C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 
+C -2.683901 -1.55874 -3 -0.795609 -3 0 
+C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 
+C -1.55874 2.683901 -0.795609 3 0 3 
+z
+" style="stroke: #ee7219"/>
+    </defs>
+    <g clip-path="url(#p767177517c)">
+     <use xlink:href="#m4addd9ceed" x="271.753639" y="192.605355" style="fill: #ee7219; stroke: #ee7219"/>
+    </g>
+   </g>
+   <g id="line2d_104">
+    <path d="M 51.682969 234.023176 
+L 498.082969 234.023176 
+" clip-path="url(#p767177517c)" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 51.682969 299.543176 
+L 51.682969 168.503176 
+" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 51.682969 299.543176 
+L 498.082969 299.543176 
+" style="fill: none; stroke: #1d1d1b; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_21">
+    <!-- PM 60° -->
+    <g style="fill: #ee7219" transform="translate(277.352941 189.846619) scale(0.11 -0.11)">
+     <defs>
+      <path id="TrebuchetMS-83" d="M 1588 3350 
+Q 1313 3350 1119 3542 
+Q 925 3734 925 4006 
+Q 925 4278 1119 4468 
+Q 1313 4659 1588 4659 
+Q 1863 4659 2055 4468 
+Q 2247 4278 2247 4006 
+Q 2247 3734 2053 3542 
+Q 1859 3350 1588 3350 
+z
+M 1588 4441 
+Q 1409 4441 1281 4312 
+Q 1153 4184 1153 4006 
+Q 1153 3828 1281 3700 
+Q 1409 3572 1588 3572 
+Q 1766 3572 1894 3700 
+Q 2022 3828 2022 4006 
+Q 2022 4184 1894 4312 
+Q 1766 4441 1588 4441 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#TrebuchetMS-33"/>
+     <use xlink:href="#TrebuchetMS-30" transform="translate(55.765625 0)"/>
+     <use xlink:href="#TrebuchetMS-3" transform="translate(126.71875 0)"/>
+     <use xlink:href="#TrebuchetMS-19" transform="translate(156.84375 0)"/>
+     <use xlink:href="#TrebuchetMS-13" transform="translate(209.28125 0)"/>
+     <use xlink:href="#TrebuchetMS-83" transform="translate(261.71875 0)"/>
+    </g>
+   </g>
+   <g id="text_22">
+    <!-- PM 43° -->
+    <g style="fill: #b01c2e" transform="translate(186.410717 215.256975) scale(0.11 -0.11)">
+     <use xlink:href="#TrebuchetMS-33"/>
+     <use xlink:href="#TrebuchetMS-30" transform="translate(55.765625 0)"/>
+     <use xlink:href="#TrebuchetMS-3" transform="translate(126.71875 0)"/>
+     <use xlink:href="#TrebuchetMS-17" transform="translate(156.84375 0)"/>
+     <use xlink:href="#TrebuchetMS-16" transform="translate(209.28125 0)"/>
+     <use xlink:href="#TrebuchetMS-83" transform="translate(261.71875 0)"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9284b780d2">
+   <rect x="51.682969" y="11.255176" width="446.4" height="131.04"/>
+  </clipPath>
+  <clipPath id="p767177517c">
+   <rect x="51.682969" y="168.503176" width="446.4" height="131.04"/>
+  </clipPath>
+ </defs>
+</svg>

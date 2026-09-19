@@ -1,4 +1,4 @@
-% PITCH_CHECK  Recompute the Lecture 2 design numbers in MATLAB.
+% PITCH_CHECK  Recompute the week 3 (PID) design numbers in MATLAB.
 %
 % Reads the gains from models/pitch_numbers.json (written by models/pitch.py),
 % recomputes every linear metric with the Control System Toolbox, and writes

@@ -15,7 +15,7 @@ hasSimulink = license('test', 'Simulink') && ~isempty(ver('simulink'));
 passed = report('Simulink', hasSimulink) && passed;
 
 if hasControl
-    % The pitch-attitude loop from Lecture 2, with a proportional gain of 1.
+    % The pitch-attitude loop from week 3, with a proportional gain of 1.
     G = tf(40, [1 12 20 0]);
     [gm, pm, ~, wc] = margin(G);
     ok = abs(pm - 43.21) < 0.05 && abs(wc - 1.559) < 0.005 && abs(gm - 6.0) < 0.01;

@@ -21,28 +21,29 @@ Then open `http://localhost:8000`.
 
 | Path | Contents |
 |---|---|
-| `docs/` | The site. Each lecture has a folder holding its handout (`index.md`), example sheet, solutions, figures and code |
+| `docs/` | The site. Each week has a folder `wNN-topic`; a lecture week's holds its handout (`index.md`), example sheet, solutions, figures and code |
 | `docs/applets/` | Interactive applets, in plain HTML and JavaScript |
-| `slides/` | Lecture decks, one folder per lecture, matching `docs/` |
-| `curriculum/` | What each lecture is (`lectures.yaml`) and which week it falls in each year (`schedule-<year>.yaml`). The source for the planning views and schedules |
-| `teaching/` | Lecturer run sheets, one per lecture |
+| `slides/` | Lecture decks, one folder per lecture week, matching `docs/` |
+| `curriculum/` | What each week is (`weeks.yaml`), and term-level facts: the coursework, the laboratory, the workload model (`term.yaml`). The source for the lecture map, the term map and the generated tables |
+| `teaching/` | Lecturer run sheets, one per lecture week |
 | `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check |
 | `scripts/` | Build, sync-check, PDF and test scripts |
 | `AGENTS.md` | How to edit the materials, by hand or with an AI assistant |
 
 ## Course structure
 
-The course is nine lectures plus an unnumbered guest lecture. The scope is in
-[CURRICULUM.md](CURRICULUM.md) and `curriculum/lectures.yaml`, and what actually
+The course is designed to the University calendar: eleven weeks of content,
+named "Week 1" to "Week 11" — nine lecture weeks, a guest lecture in week 5, and
+the consolidation week in week 6, which has no lecture. The scope is in
+[CURRICULUM.md](CURRICULUM.md) and `curriculum/weeks.yaml`, and what actually
 exists is tracked in [CONTENT.md](CONTENT.md).
 
-Each lecture is a folder `lNN-topic` under `docs/`, holding its handout
+Each week is a folder `wNN-topic` under `docs/`. A lecture week holds its handout
 (`index.md`), example sheet and solutions, with its deck in the matching folder
-under `slides/`. NN is the lecture number, not a week: this year's mapping of
-lectures to weeks is in `curriculum/schedule-2026-27.yaml`, and drawn as the term
-map in Lecture 1 and the lecture map at `/planning/lecture-map.html`.
+under `slides/`. The term is drawn as the term map in week 1 and the lecture map
+at `/planning/lecture-map.html`.
 
-Lecture 3 (PID) has written content, from before the current scope. The rest are
+Week 3 (PID) has written content, from before the current scope. The rest are
 scoped scaffolds, so that the navigation and the build cover the whole course
 while the content is written.
 
@@ -50,14 +51,14 @@ while the content is written.
 
 | Command | What it does |
 |---|---|
-| `npm run new:lesson <n> <topic> "<title>"` | Scaffold lecture n as `lNN-topic`: handout, example sheet, solutions and deck |
+| `npm run new:lesson <week> <topic> "<title>"` | Scaffold a lecture week as `wNN-topic`: handout, example sheet, solutions and deck |
 | `npm run slides` | Build each deck to HTML and PDF in `docs/slides/` |
 | `npm run site` | Build the site into `site/` |
 | `npm run pdf` | Print handouts, example sheets and solutions to PDF |
 | `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc |
 | `npm run check` | Check slides against handouts |
 | `npm run sync:accept` | Record the current state as in sync, after reviewing |
-| `npm run curriculum` | Check the lecture set and schedule against each other and the site; regenerate the term map, lecture map, workload and tables |
+| `npm run curriculum` | Check the week-by-week plan and term facts against each other and the site; regenerate the term map, lecture map, workload and tables |
 | `npm run models` | Rerun the design scripts and compare Python with MATLAB |
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |

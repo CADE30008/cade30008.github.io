@@ -1,4 +1,4 @@
-"""Check that Python and MATLAB agree on every Lecture 2 design number.
+"""Check that Python and MATLAB agree on every week 3 (PID) design number.
 
 Run after models/pitch.py and models/pitch_check.m:
 

@@ -343,7 +343,7 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   sits awkwardly beside "not submitting is never held against you".
 - **AQ15. Does Part B require state space?** **Decided for now** (18
   September): **optional and rewarded** — a route to higher marks under
-  criterion B2, not a requirement — because L8 is taught after the last
+  criterion B2, not a requirement — because week 10, state space, comes after the last
   checkpoint and just before the deadline. It may be removed from the
   coursework altogether; it stays in the lectures regardless, as the foundation
   for the year 4 advanced unit. Revisit with PEDAGOGY Q12, the classical–modern
@@ -366,15 +366,18 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
 
   | Checkpoint | After | Week | Covers |
   |---|---|---|---|
-  | 1. Requirements and model | Act I (L1–L3) | end of 4 | Sections 1–2 |
-  | 2. Design and analysis | Act II (L4–L6) | end of 8 | Sections 3–4, and the peer review |
-  | 3. Draft paper | L7 | end of 9 | The whole paper |
+  | 1. Requirements and model | Act I (weeks 1–4) | end of 4 | Sections 1–2 |
+  | 2. Design and analysis | Act II (weeks 7–8) | end of 8 | Sections 3–4, and the peer review |
+  | 3. Draft paper | Week 9 | end of 9 | The whole paper |
 
   Checkpoint 3 at week 9 rather than 10 leaves a clear week to act on its
-  feedback before the Thursday of week 11. L8, state space, is then taught
+  feedback before the Thursday of week 11. Week 10, state space, is then taught
   after the last checkpoint, which is why it is optional in the coursework
   (AQ15). The coursework's week-by-week steps are in
-  `curriculum/schedule-2026-27.yaml`.
+  `curriculum/term.yaml`. Between checkpoints 1 and 2 sits the consolidation week (week 6), whose two
+  coursework hours are the natural time to act on checkpoint 1's feedback or to
+  catch up.
+
 - **AQ3. Generative AI category.** Decided: Category 3, Selective (AP4). Still
   to write: the brief's list of permitted purposes.
 - **AQ4. Marking resource.** Any second markers, and the moderation required.

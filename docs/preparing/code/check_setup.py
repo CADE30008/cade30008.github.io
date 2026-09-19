@@ -33,7 +33,7 @@ passed &= report("packages", True,
                  f"numpy {numpy.__version__}, scipy {scipy.__version__}, "
                  f"matplotlib {matplotlib.__version__}, control {ct.__version__}")
 
-# The pitch-attitude loop from Lecture 2, with a proportional gain of 1.
+# The pitch-attitude loop from week 3, with a proportional gain of 1.
 G = ct.tf([40], [1, 12, 20, 0])
 gm, pm, wg, wc = ct.margin(G)
 passed &= report("loop margins",

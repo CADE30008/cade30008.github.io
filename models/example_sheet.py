@@ -1,4 +1,4 @@
-"""Numbers for the Lecture 2 example sheet and its worked solutions.
+"""Numbers for the week 3 (PID) example sheet and its worked solutions.
 
 Every answer quoted in the solutions is computed here, and checked against
 the hand-calculation route where there is one. Run from the repository root:

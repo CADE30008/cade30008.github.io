@@ -38,71 +38,84 @@ the aircraft modes, and the reading of flight data against handling qualities.
 They are delivered in parallel by other staff. The catalogue holds the
 authoritative wording; the table above is a working paraphrase.
 
-**The term.** Twelve weeks. **Week 6 is reading week**, and no lecture of any
-kind is held in it. Week 12 is revision week, for units with exams. That leaves
-ten teaching weeks: 1 to 5, and 7 to 11. Lectures are on **Tuesdays**. Each
+**The term, and designing to it.** The half is designed to the University
+calendar: twelve weeks, and **"Week n" is how every student-facing page names
+week n**. There is no separate lecture numbering. Lectures are on **Tuesdays**.
+
+| Week | What happens |
+|---|---|
+| 1–4 | A lecture each week |
+| 5 | The guest lecture: an hour of lecture and questions, then an open hour |
+| 6 | **Consolidation week**, the University's formal title. No lecture of any kind. Recommended consolidation activities instead |
+| 7–11 | A lecture each week. Week 11's second hour is coursework Q&A, and the coursework is due on its Thursday |
+| 12 | Revision week, for units with exams. This unit's coursework is in by then, so nothing is planned |
+
+So **eleven weeks of content**, nine of them with our lectures. Each lecture
 session runs to a fixed shape (P17): a taught hour, then a 50-minute case hour
 in which students deploy what was covered, individually or in pairs or threes.
 The timetabled second hour is 50 minutes, not 60.
 
-**Lectures are decoupled from weeks.** A lecture has a number — its place in
-the sequence of lectures, carried in its folder name (`l03-pid-control`) — and
-that number is not a week. Which week a lecture falls in is a property of a
-particular year's schedule, not of the lecture, and the two don't map one to
-one. Lectures are numbered
-sequentially; guest lectures are not numbered. The lecture set is defined in
-[curriculum/lectures.yaml](curriculum/lectures.yaml), and each year's mapping to
-the twelve weeks in `curriculum/schedule-<year>.yaml`. Everything else — the
-term map in Lecture 1, the planning diagram, the checks — is generated from
-those two files.
+Each week's content is defined in [curriculum/weeks.yaml](curriculum/weeks.yaml)
+and term-level facts in [curriculum/term.yaml](curriculum/term.yaml). The term
+map in week 1, the lecture map, the schedule and workload tables, the
+consolidation activities and the checks are all generated from those two files.
+Folders are `wNN-topic`, NN the week.
 
-**This year, 2026/27.** Nine lectures are designed, and this year has room for
-eight: week 2 is given to Flight Dynamics (Steve away, this year only), week 5
-has the guest lecture, week 6 is reading week, and the second hour of week 11 is
-coursework Q&A. **So the term is one lecture over.** The proposed resolution,
-pending Steve's decision, is to deliver Lectures 5 and 6 — robustness, and loop
-shaping — together in week 8; the reasoning and the alternatives are in
-[CURRICULUM.md](CURRICULUM.md). From 2027/28, with week 2 back, nine lectures
-fit with half a session to spare.
+**This year, 2026/27,** runs exactly as above. Cover has been found for week 2,
+so no week is lost. If a lecture is lost in future, the cut order in
+CURRICULUM.md §8 applies; the content is designed to the calendar, so it moves
+with the calendar rather than around it.
+
+**The consolidation week does real work.** It comes at the end of act I (weeks
+1 to 4: the whole design cycle, requirements and models, PID, and stability
+margins), so it consolidates a complete act before week 7 builds on it. Its
+activities introduce nothing new: retrieval practice, explaining the weeks'
+design questions back, reworking example-sheet questions from a blank page,
+mapping the tools onto the design cycle, and revisiting the cases. They are
+recommended, not required. Its page and the lecture map list them, generated
+from `weeks.yaml`.
 
 **Student effort: a deliberate compromise.** Notionally this half is 10 of the
 unit's 20 credits, about 100 hours. The plan, settled 19 September, is well
 below that, because a sustainable, predictable week matters more than the
-credit arithmetic:
+credit arithmetic. **Every week from 1 to 11 is six hours:**
 
-| In a week with a lecture | Hours |
-|---|---|
-| The lecture | 2 |
-| Independent learning (P17 parts 1, 2 and 4) | 2 |
-| Coursework (P17 part 3), advised in the week | 2 |
-| **A normal teaching week** | **6** |
+| | Lecture week (and the guest week) | Consolidation week |
+|---|---|---|
+| Lecture | 2 | — |
+| Independent learning (P17 parts 1, 2 and 4) | 2 | — |
+| Recommended consolidation activities | — | 4 |
+| Coursework (P17 part 3), advised in the week | 2 | 2 |
+| **Total** | **6** | **6** |
 
 Plus 4 hours in the Quanser laboratory, in total, on top, self-scheduled in
-weeks 1 to 6. Weeks with no control lecture — this year week 2 (Flight
-Dynamics) and reading week 6 — carry only the 2 hours of coursework; revision
-week carries nothing. Coursework runs to the deadline in week 11.
+weeks 1 to 6. Revision week carries nothing.
 
-Over 2026/27 that is **62 hours planned**: 18 in lectures, 18 of independent
-learning, 22 of coursework and 4 in the laboratory. The 38 hours between that
-and the notional 100 are not allocated, and that is recorded here rather than
-hidden: it is headroom for the week that overruns, for the coursework crunch
-many students will create regardless, and for their other units.
+Over 2026/27 that is **70 hours planned**: 20 in lectures, 20 of independent
+learning, 4 of consolidation, 22 of coursework and 4 in the laboratory. The 30
+hours between that and the notional 100 are not allocated, and that is recorded
+here rather than hidden: it is headroom for the week that overruns, for the
+coursework crunch many students will create regardless, and for their other
+units.
 
-The model's numbers live in `curriculum/schedule-2026-27.yaml`, and
-`npm run curriculum` computes the weekly and term totals from them, draws them at
-the top of the lecture map, and writes Lecture 1's "your week" table.
+The model's numbers live in `curriculum/term.yaml`, and `npm run curriculum`
+computes the weekly and term totals, checks that the consolidation activities
+add up to their four hours, draws the model at the top of the lecture map, and
+writes week 1's "your week" table.
 
-**Coursework is advised in-week, and many students won't.** Lecture 1 says so
+**Coursework is advised in-week, and many students won't.** Week 1 says so
 plainly, and says why: each week's step uses that week's lecture while it is
 fresh, and the checkpoints give feedback while it can still change the design.
-The checkpoints exist to pull back-loaded effort forward.
+The checkpoints and the consolidation week exist to pull back-loaded effort
+forward; the consolidation week's coursework hours are the natural place to
+catch up, and a student who misses them spreads them across weeks 7 to 9.
 
-**Lecture 1** introduces the Quanser helicopter in person and runs the whole
+**Week 1** introduces the Quanser helicopter in person and runs the whole
 design cycle once, so it departs from the standard shape: there is no previous
-week to retrieve, and the case hour is built round the hardware. Its reasoning is
-under "Lecture 1: the Quanser session" below and its plan in
-[teaching/l01-design-cycle.md](teaching/l01-design-cycle.md). The Quanser can come back into the lecture
-for demonstrations in later weeks.
+week to retrieve, and the case hour is built round the hardware. Its reasoning
+is under "Week 1: the Quanser session" below and its plan in
+[teaching/w01-design-cycle.md](teaching/w01-design-cycle.md). The Quanser can
+come back into the lecture for demonstrations in later weeks.
 
 **In the room.** Most students bring laptops; those who don't share with those
 who do. Three kinds of staff, which are not interchangeable:
@@ -344,10 +357,10 @@ and staff early who is struggling.
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
   otherwise.
-- One challenge per lecture, plus the week 1 diagnostic. Lecture 9, the
-  closing lecture, has none, and neither does the guest lecture. When two
-  lectures share a week, as Lectures 5 and 6 are proposed to this year, their
-  challenges are combined.
+- One challenge per lecture week, weeks 2 to 4 and 7 to 10, plus the week 1
+  diagnostic. Week 6 has the **consolidation challenge**: spaced, mixed
+  retrieval across weeks 1 to 4, with nothing new in it. The guest week and
+  week 11 have none.
 - **Review check:** does each lecture have a challenge, and does it rehearse something the coursework assesses?
 
 ### P17. One shape every week
@@ -360,9 +373,9 @@ teaching value, and it lets the material vary without the format varying.
 | Slot | Min | What happens | Serves |
 |---|---|---|---|
 | **Hook and recall** | 5 | Resolve last week's cliffhanger; then two or three questions on earlier weeks, answered before any answer is shown | P11, P18 |
-| **Block A** | 15 | Taught: the idea, opened on something concrete | P2, P4 |
+| **Learn A** | 15 | Taught: the idea, opened on something concrete | P2, P4 |
 | **Do A** | 10 | Pairs: the smallest real use of the idea. Floor result, sampled to the room | P8 |
-| **Block B** | 15 | Taught: the method or tool that acts on the idea | P2, P4 |
+| **Learn B** | 15 | Taught: the method or tool that acts on the idea | P2, P4 |
 | **Do B** | 10 | Pairs: apply it. Floor result | P8 |
 | *Changeover* | 5 | | |
 | **Case brief** | 5 | The artifact arrives. What do we see, what matters here | P18 |
@@ -370,20 +383,21 @@ teaching value, and it lets the material vary without the format varying.
 | **Converge** | 10 | Sample results to the room, name the disagreement, resolve it | P8, P18 |
 | **Cliffhanger** | 10 | What this week's tool cannot do. Students name what they would need; the independent work is set | P18, P15 |
 
-- **Practice is interleaved, not banked.** Two taught blocks back to back, with
-  the practice afterwards, lets block A decay before it is used and hides a
-  failed block A until it is too late to change block B.
+- **Practice is interleaved, not banked.** Two Learn slots back to back, with
+  the practice afterwards, lets Learn A decay before it is used and hides a
+  failed Learn A until it is too late to change Learn B.
 - **The session ends on the cliffhanger, never on the build.** The build will
   always want the extra ten minutes. It does not get them.
 - **Slot names are printed in the deck and the handout.** Students should be able
   to name the slot they are in.
-- **Lectures may deviate, and say so.** Lecture 1 does. A guest lecture may take
-  the case hour (Q7). Deviating silently is the thing to avoid.
+- **Weeks may deviate, and say so.** Week 1 does. The guest lecture in week 5
+  uses its second hour for open questions (Q7), and week 6 has no session at
+  all. Deviating silently is the thing to avoid.
 
 Between sessions, four parts in the same order every week: **two hours of
 independent learning and two of coursework**, from the workload model under
-"The unit". The hours below are set in the schedule file and generated into
-the lecture map and Lecture 1, so change them there.
+"The unit". The hours below are set in `curriculum/term.yaml` and generated
+into the lecture map and week 1, so change them there.
 
 | Part | Hours | What it is |
 |---|---|---|
@@ -648,7 +662,7 @@ has an accessible summary and an original source.
   - Summaries: [Universal Design for Learning](https://en.wikipedia.org/wiki/Universal_Design_for_Learning), [CAST UDL guidelines](https://udlguidelines.cast.org/)
   - Standard: [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/)
 
-## Preparation before Lecture 1
+## Preparation before week 1
 
 Students complete these before the first lecture. The course site's
 [Preparing for Control](docs/preparing/index.md) page lists them and checks each
@@ -705,13 +719,13 @@ Microsoft Teams with Copilot can also summarise a chat, but needs a Microsoft
 naturally. Padlet has AI features for creating boards, but none confirmed for
 summarising posts.
 
-## Lecture 1: the Quanser session
+## Week 1: the Quanser session
 
-Lecture 1 runs the whole design cycle once, on the Quanser 3-DoF helicopter's
+Week 1 runs the whole design cycle once, on the Quanser 3-DoF helicopter's
 elevation axis, in front of the room. Everything after it is that cycle done
 properly. It deviates from P17's shape, which is stated to students.
 
-**The operational plan is [teaching/l01-design-cycle.md](teaching/l01-design-cycle.md)** — timings,
+**The operational plan is [teaching/w01-design-cycle.md](teaching/w01-design-cycle.md)** — timings,
 files, set-up, contingencies. What follows is only the reasoning behind it,
 which is what this file is for. Keep the plan out of here: it was duplicated in
 both places once, and the two had already begun to drift.
@@ -791,16 +805,16 @@ timetabling one.
 unregistered. Expected to reach 300 to 380 within a couple of years.
 
 **Capacity, in station-hours.** Four stations open eight hours a day, five days
-a week. The window runs from the Wednesday after Lecture 1 to the end of
-reading week 6: half of week 1, the four full teaching weeks 2 to 5, then
-reading week.
+a week. The window runs from the Wednesday after week 1's lecture to the end of
+consolidation week 6: half of week 1, the four full teaching weeks 2 to 5, then
+the consolidation week.
 
 | Window | Days | Station-hours |
 |---|---|---|
 | Week 1 (Wednesday to Friday) and weeks 2 to 5 | 23 | 736 |
-| The same, plus reading week 6 | 28 | 896 |
+| The same, plus consolidation week 6 | 28 | 896 |
 
-| Cohort | Groups | Hours needed | Of teaching weeks | Including reading week |
+| Cohort | Groups | Hours needed | Of weeks 1 to 5 | Including consolidation week |
 |---|---|---|---|---|
 | 190 in pairs | 95 | 380 | 52% | 42% |
 | 190 in threes | 64 | 256 | 35% | 29% |
@@ -811,7 +825,9 @@ reading week.
 **What this says.**
 
 - **This year works comfortably in pairs**, at 42 to 52 per cent depending on
-  whether reading week counts.
+  whether the consolidation week counts. It should: unlike a reading week,
+  students are expected to be working on this unit in it, and the
+  consolidation page tells them it is the last week of the window.
 - **Open access removes the matching problem but not the queueing one.**
   Booked slots failed when a student's free hours missed every offered slot;
   open access fails differently, by everyone arriving in the same two days. The
@@ -822,7 +838,7 @@ reading week.
 - **Publish live station availability** if there is any cheap way to do it, even
   a page someone updates. It converts a queue into a decision.
 - **The growth case fails, and soon.** At 380 in pairs the laboratory cannot fit
-  in the teaching weeks at all, and needs reading week plus a flat arrival
+  in weeks 1 to 5 at all, and needs the consolidation week plus a flat arrival
   profile to fit in six. Before the cohort reaches 300: more stations, a longer window,
   groups of three, or an activity that does not need a station per group.
 - **A scalable redevelopment is the option that costs neither money nor
@@ -835,10 +851,10 @@ reading week.
 **The consequence for teaching, which matters more than the capacity.**
 
 Students self-schedule across weeks 1 to 6, so **the laboratory cannot depend on
-lecture content beyond Lecture 1**, and its two halves cannot depend on each
+lecture content beyond week 1**, and its two halves cannot depend on each
 other in a fixed order. This is a hard constraint on its design:
 
-- Everything a sitting needs is either in Lecture 1 or in its own material.
+- Everything a sitting needs is either in week 1 or in its own material.
 - A pair arriving in week 1 and a pair arriving in week 6 must both be able to
   do it, and the week 6 pair should not find it trivial.
 - It sits awkwardly against P8's week-on-week compounding and P18's weekly case.
@@ -855,7 +871,7 @@ goes in week 1, and that difference is not of their making.
 
 The lecture theatre takes 200 students and has room for large demonstrations.
 
-- **This year:** the Quanser 3-DoF helicopter, from Lecture 1 onwards.
+- **This year:** the Quanser 3-DoF helicopter, from week 1 onwards.
 - **Future years,** once the first lectures are solid: Crazyflie nano
   quadcopters, and a propeller and motor on a balance beam, which needs designing
   and building.
@@ -892,7 +908,7 @@ surface disagreements, some of which will be the principle's fault.
 `reviews/2026-09-20-l02.md`:
 
 ```markdown
-# Review: Lecture 2, 20 September 2026
+# Review: Week 3, 20 September 2026
 
 | Principle | Where | Finding | Proposed action |
 |---|---|---|---|
@@ -928,7 +944,7 @@ Recorded so they are not lost. Numbered for reference in discussion.
     standard Python interpreter compiled to WebAssembly, which fetches NumPy,
     SciPy and Matplotlib from a CDN and installs python-control from PyPI.
     Tested on 16 September 2026: Pyodide 314.0.7 with python-control 0.10.2
-    reproduces Lecture 2's margins exactly, with about four seconds of set-up
+    reproduces the PID lecture's margins exactly (now week 3), with about four seconds of set-up
     after the first download, which the browser then caches.
   - *MATLAB* cannot run in a page. Offer an accompanying Live Script or code to
     paste, with an "Open in MATLAB Online" link where useful.
@@ -963,16 +979,16 @@ Recorded so they are not lost. Numbered for reference in discussion.
     Study Abroad students, and possibly others. Their backgrounds vary, and may
     be weaker or stronger.
   - This gives P3 real weight. The plan: a diagnostic in week 1 (P16), the
-    MathWorks Onramps and the Preparing for Control page before Lecture 1, and
+    MathWorks Onramps and the Preparing for Control page before week 1, and
     links back to prerequisite material throughout.
   - Still open: what the parallel half covers, week by week.
 - **Q6. Shared system models.** Whether the three systems get one shared
   definition under `models/`, used by every lecture.
 - **Q7. Guest lectures.** Decided. A guest takes a whole session: an hour of
   lecture and questions, with room to overrun a little, then the second hour as
-  open question-and-answer and student activity. Guest lectures are not
-  numbered. **This year there is one**, in week 5; the second is dropped for
-  2026/27. A guest session breaks P18's chain, and **that is accepted** (18
+  open question-and-answer and student activity. **This year there is one**,
+  in week 5; the second is dropped for 2026/27. It is "Week 5" like any other
+  week. A guest session breaks P18's chain, and **that is accepted** (18
   September): the lecturer links back and forward live. It is the one place in
   the term where P18's rule is knowingly suspended, rather than quietly broken.
   Still open: the speaker and topic. A MathWorks session on agentic AI for
@@ -988,16 +1004,16 @@ Recorded so they are not lost. Numbered for reference in discussion.
     teaching starts, not after.
   - How the case grain interacts with the guest lectures (Q7), since a guest
     taking the case hour breaks that week's cycle.
-- **Q9. The student effort budget.** Settled 19 September, replacing the model
-  of the 18th: 2 hours of lecture, 2 of independent learning and 2 of coursework
-  in a week with a lecture, plus 4 of laboratory — 62 hours planned against a
-  notional 100, deliberately. The figures are under "The unit".
-  Still worth watching rather than closing: whether 5 hours of independent study
-  is actually taken up, which the weekly challenge completion (P16) will show
-  early.
-- **Q10. The guest lecture in reading week.** Closed, 18 September. Reading
-  week is week 6, not week 5, and no lecture is held in it; the guest lecture is
-  in teaching week 5. The question arose from a mis-stated week number.
+- **Q9. The student effort budget.** Settled 19 September: six hours in every
+  week from 1 to 11 — 2 lecture, 2 independent and 2 coursework in a lecture
+  week; 4 of recommended consolidation and 2 of coursework in week 6 — plus 4 of
+  laboratory. 70 hours planned against a notional 100, deliberately. The figures
+  are under "The unit". Still worth watching rather than closing: whether the two
+  hours of independent learning are actually taken up, which the weekly
+  challenge completion (P16) will show early.
+- **Q10. The guest lecture in reading week.** Closed, 18 September. Week 6 is
+  the consolidation week, with no lecture of any kind; the guest lecture is in
+  teaching week 5. The question arose from a mis-stated week number.
 - **Q11. What is public, and what belongs in Blackboard.** For a future review.
   The site is licensed for reuse (CC BY and MIT), and should be usable by
   anyone teaching control — which argues for moving what is specific to *this*
@@ -1005,7 +1021,7 @@ Recorded so they are not lost. Numbered for reference in discussion.
   timings, arrangements that name staff, and anything that only makes sense to
   a student registered on the unit. What stays public: lectures, handouts,
   example sheets, applets, the glossary, and the principles behind them. **For
-  now the schedule stays in Lecture 1's slides and handout**, as agreed on 18
+  now the schedule stays in week 1's slides and handout**, as agreed on 18
   September. When this is reviewed, the curriculum sources make it cheap: the
   schedule is generated, so it can be generated into Blackboard instead. Also
   on the site since 19 September, by request: the lecture map, at

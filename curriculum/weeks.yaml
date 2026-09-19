@@ -1,0 +1,438 @@
+# The content of the control half of CADE30008, week by week.
+#
+# Designed to the University calendar: week n here is week n of teaching block
+# 1, and "Week n" is how every student-facing page names it. Eleven weeks of
+# content. Weeks with a lecture carry the full scope below; week 5 is the guest
+# lecture, and week 6 is the University's consolidation week, with no lecture
+# and recommended activities instead. Week 12 is revision week and carries no
+# content. Folders are wNN-topic, and NN must be the week.
+#
+# Term-level facts that aren't about one week's content — the year, the
+# coursework's deadline and weekly steps, the laboratory window and the
+# workload model — are in term.yaml.
+#
+# scripts/build_curriculum.py reads both, checks them against each other and
+# the site, and generates the lecture map, the term map, week 1's schedule
+# and workload tables, the consolidation week's activity table, each unwritten
+# week's learning outcomes, and the home page's week table. Edit here; never
+# edit those outputs by hand.
+#
+# Status: scope agreed in outline (option B in CURRICULUM.md), for Steve's
+# review. Week 1's plan was agreed first.
+#
+# Field notes, for lecture weeks
+#   outcomes       "By the end of this week you should be able to ..."; each
+#                  tagged with the unit ILO it serves (4, 5 or 6). Quote text
+#                  that contains commas.
+#   threshold      tier 1 concepts from CURRICULUM.md §3 that the week unlocks
+#   in_lecture     keyed by P17's slots: hook, learn_a, do_a, learn_b, do_b, case
+#   out_of_lecture keyed by P17's between-session parts; the coursework step
+#                  ("feed the design") is in term.yaml
+#   budget         P19's per-session count: concepts / tool / notation
+#   handout_only   tier 3 material the handout carries but the lecture does not
+
+# The three acts. Act I closes at week 4, so the consolidation week (6) cements
+# a whole act; act II straddles nothing.
+acts:
+  1: Act I — the loop you can build, and how close to the edge it is
+  2: Act II — designing for a model that's wrong
+  3: Act III — aircraft and modern methods
+
+weeks:
+
+  - week: 1
+    short: Design cycle
+    kind: lecture
+    slug: w01-design-cycle
+    title: The design cycle, end to end
+    act: 1
+    question: Can we make it fly?
+    focus: The whole cycle
+    ilos: [4, 5, 6]
+    capabilities: [C1, C2, C3, C8]
+    threshold: [Feedback as a trade, A requirement is a design input]
+    systems: [Quanser 3-DoF, elevation]
+    case: A student's open-loop flight attempt on two joysticks
+    outcomes:
+      - {ilo: 6, text: "Describe the control design cycle, and say where in it a given design activity sits"}
+      - {ilo: 4, text: "Identify a second-order model from a measured response, by reading its damping ratio, natural frequency and gain"}
+      - {ilo: 5, text: "Tune a PID controller in simulation to meet a stated requirement"}
+      - {ilo: 4, text: "Explain why a design that meets its requirement in simulation may not meet it on hardware"}
+    hook: This machine cannot be flown by hand. One of you is going to try.
+    in_lecture:
+      hook: The claim, made in the first five minutes and left unproven until minute 30
+      learn_a: Why control exists; the design cycle as the spine of the unit
+      do_a: The rig, and how it is made safe — lecturer-led, deliberately
+      learn_b: The open-loop flight attempt, after the room votes on how long it will last (P12)
+      do_b: What a requirement is; agree the requirement we design to today
+      case: System ID from the rig's response (manual fit; tfest as ceiling), tune a PID in simulation, submit gains through MATLAB Drive, and fly them in three rounds
+    cliffhanger: There is no right answer until you say what you want — and the simulation disagreed with the hardware.
+    out_of_lecture:
+      close_the_loop: Week 1 diagnostic in Numbas on prerequisite mathematics and control; finish the tfest fit
+      examples: Reading second-order responses — damping, frequency and gain from plots
+      next_case: The overlaid simulated and measured responses from the three rounds
+    budget:
+      concepts: [Feedback as a trade, Requirement as a design input]
+      tool: [Manual second-order fit]
+      notation: []
+      verdict: fits
+    handout_only: [The design cycle in Dorf and Bishop, Model-based design as its industrial form]
+    notes: Departs from P17's standard shape, and says so. Plan in teaching/w01-design-cycle.md.
+
+  - week: 2
+    short: Requirements and models
+    kind: lecture
+    slug: w02-requirements-and-models
+    title: Requirements and models you can trust
+    act: 1
+    question: What do we want, and what do we know?
+    focus: Requirements; model validation
+    ilos: [4, 6]
+    capabilities: [C1, C2]
+    threshold: [A model is a claim with a range of validity]
+    systems: [Quanser 3-DoF, fixed-wing]
+    case: Week 1's simulation–hardware gap, then a fixed-wing model against flight-test data
+    outcomes:
+      - {ilo: 6, text: "Write measurable time- and frequency-domain requirements, and justify each from a vehicle's role or handling qualities"}
+      - {ilo: 4, text: "Validate a linear model against measured or flight-test data, quantifying where it fits and where it does not"}
+      - {ilo: 4, text: "Explain linearisation about a trim condition, and identify when a design leaves the region where it holds"}
+      - {ilo: 6, text: "State the assumptions a model rests on, and bound its uncertainty for use in design"}
+    hook: Last week's best simulated response, overlaid on what the rig actually did. Which one was wrong?
+    in_lecture:
+      hook: Resolve week 1's cliffhanger with the overlay
+      learn_a: From a vague need to a measurable requirement; handling qualities, and Part A's deficiencies, as a source of requirements
+      do_a: Turn three vague statements ("it should feel crisp") into requirements you could test
+      learn_b: What makes a model trustworthy — fit to data, residuals, trim and the reach of linearisation
+      do_b: Compare the Quanser model with the rig data; mark where it fits and where it doesn't
+      case: A fixed-wing model against virtual flight-test data — validate it, bound it, and write the requirements a controller must meet
+    cliffhanger: A model you trust and a requirement you can test — and the controller still saturates.
+    out_of_lecture:
+      close_the_loop: Challenge on writing requirements and reading model fit
+      examples: Requirements from handling-qualities criteria; linearising about trim; model-versus-data comparison
+      next_case: A trace of an actuator hitting its limit, and the overshoot that follows
+    budget:
+      concepts: [Model validity, Requirements from handling qualities]
+      tool: [Model-versus-data comparison]
+      notation: []
+      verdict: fits
+    handout_only: [Formal fit metrics, Handling-qualities criteria in detail]
+    notes: Deriving the model is Part A's; validating and using it is Part B's. Keep that line.
+
+  - week: 3
+    short: PID
+    kind: lecture
+    slug: w03-pid-control
+    title: PID, properly
+    act: 1
+    question: Why does the obvious controller usually work, and when doesn't it?
+    focus: Design; implementation
+    ilos: [5]
+    capabilities: [C3, C8]
+    threshold: []
+    systems: [Fixed-wing, pitch attitude]
+    case: A pitch-attitude loop with elevator position and rate limits
+    outcomes:
+      - {ilo: 5, text: "Explain the effect of each PID term on both the step response and the loop's frequency response"}
+      - {ilo: 5, text: "Design a PID controller to meet time-domain requirements, using frequency-domain reasoning"}
+      - {ilo: 5, text: "Explain derivative kick and the need to filter derivative action, and implement both fixes"}
+      - {ilo: 5, text: "Recognise integrator windup under actuator saturation, and apply anti-windup"}
+    hook: The saturating actuator from last week. The controller is fine — so why the overshoot?
+    in_lecture:
+      hook: Resolve week 2's cliffhanger
+      learn_a: Each PID term as a shape on the Bode plot and a behaviour in time
+      do_a: Three misbehaving responses — which term would you change, and which way?
+      learn_b: What real implementations need — derivative filtering, kick, saturation, windup and anti-windup
+      do_b: Add anti-windup to a saturating loop in Simulink
+      case: Tune the fixed-wing pitch loop to week 2's requirements, with realistic elevator limits, and record its margins
+    cliffhanger: It meets every requirement. How close to the edge is it?
+    out_of_lecture:
+      close_the_loop: MATLAB Grader — implement anti-windup
+      examples: PID terms in both domains; windup
+      next_case: The YF-22 accident report extract, and its time history
+    budget:
+      concepts: [Derivative filtering, Windup]
+      tool: [Anti-windup]
+      notation: [PID gains in frequency form]
+      verdict: fits
+    handout_only: [Ziegler–Nichols, Discrete implementation and sample rate, Setpoint weighting]
+    notes: >-
+      The only lecture with written content, as the former "Lecture 2: Closed-loop
+      PID control". It predates P8 and P11–P19 and needs redrafting to P17's shape,
+      not editing. The Åström and Murray quote belongs here.
+
+  - week: 4
+    short: Margins
+    kind: lecture
+    slug: w04-stability-margins
+    title: Stability and margins
+    act: 1
+    question: How close to the edge are we?
+    focus: Analysis
+    ilos: [4]
+    capabilities: [C4]
+    threshold: [Stability margin is distance, not safety]
+    systems: [Fixed-wing, Quanser 3-DoF]
+    case: YF-22 (1992) — rate limiting and loop delay
+    outcomes:
+      - {ilo: 4, text: "Determine closed-loop stability from the open-loop frequency response, using the Nyquist criterion"}
+      - {ilo: 4, text: "Read gain, phase and delay margins from Bode and Nyquist plots, and relate them to the step response"}
+      - {ilo: 4, text: "Explain what a stability margin does and does not guarantee"}
+      - {ilo: 4, text: "Assess how actuator rate limits and time delay erode a loop's margins"}
+    hook: Two loops with the same step response and very different margins.
+    in_lecture:
+      hook: Resolve week 3's cliffhanger
+      learn_a: The Nyquist criterion — stability read from the loop gain, including for plants unstable on their own, like the Quanser
+      do_a: Three Nyquist plots — stable or not, and how do you know?
+      learn_b: Gain, phase and delay margins as distance from the critical point; the misconception named (P13)
+      do_b: Read the margins of week 3's pitch loop; compute its delay margin
+      case: Add a rate limit and a delay to the pitch loop and watch the margins go; find the delay that destabilises it, and compare with the YF-22
+    cliffhanger: Big margins, and it still went unstable. Margins measure the wrong thing when the model is wrong.
+    out_of_lecture:
+      close_the_loop: Numbas — margins read from plots
+      examples: Nyquist; margins; delay margin
+      next_case: NASA's account of Ingenuity's sixth flight
+    budget:
+      concepts: [Nyquist stability, Margin as distance]
+      tool: [Nyquist plot]
+      notation: [L(jω), encirclement]
+      verdict: borderline
+    handout_only: [The Nyquist contour in full, Describing functions for rate limits]
+    notes: Notation is borderline. L(jω) is tier 0 in principle; check the diagnostic.
+
+  - week: 5
+    short: Guest
+    kind: guest
+    slug: w05-guest-lecture
+    title: Guest lecture
+    note: >-
+      Speaker and topic to be confirmed; MathWorks on agentic AI for model-based
+      design is proposed (CURRICULUM.md). An hour of lecture and questions, then
+      an open second hour. Breaks P18's hook-and-cliffhanger chain, by agreement.
+    independent: >-
+      Follow up the guest lecture: read or watch what the speaker recommends,
+      and write a decision-log entry on one thing from it that bears on your
+      design. Then start on the consolidation week's activities.
+
+  - week: 6
+    short: Consolidation
+    kind: consolidation
+    slug: w06-consolidation
+    title: Consolidation week
+    purpose: >-
+      Cement weeks 1 to 4 — the whole design cycle, requirements and models, PID,
+      and stability margins — so that week 7 starts from solid ground. Nothing
+      new is introduced. Every activity is recommended, not required.
+    activities:
+      - {hours: 1.0, title: "The consolidation challenge", what: "A Numbas and MATLAB Grader challenge that revisits weeks 1 to 4, spaced and mixed, with feedback on every question. Retrieval, not new material"}
+      - {hours: 0.75, title: "Explain it back", what: "For each of weeks 1 to 4, answer that week's design question in a paragraph, in your own words and without notes. Then check it against the handout"}
+      - {hours: 1.0, title: "Rework, don't reread", what: "Redo one example-sheet question from each of weeks 2 to 4 from a blank page, then compare with the solutions. Where you got stuck is what to go back to"}
+      - {hours: 0.5, title: "Map the cycle", what: "Place every idea and tool from weeks 1 to 4 on the design cycle, and say what each one is for"}
+      - {hours: 0.5, title: "Revisit the cases", what: "With the tools you now have, explain what went wrong in week 1's open-loop flight and in the YF-22 accident from week 4"}
+      - {hours: 0.25, title: "Ready for week 7", what: "A short self-check on what week 7 builds on: reading margins from a Bode plot, and what the loop gain is. If it's shaky, go back to week 4's handout"}
+    coursework: >-
+      Act on checkpoint 1's feedback, and start your design (section 3) with
+      weeks 3 and 4's tools. If you're behind, this is the week to catch up; if
+      you don't get to it, spread it across weeks 7 to 9.
+    laboratory: This is the last week of the laboratory window. If you haven't done your four hours, do them now.
+
+  - week: 7
+    short: Robustness
+    kind: lecture
+    slug: w07-robustness
+    title: Robustness and trade-offs
+    act: 2
+    question: What happens when the model is wrong?
+    focus: Analysis; requirements
+    ilos: [4, 5]
+    capabilities: [C4, C5]
+    threshold: [Feedback as a trade, Bandwidth costs something]
+    systems: [Multirotor]
+    case: Ingenuity flight 6 (2021) — a timing fault the design survived
+    outcomes:
+      - {ilo: 4, text: "Interpret sensitivity and complementary sensitivity as a loop's responses to disturbance, noise and model error"}
+      - {ilo: 4, text: "Explain why S + T = 1 forces a trade-off, and identify the trade a given design is making"}
+      - {ilo: 5, text: "Relate closed-loop bandwidth to noise amplification and actuator demand"}
+      - {ilo: 4, text: "Evaluate a design's robustness to a stated model uncertainty"}
+    hook: Good margins, and it still failed. Now a design with bad data that survived.
+    in_lecture:
+      hook: Resolve week 4's cliffhanger with Ingenuity
+      learn_a: S and T as one idea — the two ways a loop responds — and why they add to one
+      do_a: Sketch S and T for a given loop; where does noise get in, and where do disturbances?
+      learn_b: The price of bandwidth; model uncertainty, and robustness as a bound on T
+      do_b: Raise the multirotor loop's bandwidth; watch noise and actuator effort
+      case: Inject Ingenuity's kind of timing fault into a multirotor model — does your design survive, and what would make it?
+    cliffhanger: We know what we want the loop to look like. Now build it.
+    out_of_lecture:
+      close_the_loop: Challenge on S, T and the bandwidth trade
+      examples: Sensitivity plots; robustness to uncertainty
+      next_case: Week 3's PID, drawn as a loop gain against the shape we now want
+    budget:
+      concepts: [S and T as one idea, The waterbed]
+      tool: [Sensitivity plots]
+      notation: [S, T]
+      verdict: fits only if S and T are taught as one idea
+    handout_only: [The Bode sensitivity integral, Small-gain theorem, H-infinity by name only]
+
+  - week: 8
+    short: Loop shaping
+    kind: lecture
+    slug: w08-loop-shaping
+    title: Loop shaping
+    act: 2
+    question: How do we design to a specification, not tune by eye?
+    focus: Design
+    ilos: [5]
+    capabilities: [C3, C5]
+    threshold: [Loop gain is where the design lives]
+    systems: [Fixed-wing]
+    case: Week 3's pitch PID, redesigned as a shaped loop
+    outcomes:
+      - {ilo: 5, text: "Translate time-domain and robustness requirements into a target shape for the loop gain"}
+      - {ilo: 5, text: "Design lead and lag compensators to achieve that shape"}
+      - {ilo: 5, text: "Re-express a PID controller as a loop-shaping design, and explain what each term contributes to the shape"}
+      - {ilo: 5, text: "Justify a design choice from the loop gain, the step response and the robustness it buys"}
+    hook: Here is the shape we want. Here is week 3's PID. How far off is it?
+    in_lecture:
+      hook: Resolve week 7's cliffhanger
+      learn_a: The loop gain as the design itself; requirements become forbidden regions on the Bode plot
+      do_a: Draw the forbidden regions for a set of requirements
+      learn_b: Lead and lag as tools for shaping; PID seen as lead–lag
+      do_b: Add a lead to buy phase margin, and see what it costs
+      case: Redesign the fixed-wing pitch loop by shaping, to week 2's requirements and week 7's robustness; compare it with the tuned PID
+    cliffhanger: One loop at a time works — until the loops talk to each other.
+    out_of_lecture:
+      close_the_loop: MATLAB Grader — design a lead compensator to a phase margin
+      examples: Loop shaping; lead–lag design
+      next_case: Extracts on MCAS and on Air France 447
+    budget:
+      concepts: [Loop gain is the design]
+      tool: [Lead–lag compensation]
+      notation: []
+      verdict: fits
+    handout_only: [Root locus as an alternative view, Notch filters for structural modes]
+
+  - week: 9
+    short: Architecture
+    kind: lecture
+    slug: w09-flight-control-architecture
+    title: Flight control architecture
+    act: 3
+    question: Who is flying, and which loop is doing what?
+    focus: The whole cycle, at system level
+    ilos: [6]
+    capabilities: [C1, C7]
+    threshold: [Control is layered]
+    systems: [Fixed-wing]
+    case: Boeing 737 MAX MCAS; Air France 447
+    outcomes:
+      - {ilo: 6, text: "Describe the layers of an aircraft's flight control system — stability augmentation, control augmentation, autopilot and modes — and the job of each"}
+      - {ilo: 6, text: "Design an inner–outer loop structure, and justify the separation in bandwidth between the loops"}
+      - {ilo: 6, text: "Explain how handling-qualities requirements shape a flight control system"}
+      - {ilo: 6, text: "Analyse how sensing, control authority and mode logic contributed to a real accident, and the design principle each illustrates"}
+    hook: A pitch loop inside an altitude hold. What goes wrong if the inner loop is too slow?
+    in_lecture:
+      hook: Resolve week 8's cliffhanger
+      learn_a: Control is layered — SAS, CAS, autopilot; inner and outer loops, and why their bandwidths must separate
+      do_a: Rank a set of loops by the bandwidth each needs
+      learn_b: Modes, authority limits and sensors; the pilot as a loop element
+      do_b: Wrap an altitude hold round the pitch loop in Simulink
+      case: MCAS and Air France 447 — sensing redundancy, authority, mode transitions and the human in the loop
+    cliffhanger: Loops that interact need a method that sees all the states at once.
+    out_of_lecture:
+      close_the_loop: Challenge on loop hierarchy and bandwidth separation
+      examples: Inner–outer loop design; mode logic
+      next_case: A video of the Quanser's travel axis defeating a PID
+    budget:
+      concepts: [Layered control, Handling qualities as requirements]
+      tool: [Loop architecture diagrams]
+      notation: []
+      verdict: fits
+    handout_only: [Fly-by-wire control laws, Gain scheduling across the flight envelope]
+    notes: >-
+      Merges the former "Stability augmentation" and "Autopilot modes"
+      placeholders. P15 cases MCAS and AF447 still need primary sources. People
+      died in both; keep the focus on the engineering lesson.
+
+  - week: 10
+    short: State space
+    kind: lecture
+    slug: w10-state-space
+    title: State space and state feedback
+    act: 3
+    question: What if we could use everything the system knows?
+    focus: Design
+    ilos: [5]
+    capabilities: [C6]
+    threshold: [State is what the system remembers]
+    systems: [Quanser 3-DoF, all three axes]
+    case: Why the Quanser's travel axis defeats a single PID
+    outcomes:
+      - {ilo: 5, text: "Write a state-space model of a small multi-state system, and relate it to the transfer function"}
+      - {ilo: 5, text: "Explain what a state is, and what feedback from every state can do that output feedback cannot"}
+      - {ilo: 5, text: "Design a state-feedback controller by pole placement, for a system whose states are all measured"}
+      - {ilo: 5, text: "Use LQR as a tuning method, and explain the trade its weights express"}
+    hook: The travel axis, the coupling, and a PID that cannot win.
+    in_lecture:
+      hook: Resolve week 9's cliffhanger
+      learn_a: State as what the system remembers; ẋ = Ax + Bu, and its link to the transfer function
+      do_a: Name the states of the Quanser's three axes
+      learn_b: State feedback u = −Kx; pole placement; LQR as a tuning knob instead of choosing poles by hand
+      do_b: Place the poles of a two-state system by hand
+      case: An LQR design on the Quanser model, compared with the PID it replaces
+    cliffhanger: What sits above this course?
+    out_of_lecture:
+      close_the_loop: MATLAB Grader — pole placement and LQR
+      examples: State-space models; pole placement; LQR weights
+      next_case: The X-15 flight 3-65-97 account
+    budget:
+      concepts: [State, State feedback]
+      tool: [Pole placement, LQR]
+      notation: [ẋ = Ax + Bu]
+      verdict: at budget only because observers and controllability are handout-only
+    handout_only: [Observers, Controllability and observability tests, Kalman filtering, LQG]
+    notes: >-
+      Steve to spend time on this one when we reach it. Optional and rewarded in
+      the coursework (AQ15), and may leave the coursework entirely; stays in the
+      lectures as the foundation for the year 4 advanced unit. The Quanser's
+      second laboratory already covers LQR, and carries some of the load.
+
+  - week: 11
+    short: What next
+    kind: lecture
+    slug: w11-beyond-this-course
+    title: What comes next
+    second_hour: Coursework Q&A
+    act: 3
+    question: What lies beyond linear, classical design — and why is it hard to fly?
+    focus: The limits of the cycle
+    ilos: [5, 6]
+    capabilities: [C9]
+    threshold: []
+    systems: [All three]
+    case: X-15 flight 3-65-97 (1967) — an adaptive controller's limit cycle
+    outcomes:
+      - {ilo: 5, text: "Describe where gain scheduling, adaptive, model predictive, robust and learning-based control are used in aerospace, and the problem each addresses"}
+      - {ilo: 6, text: "Explain why adaptive and learned controllers are hard to certify, using the X-15 accident as an example"}
+      - {ilo: 5, text: "Identify which of this unit's methods the advanced control unit builds on"}
+    hook: A controller that learns. What could go wrong?
+    in_lecture:
+      hook: Resolve week 10's cliffhanger
+      learn_a: Beyond linear time-invariant design — scheduling, adaptation, prediction, robustness
+      do_a: Match five aerospace problems to the method that addresses each
+      learn_b: Learned control and reinforcement learning — what it is, where it is used, and why certification is the hard part
+      do_b: What would you need to show before flying a learned controller?
+      case: "None: the second hour is coursework Q&A"
+    cliffhanger: "None: the unit closes, and points to the year 4 advanced unit."
+    out_of_lecture:
+      close_the_loop: None this week
+      examples: None this week
+      next_case: None
+    budget:
+      concepts: []
+      tool: []
+      notation: []
+      verdict: awareness only; the budget does not apply
+    handout_only: [Reading list for the advanced unit]
+    notes: >-
+      One hour. In 2026/27 its first hour is also the term's buffer: if a lecture
+      is lost, it absorbs it and this material becomes a handout page.

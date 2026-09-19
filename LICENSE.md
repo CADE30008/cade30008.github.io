@@ -25,8 +25,8 @@ appropriate credit, link to the licence, and say if you made changes.
 - lecture handouts, slide decks, example sheets, worked solutions, figures and
   the glossary, under `docs/` and `slides/`, excluding code files;
 - planning and process documents: `PEDAGOGY.md`, `ASSESSMENT.md`, `AGENTS.md`,
-  `CONTENT.md`, `CURRICULUM.md`, `README.md`, `LICENSE.md`, the lecture set and
-  schedules in `curriculum/`, the lecture map in `docs/planning/`, the run sheets
+  `CONTENT.md`, `CURRICULUM.md`, `README.md`, `LICENSE.md`, the week-by-week plan and
+  term facts in `curriculum/`, the lecture map in `docs/planning/`, the run sheets
   in `teaching/`, and the review notes in `reviews/`.
 
 **Attribution:**
