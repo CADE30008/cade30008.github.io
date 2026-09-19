@@ -47,6 +47,27 @@ Week 3 (PID) has written content, from before the current scope. The rest are
 scoped scaffolds, so that the navigation and the build cover the whole course
 while the content is written.
 
+## Behind the materials
+
+The documents that say how the course is designed and kept consistent:
+
+| Document | What it's for |
+|---|---|
+| [PEDAGOGY.md](PEDAGOGY.md) | How these materials are meant to teach, as numbered principles, and the reasoning behind them |
+| [CURRICULUM.md](CURRICULUM.md) | What the unit teaches, in what order, and why, with the options that were weighed |
+| [curriculum/weeks.yaml](curriculum/weeks.yaml) | Every week's outcomes, activities, case, hook, cliffhanger and reading, from which much of the site is generated |
+| [ASSESSMENT.md](ASSESSMENT.md) | How the coursework is designed, and how submissions are checked |
+| [AGENTS.md](AGENTS.md) | How the materials are built, checked and edited, by a person or an AI assistant |
+| [CONTENT.md](CONTENT.md) | What is written, and what isn't yet |
+| [LICENSE.md](LICENSE.md) | The full licence terms |
+
+For lecturers, planning views:
+
+- **The lecture map**, [`docs/planning/lecture-map.html`](docs/planning/lecture-map.html): every week's outcomes, what happens in each part of the session, the work between sessions, the consolidation week, the cliffhanger chain and the student workload model. Open it in a browser; it will also be on the site once published.
+- **The term map**, in [week 1's handout](docs/w01-design-cycle/index.md#schedule): the twelve weeks at a glance.
+- **Run sheets**, in [`teaching/`](teaching/): the plan for each lecture, and the [Blackboard build sheet](teaching/blackboard.md).
+- **Review notes**, in [`reviews/`](reviews/): reviews against the principles, including what was removed and why.
+
 ## Commands
 
 | Command | What it does |
@@ -63,8 +84,34 @@ while the content is written.
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |
 | `npm run build` | Curriculum check, slides, site, PDFs, then the sync check |
+| `npm run serve` | The **in-progress** site, everything, at `http://localhost:8000` |
+| `npm run live` | Build the **live** site — only what `publish.yaml` lists — into `.live/site`, and check its links |
+| `npm run preview:live` | Build the live site and serve it at `http://localhost:8010`, exactly as it will be published |
 
 Stop `npm run serve` before running `npm run build`, because both use `site/`.
+
+## Publishing
+
+The live site is **https://cade30008.github.io**, published from this
+repository by GitHub Actions (`.github/workflows/publish.yml`) on every push to
+`main`. It shows only the pages listed in [`publish.yaml`](publish.yaml);
+everything else stays on the in-progress site. Links from a published page to
+an unpublished one become plain text, and blocks between
+`<!-- in-progress:start -->` and `<!-- in-progress:end -->` are left out.
+
+To publish a page: add it to `publish.yaml`, run `npm run preview:live`, look
+at it on `http://localhost:8010`, then commit and push. The workflow refuses to
+deploy if the live build has a broken link, including a link in the Blackboard
+build sheet (`teaching/blackboard.md`).
+
+One-time set-up: the repository is `cade30008/cade30008.github.io`, in the
+`cade30008` GitHub organisation, and its **Settings › Pages › Source** is set to
+**GitHub Actions**.
+
+Not yet handled: slides and PDFs on the live site. They're built locally, git
+ignores them, and the slide theme comes from a sibling folder that CI can't see
+("The slide theme", below). Nothing published yet needs them; the first
+published lecture week will.
 
 ## Keeping slides and handouts in sync
 

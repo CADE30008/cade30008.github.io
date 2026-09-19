@@ -1,0 +1,55 @@
+# Publish the live site to https://cade30008.github.io.
+#
+# Builds only what publish.yaml lists (scripts/build_live.py), fails if any link
+# in the result is broken, and deploys it to GitHub Pages. Runs on every push to
+# main, or by hand from the Actions tab.
+#
+# One-time set-up, in the repository's Settings > Pages: set "Source" to
+# "GitHub Actions".
+#
+# Not yet handled: slides and PDFs. They are built locally and git ignores
+# them, and the slide theme comes from a sibling folder CI can't see (README,
+# "The slide theme"). Nothing published so far needs them; the first lecture
+# week that is published will.
+
+name: Publish the live site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build the live site and check its links
+        run: python scripts/build_live.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .live/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

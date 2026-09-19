@@ -38,7 +38,12 @@ laboratory:
 # arithmetic, and the gap is recorded rather than hidden. Hours per week, by the
 # kind of week (weeks.yaml).
 workload:
-  notional: 100          # hours: 10 of the unit's 20 credits
+  notional: 100          # hours: 10 of the unit's 20 credits, at 10 h a credit
+  # The basis actually planned to: a ~35 h working week, shared across the three
+  # 20-credit units a student takes at once, of which this is half of one.
+  working_week: 35
+  units_at_once: 3
+  share_of_unit: 0.5
   by_kind:
     lecture:       {lecture: 2, independent: 2, coursework: 2}
     guest:         {lecture: 2, independent: 2, coursework: 2}

@@ -97,16 +97,16 @@ so with \(K_p = 1\) the gain margin is 6, or 15.6 dB. Any \(K_p > 6\) makes the 
   <figcaption>Margins of the pitch loop with \(K_p = 1\).</figcaption>
 </figure>
 
-=== "Python"
-
-    ```python
-    --8<-- "w03-pid-control/code/p_margins.py"
-    ```
-
 === "MATLAB"
 
     ```matlab
     --8<-- "w03-pid-control/code/p_margins.m"
+    ```
+
+=== "Python"
+
+    ```python
+    --8<-- "w03-pid-control/code/p_margins.py"
     ```
 
 Raising \(K_p\) moves crossover to higher frequency, where the plant's phase is further round. The loop gets faster, but the phase margin shrinks, so it also gets more oscillatory.
@@ -293,16 +293,16 @@ The steps above make a procedure you can repeat on any plant with a Bode plot.
 | PD | 1.86 | — | 0.649 | 3.00 | 60.1° | 12.4 (21.9 dB) | 0.5% | 18.6° | 0.54 |
 | PID | 2.03 | 0.678 | 0.661 | 3.00 | 55.0° | 12.4 (21.9 dB) | 18.7% | 20.4° | 0 |
 
-=== "Python"
-
-    ```python
-    --8<-- "w03-pid-control/code/pid_loop.py"
-    ```
-
 === "MATLAB"
 
     ```matlab
     --8<-- "w03-pid-control/code/pid_loop.m"
+    ```
+
+=== "Python"
+
+    ```python
+    --8<-- "w03-pid-control/code/pid_loop.py"
     ```
 
 Empirical rules such as Ziegler–Nichols tuning also exist. They are useful when you have a plant but no model. With a model, loop shaping tells you *why* a set of gains works, and what to change when it doesn't.

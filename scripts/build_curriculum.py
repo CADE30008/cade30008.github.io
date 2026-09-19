@@ -130,9 +130,10 @@ def check(weeks: list[dict], term: dict) -> None:
     for d in SLIDES.iterdir():
         if d.is_dir() and d.name not in lecture_slugs:
             err(f"slides/{d.name} is not a lecture week in weeks.yaml")
+    known = {"applets", "assets", "downloads", "includes", "javascripts", "planning", "preparing", "slides", "stylesheets"}
     for d in DOCS.iterdir():
-        if d.is_dir() and re.match(r"^[lw]\d\d-", d.name) and d.name not in slugs:
-            err(f"docs/{d.name} is not a week in weeks.yaml")
+        if d.is_dir() and d.name not in slugs | known:
+            err(f"docs/{d.name}/ is neither a week in weeks.yaml nor a known site folder — a leftover?")
 
     # Labels: every page, deck, sheet and nav entry names its week.
     nav = (ROOT / "zensical.toml").read_text(encoding="utf-8")
@@ -231,7 +232,11 @@ def workload(weeks: list[dict], term: dict) -> dict:
     tot = {c: sum(r[c] for r in rows) for c in CATS}
     tot["laboratory"] = m["laboratory"]
     lw = by_kind["lecture"]
-    return {"rows": rows, "totals": tot, "planned": sum(tot.values()), "notional": m["notional"],
+    share = m["working_week"] / m["units_at_once"] * m["share_of_unit"]
+    if sum(lw.values()) > share + 0.5:
+        warn(f"workload: a lecture week plans {sum(lw.values()):g} h, above this half's share of a "
+             f"{m['working_week']:g} h week ({share:.1f} h)")
+    return {"share": share, "working_week": m["working_week"], "units_at_once": m["units_at_once"], "rows": rows, "totals": tot, "planned": sum(tot.values()), "notional": m["notional"],
             "lecture_week": lw, "typical": sum(lw.values()), "consolidation": by_kind["consolidation"],
             "parts": {**parts, "feed": lw["coursework"]}, "lab": lab, "laboratory": m["laboratory"]}
 
@@ -343,10 +348,11 @@ def workload_html(wl: dict) -> str:
   <div class="tile warnt"><div class="big">{wl["notional"]:g} h</div><div>notional for 10 credits. The {wl["notional"] - wl["planned"]:g} h difference is a deliberate compromise, for a sustainable week</div></div>
 </div>
 <div class="wchart">{''.join(cols)}</div>
+<p class="legend wl"><b>Why six hours:</b> a ~{wl["working_week"]:g} h working week across {wl["units_at_once"]} units of 20 credits is just under {wl["working_week"] / wl["units_at_once"]:.0f} h per unit, so about {wl["share"]:.0f} h for this half. The 10-hours-a-credit total doesn't fit a twelve-week teaching block, with week 12 lost to revision.</p>
 <p class="legend wl">{keys} — hours per week, to scale. Dashed underline: laboratory window. Coursework is advised in-week; expect many students to back-load it towards the deadline, which the checkpoints and the consolidation week exist to pull forward.</p>"""
 
 
-def lecture_card(w: dict, term: dict, wl: dict) -> str:
+def lecture_card(w: dict, term: dict, wl: dict, sources: dict) -> str:
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
     slot_rows = "".join(f'<tr><td class="sl">{name}<small>{mins} min</small></td>'
                         f'<td>{e(w["cliffhanger"] if key == "cliffhanger" else w["in_lecture"][key])}</td></tr>'
@@ -362,6 +368,7 @@ def lecture_card(w: dict, term: dict, wl: dict) -> str:
     chips = "".join(f'<span class="chip">{e(t)}</span>' for t in w["threshold"]) or '<span class="muted">none new</span>'
     when = f"Tuesday · hour 2: {w['second_hour']}" if w.get("second_hour") else "Tuesday"
     lw = wl["lecture_week"]
+    reading = "".join(f"<li>{e(reading_line(r, sources))}</li>" for r in w.get("reading", [])) or '<li class="muted">none yet</li>'
     return f"""
 <section class="card" id="W{w['week']}">
   <header><div class="num">W{w['week']}</div>
@@ -374,6 +381,7 @@ def lecture_card(w: dict, term: dict, wl: dict) -> str:
       <dt>Case</dt><dd>{e(w['case'])}</dd>
       <dt>P19 budget</dt><dd><span class="v {vclass}">{e(b['verdict'])}</span><br><small>{e(', '.join(b['concepts']) or '—')} · {e(', '.join(b['tool']) or '—')} · {e(', '.join(b['notation']) or '—')}</small></dd>
       <dt>Handout only</dt><dd><small>{e('; '.join(w['handout_only']))}</small></dd>
+      <dt>Reading</dt><dd><ul class="rd">{reading}</ul></dd>
     </dl></div>
     <div class="col"><h4>Learning outcomes</h4><ul class="lo">{outs}</ul><p class="hk"><b>Hook</b> {e(w['hook'])}</p></div>
     <div class="col"><h4>In the room <small>110 min</small></h4><div class="bar">{bar}</div><table class="sl-t">{slot_rows}</table></div>
@@ -408,7 +416,7 @@ def other_card(w: dict, term: dict, wl: dict) -> str:
 </section>"""
 
 
-def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
+def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict, sources: dict) -> str:
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
     by_week = {w["week"]: w for w in weeks}
     lectures = [w for w in weeks if w["kind"] == "lecture"]
@@ -437,7 +445,7 @@ def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
                 gap = w["week"] - prev_lecture["week"] > 1
                 cards.append(f'<div class="chain"><span>cliffhanger, week {prev_lecture["week"]}</span> {e(prev_lecture["cliffhanger"])} '
                              f'<span>→ hook of week {w["week"]}{" (across the break)" if gap else ""}</span></div>')
-            cards.append(lecture_card(w, term, wl))
+            cards.append(lecture_card(w, term, wl, sources))
             prev_lecture = w
         else:
             cards.append(other_card(w, term, wl))
@@ -479,6 +487,7 @@ ul.lo{{list-style:none;margin:0;padding:0}}ul.lo li{{display:flex;gap:7px;margin
 .s{{display:block}}.s-hook,.s-cliffhanger{{background:var(--red)}}.s-learna,.s-learnb{{background:var(--i4)}}.s-doa,.s-dob{{background:var(--i5)}}.s-gap{{background:var(--rule)}}.s-case{{background:var(--i6)}}
 table.sl-t{{border-collapse:collapse;width:100%;font-size:12.5px}}.sl-t td{{border-top:1px solid var(--rule);padding:4px 4px;vertical-align:top}}
 .sl{{width:36%;color:var(--mut);font-weight:600}}.sl small{{display:block;font-weight:400}}
+ul.rd{{margin:0;padding-left:14px;font-size:12px}}ul.rd li{{margin-bottom:2px}}
 .note{{font-size:12px;color:var(--mut);border-top:1px dashed var(--rule);margin-top:8px;padding-top:6px}}
 .chain{{margin:6px 0 6px 22px;padding:4px 0 4px 14px;border-left:2px dashed var(--red);font-size:12.5px;font-style:italic}}.chain span{{font-style:normal;font-weight:600;color:var(--red);font-size:11.5px}}
 .tiles{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:6px 0 14px}}
@@ -560,6 +569,10 @@ def workload_block(wl: dict) -> str:
         f"| **Total** | **{wl['typical']:g}** |", "",
         f"**Consolidation week** has no lecture. Instead, {cons['consolidation']:g} hours of recommended activities that "
         f"cement what you've done so far, plus the usual {cons['coursework']:g} hours of coursework.", "",
+        f"Why six? A full-time working week is about {wl['working_week']:g} hours, and you take "
+        f"{['one', 'two', 'three', 'four', 'five'][wl['units_at_once'] - 1]} "
+        f"units at once, so each gets just under {wl['working_week'] / wl['units_at_once']:.0f} hours a week — and this "
+        f"is half of one.", "",
         f"On top of that, **{wl['laboratory']:g} hours in the Quanser laboratory**, at times you choose between week "
         f"{wl['lab']['from_week']} and week {wl['lab']['to_week']}. Over the term that comes to about {wl['planned']:g} hours: "
         f"{t['lecture']:g} in lectures, {t['independent']:g} of independent learning, {t['consolidation']:g} of consolidation, "
@@ -582,6 +595,23 @@ def outcomes_block(w: dict) -> str:
     return '!!! abstract "Learning outcomes"\n    By the end of this week you should be able to:\n\n' + "\n".join(items)
 
 
+def reading_line(r: dict, sources: dict) -> str:
+    src = sources[r["source"]]
+    where = f"sections {r['sections']}" if r.get("sections") else f"chapter {r['chapter']}"
+    note = f" — {r['note']}" if r.get("note") else ""
+    return f"{src['short']}, {where}: {r['title']}{note}"
+
+
+def reading_block(w: dict, sources: dict) -> str:
+    """A lecture week's further reading, for its handout."""
+    if not w.get("reading"):
+        return "Further reading for this week is still to be chosen."
+    lines = [f"- {reading_line(r, sources)}." for r in w["reading"]]
+    used = sorted({r["source"] for r in w["reading"]})
+    lines += ["", *[f"{sources[k]['cite']}" for k in used]]
+    return "\n".join(lines)
+
+
 def replace_between(path: Path, start: str, end: str, new: str) -> bool:
     text = path.read_text(encoding="utf-8")
     i, j = text.find(start), text.find(end)
@@ -593,7 +623,7 @@ def replace_between(path: Path, start: str, end: str, new: str) -> bool:
 
 def main() -> None:
     src = yaml.safe_load((CUR / "weeks.yaml").read_text(encoding="utf-8"))
-    weeks, acts = src["weeks"], src["acts"]
+    weeks, acts, sources = src["weeks"], src["acts"], src.get("sources", {})
     term = yaml.safe_load((CUR / "term.yaml").read_text(encoding="utf-8"))
 
     check_shape(weeks)
@@ -609,7 +639,7 @@ def main() -> None:
     fig.mkdir(parents=True, exist_ok=True)
     (fig / "term-map.svg").write_text(term_map_svg(weeks, term, acts), encoding="utf-8")
     (DOCS / "planning").mkdir(exist_ok=True)
-    (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl), encoding="utf-8")
+    (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
     if not replace_between(DOCS / "index.md", "<!-- weeks:start -->", "<!-- weeks:end -->", home_table(weeks)):
         err("docs/index.md has no weeks markers")
     l1 = DOCS / first["slug"] / "index.md"
@@ -622,6 +652,13 @@ def main() -> None:
             continue
         if w["kind"] == "lecture" and not replace_between(page, "<!-- outcomes:start -->", "<!-- outcomes:end -->", outcomes_block(w)):
             warn(f"week {w['week']}: handout keeps its own outcomes, not generated from weeks.yaml")
+        if w["kind"] == "lecture":
+            if not w.get("reading"):
+                warn(f"week {w['week']}: no further reading yet")
+            for r in w.get("reading", []):
+                if r["source"] not in sources:
+                    err(f"week {w['week']}: reading cites unknown source {r['source']!r}")
+            replace_between(page, "<!-- reading:start -->", "<!-- reading:end -->", reading_block(w, sources))
         if w["kind"] == "consolidation" and not replace_between(page, "<!-- activities:start -->", "<!-- activities:end -->", activities_block(w, wl)):
             err(f"week {w['week']}: page has no activities markers")
 

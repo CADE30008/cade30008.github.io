@@ -17,7 +17,9 @@
     "models": ".venv/bin/python models/pitch.py > /dev/null && .venv/bin/python models/example_sheet.py > /dev/null && .venv/bin/python models/compare.py",
     "stills": "node scripts/capture-stills.mjs",
     "test": "node scripts/test-applets.mjs && npm run check",
-    "curriculum": ".venv/bin/python scripts/build_curriculum.py"
+    "curriculum": ".venv/bin/python scripts/build_curriculum.py",
+    "live": ".venv/bin/python scripts/build_live.py",
+    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python -m http.server ${PORT:-8010} --bind localhost -d .live/site"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.1",

@@ -9,11 +9,16 @@ Work through this page before the first lecture. Most of the time goes on the
 Onramp courses. Doing it beforehand means lecture time goes on control, not on
 installing software.
 
-<div class="lesson-links" markdown>
-[Check your device](#check)
-[Onramp courses](#onramps)
-[Diagnostic quiz](#diagnostic)
-</div>
+!!! abstract "Before week 1"
+    1. **[Check your device](#check)** runs the course code, in your browser or
+       on your computer.
+    2. **[Complete the three MathWorks Onramp courses](#onramps)**, and upload
+       your certificates to Blackboard.
+    3. **[Take the diagnostic quiz](#diagnostic)** on Blackboard. It isn't marked.
+    4. **Bring a laptop** to the first lecture if you have one.
+
+    On Blackboard, the **Before week 1** module has the same steps, with a
+    circle beside each to tick off as you go.
 
 ## What you'll use {#software}
 
@@ -32,28 +37,62 @@ MATLAB.
 Bring a laptop to lectures if you have one. Activities are done in pairs and
 threes, so if you don't have one, you'll share with someone who does.
 
-| Device | Python | MATLAB and Simulink | Onramp courses |
+| Device | MATLAB and Simulink | Python | Onramp courses |
 |---|---|---|---|
-| Windows, macOS or Linux laptop | Install it, or run it in the browser | Install them, or use MATLAB Online | Yes |
-| Chromebook | Run it in the browser | MATLAB Online, in a [supported browser](https://www.mathworks.com/support/requirements/browser-requirements.html) | In a supported browser |
-| iPad or other tablet | Run it in the browser | Not supported online. [MATLAB Mobile](https://www.mathworks.com/products/matlab-mobile.html) covers the basics, but not Simulink | No |
+| Windows, macOS or Linux laptop | Install them, or use MATLAB Online | Install it, or run it in the browser | Yes |
+| Chromebook | MATLAB Online, in a [supported browser](https://www.mathworks.com/support/requirements/browser-requirements.html) | Run it in the browser | In a supported browser |
+| iPad or other tablet | Not supported online. [MATLAB Mobile](https://www.mathworks.com/products/matlab-mobile.html) covers the basics, but not Simulink | Run it in the browser | No |
 
 If you only have a tablet, you can do the Python work on it, but pair up with
 someone who has a laptop for MATLAB, Simulink and the Onramp courses.
 
 ## Check your device {#check}
 
-Each check runs the same small example: the pitch-attitude loop from week 3.
-Wherever you run it, it should report a phase margin of 43.21° at 1.559 rad/s and
+Each check runs the same small example, the pitch-attitude loop from week 3, in
+MATLAB or in Python. Wherever you run it, it should report a phase margin of 43.21° at 1.559 rad/s and
 a gain margin of 6.00, and draw a step response.
 
-### In your browser, on any device {#check-browser}
+### MATLAB and Simulink {#check-matlab}
+
+This works in MATLAB on your computer and in MATLAB Online. It was tested with
+MATLAB R2026a; any recent release should work.
+
+1. Get MATLAB through the University's licence, with the Control System Toolbox
+   and Simulink.
+2. Download [check_setup.m](code/check_setup.m), open it in MATLAB and press
+   **Run**. Or create a new script, paste in the code below, and run that.
+
+<div class="code-scroll" markdown>
+
+```matlab
+--8<-- "preparing/code/check_setup.m"
+```
+
+</div>
+
+You should see this, with your own MATLAB version on the first line:
+
+```text
+[ok] MATLAB: 26.1 (R2026a)
+[ok] Control System Toolbox
+[ok] Simulink
+[ok] loop margins: phase margin 43.21 deg at 1.559 rad/s, gain margin 6.00
+[ok] closed loop: steady-state gain 1.000
+[ok] Simulink simulation: final pitch attitude 1.000
+All checks passed
+```
+
+You'll also get a step-response plot, and a small Simulink model called
+`cade30008_check`. Have a look at the model, which is the same loop drawn as
+blocks, then close it without saving.
+
+### Python in your browser, on any device {#check-browser}
 
 Press **Run in your browser**. The first run downloads Python and its packages,
 which can take a minute on a slow connection; after that it's quick. Nothing is
 sent anywhere: the code runs on your own device.
 
-<div class="py-runnable" markdown>
+<div class="py-runnable code-scroll" markdown>
 
 ```python
 --8<-- "preparing/code/check_setup.py"
@@ -61,7 +100,7 @@ sent anywhere: the code runs on your own device.
 
 </div>
 
-This is the same script as the one for your computer below. If it works here but
+This is the same script as the one for your computer, below. If it works here but
 not there, the problem is the installation on your computer, not the code.
 
 ### Python on your computer {#check-python}
@@ -92,42 +131,12 @@ showing the step response:
 All checks passed
 ```
 
-### MATLAB and Simulink {#check-matlab}
-
-This works in MATLAB on your computer and in MATLAB Online. It was tested with
-MATLAB R2026a; any recent release should work.
-
-1. Get MATLAB through the University's licence, with the Control System Toolbox
-   and Simulink.
-2. Download [check_setup.m](code/check_setup.m), open it in MATLAB and press
-   **Run**. Or create a new script, paste in the code below, and run that.
-
-```matlab
---8<-- "preparing/code/check_setup.m"
-```
-
-You should see this, with your own MATLAB version on the first line:
-
-```text
-[ok] MATLAB: 26.1 (R2026a)
-[ok] Control System Toolbox
-[ok] Simulink
-[ok] loop margins: phase margin 43.21 deg at 1.559 rad/s, gain margin 6.00
-[ok] closed loop: steady-state gain 1.000
-[ok] Simulink simulation: final pitch attitude 1.000
-All checks passed
-```
-
-You'll also get a step-response plot, and a small Simulink model called
-`cade30008_check`. Have a look at the model, which is the same loop drawn as
-blocks, then close it without saving.
-
 ### If a check fails {#troubleshooting}
 
 | What you see | What to do |
 |---|---|
-| `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
 | `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected |
+| `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
 | The browser run stalls, or reports an error | Use an up-to-date browser, and try another network: some block large downloads |
 | Anything else | Pair up with someone whose set-up works, and bring the error message to week 1's lecture |
 
@@ -146,9 +155,21 @@ MathWorks online courses don't run on tablets or phones.
 
 Sign in with the MathWorks account linked to your University email address.
 
+**Upload your certificates.** When you finish each course, MATLAB Academy gives
+you a certificate of completion. Download all three as PDFs and upload them to
+the **Onramp certificates** assignment in Blackboard's **Before week 1** module.
+They aren't marked: they tell us who is ready, and tell you that you are.
+
 ## Diagnostic quiz {#diagnostic}
 
-!!! note "Planned"
-    A short quiz on the mathematics and control this course builds on is
-    planned, on Blackboard. It won't be marked. It tells you, and us, where to
-    focus in the first weeks. Details will follow here.
+A short quiz on the mathematics and control this course builds on — Laplace
+transforms, transfer functions, poles, step responses, Bode plots and basic
+feedback — mostly from the year 2 unit Dynamics and Control of Linear Systems.
+It takes about 20 minutes.
+
+**It isn't marked, and it doesn't count towards anything.** It tells you where
+you're solid and where to brush up, with feedback on every question, and tells
+us what to spend more time on in the first weeks. Do it on your own and without
+looking things up: a flattering score helps nobody.
+
+You'll find it in the **Before week 1** module on Blackboard.

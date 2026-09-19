@@ -2,6 +2,7 @@
 node_modules/
 .venv/
 # build outputs
+.live/
 site/
 .cache/
 docs/slides/

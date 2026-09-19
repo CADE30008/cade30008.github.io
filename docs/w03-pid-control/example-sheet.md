@@ -100,14 +100,15 @@ A different airframe uses the same pitch dynamics, but its elevator can move onl
 2. Find the largest \(k\), to two decimal places, for which the phase margin is at least 50° and the peak elevator demand for a 10° step is at most 15°. Report the crossover frequency, phase margin, peak elevator and overshoot.
 3. The controller's shape doesn't change with \(k\), yet the phase margin does. Explain why.
 
+=== "MATLAB"
+
+    ```matlab
+    --8<-- "w03-pid-control/code/q6_starter.m"
+    ```
+
 === "Python"
 
     ```python
     --8<-- "w03-pid-control/code/q6_starter.py"
     ```
 
-=== "MATLAB"
-
-    ```matlab
-    --8<-- "w03-pid-control/code/q6_starter.m"
-    ```

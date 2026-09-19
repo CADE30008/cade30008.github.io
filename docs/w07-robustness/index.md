@@ -56,5 +56,9 @@ The few things to take away.
 
 ## Further reading {#further-reading .no-slides}
 
-Textbook chapters and papers. This section is handout-only, which is what
-`.no-slides` marks.
+<!-- reading:start -->
+- Dorf and Bishop, chapter 12: Robust Control Systems.
+- Dorf and Bishop, chapter 4: Feedback Control System Characteristics — sensitivity.
+
+Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+<!-- reading:end -->

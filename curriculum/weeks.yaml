@@ -31,6 +31,14 @@
 #   budget         P19's per-session count: concepts / tool / notation
 #   handout_only   tier 3 material the handout carries but the lecture does not
 
+# Further reading. Chapter-level only: the publisher lists chapter titles, and
+# section numbers need a copy of the book to confirm. Add a "sections" field to
+# a reading entry once checked, e.g. sections: "10.6-10.7".
+sources:
+  dorf:
+    cite: "Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson."
+    short: Dorf and Bishop
+
 # The three acts. Act I closes at week 4, so the consolidation week (6) cements
 # a whole act; act II straddles nothing.
 acts:
@@ -77,6 +85,9 @@ weeks:
       notation: []
       verdict: fits
     handout_only: [The design cycle in Dorf and Bishop, Model-based design as its industrial form]
+    reading:
+      - {source: dorf, chapter: 1, title: "Introduction to Control Systems", note: "the design process"}
+      - {source: dorf, chapter: 4, title: "Feedback Control System Characteristics", note: "why feedback"}
     notes: Departs from P17's standard shape, and says so. Plan in teaching/w01-design-cycle.md.
 
   - week: 2
@@ -116,6 +127,9 @@ weeks:
       notation: []
       verdict: fits
     handout_only: [Formal fit metrics, Handling-qualities criteria in detail]
+    reading:
+      - {source: dorf, chapter: 2, title: "Mathematical Models of Systems", note: "linearisation and transfer functions"}
+      - {source: dorf, chapter: 5, title: "The Performance of Feedback Control Systems", note: "performance specifications"}
     notes: Deriving the model is Part A's; validating and using it is Part B's. Keep that line.
 
   - week: 3
@@ -155,6 +169,9 @@ weeks:
       notation: [PID gains in frequency form]
       verdict: fits
     handout_only: [Ziegler–Nichols, Discrete implementation and sample rate, Setpoint weighting]
+    reading:
+      - {source: dorf, chapter: 10, title: "The Design of Feedback Control Systems", note: "PID controllers"}
+      - {source: dorf, chapter: 5, title: "The Performance of Feedback Control Systems", note: "steady-state error"}
     notes: >-
       The only lecture with written content, as the former "Lecture 2: Closed-loop
       PID control". It predates P8 and P11–P19 and needs redrafting to P17's shape,
@@ -197,6 +214,9 @@ weeks:
       notation: [L(jω), encirclement]
       verdict: borderline
     handout_only: [The Nyquist contour in full, Describing functions for rate limits]
+    reading:
+      - {source: dorf, chapter: 8, title: "Frequency Response Methods"}
+      - {source: dorf, chapter: 9, title: "Stability in the Frequency Domain", note: "Nyquist criterion, margins, time delay"}
     notes: Notation is borderline. L(jω) is tier 0 in principle; check the diagnostic.
 
   - week: 5
@@ -272,6 +292,9 @@ weeks:
       notation: [S, T]
       verdict: fits only if S and T are taught as one idea
     handout_only: [The Bode sensitivity integral, Small-gain theorem, H-infinity by name only]
+    reading:
+      - {source: dorf, chapter: 12, title: "Robust Control Systems"}
+      - {source: dorf, chapter: 4, title: "Feedback Control System Characteristics", note: "sensitivity"}
 
   - week: 8
     short: Loop shaping
@@ -310,6 +333,8 @@ weeks:
       notation: []
       verdict: fits
     handout_only: [Root locus as an alternative view, Notch filters for structural modes]
+    reading:
+      - {source: dorf, chapter: 10, title: "The Design of Feedback Control Systems", note: "lead and lag compensation, design in the frequency domain"}
 
   - week: 9
     short: Architecture
@@ -348,6 +373,7 @@ weeks:
       notation: []
       verdict: fits
     handout_only: [Fly-by-wire control laws, Gain scheduling across the flight envelope]
+    reading: []   # no Dorf chapter covers aircraft flight control architecture; a flight-control text is needed
     notes: >-
       Merges the former "Stability augmentation" and "Autopilot modes"
       placeholders. P15 cases MCAS and AF447 still need primary sources. People
@@ -390,6 +416,9 @@ weeks:
       notation: [ẋ = Ax + Bu]
       verdict: at budget only because observers and controllability are handout-only
     handout_only: [Observers, Controllability and observability tests, Kalman filtering, LQG]
+    reading:
+      - {source: dorf, chapter: 3, title: "State Variable Models"}
+      - {source: dorf, chapter: 11, title: "The Design of State Variable Feedback Systems"}
     notes: >-
       Steve to spend time on this one when we reach it. Optional and rewarded in
       the coursework (AQ15), and may leave the coursework entirely; stays in the
@@ -433,6 +462,9 @@ weeks:
       notation: []
       verdict: awareness only; the budget does not apply
     handout_only: [Reading list for the advanced unit]
+    reading:
+      - {source: dorf, chapter: 12, title: "Robust Control Systems"}
+      - {source: dorf, chapter: 13, title: "Digital Control Systems"}
     notes: >-
       One hour. In 2026/27 its first hour is also the term's buffer: if a lecture
       is lost, it absorbs it and this material becomes a handout page.

@@ -99,13 +99,32 @@ back-load it. Say plainly why that costs them.
 
 # AI rewards expertise
 
-- Language models make everyone a passable generalist
-- Experts get far more out of them: sharper questions, and they catch the wrong answers
-- The fundamentals here are what make you good with AI
+- Anyone can produce seemingly passable work — until an expert, or the real world, checks it
+- Experts ask sharper questions, and catch the confident wrong answers
+- Terence Tao and ChatGPT, 20 July 2026: the value was his judgement, not the prompt
+- The fundamentals here are what make you good *with* AI
 
 <!--
-After Sean Goedecke, "LLMs reward expertise". The full argument is on the
-"AI in this course" page of the site.
+After Sean Goedecke, "LLMs reward expertise", which uses Tao's conversation on
+the Jacobian conjecture as its example. Tao, among other researchers, models
+and critiques genuinely productive uses of LLMs.
+-->
+
+---
+
+<!-- handout: ai -->
+
+# Learning is how experts are made
+
+- Tao and 24 other Fields Medallists, September 2026:
+- training exists to build understanding, not only to produce answers
+- when AI produces the answers directly, the two come apart
+- That's your development — and what we're trying to assess
+
+<!--
+"A severe misalignment of AI in mathematics", on Tao's blog. The point for us is
+the one about training: students are set problems to build skills, and a
+shortcut to the answer skips the building.
 -->
 
 ---
@@ -114,16 +133,18 @@ After Sean Goedecke, "LLMs reward expertise". The full argument is on the
 
 # Work, or gym?
 
-- **Work**: only the result matters — AI is a sensible tool
-- **Gym**: doing it is the point — AI defeats the purpose
+- **Work**: only the result matters. AI is a sensible tool — if you check it and stand behind it
+- **Gym**: doing it is the point. AI is a machine lifting your weights
+- A Simulink error at eleven at night: mostly work
+- Why your loop has less phase margin than you expected: the gym
 - Most of what you do here is the gym
-- You're responsible for everything you submit
 
 <!--
-After Bruce Schneier's test. The coursework's AI rules follow the same line:
-use it where the brief allows, you won't need it, and you own what you submit.
-I used AI to help make these materials; the pedagogy and content are mine, and
-I have checked and rewritten all of it.
+After Bruce Schneier's test. The caveat on "work" is mine: in engineering,
+someone is accountable, and your name is on it either way. The coursework's AI
+rules follow the same line: use it where the brief allows, you won't need it,
+and you own what you submit. I used AI to help make these materials; the
+pedagogy and content are mine, and I have checked and rewritten all of it.
 -->
 
 ---

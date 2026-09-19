@@ -102,6 +102,8 @@ hours, every week from 1 to 11.
 
 **Consolidation week** has no lecture. Instead, 4 hours of recommended activities that cement what you've done so far, plus the usual 2 hours of coursework.
 
+Why six? A full-time working week is about 35 hours, and you take three units at once, so each gets just under 12 hours a week — and this is half of one.
+
 On top of that, **4 hours in the Quanser laboratory**, at times you choose between week 1 and week 6. Over the term that comes to about 70 hours: 20 in lectures, 20 of independent learning, 4 of consolidation, 22 of coursework and 4 in the laboratory.
 <!-- workload:end -->
 
@@ -116,30 +118,47 @@ pressure — and it throws away the feedback. Two hours a week, starting in week
 
 ## AI in this course {#ai}
 
-Two ideas shape how I think about generative AI, and large language models in
+Three ideas shape how I think about generative AI, and large language models in
 particular.
 
-**AI rewards expertise.** Language models make everyone a passable generalist,
-which hides the fact that experts get far more out of them. Knowing the subject
-is what lets you ask the precise question, notice the flaw in the answer, and
-refuse a confident wrong turn. So the fundamentals in this unit are what will
-make you good with AI in control engineering, not what AI makes unnecessary.
+**AI rewards expertise.** Language models let anyone produce seemingly passable
+work, but much of it falls down against an expert eye — and, in engineering,
+against the real world. Knowing the subject is what lets you ask the precise
+question, notice the flaw in a confident answer, and refuse a plausible wrong
+turn. Sean Goedecke makes the case with Terence Tao's conversation with ChatGPT
+about the Jacobian conjecture, on 20 July 2026: the value came from Tao's
+judgement at every step, not from clever prompting. So the fundamentals in this
+unit are what will make you good with AI in control engineering, not what AI
+makes unnecessary.
 
-**Work, or gym?** Before using AI for a task, ask whether only the result
-matters — that is work, and AI is a sensible tool for it — or whether doing it
-is the point, because doing it is what builds your ability. That is the gym,
-and using AI there defeats the purpose. Most of what you do at university is the
-gym, even when it looks like work.
+**Learning is how experts are made.** In September 2026, Tao and 24 other
+Fields Medallists warned that training exists to build understanding, not only
+to produce answers — and that when AI produces the answers directly, the two
+come apart.
+
+**Work, or gym?** Bruce Schneier's test puts that in everyday terms. If only the
+result matters, it's work, and AI is a sensible tool — provided someone checks
+it and stands behind it, because in engineering your name is on it either way.
+If doing it is the point, because doing it is what builds your ability, it's the
+gym, and using AI there is like sending a machine to lift your weights. Chasing
+an obscure Simulink error at eleven at night, when you know what your model
+should do, is mostly work. Working out why your loop has less phase margin than
+you expected is the gym. Most of what you do at university is the gym, even when
+it looks like work.
 
 In this unit you may use AI in the ways the coursework brief sets out; you will
 not need to; and you are responsible for everything you submit, including
 anything a tool produced. I used AI to help create these materials, but the
 pedagogy and content are mine, and I have checked and rewritten all of it.
 
-More on all of this, and how to send me feedback, is on
+More on all of this, with the sources, and how to send me feedback, is on
 [AI in this course](../ai.md).
 
 ## Further reading {#further-reading .no-slides}
 
-Textbook chapters and papers. This section is handout-only, which is what
-`.no-slides` marks.
+<!-- reading:start -->
+- Dorf and Bishop, chapter 1: Introduction to Control Systems — the design process.
+- Dorf and Bishop, chapter 4: Feedback Control System Characteristics — why feedback.
+
+Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+<!-- reading:end -->

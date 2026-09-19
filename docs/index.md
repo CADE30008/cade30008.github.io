@@ -11,6 +11,9 @@ These pages hold the lecture handouts, slides, example sheets and worked solutio
 
 ## Week by week
 
+Materials for each week appear here as they're released, starting with week 1.
+
+<!-- in-progress:start -->
 The control half follows the University's twelve weeks. Nine weeks have a
 lecture; week 5 is a guest lecture, and week 6 is consolidation week, with no
 lecture and recommended activities instead. Week 3 has written content; the
@@ -41,7 +44,11 @@ Each lecture week has four parts:
 - **Example sheet.** About an hour of questions, with hand calculations first and a computational question at the end.
 - **Solutions.** Worked solutions for the example sheet. Try the questions first.
 
-Code appears in both Python and MATLAB. Pick your language on any code block, and the whole site will switch to it.
+<!-- in-progress:end -->
 
+Code appears in both MATLAB and Python. Pick your language on any code block, and the whole site will switch to it.
+
+<!-- in-progress:start -->
 !!! info "PDF copies"
     Week 3 as PDF: [handout](downloads/w03-pid-control-handout.pdf), [example sheet](downloads/w03-pid-control-example-sheet.pdf), [solutions](downloads/w03-pid-control-solutions.pdf) and [slides](slides/w03-pid-control/slides.pdf). Interactive applets appear as still images in printed copies.
+<!-- in-progress:end -->

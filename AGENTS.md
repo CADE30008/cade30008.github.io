@@ -43,6 +43,22 @@ lecture of any kind. Week 12 is revision week and carries nothing.
 - **Refer to other weeks as "week n"** in handouts, decks and run sheets, never
   as "lecture n".
 
+## Publishing
+
+Two sites from one source. **In progress** (`npm run serve`, port 8000) is
+everything. **Live** (`npm run preview:live`, port 8010, and
+https://cade30008.github.io once pushed) is only what [publish.yaml](publish.yaml)
+lists, built by `scripts/build_live.py`.
+
+- Adding a page to `publish.yaml` is a decision for a person, not an assistant.
+- Mark material in a published page that isn't ready with
+  `<!-- in-progress:start -->` … `<!-- in-progress:end -->`; the live build
+  drops it.
+- Don't hand-write links to unpublished pages as if they were live: the live
+  build turns them into plain text, which is safe but may read oddly.
+- Blackboard links to the live site; `teaching/blackboard.md` is its build
+  sheet, and the live build checks its links.
+
 ## The sync contract
 
 The handout is authoritative for facts: definitions, equations, numbers and design results. Slides may condense and reorder, but they may not say something the handout doesn't.
@@ -72,7 +88,7 @@ When slides and handout match again, a person runs `npm run sync:accept` and com
 - **Handouts** carry the full argument: derivations, worked examples, and each result linked to both the Bode plot and the step response.
 - **Slides** carry one idea each, with a heading that states the point, a figure or a short list, and no paragraphs. Speaker notes go in HTML comments after the citation.
 - **Maths** uses `$...$` inline and `$$...$$` on its own lines, in both handouts and slides. Where possible, a slide's equation should be copied from the handout.
-- **Code** appears in Python and MATLAB tabs, using `=== "Python"` and `=== "MATLAB"`, each including a file from `code/`.
+- **Code** appears in MATLAB and Python tabs, MATLAB first, using `=== "MATLAB"` then `=== "Python"`, each including a file from `code/`. The same order applies wherever the two appear side by side, including the Preparing for Control page.
 
 ## Common tasks
 

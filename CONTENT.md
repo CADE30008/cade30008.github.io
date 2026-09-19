@@ -55,7 +55,10 @@ of the 17 September review asked for.
 | What | Status | Notes |
 |---|---|---|
 | Glossary | drafted | ~80 terms, deliberately ahead of the lectures |
-| Preparing for Control | drafted | Device checks work, including the browser Python runner |
+| Preparing for Control | **ready to publish** | Listed in `publish.yaml`. MATLAB first; long scripts in scrolling boxes; certificate upload and diagnostic described. Device checks pass, including the browser runner on the live build. Steve to run through before week 1 |
+| Blackboard: Before week 1 | **build sheet ready** | `teaching/blackboard.md`: learning module, links, certificate assignment, diagnostic test, and a check to run in student preview. Not yet built in Blackboard |
+| Week 1 diagnostic | **drafted** | Ten questions with answers and feedback, numbers computed, in `private/diagnostic/week1-diagnostic.md`. To build as a Blackboard test |
+| Live site | **ready, not deployed** | `npm run preview:live` shows it. Deploys on push once the `cade30008` organisation and repository exist |
 | Run sheets | 1 of 8 | Only `teaching/w01-design-cycle.md`. The pattern is unproven on a normal session |
 | Applets | 1 | The PID tuner, tested against `models/pitch_numbers.json` |
 | `models/` | 1 lecture | `pitch.py` and its MATLAB check. 41/41 numbers agree |
@@ -75,19 +78,18 @@ of the 17 September review asked for.
 ## The AI page
 
 `docs/ai.md`, linked from About and summarised in week 1. Revised by Steve on
-19 September; feedback on that revision given in chat, not yet applied. It still
-carries one placeholder in the text — the disclaimer about responsible
-engineering practice under "Work" — and the GitHub link for raising issues is
-"link to follow". Week 1's handout and slides summarise the page; re-check
-them once the page is final.
+19 September, with the agreed fixes applied the same day: his own caveat on
+Schneier's "work" written in, the Tao and Fields Medallists' declaration leading
+into the work-or-gym test, Tao's ChatGPT conversation dated 20 July 2026, and
+the GitHub issues link pointing at the `cade30008.github.io` repository. Week 1's
+handout section and three slides were brought into line the same day.
 
-## The About page and the repository link
+## The About page and the repository
 
-The About page's "Behind these materials" section links to the repository and
-its documents through one placeholder address,
-`github.com/BristolFlightLab/aero-control-course`, defined once at the foot of
-`docs/about.md`. Confirm the organisation and name when the repository goes
-public; the page says plainly that the links won't work until then.
+The About page no longer carries the repository and planning links, or the
+build instructions; those are in the README. Its licence section links to
+`LICENSE.md` at `github.com/cade30008/cade30008.github.io`, the repository the
+site publishes from.
 
 ## Student workload
 

@@ -135,14 +135,15 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 2. The largest scaling is \(k = 0.73\), which gives \(K_p = 1.48\), \(K_i = 0.495\) and \(K_d = 0.483\). It crosses over at 2.30 rad/s with a 57.6° phase margin. The peak elevator demand for a 10° step is 14.9°, and the overshoot is 22.0%. The elevator limit is the binding constraint, since the phase margin never falls below 50° in this range.
 3. Scaling every gain by \(k\) slides \(|L(j\omega)|\) up or down, but leaves \(\angle L(j\omega)\) unchanged at every frequency. What changes is *where* the loop crosses over. Crossover moves down to 2.30 rad/s, where the plant has less lag, so the phase margin rises. The overshoot rises too, even though the margin improves. The PI zero stays at 0.33 rad/s, which is now only 7 times below crossover instead of 9, so the reference sees more of it.
 
+=== "MATLAB"
+
+    ```matlab
+    --8<-- "w03-pid-control/code/q6_solution.m"
+    ```
+
 === "Python"
 
     ```python
     --8<-- "w03-pid-control/code/q6_solution.py"
     ```
 
-=== "MATLAB"
-
-    ```matlab
-    --8<-- "w03-pid-control/code/q6_solution.m"
-    ```

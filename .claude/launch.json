@@ -2,10 +2,23 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "course-site",
+      "name": "in-progress",
       "runtimeExecutable": ".venv/bin/zensical",
-      "runtimeArgs": ["serve", "--dev-addr", "localhost:8000"],
+      "runtimeArgs": [
+        "serve",
+        "--dev-addr",
+        "localhost:8000"
+      ],
       "port": 8000
+    },
+    {
+      "name": "live-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "preview:live"
+      ],
+      "port": 8010
     }
   ]
 }

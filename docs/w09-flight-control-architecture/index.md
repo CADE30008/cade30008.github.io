@@ -56,5 +56,6 @@ The few things to take away.
 
 ## Further reading {#further-reading .no-slides}
 
-Textbook chapters and papers. This section is handout-only, which is what
-`.no-slides` marks.
+<!-- reading:start -->
+Further reading for this week is still to be chosen.
+<!-- reading:end -->

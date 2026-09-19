@@ -1,0 +1,25 @@
+# What the live site, https://cade30008.github.io, shows.
+#
+# The in-progress site (npm run serve) shows everything. The live site shows
+# only the pages listed here, and scripts/build_live.py enforces it:
+#
+#   - a page not listed here is left out, and so is its week folder;
+#   - a link from a published page to an unpublished one becomes plain text, so
+#     nothing dangles and nothing unfinished is reachable;
+#   - anything in a published page between <!-- in-progress:start --> and
+#     <!-- in-progress:end --> is removed;
+#   - the built site's own links are then checked, and the build fails if any
+#     are broken.
+#
+# To publish a page, add it here, run `npm run preview:live` and look at it on
+# http://localhost:8010, then commit and push. Publishing a lecture week means
+# listing its handout, example sheet and solutions.
+
+site_url: https://cade30008.github.io/
+
+pages:
+  - index.md
+  - preparing/index.md
+  - glossary.md
+  - about.md
+  - ai.md

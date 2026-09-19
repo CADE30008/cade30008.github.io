@@ -91,6 +91,18 @@ credit arithmetic. **Every week from 1 to 11 is six hours:**
 Plus 4 hours in the Quanser laboratory, in total, on top, self-scheduled in
 weeks 1 to 6. Revision week carries nothing.
 
+**Why six hours.** A full-time working week is about 35 hours, and a student
+takes three 20-credit units at once, so each unit gets just under 12 hours a
+week and this half about 6. The traditional guidance that one credit is 10 hours
+of effort — 200 hours for the unit, 100 for this half — does not fit the
+University's Structure of the Academic Year: delivered within a twelve-week
+teaching block, it would need nearly 17 hours a week per unit, and week 12 is
+lost to revision for units with exams. So six hours a week, weeks 1 to 11, is
+what is planned to, and 10 hours a credit is recorded as the notional figure
+rather than a target. `term.yaml` carries the working-week basis, and
+`npm run curriculum` warns if a lecture week's plan exceeds this half's share of
+it.
+
 Over 2026/27 that is **70 hours planned**: 20 in lectures, 20 of independent
 learning, 4 of consolidation, 22 of coursework and 4 in the laboratory. The 30
 hours between that and the notional 100 are not allocated, and that is recorded
@@ -231,7 +243,7 @@ clutter the argument.
 The opposite of P6. Where the task is for the student to run, edit or extend
 code, it is shown plainly in the flow of the material, not hidden.
 
-- Student-facing code appears in full, in Python and MATLAB tabs.
+- Student-facing code appears in full, in MATLAB and Python tabs, MATLAB first.
 - It is runnable as given, and has been run.
 - **Review check:** is every snippet either clearly "yours to run" or clearly "how the figure was made"?
 
@@ -668,12 +680,20 @@ Students complete these before the first lecture. The course site's
 [Preparing for Control](docs/preparing/index.md) page lists them and checks each
 student's set-up.
 
-- **A device check.** Scripts confirming that Python, MATLAB and Simulink work,
+- **A device check.** Scripts confirming that MATLAB, Simulink and Python work,
   with the same expected numbers in each, and Python that runs in the browser
   for tablets and Chromebooks.
 - **MathWorks Onramps:** MATLAB Onramp, Simulink Onramp, and Control Design
   Onramp with Simulink. Free and self-paced.
-- **A diagnostic** on the prerequisite mathematics and control (P16).
+- **A diagnostic** on the prerequisite mathematics and control (P16). This
+  year a Blackboard test, drafted in `private/diagnostic/`; Numbas, with
+  randomised values, from next year.
+
+**This year, Onramp completion is by certificate upload**, to a Blackboard
+assignment in the *Before week 1* learning module (`teaching/blackboard.md`).
+**Next year: use the integrated Onramp courses** through Blackboard's LTI link,
+which report completion automatically — once IT have set up the integration.
+Raise it with them in good time; it wasn't available for 2026/27.
 
 MathWorks online courses and MATLAB Grader both integrate with Blackboard through
 LTI 1.3 and report progress back. Both need a suitable MathWorks licence, a
@@ -1008,25 +1028,28 @@ Recorded so they are not lost. Numbered for reference in discussion.
   week from 1 to 11 — 2 lecture, 2 independent and 2 coursework in a lecture
   week; 4 of recommended consolidation and 2 of coursework in week 6 — plus 4 of
   laboratory. 70 hours planned against a notional 100, deliberately. The figures
-  are under "The unit". Still worth watching rather than closing: whether the two
-  hours of independent learning are actually taken up, which the weekly
-  challenge completion (P16) will show early.
+  are under "The unit". Confirmed by Steve, 19 September: the guest week is a
+  normal six-hour week; the division of independent learning (45 minutes back
+  over the handout and challenge, an hour on the example sheet, 15 minutes on
+  next week's case) stands; and it is tight, but it is what there is. Still
+  worth watching rather than closing: whether the two hours of independent
+  learning are actually taken up, which the weekly challenge completion (P16)
+  will show early.
 - **Q10. The guest lecture in reading week.** Closed, 18 September. Week 6 is
   the consolidation week, with no lecture of any kind; the guest lecture is in
   teaching week 5. The question arose from a mis-stated week number.
-- **Q11. What is public, and what belongs in Blackboard.** For a future review.
-  The site is licensed for reuse (CC BY and MIT), and should be usable by
-  anyone teaching control — which argues for moving what is specific to *this*
-  cohort into Blackboard: this year's dates and schedule, the coursework's
-  timings, arrangements that name staff, and anything that only makes sense to
-  a student registered on the unit. What stays public: lectures, handouts,
-  example sheets, applets, the glossary, and the principles behind them. **For
-  now the schedule stays in week 1's slides and handout**, as agreed on 18
-  September. When this is reviewed, the curriculum sources make it cheap: the
-  schedule is generated, so it can be generated into Blackboard instead. Also
-  on the site since 19 September, by request: the lecture map, at
-  `/planning/lecture-map.html`, linked from About for lecturers — it carries
-  this year's schedule and workload, so it belongs in the same review.
+- **Q11. What is public, and what belongs in Blackboard.** Partly settled, 19
+  September. The site is published as the GitHub organisation page
+  **cade30008.github.io**, for this unit's students; `control-course.github.io`
+  is held back for a later version aimed at the public. The live site shows only
+  what `publish.yaml` lists, starting with the Preparing for Control page, and
+  grows week by week; the in-progress site shows everything. Blackboard holds
+  what has to be there — assignments, tests, the journal, and cohort-specific
+  arrangements — and links to the live site for content. The repository is
+  public, including ASSESSMENT.md: Steve is content to be transparent about how
+  submissions are checked. Still for a future review: whether cohort-specific
+  material (this year's dates, the schedule, the lecture map) should move off
+  the site when a public version exists.
 - **Q12. The classical–modern balance.** For a future review, once the year 4
   advanced unit exists. Option B gives state space one lecture of nine. See
   [CURRICULUM.md](CURRICULUM.md) §7 for the three questions to ask.

@@ -56,5 +56,9 @@ The few things to take away.
 
 ## Further reading {#further-reading .no-slides}
 
-Textbook chapters and papers. This section is handout-only, which is what
-`.no-slides` marks.
+<!-- reading:start -->
+- Dorf and Bishop, chapter 8: Frequency Response Methods.
+- Dorf and Bishop, chapter 9: Stability in the Frequency Domain — Nyquist criterion, margins, time delay.
+
+Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+<!-- reading:end -->
