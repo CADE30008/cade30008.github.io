@@ -15,13 +15,13 @@ lecture content is written except Lecture 3's, which predates all of this.
 This document holds the *reasoning*: the constraint, the capabilities, the
 concept tiers, the benchmarks, the options, and the decisions. It does not
 repeat the per-lecture detail, which lives in the YAML and is rendered by
-`npm run curriculum` as a planning diagram in `planning/lecture-map.html`.
+`npm run curriculum` as the lecture map, `docs/planning/lecture-map.html`, which the site serves at `/planning/lecture-map.html`.
 
 It sits between [PEDAGOGY.md](PEDAGOGY.md), which says *how* we teach, and
 [CONTENT.md](CONTENT.md), which says what exists.
 
 **Lectures and weeks are decoupled.** A lecture has a stable number and a
-topic-named folder. Which week it falls in belongs to a year's schedule. So
+folder `lNN-topic` carrying that number. Which week it falls in belongs to a year's schedule. So
 this document refers to lectures by number (L1 to L9), never by week, except
 where it is talking about this particular year.
 
@@ -42,7 +42,7 @@ content sessions that is **eight hours of lecturing**.
 We have a third of MIT 16.30's lecturing and a quarter of Caltech's. That is not
 a problem to solve by talking faster. It is a design choice P17 already made:
 the unit trades lecture time for application time (6.7 hours of case work in
-the room) and for independent study (52 hours).
+the room) and for independent study and coursework (18 and 22 hours).
 
 So the question this document answers is **not** "how do we fit a controls
 syllabus into eight hours". It is:
@@ -293,11 +293,26 @@ with three questions: is one lecture enough for the advanced unit to build on;
 should state space stay in the coursework at all (AQ15); and whether L2 should
 introduce *state* early so L8 has less to do.
 
-**On student loading** — independent study is about 54 hours, some five a week.
-If that proves too much in practice (watch P16's completion data from week 3):
+**On student loading.** Independent learning is 2 hours a week in a week with a
+lecture — 45 minutes back over the handout and the challenge, an hour on the
+example sheet, a quarter of an hour on next week's case — and coursework another
+2 (the workload model in PEDAGOGY.md). That is tight, and it changes what §1's
+division of labour can ask of the handout: the handout still carries the full
+argument, but a student has about 45 minutes a week to go back over it. So
+handouts must put the core first and fold the rest away (P4), and anything that
+can't be read in that time is an aside, not an expectation.
+
+If even that proves too much in practice (watch P16's completion data from
+week 3):
 
 | Lever | What gives | Keep |
 |---|---|---|
+| **1. Example sheets** | Trim to the questions that rehearse the coursework; mark the rest as extension | The weekly challenge, which is the retrieval |
+| **2. Handout asides** | Fold more away as optional | The threshold concepts |
+| **3. Part 4 pre-reading** | Drop it in the heaviest weeks | The cliffhanger itself, which is in the room |
+| **Never** | The coursework step, or the case hour | They are what the assessment rests on |
+
+---|---|---|
 | **1. Example sheets** | Cut from ~2 hours to ~1. Mark the rest as extension | The weekly challenge, which is the retrieval |
 | **2. Tier 3 handout material** | Fold it away as optional | The threshold concepts |
 | **3. Part 4 pre-reading** | Drop it in the heaviest weeks | The cliffhanger itself, which is in the room |

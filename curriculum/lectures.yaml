@@ -3,8 +3,10 @@
 # This file is the single source for what each lecture is: its number, title,
 # design question, learning outcomes, activities and case. It says nothing about
 # weeks — which week a lecture falls in is a property of a year's schedule, in
-# schedule-<year>.yaml. Numbers are stable labels for content, not positions in
-# a calendar, and folders are named by slug, so renumbering never moves a file.
+# schedule-<year>.yaml. A lecture's number is its place in the sequence of
+# lectures, not a week: folders are lNN-topic (slug below), and NN must match
+# the number. Lecture numbers and week numbers do not map one to one; the
+# schedule, and the term map generated from it, show how they relate.
 #
 # scripts/build_curriculum.py reads this and the schedule, checks them against
 # each other and against the site, and generates the planning diagram, the term
@@ -28,7 +30,7 @@
 lectures:
 
   - number: 1
-    slug: design-cycle
+    slug: l01-design-cycle
     title: The design cycle, end to end
     act: 1
     question: Can we make it fly?
@@ -62,10 +64,10 @@ lectures:
       notation: []
       verdict: fits
     handout_only: [The design cycle in Dorf and Bishop, Model-based design as its industrial form]
-    notes: Departs from P17's standard shape, and says so. Plan in teaching/design-cycle.md.
+    notes: Departs from P17's standard shape, and says so. Plan in teaching/l01-design-cycle.md.
 
   - number: 2
-    slug: requirements-and-models
+    slug: l02-requirements-and-models
     title: Requirements and models you can trust
     act: 1
     question: What do we want, and what do we know?
@@ -102,7 +104,7 @@ lectures:
     notes: Deriving the model is Part A's; validating and using it is Part B's. Keep that line.
 
   - number: 3
-    slug: pid-control
+    slug: l03-pid-control
     title: PID, properly
     act: 1
     question: Why does the obvious controller usually work, and when doesn't it?
@@ -142,7 +144,7 @@ lectures:
       not editing. The Åström and Murray quote belongs here.
 
   - number: 4
-    slug: stability-margins
+    slug: l04-stability-margins
     title: Stability and margins
     act: 2
     question: How close to the edge are we?
@@ -179,7 +181,7 @@ lectures:
     notes: Notation is borderline. L(jω) is tier 0 in principle; check the diagnostic.
 
   - number: 5
-    slug: robustness
+    slug: l05-robustness
     title: Robustness and trade-offs
     act: 2
     question: What happens when the model is wrong?
@@ -216,7 +218,7 @@ lectures:
     notes: Proposed to share a session with Lecture 6 in 2026/27, to absorb the lost week 2.
 
   - number: 6
-    slug: loop-shaping
+    slug: l06-loop-shaping
     title: Loop shaping
     act: 2
     question: How do we design to a specification, not tune by eye?
@@ -253,7 +255,7 @@ lectures:
     notes: When delivered with Lecture 5 in one session, block A carries S and T and block B carries shaping.
 
   - number: 7
-    slug: flight-control-architecture
+    slug: l07-flight-control-architecture
     title: Flight control architecture
     act: 3
     question: Who is flying, and which loop is doing what?
@@ -293,7 +295,7 @@ lectures:
       died in both; keep the focus on the engineering lesson.
 
   - number: 8
-    slug: state-space
+    slug: l08-state-space
     title: State space and state feedback
     act: 3
     question: What if we could use everything the system knows?
@@ -334,7 +336,7 @@ lectures:
       second laboratory already covers LQR, and carries some of the load.
 
   - number: 9
-    slug: beyond-this-course
+    slug: l09-beyond-this-course
     title: What comes next
     act: 3
     question: What lies beyond linear, classical design — and why is it hard to fly?

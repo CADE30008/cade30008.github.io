@@ -8,7 +8,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 |---|---|---|
 | `curriculum/lectures.yaml` | **What each lecture is**: number, title, outcomes, activities, case, hook, cliffhanger, P19 budget | Yes. The source for everything below that is generated |
 | `curriculum/schedule-<year>.yaml` | **Which week each lecture falls in**, this year, and the coursework's weekly steps | Yes, once a year and when plans change |
-| `planning/lecture-map.html`, `docs/design-cycle/figures/term-map.svg`, the home page's lecture table, Lecture 1's schedule table | Generated from the two files above by `npm run curriculum` | Never by hand |
+| `docs/planning/lecture-map.html` (the lecture map, served on the site but not in the nav), `docs/l01-design-cycle/figures/term-map.svg`, the home page's lecture table, Lecture 1's schedule and workload tables, and each unwritten lecture's outcomes | Generated from the two files above by `npm run curriculum` | Never by hand |
 | `docs/<lesson>/index.md` | Handout: the authoritative written version of a lecture | Yes |
 | `docs/<lesson>/example-sheet.md`, `solutions.md` | Example sheet and worked solutions | Yes |
 | `docs/<lesson>/code/*.py`, `*.m` | Code shown to students, included into pages with `--8<--` | Yes, then run it |
@@ -16,7 +16,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `docs/glossary.md` | The one place each term is defined. Lectures follow its wording | Yes, with the lecture change that prompts it |
 | `slides/<lesson>/index.md` | Lecture deck (Marp). A condensed view of the handout | Yes |
 | `docs/applets/` | Interactive applets, plain HTML and JavaScript with no dependencies | Yes, then run the applet test |
-| `teaching/<slug>.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
+| `teaching/lNN-topic.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session | Yes, with every content change |
 | `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed | Only once a scope decision is agreed |
 | `models/` | Design scripts: the single source of every number and plot | Yes |
@@ -25,15 +25,19 @@ This file is for anyone editing the course materials, whether by hand or with an
 
 ## Lectures and weeks
 
-Lectures and weeks are decoupled. A lecture is a unit of content with a stable
-number and a folder named by topic (`docs/loop-shaping/`, never
-`docs/l06-loop-shaping/`). Which week it falls in belongs to a year's schedule.
-Lectures are numbered sequentially; guest lectures are not numbered.
+Lectures and weeks are decoupled. A lecture has a number, its place in the
+sequence of lectures, and a folder `lNN-topic` carrying that number
+(`docs/l06-loop-shaping/`). **Lecture numbers are not week numbers**, and the
+two don't map one to one: this year Lecture 6 is in week 8. Which week a
+lecture falls in belongs to a year's schedule, and the term map in Lecture 1
+shows the mapping. Lectures are numbered sequentially; guest lectures are not
+numbered.
 
 - **Adding, removing or reordering a lecture** starts in `curriculum/lectures.yaml`.
-  Then create or move the folders (`npm run new:lesson <number> <slug> "<title>"`
-  scaffolds one), update the nav, and run `npm run curriculum`: it fails, and
-  says what to fix, until the handouts, decks and nav agree with the YAML.
+  Then create or rename the folders to match (`npm run new:lesson <number> <topic> "<title>"`
+  scaffolds one as `lNN-topic`), update the nav, and run `npm run curriculum`: it
+  fails, and says what to fix, until folders, handouts, decks and nav agree with
+  the YAML. Renumbering a lecture means renaming its folders; use `git mv`.
 - **Changing which week something happens** is an edit to the schedule file
   only. Nothing else should need to change, and if it does, that is a bug.
 - **Never write a week number into a handout, deck or run sheet.** Refer to

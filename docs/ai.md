@@ -6,62 +6,61 @@ description: How I think about generative AI in engineering and in learning, how
 # AI in this course
 
 This page sets out how I think about generative AI — and large language models
-in particular — in engineering and in learning; how I used it to make these
+in particular — in engineering and in learning; my advice for students; how I used it to make these
 materials; and how you can help improve them. It is opinion, and it is mine.
 
-## How I think about it
+_- Steve Bullock_
+
+## How I think about AI
 
 ### AI rewards expertise
 
-Sean Goedecke makes an argument I agree with: language models reward
-expertise.[^goedecke] They let anyone produce passable work in almost any field,
-which makes everyone look like a generalist. That hides what actually decides how
-much you get out of them, which is knowing the subject. An expert asks the precise
-question, notices the flaw in a confident answer, rejects a plausible wrong
-direction, and knows what "good" looks like before the model offers it. His
-example is a leading mathematician working through a hard problem with a chatbot:
-the value came from the mathematician's judgement at every step, not from any
-clever way of prompting.
+Sean Goedecke makes an argument I agree with: language models _reward
+expertise_.[^goedecke] They let anyone produce seemingly-passable work in almost any field, but many outputs fall down against an expert eye, and (importantly in engineering) against the real world. An expert asks a precise
+question, notices the flaw in a confidently-phrased answer, rejects a plausible wrong
+direction, and knows what "good" looks like before the model offers it.
 
-For you, that has a direct consequence. The fundamentals in this unit — what a
-margin means, why a loop goes unstable, what a model can and cannot tell you —
-are not what AI makes unnecessary. They are what will make you good at using AI
-in control engineering. An engineer who understands feedback can use a model to
+Goedecke's article includes the recent (July 2026) example of Fields Medal-winning mathematician Terence Tao who, amongst other prominent researchers, advocate for, model, and critique some fascinating and incredibly productive uses of LLMs.
+
+For you, the engineering student, that has a direct consequence. Understanding the fundamentals in this unit — what a
+margin means, why a system goes unstable, what a model can and cannot tell you — are what will make you good at control system engineering, and will enable to you, if you choose, to use AI
+responsibly and effectively. An engineer who understands the domain can use a model to
 go faster. One who doesn't can only use it to be wrong faster, and won't know.
 
-A design produced by a tool you can't check isn't your design. It's a guess
-you're taking responsibility for.
+!! danger
+  A design produced by a tool you don't understand and can't check runs the risk of being a guess that
+you're taking responsibility for. That's not engineering.
 
 ### Work, or gym?
 
-Bruce Schneier describes a simple test for whether to use AI on a task.[^schneier]
+Tao and other mathematicians also published a joint declaration about the impact of LLMs on the field, the humans within it, and the future of that discipline.[^tao] I think considering this is *extremely* important in the context of learning - *your* development, and how *we* assess and quality-assure our students. Bruce Schneier describes a oft-repeated but simple and effective test for whether to use AI on a task.[^schneier]
 Ask whether the task is **work** or **gym**.
 
 - **Work** is a task where only the outcome matters. Nobody cares how it got
-  done, as long as it's done well. AI is a sensible tool for work.
+  done, as long as it's done well. AI is a sensible tool for work _(I'll add a strong disclaimer here about responsible and ethical engineering practice and accountability)_.
 - **Gym** is a task where doing it is the point, because doing it is what builds
   your ability. Using AI in the gym is like sending a machine to lift your weights
-  for you: the weights move, and you get no stronger.
+  for you: the weights move, but you don't change.
 
 At university, most tasks are the gym, even when they look like work. Writing up
 a design feels like work, but the thinking you do to write it clearly is the gym,
-and it's what the assessment is looking for.
+and it's what we try to assure we're assessing.
 
-The same task can be either, depending on why you're doing it. Chasing down an
+_The same task can be either_, depending on why you're doing it. Chasing down an
 obscure Simulink error at eleven at night, when you already understand what your
-model should do, is mostly work. Working out why your loop has less phase margin
-than you expected is the gym: that struggle is the understanding.
+model should do, is (mostly) work. Working out why your loop has less phase margin
+than you expected is the gym: the struggle is what _changes you_.
 
 ### What that means in this unit
 
 - **You may use AI**, including the AI and agentic tools in MATLAB and Simulink,
   in the ways the coursework brief lists. The coursework is in the University's
-  Category 3, "Selective".
+  [Category 3, "Selective"](https://www.bristol.ac.uk/students/support/academic-advice/using-artificial-intelligence/).
 - **You won't need it.** You can do everything in this unit, to the highest
   standard, without any AI tool.
 - **You are responsible for everything you submit**, including anything a tool
   produced. Checking what an AI tool gives you is an engineering skill, so it is
-  taught, and it is assessed.
+  taught, and (if you use it) it is included in your assessment.
 - **If you can't explain it, you don't understand it yet** — and a design paper
   that asks you to justify your decisions will show that.
 
@@ -81,11 +80,11 @@ and they don't award marks.
 
 ### Why I work this way
 
-A course like this is a complex learning journey. Nine lectures, each with a
-handout, a slide deck, an example sheet, worked solutions, code in two languages
-and figures; a coursework that builds through the term; weekly checks; a
+A course like this is a complex learning journey. A series of lectures, with
+handouts, slide decks, example sheets, worked solutions, code in two languages
+and figures; a coursework that builds through the term; periodic checks; a hands-on
 laboratory. Every piece has to agree with every other, and has to keep agreeing,
-every year, as things change.
+every year, as I change things.
 
 That is a great deal of consistency to hold in one head, and it is exactly the
 kind of tracking a language model is good at — provided it works to robust,
@@ -101,11 +100,13 @@ Here, that guidance lives alongside the materials:
 Scripts then check that the numbers, figures, slides and handouts agree: every
 number on a slide traces to the handout, every figure to the code that made it,
 and every code snippet has been run, in Python and MATLAB, with both giving the
-same answer. The model proposes and tracks; I decide.
+same answer. The model tracks; I decide.
 
 I hope this course is evidence of what that approach can do: materials that are
 more consistent, more carefully designed, and easier to review and improve than
 either a person or a model would manage alone. You are part of testing that.
+
+I'm new to this. I'm using this course to develop principles that I want to deploy in other courses, and to share with wider educators _as long as it supports my students' learning and experience_. So please let me know.
 
 ## Tell me what you think
 
@@ -121,6 +122,7 @@ on whether this whole approach works.
   [steve.bullock@bristol.ac.uk](mailto:steve.bullock@bristol.ac.uk).
 
 [^goedecke]: Goedecke, S. (2026). [LLMs reward expertise](https://www.seangoedecke.com/llms-reward-expertise/).
+[^tao]: Tao, Terence. _et al._ (2026). [A Severe Misalignment of AI in Mathematics](https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/)
 [^schneier]: Schneier, B. (2026). [Should you use AI for a task? Here's a simple way to decide](https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html). First published in *The Guardian*.
 
 ## Further reading

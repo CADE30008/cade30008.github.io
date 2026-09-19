@@ -49,3 +49,18 @@ laboratory:
   from_week: 1
   to_week: 6
   note: Open access and self-scheduled; reading week is overflow
+
+# The student workload model, settled 19 September. Deliberately below the
+# notional hours for this half of the unit: a planned, sustainable week matters
+# more than the credit arithmetic, and the gap is recorded rather than hidden.
+workload:
+  notional: 100          # hours: 10 of the unit's 20 credits
+  per_week:
+    lecture: 2           # each week with one of our lectures or the guest lecture
+    independent: 2       # the same weeks: follow-up to that week's lecture
+    coursework: 2        # every week up to the deadline; advised in-week
+  laboratory: 4          # in total, on top, self-scheduled in the laboratory window
+  independent_parts:     # how the 2 h of independent learning divide (P17)
+    close_the_loop: 0.75
+    examples: 1.0
+    next_case: 0.25

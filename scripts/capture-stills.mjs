@@ -11,7 +11,7 @@ const STILLS = [
   {
     applet: "docs/applets/pid-tuner.html",
     query: "kp=2.03&ki=0.678&kd=0.661&n=10&step=10",
-    out: "docs/pid-control/figures/pid-tuner-still.png",
+    out: "docs/l03-pid-control/figures/pid-tuner-still.png",
   },
 ];
 

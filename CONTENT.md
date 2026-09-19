@@ -26,24 +26,26 @@ and awaiting Steve's review; it does not mean written.
 
 | # | Lecture | Folder | Status | Notes |
 |---|---|---|---|---|
-| 1 | The design cycle, end to end | `design-cycle` | scoped | Plan agreed; run sheet in `teaching/design-cycle.md`. Handout has its outcomes, the schedule and the AI section; the rest is scaffold. Its build items (below) are the critical path |
-| 2 | Requirements and models you can trust | `requirements-and-models` | scoped | New |
-| 3 | PID, properly | `pid-control` | **drafted, pre-scope** | The only written lecture, formerly Lecture 2. Its content predates P8 and P11–P19 and the scope; redraft to P17's shape rather than edit. Its sync state needs re-accepting (see below) |
-| 4 | Stability and margins | `stability-margins` | scoped | New |
-| 5 | Robustness and trade-offs | `robustness` | scoped | New. Shares week 8 with L6 this year, provisionally |
-| 6 | Loop shaping | `loop-shaping` | scoped | Formerly Lecture 3's placeholder |
-| 7 | Flight control architecture | `flight-control-architecture` | scoped | Replaces the "Stability augmentation" and "Autopilot modes" placeholders. MCAS and AF447 still need primary sources |
-| 8 | State space and state feedback | `state-space` | scoped | Over P19's budget unless scoped hard. **Steve to work through it when we reach it** |
-| 9 | What comes next | `beyond-this-course` | scoped | New. One hour; week 11's buffer |
+| 1 | The design cycle, end to end | `l01-design-cycle` | scoped | Plan agreed; run sheet in `teaching/l01-design-cycle.md`. Handout has its outcomes, the schedule and the AI section; the rest is scaffold. Its build items (below) are the critical path |
+| 2 | Requirements and models you can trust | `l02-requirements-and-models` | scoped | New |
+| 3 | PID, properly | `l03-pid-control` | **drafted, pre-scope** | The only written lecture, formerly Lecture 2. Its content predates P8 and P11–P19 and the scope; redraft to P17's shape rather than edit. Its sync state needs re-accepting (see below) |
+| 4 | Stability and margins | `l04-stability-margins` | scoped | New |
+| 5 | Robustness and trade-offs | `l05-robustness` | scoped | New. Shares week 8 with L6 this year, provisionally |
+| 6 | Loop shaping | `l06-loop-shaping` | scoped | Formerly Lecture 3's placeholder |
+| 7 | Flight control architecture | `l07-flight-control-architecture` | scoped | Replaces the "Stability augmentation" and "Autopilot modes" placeholders. MCAS and AF447 still need primary sources |
+| 8 | State space and state feedback | `l08-state-space` | scoped | Over P19's budget unless scoped hard. **Steve to work through it when we reach it** |
+| 9 | What comes next | `l09-beyond-this-course` | scoped | New. One hour; week 11's buffer |
 
 **Retired 18 September:** the "Longitudinal dynamics" and "Lateral-directional
 dynamics" placeholders, which were ILOs 1–3 and Part A's material, and
-"Autopilot modes", merged into L7. Folders were renamed from `lNN-topic` to
-`topic` so that numbers no longer appear in paths.
+"Autopilot modes", merged into L7. Folders are `lNN-topic`, where NN is the
+lecture number; lecture numbers are not week numbers, and the term map in
+Lecture 1 shows how they map this year.
 
 **Sync state after the renames.** `sync.lock.json` is keyed by folder, so the
 PID lecture's accepted state is still recorded under its old name,
-`l02-pid-control`, and the check now reports its sections as not yet accepted.
+`l02-pid-control` (it is now `l03-pid-control`), and the check reports its
+sections as not yet accepted.
 Its content is unchanged. A person should check it and run
 `npm run sync:accept`, which rewrites the lock under the new names — and, as a
 side effect, accepts the placeholders as a baseline, which is what F10 of the
@@ -56,10 +58,10 @@ side effect, accepts the placeholders as a baseline, which is what F10 of the
 | Glossary | drafted | ~80 terms, deliberately ahead of the lectures |
 | Preparing for Control | drafted | Device checks work, including the browser Python runner |
 | Guest lecture page | placeholder | One guest, week 5 this year; speaker and topic unconfirmed. Unnumbered |
-| Run sheets | 1 of 8 | Only `teaching/design-cycle.md`. The pattern is unproven on a normal session |
+| Run sheets | 1 of 8 | Only `teaching/l01-design-cycle.md`. The pattern is unproven on a normal session |
 | Applets | 1 | The PID tuner, tested against `models/pitch_numbers.json` |
 | `models/` | 1 lecture | `pitch.py` and its MATLAB check. 41/41 numbers agree |
-| Example sheets | 1 real | Lecture 2's. The rest are scaffolds |
+| Example sheets | 1 real | Lecture 3's, written as about an hour, which fits the budget. The rest are scaffolds |
 | Weekly challenges (P16) | none | Numbas and MATLAB Grader integrations not yet set up |
 | Lecture 1 build items | none | Student Live Script, measured data, MATLAB Drive folders, gain filter, selection tool. All prerequisites for week 1 |
 
@@ -74,8 +76,25 @@ side effect, accepts the placeholders as a baseline, which is what F10 of the
 
 ## The AI page
 
-`docs/ai.md`, linked from the About page and from Lecture 1. Written in Steve's
-voice from his brief of 18 September; **needs his read**, since it states his
-opinions. The GitHub link for raising issues is marked "link to follow": the
-repository has no remote yet. When it does, add it there and set `repo_url` in
-`zensical.toml`.
+`docs/ai.md`, linked from About and summarised in Lecture 1. Revised by Steve on
+19 September; feedback on that revision given in chat, not yet applied. It still
+carries one placeholder in the text — the disclaimer about responsible
+engineering practice under "Work" — and the GitHub link for raising issues is
+"link to follow". Lecture 1's handout and slides summarise the page; re-check
+them once the page is final.
+
+## The About page and the repository link
+
+The About page's "Behind these materials" section links to the repository and
+its documents through one placeholder address,
+`github.com/BristolFlightLab/aero-control-course`, defined once at the foot of
+`docs/about.md`. Confirm the organisation and name when the repository goes
+public; the page says plainly that the links won't work until then.
+
+## Student workload
+
+Modelled in `curriculum/schedule-2026-27.yaml`, 19 September: 6 hours in a
+week with a lecture, 4 hours of laboratory on top, 62 hours planned against a
+notional 100. Drawn at the top of the lecture map and written into Lecture 1's
+"your week" table by `npm run curriculum`. Example sheets must now be sized to
+about an hour, and the handout's core to about 45 minutes' rereading.

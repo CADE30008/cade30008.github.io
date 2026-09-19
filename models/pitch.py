@@ -5,7 +5,7 @@ handout and slides. Run it from the repository root:
 
     .venv/bin/python models/pitch.py
 
-It writes the figures to docs/pid-control/figures/ and the numbers to
+It writes the figures to docs/l03-pid-control/figures/ and the numbers to
 models/pitch_numbers.json. models/pitch_check.m recomputes the same numbers
 in MATLAB, and models/compare.py checks that the two agree.
 """

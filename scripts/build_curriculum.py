@@ -8,9 +8,9 @@ curriculum/schedule-<year>.yaml (which week it falls in), then:
            a folder for every lecture and no orphan folders, the handout, deck,
            example sheet and solutions all carrying the right number and title, the nav matching, every ILO covered,
            the cliffhanger chain unbroken, and P19's budget respected;
-  writes   docs/design-cycle/figures/term-map.svg — the term map in Lecture 1;
-           planning/lecture-map.html — the planning diagram (not built into
-           the site); and the lecture table on the home page, between its
+  writes   docs/l01-design-cycle/figures/term-map.svg — the term map in Lecture 1;
+           docs/planning/lecture-map.html — the planning diagram, served as a
+           static page on the site and linked from About, but not in the nav; and the lecture table on the home page, between its
            markers.
 
 Run it with `npm run curriculum`. Exits non-zero if any check fails, so it can
@@ -111,8 +111,11 @@ def check(lectures: list[dict], schedule: dict) -> dict[int, list[int]]:
     if [n for _, n in sorted(order)] != sorted(n for _, n in order):
         err("lectures are not scheduled in number order")
 
-    # Folders: one per lecture, and no orphans.
+    # Folders: lNN-topic, NN the lecture number; one per lecture, no orphans.
     slugs = {L["slug"] for L in lectures}
+    for L in lectures:
+        if not L["slug"].startswith(f"l{L['number']:02d}-"):
+            err(f"lecture {L['number']}: folder {L['slug']!r} should start 'l{L['number']:02d}-'")
     for L in lectures:
         for base in (DOCS, SLIDES):
             if not (base / L["slug"] / "index.md").exists():
@@ -275,15 +278,72 @@ def term_map_svg(lectures: list[dict], schedule: dict) -> str:
 SLOTS = [("hook", "Hook and recall", 5), ("block_a", "Block A", 15), ("do_a", "Do A", 10),
          ("block_b", "Block B", 15), ("do_b", "Do B", 10), (None, "Changeover", 5),
          ("case", "Case brief, build, converge", 40), ("cliffhanger", "Cliffhanger", 10)]
-PARTS = [("close_the_loop", "1. Close the loop", "1.5 h"), ("examples", "2. Work the examples", "2 h"),
-         ("feed", "3. Feed the design", "2 h"), ("next_case", "4. Meet next week's case", "0.25 h")]
+PART_NAMES = [("close_the_loop", "1. Close the loop"), ("examples", "2. Work the examples"),
+              ("feed", "3. Feed the design"), ("next_case", "4. Meet next week's case")]
+
+
+def hrs(h: float) -> str:
+    """0.75 -> '45 min', 1.0 -> '1 h', 2.5 -> '2.5 h'."""
+    if h < 1:
+        return f"{round(h * 60)} min"
+    return f"{h:g} h"
+
+
+def workload(schedule: dict) -> dict:
+    """The student workload model: hours per week and over the term."""
+    m = schedule["workload"]
+    pw = m["per_week"]
+    parts = m["independent_parts"]
+    if abs(sum(parts.values()) - pw["independent"]) > 1e-9:
+        err(f"workload: independent parts sum to {sum(parts.values()):g} h, not the {pw['independent']:g} h per week")
+    deadline = schedule["coursework"]["deadline"]["week"]
+    lab = schedule["laboratory"]
+    rows = []
+    for w in schedule["weeks"]:
+        taught = w["kind"] in ("lecture", "guest")
+        r = {"week": w["week"], "kind": w["kind"],
+             "lecture": pw["lecture"] if taught else 0,
+             "independent": pw["independent"] if taught else 0,
+             "coursework": pw["coursework"] if w["week"] <= deadline else 0,
+             "lab_window": lab["from_week"] <= w["week"] <= lab["to_week"]}
+        r["total"] = r["lecture"] + r["independent"] + r["coursework"]
+        rows.append(r)
+    tot = {k: sum(r[k] for r in rows) for k in ("lecture", "independent", "coursework")}
+    tot["laboratory"] = m["laboratory"]
+    planned = sum(tot.values())
+    return {"rows": rows, "totals": tot, "planned": planned, "notional": m["notional"],
+            "typical": pw["lecture"] + pw["independent"] + pw["coursework"], "per_week": pw,
+            "parts": {**parts, "feed": pw["coursework"]}, "lab": lab, "laboratory": m["laboratory"]}
 
 
 def e(s) -> str:
     return html.escape(str(s))
 
 
-def planning_html(lectures: list[dict], schedule: dict, weeks_of: dict[int, list[int]]) -> str:
+def workload_html(wl: dict, schedule: dict) -> str:
+    """The student workload model, for the top of the lecture map."""
+    t, pw = wl["totals"], wl["per_week"]
+    gap = wl["notional"] - wl["planned"]
+    no_lecture = [r["week"] for r in wl["rows"] if r["lecture"] == 0 and r["coursework"]]
+    top = max(r["total"] for r in wl["rows"]) or 1
+    cols = []
+    for r in wl["rows"]:
+        segs = "".join(f'<i class="w-{k}" style="height:{r[k] / top * 84:.1f}px" title="{k}, {r[k]:g} h"></i>'
+                       for k in ("coursework", "independent", "lecture") if r[k])
+        cols.append(f'<div class="wcol"><b>{r["total"]:g}</b><div class="stack">{segs}</div>'
+                    f'<span>{r["week"]}</span>{"<u></u>" if r["lab_window"] else ""}</div>')
+    return f"""<h2 class="act">Student workload</h2>
+<div class="tiles">
+  <div class="tile"><div class="big">{wl["typical"]:g} h</div><div>a normal teaching week:<br>{pw["lecture"]:g} lecture · {pw["independent"]:g} independent · {pw["coursework"]:g} coursework</div></div>
+  <div class="tile"><div class="big">+{wl["laboratory"]:g} h</div><div>Quanser laboratory, in total, on top — self-scheduled in weeks {wl["lab"]["from_week"]} to {wl["lab"]["to_week"]}</div></div>
+  <div class="tile"><div class="big">{wl["planned"]:g} h</div><div>planned over the term: {t["lecture"]:g} lecture, {t["independent"]:g} independent, {t["coursework"]:g} coursework, {t["laboratory"]:g} laboratory</div></div>
+  <div class="tile warnt"><div class="big">{wl["notional"]:g} h</div><div>notional for 10 credits. The {gap:g} h difference is a deliberate compromise, for a sustainable week</div></div>
+</div>
+<div class="wchart">{''.join(cols)}</div>
+<p class="legend wl"><span class="key w-lecture"></span>lecture <span class="key w-independent"></span>independent learning <span class="key w-coursework"></span>coursework — hours per week, to scale. Dashed underline: laboratory window. Weeks {" and ".join(map(str, no_lecture))} have no control lecture, so only coursework. Coursework is advised in-week; expect many students to back-load it towards the deadline, which the checkpoints exist to pull forward.</p>"""
+
+
+def planning_html(lectures: list[dict], schedule: dict, weeks_of: dict[int, list[int]], wl: dict) -> str:
     cw = {s["week"]: s for s in schedule["coursework"]["steps"]}
     wk = {w["week"]: w for w in schedule["weeks"]}
     acts = {1: "Act I — the loop you can build", 2: "Act II — analysis and design that scale", 3: "Act III — aircraft and modern methods"}
@@ -327,9 +387,9 @@ def planning_html(lectures: list[dict], schedule: dict, weeks_of: dict[int, list
             slot_rows.append(f'<tr><td class="sl">{name}<small>{mins} min</small></td><td>{e(text)}</td></tr>')
         bar = "".join(f'<span class="s s-{(k or "gap").replace("_", "")}" style="flex:{m}" title="{e(nm)}, {m} min"></span>' for k, nm, m in SLOTS)
         part_rows = []
-        for key, name, hrs in PARTS:
+        for key, name in PART_NAMES:
             text = (cw.get(w, {}).get("step", "") if key == "feed" else L["out_of_lecture"].get(key, ""))
-            part_rows.append(f'<tr><td class="sl">{name}<small>{hrs}</small></td><td>{e(text)}</td></tr>')
+            part_rows.append(f'<tr><td class="sl">{name}<small>{hrs(wl["parts"][key])}</small></td><td>{e(text)}</td></tr>')
         outs = "".join(f'<li><span class="ilo i{o["ilo"]}">{o["ilo"]}</span>{e(o["text"])}</li>' for o in L["outcomes"])
         b = L["budget"]
         verdict = b["verdict"]
@@ -363,7 +423,7 @@ def planning_html(lectures: list[dict], schedule: dict, weeks_of: dict[int, list
       <table class="sl-t">{''.join(slot_rows)}</table>
     </div>
     <div class="col">
-      <h4>Between sessions <small>about 7 h</small></h4>
+      <h4>Between sessions <small>{hrs(wl["per_week"]["independent"])} independent + {hrs(wl["per_week"]["coursework"])} coursework</small></h4>
       <table class="sl-t">{''.join(part_rows)}</table>
       {f'<p class="note">{e(L["notes"])}</p>' if L.get('notes') else ''}
     </div>
@@ -411,11 +471,23 @@ table.sl-t{{border-collapse:collapse;width:100%;font-size:12.5px}}.sl-t td{{bord
 .sl{{width:36%;color:var(--mut);font-weight:600}}.sl small{{display:block;font-weight:400}}
 .note{{font-size:12px;color:var(--mut);border-top:1px dashed var(--rule);margin-top:8px;padding-top:6px}}
 .chain{{margin:6px 0 6px 22px;padding:4px 0 4px 14px;border-left:2px dashed var(--red);font-size:12.5px;font-style:italic}}.chain span{{font-style:normal;font-weight:600;color:var(--red);font-size:11.5px}}
+.tiles{{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:6px 0 14px}}
+.tile{{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--mut)}}
+.tile .big{{font-size:22px;font-weight:700;color:var(--ink);margin-bottom:2px}}.tile.warnt{{border-color:var(--red)}}
+.wchart{{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;align-items:end;margin-bottom:6px}}
+.wcol{{text-align:center;font-size:12px;position:relative;padding-bottom:6px}}.wcol b{{display:block;font-size:12px}}.wcol span{{color:var(--mut)}}
+.stack{{display:flex;flex-direction:column;justify-content:flex-end;height:86px;border-bottom:1px solid var(--rule)}}
+.stack i{{display:block;width:70%;margin:0 auto 1px}}.wcol u{{position:absolute;left:8%;right:8%;bottom:0;border-bottom:2px dashed var(--mut)}}
+.w-lecture{{background:var(--red)}}.w-independent{{background:var(--i5)}}.w-coursework{{background:var(--i4)}}
+.legend.wl{{margin:10px 0 18px}}.key{{display:inline-block;width:11px;height:11px;border-radius:2px;vertical-align:-1px;margin:0 3px 0 8px}}
+@media (max-width:900px){{.tiles{{grid-template-columns:1fr 1fr}}}}
 footer{{margin-top:28px;font-size:12px;color:var(--mut)}}
 @media print{{body{{background:#fff}}.card{{break-inside:avoid}}}}
 </style></head><body>
 <h1>Lecture map — the control half, {e(schedule['year'])}</h1>
-<p class="sub">Planning view, not student-facing. Generated by <code>scripts/build_curriculum.py</code> from <code>curriculum/lectures.yaml</code> and <code>curriculum/schedule-{e(schedule['year'].replace('/', '-'))}.yaml</code>; edit those, not this. Scope is a proposal (option B, CURRICULUM.md) awaiting review.</p>
+<p class="sub">A lecturer-facing planning view: what each lecture does, how the term fits together, and what it asks of students. Generated by <code>scripts/build_curriculum.py</code> from <code>curriculum/lectures.yaml</code> and <code>curriculum/schedule-{e(schedule['year'].replace('/', '-'))}.yaml</code>; edit those, not this. Scope is a proposal (option B, CURRICULUM.md) awaiting review.</p>
+{workload_html(wl, schedule)}
+<h2 class="act">The term</h2>
 <div class="strip">{''.join(strip)}</div>
 <p class="legend">Red: our lectures (outlined where two share a week). Hatched: no control lecture. Red text: coursework. Dashed underline: the laboratory window.</p>
 <div class="mxw">{''.join(mat)}</div>
@@ -434,6 +506,30 @@ def home_table(lectures: list[dict], schedule: dict, weeks_of: dict[int, list[in
         rows.append(f"| {L['number']} | {L['title']} | [Handout]({s}/index.md) · [Slides](slides/{s}/index.html) · "
                     f"[Example sheet]({s}/example-sheet.md) · [Solutions]({s}/solutions.md) |")
     return "\n".join(rows)
+
+
+def workload_block(wl: dict) -> str:
+    """Lecture 1's 'your week' table: the student-facing view of the workload model."""
+    pw, t = wl["per_week"], wl["totals"]
+    parts = wl["parts"]
+    no_lecture = [r["week"] for r in wl["rows"] if r["lecture"] == 0 and r["coursework"]]
+    deadline_week = max(r["week"] for r in wl["rows"] if r["coursework"])
+    return "\n".join([
+        "| In a week with a lecture | Hours |", "|---|---|",
+        f"| The lecture, on Tuesday | {pw['lecture']:g} |",
+        f"| Independent learning: go back over the handout and do the week's challenge "
+        f"({hrs(parts['close_the_loop'])}), work the example sheet ({hrs(parts['examples'])}), "
+        f"and look at next week's case ({hrs(parts['next_case'])}) | {pw['independent']:g} |",
+        f"| Coursework | {pw['coursework']:g} |",
+        f"| **Total** | **{wl['typical']:g}** |", "",
+        f"On top of that, **{wl['laboratory']:g} hours in the Quanser laboratory**, at times you choose "
+        f"between week {wl['lab']['from_week']} and week {wl['lab']['to_week']}. "
+        f"In weeks {' and '.join(map(str, no_lecture))} there is no control lecture, so just the "
+        f"coursework's {pw['coursework']:g} hours. Coursework runs to week {deadline_week}. "
+        f"Over the term that comes to about {wl['planned']:g} hours: {t['lecture']:g} in lectures, "
+        f"{t['independent']:g} of independent learning, {t['coursework']:g} of coursework and "
+        f"{t['laboratory']:g} in the laboratory.",
+    ])
 
 
 def schedule_table(lectures: list[dict], schedule: dict) -> str:
@@ -482,16 +578,17 @@ def main() -> None:
     schedule = yaml.safe_load((CUR / f"schedule-{args.year}.yaml").read_text(encoding="utf-8"))
 
     weeks_of = check(lectures, schedule)
+    wl = workload(schedule) if weeks_of else None
     if not weeks_of:
         for x in errors:
             print(f"error    {x}")
         sys.exit(1)
 
-    fig = DOCS / "design-cycle" / "figures"
+    fig = DOCS / lectures[0]["slug"] / "figures"
     fig.mkdir(parents=True, exist_ok=True)
     (fig / "term-map.svg").write_text(term_map_svg(lectures, schedule), encoding="utf-8")
-    (ROOT / "planning").mkdir(exist_ok=True)
-    (ROOT / "planning" / "lecture-map.html").write_text(planning_html(lectures, schedule, weeks_of), encoding="utf-8")
+    (DOCS / "planning").mkdir(exist_ok=True)
+    (DOCS / "planning" / "lecture-map.html").write_text(planning_html(lectures, schedule, weeks_of, wl), encoding="utf-8")
     home = DOCS / "index.md"
     home.write_text(replace_between(home.read_text(encoding="utf-8"), "<!-- lectures:start -->", "<!-- lectures:end -->",
                                     home_table(lectures, schedule, weeks_of)), encoding="utf-8")
@@ -504,16 +601,24 @@ def main() -> None:
         else:
             warn(f"lecture {L['number']}: handout keeps its own outcomes, not generated from lectures.yaml")
 
-    l1 = DOCS / "design-cycle" / "index.md"
+    l1 = DOCS / lectures[0]["slug"] / "index.md"
     l1.write_text(replace_between(l1.read_text(encoding="utf-8"), "<!-- schedule:start -->", "<!-- schedule:end -->",
                                   schedule_table(lectures, schedule)), encoding="utf-8")
+    text = l1.read_text(encoding="utf-8")
+    if "<!-- workload:start -->" in text:
+        l1.write_text(replace_between(text, "<!-- workload:start -->", "<!-- workload:end -->", workload_block(wl)), encoding="utf-8")
+    else:
+        warn("Lecture 1's handout has no workload markers; its 'your week' table is not generated")
 
     for w in warnings:
         print(f"warning  {w}")
     for x in errors:
         print(f"error    {x}")
-    print(f"\n{len(errors)} error(s), {len(warnings)} warning(s); {len(lectures)} lectures, "
-          f"wrote the term map and schedule in Lecture 1, planning/lecture-map.html, and the home table")
+    print(f"\nworkload: {wl['typical']:g} h in a lecture week; {wl['planned']:g} h planned of {wl['notional']:g} notional"
+          f" ({wl['totals']['lecture']:g} lecture, {wl['totals']['independent']:g} independent, "
+          f"{wl['totals']['coursework']:g} coursework, {wl['totals']['laboratory']:g} laboratory)")
+    print(f"{len(errors)} error(s), {len(warnings)} warning(s); {len(lectures)} lectures, "
+          f"wrote the term map, schedule and workload in Lecture 1, docs/planning/lecture-map.html, and the home table")
     sys.exit(1 if errors else 0)
 
 

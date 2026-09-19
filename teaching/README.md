@@ -1,9 +1,8 @@
 # Run sheets
 
-One file per lecture, named by the lecture's slug (`design-cycle.md`), written
-for the person standing at the front. Not student-facing, and not built into the
-site. Named by slug rather than number, like the lecture folders, so that
-renumbering a lecture never renames its run sheet.
+One file per lecture, named like the lecture's folder (`l01-design-cycle.md`),
+written for the person standing at the front. Not student-facing, and not built
+into the site.
 
 A run sheet is derived from four things and holds nothing that belongs in any
 of them:

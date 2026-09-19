@@ -3,14 +3,14 @@
 // Usage:
 //   node scripts/new-lesson.mjs 6 loop-shaping "Loop shaping"
 //
-// Creates docs/loop-shaping/{index.md,example-sheet.md,solutions.md} and
-// slides/loop-shaping/index.md, wired to each other and following the sync
+// Creates docs/l06-loop-shaping/{index.md,example-sheet.md,solutions.md} and
+// slides/l06-loop-shaping/index.md, wired to each other and following the sync
 // contract in AGENTS.md: the handout's sections carry stable IDs, and every
 // content slide cites the section it covers.
 //
-// Folders are named by topic only. The lecture number is a label, stored in the
-// front matter and the nav, and set by curriculum/lectures.yaml; keeping it out
-// of the folder name means renumbering never moves a file.
+// Folders are lNN-topic, where NN is the lecture's number in
+// curriculum/lectures.yaml. That is the lecture's number, not a week: which
+// week a lecture falls in is set by the year's schedule.
 //
 // Existing files are never overwritten; the script reports them and moves on.
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
@@ -29,7 +29,7 @@ if (!Number.isInteger(n) || n < 1) {
 }
 
 const root = resolve(import.meta.dirname, "..");
-const lesson = slug;
+const lesson = `l${String(n).padStart(2, "0")}-${slug}`;
 
 // Placeholder bodies deliberately carry no figures and no numerals: the sync
 // check verifies that every number on a slide appears in the handout section it

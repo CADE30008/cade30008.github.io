@@ -25,7 +25,6 @@ Then open `http://localhost:8000`.
 | `docs/applets/` | Interactive applets, in plain HTML and JavaScript |
 | `slides/` | Lecture decks, one folder per lecture, matching `docs/` |
 | `curriculum/` | What each lecture is (`lectures.yaml`) and which week it falls in each year (`schedule-<year>.yaml`). The source for the planning views and schedules |
-| `planning/` | Generated planning views, such as `lecture-map.html`. Not part of the site |
 | `teaching/` | Lecturer run sheets, one per lecture |
 | `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check |
 | `scripts/` | Build, sync-check, PDF and test scripts |
@@ -33,32 +32,36 @@ Then open `http://localhost:8000`.
 
 ## Course structure
 
-The course is eight lectures plus a guest lecture, which has a page of its own. The content scope is proposed in [CURRICULUM.md](CURRICULUM.md), and what actually exists is tracked in [CONTENT.md](CONTENT.md): at present one lecture is written and the rest are placeholders.
-Each lecture is a folder under `docs/` holding its
-handout (`index.md`), example sheet and solutions, with its deck in the matching
-folder under `slides/`. In the site's navigation each lecture is a collapsible
-section whose own link is the handout.
+The course is nine lectures plus an unnumbered guest lecture. The scope is in
+[CURRICULUM.md](CURRICULUM.md) and `curriculum/lectures.yaml`, and what actually
+exists is tracked in [CONTENT.md](CONTENT.md).
 
-Lecture 2 is written. The rest are scaffolds produced by `npm run new:lesson`,
-with provisional topics, so that the navigation and the build cover the whole
-course while the content is written.
+Each lecture is a folder `lNN-topic` under `docs/`, holding its handout
+(`index.md`), example sheet and solutions, with its deck in the matching folder
+under `slides/`. NN is the lecture number, not a week: this year's mapping of
+lectures to weeks is in `curriculum/schedule-2026-27.yaml`, and drawn as the term
+map in Lecture 1 and the lecture map at `/planning/lecture-map.html`.
+
+Lecture 3 (PID) has written content, from before the current scope. The rest are
+scoped scaffolds, so that the navigation and the build cover the whole course
+while the content is written.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
-| `npm run new:lesson <n> <slug> "<title>"` | Scaffold a lecture: handout, example sheet, solutions and deck |
+| `npm run new:lesson <n> <topic> "<title>"` | Scaffold lecture n as `lNN-topic`: handout, example sheet, solutions and deck |
 | `npm run slides` | Build each deck to HTML and PDF in `docs/slides/` |
 | `npm run site` | Build the site into `site/` |
 | `npm run pdf` | Print handouts, example sheets and solutions to PDF |
 | `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc |
 | `npm run check` | Check slides against handouts |
 | `npm run sync:accept` | Record the current state as in sync, after reviewing |
-| `npm run curriculum` | Check the lecture set and schedule against each other and the site; regenerate the term map, planning diagram and tables |
+| `npm run curriculum` | Check the lecture set and schedule against each other and the site; regenerate the term map, lecture map, workload and tables |
 | `npm run models` | Rerun the design scripts and compare Python with MATLAB |
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |
-| `npm run build` | Slides, site, PDFs, then the sync check |
+| `npm run build` | Curriculum check, slides, site, PDFs, then the sync check |
 
 Stop `npm run serve` before running `npm run build`, because both use `site/`.
 

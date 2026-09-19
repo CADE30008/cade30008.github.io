@@ -11,8 +11,8 @@ copyright = """Teaching materials &copy; 2026 Dr Steve Bullock, University of Br
 <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. \
 Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>."""
 
-# Lectures are numbered and ordered by curriculum/lectures.yaml, and folders
-# are named by topic, so a lecture's number never appears in a path.
+# Lectures are numbered and ordered by curriculum/lectures.yaml; folders are
+# lNN-topic, where NN is the lecture number, not a week number.
 # scripts/build_curriculum.py checks that these entries match that file.
 # Guest lectures are not numbered. Each lecture is a collapsible section
 # whose own link is the handout (navigation.indexes), so the handout is not
@@ -20,49 +20,49 @@ Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
 nav = [
   { "Home" = "index.md" },
   { "Lecture 1: The design cycle, end to end" = [
-    { "Handout" = "design-cycle/index.md" },
-    { "Example sheet" = "design-cycle/example-sheet.md" },
-    { "Solutions" = "design-cycle/solutions.md" },
+    { "Handout" = "l01-design-cycle/index.md" },
+    { "Example sheet" = "l01-design-cycle/example-sheet.md" },
+    { "Solutions" = "l01-design-cycle/solutions.md" },
   ] },
   { "Lecture 2: Requirements and models you can trust" = [
-    { "Handout" = "requirements-and-models/index.md" },
-    { "Example sheet" = "requirements-and-models/example-sheet.md" },
-    { "Solutions" = "requirements-and-models/solutions.md" },
+    { "Handout" = "l02-requirements-and-models/index.md" },
+    { "Example sheet" = "l02-requirements-and-models/example-sheet.md" },
+    { "Solutions" = "l02-requirements-and-models/solutions.md" },
   ] },
   { "Lecture 3: PID, properly" = [
-    { "Handout" = "pid-control/index.md" },
-    { "Example sheet" = "pid-control/example-sheet.md" },
-    { "Solutions" = "pid-control/solutions.md" },
+    { "Handout" = "l03-pid-control/index.md" },
+    { "Example sheet" = "l03-pid-control/example-sheet.md" },
+    { "Solutions" = "l03-pid-control/solutions.md" },
   ] },
   { "Lecture 4: Stability and margins" = [
-    { "Handout" = "stability-margins/index.md" },
-    { "Example sheet" = "stability-margins/example-sheet.md" },
-    { "Solutions" = "stability-margins/solutions.md" },
+    { "Handout" = "l04-stability-margins/index.md" },
+    { "Example sheet" = "l04-stability-margins/example-sheet.md" },
+    { "Solutions" = "l04-stability-margins/solutions.md" },
   ] },
   { "Lecture 5: Robustness and trade-offs" = [
-    { "Handout" = "robustness/index.md" },
-    { "Example sheet" = "robustness/example-sheet.md" },
-    { "Solutions" = "robustness/solutions.md" },
+    { "Handout" = "l05-robustness/index.md" },
+    { "Example sheet" = "l05-robustness/example-sheet.md" },
+    { "Solutions" = "l05-robustness/solutions.md" },
   ] },
   { "Lecture 6: Loop shaping" = [
-    { "Handout" = "loop-shaping/index.md" },
-    { "Example sheet" = "loop-shaping/example-sheet.md" },
-    { "Solutions" = "loop-shaping/solutions.md" },
+    { "Handout" = "l06-loop-shaping/index.md" },
+    { "Example sheet" = "l06-loop-shaping/example-sheet.md" },
+    { "Solutions" = "l06-loop-shaping/solutions.md" },
   ] },
   { "Lecture 7: Flight control architecture" = [
-    { "Handout" = "flight-control-architecture/index.md" },
-    { "Example sheet" = "flight-control-architecture/example-sheet.md" },
-    { "Solutions" = "flight-control-architecture/solutions.md" },
+    { "Handout" = "l07-flight-control-architecture/index.md" },
+    { "Example sheet" = "l07-flight-control-architecture/example-sheet.md" },
+    { "Solutions" = "l07-flight-control-architecture/solutions.md" },
   ] },
   { "Lecture 8: State space and state feedback" = [
-    { "Handout" = "state-space/index.md" },
-    { "Example sheet" = "state-space/example-sheet.md" },
-    { "Solutions" = "state-space/solutions.md" },
+    { "Handout" = "l08-state-space/index.md" },
+    { "Example sheet" = "l08-state-space/example-sheet.md" },
+    { "Solutions" = "l08-state-space/solutions.md" },
   ] },
   { "Lecture 9: What comes next" = [
-    { "Handout" = "beyond-this-course/index.md" },
-    { "Example sheet" = "beyond-this-course/example-sheet.md" },
-    { "Solutions" = "beyond-this-course/solutions.md" },
+    { "Handout" = "l09-beyond-this-course/index.md" },
+    { "Example sheet" = "l09-beyond-this-course/example-sheet.md" },
+    { "Solutions" = "l09-beyond-this-course/solutions.md" },
   ] },
   { "Guest lecture" = "guest-lectures/index.md" },
   { "Preparing for Control" = "preparing/index.md" },

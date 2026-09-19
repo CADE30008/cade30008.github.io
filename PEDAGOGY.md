@@ -45,9 +45,11 @@ session runs to a fixed shape (P17): a taught hour, then a 50-minute case hour
 in which students deploy what was covered, individually or in pairs or threes.
 The timetabled second hour is 50 minutes, not 60.
 
-**Lectures are decoupled from weeks.** A lecture is a unit of content with a
-stable number and a topic-named folder; which week it falls in is a property of
-a particular year's schedule, not of the lecture. Lectures are numbered
+**Lectures are decoupled from weeks.** A lecture has a number — its place in
+the sequence of lectures, carried in its folder name (`l03-pid-control`) — and
+that number is not a week. Which week a lecture falls in is a property of a
+particular year's schedule, not of the lecture, and the two don't map one to
+one. Lectures are numbered
 sequentially; guest lectures are not numbered. The lecture set is defined in
 [curriculum/lectures.yaml](curriculum/lectures.yaml), and each year's mapping to
 the twelve weeks in `curriculum/schedule-<year>.yaml`. Everything else — the
@@ -63,26 +65,43 @@ shaping — together in week 8; the reasoning and the alternatives are in
 [CURRICULUM.md](CURRICULUM.md). From 2027/28, with week 2 back, nine lectures
 fit with half a session to spare.
 
-**Student effort.** About 100 hours for this half of a 20 credit unit. The
-budget, settled 18 September, for 2026/27:
+**Student effort: a deliberate compromise.** Notionally this half is 10 of the
+unit's 20 credits, about 100 hours. The plan, settled 19 September, is well
+below that, because a sustainable, predictable week matters more than the
+credit arithmetic:
 
-| | Hours | How it arises |
-|---|---|---|
-| Contact | 18 | Eight control sessions at 2 h, plus the guest lecture. From 2027/28, nine sessions and 20 h |
-| Laboratory | 4 | Quanser, self-scheduled by students |
-| Coursework | 24 | 2 h a week averaged across the twelve weeks |
-| Independent study | 54 | The remainder: about 5 h a week in a teaching week |
-| **Total** | **100** | |
+| In a week with a lecture | Hours |
+|---|---|
+| The lecture | 2 |
+| Independent learning (P17 parts 1, 2 and 4) | 2 |
+| Coursework (P17 part 3), advised in the week | 2 |
+| **A normal teaching week** | **6** |
 
-Coursework is averaged deliberately. Real effort on it rises steeply towards the
-week 11 deadline, and the checkpoints exist to pull some of that earlier; 2 hours
-a week is the planning figure, not a prediction of any particular week.
+Plus 4 hours in the Quanser laboratory, in total, on top, self-scheduled in
+weeks 1 to 6. Weeks with no control lecture — this year week 2 (Flight
+Dynamics) and reading week 6 — carry only the 2 hours of coursework; revision
+week carries nothing. Coursework runs to the deadline in week 11.
+
+Over 2026/27 that is **62 hours planned**: 18 in lectures, 18 of independent
+learning, 22 of coursework and 4 in the laboratory. The 38 hours between that
+and the notional 100 are not allocated, and that is recorded here rather than
+hidden: it is headroom for the week that overruns, for the coursework crunch
+many students will create regardless, and for their other units.
+
+The model's numbers live in `curriculum/schedule-2026-27.yaml`, and
+`npm run curriculum` computes the weekly and term totals from them, draws them at
+the top of the lecture map, and writes Lecture 1's "your week" table.
+
+**Coursework is advised in-week, and many students won't.** Lecture 1 says so
+plainly, and says why: each week's step uses that week's lecture while it is
+fresh, and the checkpoints give feedback while it can still change the design.
+The checkpoints exist to pull back-loaded effort forward.
 
 **Lecture 1** introduces the Quanser helicopter in person and runs the whole
 design cycle once, so it departs from the standard shape: there is no previous
 week to retrieve, and the case hour is built round the hardware. Its reasoning is
 under "Lecture 1: the Quanser session" below and its plan in
-[teaching/design-cycle.md](teaching/design-cycle.md). The Quanser can come back into the lecture
+[teaching/l01-design-cycle.md](teaching/l01-design-cycle.md). The Quanser can come back into the lecture
 for demonstrations in later weeks.
 
 **In the room.** Most students bring laptops; those who don't share with those
@@ -361,22 +380,23 @@ teaching value, and it lets the material vary without the format varying.
 - **Lectures may deviate, and say so.** Lecture 1 does. A guest lecture may take
   the case hour (Q7). Deviating silently is the thing to avoid.
 
-Between sessions, four parts in the same order every week. About seven hours in a
-teaching week, from the budget under "The unit": five of independent study and
-two of coursework.
+Between sessions, four parts in the same order every week: **two hours of
+independent learning and two of coursework**, from the workload model under
+"The unit". The hours below are set in the schedule file and generated into
+the lecture map and Lecture 1, so change them there.
 
 | Part | Hours | What it is |
 |---|---|---|
-| **1. Close the loop** | 1.5 | Re-read the handout; finish the ceiling of the in-lecture build; that week's challenge in Numbas and MATLAB Grader (P16) |
-| **2. Work the examples** | 2 | The week's example sheet, then its solutions |
+| **1. Close the loop** | 0.75 | Go back over the handout; that week's challenge in Numbas and MATLAB Grader (P16) |
+| **2. Work the examples** | 1 | The week's example sheet, then its solutions |
 | **3. Feed the design** | 2 | The coursework step for the week, and a decision-log entry |
 | **4. Meet next week's case** | 0.25 | One small artifact to read or watch before the next session (P18) |
-| *Unallocated* | 1.25 | Reading, the laboratory when their slot falls, catching up, going deeper |
 
-- **The unallocated hour and a quarter is real,** not a rounding error. It is
-  where the laboratory's four hours land, where a hard week overruns, and where
-  a strong student goes further. A plan with no slack in it is a plan students
-  fall behind against in week 3.
+- **Two hours is tight, and that is the point.** It forces the handout, the
+  challenge and the example sheet to be sized to fit, which is P19 applied to
+  the week rather than the session. An example sheet is about an hour. Material
+  that doesn't fit goes in the handout's asides or is cut; it is not quietly
+  added to the student's week.
 - **Parts 1 to 3 are what everything assessed depends on.** A student who does
   those and nothing else can get a first.
 - **Part 4 stays small.** Compliance with pre-reading falls away sharply past
@@ -691,7 +711,7 @@ Lecture 1 runs the whole design cycle once, on the Quanser 3-DoF helicopter's
 elevation axis, in front of the room. Everything after it is that cycle done
 properly. It deviates from P17's shape, which is stated to students.
 
-**The operational plan is [teaching/design-cycle.md](teaching/design-cycle.md)** — timings,
+**The operational plan is [teaching/l01-design-cycle.md](teaching/l01-design-cycle.md)** — timings,
 files, set-up, contingencies. What follows is only the reasoning behind it,
 which is what this file is for. Keep the plan out of here: it was duplicated in
 both places once, and the two had already begun to drift.
@@ -968,9 +988,10 @@ Recorded so they are not lost. Numbered for reference in discussion.
     teaching starts, not after.
   - How the case grain interacts with the guest lectures (Q7), since a guest
     taking the case hour breaks that week's cycle.
-- **Q9. The student effort budget.** Settled 18 September; the figures are under
-  "The unit". Contact 20, laboratory 4, coursework 24 at 2 hours a week averaged
-  over the term, and independent study 52, about 5 hours in a teaching week.
+- **Q9. The student effort budget.** Settled 19 September, replacing the model
+  of the 18th: 2 hours of lecture, 2 of independent learning and 2 of coursework
+  in a week with a lecture, plus 4 of laboratory — 62 hours planned against a
+  notional 100, deliberately. The figures are under "The unit".
   Still worth watching rather than closing: whether 5 hours of independent study
   is actually taken up, which the weekly challenge completion (P16) will show
   early.
@@ -986,7 +1007,10 @@ Recorded so they are not lost. Numbered for reference in discussion.
   example sheets, applets, the glossary, and the principles behind them. **For
   now the schedule stays in Lecture 1's slides and handout**, as agreed on 18
   September. When this is reviewed, the curriculum sources make it cheap: the
-  schedule is generated, so it can be generated into Blackboard instead.
+  schedule is generated, so it can be generated into Blackboard instead. Also
+  on the site since 19 September, by request: the lecture map, at
+  `/planning/lecture-map.html`, linked from About for lecturers — it carries
+  this year's schedule and workload, so it belongs in the same review.
 - **Q12. The classical–modern balance.** For a future review, once the year 4
   advanced unit exists. Option B gives state space one lecture of nine. See
   [CURRICULUM.md](CURRICULUM.md) §7 for the three questions to ask.
