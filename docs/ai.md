@@ -151,7 +151,7 @@ figure that doesn't make sense, a badly posed question, a broken link — or a v
 on whether this whole approach works.
 
 - **On GitHub.** If you're comfortable doing so,
-  [raise an issue](https://github.com/cade30008/cade30008.github.io/issues) in
+  [raise an issue](https://github.com/CADE30008/cade30008.github.io/issues) in
   the course's repository. An issue is simply a public note describing a
   problem; you don't need to know how to use git. Say which page, and what's
   wrong.

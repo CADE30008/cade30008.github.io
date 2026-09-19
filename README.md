@@ -104,8 +104,8 @@ at it on `http://localhost:8010`, then commit and push. The workflow refuses to
 deploy if the live build has a broken link, including a link in the Blackboard
 build sheet (`teaching/blackboard.md`).
 
-One-time set-up: the repository is `cade30008/cade30008.github.io`, in the
-`cade30008` GitHub organisation, and its **Settings › Pages › Source** is set to
+One-time set-up: the repository is `CADE30008/cade30008.github.io`, in the
+`CADE30008` GitHub organisation, and its **Settings › Pages › Source** is set to
 **GitHub Actions**.
 
 Not yet handled: slides and PDFs on the live site. They're built locally, git

@@ -88,7 +88,7 @@ handout section and three slides were brought into line the same day.
 
 The About page no longer carries the repository and planning links, or the
 build instructions; those are in the README. Its licence section links to
-`LICENSE.md` at `github.com/cade30008/cade30008.github.io`, the repository the
+`LICENSE.md` at `github.com/CADE30008/cade30008.github.io`, the repository the
 site publishes from.
 
 ## Student workload
