@@ -1,0 +1,56 @@
+# Check the materials on every push and pull request. Deploys nothing.
+#
+# Publishing is publish.yml's job, and only publish.yml's: it builds the
+# filtered live site from publish.yaml. This workflow used to be build.yml,
+# which built the *in-progress* site - every draft week - and uploaded it to
+# GitHub Pages. It had been failing for days, and that failure was the only
+# thing keeping nine unwritten weeks off the live site. Deleted rather than
+# repaired; the checks it did that were worth keeping are below.
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read          # deliberately no pages: write
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # theme/ is the Flight Lab Zensical theme.
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The npm scripts call .venv/bin/... so that a developer's shell and CI
+      # run the identical command. Make the same venv here rather than
+      # maintaining a second set of paths that can drift.
+      - run: python -m venv .venv && .venv/bin/pip install -r requirements.txt
+      - run: npm ci
+
+      # Numbers: rerun the design script and check Python still agrees with the
+      # committed MATLAB results.
+      - run: .venv/bin/python models/pitch.py > /dev/null
+      - run: .venv/bin/python models/compare.py
+
+      # Code shown to students has to run.
+      - run: for f in docs/*/code/*.py; do echo "== $f"; .venv/bin/python "$f"; done
+
+      - run: npm run curriculum
+      - run: node scripts/test-applets.mjs
+      - run: npm run check
+      - run: npm run slides -- --html-only
+      - run: npm run site
+
+      # The live build, as publish.yml will do it: proves a broken link or a
+      # bad { .go } is caught on a pull request rather than at deploy time.
+      - run: npm run live

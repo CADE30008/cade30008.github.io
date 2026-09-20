@@ -82,10 +82,9 @@ students choose when to go, from week 1 to week 6.
 
 # Your week
 
-* **2 h** lecture · **2 h** independent learning · **2 h** coursework: **6 h** a week
-* Week 6, consolidation: **4 h** of recommended activities, and the coursework's 2
-* Plus **4 h** in the Quanser lab, when you choose, weeks 1 to 6
-* **Do the coursework in the week.** Leaving it to the end means learning it twice, alone
+![center h:390](../../docs/w01-design-cycle/figures/your-week.svg)
+
+**Do the coursework in the week.** Leaving it to the end means learning it twice, alone.
 
 <!--
 The coursework builds week by week; each step uses that week's lecture, and the

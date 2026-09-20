@@ -770,6 +770,113 @@ def week_date(week: int, term: dict) -> str:
     return d.strftime("%-d %b")
 
 
+
+def week_svg(wl: dict, term: dict) -> str:
+    """"Your week", as a picture: where six hours a week actually go.
+
+    A table of hours is read as bookkeeping. The point week 1 has to land is
+    that the week is *already designed* and it is not heroic - so the shape of
+    it, seen at a glance, does more work than the numbers. Three equal blocks,
+    with the independent hours opened up to show they are specified rather than
+    vague, and the laboratory sitting outside the bar because it is on top.
+
+    Generated from term.yaml's workload model, so it cannot drift from the
+    table beside it or from the lecture map.
+    """
+    m = term["workload"]
+    lec, con = m["by_kind"]["lecture"], m["by_kind"]["consolidation"]
+    parts = m["independent_parts"]
+    total = sum(lec.values())
+    labels = {"close_the_loop": "Handout and the week's challenge",
+              "examples": "Example sheet", "next_case": "Next week's case"}
+
+    # Height is computed, not chosen: the laboratory strip is the last thing on
+    # the canvas and a fixed viewBox clipped it.
+    W, x0, bar_w, bar_h = 1000, 150, 760, 54
+    y_bar, y_parts = 62, 62 + bar_h + 34
+    y_con = y_parts + bar_h + 32
+    y_lab = y_con + bar_h + 30
+    H = y_lab + 38 + 22
+    px = bar_w / total                                   # pixels per hour
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" '
+         f'font-family="Trebuchet MS, Arial, sans-serif" role="img" aria-labelledby="t d">'
+         f'<title id="t">Your week: {total:g} hours</title>'
+         f'<desc id="d">A week with a lecture is {lec["lecture"]:g} hours of lecture, '
+         f'{lec["independent"]:g} of independent learning and {lec["coursework"]:g} of coursework, '
+         f'{total:g} in total. The independent hours are '
+         + ", ".join(f"{v:g} h {labels[k].lower()}" for k, v in parts.items())
+         + f'. Consolidation week replaces the lecture and independent hours with '
+         f'{con["consolidation"]:g} hours of recommended activities. On top of all of it, '
+         f'{m["laboratory"]:g} hours in the Quanser laboratory, at times you choose.</desc>',
+         f'<rect width="{W}" height="{H}" fill="#fff"/>']
+
+    def bar(y, segs, label, sub=""):
+        out = [f'<text x="{x0 - 16}" y="{y + bar_h / 2 + 1}" font-size="15" font-weight="700" '
+               f'fill="{INK}" text-anchor="end">{e(label)}</text>']
+        if sub:
+            out.append(f'<text x="{x0 - 16}" y="{y + bar_h / 2 + 19}" font-size="12.5" '
+                       f'fill="{MUTED}" text-anchor="end">{e(sub)}</text>')
+        x = x0
+        for hours, text, fill, ink in segs:
+            w = hours * px
+            out.append(f'<rect x="{x:.1f}" y="{y}" width="{w:.1f}" height="{bar_h}" '
+                       f'fill="{fill}" stroke="{RED}" stroke-width="1.4"/>')
+            out.append(f'<text x="{x + w / 2:.1f}" y="{y + 22}" font-size="14" font-weight="700" '
+                       f'fill="{ink}" text-anchor="middle">{hours:g} h</text>')
+            out.append(f'<text x="{x + w / 2:.1f}" y="{y + 40}" font-size="12.5" fill="{ink}" '
+                       f'text-anchor="middle">{e(text)}</text>')
+            x += w
+        return out
+
+    o += [f'<text x="{x0}" y="30" font-size="17" font-weight="700" fill="{INK}">'
+          f'Your week, every week from 1 to {term["coursework"]["deadline"]["week"]}</text>',
+          f'<line x1="{x0}" y1="40" x2="{x0 + bar_w}" y2="40" stroke="{RED}" stroke-width="2"/>']
+
+    y = y_bar
+    o += bar(y, [(lec["lecture"], "In the lecture", RED, "#fff"),
+                 (lec["independent"], "On your own", RED_TINT, INK),
+                 (lec["coursework"], "Coursework", "#fff", INK)],
+             "A lecture week", f"{total:g} hours")
+
+    # Open up the independent hours: they are specified, not "do some reading".
+    y2 = y_parts
+    o.append(f'<path d="M {x0 + lec["lecture"] * px:.1f} {y + bar_h} L {x0} {y2} '
+             f'M {x0 + (lec["lecture"] + lec["independent"]) * px:.1f} {y + bar_h} '
+             f'L {x0 + bar_w} {y2}" stroke="{RULE}" stroke-width="1.2" fill="none"/>')
+    px2 = bar_w / lec["independent"]
+    x = x0
+    o.append(f'<text x="{x0 - 16}" y="{y2 + 26}" font-size="13.5" fill="{MUTED}" '
+             f'text-anchor="end">which is</text>')
+    for k, v in parts.items():
+        w = v * px2
+        # A narrow segment cannot hold its caption at full size. Shrink the
+        # caption to fit rather than letting it spill over its neighbours.
+        cap = min(11.5, max(8.0, (w - 8) / (0.52 * len(labels[k]))))
+        o += [f'<rect x="{x:.1f}" y="{y2}" width="{w:.1f}" height="{bar_h - 10}" fill="{RED_TINT}" '
+              f'stroke="{RED}" stroke-width="1.1" stroke-dasharray="4 3"/>',
+              f'<text x="{x + w / 2:.1f}" y="{y2 + 19}" font-size="13" font-weight="700" fill="{INK}" '
+              f'text-anchor="middle">{v * 60:g} min</text>',
+              f'<text x="{x + w / 2:.1f}" y="{y2 + 35}" font-size="{cap:.1f}" fill="{MUTED}" '
+              f'text-anchor="middle">{e(labels[k])}</text>']
+        x += w
+
+    y3 = y_con
+    o += bar(y3, [(con["consolidation"], "Recommended activities", RED_TINT, INK),
+                  (con["coursework"], "Coursework", "#fff", INK)],
+             f"Week {term['consolidation_week']}", "no lecture")
+
+    y4 = y_lab
+    o += [f'<rect x="{x0}" y="{y4}" width="{m["laboratory"] * px:.1f}" height="38" rx="6" fill="#fff" '
+          f'stroke="{MUTED}" stroke-width="1.3" stroke-dasharray="5 4"/>',
+          f'<text x="{x0 + m["laboratory"] * px / 2:.1f}" y="{y4 + 24}" font-size="13.5" '
+          f'font-weight="700" fill="{INK}" text-anchor="middle">{m["laboratory"]:g} h Quanser lab</text>',
+          f'<text x="{x0 - 16}" y="{y4 + 24}" font-size="15" font-weight="700" fill="{INK}" '
+          f'text-anchor="end">On top</text>',
+          f'<text x="{x0 + m["laboratory"] * px + 16:.1f}" y="{y4 + 24}" font-size="13" fill="{MUTED}">'
+          f'in total, whenever you like, weeks {term["laboratory"]["from_week"]} to {term["laboratory"]["to_week"]}</text>']
+    return "\n".join(o) + "\n</svg>\n"
+
+
 def replace_between(path: Path, start: str, end: str, new: str) -> bool:
     text = path.read_text(encoding="utf-8")
     i, j = text.find(start), text.find(end)
@@ -796,6 +903,7 @@ def main() -> None:
     fig = DOCS / first["slug"] / "figures"
     fig.mkdir(parents=True, exist_ok=True)
     (fig / "term-map.svg").write_text(term_map_svg(weeks, term, acts), encoding="utf-8")
+    (fig / "your-week.svg").write_text(week_svg(wl, term), encoding="utf-8")
     (DOCS / "planning").mkdir(exist_ok=True)
     (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
     if not replace_between(DOCS / "index.md", "<!-- weeks:start -->", "<!-- weeks:end -->", home_table(weeks)):

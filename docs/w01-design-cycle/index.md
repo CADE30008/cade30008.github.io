@@ -147,6 +147,10 @@ Which sections go with which week, and what the library holds, are on
 This half of the unit is planned around a steady week, not a heroic one: six
 hours, every week from 1 to 11.
 
+<figure markdown="span">
+  ![Your week: two hours in the lecture, two on your own and two on the coursework, six in total; the two independent hours are 45 minutes on the handout and the week's challenge, an hour on the example sheet and 15 minutes on next week's case. Week 6 replaces the lecture and independent hours with four hours of recommended activities. On top of all of it, four hours in the Quanser laboratory at times you choose](figures/your-week.svg){ width="100%" }
+</figure>
+
 <!-- workload:start -->
 | In a week with a lecture | Hours |
 |---|---|

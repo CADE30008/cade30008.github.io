@@ -12,3 +12,4 @@ docs/downloads/
 # private material: assessment briefs, rubrics, last year's work, licensed resources
 private/*
 !private/README.md
+__pycache__/

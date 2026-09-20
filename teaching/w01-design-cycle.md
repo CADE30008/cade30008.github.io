@@ -48,9 +48,52 @@ a test flight in closed loop, then a test of the e-stop under power.
 | Student Live Script | MATLAB Drive, read-only folder — **to build** |
 | Measured response data | MATLAB Drive, read-only folder — **recorded on the day** |
 | Submission folder | MATLAB Drive, writable — **to create** |
-| Gain filter and selection tool | **to build** |
+| Gain filter and selection tool | `scripts/gains.py` — **built**, see below |
+| Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig** |
 
 Everything marked "to build" is a prerequisite, not a nice-to-have.
+
+## Gains: filtering and choosing
+
+```bash
+python scripts/gains.py check private/gains          # all submissions
+python scripts/gains.py pick  private/gains --round 2
+```
+
+**Before anything is filtered**, fit `K` from this rig's own step response and
+write it into `models/elevation_plant.json`. The file that ships is a catalogue
+estimate, marked provisional, and the tool prints its source in the banner every
+time it runs — check that banner in the room. It refuses to run at all if the
+file is missing, deliberately: a report produced against a guessed plant reads
+exactly like a real one.
+
+Every check is a **refusal, never a clamp**. Nothing is quietly adjusted into
+range, so a student whose gains are flown sees their own gains.
+
+**Fallback gains, if nothing passes or the drop folder fails:**
+`Kp = 7.13, Ki = 0.2, Kd = 12.6` — settles in 5.8 s, damping 0.81, peak demand
+10.3 V, phase margin 55°. Found by searching the envelope, so it is inside it by
+construction. Recompute it once the real `K` is in, since these numbers follow
+the fitted plant.
+
+**Round 2 is the interesting one.** The average of the cohort's accepted gains
+is checked like any other submission, and it can fail even though every input
+passed — the stable set is not convex. If that happens, do not fly it, and say
+why: it is a better lesson than the flight would have been.
+
+### The physics, for the room
+
+The elevation axis is a **pure double integrator**, `G(s) = K/s²`. That is why
+the open-loop attempt fails, and why "turn Kp up" makes it worse. With PID the
+characteristic polynomial is `s³ + K·Kd·s² + K·Kp·s + K·Ki`, so Routh gives a
+condition students can check on paper:
+
+> `Kd > 0`, `Kp > 0`, `Ki > 0`, and **`K·Kd·Kp > Ki`**
+
+Scale the whole loop gain by α and it becomes `α·K·Kd·Kp > Ki`: the loop is
+stable for *large* α and unstable for small. **This loop is conditionally
+stable — turning the gain down is what breaks it.** Worth a slide; it is the
+opposite of what everyone expects.
 
 ## Hook
 
