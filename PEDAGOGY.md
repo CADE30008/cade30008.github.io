@@ -933,8 +933,10 @@ so that removals are easy to find later.
 principles above. Flag mismatches. Do not silently rewrite: the point is to
 surface disagreements, some of which will be the principle's fault.
 
-**Where findings go.** `reviews/<date>-<scope>.md`, for example
-`reviews/2026-09-20-l02.md`:
+**Where findings go.** `private/reviews/<date>-<scope>.md`, for example
+`private/reviews/2026-09-20-l02.md`. They are not published: a review names what
+is weak and why, which is the right conversation to have internally and the
+wrong thing to hand a student as a preview of the material:
 
 ```markdown
 # Review: Week 3, 20 September 2026

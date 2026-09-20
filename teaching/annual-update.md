@@ -67,7 +67,7 @@ on what went wrong in the room.
 - [ ] Read the term's review notes end to end, in one sitting. Patterns are only
       visible in aggregate; individually each one looked like a bad day.
 - [ ] For each recurring problem, decide: **change the material, change the
-      order, or accept it.** Record which, and why, in `reviews/`.
+      order, or accept it.** Record which, and why, in `private/reviews/`.
 - [ ] Apply P19's budget to anything that grew during the year. Content
       accretes; nothing removes it unless someone is made to.
 - [ ] `npm run check -- --all`, and re-accept every week you have actually

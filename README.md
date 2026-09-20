@@ -68,7 +68,7 @@ For lecturers, planning views:
 - **The lecture map**, [`docs/planning/lecture-map.html`](docs/planning/lecture-map.html): every week's outcomes, what happens in each part of the session, the work between sessions, the consolidation week, the cliffhanger chain and the student workload model. Open it in a browser; it will also be on the site once published.
 - **The term map**, in [week 1's handout](docs/w01-design-cycle/index.md#schedule): the twelve weeks at a glance.
 - **Run sheets**, in [`teaching/`](teaching/): the plan for each lecture, and the [Blackboard build sheet](teaching/blackboard.md).
-- **Review notes**, in [`reviews/`](reviews/): reviews against the principles, including what was removed and why.
+- **Review notes**, in `private/reviews/`: reviews against the principles, including what was removed and why. Not published — see [LICENSE.md](LICENSE.md).
 
 ## Commands
 
