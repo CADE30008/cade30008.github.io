@@ -44,7 +44,7 @@
     "showexpectedanswerswhen": "inreview",
     "showadvicewhen": "inreview",
     "enterreviewmodeimmediately": true,
-    "allowrevealanswer": true,
+    "allowrevealanswer": false,
     "intro": "<p>Ten questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. Every question gives you feedback on what you chose and how to get to the answer, so it is worth reading even the ones you got right.</p>",
     "end_message": "",
     "results_options": {

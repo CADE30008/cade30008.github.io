@@ -264,8 +264,14 @@ Two related traps in the same settings block:
   deprecated. Numbas now takes a *timing* per kind of feedback. Any key not
   written falls back to `inreview`, so writing the old names looks like it
   works and silently hides everything else.
-- On "Reveal answers" Numbas lists **every** distractor message, not just the
-  one for the option chosen. Per-option targeting only holds on submit.
+- Revealing a multiple-choice part lists **every** distractor message, not just
+  the one for the option chosen, and repeats the one already shown. The
+  marking algorithm checks `studentAnswer` and is fine; `revealAnswer()` in
+  `runtime/scripts/parts/multipleresponse.js` loops over all options
+  unconditionally. So per-option targeting only holds on submit. The
+  diagnostic sets `allowrevealanswer: false` for this reason, but ending the
+  quiz still reveals every question, so **write each option's feedback so it
+  makes sense read alongside the other three**, not only on its own.
 
 ### Links say where they go
 

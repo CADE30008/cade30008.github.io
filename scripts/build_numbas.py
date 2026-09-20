@@ -330,7 +330,16 @@ def exam(quiz: dict) -> str:
             "showexpectedanswerswhen": "inreview",
             "showadvicewhen": "inreview",
             "enterreviewmodeimmediately": True,
-            "allowrevealanswer": True,
+            # No "Reveal answers" button. Numbas's MultipleResponsePart
+            # .revealAnswer() loops over every option unconditionally and posts
+            # all of their feedback, so revealing dumps four contradictory
+            # paragraphs and repeats the one already shown on submit. The
+            # marking algorithm itself is fine: it checks what was chosen.
+            #
+            # Nothing is lost by removing it. The steps carry the full working,
+            # including the answer, at no penalty - which Reveal is not, since
+            # it zeroes the score and blocks a re-attempt.
+            "allowrevealanswer": False,
             "intro": html(quiz["description"]),
             "end_message": "",
             "results_options": {"printquestions": True, "printadvice": True},
