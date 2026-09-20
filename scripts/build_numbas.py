@@ -1,6 +1,6 @@
 """Turn a quiz written as YAML into a Numbas .exam file, and a readable draft.
 
-    python scripts/build_numbas.py private/diagnostic/prerequisites.yaml
+    python scripts/build_numbas.py diagnostics/prerequisites.yaml
 
 Writes <name>.exam beside the source, for upload to the Numbas editor, and
 fills the question list in <name>.md between its markers, so the readable draft
@@ -273,7 +273,7 @@ def markdown(quiz: dict) -> str:
 
 
 def main() -> None:
-    src = Path(sys.argv[1] if len(sys.argv) > 1 else "private/diagnostic/prerequisites.yaml")
+    src = Path(sys.argv[1] if len(sys.argv) > 1 else "diagnostics/prerequisites.yaml")
     quiz = yaml.safe_load(src.read_text(encoding="utf-8"))
 
     problems = check_answers(quiz) + check_feedback(quiz)

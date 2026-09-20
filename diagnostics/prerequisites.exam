@@ -1,0 +1,615 @@
+// Numbas version: exam_results_page_options
+{
+  "name": "CADE30008 Control: prerequisite diagnostic",
+  "metadata": {
+    "description": "<p>Ten questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. Every question gives you feedback on what you chose and how to get to the answer, so it is worth reading even the ones you got right.</p>",
+    "licence": "None specified"
+  },
+  "duration": 0,
+  "percentPass": 0,
+  "showQuestionGroupNames": false,
+  "showstudentname": true,
+  "allowPrinting": true,
+  "navigation": {
+    "allowregen": false,
+    "reverse": true,
+    "browse": true,
+    "allowsteps": true,
+    "showfrontpage": true,
+    "showresultspage": "oncompletion",
+    "navigatemode": "sequence",
+    "onleave": {
+      "action": "none",
+      "message": ""
+    },
+    "preventleave": true,
+    "startpassword": ""
+  },
+  "timing": {
+    "allowPause": true,
+    "timeout": {
+      "action": "none",
+      "message": ""
+    },
+    "timedwarning": {
+      "action": "none",
+      "message": ""
+    }
+  },
+  "feedback": {
+    "showactualmark": true,
+    "showtotalmark": true,
+    "showanswerstate": true,
+    "allowrevealanswer": true,
+    "advicethreshold": 0,
+    "intro": "<p>Ten questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. Every question gives you feedback on what you chose and how to get to the answer, so it is worth reading even the ones you got right.</p>",
+    "feedbackmessages": []
+  },
+  "rulesets": {},
+  "question_groups": [
+    {
+      "name": "",
+      "pickingStrategy": "all-ordered",
+      "questions": [
+        {
+          "name": "From an equation to a transfer function",
+          "tags": [],
+          "metadata": {
+            "description": "<p>Laplace transform of a derivative with zero initial conditions</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>A system obeys \\( \\dot y + 2y = u \\), starting from rest. What is its transfer function \\( Y(s)/U(s) \\)?</p>",
+          "advice": "<ol><li>Transform every term, using \\( \\dot y \\to sY \\) because the system starts from rest. That gives \\( sY + 2Y = U \\).</li><li>Collect \\( Y \\): \\( (s+2)Y = U \\).</li><li>Divide: \\( Y/U = \\dfrac{1}{s+2} \\).</li></ol><p>The denominator, \\( s+2 \\), is the characteristic polynomial, and its root \\( s = -2 \\) is the pole. This is the move behind every block diagram in the unit, so it is worth being quick at.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>\\( \\dfrac{1}{s+2} \\)</p>",
+                "<p>\\( \\dfrac{s}{s+2} \\)</p>",
+                "<p>\\( \\dfrac{2}{s+1} \\)</p>",
+                "<p>\\( s + 2 \\)</p>"
+              ],
+              "matrix": [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              "distractors": [
+                "<p>Right. Every term transforms, the \\( s \\) stays with \\( Y \\) on the left, and what's left on top is the coefficient of \\( u \\).</p>",
+                "<p>The \\( s \\) from \\( \\dot y \\) has ended up in the numerator. It belongs with \\( y \\): the left-hand side collects to \\( (s+2)Y \\), so the numerator is whatever multiplies \\( u \\), which here is 1.</p>",
+                "<p>The two coefficients have swapped. The coefficient of \\( y \\), which is 2, joins \\( s \\) in the denominator; the coefficient of \\( u \\), which is 1, is the numerator.</p>",
+                "<p>That's the characteristic polynomial, or equivalently \\( U/Y \\) — the right answer upside down. A transfer function is always output over input.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Poles and what they mean",
+          "tags": [],
+          "metadata": {
+            "description": "<p>reading stability and oscillation from pole locations</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>\\( G(s) = \\dfrac{5}{s^2 + 2s + 5} \\) has poles at \\( -1 \\pm 2j \\). Its step response is:</p>",
+          "advice": "<p>Read a complex pair \\( \\sigma \\pm j\\omega_d \\) as two separate facts:</p><ol><li><strong>the real part \\( \\sigma \\) sets the envelope.</strong> Negative decays like \\( e^{\\sigma t} \\), positive grows, zero neither.</li><li><strong>the imaginary part \\( \\omega_d \\) sets the ringing.</strong> Non-zero means it oscillates at \\( \\omega_d \\) rad/s; zero means it doesn't.</li></ol><p>Here \\( \\sigma = -1 \\) and \\( \\omega_d = 2 \\), so the response rings at 2 rad/s inside an \\( e^{-t} \\) envelope — most of it gone within about four seconds.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>unstable</p>",
+                "<p>stable, and settles without oscillating</p>",
+                "<p>stable, with a decaying oscillation</p>",
+                "<p>an oscillation that never decays</p>"
+              ],
+              "matrix": [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              "distractors": [
+                "<p>Stability is decided by the <em>real</em> part, and here it is \\( -1 \\). A complex pole isn't unstable in itself — it's what makes a response oscillate rather than what makes it grow.</p>",
+                "<p>The stability half is right, but the \\( \\pm 2j \\) has been dropped. A non-zero imaginary part means the response oscillates on its way in, here at 2 rad/s.</p>",
+                "<p>Right — and you read both halves. Real part negative, so it decays; imaginary part non-zero, so it oscillates while decaying.</p>",
+                "<p>That needs the poles <em>on</em> the imaginary axis, at \\( \\pm 2j \\) with no real part at all. The \\( -1 \\) is what makes it die away.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Natural frequency and damping ratio",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the standard second-order form</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>For \\( G(s) = \\dfrac{25}{s^2 + 4s + 25} \\), give the natural frequency \\( \\omega_n \\), in rad/s, and the damping ratio \\( \\zeta \\).</p>",
+          "advice": "<p>Match the denominator against the standard form \\( s^2 + 2\\zeta\\omega_n s + \\omega_n^2 \\), one coefficient at a time:</p><ol><li><strong>constant term:</strong> \\( \\omega_n^2 = 25 \\), so \\( \\omega_n = 5 \\) rad/s.</li><li><strong>middle term:</strong> \\( 2\\zeta\\omega_n = 4 \\), and \\( \\omega_n \\) is now known, so \\( \\zeta = 4/(2 \\times 5) = 0.4 \\).</li></ol><p>Always do them in that order — the middle term needs \\( \\omega_n \\), so there is nothing to be gained by starting there. A quick check: \\( \\zeta \\) between 0 and 1 means an oscillatory response, which matches the complex poles this denominator has.</p><p>If you got one of these:</p><ul><li><strong>\\( \\omega_n = 25 \\)</strong> — that's \\( \\omega_n^2 \\). The constant term is the square, so take the root.</li><li><strong>\\( \\zeta = 0.16 \\)</strong> — you divided 4 by \\( \\omega_n^2 \\). The middle coefficient is \\( 2\\zeta\\omega_n \\), so divide by \\( 2\\omega_n = 10 \\).</li><li><strong>\\( \\zeta = 0.8 \\)</strong> — you divided by \\( \\omega_n \\) but not by the 2. It is easy to lose; the factor of 2 is there so that \\( \\zeta = 1 \\) is exactly critical damping.</li><li><strong>\\( \\zeta = 2 \\)</strong> — that's \\( \\zeta\\omega_n \\), which is the decay rate \\( \\sigma \\) — a useful number, but not the damping ratio.</li></ul>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "numberentry",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "prompt": "<p>\\( \\omega_n \\) (rad/s)</p>",
+              "minValue": "4.99",
+              "maxValue": "5.01",
+              "correctAnswerFraction": false,
+              "allowFractions": false,
+              "mustBeReduced": false,
+              "notationStyles": [
+                "plain",
+                "en",
+                "si-en"
+              ]
+            },
+            {
+              "type": "numberentry",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "prompt": "<p>\\( \\zeta \\)</p>",
+              "minValue": "0.39",
+              "maxValue": "0.41",
+              "correctAnswerFraction": false,
+              "allowFractions": false,
+              "mustBeReduced": false,
+              "notationStyles": [
+                "plain",
+                "en",
+                "si-en"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Overshoot",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the link between damping and overshoot</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>A second-order system with \\( \\zeta = 0.4 \\) is given a step. Its percentage overshoot is closest to:</p>",
+          "advice": "<p>Exactly, \\( M_p = e^{-\\pi\\zeta/\\sqrt{1-\\zeta^2}} \\), which for \\( \\zeta = 0.4 \\) gives 0.254, so about 25%.</p><p>In practice nobody evaluates that in a design meeting. Carry three anchors instead and interpolate:</p><ol><li>\\( \\zeta = 0.2 \\) → about 50%</li><li>\\( \\zeta = 0.4 \\) → about 25%</li><li>\\( \\zeta = 0.7 \\) → about 5%</li></ol><p>Less damping, more overshoot, and the curve is steep — which is why phase margin, its frequency-domain cousin, is worth watching closely in week 4.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>5%</p>",
+                "<p>10%</p>",
+                "<p>25%</p>",
+                "<p>50%</p>"
+              ],
+              "matrix": [
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              "distractors": [
+                "<p>That's roughly \\( \\zeta = 0.7 \\) — the value often quoted as a good compromise, so it is an easy one to reach for. This system is less damped than that.</p>",
+                "<p>That's roughly \\( \\zeta = 0.6 \\). You're in the right region but a little too damped; the relationship is steep here, so small changes in \\( \\zeta \\) move the overshoot a lot.</p>",
+                "<p>Right. \\( M_p = 25.4\\% \\), and the useful thing to carry away is the pairing: \\( \\zeta = 0.4 \\) with about a quarter overshoot.</p>",
+                "<p>That's roughly \\( \\zeta = 0.2 \\), considerably livelier than this. Half the height of the step as overshoot would be a very underdamped system.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Steady state",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the final value theorem, or DC gain</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>What does the step response of \\( G(s) = \\dfrac{3}{s+2} \\) settle to?</p>",
+          "advice": "<p>The steady-state value of a step response is just \\( G(0) \\), the DC gain. Set \\( s = 0 \\): \\( G(0) = 3/2 = 1.5 \\).</p><p>If you would rather use the final value theorem, the step is \\( 1/s \\), so</p><p>$$ \\lim_{s\\to0} s \\cdot G(s) \\cdot \\frac{1}{s} = \\lim_{s\\to0} G(s) = G(0). $$</p><p>The \\( s \\) and the \\( 1/s \\) cancel, which is why the shortcut works. The theorem is only valid when the response actually settles, so check the poles are in the left half plane first — here the single pole is at \\( s = -2 \\), so it does.</p><p>If you got one of these:</p><ul><li><strong>3</strong> — you took the numerator alone. Setting \\( s = 0 \\) leaves the denominator's constant term too, so it's \\( 3/2 \\), not 3.</li><li><strong>0</strong> — you may have applied \\( \\lim_{s \\to 0} sG(s) \\), which is the final value of the <em>impulse</em> response. For a step the \\( s \\) in the theorem cancels the \\( 1/s \\) of the step itself.</li><li><strong>0.667</strong> — that's \\( 2/3 \\) — the right two numbers, inverted.</li></ul>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "numberentry",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "prompt": "<p>final value</p>",
+              "minValue": "1.49",
+              "maxValue": "1.51",
+              "correctAnswerFraction": false,
+              "allowFractions": false,
+              "mustBeReduced": false,
+              "notationStyles": [
+                "plain",
+                "en",
+                "si-en"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Closing the loop",
+          "tags": [],
+          "metadata": {
+            "description": "<p>\\( G/(1+G) \\), the step everything in the unit builds on</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>A plant \\( G(s) = \\dfrac{4}{s(s+1)} \\) is put in a unity negative feedback loop. The closed-loop transfer function from reference to output is:</p>",
+          "advice": "<ol><li>Write the closed-loop form: \\( T = \\dfrac{G}{1+G} \\).</li><li>Substitute: \\( T = \\dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \\).</li><li>Multiply top and bottom by \\( s(s+1) \\): \\( T = \\dfrac{4}{s(s+1) + 4} = \\dfrac{4}{s^2+s+4} \\).</li></ol><p>Two habits that save time later. <strong>The closed-loop denominator is \\( 1 + G \\) cleared of fractions</strong>, so you can often write it down without the algebra. And <strong>the numerator of \\( T \\) is the numerator of \\( G \\)</strong>, unchanged — feedback moves poles, never zeros.</p><p>This one has \\( \\omega_n = 2 \\) and \\( \\zeta = 0.25 \\), so expect a lively response with around 45% overshoot. The Quanser rig in the first session is far less damped still.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>\\( \\dfrac{4}{s^2 + s + 4} \\)</p>",
+                "<p>\\( \\dfrac{4}{s^2 + s - 4} \\)</p>",
+                "<p>\\( \\dfrac{4}{s^2 + s} \\)</p>",
+                "<p>\\( \\dfrac{s^2 + s}{s^2 + s + 4} \\)</p>"
+              ],
+              "matrix": [
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              "distractors": [
+                "<p>Right. \\( T = G/(1+G) \\), then multiply top and bottom by \\( s(s+1) \\) to clear the fraction within a fraction.</p>",
+                "<p>A sign error: this is \\( G/(1-G) \\), which is <em>positive</em> feedback. The sign is the whole point — this version has a pole in the right half plane and would run away.</p>",
+                "<p>That's the open loop \\( G \\) with its denominator multiplied out. The loop hasn't been closed: there is no \\( +4 \\) contributed by the feedback path.</p>",
+                "<p>Very close, and a useful thing to have derived: that's the <em>sensitivity</em> \\( S = 1/(1+G) \\), which maps the reference to the <strong>error</strong>. The question asked for reference to <strong>output</strong>, which is \\( T = G/(1+G) \\). Note \\( S + T = 1 \\) — worth remembering.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Steady-state error",
+          "tags": [],
+          "metadata": {
+            "description": "<p>steady-state error of a type 0 loop, and why integral action exists</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>The same unity feedback loop, but with \\( G(s) = \\dfrac{4}{s+1} \\). After a unit step in the reference, what error remains?</p>",
+          "advice": "<ol><li>For unity feedback, the error transfer function is \\( E/R = S = \\dfrac{1}{1+G} \\).</li><li>A unit step's final error is therefore \\( e_{ss} = \\dfrac{1}{1+G(0)} \\).</li><li>Here \\( G(0) = 4 \\), so \\( e_{ss} = 1/5 = 0.2 \\) — a 20% error that never goes away.</li></ol><p><strong>Why it matters.</strong> The only way to drive that to zero is to make \\( G(0) \\) infinite, which means putting an integrator in the loop: a pole at \\( s = 0 \\). That is exactly what the I in PID does, and it is the reason integral action exists at all rather than being an optional extra.</p><p>Raising the gain instead shrinks the error but never removes it, and costs you damping on the way — the trade you will meet again in almost every week of this unit.</p><p>If you got one of these:</p><ul><li><strong>0.25</strong> — you used \\( 1/G(0) \\). The formula is \\( 1/(1+G(0)) \\), and that extra 1 is the reference itself — the error is what the reference asks for minus what the loop delivers.</li><li><strong>0.8</strong> — that's the steady-state <em>output</em>, \\( G(0)/(1+G(0)) \\). The error is what's left over: \\( 1 - 0.8 = 0.2 \\).</li><li><strong>0</strong> — that would need an integrator in the loop. This plant has none — a pole at \\( s = -1 \\), not at the origin — so a finite error survives.</li></ul>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "numberentry",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "prompt": "<p>steady-state error</p>",
+              "minValue": "0.19",
+              "maxValue": "0.21",
+              "correctAnswerFraction": false,
+              "allowFractions": false,
+              "mustBeReduced": false,
+              "notationStyles": [
+                "plain",
+                "en",
+                "si-en"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Reading a Bode plot",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the corner frequency of a first-order lag</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>For \\( G(s) = \\dfrac{10}{s+10} \\) at \\( \\omega = 10 \\) rad/s, what are the magnitude, in decibels, and the phase?</p>",
+          "advice": "<p>A first-order lag \\( \\dfrac{1}{1 + s/\\omega_c} \\) has three landmarks:</p><ol><li><strong>well below \\( \\omega_c \\):</strong> 0 dB and 0°. The system passes the signal through.</li><li><strong>at \\( \\omega_c \\):</strong> \\( |G| = 1/\\sqrt2 \\), which is −3 dB, and the phase is exactly −45°, halfway to its limit.</li><li><strong>well above \\( \\omega_c \\):</strong> falling at −20 dB/decade, phase heading to −90°.</li></ol><p>Here \\( G = 10/(s+10) = 1/(1 + s/10) \\), so \\( \\omega_c = 10 \\) rad/s and the question is asking for the corner itself.</p><p><strong>−3 dB and −45° at the corner is the single most reused fact in this unit.</strong> Every lag you meet in weeks 4 and 8 is built from it.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>0 dB, 0°</p>",
+                "<p>−3 dB, −45°</p>",
+                "<p>−6 dB, −90°</p>",
+                "<p>−20 dB, −45°</p>"
+              ],
+              "matrix": [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              "distractors": [
+                "<p>Those are the low-frequency values, well <em>below</em> the corner. At \\( \\omega = 10 \\) you are standing exactly on the corner, where the asymptotes meet and neither one is accurate.</p>",
+                "<p>Right, and these two numbers travel together: every first-order corner is −3 dB and −45°, whatever the frequency. Worth memorising as a pair.</p>",
+                "<p>−90° is the high-frequency limit, only approached well <em>above</em> the corner. At the corner the phase is exactly halfway there.</p>",
+                "<p>The phase is right. −20 dB is the magnitude a <em>decade</em> above the corner, at \\( \\omega = 100 \\), once the −20 dB/decade slope has had a full decade to act.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Decibels",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the decibel scale, used on every Bode plot in the unit</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>A gain of 20 dB is a factor of:</p>",
+          "advice": "<p>For a gain — an amplitude ratio, which is what a Bode magnitude plot shows — the definition is \\( 20\\log_{10}|G| \\).</p><p>Anchors worth carrying:</p><ol><li>×1 → 0 dB</li><li>×2 → 6 dB (and ÷2 → −6 dB)</li><li>×10 → 20 dB</li><li>×100 → 40 dB</li></ol><p>The factor-of-two one is the one that slips. And note the <strong>20</strong> rather than <strong>10</strong>: the 10 version is for <em>power</em>, and power goes as amplitude squared, which is exactly where the factor of two in front comes from.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>2</p>",
+                "<p>10</p>",
+                "<p>20</p>",
+                "<p>100</p>"
+              ],
+              "matrix": [
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              "distractors": [
+                "<p>That's about 6 dB. The two worth knowing are 6 dB ≈ ×2 and 20 dB = ×10 exactly.</p>",
+                "<p>Right. \\( 20\\log_{10}(10) = 20 \\) dB, so every 20 dB is another factor of ten.</p>",
+                "<p>Decibels are a logarithmic scale, so the number is never the factor itself. If it were, the scale would be doing nothing.</p>",
+                "<p>That's the answer for \\( 10\\log_{10} \\), the <strong>power</strong> definition. A gain is an amplitude ratio, so it's \\( 20\\log_{10} \\). ×100 would be 40 dB.</p>"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "What feedback is for",
+          "tags": [],
+          "metadata": {
+            "description": "<p>the unit's first threshold concept — feedback is a trade, not a fix</p>",
+            "licence": "None specified"
+          },
+          "statement": "<p>Which of these does negative feedback <em>not</em> do, on its own?</p>",
+          "advice": "<p>Feedback compares the reference with the <strong>measurement</strong>, not with the truth. Anything the sensor reports — real motion or noise — is treated identically, so noise is driven into the actuator and back out into the output.</p><p>That is why more gain is not always better. Raising the loop gain suppresses disturbances <em>and</em> amplifies the effect of noise, and the two pull in opposite directions. There is no setting that wins both, only a choice about where to sit.</p><p><strong>Feedback is a trade, not a fix.</strong> It is the first idea this unit is built on, and where week 7 picks up.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "choices": [
+                "<p>Reduce the effect of disturbances on the output</p>",
+                "<p>Reduce the effect of changes in the plant's gain</p>",
+                "<p>Make an unstable plant stable, with a suitable controller</p>",
+                "<p>Remove the effect of sensor noise on the output</p>"
+              ],
+              "matrix": [
+                "0",
+                "0",
+                "0",
+                "1"
+              ],
+              "distractors": [
+                "<p>It does do this — arguably the main reason feedback exists. A disturbance shows up in the measurement, the error changes, and the controller pushes back.</p>",
+                "<p>It does do this. It is why a feedback design survives an aircraft getting lighter as it burns fuel, and it is what the sensitivity function measures.</p>",
+                "<p>It does do this, and you will see it in the first session: the Quanser rig cannot be flown open-loop by hand, and closing the loop is what makes it flyable.</p>",
+                "<p>Right, and this is the one that catches people. Feedback acts on what the sensor <em>says</em>. It cannot tell noise from real motion, so it faithfully corrects for both.</p>"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

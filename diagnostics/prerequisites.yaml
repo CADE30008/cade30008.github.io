@@ -1,0 +1,420 @@
+# The prerequisite diagnostic, as data.
+#
+# scripts/build_numbas.py turns this into prerequisites.exam, for upload to
+# the Numbas editor, and writes the readable question list into
+# prerequisites.md between its markers. Edit here, not there.
+#
+# Formative: it doesn't contribute to the unit grade. No randomisation (AP11) —
+# every student gets the same questions.
+#
+# Feedback is in two layers, and both are shown whatever the student answered:
+#
+#   why     per choice. Every option has one, right and wrong alike. A student
+#           who guessed right learns why it was right; a student who missed it
+#           is told which misconception they have, not merely that they erred.
+#   advice  the worked route, shared by everyone. Steps, not just the answer.
+#
+# **Every wrong option is a real mistake someone makes.** None is filler. That
+# is what makes the cohort results diagnostic rather than just a score: if
+# thirty people pick the sensitivity function in Q6, that is a lecture to give.
+#
+# Maths is LaTeX between \( \), which is what Numbas expects inside HTML.
+# Numeric answers were computed with python-control, not typed; the script
+# re-checks them on every build.
+
+name: "CADE30008 Control: prerequisite diagnostic"
+description: >-
+  Ten questions on the mathematics and control this unit builds on. Formative:
+  it does not contribute to your grade. Every question gives you feedback on
+  what you chose and how to get to the answer, so it is worth reading even the
+  ones you got right.
+
+questions:
+  - id: transfer-function
+    name: From an equation to a transfer function
+    checks: Laplace transform of a derivative with zero initial conditions
+    statement: >-
+      A system obeys \( \dot y + 2y = u \), starting from rest. What is its
+      transfer function \( Y(s)/U(s) \)?
+    type: choice
+    choices:
+      - text: "\\( \\dfrac{1}{s+2} \\)"
+        correct: true
+        why: >-
+          Right. Every term transforms, the \( s \) stays with \( Y \) on the
+          left, and what's left on top is the coefficient of \( u \).
+      - text: "\\( \\dfrac{s}{s+2} \\)"
+        why: >-
+          The \( s \) from \( \dot y \) has ended up in the numerator. It belongs
+          with \( y \): the left-hand side collects to \( (s+2)Y \), so the
+          numerator is whatever multiplies \( u \), which here is 1.
+      - text: "\\( \\dfrac{2}{s+1} \\)"
+        why: >-
+          The two coefficients have swapped. The coefficient of \( y \), which is
+          2, joins \( s \) in the denominator; the coefficient of \( u \), which
+          is 1, is the numerator.
+      - text: "\\( s + 2 \\)"
+        why: >-
+          That's the characteristic polynomial, or equivalently \( U/Y \) — the
+          right answer upside down. A transfer function is always output over
+          input.
+    advice: |
+      - Transform every term, using \( \dot y \to sY \) because the system starts from rest. That gives \( sY + 2Y = U \).
+      - Collect \( Y \): \( (s+2)Y = U \).
+      - Divide: \( Y/U = \dfrac{1}{s+2} \).
+
+      The denominator, \( s+2 \), is the characteristic polynomial, and its root
+      \( s = -2 \) is the pole. This is the move behind every block diagram in
+      the unit, so it is worth being quick at.
+
+  - id: poles
+    name: Poles and what they mean
+    checks: reading stability and oscillation from pole locations
+    statement: >-
+      \( G(s) = \dfrac{5}{s^2 + 2s + 5} \) has poles at \( -1 \pm 2j \). Its step
+      response is:
+    type: choice
+    choices:
+      - text: "unstable"
+        why: >-
+          Stability is decided by the *real* part, and here it is \( -1 \).
+          A complex pole isn't unstable in itself — it's what makes a response
+          oscillate rather than what makes it grow.
+      - text: "stable, and settles without oscillating"
+        why: >-
+          The stability half is right, but the \( \pm 2j \) has been dropped. A
+          non-zero imaginary part means the response oscillates on its way in,
+          here at 2 rad/s.
+      - text: "stable, with a decaying oscillation"
+        correct: true
+        why: >-
+          Right — and you read both halves. Real part negative, so it decays;
+          imaginary part non-zero, so it oscillates while decaying.
+      - text: "an oscillation that never decays"
+        why: >-
+          That needs the poles *on* the imaginary axis, at \( \pm 2j \) with no
+          real part at all. The \( -1 \) is what makes it die away.
+    advice: |
+      Read a complex pair \( \sigma \pm j\omega_d \) as two separate facts:
+
+      - **the real part \( \sigma \) sets the envelope.** Negative decays like \( e^{\sigma t} \), positive grows, zero neither.
+      - **the imaginary part \( \omega_d \) sets the ringing.** Non-zero means it oscillates at \( \omega_d \) rad/s; zero means it doesn't.
+
+      Here \( \sigma = -1 \) and \( \omega_d = 2 \), so the response rings at
+      2 rad/s inside an \( e^{-t} \) envelope — most of it gone within about
+      four seconds.
+
+  - id: wn-zeta
+    name: Natural frequency and damping ratio
+    checks: the standard second-order form
+    statement: >-
+      For \( G(s) = \dfrac{25}{s^2 + 4s + 25} \), give the natural frequency
+      \( \omega_n \), in rad/s, and the damping ratio \( \zeta \).
+    type: numbers
+    answers:
+      - {label: "\\( \\omega_n \\) (rad/s)", value: 5, tolerance: 0.01}
+      - {label: "\\( \\zeta \\)", value: 0.4, tolerance: 0.01}
+    common_errors:
+      - value: "\\( \\omega_n = 25 \\)"
+        why: >-
+          that's \( \omega_n^2 \). The constant term is the square, so take the
+          root.
+      - value: "\\( \\zeta = 0.16 \\)"
+        why: >-
+          you divided 4 by \( \omega_n^2 \). The middle coefficient is
+          \( 2\zeta\omega_n \), so divide by \( 2\omega_n = 10 \).
+      - value: "\\( \\zeta = 0.8 \\)"
+        why: >-
+          you divided by \( \omega_n \) but not by the 2. It is easy to lose;
+          the factor of 2 is there so that \( \zeta = 1 \) is exactly critical
+          damping.
+      - value: "\\( \\zeta = 2 \\)"
+        why: >-
+          that's \( \zeta\omega_n \), which is the decay rate \( \sigma \) — a
+          useful number, but not the damping ratio.
+    advice: |
+      Match the denominator against the standard form
+      \( s^2 + 2\zeta\omega_n s + \omega_n^2 \), one coefficient at a time:
+
+      - **constant term:** \( \omega_n^2 = 25 \), so \( \omega_n = 5 \) rad/s.
+      - **middle term:** \( 2\zeta\omega_n = 4 \), and \( \omega_n \) is now known, so \( \zeta = 4/(2 \times 5) = 0.4 \).
+
+      Always do them in that order — the middle term needs \( \omega_n \), so
+      there is nothing to be gained by starting there. A quick check: \( \zeta \)
+      between 0 and 1 means an oscillatory response, which matches the complex
+      poles this denominator has.
+
+  - id: overshoot
+    name: Overshoot
+    checks: the link between damping and overshoot
+    statement: >-
+      A second-order system with \( \zeta = 0.4 \) is given a step. Its
+      percentage overshoot is closest to:
+    type: choice
+    choices:
+      - text: "5%"
+        why: >-
+          That's roughly \( \zeta = 0.7 \) — the value often quoted as a good
+          compromise, so it is an easy one to reach for. This system is less
+          damped than that.
+      - text: "10%"
+        why: >-
+          That's roughly \( \zeta = 0.6 \). You're in the right region but a
+          little too damped; the relationship is steep here, so small changes in
+          \( \zeta \) move the overshoot a lot.
+      - text: "25%"
+        correct: true
+        why: >-
+          Right. \( M_p = 25.4\% \), and the useful thing to carry away is the
+          pairing: \( \zeta = 0.4 \) with about a quarter overshoot.
+      - text: "50%"
+        why: >-
+          That's roughly \( \zeta = 0.2 \), considerably livelier than this. Half
+          the height of the step as overshoot would be a very underdamped system.
+    advice: |
+      Exactly, \( M_p = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
+      \( \zeta = 0.4 \) gives 0.254, so about 25%.
+
+      In practice nobody evaluates that in a design meeting. Carry three anchors
+      instead and interpolate:
+
+      - \( \zeta = 0.2 \) → about 50%
+      - \( \zeta = 0.4 \) → about 25%
+      - \( \zeta = 0.7 \) → about 5%
+
+      Less damping, more overshoot, and the curve is steep — which is why phase
+      margin, its frequency-domain cousin, is worth watching closely in week 4.
+
+  - id: steady-state
+    name: Steady state
+    checks: the final value theorem, or DC gain
+    statement: >-
+      What does the step response of \( G(s) = \dfrac{3}{s+2} \) settle to?
+    type: numbers
+    answers:
+      - {label: "final value", value: 1.5, tolerance: 0.01}
+    common_errors:
+      - value: "3"
+        why: >-
+          you took the numerator alone. Setting \( s = 0 \) leaves the
+          denominator's constant term too, so it's \( 3/2 \), not 3.
+      - value: "0"
+        why: >-
+          you may have applied \( \lim_{s \to 0} sG(s) \), which is the final
+          value of the *impulse* response. For a step the \( s \) in the theorem
+          cancels the \( 1/s \) of the step itself.
+      - value: "0.667"
+        why: >-
+          that's \( 2/3 \) — the right two numbers, inverted.
+    advice: |
+      The steady-state value of a step response is just \( G(0) \), the DC gain.
+      Set \( s = 0 \): \( G(0) = 3/2 = 1.5 \).
+
+      If you would rather use the final value theorem, the step is \( 1/s \), so
+
+      $$ \lim_{s\to0} s \cdot G(s) \cdot \frac{1}{s} = \lim_{s\to0} G(s) = G(0). $$
+
+      The \( s \) and the \( 1/s \) cancel, which is why the shortcut works. The
+      theorem is only valid when the response actually settles, so check the
+      poles are in the left half plane first — here the single pole is at
+      \( s = -2 \), so it does.
+
+  - id: closing-the-loop
+    name: Closing the loop
+    checks: "\\( G/(1+G) \\), the step everything in the unit builds on"
+    statement: >-
+      A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback
+      loop. The closed-loop transfer function from reference to output is:
+    type: choice
+    choices:
+      - text: "\\( \\dfrac{4}{s^2 + s + 4} \\)"
+        correct: true
+        why: >-
+          Right. \( T = G/(1+G) \), then multiply top and bottom by
+          \( s(s+1) \) to clear the fraction within a fraction.
+      - text: "\\( \\dfrac{4}{s^2 + s - 4} \\)"
+        why: >-
+          A sign error: this is \( G/(1-G) \), which is *positive* feedback. The
+          sign is the whole point — this version has a pole in the right half
+          plane and would run away.
+      - text: "\\( \\dfrac{4}{s^2 + s} \\)"
+        why: >-
+          That's the open loop \( G \) with its denominator multiplied out. The
+          loop hasn't been closed: there is no \( +4 \) contributed by the
+          feedback path.
+      - text: "\\( \\dfrac{s^2 + s}{s^2 + s + 4} \\)"
+        why: >-
+          Very close, and a useful thing to have derived: that's the
+          *sensitivity* \( S = 1/(1+G) \), which maps the reference to the
+          **error**. The question asked for reference to **output**, which is
+          \( T = G/(1+G) \). Note \( S + T = 1 \) — worth remembering.
+    advice: |
+      - Write the closed-loop form: \( T = \dfrac{G}{1+G} \).
+      - Substitute: \( T = \dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \).
+      - Multiply top and bottom by \( s(s+1) \): \( T = \dfrac{4}{s(s+1) + 4} = \dfrac{4}{s^2+s+4} \).
+
+      Two habits that save time later. **The closed-loop denominator is
+      \( 1 + G \) cleared of fractions**, so you can often write it down without
+      the algebra. And **the numerator of \( T \) is the numerator of \( G \)**,
+      unchanged — feedback moves poles, never zeros.
+
+      This one has \( \omega_n = 2 \) and \( \zeta = 0.25 \), so expect a lively
+      response with around 45% overshoot. The Quanser rig in the first session is
+      far less damped still.
+
+  - id: steady-state-error
+    name: Steady-state error
+    checks: steady-state error of a type 0 loop, and why integral action exists
+    statement: >-
+      The same unity feedback loop, but with \( G(s) = \dfrac{4}{s+1} \). After a
+      unit step in the reference, what error remains?
+    type: numbers
+    answers:
+      - {label: "steady-state error", value: 0.2, tolerance: 0.01}
+    common_errors:
+      - value: "0.25"
+        why: >-
+          you used \( 1/G(0) \). The formula is \( 1/(1+G(0)) \), and that extra
+          1 is the reference itself — the error is what the reference asks for
+          minus what the loop delivers.
+      - value: "0.8"
+        why: >-
+          that's the steady-state *output*, \( G(0)/(1+G(0)) \). The error is
+          what's left over: \( 1 - 0.8 = 0.2 \).
+      - value: "0"
+        why: >-
+          that would need an integrator in the loop. This plant has none — a pole
+          at \( s = -1 \), not at the origin — so a finite error survives.
+    advice: |
+      - For unity feedback, the error transfer function is \( E/R = S = \dfrac{1}{1+G} \).
+      - A unit step's final error is therefore \( e_{ss} = \dfrac{1}{1+G(0)} \).
+      - Here \( G(0) = 4 \), so \( e_{ss} = 1/5 = 0.2 \) — a 20% error that never goes away.
+
+      **Why it matters.** The only way to drive that to zero is to make
+      \( G(0) \) infinite, which means putting an integrator in the loop: a pole
+      at \( s = 0 \). That is exactly what the I in PID does, and it is the
+      reason integral action exists at all rather than being an optional extra.
+
+      Raising the gain instead shrinks the error but never removes it, and costs
+      you damping on the way — the trade you will meet again in almost every week
+      of this unit.
+
+  - id: bode
+    name: Reading a Bode plot
+    checks: the corner frequency of a first-order lag
+    statement: >-
+      For \( G(s) = \dfrac{10}{s+10} \) at \( \omega = 10 \) rad/s, what are the
+      magnitude, in decibels, and the phase?
+    type: choice
+    choices:
+      - text: "0 dB, 0°"
+        why: >-
+          Those are the low-frequency values, well *below* the corner. At
+          \( \omega = 10 \) you are standing exactly on the corner, where the
+          asymptotes meet and neither one is accurate.
+      - text: "−3 dB, −45°"
+        correct: true
+        why: >-
+          Right, and these two numbers travel together: every first-order corner
+          is −3 dB and −45°, whatever the frequency. Worth memorising as a pair.
+      - text: "−6 dB, −90°"
+        why: >-
+          −90° is the high-frequency limit, only approached well *above* the
+          corner. At the corner the phase is exactly halfway there.
+      - text: "−20 dB, −45°"
+        why: >-
+          The phase is right. −20 dB is the magnitude a *decade* above the
+          corner, at \( \omega = 100 \), once the −20 dB/decade slope has had a
+          full decade to act.
+    advice: |
+      A first-order lag \( \dfrac{1}{1 + s/\omega_c} \) has three landmarks:
+
+      - **well below \( \omega_c \):** 0 dB and 0°. The system passes the signal through.
+      - **at \( \omega_c \):** \( |G| = 1/\sqrt2 \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
+      - **well above \( \omega_c \):** falling at −20 dB/decade, phase heading to −90°.
+
+      Here \( G = 10/(s+10) = 1/(1 + s/10) \), so \( \omega_c = 10 \) rad/s and
+      the question is asking for the corner itself.
+
+      **−3 dB and −45° at the corner is the single most reused fact in this
+      unit.** Every lag you meet in weeks 4 and 8 is built from it.
+
+  - id: decibels
+    name: Decibels
+    checks: the decibel scale, used on every Bode plot in the unit
+    statement: "A gain of 20 dB is a factor of:"
+    type: choice
+    choices:
+      - text: "2"
+        why: >-
+          That's about 6 dB. The two worth knowing are 6 dB ≈ ×2 and
+          20 dB = ×10 exactly.
+      - text: "10"
+        correct: true
+        why: >-
+          Right. \( 20\log_{10}(10) = 20 \) dB, so every 20 dB is another factor
+          of ten.
+      - text: "20"
+        why: >-
+          Decibels are a logarithmic scale, so the number is never the factor
+          itself. If it were, the scale would be doing nothing.
+      - text: "100"
+        why: >-
+          That's the answer for \( 10\log_{10} \), the **power** definition. A
+          gain is an amplitude ratio, so it's \( 20\log_{10} \). ×100 would be
+          40 dB.
+    advice: |
+      For a gain — an amplitude ratio, which is what a Bode magnitude plot
+      shows — the definition is \( 20\log_{10}|G| \).
+
+      Anchors worth carrying:
+
+      - ×1 → 0 dB
+      - ×2 → 6 dB (and ÷2 → −6 dB)
+      - ×10 → 20 dB
+      - ×100 → 40 dB
+
+      The factor-of-two one is the one that slips. And note the **20** rather
+      than **10**: the 10 version is for *power*, and power goes as amplitude
+      squared, which is exactly where the factor of two in front comes from.
+
+  - id: what-feedback-does
+    name: What feedback is for
+    checks: the unit's first threshold concept — feedback is a trade, not a fix
+    statement: "Which of these does negative feedback <em>not</em> do, on its own?"
+    type: choice
+    choices:
+      - text: "Reduce the effect of disturbances on the output"
+        why: >-
+          It does do this — arguably the main reason feedback exists. A
+          disturbance shows up in the measurement, the error changes, and the
+          controller pushes back.
+      - text: "Reduce the effect of changes in the plant's gain"
+        why: >-
+          It does do this. It is why a feedback design survives an aircraft
+          getting lighter as it burns fuel, and it is what the sensitivity
+          function measures.
+      - text: "Make an unstable plant stable, with a suitable controller"
+        why: >-
+          It does do this, and you will see it in the first session: the Quanser
+          rig cannot be flown open-loop by hand, and closing the loop is what
+          makes it flyable.
+      - text: "Remove the effect of sensor noise on the output"
+        correct: true
+        why: >-
+          Right, and this is the one that catches people. Feedback acts on what
+          the sensor *says*. It cannot tell noise from real motion, so it
+          faithfully corrects for both.
+    advice: |
+      Feedback compares the reference with the **measurement**, not with the
+      truth. Anything the sensor reports — real motion or noise — is treated
+      identically, so noise is driven into the actuator and back out into the
+      output.
+
+      That is why more gain is not always better. Raising the loop gain
+      suppresses disturbances *and* amplifies the effect of noise, and the two
+      pull in opposite directions. There is no setting that wins both, only a
+      choice about where to sit.
+
+      **Feedback is a trade, not a fix.** It is the first idea this unit is
+      built on, and where week 7 picks up.

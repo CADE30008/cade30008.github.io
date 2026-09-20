@@ -19,7 +19,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `teaching/lNN-topic.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built. | Yes, and after teaching it. |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session. | Yes, with every content change. |
 | `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed. | Only once a scope decision is agreed. |
-| `private/<quiz>.yaml` | A quiz's questions. `npm run numbas` builds the Numbas `.exam` and the readable list from it. | Yes; never edit the `.exam` or the generated list. |
+| `diagnostics/<quiz>.yaml` | A quiz's questions, and **public**: formative diagnostics are published, assessed material is not. `npm run numbas` builds the Numbas `.exam` and the readable list from it. | Yes; never edit the `.exam` or the generated list. |
 | `models/` | Design scripts: the single source of every number and plot. | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts. | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |

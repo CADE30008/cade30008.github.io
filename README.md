@@ -25,6 +25,7 @@ Then open `http://localhost:8011`.
 | `docs/applets/` | Interactive applets, in plain HTML and JavaScript. |
 | `slides/` | Lecture decks, one folder per lecture week, matching `docs/`. |
 | `curriculum/` | What each week is (`weeks.yaml`), and term-level facts: the coursework, the laboratory, the workload model (`term.yaml`). The source for the lecture map, the term map and the generated tables. |
+| `diagnostics/` | Formative quizzes as YAML, with the Numbas `.exam` built from them. Published; assessed material is not. |
 | `teaching/` | Lecturer run sheets, one per lecture week. |
 | `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check. |
 | `scripts/` | Build, sync-check, PDF and test scripts. |

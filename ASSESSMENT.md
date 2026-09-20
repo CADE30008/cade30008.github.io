@@ -120,6 +120,34 @@ Which feedback comes from where:
 | Decision log | It becomes section 7. | Consulted if there are questions. |
 | **Coursework, week 11** | **This is the grade.** | Individual written feedback with the mark, against the rubric. |
 
+### What gets published
+
+**Formative diagnostics are published; assessed material is not.** The
+prerequisite diagnostic lives in `diagnostics/`, tracked and CC BY, rather than
+in `private/`.
+
+The reasoning, so that the line is not redrawn by accident:
+
+- **Its answers were never really secret.** Numbas shows the correct answer and
+  the feedback after each question, AP11 means no randomisation, and students
+  are explicitly welcome to sit it together. Publishing the source changes who
+  can read the answers by very little.
+- **What it is actually for survives publication.** It tells a student where
+  their gaps are. A student who looks up the answers has opted out of finding
+  out, which is their business and costs no one else anything.
+- **It is worth more shared than withheld.** Another institution can take it,
+  and a student can read the worked routes months later without a Blackboard
+  login.
+
+What this does cost: **cohort results stop being a clean year-on-year
+baseline**, because the answers are now trivially available to anyone who wants
+them. Read the results as a signal about what to cover, not as a measurement.
+
+The line holds in the other direction. Coursework briefs, marking schemes,
+per-student parameters and worked answers stay in `private/`, because for those
+the reason to withhold is not secrecy for its own sake — publication would stop
+them doing their job.
+
 ### Phrases to avoid
 
 Three ways of saying the same true thing, in descending order of damage:

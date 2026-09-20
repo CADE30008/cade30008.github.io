@@ -46,6 +46,14 @@ jobs:
       - run: for f in docs/*/code/*.py; do echo "== $f"; .venv/bin/python "$f"; done
 
       - run: npm run curriculum
+
+      # The .exam is committed so anyone can download it without running the
+      # build. Regenerating must therefore change nothing.
+      - name: The Numbas exam matches its source
+        run: |
+          npm run numbas
+          git diff --exit-code -- diagnostics/ \
+            || { echo "::error::diagnostics/ is stale - run 'npm run numbas' and commit"; exit 1; }
       - run: node scripts/test-applets.mjs
       - run: npm run check
       - run: npm run slides -- --html-only
