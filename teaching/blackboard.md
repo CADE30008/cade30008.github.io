@@ -111,9 +111,20 @@ with, in this order:
 | Link | **Solutions** | on the live site; release when the week's sheet is due, if held back. |
 | Text | **Coursework this week** | the step for the week from `curriculum/term.yaml`, pasted. |
 
-Week 1 additionally needs the **MATLAB Drive** links for the lecture: the
-read-only data and Live Script folder, and the writable gains folder (run sheet,
-`teaching/w01-design-cycle.md`).
+A week that hands out files or takes work in also needs its two **MATLAB
+Drive** links, with these titles, in this order, every week — so students learn
+where to look once:
+
+| Item | Type | Points at |
+|---|---|---|
+| **Files for this session** | Link | that week's `data/` view-only link. |
+| **Submit your work** | Link | that week's `submit/` edit link. |
+
+The layout, the sharing rules and how to test the links are in
+[matlab-drive.md](matlab-drive.md). **Test every link from a student account,
+never signed in as yourself** — as the owner every link works, so testing as
+yourself tells you nothing. Week 1 needs both; a week with no hand-out and no
+submission needs neither.
 
 ## Checking it
 
@@ -123,6 +134,8 @@ Run this after building a module, and again whenever a week is added. Use
 - [ ] Progress tracking is on, and a circle shows beside every item.
 - [ ] Each link opens the right page, on `cade30008.github.io`, not the local
       preview.
+- [ ] Every MATLAB Drive link opens, and the `submit/` one actually accepts a
+      file. Upload one from the student account, confirm it lands, delete it.
 - [ ] Opening a link fills its circle, or ticking it does.
 - [ ] The assignment accepts a PDF upload, and allows more than one attempt.
 - [ ] The Numbas quiz opens from Blackboard, submits once, and gives feedback

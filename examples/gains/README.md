@@ -7,8 +7,10 @@ Real submissions arrive in a MATLAB Drive folder that syncs to the lecturer's
 machine. Point the tool at that folder directly:
 
 ```bash
-python scripts/gains.py check ~/MATLAB\ Drive/cade30008-gains
+python scripts/gains.py check ~/MATLAB\ Drive/CADE30008/2026-27/w01-design-cycle/submit
 ```
+
+The layout is in [teaching/matlab-drive.md](../../teaching/matlab-drive.md).
 
 | File | What it exercises |
 |---|---|

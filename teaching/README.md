@@ -64,6 +64,7 @@ Every run sheet has these headings, in this order.
 |---|---|---|
 | [weekly-review.md](weekly-review.md) | Straight after each lecture, then Sunday. | Five lines on what went wrong while it's still obvious, then ten minutes to fix what's cheap and park what isn't. |
 | [announcements.md](announcements.md) | Sunday evening | What to post on Blackboard, ready to paste. |
+| [matlab-drive.md](matlab-drive.md) | When a session hands out or takes in files, and every year. | The Drive layout, what is shared with whom, and how to test it from a student account. |
 | [annual-update.md](annual-update.md) | Before each cohort | Everything with a date or a number in it, then a content review built from the term's weekly notes. |
 
 The three are a loop: the weekly review feeds the annual update, and the annual

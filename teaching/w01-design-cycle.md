@@ -22,13 +22,17 @@ is built round the hardware.
 - [ ] Camera on the rig, feed on the main screen, sight line checked from the
       back row.
 - [ ] Clean measured elevation response recorded from *this* rig, on the day or
-      the day before, and placed in MATLAB Drive.
-- [ ] MATLAB Drive: data folder shared read-only; submission folder shared
-      writable; both tested from a student account.
-- [ ] **Confirm what the submission folder actually exposes.** A writable shared
-      folder is readable too, so every student can see every other submission,
-      by whatever name it carries. That is acceptable — but only if they are
-      told before they upload, so it is on the slide and in the script below.
+      the day before, and placed in this week's `data/` folder.
+- [ ] MATLAB Drive, per [matlab-drive.md](matlab-drive.md):
+      `CADE30008/<year>/w01-design-cycle/data/` shared **view only**, and
+      `.../submit/` shared **can edit**. Both links on Blackboard.
+- [ ] **Both links tested from a student account, not your own.** As the owner
+      every link works, so testing as yourself proves nothing. Upload a file to
+      `submit/` from that account, confirm it lands, delete it.
+- [ ] **Confirm what `submit/` exposes.** A writable shared folder is readable
+      too, so every student can see every other submission, by whatever name it
+      carries. That is fine — but only if they are told before they upload, so
+      it is on the slide and in the script below.
 - [ ] Gain filter tested on last year's or synthetic submissions, including
       deliberately bad ones.
 - [ ] Selection tool tested end to end on a dummy folder of submissions.
@@ -49,9 +53,9 @@ a test flight in closed loop, then a test of the e-stop under power.
 | Existing lab material to adapt | `private/quanser/Quanser Lab/Quanser Lab 1 - System ID and PID/` |
 | System-ID Live Script to adapt | `.../solution_files/s_1_system_identification.mlx` |
 | Rig Simulink models | `.../m_part1.slx`, `.../m_part3.slx` |
-| Student Live Script | MATLAB Drive, read-only folder — **to build**. |
-| Measured response data | MATLAB Drive, read-only folder — **recorded on the day**. |
-| Submission folder | MATLAB Drive, writable — **to create**. |
+| Student Live Script | `CADE30008/<year>/w01-design-cycle/data/` — **to build**. |
+| Measured response data | same `data/` folder — **recorded on the day**. |
+| Gains submission folder | `CADE30008/<year>/w01-design-cycle/submit/` — **to create**. |
 | Gain filter and selection tool | `scripts/gains.py` — **built**, see below. |
 | Example submissions, to test against | `examples/gains/` — fixtures only, never student work. |
 | Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig**. |

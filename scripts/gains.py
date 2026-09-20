@@ -5,8 +5,9 @@ them flown, in three rounds: a few individuals, then the cohort's average, then
 the best few. This is the thing standing between 190 students' arithmetic and a
 machine flying in front of them.
 
-    python scripts/gains.py check  ~/MATLAB\ Drive/cade30008-gains
-    python scripts/gains.py pick   ~/MATLAB\ Drive/cade30008-gains --round 1
+    D=~/MATLAB\ Drive/CADE30008/2026-27/w01-design-cycle/submit
+    python scripts/gains.py check "$D"
+    python scripts/gains.py pick  "$D" --round 1
 
 Point it at the MATLAB Drive folder that syncs to this machine. Student work is
 never copied into this repository; `examples/gains/` holds only fixtures.

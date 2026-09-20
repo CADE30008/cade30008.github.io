@@ -50,7 +50,13 @@ nav agree with the new calendar.
 - [ ] Re-run `scripts/gains.py check` on last year's submissions, if kept, and
       confirm the envelope still accepts and rejects the right ones.
 - [ ] QUARC licences current; rig serviced; e-stop tested.
-- [ ] MATLAB Drive folders recreated, and **tested from a real student account**.
+- [ ] **MATLAB Drive**, following [matlab-drive.md](matlab-drive.md): copy
+      `templates/` to a new `20xx-yy/`, fill each `data/`, empty each `submit/`,
+      re-share both — which produces **new links** — then replace every link in
+      Blackboard and test each one **from a student account, not your own**.
+      Leave last year's folder alone: don't delete it, don't re-share it.
+      Replacing the links is the step that gets skipped, because the old ones
+      still open for you while showing students last year's material.
 
 ## 4. Content, from what actually happened
 
