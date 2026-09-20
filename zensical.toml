@@ -78,6 +78,7 @@ extra_css = ["stylesheets/flightlab.css", "stylesheets/course.css"]
 extra_javascript = [
   "javascripts/mathjax.js",
   "javascripts/py-runner.js",
+  "javascripts/code-scroll.js",
   "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
 ]
 

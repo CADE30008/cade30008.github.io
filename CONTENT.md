@@ -57,7 +57,7 @@ of the 17 September review asked for.
 | Glossary | drafted | ~80 terms, deliberately ahead of the lectures |
 | Preparing for Control | **ready to publish** | Listed in `publish.yaml`. MATLAB first; long scripts in scrolling boxes; certificate upload and diagnostic described. Device checks pass, including the browser runner on the live build. Steve to run through before week 1 |
 | Blackboard: Before week 1 | **build sheet ready** | `teaching/blackboard.md`: learning module, links, certificate assignment, diagnostic test, and a check to run in student preview. Not yet built in Blackboard |
-| Week 1 diagnostic | **drafted** | Ten questions with answers and feedback, numbers computed, in `private/diagnostic/week1-diagnostic.md`. To build as a Blackboard test |
+| Week 1 diagnostic | **drafted** | Ten questions with answers and feedback, numbers computed, in `private/diagnostic/week1-diagnostic.md`. To build in Numbas, whose Blackboard integration is active |
 | Live site | **ready, not deployed** | `npm run preview:live` shows it. Deploys on push once the `cade30008` organisation and repository exist |
 | Run sheets | 1 of 8 | Only `teaching/w01-design-cycle.md`. The pattern is unproven on a normal session |
 | Applets | 1 | The PID tuner, tested against `models/pitch_numbers.json` |

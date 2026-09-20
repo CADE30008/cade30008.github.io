@@ -43,7 +43,7 @@ Items, in this order:
 | 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` |
 | 5 | Link | **Control Design Onramp with Simulink** | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` |
 | 6 | Assignment | **Onramp certificates** | See below |
-| 7 | Test | **Diagnostic quiz** | See below. Questions in `private/diagnostic/week1-diagnostic.md` |
+| 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `private/diagnostic/week1-diagnostic.md` |
 | 8 | Link | **How this unit uses AI** | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why." |
 
 ### Item 6: Onramp certificates (assignment)
@@ -62,17 +62,20 @@ Items, in this order:
 LTI link instead, which report completion automatically, once IT have set up
 the integration (PEDAGOGY.md, "Preparation before week 1").
 
-### Item 7: Diagnostic quiz (test)
+### Item 7: Diagnostic quiz (Numbas)
 
 - **Description, to paste:** "Ten questions on the mathematics and control this
   unit builds on, about 20 minutes. It isn't marked and doesn't count towards
   anything. Do it on your own and without looking things up: it's for you to
   see where you're solid and where to brush up, and for me to see what to spend
   time on in the first weeks. You'll get feedback on every question."
-- **Settings:** one attempt; no time limit; show feedback and correct answers
-  after submission; not counted towards the grade.
+- **Build it in Numbas** and add it through the Numbas link in Blackboard; its
+  integration is active.
+- **Settings:** one attempt; no time limit; feedback and the correct answer
+  after each question; not counted towards the grade, or the column hidden.
 - **Questions:** build from `private/diagnostic/week1-diagnostic.md`, with its
-  feedback text and numerical tolerances.
+  feedback text and numerical tolerances. Number entry for the numeric
+  questions, multiple choice for the rest.
 - **Before the week 2 lecture:** read the results against the table at the end
   of that file.
 
@@ -86,7 +89,7 @@ with, in this order:
 | Link | **Handout** | the week's page on the live site |
 | Link | **Slides** | the deck on the live site |
 | Link | **Example sheet** | on the live site |
-| Test or link | **This week's challenge** | Numbas or MATLAB Grader (P16), once set up |
+| Numbas activity or link | **This week's challenge** | Numbas, which is integrated; or MATLAB Grader for code, once its integration is set up |
 | Link | **Solutions** | on the live site; release when the week's sheet is due, if held back |
 | Text | **Coursework this week** | the step for the week from `curriculum/term.yaml`, pasted |
 
@@ -104,8 +107,9 @@ Run this after building a module, and again whenever a week is added. Use
       preview.
 - [ ] Opening a link fills its circle, or ticking it does.
 - [ ] The assignment accepts a PDF upload, and allows more than one attempt.
-- [ ] The test opens, submits once, and shows feedback and answers afterwards.
-- [ ] Neither the assignment nor the test counts towards the student's grade.
+- [ ] The Numbas quiz opens from Blackboard, submits once, and gives feedback
+      on each question.
+- [ ] Neither the assignment nor the quiz counts towards the student's grade.
 - [ ] The module is released, or scheduled to release, when intended.
 - [ ] Nothing in Blackboard duplicates content that lives on the site.
 

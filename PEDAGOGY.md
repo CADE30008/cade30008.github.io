@@ -362,9 +362,10 @@ diagnostic in week 1, then one challenge per lecture that rehearses that week's
 build. It gives spaced retrieval (P11) outside the lecture, and tells students
 and staff early who is struggling.
 
-- Mathematics and concept questions in Numbas, which Bristol supports through
-  Blackboard, with randomised values so that each student works their own
-  numbers.
+- Mathematics and concept questions in Numbas, whose Blackboard integration is
+  active (confirmed 20 September), with randomised values so that each student
+  works their own numbers. The week 1 diagnostic is deliberately not randomised,
+  so that the cohort picture is comparable.
 - Code challenges in MATLAB Grader. The University's licence covers it; its
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says
@@ -685,9 +686,9 @@ student's set-up.
   for tablets and Chromebooks.
 - **MathWorks Onramps:** MATLAB Onramp, Simulink Onramp, and Control Design
   Onramp with Simulink. Free and self-paced.
-- **A diagnostic** on the prerequisite mathematics and control (P16). This
-  year a Blackboard test, drafted in `private/diagnostic/`; Numbas, with
-  randomised values, from next year.
+- **A diagnostic** on the prerequisite mathematics and control (P16), in
+  Numbas, whose Blackboard integration is active (confirmed 20 September).
+  Drafted in `private/diagnostic/`.
 
 **This year, Onramp completion is by certificate upload**, to a Blackboard
 assignment in the *Before week 1* learning module (`teaching/blackboard.md`).

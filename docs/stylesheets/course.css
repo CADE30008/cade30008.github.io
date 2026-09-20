@@ -190,8 +190,63 @@
 
 /* Wrap a code block in <div class="code-scroll" markdown> to cap its height and
    scroll it, so a long script doesn't push the rest of the page away. Only the
-   highlighted source is capped: output a runner adds below it is left alone. */
+   highlighted source is capped: output a runner adds below it is left alone.
+
+   javascripts/code-scroll.js adds the classes below to a block that really does
+   overflow, so a short block gets no furniture. */
+.md-typeset .code-scroll .highlight {
+  position: relative;
+}
 .md-typeset .code-scroll .highlight pre > code {
   max-height: 16rem;
   overflow: auto;
+  scrollbar-width: thin;                 /* Firefox: a scrollbar that stays put */
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+/* WebKit hides overlay scrollbars until something moves, which is the whole
+   problem, so draw one. */
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar {
+  width: 0.55rem;
+}
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar-thumb {
+  background: var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+}
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar-thumb:hover {
+  background: var(--md-default-fg-color--light);
+}
+
+/* A fade and a label while there is more below; both go at the end. */
+.md-typeset .code-scroll--scrollable::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0.55rem;                        /* clear of the scrollbar */
+  bottom: 0;
+  height: 2.2rem;
+  background: linear-gradient(to top, var(--md-code-bg-color), transparent);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.md-typeset .code-scroll__hint {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.45rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 1rem;
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.62rem;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.md-typeset .code-scroll--end::after,
+.md-typeset .code-scroll--end .code-scroll__hint {
+  opacity: 0;
+}
+.md-typeset .code-scroll .highlight pre > code:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: -2px;
 }

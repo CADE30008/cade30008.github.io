@@ -133,12 +133,29 @@ All checks passed
 
 ### If a check fails {#troubleshooting}
 
-| What you see | What to do |
-|---|---|
-| `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected |
-| `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
-| The browser run stalls, or reports an error | Use an up-to-date browser, and try another network: some block large downloads |
-| Anything else | Pair up with someone whose set-up works, and bring the error message to week 1's lecture |
+| Where | What you see | What to do |
+|---|---|---|
+| MATLAB | `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected |
+| MATLAB | `Unrecognized function or variable 'tf'` | The Control System Toolbox isn't installed, or isn't on the path. Add it as above |
+| MATLAB | It won't start, or the licence is refused | Sign in with the MathWorks account linked to your University email address, through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html) |
+| Python, on your computer | `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
+| Python, on your computer | `python: command not found` | Python isn't installed, or isn't on your path. Try `python3`, or install it again |
+| Python, in the browser | The run stalls, or reports an error | Use an up-to-date browser, and try another network: some block large downloads. It downloads several megabytes the first time |
+| Any | Anything else | Pair up with someone whose set-up works so you're not held up, then get it fixed properly, below |
+
+### Getting help with your device {#help}
+
+A laptop that won't run MATLAB or Python is an IT problem, not a control one,
+and the people who fix those are better at it than I am:
+
+- **[IT Services](https://www.bristol.ac.uk/it-services/)** — for installation,
+  licences, accounts and network problems.
+- **The Student Laptop Clinic**, run by IT Services, for hands-on help with your
+  own machine. Times and places are on the IT Services pages.
+
+Take the exact error message with you. If you can't get it working before the
+first lecture, come anyway: you'll work in a pair, and nothing in week 1 depends
+on your own machine.
 
 ## MathWorks Onramp courses {#onramps}
 
@@ -172,4 +189,5 @@ you're solid and where to brush up, with feedback on every question, and tells
 us what to spend more time on in the first weeks. Do it on your own and without
 looking things up: a flattering score helps nobody.
 
-You'll find it in the **Before week 1** module on Blackboard.
+You'll find it in the **Before week 1** module on Blackboard. It opens in
+Numbas, and marks and gives feedback on each answer as you go.
