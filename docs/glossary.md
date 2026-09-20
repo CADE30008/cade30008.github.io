@@ -19,13 +19,13 @@ has a sharper definition you will meet later, that is said.
 
 ## How this unit works
 
-**Formative.** Work that doesn't count towards your unit grade. It exists to
+**Formative.** Work that doesn't contribute to your unit grade. It exists to
 show you, and us, how you're doing while there's still time to act on it: the
 diagnostic, the weekly challenges, the example sheets, the case work in each
 session, the laboratory and the coursework checkpoints. Formative work is the
 foundation of the summative submission, not a warm-up you can skip.
 
-**Summative.** Work that counts towards your unit grade. In this half of the
+**Summative.** Work that carries your unit grade. In this half of the
 unit there is exactly one piece: the coursework, due on the Thursday of week 11.
 
 **Checkpoint.** A point in the term where you're expected — but not required —

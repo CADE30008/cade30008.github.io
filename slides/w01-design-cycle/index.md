@@ -28,9 +28,9 @@ content, and does not appear on the slide itself.
 
 # Where we are
 
-- what the student already knows
-- where it came from
-- why it is not yet enough
+* what the student already knows
+* where it came from
+* why it is not yet enough
 
 ---
 
@@ -38,9 +38,9 @@ content, and does not appear on the slide itself.
 
 # First idea
 
-- the idea, in one line
-- what it changes
-- what it costs
+* the idea, in one line
+* what it changes
+* what it costs
 
 ---
 
@@ -48,9 +48,9 @@ content, and does not appear on the slide itself.
 
 # Second idea
 
-- the idea, in one line
-- how it builds on the first
-- when it applies
+* the idea, in one line
+* how it builds on the first
+* when it applies
 
 ---
 
@@ -58,9 +58,9 @@ content, and does not appear on the slide itself.
 
 # Worked example
 
-- the set-up
-- the design step
-- the result, and whether it met the specification
+* the set-up
+* the design step
+* the result, and whether it met the specification
 
 ---
 
@@ -82,10 +82,10 @@ students choose when to go, from week 1 to week 6.
 
 # Your week
 
-- **2 h** lecture · **2 h** independent learning · **2 h** coursework: **6 h** a week
-- Week 6, consolidation: **4 h** of recommended activities, and the coursework's 2
-- Plus **4 h** in the Quanser lab, when you choose, weeks 1 to 6
-- **Do the coursework in the week.** Leaving it to the end means learning it twice, alone
+* **2 h** lecture · **2 h** independent learning · **2 h** coursework: **6 h** a week
+* Week 6, consolidation: **4 h** of recommended activities, and the coursework's 2
+* Plus **4 h** in the Quanser lab, when you choose, weeks 1 to 6
+* **Do the coursework in the week.** Leaving it to the end means learning it twice, alone
 
 <!--
 The coursework builds week by week; each step uses that week's lecture, and the
@@ -99,10 +99,11 @@ back-load it. Say plainly why that costs them.
 
 # What counts
 
-- **One thing counts:** the coursework, due Thursday of week 11
-- Everything else is **formative** — it doesn't count, and it's how the coursework gets built
-- Checkpoints in weeks 4, 8 and 9: automatic checks, cohort feedback, peer review
-- Nothing formative is randomised. Work on it together if you like
+* **One piece carries the grade:** the coursework, due Thursday of week 11
+* Everything else is **formative** — it doesn't contribute to your grade *directly*
+* **But it is how the coursework gets built.** The checkpoints *become* the paper
+* Checkpoints in weeks 4, 8 and 9: automatic checks, cohort feedback, peer review
+* Nothing formative is randomised. Work on it together if you like
 
 <!--
 Say plainly that formative isn't optional-and-pointless: each checkpoint is a
@@ -116,10 +117,10 @@ Do it as you go and week 11 is assembly, not writing from nothing.
 
 # AI rewards expertise
 
-- Anyone can produce seemingly passable work — until an expert, or the real world, checks it
-- Experts ask sharper questions, and catch the confident wrong answers
-- Terence Tao and ChatGPT, 20 July 2026: the value was his judgement, not the prompt
-- The fundamentals here are what make you good *with* AI
+* Anyone can produce seemingly passable work — until an expert, or the real world, checks it
+* Experts ask sharper questions, and catch the confident wrong answers
+* Terence Tao and ChatGPT, 20 July 2026: the value was his judgement, not the prompt
+* The fundamentals here are what make you good *with* AI
 
 <div class="callout">
 
@@ -142,10 +143,10 @@ signs off a control law, and "the tool said so" has never been a defence.
 
 # Learning is how experts are made
 
-- Tao and 24 other Fields Medallists, September 2026:
-- training exists to build understanding, not only to produce answers
-- when AI produces the answers directly, the two come apart
-- That's your development — and what we're trying to assess
+* Tao and 24 other Fields Medallists, September 2026:
+* training exists to build understanding, not only to produce answers
+* when AI produces the answers directly, the two come apart
+* That's your development — and what we're trying to assess
 
 <!--
 "A severe misalignment of AI in mathematics", on Tao's blog. The point for us is
@@ -159,11 +160,11 @@ shortcut to the answer skips the building.
 
 # Work, or gym?
 
-- **Work**: only the result matters. AI is a sensible tool — if you check it and stand behind it
-- **Gym**: doing it is the point. AI is a machine lifting your weights
-- A Simulink error at eleven at night: mostly work
-- Why your loop has less phase margin than you expected: the gym
-- Most of what you do here is the gym
+* **Work**: only the result matters. AI is a sensible tool — if you check it and stand behind it
+* **Gym**: doing it is the point. AI is a machine lifting your weights
+* A Simulink error at eleven at night: mostly work
+* Why your loop has less phase margin than you expected: the gym
+* Most of what you do here is the gym
 
 <!--
 After Bruce Schneier's test. The caveat on "work" is mine: in engineering,

@@ -109,10 +109,10 @@ One-time set-up: the repository is `CADE30008/cade30008.github.io`, in the
 `CADE30008` GitHub organisation, and its **Settings › Pages › Source** is set to
 **GitHub Actions**.
 
-Not yet handled: slides and PDFs on the live site. They're built locally, git
-ignores them, and the slide theme comes from a sibling folder that CI can't see
-("The slide theme", below). Nothing published yet needs them; the first
-published lecture week will.
+Not yet handled: slides and PDFs on the live site. They're built locally and git
+ignores them. Both themes now come from public, pinned repositories, so CI can
+build decks whenever that step is added; nothing published yet needs them, and
+the first published lecture week will.
 
 ## Keeping slides and handouts in sync
 
@@ -126,12 +126,32 @@ Weeks whose handout front matter says `status: draft` are skipped, since scaffol
 
 See [AGENTS.md](AGENTS.md) for the full contract.
 
+## The Flight Lab templates
+
+Three repositories, so the branding is in one place rather than copied into every unit:
+
+| Repository | What | How this repo takes it |
+|---|---|---|
+| [flightlab-brand](https://github.com/BristolFlightLab/flightlab-brand) | The artwork: crest, slanted edges, marks. The single source. | Indirectly, through the two below. |
+| [flightlab-zensical-theme](https://github.com/BristolFlightLab/flightlab-zensical-theme) | The site theme. | A git submodule at `theme/`, pinned to a tag, served through `theme.custom_dir`. |
+| [flightlab-marp-template](https://github.com/BristolFlightLab/flightlab-marp-template) | The slide theme. | An npm dependency pinned to a tag. |
+
+**Clone with submodules**, or the site builds unbranded and then fails:
+
+```bash
+git clone --recurse-submodules https://github.com/CADE30008/cade30008.github.io.git
+```
+
+An existing clone catches up with `git submodule update --init`.
+
+To take a newer theme: `git -C theme checkout vX.Y.Z`, rebuild, look at a page, then commit the moved pointer. The submodule records the exact commit, so a site built today builds the same in a year.
+
 ## The slide theme
 
-The Flight Lab Marp theme is a package of its own, [BristolFlightLab/marp-template](https://github.com/BristolFlightLab/marp-template), and `package.json` takes it **from a release tag**:
+The Flight Lab Marp theme is a package of its own, [BristolFlightLab/flightlab-marp-template](https://github.com/BristolFlightLab/flightlab-marp-template), and `package.json` takes it **from a release tag**:
 
 ```json
-"marp-template": "github:BristolFlightLab/marp-template#v1.0.0"
+"marp-template": "github:BristolFlightLab/flightlab-marp-template#v1.1.0"
 ```
 
 `.marprc.yml` then points Marp at `node_modules/marp-template/themes`.

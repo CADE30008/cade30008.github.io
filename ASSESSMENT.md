@@ -90,37 +90,49 @@ paper in place of set questions, Category 3 AI use, a rubric built on the design
 cycle, and an assessment that builds through the term, which needs the brief
 released much earlier (AQ2).
 
-## Formative and summative: what counts
+## Formative and summative: how to say it
 
 Said once here, in the words the student-facing pages use.
 
-- **Summative** work counts towards the unit grade. In this half there is
+- **Summative** work contributes to the unit grade. In this half there is
   exactly one piece: **the coursework, due on the Thursday of week 11**.
-- **Formative** work does not count towards the grade. Everything else is
-  formative: the week 1 diagnostic, the weekly challenges, the example sheets,
-  the case work in each session, the laboratory, the decision log, and all three
-  coursework checkpoints.
-- **Formative is not optional-and-pointless.** The in-term work is the
-  foundation of the summative submission: each checkpoint is a draft of part of
-  the final paper, and the decision log feeds its last section. A student who
-  does the formative work arrives at week 11 with most of a submission and
-  feedback on it.
+- **Formative** work doesn't contribute to the grade directly. Everything else
+  is formative: the week 1 diagnostic, the weekly challenges, the example
+  sheets, the case work in each session, the laboratory, the decision log, and
+  all three coursework checkpoints.
+- **Formative work is how the summative submission gets built**, so "directly"
+  is doing real work in that sentence. Each checkpoint is a draft of part of the
+  final paper, and the decision log feeds its last section. A student who does
+  the formative work arrives at week 11 with most of a submission and feedback
+  on it; a student who skips it writes the whole thing alone, in a fortnight,
+  with nothing to act on.
 
 Which feedback comes from where:
 
-| Work | Counts? | Feedback |
+| Work | Contributes to the grade | Feedback |
 |---|---|---|
-| Week 1 diagnostic | No | Automatic, per question, straight away |
-| Weekly challenge (P16) | No | Automatic, per question, straight away |
-| Example sheet | No | Worked solutions, and the next session |
-| Case work in the session | No | In the room, from the lecturer and from each other |
-| Laboratory | No | In the laboratory, and through the data students take away |
-| Checkpoints 1 to 3 | No | Automatic checks on the submission, individually; cohort notes from the lecturer; peer review at checkpoint 2 |
-| Decision log | No | Consulted if there are questions; feeds section 7 of the paper |
-| **Coursework, week 11** | **Yes** | Individual written feedback with the mark, against the rubric |
+| Week 1 diagnostic | Not directly. | Automatic, per question, straight away. |
+| Weekly challenge (P16) | Not directly. | Automatic, per question, straight away. |
+| Example sheet | Not directly. | Worked solutions, and the next session. |
+| Case work in the session | Not directly. | In the room, from the lecturer and from each other. |
+| Laboratory | Not directly. | In the laboratory, and through the data students take away. |
+| Checkpoints 1 to 3 | They become the paper. | Automatic checks on the submission, individually; cohort notes from the lecturer; peer review at checkpoint 2. |
+| Decision log | It becomes section 7. | Consulted if there are questions. |
+| **Coursework, week 11** | **This is the grade.** | Individual written feedback with the mark, against the rubric. |
 
-"Not marked" on its own is the phrase to avoid: it reads as "does not matter".
-Say what it is — formative — and say what feedback it earns.
+### Phrases to avoid
+
+Three ways of saying the same true thing, in descending order of damage:
+
+| Don't write | Because | Write |
+|---|---|---|
+| "Not marked" | Reads as "does not matter". | "Formative", plus the feedback it earns. |
+| "Doesn't count" | Same, and worse: it's the word a student uses for work they can skip. | "Doesn't contribute to your grade — **but** it's how the coursework gets built." |
+| "Optional" | Only the laboratory and the consolidation activities genuinely are. | Say plainly whether it is expected. |
+
+The rule: **never state what formative work isn't without stating, in the same
+breath, what it is for.** The `but` clause is not decoration; it carries the
+whole message.
 
 ## The shape of Part B
 

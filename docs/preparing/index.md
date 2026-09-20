@@ -14,8 +14,8 @@ installing software.
        on your computer.
     2. **[Complete the three MathWorks Onramp courses](#onramps)**, and upload
        your certificates to Blackboard.
-    3. **[Take the diagnostic quiz](#diagnostic)** on Blackboard. It doesn't
-       count towards your grade.
+    3. **[Take the diagnostic quiz](#diagnostic)** on Blackboard. It tells you
+       what to brush up before we start.
     4. **Bring a laptop** to the first lecture if you have one.
 
     On Blackboard, the **Before week 1** module has the same steps, with a
@@ -206,7 +206,7 @@ Sign in with the MathWorks account linked to your University email address.
 **Upload your certificates.** When you finish each course, MATLAB Academy gives
 you a certificate of completion. Download all three as PDFs and upload them to
 the **Onramp certificates** assignment in Blackboard's **Before week 1** module.
-They don't count towards your grade: they tell us who is ready, and tell you
+They don't contribute to your grade — they tell us who is ready, and tell you
 that you are.
 
 ## Diagnostic quiz {#diagnostic}
@@ -216,11 +216,12 @@ transforms, transfer functions, poles, step responses, Bode plots and basic
 feedback — mostly from the year 2 unit Dynamics and Control of Linear Systems.
 It takes about 20 minutes.
 
-**It's formative: it doesn't count towards your unit grade.** It tells you where
-you're solid and where to brush up, with automatic feedback on every question,
-and tells us what to spend more time on in the first weeks. Everyone gets the
-same questions. Do it without looking things up — a flattering score helps
-nobody — though you're welcome to sit with someone else and talk it through.
+**It's formative: it doesn't contribute to your unit grade.** What it does is
+tell you where you're solid and where to brush up, with automatic feedback on
+every question, and tell us what to spend more time on in the first weeks.
+Everyone gets the same questions. Do it without looking things up — a flattering
+score helps nobody — though you're welcome to sit with someone else and talk it
+through.
 
 You'll find it in the **Before week 1** module on Blackboard. It opens in
 Numbas, and marks and gives feedback on each answer as you go.

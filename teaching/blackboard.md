@@ -32,7 +32,7 @@ Module description, to paste:
 
 > Four things to do before the first lecture on Tuesday. Tick each off as you
 > go. It should take a few hours, most of it on the MathWorks Onramp courses.
-> None of it counts towards your grade: it's here so you arrive ready, and so I
+> None of it contributes to your grade: it's here so you arrive ready, and so I
 > know where to spend time in the first weeks.
 
 Items, in this order:
@@ -68,10 +68,10 @@ the integration (PEDAGOGY.md, "Preparation before week 1").
 ### Item 7: Diagnostic quiz (Numbas)
 
 - **Description, to paste:** "Ten questions on the mathematics and control this
-  unit builds on, about 20 minutes. It isn't marked and doesn't count towards
-  anything. Do it on your own and without looking things up: it's for you to
-  see where you're solid and where to brush up, and for me to see what to spend
-  time on in the first weeks. You'll get feedback on every question."
+  unit builds on, about 20 minutes. It's formative: it doesn't contribute to
+  your grade, but it does tell you where you're solid and where to brush up, and
+  tells me what to spend time on in the first weeks. Do it on your own and
+  without looking things up. You'll get feedback on every question."
 - **Upload the ready-made quiz.** `npm run numbas` writes
   `private/diagnostic/week1-diagnostic.exam` from the questions in
   `week1-diagnostic.yaml`. Upload that to the Numbas editor, check it there —

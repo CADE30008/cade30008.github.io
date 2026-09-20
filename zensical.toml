@@ -86,6 +86,16 @@ extra_javascript = [
 
 [project.theme]
 language = "en"
+# The Flight Lab branding is a submodule, theme/, from
+# BristolFlightLab/flightlab-zensical-theme, pinned to a tag. Everything in it
+# is copied to the site root, so theme/stylesheets/flightlab.css and
+# theme/assets/brand/ land beside the ones from docs/. A file in docs/ wins
+# over the same path here, which is how a unit overrides one file without
+# forking the theme: docs/assets/brand/ keeps only this unit's own mark.
+#
+# scripts/build_live.py rewrites this path for the filtered build, because
+# custom_dir resolves against the config file's own directory.
+custom_dir = "theme"
 # The mark is a step response: rise, overshoot, settle onto the target. Two
 # colourways of one drawing — red for the browser tab, white for the red header.
 logo = "assets/brand/logo.svg"

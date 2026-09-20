@@ -3,7 +3,7 @@
 # Note: package.json currently takes the Flight Lab Marp theme from a sibling
 # folder (file:../flightlab-marp-template). Before this workflow can run on
 # GitHub, point that dependency at the published theme repository, for
-# example "github:BristolFlightLab/marp-template".
+# example "github:BristolFlightLab/flightlab-marp-template".
 name: Build
 
 on:

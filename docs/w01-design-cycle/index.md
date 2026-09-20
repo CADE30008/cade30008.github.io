@@ -89,28 +89,29 @@ The Quanser laboratory is open access from week 1 to week 6: you choose when to 
 
 ## How you're assessed {#assessment}
 
-One thing counts towards your grade for this half of the unit: **the coursework,
-due on the Thursday of week 11**. That is the *summative* assessment, and it
-comes back with individual written feedback against the marking rubric.
+One piece of work carries your grade for this half of the unit: **the
+coursework, due on the Thursday of week 11**. That is the *summative*
+assessment, and it comes back with individual written feedback against the
+marking rubric.
 
-Everything else is *formative*: it doesn't count, and it exists so that you and
-I find out how you're doing while there's still time to act on it.
+Everything else is *formative*. It doesn't contribute to your grade directly —
+**but it is how the coursework gets built**, so "directly" is doing a lot of
+work in that sentence.
 
-| Through the term | Counts? | What you get back |
+| Through the term | Contributes to your grade | What you get back |
 |---|---|---|
-| The diagnostic, before week 1 | No | Automatic feedback on each question, straight away |
-| The weekly challenge | No | The same, each week |
-| Example sheets | No | Worked solutions, and the next session |
-| The work you do in each session | No | Comments in the room, from me and from each other |
-| The Quanser laboratory | No | Your own measurements, to use in the coursework |
-| Checkpoints, weeks 4, 8 and 9 | No | Automatic checks on what you submit, notes to the whole cohort, and peer review at checkpoint 2 |
-| **Coursework, week 11** | **Yes** | Your mark, with written feedback against the rubric |
+| The diagnostic, before week 1 | Not directly. | Automatic feedback on each question, straight away. |
+| The weekly challenge | Not directly. | The same, each week. |
+| Example sheets | Not directly. | Worked solutions, and the next session. |
+| The work you do in each session | Not directly. | Comments in the room, from me and from each other. |
+| The Quanser laboratory | Your measurements go into the coursework. | Your own data, and help in the room. |
+| Checkpoints, weeks 4, 8 and 9 | They become the paper. | Automatic checks on what you submit, notes to the whole cohort, and peer review at checkpoint 2. |
+| **Coursework, week 11** | **This is the grade.** | Your mark, with written feedback against the rubric. |
 
-**The formative work is how the coursework gets built.** Each checkpoint is a
-draft of part of the final paper, and your decision log becomes its last
-section. Do it as you go and you arrive at week 11 with most of a submission,
-already checked. Skip it and you write the whole thing in the last fortnight,
-alone, with no feedback.
+Each checkpoint is a draft of part of the final paper, and your decision log
+becomes its last section. Do it as you go and you arrive at week 11 with most of
+a submission, already checked. Skip it and you write the whole thing in the last
+fortnight, alone, with no feedback — which is the same work, done harder.
 
 Nothing formative is randomised: everyone gets the same questions, and you're
 welcome to work through them sitting next to each other.

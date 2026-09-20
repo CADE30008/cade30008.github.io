@@ -33,6 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # theme/ is the Flight Lab Zensical theme; without it the site
+          # builds unbranded, and zensical fails on the missing custom_dir.
+          submodules: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
