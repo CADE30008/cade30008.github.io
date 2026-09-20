@@ -78,12 +78,19 @@ obscure Simulink error at eleven at night, when you already understand what your
 model should do, is (mostly) work. Working out why your loop has less phase margin
 than you expected is the gym: the struggle is what _changes you_.
 
-!!! warning ""
-    Dumping materials into an LLM and asking it to do the work for you doesn't reflect why you 
-    or I should be here. It reduces your efforts to button-pushing, and means I have to 
-    mark a load of slop, to which I'll award the marks it deserves.
-    Do the hard stuff, learn and change the way you think, and 
-    show me through your work.
+!!! tip ""
+    **You're here to build judgement, and in time, taste.**
+
+    Judgement is the sense that a plausible answer is wrong, before you can say
+    why. Taste is knowing which of several correct designs is the good one. They
+    are the most valuable things you will leave with, and neither can be handed
+    to you — not by me, and not by a model. They're built by doing difficult
+    things and being changed by them.
+
+    So do the hard part yourself, let it change how you think, and show me that
+    in your work. Work a model produced and nobody examined tends to mark
+    poorly, and not as a punishment: the credit follows the reasoning, and there
+    isn't any.
 
 ## What that means in this unit
 

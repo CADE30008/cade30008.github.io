@@ -177,20 +177,25 @@ pedagogy and content are mine, and I have checked and rewritten all of it.
 
 <!-- handout: ai -->
 
-# Do the hard stuff
+# What you're here to build
 
 <div class="callout">
 
-**Dumping materials into an LLM and asking it to do the work for you doesn't reflect why you or I should be here.** It reduces your efforts to button-pushing, and means I have to mark a load of slop, to which I'll award the marks it deserves.
+**Judgement:** knowing a plausible answer is wrong, before you can say why.
+**Taste:** knowing which of several correct designs is the good one.
 
-**Do the hard stuff, learn and change the way you think, and show me through your work.**
+**Nobody can hand you either — not me, not a model. Do the hard part.**
 
 </div>
 
 <!--
-Say this one in your own voice, and don't soften it. It is the only slide in the
-deck that is a straight instruction. Then move on quickly — the point lands
-better without a discussion.
+Say this one in your own voice. It is the slide that is meant to be
+aspirational rather than cautionary, so give it a beat — taste is a word
+students are almost never offered about engineering, and it lands.
+
+The caution belongs here, spoken, not on the slide: work a model produced and
+nobody examined tends to mark poorly, and not as a punishment - the credit
+follows the reasoning, and there isn't any. Say it once, plainly, then move on.
 -->
 
 ---
