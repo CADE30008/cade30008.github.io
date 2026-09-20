@@ -21,6 +21,7 @@ leaves the rest to defaults.
 
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sys
@@ -28,13 +29,33 @@ from pathlib import Path
 
 import yaml
 
+ROOT = Path(__file__).resolve().parent.parent
+
 # What each numeric answer should be, recomputed rather than trusted.
 CHECKS = {
     ("wn-zeta", 0): lambda ct, np: np.sqrt(25),
     ("wn-zeta", 1): lambda ct, np: 4 / (2 * np.sqrt(25)),
     ("steady-state", 0): lambda ct, np: float(ct.dcgain(ct.tf(3, [1, 2]))),
     ("steady-state-error", 0): lambda ct, np: 1 / (1 + float(ct.dcgain(ct.tf(4, [1, 1])))),
+    # Read back off the same system the figure plots, so the question, the
+    # picture and the answer cannot drift apart: omega_n is where the phase
+    # crosses -90 degrees, and zeta comes from the height of the peak.
+    ("bode-second-order", 0): lambda ct, np: _bode_read(ct, np)[0],
+    ("bode-second-order", 1): lambda ct, np: _bode_read(ct, np)[1],
 }
+
+
+def _bode_read(ct, np) -> tuple[float, float]:
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from models.diagnostic_bode import WN, ZETA
+    G = ct.tf([WN**2], [1, 2 * ZETA * WN, WN**2])
+    w = np.geomspace(0.2, 60, 20000)
+    mag, ph, w = ct.frequency_response(G, w)
+    wn = float(w[np.argmin(abs(ph * 180 / np.pi + 90))])       # phase crossing
+    mr = float(mag.max())                                       # resonant peak
+    zeta = float(np.roots([4, -4, 1 / mr**2]).min() ** 0.5)     # Mr = 1/(2 z sqrt(1-z^2))
+    return round(wn, 3), round(zeta, 3)
 
 
 def check_feedback(quiz: dict) -> list[str]:
@@ -171,6 +192,29 @@ def number_parts(q: dict) -> list[dict]:
     return parts
 
 
+def statement_html(q: dict) -> str:
+    """The question text, with its figure embedded if it has one.
+
+    The image is base64'd into the .exam rather than linked. A link would need
+    somewhere to host it, would break the moment that moved, and would leave
+    the quiz depending on something outside the file we hand over. Embedding
+    costs roughly 60 kB per figure, which against a 30 kB exam is a lot
+    proportionally and nothing absolutely.
+    """
+    out = html(q["statement"])
+    if not q.get("image"):
+        return out
+    src = ROOT / q["image"]
+    if not src.exists():
+        raise SystemExit(f"{q['id']}: image {q['image']} not found")
+    b64 = base64.b64encode(src.read_bytes()).decode()
+    alt = q.get("image_alt", "")
+    if not alt:
+        raise SystemExit(f"{q['id']}: an image needs image_alt, or it is unusable to a screen reader")
+    return (out + f'<p><img src="data:image/png;base64,{b64}" alt="{alt}" '
+                  f'style="max-width:100%;height:auto"></p>')
+
+
 def advice_html(q: dict) -> str:
     """The worked route, shown to everyone.
 
@@ -194,7 +238,7 @@ def question(q: dict) -> dict:
         "name": q["name"],
         "tags": [],
         "metadata": {"description": html(q.get("checks", "")), "licence": "None specified"},
-        "statement": html(q["statement"]),
+        "statement": statement_html(q),
         "advice": advice_html(q),
         "rulesets": {},
         "extensions": [],

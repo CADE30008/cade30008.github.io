@@ -16,10 +16,11 @@ recommended up front and useful at any point in the unit.
        share — activities are done in pairs and threes.
 
 !!! tip "Recommended, and available whenever you want them"
-    The **[Onramp courses](#onramps)** (about 4½ hours in total) and the
-    **[diagnostic quiz](#diagnostic)** (about 20 minutes) are the best
-    preparation for this unit, and doing them before you start is a good use of
-    the time.
+    The **[Onramp courses](#onramps)** and the **[diagnostic quiz](#diagnostic)**
+    (about 20 minutes) are the best preparation for this unit. Of the three
+    Onramps, the 30-minute **Control Design** one is the one worth your time —
+    the other two are largely revision if you have used MATLAB and Simulink
+    before.
 
     **They are not a gate.** Each Onramp is most useful just before the part of
     the unit that leans on it, and the diagnostic is as useful once you have
@@ -186,18 +187,21 @@ Three free, self-paced courses that run in your browser and check your work as
 you go. Take them in this order. You'll need a laptop or desktop computer, as
 MathWorks online courses don't run on tablets or phones.
 
-**About 4½ hours for all three**, and they stop and resume as often as you
-like — progress is saved. Doing them up front is the best preparation there is
-for this unit; taking each one as the unit reaches it works too.
+**Most of you have used MATLAB and Simulink before, including for control**, so
+these three are not equally useful to you.
 
-| Course | Time | Most useful | Why |
-|---|---|---|---|
-| MATLAB Onramp | 2 h | Early | The first session has you running a script and fitting a model. |
-| Simulink Onramp | 2 h | Early | The rig model and the laboratory are both Simulink. |
-| Control Design Onramp | 30 min | Before the PID week. | It covers tuning a feedback controller, which is that week's subject. |
+| Course | Time | Worth it? |
+|---|---|---|
+| **Control Design Onramp with Simulink** | 30 min | **Yes — this is the one.** It covers designing a feedback controller, which is what this unit builds on. |
+| MATLAB Onramp | 2 h | Only if you haven't used MATLAB, or you'd like the practice. |
+| Simulink Onramp | 2 h | The same. Worth it before you meet the laboratory rig if blocks are unfamiliar. |
 
-If you have done none of them, come to the lecture anyway. You will be able to
-follow it, and you will work in a pair for the parts that need software.
+They stop and resume as often as you like, and progress is saved.
+
+**Already done one, in a previous year or another unit?** Upload that
+certificate — an older version of the course counts. And if you have done none
+of them, come to the session anyway: you will be able to follow it, and you will
+work in a pair for the parts that need software.
 
 1. [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted){ .go }:
    the MATLAB language and environment.

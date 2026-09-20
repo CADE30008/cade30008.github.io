@@ -46,17 +46,39 @@ Items, in this order:
 |---|---|---|---|
 | 1 | Link | **Start here: Preparing for Control**. | `https://cade30008.github.io/preparing/` — Description: "What to install, how to check your device, and what to do before week 1.". |
 | 2 | Link | **Check your device** | `https://cade30008.github.io/preparing/#check` — Description: "Run the check in your browser or on your computer. It should report a phase margin of 43.21°.". |
-| 3 | Link | **MATLAB Onramp** | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "Most useful before week 1, if you have time. Sign in with your University email address.". |
-| 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "Most useful before or during week 1: the rig model and the laboratory are Simulink.". |
-| 5 | Link | **Control Design Onramp with Simulink**. | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` — Description: "Most useful around week 3, when we tune controllers properly.". |
-| 6 | Assignment | **Onramp certificates** | See below |
-| 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `diagnostics/prerequisites.md` |
-| 8 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
+| 3 | Text | **About the Onramp courses** | See the wording below. Goes *above* the three links. |
+| 4 | Link | **Control Design Onramp with Simulink** — *recommended* | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` — Description: "30 minutes, and the one most worth doing. Designing a feedback controller in Simulink.". |
+| 5 | Link | **MATLAB Onramp** — *if you want the practice* | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "2 hours. Sign in with your University email address.". |
+| 6 | Link | **Simulink Onramp** — *if you want the practice* | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "2 hours. Blocks, and simulating models built from them.". |
+| 7 | Assignment | **Onramp certificates** | See below |
+| 8 | Numbas activity | **Diagnostic quiz** | See below. Questions in `diagnostics/prerequisites.md` |
+| 9 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
 
-### Item 6: Onramp certificates (assignment)
+### Item 3: About the Onramp courses (text)
+
+Most of this cohort has already used MATLAB and Simulink for control work, so
+the three courses are not equally useful. Say so, rather than listing three
+things of which two are revision.
+
+> **Text, to paste:** "Most of you have used MATLAB and Simulink before,
+> including for control. So of the three Onramp courses, the one worth your
+> time is **Control Design Onramp with Simulink** — about 30 minutes, and it
+> covers designing a feedback controller, which is what we build on.
+>
+> The MATLAB and Simulink Onramps are each about two hours. If you've done them
+> before, you don't need to repeat them. If you haven't, or you'd like the
+> practice, they're good and they're free.
+>
+> **Already done any of these, in this unit or another?** Upload that
+> certificate — an older version is fine. Nothing here contributes to your
+> grade; it tells me how the cohort is placed so I can pitch the software side
+> of each session accordingly."
+
+### Item 7: Onramp certificates (assignment)
 
 - **Instructions, to paste:** "If you finish an Onramp course, upload its
-  certificate here. MATLAB Academy gives you one as a PDF when you finish.
+  certificate here — and if you already hold one from a previous year or
+  another unit, upload that: an older version of the course counts. MATLAB Academy gives you one as a PDF when you finish.
   There's no deadline and it isn't marked — it tells me how the cohort is
   placed, so I can pitch the software side of each session accordingly. Partial
   is fine and useful: upload one, or two, as you go."
@@ -71,7 +93,7 @@ Items, in this order:
 LTI link instead, which report completion automatically, once IT have set up
 the integration (PEDAGOGY.md, "Preparation before week 1").
 
-### Item 7: Diagnostic quiz (Numbas)
+### Item 8: Diagnostic quiz (Numbas)
 
 - **Description, to paste:** "Ten questions on the mathematics and control this
   unit builds on, about 20 minutes. It's formative: it doesn't contribute to

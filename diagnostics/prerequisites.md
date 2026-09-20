@@ -66,7 +66,7 @@ this list; the same source builds the `.exam` file.
 <!-- questions:start -->
 ### 1. From an equation to a transfer function
 
-A system obeys \( \dot y + 2y = u \), starting from rest. What is its transfer function \( Y(s)/U(s) \)?
+A system obeys \( \dot y + 2y = u \), starting from rest, where \( u \) is the input and \( y \) the output. What is its transfer function \( Y(s)/U(s) \)?
 
 - \( \dfrac{1}{s+2} \) **← correct**
     <br>*Shown if chosen:* Right. Every term transforms, the \( s \) stays with \( Y \) on the left, and what's left on top is the coefficient of \( u \).
@@ -91,7 +91,7 @@ the unit, so it is worth being quick at.
 
 ### 2. Poles and what they mean
 
-\( G(s) = \dfrac{5}{s^2 + 2s + 5} \) has poles at \( -1 \pm 2j \). Its step response is:
+A system has transfer function \( G(s) = \dfrac{5}{s^2 + 2s + 5} \), whose poles are at \( -1 \pm 2j \). Its step response is:
 
 - unstable
     <br>*Shown if chosen:* Stability is decided by the *real* part, and here it is \( -1 \). A complex pole isn't unstable in itself — it's what makes a response oscillate rather than what makes it grow.
@@ -117,7 +117,7 @@ four seconds.
 
 ### 3. Natural frequency and damping ratio
 
-For \( G(s) = \dfrac{25}{s^2 + 4s + 25} \), give the natural frequency \( \omega_\mathrm{n} \), in rad/s, and the damping ratio \( \zeta \).
+A system has transfer function \( G(s) = \dfrac{25}{s^2 + 4s + 25} \). Comparing it with the standard second-order form \( G(s) = \dfrac{\omega_\mathrm{n}^2}{s^2 + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^2} \), give the natural frequency \( \omega_\mathrm{n} \), in rad/s, and the damping ratio \( \zeta \).
 
 - \( \omega_\mathrm{n} \) (rad/s): **5** (tolerance ±0.01)
 - \( \zeta \): **0.4** (tolerance ±0.01)
@@ -143,7 +143,7 @@ poles this denominator has.
 
 ### 4. Overshoot
 
-A second-order system with \( \zeta = 0.4 \) is given a step. Its percentage overshoot is closest to:
+A second-order system with damping ratio \( \zeta = 0.4 \) is given a step input. Its overshoot — how far the response goes past its final value, as a percentage of it — is closest to:
 
 - 5%
     <br>*Shown if chosen:* That's roughly \( \zeta = 0.7 \) — the value often quoted as a good compromise, so it is an easy one to reach for. This system is less damped than that.
@@ -174,7 +174,7 @@ watching closely once we get to it.
 
 ### 5. Steady state
 
-What does the step response of \( G(s) = \dfrac{3}{s+2} \) settle to?
+A system has transfer function \( G(s) = \dfrac{3}{s+2} \). What value does its response to a unit step settle to?
 
 - final value: **1.5** (tolerance ±0.01)
 - *Common error* 3: you took the numerator alone. Setting \( s = 0 \) leaves the denominator's constant term too, so it's \( 3/2 \), not 3.
@@ -199,7 +199,7 @@ poles are in the left half plane first — here the single pole is at
 
 ### 6. Closing the loop
 
-A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop. The closed-loop transfer function from reference to output is:
+A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop, with reference \( R(s) \) and output \( Y(s) \). The closed-loop transfer function \( T(s) = Y(s)/R(s) \) is:
 
 - \( \dfrac{4}{s^2 + s + 4} \) **← correct**
     <br>*Shown if chosen:* Right. \( T = G/(1+G) \), then multiply top and bottom by \( s(s+1) \) to clear the fraction within a fraction.
@@ -229,7 +229,7 @@ far less damped still.
 
 ### 7. Steady-state error
 
-The same unity feedback loop, but with \( G(s) = \dfrac{4}{s+1} \). After a unit step in the reference, what error remains?
+The same unity negative feedback loop, but with a plant \( G(s) = \dfrac{4}{s+1} \). After a unit step in the reference \( R(s) \), what steady-state error \( e_\mathrm{ss} \) remains?
 
 - steady-state error: **0.2** (tolerance ±0.01)
 - *Common error* 0.25: you used \( 1/G(0) \). The formula is \( 1/(1+G(0)) \), and that extra 1 is the reference itself — the error is what the reference asks for minus what the loop delivers.
@@ -255,7 +255,7 @@ of this unit.
 
 ### 8. Reading a Bode plot
 
-For \( G(s) = \dfrac{10}{s+10} \) at \( \omega = 10 \) rad/s, what are the magnitude, in decibels, and the phase?
+A system has transfer function \( G(s) = \dfrac{10}{s+10} \). At a frequency \( \omega = 10 \) rad/s, what are the magnitude of \( G(j\omega) \), in decibels, and its phase?
 
 - 0 dB, 0°
     <br>*Shown if chosen:* Those are the low-frequency values, well *below* the corner. At \( \omega = 10 \) you are standing exactly on the corner, where the asymptotes meet and neither one is accurate.
@@ -284,7 +284,7 @@ unit.** Every lag you meet in weeks 4 and 8 is built from it.
 
 ### 9. Decibels
 
-A gain of 20 dB is a factor of:
+A gain is quoted as 20 dB. As a plain multiplying factor, that is:
 
 - 2
     <br>*Shown if chosen:* That's about 6 dB. The two worth knowing are 6 dB ≈ ×2 and 20 dB = ×10 exactly.
@@ -313,9 +313,39 @@ The factor-of-two one is the one that slips. And note the **20** rather
 than **10**: the 10 version is for *power*, and power goes as amplitude
 squared, which is exactly where the factor of two in front comes from.
 
-### 10. What feedback is for
+### 10. Reading a second-order system off its Bode plot
 
-Which of these does negative feedback <em>not</em> do, on its own?
+Below is the Bode plot of a second-order system \( G(s) = \dfrac{\omega_\mathrm{n}^2}{s^2 + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^2} \), where \( \omega_\mathrm{n} \) is the natural frequency in rad/s and \( \zeta \) the damping ratio. Read \( \omega_\mathrm{n} \) and estimate \( \zeta \).
+
+- \( \omega_\mathrm{n} \) (rad/s): **5** (tolerance ±0.4)
+- \( \zeta \): **0.2** (tolerance ±0.06)
+- *Common error* \( \omega_\mathrm{n} \approx 4.8 \): you read the frequency of the **peak**. That is the resonant frequency, \( \omega_\mathrm{r} = \omega_\mathrm{n}\sqrt{1 - 2\zeta^2} \), which sits a little *below* \( \omega_\mathrm{n} \) and moves as the damping changes. The phase curve is the reliable one.
+- *Common error* \( \zeta \approx 0.7 \): that would have no peak at all. Any peak in the magnitude means \( \zeta < 0.707 \); the taller the peak, the lighter the damping.
+- *Common error* \( \zeta \approx 0.1 \): the right idea but too light. A peak of 8 dB is a factor of about 2.5; \( \zeta = 0.1 \) would give about 14 dB, which is a factor of 5.
+
+*Checks:* the link between the time-domain parameters and the frequency response, and that the resonant peak is not at \( \omega_\mathrm{n} \)
+
+*Worked route, shown to everyone:*
+
+Two readings, and the second one is the point of the question.
+
+- **\( \omega_\mathrm{n} \) comes from the phase.** For any second-order system of this form the phase passes through exactly \( -90^\circ \) at \( \omega = \omega_\mathrm{n} \), whatever the damping. Here that is **5 rad/s**.
+- **\( \zeta \) comes from the height of the peak.** The peak is about 8 dB, which is a linear factor of \( M_\mathrm{r} = 10^{8/20} \approx 2.5 \), and \( M_\mathrm{r} = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}} \), giving \( \zeta \approx 0.2 \).
+
+**The peak is not at \( \omega_\mathrm{n} \).** It sits at
+\( \omega_\mathrm{r} = \omega_\mathrm{n}\sqrt{1 - 2\zeta^2} \), which here is
+4.8 rad/s — close enough to be easy to mistake, and far enough to matter.
+The two coincide only when \( \zeta = 0 \), and above \( \zeta = 0.707 \)
+there is no peak at all.
+
+If you would rather not remember the \( M_\mathrm{r} \) formula, the
+qualitative version gets you most of the way: a peak means light damping,
+a big peak means very light damping, and no peak means \( \zeta \)
+at or above about 0.7.
+
+### 11. What feedback is for
+
+Which of these does negative feedback <em>not</em> do, on its own — that is, with a sensor, a controller and a plant, but nothing else added?
 
 - Reduce the effect of disturbances on the output
     <br>*Shown if chosen:* It does do this — arguably the main reason feedback exists. A disturbance shows up in the measurement, the error changes, and the controller pushes back.

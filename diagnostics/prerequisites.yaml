@@ -38,8 +38,9 @@ questions:
     name: From an equation to a transfer function
     checks: Laplace transform of a derivative with zero initial conditions
     statement: >-
-      A system obeys \( \dot y + 2y = u \), starting from rest. What is its
-      transfer function \( Y(s)/U(s) \)?
+      A system obeys \( \dot y + 2y = u \), starting from rest, where \( u \)
+      is the input and \( y \) the output. What is its transfer function
+      \( Y(s)/U(s) \)?
     type: choice
     choices:
       - text: "\\( \\dfrac{1}{s+2} \\)"
@@ -75,8 +76,8 @@ questions:
     name: Poles and what they mean
     checks: reading stability and oscillation from pole locations
     statement: >-
-      \( G(s) = \dfrac{5}{s^2 + 2s + 5} \) has poles at \( -1 \pm 2j \). Its step
-      response is:
+      A system has transfer function \( G(s) = \dfrac{5}{s^2 + 2s + 5} \), whose
+      poles are at \( -1 \pm 2j \). Its step response is:
     type: choice
     choices:
       - text: "unstable"
@@ -112,8 +113,11 @@ questions:
     name: Natural frequency and damping ratio
     checks: the standard second-order form
     statement: >-
-      For \( G(s) = \dfrac{25}{s^2 + 4s + 25} \), give the natural frequency
-      \( \omega_\mathrm{n} \), in rad/s, and the damping ratio \( \zeta \).
+      A system has transfer function \( G(s) = \dfrac{25}{s^2 + 4s + 25} \).
+      Comparing it with the standard second-order form
+      \( G(s) = \dfrac{\omega_\mathrm{n}^2}{s^2 + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^2} \),
+      give the natural frequency \( \omega_\mathrm{n} \), in rad/s, and the
+      damping ratio \( \zeta \).
     type: numbers
     answers:
       - {label: "\\( \\omega_\\mathrm{n} \\) (rad/s)", value: 5, tolerance: 0.01}
@@ -152,8 +156,9 @@ questions:
     name: Overshoot
     checks: the link between damping and overshoot
     statement: >-
-      A second-order system with \( \zeta = 0.4 \) is given a step. Its
-      percentage overshoot is closest to:
+      A second-order system with damping ratio \( \zeta = 0.4 \) is given a
+      step input. Its overshoot — how far the response goes past its final
+      value, as a percentage of it — is closest to:
     type: choice
     choices:
       - text: "5%"
@@ -194,7 +199,8 @@ questions:
     name: Steady state
     checks: the final value theorem, or DC gain
     statement: >-
-      What does the step response of \( G(s) = \dfrac{3}{s+2} \) settle to?
+      A system has transfer function \( G(s) = \dfrac{3}{s+2} \). What value
+      does its response to a unit step settle to?
     type: numbers
     answers:
       - {label: "final value", value: 1.5, tolerance: 0.01}
@@ -228,8 +234,9 @@ questions:
     name: Closing the loop
     checks: "\\( G/(1+G) \\), the step everything in the unit builds on"
     statement: >-
-      A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback
-      loop. The closed-loop transfer function from reference to output is:
+      A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative
+      feedback loop, with reference \( R(s) \) and output \( Y(s) \). The
+      closed-loop transfer function \( T(s) = Y(s)/R(s) \) is:
     type: choice
     choices:
       - text: "\\( \\dfrac{4}{s^2 + s + 4} \\)"
@@ -272,8 +279,9 @@ questions:
     name: Steady-state error
     checks: steady-state error of a type 0 loop, and why integral action exists
     statement: >-
-      The same unity feedback loop, but with \( G(s) = \dfrac{4}{s+1} \). After a
-      unit step in the reference, what error remains?
+      The same unity negative feedback loop, but with a plant
+      \( G(s) = \dfrac{4}{s+1} \). After a unit step in the reference
+      \( R(s) \), what steady-state error \( e_\mathrm{ss} \) remains?
     type: numbers
     answers:
       - {label: "steady-state error", value: 0.2, tolerance: 0.01}
@@ -309,8 +317,9 @@ questions:
     name: Reading a Bode plot
     checks: the corner frequency of a first-order lag
     statement: >-
-      For \( G(s) = \dfrac{10}{s+10} \) at \( \omega = 10 \) rad/s, what are the
-      magnitude, in decibels, and the phase?
+      A system has transfer function \( G(s) = \dfrac{10}{s+10} \). At a
+      frequency \( \omega = 10 \) rad/s, what are the magnitude of
+      \( G(j\omega) \), in decibels, and its phase?
     type: choice
     choices:
       - text: "0 dB, 0°"
@@ -348,7 +357,8 @@ questions:
   - id: decibels
     name: Decibels
     checks: the decibel scale, used on every Bode plot in the unit
-    statement: "A gain of 20 dB is a factor of:"
+    statement: >-
+      A gain is quoted as 20 dB. As a plain multiplying factor, that is:
     type: choice
     choices:
       - text: "2"
@@ -385,10 +395,65 @@ questions:
       than **10**: the 10 version is for *power*, and power goes as amplitude
       squared, which is exactly where the factor of two in front comes from.
 
+  - id: bode-second-order
+    name: Reading a second-order system off its Bode plot
+    checks: "the link between the time-domain parameters and the frequency response, and that the resonant peak is not at \\( \\omega_\\mathrm{n} \\)"
+    statement: >-
+      Below is the Bode plot of a second-order system
+      \( G(s) = \dfrac{\omega_\mathrm{n}^2}{s^2 + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^2} \),
+      where \( \omega_\mathrm{n} \) is the natural frequency in rad/s and
+      \( \zeta \) the damping ratio. Read \( \omega_\mathrm{n} \) and estimate
+      \( \zeta \).
+    image: diagnostics/figures/second-order-bode.png
+    image_alt: >-
+      Bode plot of a second-order system. The magnitude is flat at 0 decibels at
+      low frequency, rises to a peak of about 8 decibels near 5 radians per
+      second, then falls at 40 decibels per decade. The phase falls from 0
+      degrees through minus 90 degrees at 5 radians per second towards minus 180
+      degrees.
+    type: numbers
+    answers:
+      - {label: "\\( \\omega_\\mathrm{n} \\) (rad/s)", value: 5, tolerance: 0.4}
+      - {label: "\\( \\zeta \\)", value: 0.2, tolerance: 0.06}
+    common_errors:
+      - value: "\\( \\omega_\\mathrm{n} \\approx 4.8 \\)"
+        why: >-
+          you read the frequency of the **peak**. That is the resonant
+          frequency, \( \omega_\mathrm{r} = \omega_\mathrm{n}\sqrt{1 - 2\zeta^2} \),
+          which sits a little *below* \( \omega_\mathrm{n} \) and moves as the
+          damping changes. The phase curve is the reliable one.
+      - value: "\\( \\zeta \\approx 0.7 \\)"
+        why: >-
+          that would have no peak at all. Any peak in the magnitude means
+          \( \zeta < 0.707 \); the taller the peak, the lighter the damping.
+      - value: "\\( \\zeta \\approx 0.1 \\)"
+        why: >-
+          the right idea but too light. A peak of 8 dB is a factor of about 2.5;
+          \( \zeta = 0.1 \) would give about 14 dB, which is a factor of 5.
+    advice: |
+      Two readings, and the second one is the point of the question.
+
+      - **\( \omega_\mathrm{n} \) comes from the phase.** For any second-order system of this form the phase passes through exactly \( -90^\circ \) at \( \omega = \omega_\mathrm{n} \), whatever the damping. Here that is **5 rad/s**.
+      - **\( \zeta \) comes from the height of the peak.** The peak is about 8 dB, which is a linear factor of \( M_\mathrm{r} = 10^{8/20} \approx 2.5 \), and \( M_\mathrm{r} = \dfrac{1}{2\zeta\sqrt{1-\zeta^2}} \), giving \( \zeta \approx 0.2 \).
+
+      **The peak is not at \( \omega_\mathrm{n} \).** It sits at
+      \( \omega_\mathrm{r} = \omega_\mathrm{n}\sqrt{1 - 2\zeta^2} \), which here is
+      4.8 rad/s — close enough to be easy to mistake, and far enough to matter.
+      The two coincide only when \( \zeta = 0 \), and above \( \zeta = 0.707 \)
+      there is no peak at all.
+
+      If you would rather not remember the \( M_\mathrm{r} \) formula, the
+      qualitative version gets you most of the way: a peak means light damping,
+      a big peak means very light damping, and no peak means \( \zeta \)
+      at or above about 0.7.
+
+
   - id: what-feedback-does
     name: What feedback is for
     checks: the unit's first threshold concept — feedback is a trade, not a fix
-    statement: "Which of these does negative feedback <em>not</em> do, on its own?"
+    statement: >-
+      Which of these does negative feedback <em>not</em> do, on its own —
+      that is, with a sensor, a controller and a plant, but nothing else added?
     type: choice
     choices:
       - text: "Reduce the effect of disturbances on the output"

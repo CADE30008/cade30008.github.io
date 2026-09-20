@@ -97,6 +97,12 @@ than you expected is the gym: the struggle is what _changes you_.
 - **You may use AI**, including the AI and agentic tools in MATLAB and Simulink,
   in the ways the coursework brief lists. The coursework is in the University's
   [Category 3, "Selective"](https://www.bristol.ac.uk/students/support/academic-advice/using-artificial-intelligence/).
+- **Check the category every time; it is set per assessment, not per subject.**
+  You will have met Category 2, "Minimal", on other units — including ones in
+  this same field — where AI is permitted only for limited, declared purposes.
+  Category 3 is different, and so is Category 1. Carrying last year's rules
+  forward is one of the commonest ways a student gets this wrong while trying to
+  do the right thing, so read the brief rather than assuming.
 - **You won't need it.** You can do everything in this unit, to the highest
   standard, without any AI tool.
 - **You are responsible for everything you submit**, including anything a tool
