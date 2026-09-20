@@ -57,3 +57,15 @@ Every run sheet has these headings, in this order.
 - **Check the chain.** Session *n*'s Cliffhanger and session *n* + 1's Hook
   should describe the same gap. If they don't, one of the two sessions has
   moved and nobody updated the other.
+
+## The recurring processes
+
+| File | When | What it's for |
+|---|---|---|
+| [weekly-review.md](weekly-review.md) | Straight after each lecture, then Sunday. | Five lines on what went wrong while it's still obvious, then ten minutes to fix what's cheap and park what isn't. |
+| [announcements.md](announcements.md) | Sunday evening | What to post on Blackboard, ready to paste. |
+| [annual-update.md](annual-update.md) | Before each cohort | Everything with a date or a number in it, then a content review built from the term's weekly notes. |
+
+The three are a loop: the weekly review feeds the annual update, and the annual
+update resets the announcements. Skipping the weekly one doesn't cost anything
+until August, which is exactly why it gets skipped.

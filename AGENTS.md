@@ -104,14 +104,24 @@ So the life of a week is:
 - **Maths** uses `$...$` inline and `$$...$$` on its own lines, in both handouts and slides. Where possible, a slide's equation should be copied from the handout.
 - **Code** appears in MATLAB and Python tabs, MATLAB first, using `=== "MATLAB"` then `=== "Python"`, each including a file from `code/`. The same order applies wherever the two appear side by side, including the Preparing for Control page.
 
+### Keep the site evergreen
+
+The public site should be usable by someone who is **not in this year's cohort**.
+So, as a direction of travel:
+
+- **The site holds what is true about control** — handouts, worked examples, solutions, applets, the glossary, the textbook mapping.
+- **Blackboard holds what is true about this cohort** — dates, rooms, deadlines, who is covering which week, announcements, submission links.
+
+The term map, the week-by-week schedule and the workload table are still on the site and generated from `curriculum/term.yaml`. That is deliberate for now, and the plan to move them is recorded in [teaching/annual-update.md](teaching/annual-update.md) under "Evergreen". **In the meantime, don't add new date-linked content to the site.** Write "before you start" rather than "by Tuesday", and "the PID week" rather than "week 3" wherever the sense survives it.
+
 ### Full stops
 
 **A bullet or table cell that is a sentence or a clause ends with a full stop. A label doesn't.**
 
 | Write | Not |
 |---|---|
-| - Feedback acts on what the sensor says, noise included. | - Feedback acts on what the sensor says, noise included |
-| \| The lecture, on Tuesday \| 2 \| | \| The lecture, on Tuesday. \| 2. \| |
+| - Feedback acts on what the sensor says, noise included. | - Feedback acts on what the sensor says, noise included. |
+| \| The lecture, on Tuesday \.| 2 \| | \| The lecture, on Tuesday. \.| 2. \| |
 
 The cases that count as labels, and take no stop:
 

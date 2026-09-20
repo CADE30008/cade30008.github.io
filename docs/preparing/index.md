@@ -1,34 +1,32 @@
 ---
 title: Preparing for Control
-description: Check that your device can run the course code before week 1, and work through the MathWorks Onramp courses and the diagnostic quiz whenever suits you.
+description: Check that your device can run the course code, and work through the MathWorks Onramp courses and the diagnostic quiz — recommended before you start, and useful at any point in the unit.
 ---
 
 # Preparing for Control
 
-There is one thing worth doing before the first lecture, and it takes a few
-minutes. The rest of this page is here for whenever you need it.
+One thing here takes a few minutes and is worth doing early. The rest is
+recommended up front and useful at any point in the unit.
 
-!!! abstract "Before the first lecture"
+!!! abstract "Start here"
     1. **[Check your device](#check)** runs the course code, in your browser or
        on your computer. A few minutes, and it means lecture time goes on
        control rather than on installing software.
-    2. **Bring a laptop** if you have one. If you don't, you'll share — every
-       activity is done in pairs and threes.
+    2. **Bring a laptop** to lectures if you have one. If you don't, you'll
+       share — activities are done in pairs and threes.
 
-!!! tip "And these, whenever you get to them"
-    The **[Onramp courses](#onramps)** and the **[diagnostic quiz](#diagnostic)**
-    are genuinely useful, and if you have time before the unit starts they are a
-    good use of it. **But they are not a gate.** We are close enough to the
-    first lecture that asking for several hours of preparation would be asking
-    for something most of you can't give.
+!!! tip "Recommended, and available whenever you want them"
+    The **[Onramp courses](#onramps)** (about 4½ hours in total) and the
+    **[diagnostic quiz](#diagnostic)** (about 20 minutes) are the best
+    preparation for this unit, and doing them before you start is a good use of
+    the time.
 
-    So use them as you need them. Each Onramp is most useful just before the
-    week that leans on it, and the diagnostic is as good in week 3, when you
-    have found the gap yourself, as it is now. Nothing in week 1 assumes you
-    have done either.
+    **They are not a gate.** Each Onramp is most useful just before the part of
+    the unit that leans on it, and the diagnostic is as useful once you have
+    found a gap yourself as it is at the outset. Nothing in the unit assumes you
+    have done either, so reach for them when they help.
 
-    On Blackboard, the **Before week 1** module lists them, with a circle beside
-    each to tick off as you go.
+    Blackboard lists them too, with a circle beside each to tick off as you go.
 
 !!! info "Links tell you what a click does"
     Across this site, a link carries a small marker saying where it goes.
@@ -179,8 +177,8 @@ and the people who fix those are better at it than I am:
   own machine. Times and places are on the IT Services pages.
 
 Take the exact error message with you. If you can't get it working before the
-first lecture, come anyway: you'll work in a pair, and nothing in week 1 depends
-on your own machine.
+first lecture, come anyway: you'll work in a pair, and no session depends on
+your own machine.
 
 ## MathWorks Onramp courses {#onramps}
 
@@ -188,28 +186,18 @@ Three free, self-paced courses that run in your browser and check your work as
 you go. Take them in this order. You'll need a laptop or desktop computer, as
 MathWorks online courses don't run on tablets or phones.
 
-**Take them when the unit reaches them, if that suits you better.** Each course
-page shows an estimated time; together they are more than one evening's work,
-which is why they are not a prerequisite for a unit starting this week. They
-stop and resume as often as you like, and progress is saved.
+**About 4½ hours for all three**, and they stop and resume as often as you
+like — progress is saved. Doing them up front is the best preparation there is
+for this unit; taking each one as the unit reaches it works too.
 
-| Course | Most useful | Why |
-|---|---|---|
-| MATLAB Onramp | Before week 1, if you can | Week 1 has you running a script and fitting a model. |
-| Simulink Onramp | Before week 1 or during it | Week 1's rig model and the laboratory are Simulink. |
-| Control Design Onramp | Around week 3 | It covers tuning a feedback controller, which is week 3's subject. |
+| Course | Time | Most useful | Why |
+|---|---|---|---|
+| MATLAB Onramp | 2 h | Early | The first session has you running a script and fitting a model. |
+| Simulink Onramp | 2 h | Early | The rig model and the laboratory are both Simulink. |
+| Control Design Onramp | 30 min | Before the PID week. | It covers tuning a feedback controller, which is that week's subject. |
 
-If you have done none of them by Tuesday, come anyway. You will be able to
-follow week 1, and you will work in a pair for the parts that need software.
-
-<!-- in-progress:start -->
-!!! note "For Steve"
-    MathWorks renders the per-course time estimates in the browser, so they
-    aren't quotable from the page source. Open each course while signed in, read
-    the estimate, and put the three numbers and a total in the paragraph above —
-    "about seven hours in total" is far more useful to a student than "more than
-    one evening's work".
-<!-- in-progress:end -->
+If you have done none of them, come to the lecture anyway. You will be able to
+follow it, and you will work in a pair for the parts that need software.
 
 1. [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted){ .go }:
    the MATLAB language and environment.
@@ -222,8 +210,8 @@ Sign in with the MathWorks account linked to your University email address.
 
 **If you finish one, upload the certificate.** MATLAB Academy gives you a
 certificate of completion; download it as a PDF and put it in the **Onramp
-certificates** assignment in Blackboard's **Before week 1** module. There is no
-deadline, and it doesn't contribute to your grade — it tells me how the cohort
+certificates** assignment on Blackboard. There is no deadline, and it doesn't
+contribute to your grade — it tells me how the cohort
 is placed, so I can pitch the software side of each session accordingly. Partial
 is fine and useful: upload one, or two, as you go.
 
@@ -241,11 +229,11 @@ Everyone gets the same questions. Do it without looking things up — a flatteri
 score helps nobody — though you're welcome to sit with someone else and talk it
 through.
 
-You'll find it in the **Before week 1** module on Blackboard. It opens in
-Numbas, and marks and gives feedback on each answer as you go.
+You'll find it on Blackboard. It opens in Numbas, and marks and gives feedback
+on each answer as you go.
 
-**There's no deadline, and it stays open all term.** Sitting it now tells you
-what to brush up before we start. Sitting it in week 3, when something hasn't
-landed and you want to know whether the gap is in this unit or in last year's,
-is just as good a use of it — and the feedback on each question is written to
-be read either way.
+**There's no deadline, and it stays open all term.** Sitting it at the start
+tells you what to brush up before you begin. Sitting it later, when something
+hasn't landed and you want to know whether the gap is in this unit or in last
+year's, is just as good a use of it — and the feedback on each question is
+written to be read either way.

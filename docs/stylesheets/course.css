@@ -125,57 +125,21 @@
   }
 }
 
-/* ---------- Site mark ---------- */
+/* ---------- This unit's mark ---------- */
 
-/* The course mark is a step response: rise, overshoot, settle onto the target.
-   It is the browser favicon (assets/brand/favicon.svg) and the Home nav icon.
-   The header logo slot is not available: flightlab.css fills it with the
-   University wordmark, which stays as it is. Here the mark replaces the stock
-   plane icon on the Home entry, as a mask so it follows the nav's own colour in
-   both schemes. Keep the path in step with assets/brand/favicon.svg. */
+/* A step response: rise, overshoot, settle onto the target. The theme provides
+   the mechanism for putting a mark beside Home; the drawing is ours, because it
+   means this course and not Flight Lab generally. Keep it in step with
+   assets/brand/favicon.svg, which is the same path.
+
+   Everything else that was here - the footer's colour, sizing and focus ring -
+   now lives in the theme. Nothing brand-level should be defined locally again:
+   if a rule would suit another unit, it belongs upstream. */
+:root {
+  --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
 .md-nav__link svg.lucide-plane {
   display: none;
-}
-.md-nav__link:has(svg.lucide-plane)::before {
-  content: "";
-  flex-shrink: 0;
-  width: 1.2em;
-  height: 1.2em;
-  margin-right: 0.3em;
-  background-color: currentColor;
-  mask: var(--fl-mark) no-repeat center / contain;
-  -webkit-mask: var(--fl-mark) no-repeat center / contain;
-}
-:root {
-  --fl-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-
-/* ---------- Footer: what the theme doesn't do ---------- */
-
-/* Colour and underline on the footer band moved to the theme in v2.0.1, using
-   `html .md-footer-meta...` to beat Zensical's own rule. The copies that used
-   to live here were then dead - lower specificity, silently overridden - and a
-   dead rule is worse than no rule, because the next person edits it and sees
-   nothing change. Removed.
-
-   These two are still ours, because the theme doesn't set them. The `html`
-   prefix is not decoration: it matches the theme's specificity so these cannot
-   be outspecified in turn. If either becomes generally useful, move it to the
-   theme rather than copying it into the next unit. */
-
-/* Material's copyright line is small enough to be hard work at the foot of a
-   long page. */
-html .md-footer-meta .md-copyright {
-  font-size: 0.7rem;
-  line-height: 1.5;
-}
-
-/* A visible keyboard focus ring. White on the red band, since the accent
-   colour is itself red and would disappear into it (P14: never colour alone). */
-html .md-footer-meta.md-typeset a:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-  border-radius: 2px;
 }
 
 /* ---------- Long code in a fixed-height box ---------- */
