@@ -1,6 +1,6 @@
 [project]
 site_name = "CADE30008 Flight Dynamics & Control · in progress"
-site_description = "Lectures, handouts and example sheets for CADE30008 Flight Dynamics & Control at the University of Bristol."
+site_description = "Lectures, handouts, example sheets and worked solutions for the control half of CADE30008 Flight Dynamics & Control at the University of Bristol."
 site_author = "Dr. Steve Bullock"
 # The in-progress site. The live site, https://cade30008.github.io/, is built
 # from a filtered copy by scripts/build_live.py; see publish.yaml.
