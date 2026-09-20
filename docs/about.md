@@ -46,16 +46,19 @@ for attribution:
 > Bullock, S. (2026). *CADE30008 Flight Dynamics & Control: course materials*.
 > University of Bristol. CC BY 4.0.
 
-Some things in these pages are **not** ours to license, and neither licence
-covers them:
+Neither licence covers everything, for two different reasons. Some of it isn't
+ours to license at all:
 
 - the University of Bristol and Bristol Flight Lab names, logos and visual
   identity, which are University brand assets and trade marks;
 - Quanser's laboratory materials, models and software;
 - MathWorks material, including MATLAB, Simulink and the Onramp courses;
-- assessment material, which is not published here;
 - quotations, figures and data from published work, which are cited where they
   are used.
+
+And the **assessment material** — coursework briefs, marking schemes, per-student
+parameters and worked answers — *is* ours, but it isn't published. Keeping it
+back is what lets it keep working from one year to the next.
 
 If you reuse this material, replace the University branding with your own. The
 full terms, and the complete list of what is excluded, are in

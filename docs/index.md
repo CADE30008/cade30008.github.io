@@ -4,7 +4,7 @@ icon: lucide/plane
 
 # CADE30008 Flight Dynamics & Control
 
-These pages hold the lecture handouts, slides, example sheets and worked solutions for the **control** half of CADE30008 Flight Dynamics & Control, at the University of Bristol. The flight dynamics half is taught separately and is not here.
+These pages hold the lecture handouts, slides, example sheets and worked solutions for the **control** half of CADE30008 Flight Dynamics & Control, at the University of Bristol.
 
 They assume you have taken the year 2 unit Dynamics and Control of Linear Systems, *or equivalent*. You should be comfortable with Laplace transforms, transfer functions, Bode plots and the standard step-response specifications.
 
