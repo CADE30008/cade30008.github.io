@@ -184,6 +184,20 @@ Generated blocks obey the same rule, so it has to be applied in the generator, n
 
 **Slide bullets are exempt.** A deck is display text, not prose, and terminal punctuation on a projected bullet is noise. The decks currently carry none; keep it that way.
 
+### Settling time always names its band
+
+Write "settling time to 2%", never "settling time". Both MATLAB and Dorf use a
+2% band — MATLAB's `stepinfo` documents `SettlingTimeThreshold` defaulting to
+0.02, and Dorf defines \(T_s\) generally as "within a certain percentage
+\(\delta\)" before choosing 2% — so 2% is ours too, and
+\(t_\mathrm{s} = 4/(\zeta\omega_\mathrm{n})\) follows.
+
+Say it anyway, every time. Students arrive having been taught
+\(4.5/(\zeta\omega_\mathrm{n})\), which is about a 1.1% band, so a number
+of ours checked against their own notes is 12% out with nothing on the page to
+explain the difference. Naming the band turns a contradiction into a
+conversion.
+
 ### Never write a bare equation
 
 **An equation always carries its left-hand side.** Write \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\), never \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\) with the name in the prose. The reader should be able to take the equation out of the sentence and still know what it says — and an expression floating without its subject is the commonest way a student copies the wrong thing into their notes.
