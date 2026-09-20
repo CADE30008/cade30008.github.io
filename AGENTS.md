@@ -150,6 +150,23 @@ Generated blocks obey the same rule, so it has to be applied in the generator, n
 
 **Slide bullets are exempt.** A deck is display text, not prose, and terminal punctuation on a projected bullet is noise. The decks currently carry none; keep it that way.
 
+### Subscripts
+
+**A descriptive subscript is upright; a variable or index subscript is italic.**
+This is ISO 80000-2, and Steve is a stickler for it.
+
+| Write | Not | Because |
+|---|---|---|
+| `K_\mathrm{p}` | `K_p` | p is short for "proportional", a label, not a quantity. |
+| `\omega_\mathrm{n}` | `\omega_n` | n is "natural". |
+| `e_\mathrm{ss}` | `e_{ss}` | "steady state". |
+| `\theta_\mathrm{ref}` | `\theta_{ref}` | "reference". |
+| `x_i` | — | Here i *is* a variable, an index that ranges. It stays italic. |
+
+Use `\mathrm{}`, not `\text{}`: `\text{}` inherits the surrounding font and will come out italic inside an italic context. Digits are already upright, so `\omega_{180}` needs nothing.
+
+The test: could the subscript be replaced by a number or another value? If yes it's a variable and stays italic. If it's an abbreviation of a word, it's upright.
+
 ### Links say where they go
 
 Every link in the body text carries a marker saying what a click does. Three of the four are worked out from the address by `docs/javascripts/links.js`, so there is nothing to remember:

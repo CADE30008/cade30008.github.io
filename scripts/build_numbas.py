@@ -211,8 +211,13 @@ def question(q: dict) -> dict:
 
 
 def exam(quiz: dict) -> str:
+    # Uploading an .exam duplicates rather than replaces, so a run of review
+    # drafts becomes a list of identically-named exams and the wrong one gets
+    # linked from Blackboard. `draft:` in the YAML suffixes the name; clear it
+    # for the version that goes live.
+    name = quiz["name"] + (f"  (draft {quiz['draft']})" if quiz.get("draft") else "")
     body = {
-        "name": quiz["name"],
+        "name": name,
         "metadata": {"description": html(quiz["description"]), "licence": "None specified"},
         "duration": 0,                                   # no time limit
         "percentPass": 0,
@@ -296,6 +301,8 @@ def main() -> None:
     n = len(quiz["questions"])
     marks = sum(len(q.get("answers", [])) or 1 for q in quiz["questions"])
     print(f"\n{len(problems)} error(s); {n} questions, {marks} marks")
+    if quiz.get("draft"):
+        print(f'  NOTE: name carries "(draft {quiz["draft"]})" — clear `draft:` in the YAML before the live upload')
     print(f"  upload to Numbas:  {out}")
     if md.exists():
         print(f"  read, don't upload: {md}")

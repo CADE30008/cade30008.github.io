@@ -22,6 +22,10 @@
 # Numeric answers were computed with python-control, not typed; the script
 # re-checks them on every build.
 
+# Bump while reviewing: the name gets "(draft N)" so successive uploads are
+# distinguishable in the Numbas editor, which duplicates rather than replaces.
+# Delete this line for the version that goes live.
+draft: 1
 name: "CADE30008 Control: prerequisite diagnostic"
 description: >-
   Ten questions on the mathematics and control this unit builds on. Formative:
