@@ -119,9 +119,12 @@ Assistants drift into a recognisable register: fluent, rhythmic, and faintly sel
 
 **The contrastive reframe.** "X is not Y, it is Z." Fine once in a page, deadening at the rate it arrives otherwise. Usually "Z" on its own is stronger.
 
-**Rhythm for its own sake.** Three-item lists because three sounds complete. Sentences opened with *And* or *But* for a beat: 31 in this repository. A short sentence after two long ones, every time.
+**Rhythm for its own sake.** Three-item lists because three sounds complete. Sentences opened with *And* or *But* for emphasis: 31 in this repository. A short sentence after two long ones, every time.
 
 **Stock metaphors.** *lands*, *buys you*, *costs nothing*, *does the heavy lifting*, *at a glance*, *in the room*. Each was a real image once.
+
+**Naming a technique as a "move".** "This is the move behind every block diagram", "the trick is to…", "give it a beat". It is the register of a blog post about a craft rather than someone teaching it. Say what the reader does: "You will do this for every block diagram in the unit."
+
 
 **The test.** Read it aloud. Any sentence carrying a flourish you would be embarrassed to say to a student's face comes out. Prose for teaching should sound like a competent person explaining something they know, not like an essay about the explanation.
 

@@ -86,8 +86,8 @@ A system obeys \( \dot y + 2y = u \), starting from rest, where \( u \) is the i
 - Divide: \( Y/U = \dfrac{1}{s+2} \).
 
 The denominator, \( s+2 \), is the characteristic polynomial, and its root
-\( s = -2 \) is the pole. This is the move behind every block diagram in
-the unit, so it is worth being quick at.
+\( s = -2 \) is the pole. You will do this for every block diagram in the
+unit, so practise until it is quick.
 
 <details><summary><em>Full working, folded away in the quiz</em></summary>
 

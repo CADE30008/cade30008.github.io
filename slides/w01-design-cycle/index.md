@@ -190,7 +190,7 @@ pedagogy and content are mine, and I have checked and rewritten all of it.
 
 <!--
 Say this one in your own voice. It is the slide that is meant to be
-aspirational rather than cautionary, so give it a beat — taste is a word
+aspirational rather than cautionary, so slow down here. Taste is a word
 students are almost never offered about engineering, and it lands.
 
 The caution belongs here, spoken, not on the slide: work a model produced and
