@@ -126,10 +126,17 @@ def emphasis(text: str) -> str:
 def html(text: str) -> str:
     """The YAML is plain text with LaTeX; Numbas wants HTML.
 
-    A blank line starts a new paragraph, and a run of lines beginning "- "
-    becomes a numbered list, so advice can set out steps rather than one dense
-    block. Emphasis is converted per block, after the structure is decided, so
-    an unclosed marker can never reach past its own paragraph or list item.
+    A blank line starts a new paragraph, and a block whose first line begins
+    "- " becomes a numbered list, so advice can set out steps rather than one
+    dense block. Emphasis is converted per block, after the structure is
+    decided, so an unclosed marker can never reach past its own paragraph or
+    list item.
+
+    A list item may wrap onto further lines, which are folded back into it.
+    Testing every line for "- " instead, as this did first, meant one wrapped
+    item turned the whole list into a paragraph with the dashes left in the
+    middle of the prose - no error, just a run-on sentence in the worked
+    solution.
     """
     text = str(text).strip()
     if text.startswith("<"):
@@ -139,8 +146,14 @@ def html(text: str) -> str:
         lines = [ln.strip() for ln in block.strip().splitlines() if ln.strip()]
         if not lines:
             continue
-        if all(ln.startswith("- ") for ln in lines):
-            out.append("<ol>" + "".join(f"<li>{emphasis(ln[2:])}</li>" for ln in lines) + "</ol>")
+        if lines[0].startswith("- "):
+            items: list[str] = []
+            for ln in lines:
+                if ln.startswith("- "):
+                    items.append(ln[2:])
+                else:
+                    items[-1] += " " + ln          # a wrapped item, not a new one
+            out.append("<ol>" + "".join(f"<li>{emphasis(i)}</li>" for i in items) + "</ol>")
         else:
             out.append(f"<p>{emphasis(' '.join(lines))}</p>")
     return "".join(out)
