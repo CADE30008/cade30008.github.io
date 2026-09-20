@@ -57,8 +57,9 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 2: Mathematical Models of Systems — linearisation and transfer functions.
-- Dorf and Bishop, chapter 5: The Performance of Feedback Control Systems — performance specifications.
+- Dorf and Bishop, section 2.3: Linear approximations of physical systems — linearisation about an operating point.
+- Dorf and Bishop, sections 2.5-2.6: The transfer function of linear systems; block diagram models.
+- Dorf and Bishop, sections 5.2-5.3: Test input signals; performance of second-order systems — where time-domain requirements come from.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

@@ -57,8 +57,9 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 8: Frequency Response Methods.
-- Dorf and Bishop, chapter 9: Stability in the Frequency Domain — Nyquist criterion, margins, time delay.
+- Dorf and Bishop, sections 8.2, 8.4: Frequency response plots; performance specifications in the frequency domain.
+- Dorf and Bishop, sections 9.3-9.4: The Nyquist criterion; relative stability and the Nyquist criterion — stability and margins.
+- Dorf and Bishop, section 9.7: The stability of control systems with time delays — what delay costs you.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

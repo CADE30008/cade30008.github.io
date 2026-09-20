@@ -36,8 +36,25 @@
 # a reading entry once checked, e.g. sections: "10.6-10.7".
 sources:
   dorf:
-    cite: "Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson."
+    cite: "Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson."
     short: Dorf and Bishop
+    # Section numbers are identical in the 12th (2011), 13th (2017) and 14th
+    # (2022) editions - checked against all three contents pages, 20 September.
+    # Only page numbers differ, so one pointer serves every edition the library
+    # holds. Earlier editions are not supported.
+    editions: [12, 13, 14]
+    note: for additional study and consolidation, not a substitute for the handout
+    # Copies in the Queen's Building library, from Steve's check of October 2025.
+    availability:
+      - {edition: 14, year: 2022, print: 2, ebook: 4}
+      - {edition: 13, year: 2017, print: 9, ebook: 10}
+      - {edition: 12, year: 2011, print: 9, ebook: 0}
+    library:
+      search: Search the library for "Dorf Modern Control", then open **View All** to see other editions and formats. Some eBooks are listed under more than one provider.
+      etiquette:
+        - Reading an eBook online locks that copy while you have it open.
+        - Downloading the whole book locks a copy for 24 hours.
+        - Downloading a PDF chapter locks nothing, but is capped at 56 pages.
 
 # The three acts. Act I closes at week 4, so the consolidation week (6) cements
 # a whole act; act II straddles nothing.
@@ -86,8 +103,8 @@ weeks:
       verdict: fits
     handout_only: [The design cycle in Dorf and Bishop, Model-based design as its industrial form]
     reading:
-      - {source: dorf, chapter: 1, title: "Introduction to Control Systems", note: "the design process"}
-      - {source: dorf, chapter: 4, title: "Feedback Control System Characteristics", note: "why feedback"}
+      - {source: dorf, sections: "1.4-1.5", title: "Engineering design, and control system design", note: "the design cycle this unit is built on"}
+      - {source: dorf, sections: "4.1-4.2", title: "Feedback control system characteristics; error signal analysis", note: "why feedback at all"}
     notes: Departs from P17's standard shape, and says so. Plan in teaching/w01-design-cycle.md.
 
   - week: 2
@@ -128,8 +145,9 @@ weeks:
       verdict: fits
     handout_only: [Formal fit metrics, Handling-qualities criteria in detail]
     reading:
-      - {source: dorf, chapter: 2, title: "Mathematical Models of Systems", note: "linearisation and transfer functions"}
-      - {source: dorf, chapter: 5, title: "The Performance of Feedback Control Systems", note: "performance specifications"}
+      - {source: dorf, sections: "2.3", title: "Linear approximations of physical systems", note: "linearisation about an operating point"}
+      - {source: dorf, sections: "2.5-2.6", title: "The transfer function of linear systems; block diagram models"}
+      - {source: dorf, sections: "5.2-5.3", title: "Test input signals; performance of second-order systems", note: "where time-domain requirements come from"}
     notes: Deriving the model is Part A's; validating and using it is Part B's. Keep that line.
 
   - week: 3
@@ -170,8 +188,9 @@ weeks:
       verdict: fits
     handout_only: [Ziegler–Nichols, Discrete implementation and sample rate, Setpoint weighting]
     reading:
-      - {source: dorf, chapter: 10, title: "The Design of Feedback Control Systems", note: "PID controllers"}
-      - {source: dorf, chapter: 5, title: "The Performance of Feedback Control Systems", note: "steady-state error"}
+      - {source: dorf, sections: "7.6", title: "PID controllers"}
+      - {source: dorf, sections: "9.9", title: "PID controllers in the frequency domain", note: "the same controller seen on the Bode plot"}
+      - {source: dorf, sections: "5.6", title: "The steady-state error of feedback control systems", note: "why integral action exists"}
     notes: >-
       The only lecture with written content, as the former "Lecture 2: Closed-loop
       PID control". It predates P8 and P11–P19 and needs redrafting to P17's shape,
@@ -215,8 +234,9 @@ weeks:
       verdict: borderline
     handout_only: [The Nyquist contour in full, Describing functions for rate limits]
     reading:
-      - {source: dorf, chapter: 8, title: "Frequency Response Methods"}
-      - {source: dorf, chapter: 9, title: "Stability in the Frequency Domain", note: "Nyquist criterion, margins, time delay"}
+      - {source: dorf, sections: "8.2, 8.4", title: "Frequency response plots; performance specifications in the frequency domain"}
+      - {source: dorf, sections: "9.3-9.4", title: "The Nyquist criterion; relative stability and the Nyquist criterion", note: "stability and margins"}
+      - {source: dorf, sections: "9.7", title: "The stability of control systems with time delays", note: "what delay costs you"}
     notes: Notation is borderline. L(jω) is tier 0 in principle; check the diagnostic.
 
   - week: 5
@@ -293,9 +313,9 @@ weeks:
       verdict: fits only if S and T are taught as one idea
     handout_only: [The Bode sensitivity integral, Small-gain theorem, H-infinity by name only]
     reading:
-      - {source: dorf, chapter: 12, title: "Robust Control Systems"}
-      - {source: dorf, chapter: 4, title: "Feedback Control System Characteristics", note: "sensitivity"}
-
+      - {source: dorf, sections: "4.3-4.4", title: "Sensitivity to parameter variations; disturbance signals", note: "sensitivity, in Dorf's language"}
+      - {source: dorf, sections: "9.6", title: "System bandwidth"}
+      - {source: dorf, sections: "12.2-12.4", title: "Robust control systems and system sensitivity; analysis of robustness; systems with uncertain parameters"}
   - week: 8
     short: Loop shaping
     kind: lecture
@@ -334,8 +354,8 @@ weeks:
       verdict: fits
     handout_only: [Root locus as an alternative view, Notch filters for structural modes]
     reading:
-      - {source: dorf, chapter: 10, title: "The Design of Feedback Control Systems", note: "lead and lag compensation, design in the frequency domain"}
-
+      - {source: dorf, sections: "10.2-10.4", title: "Approaches to system design; cascade compensators; phase-lead design using the Bode plot"}
+      - {source: dorf, sections: "10.6, 10.8", title: "System design using integration compensators; phase-lag design using the Bode plot"}
   - week: 9
     short: Architecture
     kind: lecture
@@ -373,7 +393,8 @@ weeks:
       notation: []
       verdict: fits
     handout_only: [Fly-by-wire control laws, Gain scheduling across the flight envelope]
-    reading: []   # no Dorf chapter covers aircraft flight control architecture; a flight-control text is needed
+    reading: []   # Dorf has no chapter on aircraft flight control architecture;
+                  # a flight-control text is needed for this week
     notes: >-
       Merges the former "Stability augmentation" and "Autopilot modes"
       placeholders. P15 cases MCAS and AF447 still need primary sources. People
@@ -417,8 +438,9 @@ weeks:
       verdict: at budget only because observers and controllability are handout-only
     handout_only: [Observers, Controllability and observability tests, Kalman filtering, LQG]
     reading:
-      - {source: dorf, chapter: 3, title: "State Variable Models"}
-      - {source: dorf, chapter: 11, title: "The Design of State Variable Feedback Systems"}
+      - {source: dorf, sections: "3.2-3.3", title: "The state variables of a dynamic system; the state differential equation"}
+      - {source: dorf, sections: "11.2-11.3", title: "Controllability and observability; full-state feedback control design"}
+      - {source: dorf, sections: "11.7", title: "Optimal control systems", note: "where LQR sits"}
     notes: >-
       Steve to spend time on this one when we reach it. Optional and rewarded in
       the coursework (AQ15), and may leave the coursework entirely; stays in the
@@ -463,8 +485,9 @@ weeks:
       verdict: awareness only; the budget does not apply
     handout_only: [Reading list for the advanced unit]
     reading:
-      - {source: dorf, chapter: 12, title: "Robust Control Systems"}
-      - {source: dorf, chapter: 13, title: "Digital Control Systems"}
+      - {source: dorf, sections: "11.4", title: "Observer design", note: "what week 10 left in the handout"}
+      - {source: dorf, sections: "12.5-12.6", title: "The design of robust control systems; robust PID-controlled systems"}
+      - {source: dorf, sections: "13.1-13.3", title: "Digital control systems: applications, sampled-data systems", note: "what actually runs on the aircraft"}
     notes: >-
       One hour. In 2026/27 its first hour is also the term's buffer: if a lecture
       is lost, it absorbs it and this material becomes a handout page.

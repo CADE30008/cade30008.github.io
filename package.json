@@ -19,7 +19,8 @@
     "test": "node scripts/test-applets.mjs && npm run check",
     "curriculum": ".venv/bin/python scripts/build_curriculum.py",
     "live": ".venv/bin/python scripts/build_live.py",
-    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python -m http.server ${PORT:-8010} --bind localhost -d .live/site"
+    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python -m http.server ${PORT:-8010} --bind localhost -d .live/site",
+    "numbas": ".venv/bin/python scripts/build_numbas.py"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.1",

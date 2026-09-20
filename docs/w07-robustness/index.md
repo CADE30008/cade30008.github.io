@@ -57,8 +57,9 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 12: Robust Control Systems.
-- Dorf and Bishop, chapter 4: Feedback Control System Characteristics — sensitivity.
+- Dorf and Bishop, sections 4.3-4.4: Sensitivity to parameter variations; disturbance signals — sensitivity, in Dorf's language.
+- Dorf and Bishop, section 9.6: System bandwidth.
+- Dorf and Bishop, sections 12.2-12.4: Robust control systems and system sensitivity; analysis of robustness; systems with uncertain parameters.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

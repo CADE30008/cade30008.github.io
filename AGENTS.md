@@ -19,6 +19,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `teaching/lNN-topic.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built | Yes, and after teaching it |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session | Yes, with every content change |
 | `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed | Only once a scope decision is agreed |
+| `private/<quiz>.yaml` | A quiz's questions. `npm run numbas` builds the Numbas `.exam` and the readable list from it | Yes; never edit the `.exam` or the generated list |
 | `models/` | Design scripts: the single source of every number and plot | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |
@@ -74,6 +75,19 @@ The handout is authoritative for facts: definitions, equations, numbers and desi
 - **Warnings**: sections with no slides, numbers on a slide that its cited sections don't contain, and drift since the last accepted sync, including which side changed.
 
 When slides and handout match again, a person runs `npm run sync:accept` and commits the updated `sync.lock.json` alongside the change. The pull request then shows that someone confirmed the sync.
+
+### Draft weeks aren't checked
+
+A week whose handout front matter says `status: draft` is skipped by `npm run check`, and the summary says how many were skipped. Scaffolding has nothing to keep in sync, and checking it buries real drift under dozens of warnings about placeholder text.
+
+So the life of a week is:
+
+1. **Draft.** `status: draft` in the handout's front matter, which `npm run new:lesson` sets. The week is scoped in `weeks.yaml`, its pages exist, and the sync check leaves it alone.
+2. **Written.** Someone writes the handout, the deck, the example sheet and the solutions. Slides cite handout sections; numbers come from `models/`.
+3. **Ready.** Remove the `status: draft` line. `npm run check` now checks the week and will report every mismatch — expect some the first time.
+4. **Accepted.** A person reads the handout against the deck, fixes what the check found, and runs `npm run sync:accept`, which records that they agree. From then on the check reports drift against that record.
+
+`npm run check -- --all` checks drafts too, if you want to see what's coming. Never run `sync:accept` to clear warnings you haven't read: the lock file is a record that a person checked, and it is worth nothing otherwise.
 
 ## Numbers, figures and code
 

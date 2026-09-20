@@ -20,6 +20,7 @@ site_url: https://cade30008.github.io/
 pages:
   - index.md
   - preparing/index.md
+  - reading.md
   - glossary.md
   - about.md
   - ai.md

@@ -111,11 +111,22 @@ for (const md of readdirSync(docs, { recursive: true })) {
   if (String(md).endsWith(".md")) checkHandoutAssets(join(docs, String(md)), errors);
 }
 
+// A week whose handout says `status: draft` has no content to keep in sync yet:
+// checking it would bury real drift under warnings about scaffolding. Remove
+// that line from the front matter when the week is written, and the week is
+// checked from then on. `--all` checks drafts too.
+const isDraft = (file) => /^---\n[\s\S]*?^status:\s*draft\s*$/m.test(readFileSync(file, "utf8"));
+const drafts = [];
+
 for (const lesson of lessons) {
   const handoutFile = join(docs, lesson, "index.md");
   const deckFile = join(root, "slides", lesson, "index.md");
   if (!existsSync(handoutFile)) {
     errors.push(`${lesson}: slides exist but there is no handout at docs/${lesson}/index.md`);
+    continue;
+  }
+  if (isDraft(handoutFile) && !args.has("--all")) {
+    drafts.push(lesson);
     continue;
   }
   const handout = parseHandout(handoutFile);
@@ -181,6 +192,8 @@ if (args.has("--json")) {
 } else if (!args.has("--accept")) {
   for (const e of errors) console.log(`error    ${e}`);
   for (const w of warnings) console.log(`warning  ${w}`);
-  console.log(`\n${errors.length} error(s), ${warnings.length} warning(s) across ${lessons.length} lesson(s)`);
+  const checked = lessons.length - drafts.length;
+  const draftNote = drafts.length ? `; ${drafts.length} in draft, not checked (--all to include them)` : "";
+  console.log(`\n${errors.length} error(s), ${warnings.length} warning(s) across ${checked} lesson(s)${draftNote}`);
 }
 process.exit(errors.length || (args.has("--strict") && warnings.length) ? 1 : 0);

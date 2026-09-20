@@ -57,8 +57,9 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 3: State Variable Models.
-- Dorf and Bishop, chapter 11: The Design of State Variable Feedback Systems.
+- Dorf and Bishop, sections 3.2-3.3: The state variables of a dynamic system; the state differential equation.
+- Dorf and Bishop, sections 11.2-11.3: Controllability and observability; full-state feedback control design.
+- Dorf and Bishop, section 11.7: Optimal control systems — where LQR sits.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

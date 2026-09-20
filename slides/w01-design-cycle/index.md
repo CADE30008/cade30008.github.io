@@ -95,6 +95,23 @@ back-load it. Say plainly why that costs them.
 
 ---
 
+<!-- handout: assessment -->
+
+# What counts
+
+- **One thing counts:** the coursework, due Thursday of week 11
+- Everything else is **formative** — it doesn't count, and it's how the coursework gets built
+- Checkpoints in weeks 4, 8 and 9: automatic checks, cohort feedback, peer review
+- Nothing formative is randomised. Work on it together if you like
+
+<!--
+Say plainly that formative isn't optional-and-pointless: each checkpoint is a
+draft of part of the final paper, and the decision log becomes its last section.
+Do it as you go and week 11 is assembly, not writing from nothing.
+-->
+
+---
+
 <!-- handout: ai -->
 
 # AI rewards expertise

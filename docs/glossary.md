@@ -17,6 +17,26 @@ has a sharper definition you will meet later, that is said.
     covers this page too. Terms are grouped by where you meet them, not
     alphabetically, so that reading a whole section makes sense on its own.
 
+## How this unit works
+
+**Formative.** Work that doesn't count towards your unit grade. It exists to
+show you, and us, how you're doing while there's still time to act on it: the
+diagnostic, the weekly challenges, the example sheets, the case work in each
+session, the laboratory and the coursework checkpoints. Formative work is the
+foundation of the summative submission, not a warm-up you can skip.
+
+**Summative.** Work that counts towards your unit grade. In this half of the
+unit there is exactly one piece: the coursework, due on the Thursday of week 11.
+
+**Checkpoint.** A point in the term where you're expected — but not required —
+to hand in the part of your coursework you've built so far. Formative: it earns
+you automatic checks on what you submit, and feedback while it can still change
+your design.
+
+**Challenge.** The short weekly set of questions in Numbas or MATLAB Grader that
+rehearses that week's material. Formative, automatically marked, with feedback
+on each question, and the same questions for everyone.
+
 ## The design process
 
 **Control design cycle.** The loop this course is built on: state the

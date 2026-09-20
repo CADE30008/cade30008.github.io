@@ -44,6 +44,14 @@ IDs are stable, as in [PEDAGOGY.md](PEDAGOGY.md).
 - **AP9. An example submission** shows the format students replicate.
 - **AP10. The rubric is developed** from last year's, the lecturer's preferred
   examples, and University guidance.
+- **AP11. Randomisation only where it is assessed.** Diagnostics, weekly
+  challenges and any other formative check give every student the same
+  questions. Students are trusted to use them as they see fit, including sitting
+  next to each other and working through them together — that is a good way to
+  learn, and none of it counts towards a grade. Randomised or per-student values
+  are reserved for work that is assessed. At present nothing formative is
+  randomised, and the only assessed element is the week 11 coursework, whose
+  per-student variants (proposed) would be the one place this applies.
 
 ## What is fixed by the unit
 
@@ -81,6 +89,38 @@ that regenerates every result, and level 6 benchmarking. What changes: a design
 paper in place of set questions, Category 3 AI use, a rubric built on the design
 cycle, and an assessment that builds through the term, which needs the brief
 released much earlier (AQ2).
+
+## Formative and summative: what counts
+
+Said once here, in the words the student-facing pages use.
+
+- **Summative** work counts towards the unit grade. In this half there is
+  exactly one piece: **the coursework, due on the Thursday of week 11**.
+- **Formative** work does not count towards the grade. Everything else is
+  formative: the week 1 diagnostic, the weekly challenges, the example sheets,
+  the case work in each session, the laboratory, the decision log, and all three
+  coursework checkpoints.
+- **Formative is not optional-and-pointless.** The in-term work is the
+  foundation of the summative submission: each checkpoint is a draft of part of
+  the final paper, and the decision log feeds its last section. A student who
+  does the formative work arrives at week 11 with most of a submission and
+  feedback on it.
+
+Which feedback comes from where:
+
+| Work | Counts? | Feedback |
+|---|---|---|
+| Week 1 diagnostic | No | Automatic, per question, straight away |
+| Weekly challenge (P16) | No | Automatic, per question, straight away |
+| Example sheet | No | Worked solutions, and the next session |
+| Case work in the session | No | In the room, from the lecturer and from each other |
+| Laboratory | No | In the laboratory, and through the data students take away |
+| Checkpoints 1 to 3 | No | Automatic checks on the submission, individually; cohort notes from the lecturer; peer review at checkpoint 2 |
+| Decision log | No | Consulted if there are questions; feeds section 7 of the paper |
+| **Coursework, week 11** | **Yes** | Individual written feedback with the mark, against the rubric |
+
+"Not marked" on its own is the phrase to avoid: it reads as "does not matter".
+Say what it is — formative — and say what feedback it earns.
 
 ## The shape of Part B
 

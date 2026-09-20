@@ -56,8 +56,9 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 12: Robust Control Systems.
-- Dorf and Bishop, chapter 13: Digital Control Systems.
+- Dorf and Bishop, section 11.4: Observer design — what week 10 left in the handout.
+- Dorf and Bishop, sections 12.5-12.6: The design of robust control systems; robust PID-controlled systems.
+- Dorf and Bishop, sections 13.1-13.3: Digital control systems: applications, sampled-data systems — what actually runs on the aircraft.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

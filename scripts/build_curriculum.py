@@ -597,7 +597,11 @@ def outcomes_block(w: dict) -> str:
 
 def reading_line(r: dict, sources: dict) -> str:
     src = sources[r["source"]]
-    where = f"sections {r['sections']}" if r.get("sections") else f"chapter {r['chapter']}"
+    if r.get("sections"):
+        plural = any(c in r["sections"] for c in ",-")
+        where = f"section{'s' if plural else ''} {r['sections']}"
+    else:
+        where = f"chapter {r['chapter']}"
     note = f" — {r['note']}" if r.get("note") else ""
     return f"{src['short']}, {where}: {r['title']}{note}"
 
@@ -608,8 +612,42 @@ def reading_block(w: dict, sources: dict) -> str:
         return "Further reading for this week is still to be chosen."
     lines = [f"- {reading_line(r, sources)}." for r in w["reading"]]
     used = sorted({r["source"] for r in w["reading"]})
-    lines += ["", *[f"{sources[k]['cite']}" for k in used]]
+    for k in used:
+        src = sources[k]
+        eds = src.get("editions")
+        where = (f" Section numbers are the same in the {oxford([f'{e}th' for e in sorted(eds)])} editions; "
+                 f"only the page numbers differ." if eds else "")
+        lines += ["", f"{src['cite']}{where} It is [in the library](../reading.md), "
+                      f"and is {src.get('note', 'further reading')}."]
     return "\n".join(lines)
+
+
+def oxford(items: list[str]) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def reading_page(weeks: list[dict], sources: dict) -> str:
+    """The textbook page: what the library has, and which sections go with which week."""
+    src = sources["dorf"]
+    rows = ["| Edition | Year | Print copies | eBook copies |", "|---|---|---|---|"]
+    rows += [f"| {a['edition']}th | {a['year']} | {a['print']} | {a['ebook'] or '—'} |" for a in src["availability"]]
+    tips = "\n".join(f"- {t}" for t in src["library"]["etiquette"])
+    mapping = ["| Week | What it covers | Sections in Dorf and Bishop |", "|---|---|---|"]
+    for w in weeks:
+        if w["kind"] != "lecture":
+            continue
+        cells = "; ".join(f"**{r['sections']}** {r['title']}" for r in w.get("reading", [])) or "*No chapter covers this; a flight-control text is needed*"
+        mapping.append(f"| [{w['week']}]({w['slug']}/index.md) | {w['title']} | {cells} |")
+    return "\n".join([
+        "### What the library has", "",
+        f"{src['cite']} Earlier editions than the {min(src['editions'])}th are not mapped here.", "",
+        *rows, "",
+        src["library"]["search"], "", tips, "",
+        "### Which sections go with which week", "",
+        f"**Section numbers are the same in the {oxford([f'{e}th' for e in sorted(src['editions'])])} editions**, "
+        "so any of them works. Only the page numbers differ.", "",
+        *mapping,
+    ])
 
 
 def replace_between(path: Path, start: str, end: str, new: str) -> bool:
@@ -642,6 +680,10 @@ def main() -> None:
     (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
     if not replace_between(DOCS / "index.md", "<!-- weeks:start -->", "<!-- weeks:end -->", home_table(weeks)):
         err("docs/index.md has no weeks markers")
+    reading_md = DOCS / "reading.md"
+    if reading_md.exists() and not replace_between(reading_md, "<!-- reading:start -->", "<!-- reading:end -->", reading_page(weeks, sources)):
+        err("docs/reading.md has no reading markers")
+
     l1 = DOCS / first["slug"] / "index.md"
     for tag, block in (("schedule", schedule_table(weeks, term)), ("workload", workload_block(wl))):
         if not replace_between(l1, f"<!-- {tag}:start -->", f"<!-- {tag}:end -->", block):
@@ -670,7 +712,10 @@ def main() -> None:
     print(f"\nworkload: {wl['typical']:g} h in a lecture week; {wl['planned']:g} h planned of {wl['notional']:g} notional "
           f"({t['lecture']:g} lecture, {t['independent']:g} independent, {t['consolidation']:g} consolidation, "
           f"{t['coursework']:g} coursework, {t['laboratory']:g} laboratory)")
-    print(f"{len(errors)} error(s), {len(warnings)} warning(s); {len(weeks)} weeks, {sum(w['kind'] == 'lecture' for w in weeks)} with lectures")
+    lectures = [w for w in weeks if w["kind"] == "lecture"]
+    draft = [w["week"] for w in lectures if front_matter(DOCS / w["slug"] / "index.md").get("status") == "draft"]
+    written = f"; {len(lectures) - len(draft)} written, {len(draft)} still draft" if draft else ""
+    print(f"{len(errors)} error(s), {len(warnings)} warning(s); {len(weeks)} weeks, {len(lectures)} with lectures{written}")
     sys.exit(1 if errors else 0)
 
 

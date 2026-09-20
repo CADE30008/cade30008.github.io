@@ -16,8 +16,11 @@ introduced. The activities below help you find out what you really understand,
 fix what you don't, and move your coursework on, so that you start week 7 ready
 for it.
 
-All of it is **recommended, not required**, and none of it is marked. It is the
-same six hours as any other week: four of consolidation and two of coursework.
+All of it is **recommended, not required**, and none of it counts towards your
+grade — it's formative, like everything except the week 11 coursework. What it
+earns you is feedback: the challenge marks itself as you go, and the rest shows
+you what you can and can't yet explain. It's the same six hours as any other
+week: four of consolidation and two of coursework.
 
 ## Recommended activities {#activities}
 

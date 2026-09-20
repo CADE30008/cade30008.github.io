@@ -363,9 +363,14 @@ build. It gives spaced retrieval (P11) outside the lecture, and tells students
 and staff early who is struggling.
 
 - Mathematics and concept questions in Numbas, whose Blackboard integration is
-  active (confirmed 20 September), with randomised values so that each student
-  works their own numbers. The week 1 diagnostic is deliberately not randomised,
-  so that the cohort picture is comparable.
+  active (confirmed 20 September).
+- **No randomisation** (AP11, 20 September). Every student gets the same
+  questions, and they are trusted to use them as they see fit, including working
+  side by side. Randomised values are for assessed work only, and no formative
+  check is assessed.
+- **Formative**, in the sense ASSESSMENT.md defines: it doesn't count towards
+  the unit grade, and it earns automatic feedback on every question. Say that,
+  rather than "not marked", which students hear as "doesn't matter".
 - Code challenges in MATLAB Grader. The University's licence covers it; its
   Blackboard integration needs the licence administrator to set it up.
 - Formative: feedback rather than marks, unless the assessment design (Q2) says

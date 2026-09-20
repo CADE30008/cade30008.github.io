@@ -4,6 +4,7 @@ description: "PID control of aircraft pitch attitude, designed and understood th
 lesson: w03-pid-control
 order: 3
 duration: 110 min
+status: draft
 ---
 
 # Week 3: PID, properly

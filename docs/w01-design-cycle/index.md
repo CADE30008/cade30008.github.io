@@ -87,6 +87,43 @@ builds on them.
 The Quanser laboratory is open access from week 1 to week 6: you choose when to go.
 <!-- schedule:end -->
 
+## How you're assessed {#assessment}
+
+One thing counts towards your grade for this half of the unit: **the coursework,
+due on the Thursday of week 11**. That is the *summative* assessment, and it
+comes back with individual written feedback against the marking rubric.
+
+Everything else is *formative*: it doesn't count, and it exists so that you and
+I find out how you're doing while there's still time to act on it.
+
+| Through the term | Counts? | What you get back |
+|---|---|---|
+| The diagnostic, before week 1 | No | Automatic feedback on each question, straight away |
+| The weekly challenge | No | The same, each week |
+| Example sheets | No | Worked solutions, and the next session |
+| The work you do in each session | No | Comments in the room, from me and from each other |
+| The Quanser laboratory | No | Your own measurements, to use in the coursework |
+| Checkpoints, weeks 4, 8 and 9 | No | Automatic checks on what you submit, notes to the whole cohort, and peer review at checkpoint 2 |
+| **Coursework, week 11** | **Yes** | Your mark, with written feedback against the rubric |
+
+**The formative work is how the coursework gets built.** Each checkpoint is a
+draft of part of the final paper, and your decision log becomes its last
+section. Do it as you go and you arrive at week 11 with most of a submission,
+already checked. Skip it and you write the whole thing in the last fortnight,
+alone, with no feedback.
+
+Nothing formative is randomised: everyone gets the same questions, and you're
+welcome to work through them sitting next to each other.
+
+### The textbook {#textbook}
+
+You don't have to buy a book. Each week's handout is the authoritative version
+of what you need. Dorf and Bishop's *Modern Control Systems* is worth knowing
+about, though, and the library has plenty of copies: use it **for additional
+study and consolidation**, when you want a second explanation or more worked
+examples. Which sections go with which week, and what the library holds, are on
+[The textbook](../reading.md).
+
 ## Your week {#workload}
 
 This half of the unit is planned around a steady week, not a heroic one: six
@@ -157,8 +194,8 @@ More on all of this, with the sources, and how to send me feedback, is on
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 1: Introduction to Control Systems — the design process.
-- Dorf and Bishop, chapter 4: Feedback Control System Characteristics — why feedback.
+- Dorf and Bishop, sections 1.4-1.5: Engineering design, and control system design — the design cycle this unit is built on.
+- Dorf and Bishop, sections 4.1-4.2: Feedback control system characteristics; error signal analysis — why feedback at all.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->

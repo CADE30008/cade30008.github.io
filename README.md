@@ -80,6 +80,7 @@ For lecturers, planning views:
 | `npm run check` | Check slides against handouts |
 | `npm run sync:accept` | Record the current state as in sync, after reviewing |
 | `npm run curriculum` | Check the week-by-week plan and term facts against each other and the site; regenerate the term map, lecture map, workload and tables |
+| `npm run numbas` | Build a Numbas `.exam` from a quiz's YAML, re-checking every numeric answer |
 | `npm run models` | Rerun the design scripts and compare Python with MATLAB |
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |
@@ -120,6 +121,8 @@ The handout is authoritative. Each handout section has a stable ID, and each sli
 - slides that cite sections that don't exist;
 - numbers on a slide that its cited sections don't contain;
 - sections that have changed since the last confirmed sync, together with the slides to revisit.
+
+Weeks whose handout front matter says `status: draft` are skipped, since scaffolding has nothing to keep in sync; the summary line says how many. Remove that line when a week is written, and it is checked from then on. `npm run check -- --all` includes drafts.
 
 See [AGENTS.md](AGENTS.md) for the full contract.
 

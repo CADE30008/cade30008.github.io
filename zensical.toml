@@ -69,6 +69,7 @@ nav = [
     { "Solutions" = "w11-beyond-this-course/solutions.md" },
   ] },
   { "Preparing for Control" = "preparing/index.md" },
+  { "The textbook" = "reading.md" },
   { "Glossary" = "glossary.md" },
   { "About these materials" = "about.md" },
   { "AI in this course" = "ai.md" },

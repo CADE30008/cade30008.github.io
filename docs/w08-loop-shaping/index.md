@@ -57,7 +57,8 @@ The few things to take away.
 ## Further reading {#further-reading .no-slides}
 
 <!-- reading:start -->
-- Dorf and Bishop, chapter 10: The Design of Feedback Control Systems — lead and lag compensation, design in the frequency domain.
+- Dorf and Bishop, sections 10.2-10.4: Approaches to system design; cascade compensators; phase-lead design using the Bode plot.
+- Dorf and Bishop, sections 10.6, 10.8: System design using integration compensators; phase-lag design using the Bode plot.
 
-Dorf, R. C. and Bishop, R. H. (2021). Modern Control Systems, 14th edition. Pearson.
+Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->
