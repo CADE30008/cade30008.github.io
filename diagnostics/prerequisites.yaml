@@ -234,9 +234,25 @@ questions:
         why: >-
           That's roughly \( \zeta = 0.2 \), considerably livelier than this. Half
           the height of the step as overshoot would be a very underdamped system.
+    steps_image: diagnostics/figures/overshoot-vs-damping.png
+    steps_image_alt: >-
+      Overshoot plotted against damping ratio: a curve falling steeply from
+      nearly 100 per cent at very light damping to almost nothing by a damping
+      ratio of 0.9. Three points are marked with dropped lines to both axes -
+      0.2 giving 53 per cent, 0.4 giving 25 per cent, and 0.7 giving 5 per
+      cent. A shaded band either side of 0.4 shows that changing the damping
+      ratio by 0.05 changes the overshoot by about 5 percentage points.
     advice: |
       Exactly, \( M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
       \( \zeta = 0.4 \) gives 0.254, so about 25%.
+
+      You may have met this written as
+      \( M_\mathrm{p} = 100e^{-\zeta\omega_\mathrm{n}t_\mathrm{p}}\% \), which is
+      the same thing: substitute the peak time
+      \( t_\mathrm{p} = \pi/\omega_\mathrm{d} \) and the
+      \( \omega_\mathrm{n} \) cancels, leaving the form above. That version
+      needs the peak time first; this one does not, which is why it is the one
+      worth remembering.
 
       In practice nobody evaluates that in a design meeting. Carry three anchors
       instead and interpolate:

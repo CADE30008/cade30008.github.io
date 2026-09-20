@@ -74,7 +74,9 @@ programme. This table is the working record of *why* each choice was made.
 | Output | y, Y(s) | Y(s), and C(s) in one sheet | Never use C for an output. |
 | Bode ordinate | **magnitude**, in dB | "Gain dB" nearly always | Following MATLAB and Dorf. *Gain* is kept for the loop gain, the DC gain and the gain margin, so it cannot also name the axis. |
 | Decibels | 20 log₁₀ | 20 log₁₀ only | The power definition, 10 log₁₀, never appears. Don't assume they know it. |
-| Transient metrics | Mp, tp, tr, ts, yss | same | ts to a 2% band. |
+| Transient metrics | Mp, tp, tr, ts, yss | same | See the two rows below: the symbols agree, two of the definitions do not. |
+| Overshoot formula | \(M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1-\zeta^2}}\) | \(M_\mathrm{p} = 100e^{-\zeta\omega_\mathrm{n}t_\mathrm{p}}\%\), needing \(t_\mathrm{p} = \pi/\omega_\mathrm{d}\) first | Identical in value, checked. But they will not recognise the closed form without doing the substitution, so show it once. They have met the inverse, \(\zeta = -\ln M_\mathrm{p}/\sqrt{\pi^2 + \ln^2 M_\mathrm{p}}\), in a Simulink lab. |
+| Settling time | \(t_\mathrm{s} = 4/(\zeta\omega_\mathrm{n})\), a 2% band | **\(t_\mathrm{s} \approx 4.5/(\zeta\omega_\mathrm{n})\)** | A real discrepancy, not a notation one. Their 4.5 is about a 1.1% band; 2% is 3.912, which everyone rounds to 4. A student checking our answer against their notes finds 12% out and nothing to explain it. Say which band we mean every time. |
 | Steady-state error | e_ss | ess | |
 | Reference | θref, r(t) | θref, r(t) | |
 | Ultimate gain | Ku | Ku | Ziegler–Nichols. |

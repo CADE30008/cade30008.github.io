@@ -209,6 +209,14 @@ A second-order system with damping ratio \( \zeta = 0.4 \) is given a step input
 Exactly, \( M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
 \( \zeta = 0.4 \) gives 0.254, so about 25%.
 
+You may have met this written as
+\( M_\mathrm{p} = 100e^{-\zeta\omega_\mathrm{n}t_\mathrm{p}}\% \), which is
+the same thing: substitute the peak time
+\( t_\mathrm{p} = \pi/\omega_\mathrm{d} \) and the
+\( \omega_\mathrm{n} \) cancels, leaving the form above. That version
+needs the peak time first; this one does not, which is why it is the one
+worth remembering.
+
 In practice nobody evaluates that in a design meeting. Carry three anchors
 instead and interpolate:
 
