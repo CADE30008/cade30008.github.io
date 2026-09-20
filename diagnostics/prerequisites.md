@@ -154,8 +154,14 @@ Read a complex pair \( \sigma \pm j\omega_\mathrm{d} \) as two separate facts:
 - **the imaginary part \( \omega_\mathrm{d} \) sets the ringing.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
 
 Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response rings at
-2 rad/s inside an \( e^{-t} \) envelope — most of it gone within about
-four seconds.
+2 rad/s inside an \( e^{-t} \) envelope, most of it gone within about four
+seconds. That is case 1 in the figure below, and each of the other three
+is one of the answers you could have chosen.
+
+The numerator does not change that shape, but it does set where the
+response ends up. Putting \( s = 0 \) gives \( G(0) = \frac{5}{5} = 1 \), so
+by the final value theorem the step settles at exactly 1. The poles say
+what it does on the way; the DC gain says where it stops.
 
 ### 3. Natural frequency and damping ratio
 

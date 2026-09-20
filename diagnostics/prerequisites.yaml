@@ -137,6 +137,16 @@ questions:
         why: >-
           That needs the poles *on* the imaginary axis, at \( \pm 2j \) with no
           real part at all. The \( -1 \) is what makes it die away.
+    steps_image: diagnostics/figures/pole-locations.png
+    steps_image_alt: >-
+      The complex plane. The left half is shaded and labelled "response
+      decays", the right half "response grows". Four pole locations are marked
+      and numbered, and the shape of each one's response is drawn below: a
+      conjugate pair in the left half decays while ringing; a single real pole
+      the same distance to the left decays without ringing; a pair on the
+      vertical axis rings for ever; a pair in the right half grows while
+      ringing. Arrows note that further left means faster decay, and higher up
+      means faster ringing.
     advice: |
       Read a complex pair \( \sigma \pm j\omega_\mathrm{d} \) as two separate facts:
 
@@ -144,8 +154,14 @@ questions:
       - **the imaginary part \( \omega_\mathrm{d} \) sets the ringing.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
 
       Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response rings at
-      2 rad/s inside an \( e^{-t} \) envelope — most of it gone within about
-      four seconds.
+      2 rad/s inside an \( e^{-t} \) envelope, most of it gone within about four
+      seconds. That is case 1 in the figure below, and each of the other three
+      is one of the answers you could have chosen.
+
+      The numerator does not change that shape, but it does set where the
+      response ends up. Putting \( s = 0 \) gives \( G(0) = \frac{5}{5} = 1 \), so
+      by the final value theorem the step settles at exactly 1. The poles say
+      what it does on the way; the DC gain says where it stops.
 
   - id: wn-zeta
     name: Natural frequency and damping ratio

@@ -205,27 +205,30 @@ def number_parts(q: dict) -> list[dict]:
     return parts
 
 
-def statement_html(q: dict) -> str:
-    """The question text, with its figure embedded if it has one.
+def embed_image(qid: str, rel: str, alt: str) -> str:
+    """A figure, base64'd into the .exam rather than linked.
 
-    The image is base64'd into the .exam rather than linked. A link would need
-    somewhere to host it, would break the moment that moved, and would leave
-    the quiz depending on something outside the file we hand over. Embedding
-    costs roughly 60 kB per figure, which against a 30 kB exam is a lot
-    proportionally and nothing absolutely.
+    A link would need somewhere to host it, would break the moment that moved,
+    and would leave the quiz depending on something outside the file we hand
+    over. Embedding costs 60-90 kB a figure, which against a 30 kB exam is a
+    lot proportionally and nothing absolutely.
     """
-    out = html(q["statement"])
-    if not q.get("image"):
-        return out
-    src = ROOT / q["image"]
+    src = ROOT / rel
     if not src.exists():
-        raise SystemExit(f"{q['id']}: image {q['image']} not found")
+        raise SystemExit(f"{qid}: image {rel} not found")
+    if not alt.strip():
+        raise SystemExit(f"{qid}: {rel} needs alt text, or it is unusable to a screen reader")
     b64 = base64.b64encode(src.read_bytes()).decode()
-    alt = q.get("image_alt", "")
-    if not alt:
-        raise SystemExit(f"{q['id']}: an image needs image_alt, or it is unusable to a screen reader")
-    return (out + f'<p><img src="data:image/png;base64,{b64}" alt="{alt}" '
-                  f'style="max-width:100%;height:auto"></p>')
+    return (f'<p><img src="data:image/png;base64,{b64}" alt="{alt}" '
+            f'style="max-width:100%;height:auto"></p>')
+
+
+def statement_html(q: dict) -> str:
+    """The question text, with its figure embedded if it has one."""
+    out = html(q["statement"])
+    if q.get("image"):
+        out += embed_image(q["id"], q["image"], q.get("image_alt", ""))
+    return out
 
 
 def steps_html(q: dict) -> str:
@@ -241,6 +244,9 @@ def steps_html(q: dict) -> str:
     them, and the step-by-step working last because it is the longest.
     """
     parts = [html(q["advice"])]
+    # A figure belongs with the explanation it illustrates, before the working.
+    if q.get("steps_image"):
+        parts.append(embed_image(q["id"], q["steps_image"], q.get("steps_image_alt", "")))
     if q.get("common_errors"):
         rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong>: {emphasis(e['why'])}</li>"
                        for e in q["common_errors"])
