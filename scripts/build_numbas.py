@@ -225,6 +225,15 @@ def advice_html(q: dict) -> str:
     there is no per-choice feedback to carry them.
     """
     parts = [html(q["advice"])]
+    if q.get("worked"):
+        # Folded away by default. A student who has understood the short version
+        # should not have to scroll past a full derivation to reach the next
+        # question; one who hasn't needs every line of it.
+        parts.append(
+            '<details style="margin:0.6em 0;border-left:3px solid #b01c2e;padding:0.3em 0 0.3em 0.8em">'
+            '<summary style="cursor:pointer;font-weight:600">Show the full working, step by step</summary>'
+            + html(q["worked"]) + "</details>"
+        )
     if q.get("common_errors"):
         rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong> — {emphasis(e['why'])}</li>"
                        for e in q["common_errors"])
@@ -318,6 +327,9 @@ def markdown(quiz: dict) -> str:
                 out.append(f"- *Common error* {e['value']}: {' '.join(str(e['why']).split())}")
         out += ["", f"*Checks:* {q['checks']}", "",
                 "*Worked route, shown to everyone:*", "", q["advice"].strip(), ""]
+        if q.get("worked"):
+            out += ["<details><summary><em>Full working, folded away in the quiz</em></summary>", "",
+                    q["worked"].strip(), "", "</details>", ""]
     return "\n".join(out).strip()
 
 

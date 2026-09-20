@@ -7,21 +7,21 @@ description: Every symbol used in this half of the unit, what it means, and the 
 
 Control notation is not standardised. Every textbook makes slightly different
 choices, and you will have met some of these symbols under other names. This
-page is the list we use, and — just as usefully — **what else the same thing
-gets called**, so that a different book or a different lecturer doesn't read as
-a different subject.
+page lists the symbols we use and **what else the same thing gets called**, so
+that a different book or a different lecturer does not read as a different
+subject.
 
 !!! tip "If a symbol here looks unfamiliar, check the last column"
-    It is very likely something you already know, wearing a different hat. That
-    is normal, and learning to read across notations is part of becoming
-    fluent — you will meet it constantly in papers and datasheets.
+    It is probably something you already know under another name. Reading
+    across notations is part of becoming fluent, and you will do it constantly
+    once you are reading papers and datasheets.
 
 ## How we chose
 
 **We follow MATLAB.** You will spend more hours reading MATLAB's output than
-reading any book, so when MATLAB names something, we use its name: the
-controller is `C`, the plant is `G`, a Bode plot's vertical axis is
-**magnitude** in decibels.
+reading any book, so when MATLAB names something, we use its name. The
+controller is `C`, the plant is `G`, and a Bode plot's vertical axis is
+**magnitude**, in decibels.
 
 Where MATLAB is silent we follow Dorf and Bishop, the
 [recommended textbook for further reading](reading.md). Where the two disagree
@@ -29,25 +29,24 @@ we say so below rather than picking silently.
 
 Two house rules:
 
-- **Descriptive subscripts are upright, variable subscripts are italic.** So
-  \(K_\mathrm{p}\) — p is short for "proportional", a label — but \(x_i\), where
-  \(i\) is an index that ranges over values. The test: could the subscript be
-  replaced by a number? If yes it stays italic.
+- **Descriptive subscripts are upright, variable subscripts are italic.** In
+  \(K_\mathrm{p}\), the p abbreviates "proportional", so it is upright. In
+  \(x_i\), the \(i\) is an index that ranges over values, so it stays italic.
+  To decide: could the subscript be replaced by a number?
 - **Every question and worked example defines its symbols**, even the obvious
   ones. It costs a line and removes all doubt.
 - **An equation always carries its left-hand side.** You will see
-  \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\), never a bare
-  \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\) with the name left in the prose.
+  \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\), not a bare
+  \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\) with its name left in the prose.
 
 !!! note "The \((s)\) often goes missing, and that's normal"
     Once it is clear that everything is a function of \(s\), almost everyone
     drops it: \(L = CG\) rather than \(L(s) = C(s)G(s)\), and \(T = L/(1+L)\)
-    rather than the full form. We do it too, in slides especially, where space
-    is short.
+    rather than the full form. We do it too, especially on slides.
 
-    It means the same thing. Watch for the one place it matters: \(G(0)\) and
-    \(G(j\omega)\) are *particular values* of \(G(s)\), so when an argument is
-    written explicitly it is usually there for a reason.
+    It means the same thing. One place it matters: \(G(0)\) and \(G(j\omega)\)
+    are *particular values* of \(G(s)\). When an argument is written out
+    explicitly, it is usually there for a reason.
 
 ## Signals round the loop
 
@@ -133,6 +132,7 @@ the unit will ask for.
 | \(s = \sigma + j\omega\) | The Laplace variable. | |
 | \(j\) | \(\sqrt{-1}\). | \(i\) in mathematics and physics. Engineering uses \(j\) because \(i\) is current. |
 | \(X(s)\) | Laplace transform of \(x(t)\). Capital for the transform, lower case for the signal. | \(\mathcal{L}\{x(t)\}\). |
+| \(\dot y\), \(\ddot y\) | First and second derivatives with respect to time. \(\dot y = \mathrm{d}y/\mathrm{d}t\). | \(\mathrm{d}y/\mathrm{d}t\) and \(\mathrm{d}^2y/\mathrm{d}t^2\), which you will see at least as often. The dot is Newton's; the fraction is Leibniz's. Both are used here, the dot where an equation would otherwise get crowded. A dot always means a time derivative, never anything else. |
 | \(\sigma\) | Real part of a pole — sets how fast a response decays. | |
 
 ---

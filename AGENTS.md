@@ -99,6 +99,37 @@ So the life of a week is:
 ## Writing style
 
 - **British English.** Write in plain, direct sentences, and address students as "you".
+
+### Prose that doesn't read as machine-written
+
+Assistants drift into a recognisable register: fluent, rhythmic, and faintly self-congratulatory. It is not wrong, it is just uniform, and students and colleagues notice. These are the specific habits, counted in this repository rather than guessed at.
+
+**Em dashes.** There were 404 in the Markdown when this rule was written, one every few sentences; `docs/notation.md` had 19 in 1,299 words. Almost every one stands in for a comma, a colon, a full stop or a pair of brackets. Work out which and use it. Keep the dash for a genuine interruption, roughly one a page.
+
+**The significance gloss.** The commonest tell: say a thing, then explain that it matters.
+
+| Don't | Do |
+|---|---|
+| "That phrase is doing real work." | Delete, and let the phrase work. |
+| "…which is exactly why X." | "So X." |
+| "That is the whole point." | Delete. If it is the point, the reader saw it. |
+| "This earns its place because…" | Delete, or cut the thing. |
+| "It is worth knowing that X." | "X." |
+| "genuinely useful" | "useful" |
+
+**The contrastive reframe.** "X is not Y, it is Z." Fine once in a page, deadening at the rate it arrives otherwise. Usually "Z" on its own is stronger.
+
+**Rhythm for its own sake.** Three-item lists because three sounds complete. Sentences opened with *And* or *But* for a beat: 31 in this repository. A short sentence after two long ones, every time.
+
+**Stock metaphors.** *lands*, *buys you*, *costs nothing*, *does the heavy lifting*, *at a glance*, *in the room*. Each was a real image once.
+
+**The test.** Read it aloud. Any sentence carrying a flourish you would be embarrassed to say to a student's face comes out. Prose for teaching should sound like a competent person explaining something they know, not like an essay about the explanation.
+
+**Worth reading, in order of usefulness here:**
+
+1. **Joseph M. Williams, *Style: Lessons in Clarity and Grace*.** The most directly applicable. Its core test — put the characters in the subjects and the actions in the verbs, old information before new — is mechanical enough to apply to a sentence you have already written.
+2. **Ernest Gowers, *Plain Words*** (Rebecca Gowers' 2014 revision). The British plain-English reference, and the right register for a UK university.
+3. **Michael Alley, *The Craft of Scientific Writing*.** Engineering-specific, and good on the difference between describing a result and explaining it.
 - **Handouts** carry the full argument: derivations, worked examples, and each result linked to both the Bode plot and the step response.
 - **Slides** carry one idea each, with a heading that states the point, a figure or a short list, and no paragraphs. Speaker notes go in HTML comments after the citation.
 - **Maths** uses `$...$` inline and `$$...$$` on its own lines, in both handouts and slides. Where possible, a slide's equation should be copied from the handout.

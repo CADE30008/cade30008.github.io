@@ -89,6 +89,48 @@ The denominator, \( s+2 \), is the characteristic polynomial, and its root
 \( s = -2 \) is the pole. This is the move behind every block diagram in
 the unit, so it is worth being quick at.
 
+<details><summary><em>Full working, folded away in the quiz</em></summary>
+
+**1. Write down what the Laplace transform does to each term.**
+
+For a derivative the transform is
+
+$$ \mathcal{L}\{\dot y(t)\} = sY(s) - y(0), $$
+
+and for the undifferentiated terms it is just \( \mathcal{L}\{y(t)\} = Y(s) \)
+and \( \mathcal{L}\{u(t)\} = U(s) \).
+
+**2. Use "starting from rest".**
+
+It means \( y(0) = 0 \), so the \( -y(0) \) term disappears and
+\( \mathcal{L}\{\dot y\} = sY(s) \). Without that condition there is no
+single transfer function to find, because the answer would depend on where
+the system started.
+
+**3. Transform the whole equation.**
+
+$$ \dot y + 2y = u \quad \longrightarrow \quad sY(s) + 2Y(s) = U(s). $$
+
+**4. Collect the output terms.**
+
+Both terms on the left have \( Y(s) \) in them, so take it outside:
+
+$$ (s + 2)\,Y(s) = U(s). $$
+
+**5. Divide to get output over input.**
+
+$$ \frac{Y(s)}{U(s)} = \frac{1}{s+2}. $$
+
+**6. Check it.** Two quick tests. Do both every time.
+
+- **Shape.** One derivative of \( y \) should give one power of \( s \) in
+  the denominator. It does.
+- **Steady state.** Set \( s = 0 \) to get \( Y/U = 1/2 \), so a steady
+  input of 1 settles the output at 0.5. Setting \( \dot y = 0 \) in the
+  original equation gives \( 2y = u \), and so \( y = 0.5 \). They agree.
+
+</details>
+
 ### 2. Poles and what they mean
 
 A system has transfer function \( G(s) = \dfrac{5}{s^2 + 2s + 5} \), whose poles are at \( -1 \pm 2j \). Its step response is:
