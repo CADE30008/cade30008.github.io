@@ -57,7 +57,9 @@ ours to license at all:
   are used.
 
 And the **assessment material** — coursework briefs, marking schemes, per-student
-parameters and worked answers — *is* ours, but it isn't published.
+parameters and worked answers — *is* ours, but it isn't published. The
+prerequisite diagnostic *is* published, questions and answers alike, because
+nothing it does stops working once you can read it.
 
 If you reuse this material, replace the University branding with your own. The
 full terms, and the complete list of what is excluded, are in
