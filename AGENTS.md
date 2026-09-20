@@ -220,6 +220,18 @@ Use `\mathrm{}`, not `\text{}`: `\text{}` inherits the surrounding font and will
 
 The test: could the subscript be replaced by a number or another value? If yes it's a variable and stays italic. If it's an abbreviation of a word, it's upright.
 
+### What Numbas keeps, and what it throws away
+
+Question text, feedback and advice are HTML, but Numbas sanitises them. Confirmed
+by uploading: **`<details>` and `<summary>` are stripped**, so a collapsible
+worked solution silently renders as nothing at all — the markup was well formed
+and at the top level, and it still went.
+
+Stick to `p`, `strong`, `em`, `ol`, `ul`, `li`, `hr`, `img` and `table`, which
+are known to survive. Inline `style` on those survives too. **Anything else,
+test by uploading before relying on it**, because the failure is silent rather
+than an error.
+
 ### Links say where they go
 
 Every link in the body text carries a marker saying what a click does. Three of the four are worked out from the address by `docs/javascripts/links.js`, so there is nothing to remember:

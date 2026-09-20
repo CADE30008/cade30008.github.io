@@ -226,13 +226,16 @@ def advice_html(q: dict) -> str:
     """
     parts = [html(q["advice"])]
     if q.get("worked"):
-        # Folded away by default. A student who has understood the short version
-        # should not have to scroll past a full derivation to reach the next
-        # question; one who hasn't needs every line of it.
+        # Plainly headed, not folded. <details> is well-formed here but Numbas
+        # strips it, so the fold silently did nothing. Only markup that survives
+        # its sanitiser is used now: a rule, a heading, and paragraphs.
+        #
+        # The cost is length, so the short advice above stays first and the
+        # heading gives the eye somewhere to stop.
         parts.append(
-            '<details style="margin:0.6em 0;border-left:3px solid #b01c2e;padding:0.3em 0 0.3em 0.8em">'
-            '<summary style="cursor:pointer;font-weight:600">Show the full working, step by step</summary>'
-            + html(q["worked"]) + "</details>"
+            '<hr style="border:0;border-top:1px solid #d9dcdb;margin:1em 0">'
+            '<p style="font-weight:700">Full working, step by step</p>'
+            + html(q["worked"])
         )
     if q.get("common_errors"):
         rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong> — {emphasis(e['why'])}</li>"
