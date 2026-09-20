@@ -38,6 +38,7 @@ sources:
   dorf:
     cite: "Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson."
     short: Dorf and Bishop
+    title: Modern Control Systems
     # Section numbers are identical in the 12th (2011), 13th (2017) and 14th
     # (2022) editions - checked against all three contents pages, 20 September.
     # Only page numbers differ, so one pointer serves every edition the library
@@ -106,6 +107,12 @@ weeks:
       - {source: dorf, sections: "1.4-1.5", title: "Engineering design, and control system design", note: "the design cycle this unit is built on"}
       - {source: dorf, sections: "4.1-4.2", title: "Feedback control system characteristics; error signal analysis", note: "why feedback at all"}
     notes: Departs from P17's standard shape, and says so. Plan in teaching/w01-design-cycle.md.
+    needs:
+      - {what: "Measured elevation-axis response from the rig, for students to fit", who: steve}
+      - {what: "Student Live Script: manual second-order fit, with tfest as the ceiling", who: build}
+      - {what: "Gain filter: reject anything unsafe before it reaches the hardware", who: build}
+      - {what: "Selection tool: pick individuals, the cohort average, and the best few", who: build}
+      - {what: "MATLAB Drive submission folder, tested with a real student account", who: steve}
 
   - week: 2
     short: Requirements and models

@@ -121,10 +121,19 @@ Do it as you go and week 11 is assembly, not writing from nothing.
 - Terence Tao and ChatGPT, 20 July 2026: the value was his judgement, not the prompt
 - The fundamentals here are what make you good *with* AI
 
+<div class="callout">
+
+**A design in a domain you don't understand, produced by a tool you don't understand and can't check, runs the risk of being a gamble that it's right.** That's not responsible, not ethical, and not engineering.
+
+</div>
+
 <!--
 After Sean Goedecke, "LLMs reward expertise", which uses Tao's conversation on
 the Jacobian conjecture as its example. Tao, among other researchers, models
 and critiques genuinely productive uses of LLMs.
+
+The callout is the one to slow down on. Aviation makes it concrete: somebody
+signs off a control law, and "the tool said so" has never been a defence.
 -->
 
 ---
@@ -162,6 +171,42 @@ someone is accountable, and your name is on it either way. The coursework's AI
 rules follow the same line: use it where the brief allows, you won't need it,
 and you own what you submit. I used AI to help make these materials; the
 pedagogy and content are mine, and I have checked and rewritten all of it.
+-->
+
+---
+
+<!-- handout: ai -->
+
+# Do the hard stuff
+
+<div class="callout">
+
+**Dumping materials into an LLM and asking it to do the work for you doesn't reflect why you or I should be here.** It reduces your efforts to button-pushing, and means I have to mark a load of slop, to which I'll award the marks it deserves.
+
+**Do the hard stuff, learn and change the way you think, and show me through your work.**
+
+</div>
+
+<!--
+Say this one in your own voice, and don't soften it. It is the only slide in the
+deck that is a straight instruction. Then move on quickly — the point lands
+better without a discussion.
+-->
+
+---
+
+<!-- handout: ai -->
+
+# Where this comes from
+
+- **Sean Goedecke**, *LLMs reward expertise*
+- **Terence Tao and 24 other Fields Medallists**, September 2026, on AI and mathematics
+- **Bruce Schneier**, the work-or-gym test, in *The Guardian*
+- All three, with links: the **AI in this course** page
+
+<!--
+Links are on the site rather than read out. The point of the slide is that this
+is a considered position with sources, not a departmental rule.
 -->
 
 ---

@@ -358,7 +358,7 @@ half's footing.
 - MIT OpenCourseWare. [16.30 Feedback Control Systems, calendar](https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/pages/calendar/), fall 2010.
 - MIT OpenCourseWare. [16.06 Principles of Automatic Control, syllabus](https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/pages/syllabus/), fall 2012.
 - Murray, R. M. [CDS 110 / ChE 105, Spring 2024](https://murray.cds.caltech.edu/CDS_110/ChE_105,_Spring_2024). Caltech.
-- Åström, K. J. and Murray, R. M. (2021). *Feedback Systems: An Introduction for Scientists and Engineers*, 2nd edition. Princeton University Press. [Free online](https://fbswiki.org/).
+- Åström, K. J. and Murray, R. M. (2021). *Feedback Systems: An Introduction for Scientists and Engineers*, 2nd edition. Princeton University Press. [Free online at fbsbook.org](https://fbsbook.org/), hosted by the authors with the publisher's permission — not an open licence.
 - TU Delft. [MSc Control and Simulation courses](https://cs.lr.tudelft.nl/education/msc-courses/), including AE4301 Automatic Flight Control System Design.
 - University of Michigan. [Aerospace Engineering course bulletin](https://bulletin.engin.umich.edu/courses/aero/), AEROSP 341 Aircraft Dynamics.
 - MathWorks. [Agentic AI with MATLAB and Simulink](https://www.mathworks.com/products/matlab/agentic-ai.html); [Simulink Agentic Toolkit](https://github.com/matlab/simulink-agentic-toolkit); [Using Agentic AI to Design and Deploy a Control System](https://www.mathworks.com/videos/using-agentic-ai-to-design-and-deploy-a-control-system-1781868278531.html).

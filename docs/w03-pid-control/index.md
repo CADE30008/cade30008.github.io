@@ -362,7 +362,7 @@ Rate-limiting large reference changes also helps, because it keeps the actuator 
 
 ## Further reading {#further-reading .no-slides}
 
-- K. J. Åström and R. M. Murray, *Feedback Systems: An Introduction for Scientists and Engineers*, 2nd edition, Princeton University Press. Chapter 11 covers PID control. A free copy is available from the authors.
+- K. J. Åström and R. M. Murray, *Feedback Systems: An Introduction for Scientists and Engineers*, 2nd edition, Princeton University Press. Chapter 11 covers PID control. The authors host the whole book free, with the publisher's permission, at [fbsbook.org](https://fbsbook.org/); see [The textbook](../reading.md#a-free-second-opinion).
 - G. F. Franklin, J. D. Powell and A. Emami-Naeini, *Feedback Control of Dynamic Systems*, Pearson. The frequency-response design chapter covers lead and lag compensation, which PD and PI are special cases of.
 - B. L. Stevens, F. L. Lewis and E. N. Johnson, *Aircraft Control and Simulation*, Wiley. Covers pitch-attitude autopilots and stability augmentation.
 - K. J. Åström and T. Hägglund, *Advanced PID Control*, ISA. Covers anti-windup, setpoint weighting and practical PID tuning.

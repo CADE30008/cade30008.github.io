@@ -104,6 +104,21 @@ So the life of a week is:
 - **Maths** uses `$...$` inline and `$$...$$` on its own lines, in both handouts and slides. Where possible, a slide's equation should be copied from the handout.
 - **Code** appears in MATLAB and Python tabs, MATLAB first, using `=== "MATLAB"` then `=== "Python"`, each including a file from `code/`. The same order applies wherever the two appear side by side, including the Preparing for Control page.
 
+### Links say where they go
+
+Every link in the body text carries a marker saying what a click does. Three of the four are worked out from the address by `docs/javascripts/links.js`, so there is nothing to remember:
+
+| Where it goes | Marker | How it's written |
+|---|---|---|
+| A page on this site | none | `[the handout](index.md)` |
+| A file on this site | a download glyph | `[check_setup.m](code/check_setup.m)` |
+| Another site, for reference | a grey outward arrow | `[IT Services](https://www.bristol.ac.uk/it-services/)` |
+| Another site, go there now | a red arrow, and the text underlined | `[MATLAB Onramp](https://…){ .go }` |
+
+Only the last is a judgement, so it is the only one written by hand. **`{ .go }` means "stop reading this page, go there, come back."** If the reader could skip it and lose nothing, leave it plain — a page where every link shouts has no emphasis left. `npm run live` fails if `{ .go }` is put on a link that doesn't leave the site.
+
+Explain the notation where a student first meets a lot of links, not on every page. It is explained on [Preparing for Control](docs/preparing/index.md) and on the [about page](docs/about.md); don't repeat it elsewhere.
+
 ## Common tasks
 
 **You changed a handout section.** Run `npm run check`. It names the slides that cite the section. Update them, check again, then accept.

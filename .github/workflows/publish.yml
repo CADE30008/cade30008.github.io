@@ -8,9 +8,9 @@
 # "GitHub Actions".
 #
 # Not yet handled: slides and PDFs. They are built locally and git ignores
-# them, and the slide theme comes from a sibling folder CI can't see (README,
-# "The slide theme"). Nothing published so far needs them; the first lecture
-# week that is published will.
+# them. Nothing published so far needs them; the first lecture week that is
+# published will, and adding them is now just a matter of a Node step — the
+# theme comes from a public tag, so CI can read it (README, "The slide theme").
 
 name: Publish the live site
 

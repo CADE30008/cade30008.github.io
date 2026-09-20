@@ -142,11 +142,15 @@ class Links(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.refs: list[str] = []
+        self.go: list[str] = []           # links marked { .go }; see javascripts/links.js
 
     def handle_starttag(self, tag, attrs):
+        d = dict(attrs)
         for k, v in attrs:
             if k in ("href", "src") and v:
                 self.refs.append(v)
+        if tag == "a" and "go" in (d.get("class") or "").split():
+            self.go.append(d.get("href") or "")
 
 
 def resolves(site: Path, page: Path, ref: str) -> bool:
@@ -169,6 +173,11 @@ def check_links(site_url: str) -> None:
         for ref in parser.refs:
             if not resolves(site, page, ref):
                 problems.append(f"broken link in {page.relative_to(site)}: {ref}")
+        # { .go } says "leave the site, do this, come back". On a link that
+        # stays here it would draw the eye for nothing, so catch it.
+        for ref in parser.go:
+            if not urlparse(ref).netloc or urlparse(ref).netloc == urlparse(site_url).netloc:
+                problems.append(f"{page.relative_to(site)}: {{ .go }} on a link that doesn't leave the site: {ref}")
     sheet = ROOT / "teaching" / "blackboard.md"
     if sheet.exists():
         for url in sorted(set(re.findall(re.escape(site_url) + r"[\w./#-]*", sheet.read_text(encoding="utf-8")))):

@@ -6,7 +6,20 @@
 # unit's coursework is already in by then, so nothing is planned for it.
 
 year: 2026/27
+# The timetabled slot, confirmed from the timetable on 20 September 2026. Both
+# halves are timetabled as "Flight Dynamics and Advanced Control" in the same
+# room; flight dynamics has Thursdays 09:00-11:00 and is not Steve's.
 day: Tuesday
+time: "13:00-15:00"
+room: QB 1.40 Pugsley
+# Week 1's lecture date. Later weeks are taken as this plus seven days each, so
+# if teaching block 1 ever has a gap between weeks, this stops being right and
+# the dates in STATUS.md need another source.
+week1_date: 2026-09-22
+# 190 students listed on the unit, about 10 of them still provisional or
+# unregistered (Steve's check, September 2026). Drives the "share the library
+# copies" note in week 1, and the laboratory capacity sums in PEDAGOGY.
+cohort: 190
 consolidation_week: 6
 revision_week: 12
 

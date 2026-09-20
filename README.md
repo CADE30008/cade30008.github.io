@@ -128,23 +128,17 @@ See [AGENTS.md](AGENTS.md) for the full contract.
 
 ## The slide theme
 
-`package.json` takes the Flight Lab Marp theme from a sibling folder, `"marp-template": "file:../flightlab-marp-template"`. That works on Steve's machine and nowhere else: a fresh clone, a colleague, or CI cannot build the slides.
-
-Once the theme repository is published, **pin to a release tag rather than to a branch**:
+The Flight Lab Marp theme is a package of its own, [BristolFlightLab/marp-template](https://github.com/BristolFlightLab/marp-template), and `package.json` takes it **from a release tag**:
 
 ```json
 "marp-template": "github:BristolFlightLab/marp-template#v1.0.0"
 ```
 
-npm resolves that to a tarball of the tag, so the build is reproducible: `main` moving does not silently restyle every deck, and a deck built today builds the same in a year. Upgrading is then a deliberate one-line change.
+`.marprc.yml` then points Marp at `node_modules/marp-template/themes`.
 
-What the theme repository needs for this to work:
+Pinning to the tag rather than to `main` keeps the build reproducible: the theme moving does not silently restyle every deck, and a deck built today builds the same in a year. Upgrading is a deliberate one-line change — bump the tag, run `npm install`, rebuild and look at a deck.
 
-- a `package.json` with matching `name` and `version`, and the CSS in `files` (or no `.npmignore` excluding it) — npm installs the repo as a package, not as a folder of loose files;
-- no build step, or a `prepare` script, since npm runs `prepare` when installing from git;
-- semver tags, `v1.0.0` style.
-
-Alternatives, if the repository stays private: `#semver:^1.0.0` tracks compatible releases rather than one tag, at the cost of reproducibility; a GitHub Actions token or deploy key is needed either way for CI to read a private repository. Publishing to npm under a scope avoids the token problem entirely and is worth considering if the theme is meant to be reused across units.
+The repository is public, so no token is needed and CI can build the decks. It was previously a sibling folder, `file:../flightlab-marp-template`, which worked on Steve's machine and nowhere else; keep that form only for local theme work, and put the tag back before committing.
 
 ## Licence
 

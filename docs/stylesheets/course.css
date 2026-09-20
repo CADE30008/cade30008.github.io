@@ -250,3 +250,60 @@
   outline: 2px solid var(--md-accent-fg-color);
   outline-offset: -2px;
 }
+
+/* ---------- Where a link goes ---------- */
+
+/* javascripts/links.js sets data-link on each link in the body text, from its
+   address: "file" for something you download from this site, "away" for another
+   site, "go" for another site you are meant to visit as part of the activity.
+   A page on this site gets nothing, because that is the ordinary case and the
+   markers would then be everywhere and mean nothing.
+
+   The theme underlines every link already, so an underline can't carry the
+   difference between "away" and "go". Three things do, and none is colour on
+   its own: the arrow sits in a filled badge rather than bare, that badge is a
+   solid shape which survives a greyscale print, and the link text is set
+   heavier. The glyphs are ::after content, so they are not selectable and don't
+   end up in a copied quotation. */
+.md-content .md-typeset a[data-link]::after {
+  font-size: 0.8em;
+  line-height: 1;
+  margin-left: 0.15em;
+  vertical-align: 0.08em;
+}
+
+/* Leaves the site, for reference. Quiet: most links on a page are this. */
+.md-content .md-typeset a[data-link="away"]::after {
+  content: "↗";
+  color: var(--md-default-fg-color--light);
+}
+
+/* Leaves the site, and the reader is meant to go. Loud enough to interrupt a
+   page of ordinary links, which is why { .go } is used sparingly. */
+.md-content .md-typeset a[data-link="go"] {
+  font-weight: 600;
+}
+.md-content .md-typeset a[data-link="go"]::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0 0.3em;
+  border-radius: 0.25em;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: 0.12em;
+}
+/* The dark scheme's accent is a light red; white on it is too thin to read. */
+[data-md-color-scheme="slate"] .md-content .md-typeset a[data-link="go"]::after {
+  color: #1b1b1b;
+}
+
+/* A file on this site: clicking saves something rather than opening a page. */
+.md-content .md-typeset a[data-link="file"]::after {
+  content: "⤓";
+  color: var(--md-default-fg-color--light);
+  font-size: 0.9em;
+}

@@ -21,6 +21,21 @@ installing software.
     On Blackboard, the **Before week 1** module has the same steps, with a
     circle beside each to tick off as you go.
 
+!!! info "Links tell you what a click does"
+    Across this site, a link carries a small marker saying where it goes.
+    Hovering over one names the site it leads to. Here is each kind, shown as
+    itself:
+
+    - [The glossary](../glossary.md) — no marker: another page here, and you're
+      not leaving the site.
+    - [check_setup.py](code/check_setup.py) — a file downloads.
+    - [MATLAB Mobile](https://www.mathworks.com/products/matlab-mobile.html) —
+      another website, for reference. Follow it if you want to; nothing depends
+      on it.
+    - [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted){ .go }
+      — another website, and going there is part of the task. Do it, then come
+      back.
+
 ## What you'll use {#software}
 
 Every example in the course comes in both MATLAB and Python, and for most tasks
@@ -29,7 +44,7 @@ MATLAB.
 
 | Tool | What it's for | Where to get it |
 |---|---|---|
-| MATLAB, with the Control System Toolbox | The main tool for the course | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html). Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes |
+| MATLAB, with the Control System Toolbox | The main tool for the course | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html){ .go }. Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes |
 | Simulink | Block-diagram simulation, for activities and the Quanser laboratory | Comes with MATLAB. Select it when you install |
 | Python, with the `control` package | A free alternative for everything except Simulink | Install it on your computer, or run it in your browser on this page |
 
@@ -106,7 +121,7 @@ not there, the problem is the installation on your computer, not the code.
 
 ### Python on your computer {#check-python}
 
-1. Install Python 3.10 or later, from [python.org](https://www.python.org/downloads/)
+1. Install Python 3.10 or later, from [python.org](https://www.python.org/downloads/){ .go }
    or with [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. Install the packages:
 
@@ -164,11 +179,26 @@ Three free, self-paced courses that run in your browser and check your work as
 you go. Take them in this order. You'll need a laptop or desktop computer, as
 MathWorks online courses don't run on tablets or phones.
 
-1. [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted):
+**These are the bulk of your preparation.** Each course page shows an estimated
+time; together they are more than one evening's work, and they save you from
+learning the software and the control at the same time. Start them now rather
+than the night before, and you can stop and resume as often as you like —
+progress is saved.
+
+<!-- in-progress:start -->
+!!! note "For Steve"
+    MathWorks renders the per-course time estimates in the browser, so they
+    aren't quotable from the page source. Open each course while signed in, read
+    the estimate, and put the three numbers and a total in the paragraph above —
+    "about seven hours in total" is far more useful to a student than "more than
+    one evening's work".
+<!-- in-progress:end -->
+
+1. [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted){ .go }:
    the MATLAB language and environment.
-2. [Simulink Onramp](https://matlabacademy.mathworks.com/details/simulink-onramp/simulink):
+2. [Simulink Onramp](https://matlabacademy.mathworks.com/details/simulink-onramp/simulink){ .go }:
    building and simulating models from blocks.
-3. [Control Design Onramp with Simulink](https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls):
+3. [Control Design Onramp with Simulink](https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls){ .go }:
    designing a feedback controller in Simulink.
 
 Sign in with the MathWorks account linked to your University email address.

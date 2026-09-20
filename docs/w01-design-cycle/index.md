@@ -115,14 +115,31 @@ alone, with no feedback.
 Nothing formative is randomised: everyone gets the same questions, and you're
 welcome to work through them sitting next to each other.
 
-### The textbook {#textbook}
+## The textbook {#textbook}
 
-You don't have to buy a book. Each week's handout is the authoritative version
-of what you need. Dorf and Bishop's *Modern Control Systems* is worth knowing
-about, though, and the library has plenty of copies: use it **for additional
-study and consolidation**, when you want a second explanation or more worked
-examples. Which sections go with which week, and what the library holds, are on
+<!-- textbook:start -->
+You don't have to buy a book. Each week's handout is the authoritative
+version of what you need, and it stands on its own. One is worth knowing
+about, though: **Dorf and Bishop's *Modern Control Systems***. Use it **for additional
+study and consolidation** — a second explanation when the handout's doesn't
+land, and more worked examples — not as a substitute for the handout.
+
+!!! tip "Share the library copies"
+    There are **20 print copies and 14 eBook licences** between
+    about 190 of you, so the book only works if everyone takes their turn.
+
+    - Reading an eBook online locks that copy while you have it open.
+    - Downloading the whole book locks a copy for 24 hours.
+    - Downloading a PDF chapter locks nothing, but is capped at 56 pages.
+
+    So: **download the chapter you want and get out**. Don't leave an eBook
+    open in a tab overnight, and don't download the whole book unless you
+    really need all of it — that takes a copy away from someone else for a
+    day. If everything is out, come back in an hour; it usually isn't for long.
+
+Which sections go with which week, and what the library holds, are on
 [The textbook](../reading.md).
+<!-- textbook:end -->
 
 ## Your week {#workload}
 
@@ -162,34 +179,48 @@ particular.
 work, but much of it falls down against an expert eye — and, in engineering,
 against the real world. Knowing the subject is what lets you ask the precise
 question, notice the flaw in a confident answer, and refuse a plausible wrong
-turn. Sean Goedecke makes the case with Terence Tao's conversation with ChatGPT
-about the Jacobian conjecture, on 20 July 2026: the value came from Tao's
-judgement at every step, not from clever prompting. So the fundamentals in this
-unit are what will make you good with AI in control engineering, not what AI
-makes unnecessary.
+turn. Sean Goedecke makes the case[^goedecke] with Terence Tao's conversation
+with ChatGPT about the Jacobian conjecture, on 20 July 2026:[^tao-chat] the value
+came from Tao's judgement at every step, not from clever prompting. So the
+fundamentals in this unit are what will make you good with AI in control
+engineering, not what AI makes unnecessary.
+
+!!! danger ""
+    A design in a domain you don't understand, produced by a tool you don't
+    understand and can't check, runs the risk of being a gamble that it's right.
+    That's not responsible, not ethical, and not engineering.
 
 **Learning is how experts are made.** In September 2026, Tao and 24 other
 Fields Medallists warned that training exists to build understanding, not only
 to produce answers — and that when AI produces the answers directly, the two
-come apart.
+come apart.[^tao]
 
-**Work, or gym?** Bruce Schneier's test puts that in everyday terms. If only the
-result matters, it's work, and AI is a sensible tool — provided someone checks
-it and stands behind it, because in engineering your name is on it either way.
-If doing it is the point, because doing it is what builds your ability, it's the
-gym, and using AI there is like sending a machine to lift your weights. Chasing
-an obscure Simulink error at eleven at night, when you know what your model
-should do, is mostly work. Working out why your loop has less phase margin than
-you expected is the gym. Most of what you do at university is the gym, even when
-it looks like work.
+**Work, or gym?** Bruce Schneier's test puts that in everyday terms.[^schneier]
+If only the result matters, it's work, and AI is a sensible tool — provided
+someone checks it and stands behind it, because in engineering your name is on
+it either way. If doing it is the point, because doing it is what builds your
+ability, it's the gym, and using AI there is like sending a machine to lift your
+weights. Chasing an obscure Simulink error at eleven at night, when you know
+what your model should do, is mostly work. Working out why your loop has less
+phase margin than you expected is the gym. Most of what you do at university is
+the gym, even when it looks like work.
+
+!!! warning ""
+    Dumping materials into an LLM and asking it to do the work for you doesn't
+    reflect why you or I should be here. It reduces your efforts to
+    button-pushing, and means I have to mark a load of slop, to which I'll award
+    the marks it deserves. Do the hard stuff, learn and change the way you think,
+    and show me through your work.
 
 In this unit you may use AI in the ways the coursework brief sets out; you will
 not need to; and you are responsible for everything you submit, including
 anything a tool produced. I used AI to help create these materials, but the
 pedagogy and content are mine, and I have checked and rewritten all of it.
 
-More on all of this, with the sources, and how to send me feedback, is on
+More on all of this, and how to send me feedback, is on
 [AI in this course](../ai.md).
+
+
 
 ## Further reading {#further-reading .no-slides}
 
@@ -199,3 +230,8 @@ More on all of this, with the sources, and how to send me feedback, is on
 
 Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12th, 13th and 14th editions; only the page numbers differ. It is [in the library](../reading.md), and is for additional study and consolidation, not a substitute for the handout.
 <!-- reading:end -->
+
+[^goedecke]: Goedecke, S. (2026). [LLMs reward expertise](https://www.seangoedecke.com/llms-reward-expertise/).
+[^tao-chat]: Tao, T. (2026). [Jacobian conjecture counterexample](https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56), a shared ChatGPT conversation, 20 July 2026.
+[^tao]: Tao, T. and 24 other Fields Medallists (2026). [A severe misalignment of AI in mathematics](https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/).
+[^schneier]: Schneier, B. (2026). [Should you use AI for a task? Here's a simple way to decide](https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html). First published in *The Guardian*.

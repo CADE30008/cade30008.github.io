@@ -810,9 +810,12 @@ refining, chemicals, and pulp and paper industries found 97 per cent of
 regulatory controllers using PID feedback.
 
 - Åström, K. J. and Murray, R. M. *Feedback Systems: An Introduction for
-  Scientists and Engineers*, chapter 10.
-  [Free PDF](https://www.cds.caltech.edu/~murray/books/AM08/pdf/am06-pid_16Sep06.pdf).
-  Check the wording against the current edition before printing it.
+  Scientists and Engineers*. PID is chapter 10 in the 1st edition and chapter 11
+  in the 2nd, so **check the wording against the 2nd edition before printing
+  it** — the draft chapter PDF that used to sit on Caltech's server is the
+  first. The authors host the current book free, with Princeton's permission, at
+  [fbsbook.org](https://fbsbook.org/). That is permission to host, not an open
+  licence: quote it with attribution, and don't reproduce pages wholesale.
 - The survey it cites: Desborough, L. and Miller, R. (2002). Increasing customer
   value of industrial control performance monitoring: Honeywell's experience.
   *AIChE Symposium Series*, 326, 153–186.
