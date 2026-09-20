@@ -57,8 +57,7 @@ ours to license at all:
   are used.
 
 And the **assessment material** — coursework briefs, marking schemes, per-student
-parameters and worked answers — *is* ours, but it isn't published. Keeping it
-back is what lets it keep working from one year to the next.
+parameters and worked answers — *is* ours, but it isn't published.
 
 If you reuse this material, replace the University branding with your own. The
 full terms, and the complete list of what is excluded, are in

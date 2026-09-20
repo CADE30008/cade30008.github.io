@@ -92,6 +92,7 @@ year rather than rediscovering them.
 |---|---|---|
 | MathWorks Onramp LTI integration in Blackboard | IT had not enabled it. | IT confirm it's available. |
 | Move schedule-linked material off the site and into Blackboard | See "Evergreen", below | Before the next cohort. |
+| A repository link in the site header (`repo_url` in `zensical.toml`) | Left off for the first cohort: it is a prominent invitation into a repository that was mostly unwritten weeks, and it makes every page load call `api.github.com` from the student's browser. | Once the weeks are written. Add `repo_url` alone; `edit_uri` puts an "Edit this page" pencil on every page, which leads readers without write access into a fork prompt. |
 
 ## Evergreen: what belongs where
 
