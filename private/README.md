@@ -8,9 +8,11 @@ Put here anything that must not appear in a public copy of the course:
 - `assessment/`: briefs, rubrics, marking schemes, model answers, per-student
   parameters, last year's assignment and exemplars, and University guidance.
 - `quanser/`: Quanser manuals, models and other licensed resources.
-- `gains/`: student submissions from the laboratory session, which are student
-  work and so never go in git at all — University storage, not here, if they
-  need keeping.
+
+**Student work never comes here either.** Submitted gains stay in the MATLAB
+Drive folder that syncs to the lecturer's machine, and `scripts/gains.py` is
+pointed at that folder directly. Nothing is copied into the repository, ignored
+or not. `examples/gains/` holds fixtures only.
 
 **Formative diagnostics are not private.** They live in `diagnostics/`, tracked
 and published, answers included. The test for this folder is not "does it hold

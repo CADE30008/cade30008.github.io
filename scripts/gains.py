@@ -5,10 +5,15 @@ them flown, in three rounds: a few individuals, then the cohort's average, then
 the best few. This is the thing standing between 190 students' arithmetic and a
 machine flying in front of them.
 
-    python scripts/gains.py check   private/gains/          # every submission
-    python scripts/gains.py pick    private/gains/ --round 1
+    python scripts/gains.py check  ~/MATLAB\ Drive/cade30008-gains
+    python scripts/gains.py pick   ~/MATLAB\ Drive/cade30008-gains --round 1
 
-`check` writes a report and an accepted list. `pick` chooses what to fly.
+Point it at the MATLAB Drive folder that syncs to this machine. Student work is
+never copied into this repository; `examples/gains/` holds only fixtures.
+
+`check` writes a report to the terminal and an accepted list to `--out`, which
+defaults to the current directory and **never** to the folder it read: that
+folder is shared with the cohort.
 
 Two rules it follows, both deliberate:
 
@@ -226,7 +231,8 @@ def cmd_check(args) -> int:
               f"damping {m.get('damping', float('nan')):.2f}, peak {m['peak_volts']:.1f} V, "
               f"PM {m['phase_margin']:.0f} deg, gain -{m['gain_down']:.1f}x/+{m['gain_up']:.1f}x")
 
-    out = Path(args.folder) / "accepted.json"
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(
         [{"who": s.who, "kp": s.kp, "ki": s.ki, "kd": s.kd, **s.metrics} for s in sorted(ok, key=score)],
         indent=2), encoding="utf-8")
@@ -283,6 +289,11 @@ def main() -> None:
     sub = p.add_subparsers(dest="cmd", required=True)
     c = sub.add_parser("check", help="check every submission against the envelope")
     c.add_argument("folder")
+    # Never default the report into the folder it read. That folder is a shared
+    # MATLAB Drive, so writing the accepted list there would hand every student
+    # a list of whose gains passed - names, numbers and all.
+    c.add_argument("--out", default="accepted.json",
+                   help="where to write the accepted list (default: ./accepted.json, not the drop folder)")
     c.set_defaults(fn=cmd_check)
     k = sub.add_parser("pick", help="choose what to fly in a given round")
     k.add_argument("folder")

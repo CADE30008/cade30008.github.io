@@ -104,6 +104,22 @@ So the life of a week is:
 - **Maths** uses `$...$` inline and `$$...$$` on its own lines, in both handouts and slides. Where possible, a slide's equation should be copied from the handout.
 - **Code** appears in MATLAB and Python tabs, MATLAB first, using `=== "MATLAB"` then `=== "Python"`, each including a file from `code/`. The same order applies wherever the two appear side by side, including the Preparing for Control page.
 
+### Student work never enters this repository
+
+Not in `docs/`, not in `private/`, not ignored, not "temporarily". Submitted
+gains live in the MATLAB Drive folder that syncs to the lecturer's machine, and
+`scripts/gains.py` is pointed at that folder by path. `examples/gains/` holds
+fixtures with invented names.
+
+Two rules follow from the drop folder being shared with the cohort:
+
+- **Nothing writes back into it.** `gains.py --out` defaults to the working
+  directory and never to the folder it read; writing the accepted list there
+  would hand every student a list of whose gains passed.
+- **Students are told it is visible before they upload.** The words are in
+  `teaching/w01-design-cycle.md` under "Before anyone uploads". Consent after
+  the fact is not consent.
+
 ### Keep the site evergreen
 
 The public site should be usable by someone who is **not in this year's cohort**.

@@ -26,6 +26,7 @@ Then open `http://localhost:8011`.
 | `slides/` | Lecture decks, one folder per lecture week, matching `docs/`. |
 | `curriculum/` | What each week is (`weeks.yaml`), and term-level facts: the coursework, the laboratory, the workload model (`term.yaml`). The source for the lecture map, the term map and the generated tables. |
 | `diagnostics/` | Formative quizzes as YAML, with the Numbas `.exam` built from them. Published; assessed material is not. |
+| `examples/` | Sample inputs the tools are tested against, such as gain submissions. Never student work. |
 | `teaching/` | Lecturer run sheets, one per lecture week. |
 | `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check. |
 | `scripts/` | Build, sync-check, PDF and test scripts. |

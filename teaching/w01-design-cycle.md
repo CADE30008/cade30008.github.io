@@ -25,6 +25,10 @@ is built round the hardware.
       the day before, and placed in MATLAB Drive.
 - [ ] MATLAB Drive: data folder shared read-only; submission folder shared
       writable; both tested from a student account.
+- [ ] **Confirm what the submission folder actually exposes.** A writable shared
+      folder is readable too, so every student can see every other submission,
+      by whatever name it carries. That is acceptable — but only if they are
+      told before they upload, so it is on the slide and in the script below.
 - [ ] Gain filter tested on last year's or synthetic submissions, including
       deliberately bad ones.
 - [ ] Selection tool tested end to end on a dummy folder of submissions.
@@ -49,9 +53,27 @@ a test flight in closed loop, then a test of the e-stop under power.
 | Measured response data | MATLAB Drive, read-only folder — **recorded on the day**. |
 | Submission folder | MATLAB Drive, writable — **to create**. |
 | Gain filter and selection tool | `scripts/gains.py` — **built**, see below. |
+| Example submissions, to test against | `examples/gains/` — fixtures only, never student work. |
 | Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig**. |
 
 Everything marked "to build" is a prerequisite, not a nice-to-have.
+
+## Before anyone uploads
+
+Say this, in these words or close to them, **before** the first submission goes
+in. It takes fifteen seconds and cannot be said afterwards.
+
+> The drop folder is shared, so everyone in this room can see everyone else's
+> submission. That's deliberate — half the point is seeing the spread. Put
+> whatever name you like on it: your own, or a nickname. If you'd rather not be
+> identifiable, use a nickname, and that's completely fine.
+
+Two reasons it matters. It is the students' data and their choice, and consent
+after the fact is not consent. And a student who would be embarrassed by a
+visibly bad set of gains will otherwise simply not submit — which costs the
+exercise the very spread it depends on.
+
+The alias field exists for exactly this, and it is worth saying that it does.
 
 ## Gains: filtering and choosing
 
@@ -130,7 +152,7 @@ running late, cut the design-cycle block, not this.
 | At | Min | What | On screen |
 |---|---|---|---|
 | 0 | 10 | **System ID** from the measured response. Floor: manual second-order fit. Ceiling: `tfest`. | Live Script |
-| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. Submit gains to MATLAB Drive. | Live Script; requirement still visible. |
+| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. **Say the visibility line below before anyone uploads**, then submit gains to MATLAB Drive. | Live Script; requirement still visible. |
 | 25 | 15 | **Fly the submitted gains**, three rounds. | Camera, with the display name on screen. |
 | 40 | 10 | **The cliffhanger,** and set the independent work. | Deck |
 
