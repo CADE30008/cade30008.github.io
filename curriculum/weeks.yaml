@@ -94,7 +94,7 @@ weeks:
       case: System ID from the rig's response (manual fit; tfest as ceiling), tune a PID in simulation, submit gains through MATLAB Drive, and fly them in three rounds
     cliffhanger: There is no right answer until you say what you want — and the simulation disagreed with the hardware.
     out_of_lecture:
-      close_the_loop: Week 1 diagnostic in Numbas on prerequisite mathematics and control; finish the tfest fit
+      close_the_loop: Prerequisite diagnostic in Numbas, if not already done; finish the tfest fit
       examples: Reading second-order responses — damping, frequency and gain from plots
       next_case: The overlaid simulated and measured responses from the three rounds
     budget:

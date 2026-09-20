@@ -97,7 +97,7 @@ Said once here, in the words the student-facing pages use.
 - **Summative** work contributes to the unit grade. In this half there is
   exactly one piece: **the coursework, due on the Thursday of week 11**.
 - **Formative** work doesn't contribute to the grade directly. Everything else
-  is formative: the week 1 diagnostic, the weekly challenges, the example
+  is formative: the prerequisite diagnostic, the weekly challenges, the example
   sheets, the case work in each session, the laboratory, the decision log, and
   all three coursework checkpoints.
 - **Formative work is how the summative submission gets built**, so "directly"
@@ -111,7 +111,7 @@ Which feedback comes from where:
 
 | Work | Contributes to the grade | Feedback |
 |---|---|---|
-| Week 1 diagnostic | Not directly. | Automatic, per question, straight away. |
+| Prerequisite diagnostic | Not directly. | Automatic, per question, straight away. |
 | Weekly challenge (P16) | Not directly. | Automatic, per question, straight away. |
 | Example sheet | Not directly. | Worked solutions, and the next session. |
 | Case work in the session | Not directly. | In the room, from the lecturer and from each other. |

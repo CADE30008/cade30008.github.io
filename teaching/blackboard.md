@@ -50,7 +50,7 @@ Items, in this order:
 | 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "Most useful before or during week 1: the rig model and the laboratory are Simulink.". |
 | 5 | Link | **Control Design Onramp with Simulink**. | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` — Description: "Most useful around week 3, when we tune controllers properly.". |
 | 6 | Assignment | **Onramp certificates** | See below |
-| 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `private/diagnostic/week1-diagnostic.md` |
+| 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `private/diagnostic/prerequisites.md` |
 | 8 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
 
 ### Item 6: Onramp certificates (assignment)
@@ -79,19 +79,19 @@ the integration (PEDAGOGY.md, "Preparation before week 1").
   tells me what to spend time on in the first weeks. Do it on your own and
   without looking things up. You'll get feedback on every question."
 - **Upload the ready-made quiz.** `npm run numbas` writes
-  `private/diagnostic/week1-diagnostic.exam` — **the `.exam`, not the `.md`
+  `private/diagnostic/prerequisites.exam` — **the `.exam`, not the `.md`
   beside it**, which is the readable draft and will be rejected with "Didn't
   parse all input at line 1". It is built from the questions in
-  `week1-diagnostic.yaml`. Upload that to the Numbas editor, check it there —
+  `prerequisites.yaml`. Upload that to the Numbas editor, check it there —
   [numbas.mathcentre.ac.uk](https://numbas.mathcentre.ac.uk) is a good place to
   try it — then publish it and add it through the Numbas link in Blackboard,
   whose integration is active. If the editor won't take the file, the question
-  list in `week1-diagnostic.md` is the same content to type in by hand.
+  list in `prerequisites.md` is the same content to type in by hand.
 - **Settings:** one attempt; no time limit; feedback and the correct answer
   after each question; not counted towards the grade, or the column hidden.
 - **No randomisation** (AP11): every student gets the same questions, and they
   may work through them together.
-- **Questions:** build from `private/diagnostic/week1-diagnostic.md`, with its
+- **Questions:** build from `private/diagnostic/prerequisites.md`, with its
   feedback text and numerical tolerances. Number entry for the numeric
   questions, multiple choice for the rest.
 - **Before the week 2 lecture:** read the results against the table at the end

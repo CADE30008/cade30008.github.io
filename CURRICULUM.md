@@ -103,7 +103,7 @@ transfer function; basic PID.
 
 The prerequisite is covered "lightly", in three sessions at the end of year 2
 (Q5), and non-aerospace cohorts vary. So tier 0 is **assumed but checked**: the
-week 1 diagnostic (P16) says who needs the Preparing for Control material.
+prerequisite diagnostic (P16) says who needs the Preparing for Control material.
 
 **Tier 1 — threshold concepts. Taught in the room.** The eight or so ideas the
 unit exists to unlock:
@@ -260,7 +260,7 @@ checks them. It warns on three:
 
 | Week | Verdict | What to do |
 |---|---|---|
-| 4 Stability and margins | Borderline: two notations, $L(j\omega)$ and encirclement. | $L(j\omega)$ is tier 0 in principle. Check the week 1 diagnostic before deciding. |
+| 4 Stability and margins | Borderline: two notations, $L(j\omega)$ and encirclement. | $L(j\omega)$ is tier 0 in principle. Check the prerequisite diagnostic before deciding. |
 | 7 Robustness | Fits only if S and T are taught as one idea. | Teach them as a pair from the start — "the two ways a loop responds". That is also the better way: S + T = 1 *is* the threshold. |
 | 10 State space | At budget only because observers and controllability are handout-only; two tools, pole placement and LQR. | See below. **Steve to spend time on this week when we reach it**. |
 
