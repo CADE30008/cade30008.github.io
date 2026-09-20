@@ -228,59 +228,54 @@ def statement_html(q: dict) -> str:
                   f'style="max-width:100%;height:auto"></p>')
 
 
-def advice_html(q: dict) -> str:
-    """The worked route, shown to everyone.
+def steps_html(q: dict) -> str:
+    """Everything beyond the per-option feedback: the method, then the working.
 
-    Numbas shows `advice` regardless of whether the answer was right, which is
-    what makes it the place for the method: the student who got it right sees
-    the reasoning they should have used, and the student who did not sees how to
-    get there. Common wrong values are appended for numeric questions, where
-    there is no per-choice feedback to carry them.
+    One channel, not two. The question-level `advice` is left empty. It renders
+    only in review mode, at the foot of the page and a long way from the
+    question it explains, so the same words do more work here, where a student
+    can open them while the question is still in front of them.
+
+    Order follows the way it is read: the method first, then the common wrong
+    values for numeric questions, which have no per-choice feedback to carry
+    them, and the step-by-step working last because it is the longest.
     """
     parts = [html(q["advice"])]
-    # The worked solution does NOT go here. Numbas never displays a question's
-    # `advice`, not even after Reveal answers - confirmed by uploading a probe
-    # with marker text in every field. It goes in the part's `steps` instead,
-    # which renders as a labelled box behind a "Show steps" button.
     if q.get("common_errors"):
-        rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong> — {emphasis(e['why'])}</li>"
+        rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong>: {emphasis(e['why'])}</li>"
                        for e in q["common_errors"])
         parts.append(f"<p>If you got one of these:</p><ul>{rows}</ul>")
+    if q.get("worked"):
+        parts.append('<p style="font-weight:700">Working, step by step</p>')
+        parts.append(html(q["worked"]))
     return "".join(parts)
 
 
 def steps_for(q: dict) -> list[dict]:
-    """The worked solution, as a Numbas `steps` block.
+    """The steps block: one information part, revealed by "Show steps".
 
-    `steps` is the only place a long explanation reliably renders: it appears
-    in its own box behind a "Show steps" button, with the penalty set to zero so
-    it costs the student nothing.
-
-    Note it sits *above* the answer options and can be opened before answering.
-    For a formative diagnostic with no marks and no randomisation that is an
-    acceptable trade, and arguably the right one.
+    stepsPenalty is zero, so it costs the student nothing. It sits *above* the
+    answer options and can be opened before answering; for a formative quiz
+    with no marks and no randomisation that is an acceptable trade.
     """
-    if not q.get("worked"):
-        return []
     return [{
         "type": "information",
         "marks": 0,
-        "prompt": '<p style="font-weight:700">Working, step by step</p>' + html(q["worked"]),
+        "prompt": steps_html(q),
     }]
 
 
 def question(q: dict) -> dict:
     parts = [choice_part(q)] if q["type"] == "choice" else number_parts(q)
     # Attach the working to the first part; a question has one worked solution.
-    if steps := steps_for(q):
-        parts[0]["steps"] = steps
-        parts[0]["stepsPenalty"] = 0
+    parts[0]["steps"] = steps_for(q)
+    parts[0]["stepsPenalty"] = 0
     return {
         "name": q["name"],
         "tags": [],
         "metadata": {"description": html(q.get("checks", "")), "licence": "None specified"},
         "statement": statement_html(q),
-        "advice": advice_html(q),
+        "advice": "",   # see steps_html: one channel, and this is not it
         "rulesets": {},
         "extensions": [],
         "builtin_constants": {},
@@ -341,7 +336,7 @@ def exam(quiz: dict) -> str:
             # demand. `enterreviewmodeimmediately` then makes the advice
             # visible the moment the quiz is ended, rather than never.
             "showexpectedanswerswhen": "inreview",
-            "showadvicewhen": "inreview",
+            "showadvicewhen": "never",
             "enterreviewmodeimmediately": True,
             # No "Reveal answers" button. Numbas's MultipleResponsePart
             # .revealAnswer() loops over every option unconditionally and posts
