@@ -3,7 +3,7 @@ title: "Week 2: Requirements and models you can trust"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w02-requirements-and-models
 order: 2
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

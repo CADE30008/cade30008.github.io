@@ -19,7 +19,7 @@
     "test": "node scripts/test-applets.mjs && npm run check",
     "curriculum": ".venv/bin/python scripts/build_curriculum.py",
     "live": ".venv/bin/python scripts/build_live.py",
-    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python -m http.server ${PORT:-8012} --bind localhost -d .live/site",
+    "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python scripts/preview.py .live/site --port ${PORT:-8012}",
     "numbas": ".venv/bin/python scripts/build_numbas.py"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@ title: "Week 7: Robustness and trade-offs"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w07-robustness
 order: 7
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

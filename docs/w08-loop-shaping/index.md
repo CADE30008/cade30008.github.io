@@ -3,7 +3,7 @@ title: "Week 8: Loop shaping"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w08-loop-shaping
 order: 8
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

@@ -91,6 +91,31 @@ For lecturers, planning views:
 
 Stop `npm run serve` before running `npm run build`, because both use `site/`.
 
+### Preview servers
+
+Two, always on the same ports, so a bookmark keeps working:
+
+| | Port | What it shows |
+|---|---|---|
+| `npm run serve` | **8011** | The in-progress site: everything, including unwritten weeks. |
+| `npm run preview:live` | **8012** | Exactly what `https://cade30008.github.io` will show. |
+
+AVDASI2 uses **8001** and **8002**, so the two repositories never collide.
+
+Both listen on **IPv4 and IPv6**, and on loopback only. That is why the live
+preview goes through `scripts/preview.py` rather than `python -m http.server`:
+that binds one address family, `localhost` resolves to `::1` first on macOS, and
+the result was a server that answered on `http://localhost:8012` but refused
+`http://127.0.0.1:8012` outright. It presents as "the preview is down" when it
+is up on the other stack.
+
+If a preview is unreachable, check which of the two is actually running before
+anything else:
+
+```bash
+lsof -nP -iTCP -sTCP:LISTEN | grep -E ':(8011|8012)'
+```
+
 ## Publishing
 
 The live site is **https://cade30008.github.io**, published from this

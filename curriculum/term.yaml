@@ -11,6 +11,15 @@ year: 2026/27
 # room; flight dynamics has Thursdays 09:00-11:00 and is not Steve's.
 day: Tuesday
 time: "13:00-15:00"
+# The slot is a *double*: two 50-minute lectures with a break between them, not
+# one 110-minute session. The break is movable, so a session can run 60 + 40 if
+# the shape of the material wants it - but it is two lectures, and the
+# structure in weeks.yaml (hook, learn_a, do_a / learn_b, do_b, case) is built
+# to survive the interruption.
+lecture:
+  sessions: 2
+  minutes: 50
+  break: movable
 room: QB 1.40 Pugsley
 # Week 1's lecture date. Later weeks are taken as this plus seven days each, so
 # if teaching block 1 ever has a gap between weeks, this stops being right and

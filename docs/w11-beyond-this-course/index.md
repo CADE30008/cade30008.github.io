@@ -3,7 +3,7 @@ title: "Week 11: What comes next"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w11-beyond-this-course
 order: 11
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

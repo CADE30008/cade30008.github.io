@@ -3,7 +3,7 @@ title: "Week 10: State space and state feedback"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w10-state-space
 order: 10
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

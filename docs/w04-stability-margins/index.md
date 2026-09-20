@@ -3,7 +3,7 @@ title: "Week 4: Stability and margins"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w04-stability-margins
 order: 4
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 

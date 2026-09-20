@@ -3,7 +3,7 @@ title: "Week 1: The design cycle, end to end"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w01-design-cycle
 order: 1
-duration: 110 min
+duration: 2 x 50 min
 status: draft
 ---
 
