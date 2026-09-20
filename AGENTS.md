@@ -46,8 +46,8 @@ lecture of any kind. Week 12 is revision week and carries nothing.
 
 ## Publishing
 
-Two sites from one source. **In progress** (`npm run serve`, port 8000) is
-everything. **Live** (`npm run preview:live`, port 8010, and
+Two sites from one source. **In progress** (`npm run serve`, port 8011) is
+everything. **Live** (`npm run preview:live`, port 8012, and
 https://cade30008.github.io once pushed) is only what [publish.yaml](publish.yaml)
 lists, built by `scripts/build_live.py`.
 
@@ -138,7 +138,7 @@ Explain the notation where a student first meets a lot of links, not on every pa
 ```bash
 npm run slides      # build decks into docs/slides/
 npm run site        # build the site into site/
-npm run serve       # live preview at http://localhost:8000
+npm run serve       # live preview at http://localhost:8011
 npm run pdf         # print handouts and example sheets to PDF
 npm run check       # slide and handout sync check
 npm run curriculum  # check the curriculum; regenerate the term map, planning diagram and tables

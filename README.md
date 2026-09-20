@@ -15,7 +15,7 @@ npm run build
 npm run serve
 ```
 
-Then open `http://localhost:8000`.
+Then open `http://localhost:8011`.
 
 ## Layout
 
@@ -85,9 +85,9 @@ For lecturers, planning views:
 | `npm run stills` | Recapture applet stills for print |
 | `npm test` | Applet maths tests, then the sync check |
 | `npm run build` | Curriculum check, slides, site, PDFs, then the sync check |
-| `npm run serve` | The **in-progress** site, everything, at `http://localhost:8000` |
+| `npm run serve` | The **in-progress** site, everything, at `http://localhost:8011` |
 | `npm run live` | Build the **live** site — only what `publish.yaml` lists — into `.live/site`, and check its links |
-| `npm run preview:live` | Build the live site and serve it at `http://localhost:8010`, exactly as it will be published |
+| `npm run preview:live` | Build the live site and serve it at `http://localhost:8012`, exactly as it will be published |
 
 Stop `npm run serve` before running `npm run build`, because both use `site/`.
 
@@ -101,7 +101,7 @@ an unpublished one become plain text, and blocks between
 `<!-- in-progress:start -->` and `<!-- in-progress:end -->` are left out.
 
 To publish a page: add it to `publish.yaml`, run `npm run preview:live`, look
-at it on `http://localhost:8010`, then commit and push. The workflow refuses to
+at it on `http://localhost:8012`, then commit and push. The workflow refuses to
 deploy if the live build has a broken link, including a link in the Blackboard
 build sheet (`teaching/blackboard.md`).
 
@@ -133,7 +133,7 @@ Three repositories, so the branding is in one place rather than copied into ever
 | Repository | What | How this repo takes it |
 |---|---|---|
 | [flightlab-brand](https://github.com/BristolFlightLab/flightlab-brand) | The artwork: crest, slanted edges, marks. The single source. | Indirectly, through the two below. |
-| [flightlab-zensical-theme](https://github.com/BristolFlightLab/flightlab-zensical-theme) | The site theme. | A git submodule at `theme/`, pinned to a tag, served through `theme.custom_dir`. |
+| [flightlab-zensical-theme](https://github.com/BristolFlightLab/flightlab-zensical-theme) | The site theme. | A git submodule at `theme/`, pinned to a tag; `theme.custom_dir` serves its `dist/`. |
 | [flightlab-marp-template](https://github.com/BristolFlightLab/flightlab-marp-template) | The slide theme. | An npm dependency pinned to a tag. |
 
 **Clone with submodules**, or the site builds unbranded and then fails:
