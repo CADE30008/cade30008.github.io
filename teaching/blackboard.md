@@ -48,8 +48,8 @@ Items, in this order:
 | 2 | Link | **Check your device** | `https://cade30008.github.io/preparing/#check` — Description: "Run the check in your browser or on your computer. It should report a phase margin of 43.21°.". |
 | 3 | Text | **About the Onramp courses** | See the wording below. Goes *above* the three links. |
 | 4 | Link | **Control Design Onramp with Simulink** — *recommended* | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` — Description: "30 minutes, and the one most worth doing. Designing a feedback controller in Simulink.". |
-| 5 | Link | **MATLAB Onramp** — *if you want the practice* | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "2 hours. Sign in with your University email address.". |
-| 6 | Link | **Simulink Onramp** — *if you want the practice* | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "2 hours. Blocks, and simulating models built from them.". |
+| 5 | Link | **MATLAB Onramp** — *if you're new to MATLAB or want a refresher* | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "2 hours. Sign in with your University email address.". |
+| 6 | Link | **Simulink Onramp** — *if you're new to Simulink or want a refresher* | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "2 hours. Blocks, and simulating models built from them.". |
 | 7 | Assignment | **Onramp certificates** | See below |
 | 8 | Numbas activity | **Diagnostic quiz** | See below. Questions in `diagnostics/prerequisites.md` |
 | 9 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
@@ -60,14 +60,14 @@ Most of this cohort has already used MATLAB and Simulink for control work, so
 the three courses are not equally useful. Say so, rather than listing three
 things of which two are revision.
 
-> **Text, to paste:** "Most of you have used MATLAB and Simulink before,
-> including for control. So of the three Onramp courses, the one worth your
-> time is **Control Design Onramp with Simulink** — about 30 minutes, and it
+> **Text, to paste:** "Many students are likely to have used MATLAB and
+> Simulink before, including for control. So of the three Onramp courses, the
+> one worth your time is **Control Design Onramp with Simulink** — about 30 minutes, and it
 > covers designing a feedback controller, which is what we build on.
 >
-> The MATLAB and Simulink Onramps are each about two hours. If you've done them
-> before, you don't need to repeat them. If you haven't, or you'd like the
-> practice, they're good and they're free.
+> The MATLAB and Simulink Onramps are each about two hours. Worth doing if
+> you're new to MATLAB, or want a refresher on good practices — and they're
+> free.
 >
 > **Already done any of these, in this unit or another?** Upload that
 > certificate — an older version is fine. Nothing here contributes to your

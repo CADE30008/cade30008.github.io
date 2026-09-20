@@ -19,8 +19,8 @@ recommended up front and useful at any point in the unit.
     The **[Onramp courses](#onramps)** and the **[diagnostic quiz](#diagnostic)**
     (about 20 minutes) are the best preparation for this unit. Of the three
     Onramps, the 30-minute **Control Design** one is the one worth your time —
-    the other two are largely revision if you have used MATLAB and Simulink
-    before.
+    the other two are a refresher if you have used MATLAB and Simulink before,
+    and a good starting point if you haven't.
 
     **They are not a gate.** Each Onramp is most useful just before the part of
     the unit that leans on it, and the diagnostic is as useful once you have
@@ -187,14 +187,14 @@ Three free, self-paced courses that run in your browser and check your work as
 you go. Take them in this order. You'll need a laptop or desktop computer, as
 MathWorks online courses don't run on tablets or phones.
 
-**Most of you have used MATLAB and Simulink before, including for control**, so
-these three are not equally useful to you.
+**Many students are likely to have used MATLAB and Simulink before, including
+for control**, so these three are not equally useful to everyone.
 
 | Course | Time | Worth it? |
 |---|---|---|
 | **Control Design Onramp with Simulink** | 30 min | **Yes — this is the one.** It covers designing a feedback controller, which is what this unit builds on. |
-| MATLAB Onramp | 2 h | Only if you haven't used MATLAB, or you'd like the practice. |
-| Simulink Onramp | 2 h | The same. Worth it before you meet the laboratory rig if blocks are unfamiliar. |
+| MATLAB Onramp | 2 h | If you're new to MATLAB, or want a refresher on good practices. |
+| Simulink Onramp | 2 h | The same, and worth it before you meet the laboratory rig if blocks are unfamiliar. |
 
 They stop and resume as often as you like, and progress is saved.
 

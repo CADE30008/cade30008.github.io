@@ -196,6 +196,17 @@ students are almost never offered about engineering, and it lands.
 The caution belongs here, spoken, not on the slide: work a model produced and
 nobody examined tends to mark poorly, and not as a punishment - the credit
 follows the reasoning, and there isn't any. Say it once, plainly, then move on.
+
+And one practical warning worth saying out loud, because it is the way a
+student gets this wrong while trying to get it right:
+
+  "The AI category is set per assessment, not per subject. This coursework is
+  Category 3, Selective. You will have met Category 2, Minimal, on other units,
+  including ones in this same field, where it is permitted only for limited and
+  declared purposes. Don't carry last year's rules forward — read the brief."
+
+Deliberately not on the website: it is about this cohort's assessments rather
+than about control, and it dates.
 -->
 
 ---
