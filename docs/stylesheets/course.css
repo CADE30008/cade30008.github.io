@@ -132,14 +132,17 @@
    means this course and not Flight Lab generally. Keep it in step with
    assets/brand/favicon.svg, which is the same path.
 
+   Setting this variable is the whole of the change. The theme hides the stock
+   plane icon itself, inside the same style query that emits the mark, so the
+   two switch together: a browser without style-query support keeps the stock
+   icon rather than losing both and showing nothing. We used to hide the plane
+   here as well, unconditionally, which broke exactly that fallback.
+
    Everything else that was here - the footer's colour, sizing and focus ring -
    now lives in the theme. Nothing brand-level should be defined locally again:
    if a rule would suit another unit, it belongs upstream. */
 :root {
   --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-}
-.md-nav__link svg.lucide-plane {
-  display: none;
 }
 
 /* ---------- Long code in a fixed-height box ---------- */
