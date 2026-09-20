@@ -65,7 +65,7 @@ L(s) = C(s)\,G(s),
 $$
 
 $$
-\theta(s) = \underbrace{\frac{L(s)}{1 + L(s)}}_{T(s)}\,\theta_{ref}(s) \;+\; \underbrace{\frac{G(s)}{1 + L(s)}}_{\text{disturbance path}}\,d(s).
+\theta(s) = \underbrace{\frac{L(s)}{1 + L(s)}}_{T(s)}\,\theta_\mathrm{ref}(s) \;+\; \underbrace{\frac{G(s)}{1 + L(s)}}_{\text{disturbance path}}\,d(s).
 $$
 
 <!--
@@ -96,7 +96,7 @@ shift. Everything about the closed loop follows from L.
 
 ### At crossover, |L(jω<sub>c</sub>)| = 1
 
-- The crossover frequency $\omega_c$ sets **speed**
+- The crossover frequency $\omega_\mathrm{c}$ sets **speed**
 - The phase margin sets **damping**
 
 <div class="callout">
@@ -176,8 +176,8 @@ $$
 |G(j\omega_{180})| = \frac{40}{\sqrt{20}\,\sqrt{24}\,\sqrt{120}} = \frac{40}{240} = \frac{1}{6},
 $$
 
-- With $K_p = 1$ the gain margin is **6**, or 15.6 dB
-- Any $K_p > 6$ makes the loop **unstable**
+- With $K_\mathrm{p} = 1$ the gain margin is **6**, or 15.6 dB
+- Any $K_\mathrm{p} > 6$ makes the loop **unstable**
 
 <!--
 Worth doing live on the board: the tan-addition trick makes it exact.
@@ -205,13 +205,13 @@ phase margin shrinks. Speed and damping pull against each other.
 **Phase margin sets damping**, for margins up to about 70°:
 
 $$
-\zeta \approx \frac{PM}{100^\circ}, \qquad M_p = e^{-\pi\zeta/\sqrt{1 - \zeta^2}}.
+\zeta \approx \frac{PM}{100^\circ}, \qquad M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1 - \zeta^2}}.
 $$
 
-- $K_p = 1$: 43° margin suggests 22% overshoot; simulation gives 25%
-- $K_p = 0.509$: 60° margin predicts 9.5% overshoot; simulation gives 8.1%
+- $K_\mathrm{p} = 1$: 43° margin suggests 22% overshoot; simulation gives 25%
+- $K_\mathrm{p} = 0.509$: 60° margin predicts 9.5% overshoot; simulation gives 8.1%
 
-**Crossover frequency sets speed**: rise time scales as $1/\omega_c$. The 60° design crosses at 0.92 rad/s instead of 1.56, and its rise time grows from 0.76 s to 1.37 s.
+**Crossover frequency sets speed**: rise time scales as $1/\omega_\mathrm{c}$. The 60° design crosses at 0.92 rad/s instead of 1.56, and its rise time grows from 0.76 s to 1.37 s.
 
 ---
 
@@ -236,9 +236,9 @@ The type of the loop is the number of integrators in $L(s)$.
 
 | Input to the pitch loop | Error with P control | With integral action |
 |---|---|---|
-| Step in $\theta_{ref}$ | 0, because $G$ is type 1 | 0 |
-| Ramp $\theta_{ref} = \Omega t$ | $\Omega / K_v$, with $K_v = 2K_p$ | 0 |
-| Step disturbance $d$ at the elevator | $d / K_p$ | 0 |
+| Step in $\theta_\mathrm{ref}$ | 0, because $G$ is type 1 | 0 |
+| Ramp $\theta_\mathrm{ref} = \Omega t$ | $\Omega / K_\mathrm{v}$, with $K_\mathrm{v} = 2K_p$ | 0 |
+| Step disturbance $d$ at the elevator | $d / K_\mathrm{p}$ | 0 |
 
 <!--
 Ask the room which row will surprise them. It's the last one.
@@ -254,10 +254,10 @@ Ask the room which row will surprise them. It's the last one.
 <div>
 
 $$
-\theta_{ss} = \lim_{s\to 0} \frac{G(s)}{1 + K_pG(s)}\,d = \frac{d}{K_p}.
+\theta_\mathrm{ss} = \lim_{s\to 0} \frac{G(s)}{1 + K_\mathrm{p}G(s)}\,d = \frac{d}{K_\mathrm{p}}.
 $$
 
-A trim change worth 2° of elevator leaves a **2° attitude error** with $K_p = 1$.
+A trim change worth 2° of elevator leaves a **2° attitude error** with $K_\mathrm{p} = 1$.
 
 Only an integrator in the **controller**, before the disturbance, removes it.
 
@@ -284,21 +284,21 @@ Only an integrator in the **controller**, before the disturbance, removes it.
 # PD adds phase lead
 
 $$
-C(s) = K_p(1 + T_d s),
+C(s) = K_\mathrm{p}(1 + T_\mathrm{d} s),
 $$
 
 $$
-\phi_{lead} = \tan^{-1}(\omega_c T_d).
+\phi_{lead} = \tan^{-1}(\omega_\mathrm{c} T_\mathrm{d}).
 $$
 
 In practice the derivative is filtered:
 
 $$
-C(s) = K_p + \frac{K_d\,s}{T_f s + 1}, \qquad T_d = \frac{K_d}{K_p}, \qquad T_f = \frac{T_d}{N}.
+C(s) = K_\mathrm{p} + \frac{K_\mathrm{d}\,s}{T_\mathrm{f} s + 1}, \qquad T_\mathrm{d} = \frac{K_\mathrm{d}}{K_\mathrm{p}}, \qquad T_\mathrm{f} = \frac{T_\mathrm{d}}{N}.
 $$
 
 - With $N = 10$, the lead is capped at about 56°
-- The high-frequency gain is $K_p(N+1) = 11K_p$: noise
+- The high-frequency gain is $K_\mathrm{p}(N+1) = 11K_p$: noise
 
 ---
 
@@ -308,8 +308,8 @@ $$
 
 1. Plant phase at 3 rad/s: $-90^\circ - \tan^{-1}(1.5) - \tan^{-1}(0.3) = -163.0^\circ$, leaving only 17°
 2. The controller must add $60^\circ - 17^\circ = 43^\circ$ of lead
-3. Ideal PD: $\tan^{-1}(3T_d) = 43^\circ$ gives $T_d = 0.311$ s. With the filter, $T_d = 0.349$ s
-4. Set $|L(j3)| = 1$: $K_p = 1.86$, and $K_d = K_pT_d = 0.649$
+3. Ideal PD: $\tan^{-1}(3T_d) = 43^\circ$ gives $T_\mathrm{d} = 0.311$ s. With the filter, $T_\mathrm{d} = 0.349$ s
+4. Set $|L(j3)| = 1$: $K_\mathrm{p} = 1.86$, and $K_\mathrm{d} = K_\mathrm{p}T_d = 0.649$
 
 <!--
 This is the whole method in miniature. The rest of the lecture reuses it.
@@ -337,9 +337,9 @@ This is the whole method in miniature. The rest of the lecture reuses it.
 </div>
 <div>
 
-| | P, $K_p = 0.509$ | PD |
+| | P, $K_\mathrm{p} = 0.509$ | PD |
 |---|---|---|
-| $\omega_c$ | 0.92 | 3.00 |
+| $\omega_\mathrm{c}$ | 0.92 | 3.00 |
 | PM | 60.0° | 60.1° |
 | Rise time | 1.37 s | 0.79 s |
 | Overshoot | 8.1% | 0.5% |
@@ -361,7 +361,7 @@ This is the whole method in miniature. The rest of the lecture reuses it.
 With D on the error, a reference step is differentiated:
 
 $$
-u(0^+) = K_p(N + 1)\,\Delta\theta_{ref}.
+u(0^+) = K_\mathrm{p}(N + 1)\,\Delta\theta_\mathrm{ref}.
 $$
 
 A 10° step gives about **205°** of elevator. It can move 20°.
@@ -396,19 +396,19 @@ the reference path loses the lead, which makes it slightly slower.
 # PI adds a type, and costs phase
 
 $$
-C(s) = K_p\left(1 + \frac{1}{T_i s}\right) = K_p\,\frac{T_i s + 1}{T_i s}, \qquad K_i = \frac{K_p}{T_i}.
+C(s) = K_\mathrm{p}\left(1 + \frac{1}{T_\mathrm{i} s}\right) = K_\mathrm{p}\,\frac{T_\mathrm{i} s + 1}{T_\mathrm{i} s}, \qquad K_\mathrm{i} = \frac{K_\mathrm{p}}{T_\mathrm{i}}.
 $$
 
 $$
-\phi_{lag} = \tan^{-1}\!\left(\frac{1}{\omega_c T_i}\right).
+\phi_{lag} = \tan^{-1}\!\left(\frac{1}{\omega_\mathrm{c} T_\mathrm{i}}\right).
 $$
 
-- Place $1/T_i$ five to ten times below crossover: 6° to 11° of lag
-- Here $T_i = 3$ s at $\omega_c = 3$ rad/s costs 6.3°
+- Place $1/T_\mathrm{i}$ five to ten times below crossover: 6° to 11° of lag
+- Here $T_\mathrm{i} = 3$ s at $\omega_\mathrm{c} = 3$ rad/s costs 6.3°
 - Redesign including that lag, for a 55° margin:
 
 $$
-K_p = 2.03, \qquad K_i = 0.678, \qquad K_d = 0.661 \qquad (T_i = 3.0\ \text{s},\ T_d = 0.326\ \text{s},\ N = 10).
+K_\mathrm{p} = 2.03, \qquad K_\mathrm{i} = 0.678, \qquad K_\mathrm{d} = 0.661 \qquad (T_\mathrm{i} = 3.0\ \text{s},\ T_\mathrm{d} = 0.326\ \text{s},\ N = 10).
 $$
 
 ---
@@ -430,7 +430,7 @@ $$
 </div>
 </div>
 
-Offset removed. But a slow pole near $-1/T_i$ gives a slow tail: overshoot rises to 18.7% and 2% settling grows from 1.3 s to 6.9 s.
+Offset removed. But a slow pole near $-1/T_\mathrm{i}$ gives a slow tail: overshoot rises to 18.7% and 2% settling grows from 1.3 s to 6.9 s.
 
 ---
 
@@ -440,9 +440,9 @@ Offset removed. But a slow pole near $-1/T_i$ gives a slow tail: overshoot rises
 
 1. **Choose the crossover frequency** from the speed you need, below actuator bandwidth
 2. **Choose the phase margin** from the overshoot you can accept: 50° to 60°
-3. **Choose $T_i$** with $1/T_i$ five to ten times below crossover
-4. **Find the lead needed**, and solve for $T_d$ with a filter of $N$ between 8 and 20
-5. **Set $K_p$** so that $|L(j\omega_c)| = 1$
+3. **Choose $T_\mathrm{i}$** with $1/T_\mathrm{i}$ five to ten times below crossover
+4. **Find the lead needed**, and solve for $T_\mathrm{d}$ with a filter of $N$ between 8 and 20
+5. **Set $K_\mathrm{p}$** so that $|L(j\omega_\mathrm{c})| = 1$
 6. **Check** gain margin, peak actuator demand, noise gain and responses, then iterate
 
 ---
@@ -451,7 +451,7 @@ Offset removed. But a slow pole near $-1/T_i$ gives a slow tail: overshoot rises
 
 # Four designs compared
 
-| Design | $K_p$ | $K_i$ | $K_d$ | $\omega_c$ | PM | Overshoot | Peak $\delta_e$, 10° step | Offset per unit $d$ |
+| Design | $K_\mathrm{p}$ | $K_\mathrm{i}$ | $K_\mathrm{d}$ | $\omega_\mathrm{c}$ | PM | Overshoot | Peak $\delta_e$, 10° step | Offset per unit $d$ |
 |---|---|---|---|---|---|---|---|---|
 | P | 1.00 | — | — | 1.56 | 43.2° | 25.4% | 10.0° | 1.00 |
 | P | 0.509 | — | — | 0.92 | 60.0° | 8.1% | 5.1° | 1.97 |
@@ -517,7 +517,7 @@ Fixes: conditional integration, back-calculation, rate-limited references.
 |---|---|---|---|
 | P | Slides the magnitude; phase unchanged | Faster, less damped | Can't give speed and damping together |
 | I | Unlimited gain at low frequency | Removes disturbance offsets | Phase lag, a slower tail, windup |
-| D | Phase lead around $1/T_d$ | Higher crossover, same damping | Noise gain; kick unless on the measurement |
+| D | Phase lead around $1/T_\mathrm{d}$ | Higher crossover, same damping | Noise gain; kick unless on the measurement |
 
 Design $L(j\omega)$: crossover sets speed, phase margin sets damping. On aircraft, D is rate feedback from a gyro.
 

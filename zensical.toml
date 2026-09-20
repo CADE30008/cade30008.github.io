@@ -70,6 +70,7 @@ nav = [
   ] },
   { "Preparing for Control" = "preparing/index.md" },
   { "The textbook" = "reading.md" },
+  { "Notation" = "notation.md" },
   { "Glossary" = "glossary.md" },
   { "About these materials" = "about.md" },
   { "AI in this course" = "ai.md" },

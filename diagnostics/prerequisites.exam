@@ -117,7 +117,7 @@
             "licence": "None specified"
           },
           "statement": "<p>\\( G(s) = \\dfrac{5}{s^2 + 2s + 5} \\) has poles at \\( -1 \\pm 2j \\). Its step response is:</p>",
-          "advice": "<p>Read a complex pair \\( \\sigma \\pm j\\omega_d \\) as two separate facts:</p><ol><li><strong>the real part \\( \\sigma \\) sets the envelope.</strong> Negative decays like \\( e^{\\sigma t} \\), positive grows, zero neither.</li><li><strong>the imaginary part \\( \\omega_d \\) sets the ringing.</strong> Non-zero means it oscillates at \\( \\omega_d \\) rad/s; zero means it doesn't.</li></ol><p>Here \\( \\sigma = -1 \\) and \\( \\omega_d = 2 \\), so the response rings at 2 rad/s inside an \\( e^{-t} \\) envelope — most of it gone within about four seconds.</p>",
+          "advice": "<p>Read a complex pair \\( \\sigma \\pm j\\omega_\\mathrm{d} \\) as two separate facts:</p><ol><li><strong>the real part \\( \\sigma \\) sets the envelope.</strong> Negative decays like \\( e^{\\sigma t} \\), positive grows, zero neither.</li><li><strong>the imaginary part \\( \\omega_\\mathrm{d} \\) sets the ringing.</strong> Non-zero means it oscillates at \\( \\omega_\\mathrm{d} \\) rad/s; zero means it doesn't.</li></ol><p>Here \\( \\sigma = -1 \\) and \\( \\omega_\\mathrm{d} = 2 \\), so the response rings at 2 rad/s inside an \\( e^{-t} \\) envelope — most of it gone within about four seconds.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -174,8 +174,8 @@
             "description": "<p>the standard second-order form</p>",
             "licence": "None specified"
           },
-          "statement": "<p>For \\( G(s) = \\dfrac{25}{s^2 + 4s + 25} \\), give the natural frequency \\( \\omega_n \\), in rad/s, and the damping ratio \\( \\zeta \\).</p>",
-          "advice": "<p>Match the denominator against the standard form \\( s^2 + 2\\zeta\\omega_n s + \\omega_n^2 \\), one coefficient at a time:</p><ol><li><strong>constant term:</strong> \\( \\omega_n^2 = 25 \\), so \\( \\omega_n = 5 \\) rad/s.</li><li><strong>middle term:</strong> \\( 2\\zeta\\omega_n = 4 \\), and \\( \\omega_n \\) is now known, so \\( \\zeta = 4/(2 \\times 5) = 0.4 \\).</li></ol><p>Always do them in that order — the middle term needs \\( \\omega_n \\), so there is nothing to be gained by starting there. A quick check: \\( \\zeta \\) between 0 and 1 means an oscillatory response, which matches the complex poles this denominator has.</p><p>If you got one of these:</p><ul><li><strong>\\( \\omega_n = 25 \\)</strong> — that's \\( \\omega_n^2 \\). The constant term is the square, so take the root.</li><li><strong>\\( \\zeta = 0.16 \\)</strong> — you divided 4 by \\( \\omega_n^2 \\). The middle coefficient is \\( 2\\zeta\\omega_n \\), so divide by \\( 2\\omega_n = 10 \\).</li><li><strong>\\( \\zeta = 0.8 \\)</strong> — you divided by \\( \\omega_n \\) but not by the 2. It is easy to lose; the factor of 2 is there so that \\( \\zeta = 1 \\) is exactly critical damping.</li><li><strong>\\( \\zeta = 2 \\)</strong> — that's \\( \\zeta\\omega_n \\), which is the decay rate \\( \\sigma \\) — a useful number, but not the damping ratio.</li></ul>",
+          "statement": "<p>For \\( G(s) = \\dfrac{25}{s^2 + 4s + 25} \\), give the natural frequency \\( \\omega_\\mathrm{n} \\), in rad/s, and the damping ratio \\( \\zeta \\).</p>",
+          "advice": "<p>Match the denominator against the standard form \\( s^2 + 2\\zeta\\omega_\\mathrm{n} s + \\omega_\\mathrm{n}^2 \\), one coefficient at a time:</p><ol><li><strong>constant term:</strong> \\( \\omega_\\mathrm{n}^2 = 25 \\), so \\( \\omega_\\mathrm{n} = 5 \\) rad/s.</li><li><strong>middle term:</strong> \\( 2\\zeta\\omega_\\mathrm{n} = 4 \\), and \\( \\omega_\\mathrm{n} \\) is now known, so \\( \\zeta = 4/(2 \\times 5) = 0.4 \\).</li></ol><p>Always do them in that order — the middle term needs \\( \\omega_\\mathrm{n} \\), so there is nothing to be gained by starting there. A quick check: \\( \\zeta \\) between 0 and 1 means an oscillatory response, which matches the complex poles this denominator has.</p><p>If you got one of these:</p><ul><li><strong>\\( \\omega_\\mathrm{n} = 25 \\)</strong> — that's \\( \\omega_\\mathrm{n}^2 \\). The constant term is the square, so take the root.</li><li><strong>\\( \\zeta = 0.16 \\)</strong> — you divided 4 by \\( \\omega_\\mathrm{n}^2 \\). The middle coefficient is \\( 2\\zeta\\omega_\\mathrm{n} \\), so divide by \\( 2\\omega_\\mathrm{n} = 10 \\).</li><li><strong>\\( \\zeta = 0.8 \\)</strong> — you divided by \\( \\omega_\\mathrm{n} \\) but not by the 2. It is easy to lose; the factor of 2 is there so that \\( \\zeta = 1 \\) is exactly critical damping.</li><li><strong>\\( \\zeta = 2 \\)</strong> — that's \\( \\zeta\\omega_\\mathrm{n} \\), which is the decay rate \\( \\sigma \\) — a useful number, but not the damping ratio.</li></ul>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -198,7 +198,7 @@
               "marks": 1,
               "showCorrectAnswer": true,
               "showFeedbackIcon": true,
-              "prompt": "<p>\\( \\omega_n \\) (rad/s)</p>",
+              "prompt": "<p>\\( \\omega_\\mathrm{n} \\) (rad/s)</p>",
               "minValue": "4.99",
               "maxValue": "5.01",
               "correctAnswerFraction": false,
@@ -237,7 +237,7 @@
             "licence": "None specified"
           },
           "statement": "<p>A second-order system with \\( \\zeta = 0.4 \\) is given a step. Its percentage overshoot is closest to:</p>",
-          "advice": "<p>Exactly, \\( M_p = e^{-\\pi\\zeta/\\sqrt{1-\\zeta^2}} \\), which for \\( \\zeta = 0.4 \\) gives 0.254, so about 25%.</p><p>In practice nobody evaluates that in a design meeting. Carry three anchors instead and interpolate:</p><ol><li>\\( \\zeta = 0.2 \\) → about 50%</li><li>\\( \\zeta = 0.4 \\) → about 25%</li><li>\\( \\zeta = 0.7 \\) → about 5%</li></ol><p>Less damping, more overshoot, and the curve is steep — which is why phase margin, its frequency-domain cousin, is worth watching closely in week 4.</p>",
+          "advice": "<p>Exactly, \\( M_\\mathrm{p} = e^{-\\pi\\zeta/\\sqrt{1-\\zeta^2}} \\), which for \\( \\zeta = 0.4 \\) gives 0.254, so about 25%.</p><p>In practice nobody evaluates that in a design meeting. Carry three anchors instead and interpolate:</p><ol><li>\\( \\zeta = 0.2 \\) → about 50%</li><li>\\( \\zeta = 0.4 \\) → about 25%</li><li>\\( \\zeta = 0.7 \\) → about 5%</li></ol><p>Less damping, more overshoot, and the curve is steep — which is why phase margin, its frequency-domain cousin, is worth watching closely in week 4.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -281,7 +281,7 @@
               "distractors": [
                 "<p>That's roughly \\( \\zeta = 0.7 \\) — the value often quoted as a good compromise, so it is an easy one to reach for. This system is less damped than that.</p>",
                 "<p>That's roughly \\( \\zeta = 0.6 \\). You're in the right region but a little too damped; the relationship is steep here, so small changes in \\( \\zeta \\) move the overshoot a lot.</p>",
-                "<p>Right. \\( M_p = 25.4\\% \\), and the useful thing to carry away is the pairing: \\( \\zeta = 0.4 \\) with about a quarter overshoot.</p>",
+                "<p>Right. \\( M_\\mathrm{p} = 25.4\\% \\), and the useful thing to carry away is the pairing: \\( \\zeta = 0.4 \\) with about a quarter overshoot.</p>",
                 "<p>That's roughly \\( \\zeta = 0.2 \\), considerably livelier than this. Half the height of the step as overshoot would be a very underdamped system.</p>"
               ]
             }
@@ -340,7 +340,7 @@
             "licence": "None specified"
           },
           "statement": "<p>A plant \\( G(s) = \\dfrac{4}{s(s+1)} \\) is put in a unity negative feedback loop. The closed-loop transfer function from reference to output is:</p>",
-          "advice": "<ol><li>Write the closed-loop form: \\( T = \\dfrac{G}{1+G} \\).</li><li>Substitute: \\( T = \\dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \\).</li><li>Multiply top and bottom by \\( s(s+1) \\): \\( T = \\dfrac{4}{s(s+1) + 4} = \\dfrac{4}{s^2+s+4} \\).</li></ol><p>Two habits that save time later. <strong>The closed-loop denominator is \\( 1 + G \\) cleared of fractions</strong>, so you can often write it down without the algebra. And <strong>the numerator of \\( T \\) is the numerator of \\( G \\)</strong>, unchanged — feedback moves poles, never zeros.</p><p>This one has \\( \\omega_n = 2 \\) and \\( \\zeta = 0.25 \\), so expect a lively response with around 45% overshoot. The Quanser rig in the first session is far less damped still.</p>",
+          "advice": "<ol><li>Write the closed-loop form: \\( T = \\dfrac{G}{1+G} \\).</li><li>Substitute: \\( T = \\dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \\).</li><li>Multiply top and bottom by \\( s(s+1) \\): \\( T = \\dfrac{4}{s(s+1) + 4} = \\dfrac{4}{s^2+s+4} \\).</li></ol><p>Two habits that save time later. <strong>The closed-loop denominator is \\( 1 + G \\) cleared of fractions</strong>, so you can often write it down without the algebra. And <strong>the numerator of \\( T \\) is the numerator of \\( G \\)</strong>, unchanged — feedback moves poles, never zeros.</p><p>This one has \\( \\omega_\\mathrm{n} = 2 \\) and \\( \\zeta = 0.25 \\), so expect a lively response with around 45% overshoot. The Quanser rig in the first session is far less damped still.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -398,7 +398,7 @@
             "licence": "None specified"
           },
           "statement": "<p>The same unity feedback loop, but with \\( G(s) = \\dfrac{4}{s+1} \\). After a unit step in the reference, what error remains?</p>",
-          "advice": "<ol><li>For unity feedback, the error transfer function is \\( E/R = S = \\dfrac{1}{1+G} \\).</li><li>A unit step's final error is therefore \\( e_{ss} = \\dfrac{1}{1+G(0)} \\).</li><li>Here \\( G(0) = 4 \\), so \\( e_{ss} = 1/5 = 0.2 \\) — a 20% error that never goes away.</li></ol><p><strong>Why it matters.</strong> The only way to drive that to zero is to make \\( G(0) \\) infinite, which means putting an integrator in the loop: a pole at \\( s = 0 \\). That is exactly what the I in PID does, and it is the reason integral action exists at all rather than being an optional extra.</p><p>Raising the gain instead shrinks the error but never removes it, and costs you damping on the way — the trade you will meet again in almost every week of this unit.</p><p>If you got one of these:</p><ul><li><strong>0.25</strong> — you used \\( 1/G(0) \\). The formula is \\( 1/(1+G(0)) \\), and that extra 1 is the reference itself — the error is what the reference asks for minus what the loop delivers.</li><li><strong>0.8</strong> — that's the steady-state <em>output</em>, \\( G(0)/(1+G(0)) \\). The error is what's left over: \\( 1 - 0.8 = 0.2 \\).</li><li><strong>0</strong> — that would need an integrator in the loop. This plant has none — a pole at \\( s = -1 \\), not at the origin — so a finite error survives.</li></ul>",
+          "advice": "<ol><li>For unity feedback, the error transfer function is \\( E/R = S = \\dfrac{1}{1+G} \\).</li><li>A unit step's final error is therefore \\( e_\\mathrm{ss} = \\dfrac{1}{1+G(0)} \\).</li><li>Here \\( G(0) = 4 \\), so \\( e_\\mathrm{ss} = 1/5 = 0.2 \\) — a 20% error that never goes away.</li></ol><p><strong>Why it matters.</strong> The only way to drive that to zero is to make \\( G(0) \\) infinite, which means putting an integrator in the loop: a pole at \\( s = 0 \\). That is exactly what the I in PID does, and it is the reason integral action exists at all rather than being an optional extra.</p><p>Raising the gain instead shrinks the error but never removes it, and costs you damping on the way — the trade you will meet again in almost every week of this unit.</p><p>If you got one of these:</p><ul><li><strong>0.25</strong> — you used \\( 1/G(0) \\). The formula is \\( 1/(1+G(0)) \\), and that extra 1 is the reference itself — the error is what the reference asks for minus what the loop delivers.</li><li><strong>0.8</strong> — that's the steady-state <em>output</em>, \\( G(0)/(1+G(0)) \\). The error is what's left over: \\( 1 - 0.8 = 0.2 \\).</li><li><strong>0</strong> — that would need an integrator in the loop. This plant has none — a pole at \\( s = -1 \\), not at the origin — so a finite error survives.</li></ul>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -443,7 +443,7 @@
             "licence": "None specified"
           },
           "statement": "<p>For \\( G(s) = \\dfrac{10}{s+10} \\) at \\( \\omega = 10 \\) rad/s, what are the magnitude, in decibels, and the phase?</p>",
-          "advice": "<p>A first-order lag \\( \\dfrac{1}{1 + s/\\omega_c} \\) has three landmarks:</p><ol><li><strong>well below \\( \\omega_c \\):</strong> 0 dB and 0°. The system passes the signal through.</li><li><strong>at \\( \\omega_c \\):</strong> \\( |G| = 1/\\sqrt2 \\), which is −3 dB, and the phase is exactly −45°, halfway to its limit.</li><li><strong>well above \\( \\omega_c \\):</strong> falling at −20 dB/decade, phase heading to −90°.</li></ol><p>Here \\( G = 10/(s+10) = 1/(1 + s/10) \\), so \\( \\omega_c = 10 \\) rad/s and the question is asking for the corner itself.</p><p><strong>−3 dB and −45° at the corner is the single most reused fact in this unit.</strong> Every lag you meet in weeks 4 and 8 is built from it.</p>",
+          "advice": "<p>A first-order lag \\( \\dfrac{1}{1 + s/\\omega_\\mathrm{c}} \\) has three landmarks:</p><ol><li><strong>well below \\( \\omega_\\mathrm{c} \\):</strong> 0 dB and 0°. The system passes the signal through.</li><li><strong>at \\( \\omega_\\mathrm{c} \\):</strong> \\( |G| = 1/\\sqrt2 \\), which is −3 dB, and the phase is exactly −45°, halfway to its limit.</li><li><strong>well above \\( \\omega_\\mathrm{c} \\):</strong> falling at −20 dB/decade, phase heading to −90°.</li></ol><p>Here \\( G = 10/(s+10) = 1/(1 + s/10) \\), so \\( \\omega_\\mathrm{c} = 10 \\) rad/s and the question is asking for the corner itself.</p><p><strong>−3 dB and −45° at the corner is the single most reused fact in this unit.</strong> Every lag you meet in weeks 4 and 8 is built from it.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},

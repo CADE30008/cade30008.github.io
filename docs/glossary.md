@@ -5,6 +5,9 @@ description: Plain definitions of the terms used across CADE30008 Flight Dynamic
 
 # Glossary
 
+Looking for a **symbol** rather than a word? [Notation](notation.md) lists every
+symbol we use, what it means, and the other names you may have met for it.
+
 Every term this course uses, defined once, in plain words. If a lecture and this
 page disagree, tell us: one of them is wrong.
 
@@ -135,7 +138,7 @@ offsets, at the cost of phase and therefore of stability margin.
 prediction of where it is going. It adds damping, and it amplifies measurement
 noise, so it is almost always used with a filter.
 
-**Gains.** The three constants $K_p$, $K_i$, $K_d$ that set how much of each
+**Gains.** The three constants $K_\mathrm{p}$, $K_\mathrm{i}$, $K_\mathrm{d}$ that set how much of each
 term is used. Tuning means choosing them.
 
 **Tuning.** Choosing gains to meet the requirements. It has rules of thumb, it
@@ -184,7 +187,7 @@ practical one, since nothing real sits exactly on a boundary.
 oscillates forever and 1 does not oscillate at all. The Quanser helicopter's
 elevation axis is around 0.06, which is why it rings.
 
-**Natural frequency, $\omega_n$.** How fast an oscillatory system wants to move.
+**Natural frequency, $\omega_\mathrm{n}$.** How fast an oscillatory system wants to move.
 Together with the damping ratio it fixes a second-order response entirely.
 
 **Overshoot.** How far past the target the response goes, as a percentage of the

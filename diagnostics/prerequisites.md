@@ -106,37 +106,37 @@ the unit, so it is worth being quick at.
 
 *Worked route, shown to everyone:*
 
-Read a complex pair \( \sigma \pm j\omega_d \) as two separate facts:
+Read a complex pair \( \sigma \pm j\omega_\mathrm{d} \) as two separate facts:
 
 - **the real part \( \sigma \) sets the envelope.** Negative decays like \( e^{\sigma t} \), positive grows, zero neither.
-- **the imaginary part \( \omega_d \) sets the ringing.** Non-zero means it oscillates at \( \omega_d \) rad/s; zero means it doesn't.
+- **the imaginary part \( \omega_\mathrm{d} \) sets the ringing.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
 
-Here \( \sigma = -1 \) and \( \omega_d = 2 \), so the response rings at
+Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response rings at
 2 rad/s inside an \( e^{-t} \) envelope — most of it gone within about
 four seconds.
 
 ### 3. Natural frequency and damping ratio
 
-For \( G(s) = \dfrac{25}{s^2 + 4s + 25} \), give the natural frequency \( \omega_n \), in rad/s, and the damping ratio \( \zeta \).
+For \( G(s) = \dfrac{25}{s^2 + 4s + 25} \), give the natural frequency \( \omega_\mathrm{n} \), in rad/s, and the damping ratio \( \zeta \).
 
-- \( \omega_n \) (rad/s): **5** (tolerance ±0.01)
+- \( \omega_\mathrm{n} \) (rad/s): **5** (tolerance ±0.01)
 - \( \zeta \): **0.4** (tolerance ±0.01)
-- *Common error* \( \omega_n = 25 \): that's \( \omega_n^2 \). The constant term is the square, so take the root.
-- *Common error* \( \zeta = 0.16 \): you divided 4 by \( \omega_n^2 \). The middle coefficient is \( 2\zeta\omega_n \), so divide by \( 2\omega_n = 10 \).
-- *Common error* \( \zeta = 0.8 \): you divided by \( \omega_n \) but not by the 2. It is easy to lose; the factor of 2 is there so that \( \zeta = 1 \) is exactly critical damping.
-- *Common error* \( \zeta = 2 \): that's \( \zeta\omega_n \), which is the decay rate \( \sigma \) — a useful number, but not the damping ratio.
+- *Common error* \( \omega_\mathrm{n} = 25 \): that's \( \omega_\mathrm{n}^2 \). The constant term is the square, so take the root.
+- *Common error* \( \zeta = 0.16 \): you divided 4 by \( \omega_\mathrm{n}^2 \). The middle coefficient is \( 2\zeta\omega_\mathrm{n} \), so divide by \( 2\omega_\mathrm{n} = 10 \).
+- *Common error* \( \zeta = 0.8 \): you divided by \( \omega_\mathrm{n} \) but not by the 2. It is easy to lose; the factor of 2 is there so that \( \zeta = 1 \) is exactly critical damping.
+- *Common error* \( \zeta = 2 \): that's \( \zeta\omega_\mathrm{n} \), which is the decay rate \( \sigma \) — a useful number, but not the damping ratio.
 
 *Checks:* the standard second-order form
 
 *Worked route, shown to everyone:*
 
 Match the denominator against the standard form
-\( s^2 + 2\zeta\omega_n s + \omega_n^2 \), one coefficient at a time:
+\( s^2 + 2\zeta\omega_\mathrm{n} s + \omega_\mathrm{n}^2 \), one coefficient at a time:
 
-- **constant term:** \( \omega_n^2 = 25 \), so \( \omega_n = 5 \) rad/s.
-- **middle term:** \( 2\zeta\omega_n = 4 \), and \( \omega_n \) is now known, so \( \zeta = 4/(2 \times 5) = 0.4 \).
+- **constant term:** \( \omega_\mathrm{n}^2 = 25 \), so \( \omega_\mathrm{n} = 5 \) rad/s.
+- **middle term:** \( 2\zeta\omega_\mathrm{n} = 4 \), and \( \omega_\mathrm{n} \) is now known, so \( \zeta = 4/(2 \times 5) = 0.4 \).
 
-Always do them in that order — the middle term needs \( \omega_n \), so
+Always do them in that order — the middle term needs \( \omega_\mathrm{n} \), so
 there is nothing to be gained by starting there. A quick check: \( \zeta \)
 between 0 and 1 means an oscillatory response, which matches the complex
 poles this denominator has.
@@ -150,7 +150,7 @@ A second-order system with \( \zeta = 0.4 \) is given a step. Its percentage ove
 - 10%
     <br>*Shown if chosen:* That's roughly \( \zeta = 0.6 \). You're in the right region but a little too damped; the relationship is steep here, so small changes in \( \zeta \) move the overshoot a lot.
 - 25% **← correct**
-    <br>*Shown if chosen:* Right. \( M_p = 25.4\% \), and the useful thing to carry away is the pairing: \( \zeta = 0.4 \) with about a quarter overshoot.
+    <br>*Shown if chosen:* Right. \( M_\mathrm{p} = 25.4\% \), and the useful thing to carry away is the pairing: \( \zeta = 0.4 \) with about a quarter overshoot.
 - 50%
     <br>*Shown if chosen:* That's roughly \( \zeta = 0.2 \), considerably livelier than this. Half the height of the step as overshoot would be a very underdamped system.
 
@@ -158,7 +158,7 @@ A second-order system with \( \zeta = 0.4 \) is given a step. Its percentage ove
 
 *Worked route, shown to everyone:*
 
-Exactly, \( M_p = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
+Exactly, \( M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
 \( \zeta = 0.4 \) gives 0.254, so about 25%.
 
 In practice nobody evaluates that in a design meeting. Carry three anchors
@@ -222,7 +222,7 @@ Two habits that save time later. **The closed-loop denominator is
 the algebra. And **the numerator of \( T \) is the numerator of \( G \)**,
 unchanged — feedback moves poles, never zeros.
 
-This one has \( \omega_n = 2 \) and \( \zeta = 0.25 \), so expect a lively
+This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect a lively
 response with around 45% overshoot. The Quanser rig in the first session is
 far less damped still.
 
@@ -240,8 +240,8 @@ The same unity feedback loop, but with \( G(s) = \dfrac{4}{s+1} \). After a unit
 *Worked route, shown to everyone:*
 
 - For unity feedback, the error transfer function is \( E/R = S = \dfrac{1}{1+G} \).
-- A unit step's final error is therefore \( e_{ss} = \dfrac{1}{1+G(0)} \).
-- Here \( G(0) = 4 \), so \( e_{ss} = 1/5 = 0.2 \) — a 20% error that never goes away.
+- A unit step's final error is therefore \( e_\mathrm{ss} = \dfrac{1}{1+G(0)} \).
+- Here \( G(0) = 4 \), so \( e_\mathrm{ss} = 1/5 = 0.2 \) — a 20% error that never goes away.
 
 **Why it matters.** The only way to drive that to zero is to make
 \( G(0) \) infinite, which means putting an integrator in the loop: a pole
@@ -269,13 +269,13 @@ For \( G(s) = \dfrac{10}{s+10} \) at \( \omega = 10 \) rad/s, what are the magni
 
 *Worked route, shown to everyone:*
 
-A first-order lag \( \dfrac{1}{1 + s/\omega_c} \) has three landmarks:
+A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
 
-- **well below \( \omega_c \):** 0 dB and 0°. The system passes the signal through.
-- **at \( \omega_c \):** \( |G| = 1/\sqrt2 \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
-- **well above \( \omega_c \):** falling at −20 dB/decade, phase heading to −90°.
+- **well below \( \omega_\mathrm{c} \):** 0 dB and 0°. The system passes the signal through.
+- **at \( \omega_\mathrm{c} \):** \( |G| = 1/\sqrt2 \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
+- **well above \( \omega_\mathrm{c} \):** falling at −20 dB/decade, phase heading to −90°.
 
-Here \( G = 10/(s+10) = 1/(1 + s/10) \), so \( \omega_c = 10 \) rad/s and
+Here \( G = 10/(s+10) = 1/(1 + s/10) \), so \( \omega_\mathrm{c} = 10 \) rad/s and
 the question is asking for the corner itself.
 
 **−3 dB and −45° at the corner is the single most reused fact in this
