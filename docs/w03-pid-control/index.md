@@ -113,7 +113,7 @@ so with \(K_\mathrm{p} = 1\) the gain margin is 6, or 15.6 dB. Any \(K_\mathrm{p
 Raising \(K_\mathrm{p}\) moves crossover to higher frequency, where the plant's phase is further round. The loop gets faster, but the phase margin shrinks, so it also gets more oscillatory.
 
 <figure markdown="span">
-  ![Step responses for Kp of 0.5, 1, 2 and 4. Higher gain rises faster but overshoots more, and at Kp equals 4 the response rings for several seconds.](figures/p-step-gains.svg)
+  ![Step responses for Kp of 0.5, 1, 2 and 4. Higher gain rises faster but overshoots more, and at Kp equals 4 the response oscillates for several seconds.](figures/p-step-gains.svg)
   <figcaption>With proportional control alone, speed and damping pull against each other.</figcaption>
 </figure>
 

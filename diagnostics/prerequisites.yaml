@@ -142,18 +142,18 @@ questions:
       The complex plane. The left half is shaded and labelled "response
       decays", the right half "response grows". Four pole locations are marked
       and numbered, and the shape of each one's response is drawn below: a
-      conjugate pair in the left half decays while ringing; a single real pole
-      the same distance to the left decays without ringing; a pair on the
-      vertical axis rings for ever; a pair in the right half grows while
-      ringing. Arrows note that further left means faster decay, and higher up
-      means faster ringing.
+      conjugate pair in the left half decays while oscillating; a single real pole
+      the same distance to the left decays without oscillating; a pair on the
+      vertical axis oscillates for ever; a pair in the right half grows while
+      oscillating. Arrows note that further left means faster decay, and
+      higher up means faster oscillation.
     advice: |
       Read a complex pair \( \sigma \pm j\omega_\mathrm{d} \) as two separate facts:
 
       - **the real part \( \sigma \) sets the envelope.** Negative decays like \( e^{\sigma t} \), positive grows, zero neither.
-      - **the imaginary part \( \omega_\mathrm{d} \) sets the ringing.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
+      - **the imaginary part \( \omega_\mathrm{d} \) sets the oscillation.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
 
-      Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response rings at
+      Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response oscillates at
       2 rad/s inside an \( e^{-t} \) envelope, most of it gone within about four
       seconds. That is case 1 in the figure below, and each of the other three
       is one of the answers you could have chosen.

@@ -27,7 +27,7 @@
 *[plant]: the thing being controlled, and everything outside the controller
 *[saturation]: an actuator reaching its limit and unable to give more
 *[rate limit]: a limit on how fast an actuator can move, as distinct from how far
-*[damping ratio]: how quickly an oscillation dies away: 0 rings forever, 1 does not oscillate
+*[damping ratio]: how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate
 *[natural frequency]: how fast an oscillatory system wants to move
 *[short period]: the fast longitudinal pitching oscillation
 *[phugoid]: the slow longitudinal exchange of speed and altitude

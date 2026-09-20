@@ -8,12 +8,12 @@ of them and not the others:
   * what the left and right halves mean. Real part negative and the response
     decays, positive and it grows. The halves are shaded rather than only
     labelled, so that much is legible before any text is read;
-  * what the vertical axis does. Height off the axis is the ringing frequency,
-    and a pair sitting *on* the axis rings for ever, which is the case students
+  * what the vertical axis does. Height off the axis is the oscillation frequency,
+    and a pair sitting *on* the axis oscillates for ever, which is the case students
     most often miss because it is neither stable nor unstable;
   * that the two are independent, which is the real idea. Cases 1 and 2 share
     a real part and differ only in the imaginary part, so they decay at exactly
-    the same rate and only one of them rings. Putting them at the same sigma is
+    the same rate and only one of them oscillates. Putting them at the same sigma is
     the whole reason the figure is laid out this way.
 
 Four cases, one for each option in the question, so the figure doubles as a key
@@ -53,10 +53,10 @@ INK, RULE = "#333333", "#8a8a8a"
 # omega = 0 is a single real pole rather than a conjugate pair. Cases 1 and 2
 # share a sigma on purpose: same envelope, and only the imaginary part differs.
 CASES = [
-    (-1.2, 3.6, DECAY,    (-0.62, 0.42), 4.0, "decays while ringing"),
-    (-1.2, 0.0, DECAY,    (-0.62, 0.42), 4.0, "decays, no ringing"),
-    (0.0,  4.3, MARGINAL, (0.46, 0.36),  4.0, "rings for ever"),
-    (1.2,  3.6, GROW,     (0.46, 0.42),  2.0, "grows while ringing"),
+    (-1.2, 3.6, DECAY,    (-0.62, 0.42), 4.0, "decays while oscillating"),
+    (-1.2, 0.0, DECAY,    (-0.62, 0.42), 4.0, "decays, no oscillation"),
+    (0.0,  4.3, MARGINAL, (0.46, 0.36),  4.0, "oscillates for ever"),
+    (1.2,  3.6, GROW,     (0.46, 0.42),  2.0, "grows while oscillating"),
 ]
 
 
@@ -101,7 +101,7 @@ def plane(ax) -> None:
             ha="center", alpha=0.9)
     ax.annotate("", xy=(-3.15, 3.75), xytext=(-3.15, 1.0),
                 arrowprops=dict(arrowstyle="-|>", color=INK, lw=1.0, alpha=0.8))
-    ax.text(-3.0, 2.35, "higher up,\nfaster ringing", color=INK, fontsize=8.6,
+    ax.text(-3.0, 2.35, "higher up,\noscillates faster", color=INK, fontsize=8.6,
             ha="left", va="center", alpha=0.9, linespacing=1.35)
     ax.text(0.18, -4.55, "on the axis: neither", color=MARGINAL, fontsize=8.8,
             fontweight="bold", va="center")

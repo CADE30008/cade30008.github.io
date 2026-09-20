@@ -151,9 +151,9 @@ A system has transfer function \( G(s) = \dfrac{5}{s^2 + 2s + 5} \), whose poles
 Read a complex pair \( \sigma \pm j\omega_\mathrm{d} \) as two separate facts:
 
 - **the real part \( \sigma \) sets the envelope.** Negative decays like \( e^{\sigma t} \), positive grows, zero neither.
-- **the imaginary part \( \omega_\mathrm{d} \) sets the ringing.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
+- **the imaginary part \( \omega_\mathrm{d} \) sets the oscillation.** Non-zero means it oscillates at \( \omega_\mathrm{d} \) rad/s; zero means it doesn't.
 
-Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response rings at
+Here \( \sigma = -1 \) and \( \omega_\mathrm{d} = 2 \), so the response oscillates at
 2 rad/s inside an \( e^{-t} \) envelope, most of it gone within about four
 seconds. That is case 1 in the figure below, and each of the other three
 is one of the answers you could have chosen.

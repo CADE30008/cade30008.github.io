@@ -25,6 +25,7 @@ import base64
 import json
 import re
 import sys
+from html import escape as attr
 from pathlib import Path
 
 import yaml
@@ -219,7 +220,11 @@ def embed_image(qid: str, rel: str, alt: str) -> str:
     if not alt.strip():
         raise SystemExit(f"{qid}: {rel} needs alt text, or it is unusable to a screen reader")
     b64 = base64.b64encode(src.read_bytes()).decode()
-    return (f'<p><img src="data:image/png;base64,{b64}" alt="{alt}" '
+    # Escape the alt text. Describing a figure means quoting the labels on it,
+    # and an unescaped " closes the attribute early: the rest of the sentence
+    # becomes junk attributes and Numbas fails the whole question with
+    # "SyntaxError: The string did not match the expected pattern".
+    return (f'<p><img src="data:image/png;base64,{b64}" alt="{attr(alt, quote=True)}" '
             f'style="max-width:100%;height:auto"></p>')
 
 

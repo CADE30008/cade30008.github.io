@@ -184,6 +184,18 @@ Generated blocks obey the same rule, so it has to be applied in the generator, n
 
 **Slide bullets are exempt.** A deck is display text, not prose, and terminal punctuation on a projected bullet is noise. The decks currently carry none; keep it that way.
 
+### Say "oscillates", not "rings"
+
+In anything a student reads. *Ringing* is laboratory and oscilloscope
+vocabulary, not control vocabulary: Dorf uses it **zero** times in 1024 pages
+against 62 uses of *oscillat\**, and the year-2 material 2 against 74. A
+student who meets it here and nowhere else has to translate.
+
+It is defined in the glossary and given in the notation page's "also written"
+column, because they will certainly hear it spoken. Our own working notes —
+`PEDAGOGY.md`, `teaching/` — may use whichever word is clearer; the rule is
+about what students read.
+
 ### Settling time always names its band
 
 Write "settling time to 2%", never "settling time". Both MATLAB and Dorf use a
