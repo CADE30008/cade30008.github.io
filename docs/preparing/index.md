@@ -1,25 +1,34 @@
 ---
 title: Preparing for Control
-description: Check that your device can run the course code, and complete the MathWorks Onramp courses, before week 1.
+description: Check that your device can run the course code before week 1, and work through the MathWorks Onramp courses and the diagnostic quiz whenever suits you.
 ---
 
 # Preparing for Control
 
-Work through this page before the first lecture. Most of the time goes on the
-Onramp courses. Doing it beforehand means lecture time goes on control, not on
-installing software.
+There is one thing worth doing before the first lecture, and it takes a few
+minutes. The rest of this page is here for whenever you need it.
 
-!!! abstract "Before week 1"
+!!! abstract "Before the first lecture"
     1. **[Check your device](#check)** runs the course code, in your browser or
-       on your computer.
-    2. **[Complete the three MathWorks Onramp courses](#onramps)**, and upload
-       your certificates to Blackboard.
-    3. **[Take the diagnostic quiz](#diagnostic)** on Blackboard. It tells you
-       what to brush up before we start.
-    4. **Bring a laptop** to the first lecture if you have one.
+       on your computer. A few minutes, and it means lecture time goes on
+       control rather than on installing software.
+    2. **Bring a laptop** if you have one. If you don't, you'll share — every
+       activity is done in pairs and threes.
 
-    On Blackboard, the **Before week 1** module has the same steps, with a
-    circle beside each to tick off as you go.
+!!! tip "And these, whenever you get to them"
+    The **[Onramp courses](#onramps)** and the **[diagnostic quiz](#diagnostic)**
+    are genuinely useful, and if you have time before the unit starts they are a
+    good use of it. **But they are not a gate.** We are close enough to the
+    first lecture that asking for several hours of preparation would be asking
+    for something most of you can't give.
+
+    So use them as you need them. Each Onramp is most useful just before the
+    week that leans on it, and the diagnostic is as good in week 3, when you
+    have found the gap yourself, as it is now. Nothing in week 1 assumes you
+    have done either.
+
+    On Blackboard, the **Before week 1** module lists them, with a circle beside
+    each to tick off as you go.
 
 !!! info "Links tell you what a click does"
     Across this site, a link carries a small marker saying where it goes.
@@ -179,11 +188,19 @@ Three free, self-paced courses that run in your browser and check your work as
 you go. Take them in this order. You'll need a laptop or desktop computer, as
 MathWorks online courses don't run on tablets or phones.
 
-**These are the bulk of your preparation.** Each course page shows an estimated
-time; together they are more than one evening's work, and they save you from
-learning the software and the control at the same time. Start them now rather
-than the night before, and you can stop and resume as often as you like —
-progress is saved.
+**Take them when the unit reaches them, if that suits you better.** Each course
+page shows an estimated time; together they are more than one evening's work,
+which is why they are not a prerequisite for a unit starting this week. They
+stop and resume as often as you like, and progress is saved.
+
+| Course | Most useful | Why |
+|---|---|---|
+| MATLAB Onramp | Before week 1, if you can | Week 1 has you running a script and fitting a model. |
+| Simulink Onramp | Before week 1 or during it | Week 1's rig model and the laboratory are Simulink. |
+| Control Design Onramp | Around week 3 | It covers tuning a feedback controller, which is week 3's subject. |
+
+If you have done none of them by Tuesday, come anyway. You will be able to
+follow week 1, and you will work in a pair for the parts that need software.
 
 <!-- in-progress:start -->
 !!! note "For Steve"
@@ -203,11 +220,12 @@ progress is saved.
 
 Sign in with the MathWorks account linked to your University email address.
 
-**Upload your certificates.** When you finish each course, MATLAB Academy gives
-you a certificate of completion. Download all three as PDFs and upload them to
-the **Onramp certificates** assignment in Blackboard's **Before week 1** module.
-They don't contribute to your grade — they tell us who is ready, and tell you
-that you are.
+**If you finish one, upload the certificate.** MATLAB Academy gives you a
+certificate of completion; download it as a PDF and put it in the **Onramp
+certificates** assignment in Blackboard's **Before week 1** module. There is no
+deadline, and it doesn't contribute to your grade — it tells me how the cohort
+is placed, so I can pitch the software side of each session accordingly. Partial
+is fine and useful: upload one, or two, as you go.
 
 ## Diagnostic quiz {#diagnostic}
 
@@ -225,3 +243,9 @@ through.
 
 You'll find it in the **Before week 1** module on Blackboard. It opens in
 Numbas, and marks and gives feedback on each answer as you go.
+
+**There's no deadline, and it stays open all term.** Sitting it now tells you
+what to brush up before we start. Sitting it in week 3, when something hasn't
+landed and you want to know whether the gap is in this unit or in last year's,
+is just as good a use of it — and the feedback on each question is written to
+be read either way.

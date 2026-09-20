@@ -30,10 +30,15 @@ Learning module title: **Before week 1**
 
 Module description, to paste:
 
-> Four things to do before the first lecture on Tuesday. Tick each off as you
-> go. It should take a few hours, most of it on the MathWorks Onramp courses.
-> None of it contributes to your grade: it's here so you arrive ready, and so I
-> know where to spend time in the first weeks.
+>  **One thing to do before Tuesday: check your device runs the course code.**
+> It takes a few minutes, and it means the first lecture goes on control rather
+> than on installing software. Bring a laptop if you have one.
+>
+> Everything else here — the Onramp courses and the diagnostic quiz — is useful
+> whenever you get to it. Do it now if you have time, or alongside the unit as
+> each part becomes relevant. It is not a gate, and week 1 assumes none of it.
+> None of it contributes to your grade: it is here so you can find your own
+> gaps, and so I know where to spend time in the first weeks.
 
 Items, in this order:
 
@@ -41,20 +46,21 @@ Items, in this order:
 |---|---|---|---|
 | 1 | Link | **Start here: Preparing for Control**. | `https://cade30008.github.io/preparing/` — Description: "What to install, how to check your device, and what to do before week 1.". |
 | 2 | Link | **Check your device** | `https://cade30008.github.io/preparing/#check` — Description: "Run the check in your browser or on your computer. It should report a phase margin of 43.21°.". |
-| 3 | Link | **MATLAB Onramp** | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "About two hours. Sign in with your University email address.". |
-| 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` |
-| 5 | Link | **Control Design Onramp with Simulink**. | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` |
+| 3 | Link | **MATLAB Onramp** | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "Most useful before week 1, if you have time. Sign in with your University email address.". |
+| 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` — Description: "Most useful before or during week 1: the rig model and the laboratory are Simulink.". |
+| 5 | Link | **Control Design Onramp with Simulink**. | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` — Description: "Most useful around week 3, when we tune controllers properly.". |
 | 6 | Assignment | **Onramp certificates** | See below |
 | 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `private/diagnostic/week1-diagnostic.md` |
 | 8 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
 
 ### Item 6: Onramp certificates (assignment)
 
-- **Instructions, to paste:** "Upload the certificates of completion for the
-  three MathWorks Onramp courses: MATLAB, Simulink, and Control Design with
-  Simulink. MATLAB Academy gives you each one as a PDF when you finish. This
-  isn't marked."
-- **Due:** before the week 1 lecture. Accept late submissions.
+- **Instructions, to paste:** "If you finish an Onramp course, upload its
+  certificate here. MATLAB Academy gives you one as a PDF when you finish.
+  There's no deadline and it isn't marked — it tells me how the cohort is
+  placed, so I can pitch the software side of each session accordingly. Partial
+  is fine and useful: upload one, or two, as you go."
+- **Due:** no due date. Setting one implies a gate that this isn't.
 - **Attempts:** unlimited, so students can add certificates as they finish.
 - **Grading:** complete/incomplete, or not counted towards the grade. It must
   not look as though it counts — it is formative (ASSESSMENT.md, "Formative and
