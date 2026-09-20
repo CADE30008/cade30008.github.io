@@ -98,6 +98,7 @@ year rather than rediscovering them.
 |---|---|---|
 | MathWorks Onramp LTI integration in Blackboard | IT had not enabled it. | IT confirm it's available. |
 | Move schedule-linked material off the site and into Blackboard | See "Evergreen", below | Before the next cohort. |
+| AVDASI 2 pitch-rig data as example systems | Offered in September 2026, too late to rebuild this year's examples around. Other systems used instead. The link must stay one-way: not every AVDASI 2 student takes the avionics strand, so nothing here may assume it. | Planning next year's examples, before week 3's plant is rewritten. Details and verified numbers in `private/reviews/2026-09-21-avdasi2-pitch-rig.md`. |
 | A repository link in the site header (`repo_url` in `zensical.toml`) | Left off for the first cohort: it is a prominent invitation into a repository that was mostly unwritten weeks, and it makes every page load call `api.github.com` from the student's browser. | Once the weeks are written. Add `repo_url` alone; `edit_uri` puts an "Edit this page" pencil on every page, which leads readers without write access into a fork prompt. |
 
 ## Evergreen: what belongs where
