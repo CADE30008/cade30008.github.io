@@ -109,12 +109,22 @@ the result was a server that answered on `http://localhost:8012` but refused
 `http://127.0.0.1:8012` outright. It presents as "the preview is down" when it
 is up on the other stack.
 
-If a preview is unreachable, check which of the two is actually running before
-anything else:
+Neither survives a reboot, and neither survives a **folder rename** — that one
+is the quiet failure, because the virtualenv hard-codes absolute paths in its
+console scripts, so the server dies with `bad interpreter` rather than anything
+about ports. After any rename, rebuild `.venv` before looking at the network at
+all.
+
+If a preview is unreachable, work down this list before anything else:
 
 ```bash
-lsof -nP -iTCP -sTCP:LISTEN | grep -E ':(8011|8012)'
+lsof -nP -iTCP -sTCP:LISTEN | grep -E ':(8011|8012)'   # is it running, on both stacks?
+head -1 .venv/bin/zensical                             # does the shebang match this folder?
+curl -sI http://127.0.0.1:8011/ | head -1              # IPv4 specifically, not localhost
 ```
+
+Each line catches a different failure that presents identically: not started,
+moved folder, and bound to one address family.
 
 ## Publishing
 
