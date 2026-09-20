@@ -255,6 +255,11 @@ plt.rcParams.update({
     "svg.fonttype": "path",
     "figure.facecolor": "white",
     "savefig.facecolor": "white",
+    # Matplotlib seeds the SVG clip-path and marker element IDs from a random
+    # salt, so an unchanged figure re-saves with fresh IDs and shows up as a
+    # diff. Pinning the salt keeps the IDs stable, which (with the suppressed
+    # date in save() below) means git only reports figures that really changed.
+    "svg.hashsalt": "cade30008-pitch",
 })
 FIG.mkdir(parents=True, exist_ok=True)
 LABEL = {
@@ -276,7 +281,9 @@ def bode_data(L, w=W):
 
 
 def save(fig, name):
-    fig.savefig(FIG / f"{name}.svg", bbox_inches="tight")
+    # metadata Date=None drops the <dc:date> stamp, which would otherwise make
+    # every run a diff. See the svg.hashsalt note in the rcParams above.
+    fig.savefig(FIG / f"{name}.svg", bbox_inches="tight", metadata={"Date": None})
     plt.close(fig)
 
 
