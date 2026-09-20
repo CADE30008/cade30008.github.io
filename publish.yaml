@@ -12,7 +12,7 @@
 #     are broken.
 #
 # To publish a page, add it here, run `npm run preview:live` and look at it on
-# http://localhost:8010, then commit and push. Publishing a lecture week means
+# http://localhost:8012, then commit and push. Publishing a lecture week means
 # listing its handout, example sheet and solutions.
 
 site_url: https://cade30008.github.io/
