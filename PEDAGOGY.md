@@ -29,9 +29,9 @@ This half of the unit covers **ILOs 4, 5 and 6**, paraphrased:
 
 | ILO | In short |
 |---|---|
-| 4 | Analyse stability and robustness of negative-feedback control systems |
-| 5 | Design and characterise control algorithms, classical and modern |
-| 6 | Apply control theory to achieve aircraft performance and operations |
+| 4 | Analyse stability and robustness of negative-feedback control systems. |
+| 5 | Design and characterise control algorithms, classical and modern. |
+| 6 | Apply control theory to achieve aircraft performance and operations. |
 
 ILOs 1 to 3 cover rigid-body equations of motion, flight balance, stability and
 the aircraft modes, and the reading of flight data against handling qualities.
@@ -44,11 +44,11 @@ week n**. There is no separate lecture numbering. Lectures are on **Tuesdays**.
 
 | Week | What happens |
 |---|---|
-| 1–4 | A lecture each week |
-| 5 | The guest lecture: an hour of lecture and questions, then an open hour |
-| 6 | **Consolidation week**, the University's formal title. No lecture of any kind. Recommended consolidation activities instead |
-| 7–11 | A lecture each week. Week 11's second hour is coursework Q&A, and the coursework is due on its Thursday |
-| 12 | Revision week, for units with exams. This unit's coursework is in by then, so nothing is planned |
+| 1–4 | A lecture each week. |
+| 5 | The guest lecture: an hour of lecture and questions, then an open hour. |
+| 6 | **Consolidation week**, the University's formal title. No lecture of any kind. Recommended consolidation activities instead. |
+| 7–11 | A lecture each week. Week 11's second hour is coursework Q&A, and the coursework is due on its Thursday. |
+| 12 | Revision week, for units with exams. This unit's coursework is in by then, so nothing is planned. |
 
 So **eleven weeks of content**, nine of them with our lectures. Each lecture
 session runs to a fixed shape (P17): a taught hour, then a 50-minute case hour
@@ -349,11 +349,11 @@ sources linked; all need checking against the primary report before teaching.
 
 | Case | What it shows | Source |
 |---|---|---|
-| Ingenuity Mars helicopter, flight 6 (2021) | A lost navigation image corrupted timestamps and caused large oscillations. The controller's stability margins let it land safely anyway. Robustness, ILO 4 | [NASA](https://science.nasa.gov/blog/surviving-an-in-flight-anomaly-what-happened-on-ingenuitys-sixth-flight/) |
-| X-15 flight 3-65-97 (1967) | The MH-96 adaptive flight control system entered diverging pitch and roll oscillations on re-entry. The aircraft broke up and Michael Adams was killed. Adaptive control, limit cycles | [Summary](https://en.wikipedia.org/wiki/X-15_Flight_3-65-97), [NASA NESC analysis](https://nescacademy.nasa.gov/video/afbbfa1bb74243aeab139db4c110c2021d) |
-| YF-22 (1992) | Pilot-induced oscillation with the stabilator at its software rate limit, and over half a second of lag round the pilot loop. Actuator limits and delay | [Aviation Safety Network](https://aviation-safety.net/wikibase/46043) |
-| Boeing 737 MAX, MCAS (2018, 2019) | Automatic trim commanded from a single angle-of-attack sensor. Sensing, control authority and the pilot in the loop | To find |
-| Air France 447 (2009) | Pitot icing, autopilot disconnection and degraded control laws. What happens when automation hands the aircraft back | To find |
+| Ingenuity Mars helicopter, flight 6 (2021) | A lost navigation image corrupted timestamps and caused large oscillations. The controller's stability margins let it land safely anyway. Robustness, ILO 4. | [NASA](https://science.nasa.gov/blog/surviving-an-in-flight-anomaly-what-happened-on-ingenuitys-sixth-flight/) |
+| X-15 flight 3-65-97 (1967) | The MH-96 adaptive flight control system entered diverging pitch and roll oscillations on re-entry. The aircraft broke up and Michael Adams was killed. Adaptive control, limit cycles. | [Summary](https://en.wikipedia.org/wiki/X-15_Flight_3-65-97), [NASA NESC analysis](https://nescacademy.nasa.gov/video/afbbfa1bb74243aeab139db4c110c2021d). |
+| YF-22 (1992) | Pilot-induced oscillation with the stabilator at its software rate limit, and over half a second of lag round the pilot loop. Actuator limits and delay. | [Aviation Safety Network](https://aviation-safety.net/wikibase/46043) |
+| Boeing 737 MAX, MCAS (2018, 2019) | Automatic trim commanded from a single angle-of-attack sensor. Sensing, control authority and the pilot in the loop. | To find |
+| Air France 447 (2009) | Pitot icing, autopilot disconnection and degraded control laws. What happens when automation hands the aircraft back. | To find |
 
 ### P16. A short challenge each week
 
@@ -390,16 +390,16 @@ teaching value, and it lets the material vary without the format varying.
 
 | Slot | Min | What happens | Serves |
 |---|---|---|---|
-| **Hook and recall** | 5 | Resolve last week's cliffhanger; then two or three questions on earlier weeks, answered before any answer is shown | P11, P18 |
-| **Learn A** | 15 | Taught: the idea, opened on something concrete | P2, P4 |
-| **Do A** | 10 | Pairs: the smallest real use of the idea. Floor result, sampled to the room | P8 |
-| **Learn B** | 15 | Taught: the method or tool that acts on the idea | P2, P4 |
-| **Do B** | 10 | Pairs: apply it. Floor result | P8 |
+| **Hook and recall** | 5 | Resolve last week's cliffhanger; then two or three questions on earlier weeks, answered before any answer is shown. | P11, P18 |
+| **Learn A** | 15 | Taught: the idea, opened on something concrete. | P2, P4 |
+| **Do A** | 10 | Pairs: the smallest real use of the idea. Floor result, sampled to the room. | P8 |
+| **Learn B** | 15 | Taught: the method or tool that acts on the idea. | P2, P4 |
+| **Do B** | 10 | Pairs: apply it. Floor result. | P8 |
 | *Changeover* | 5 | | |
-| **Case brief** | 5 | The artifact arrives. What do we see, what matters here | P18 |
-| **Case build** | 25 | Deploy the week's work on the case. Floor, then ceiling | P8, P18 |
-| **Converge** | 10 | Sample results to the room, name the disagreement, resolve it | P8, P18 |
-| **Cliffhanger** | 10 | What this week's tool cannot do. Students name what they would need; the independent work is set | P18, P15 |
+| **Case brief** | 5 | The artifact arrives. What do we see, what matters here. | P18 |
+| **Case build** | 25 | Deploy the week's work on the case. Floor, then ceiling. | P8, P18 |
+| **Converge** | 10 | Sample results to the room, name the disagreement, resolve it. | P8, P18 |
+| **Cliffhanger** | 10 | What this week's tool cannot do. Students name what they would need; the independent work is set. | P18, P15 |
 
 - **Practice is interleaved, not banked.** Two Learn slots back to back, with
   the practice afterwards, lets Learn A decay before it is used and hides a
@@ -419,10 +419,10 @@ into the lecture map and week 1, so change them there.
 
 | Part | Hours | What it is |
 |---|---|---|
-| **1. Close the loop** | 0.75 | Go back over the handout; that week's challenge in Numbas and MATLAB Grader (P16) |
-| **2. Work the examples** | 1 | The week's example sheet, then its solutions |
-| **3. Feed the design** | 2 | The coursework step for the week, and a decision-log entry |
-| **4. Meet next week's case** | 0.25 | One small artifact to read or watch before the next session (P18) |
+| **1. Close the loop** | 0.75 | Go back over the handout; that week's challenge in Numbas and MATLAB Grader (P16). |
+| **2. Work the examples** | 1 | The week's example sheet, then its solutions. |
+| **3. Feed the design** | 2 | The coursework step for the week, and a decision-log entry. |
+| **4. Meet next week's case** | 0.25 | One small artifact to read or watch before the next session (P18). |
 
 - **Two hours is tight, and that is the point.** It forces the handout, the
   challenge and the example sheet to be sized to fit, which is P19 applied to
@@ -458,12 +458,12 @@ already.
 
 | Step, in the Vet School's form | Where it happens here |
 |---|---|
-| 1–2. Read the case, define terms, identify its key aspects | Case brief, 5 min |
-| 3. Share what you already know | Case build in pairs and threes, 25 min |
+| 1–2. Read the case, define terms, identify its key aspects | Case brief, 5 min. |
+| 3. Share what you already know | Case build in pairs and threes, 25 min. |
 | 4. Arrange explanations, identify gaps | Converge, 10 min |
-| 5. Establish learning objectives | **Cliffhanger**, 10 min: the case is built so the week's tool takes students most of the way, and the residual gap is next week's topic, which they name themselves |
-| 6. Independent study | The week's independent work, all three parts |
-| 7. Share and reflect | Hook and recall, at the start of the next session |
+| 5. Establish learning objectives | **Cliffhanger**, 10 min: the case is built so the week's tool takes students most of the way, and the residual gap is next week's topic, which they name themselves. |
+| 6. Independent study | The week's independent work, all three parts. |
+| 7. Share and reflect | Hook and recall, at the start of the next session. |
 
 - **A case opens with evidence, not a problem statement.** A telemetry trace, a
   pilot's complaint, a page of an investigation report, a requirements document
@@ -615,70 +615,70 @@ has an accessible summary and an original source.
   supported by just-in-time information and part-task practice. Our week-on-week
   build to a full design cycle is precisely this. Supports A1, P8.
   - Summary: [4C/ID](https://www.4cid.org/)
-  - Original: van Merriënboer, J. J. G., Clark, R. E. and de Croock, M. B. M. (2002). Blueprints for complex learning: the 4C/ID-model. *Educational Technology Research and Development*, 50(2), 39–61. [doi:10.1007/BF02504993](https://doi.org/10.1007/BF02504993)
+  - Original: van Merriënboer, J. J. G., Clark, R. E. and de Croock, M. B. M. (2002). Blueprints for complex learning: the 4C/ID-model. *Educational Technology Research and Development*, 50(2), 39–61. [doi:10.1007/BF02504993](https://doi.org/10.1007/BF02504993).
 - **Cognitive load theory (Sweller).** The constraint behind P3 and P4. Keep
   extraneous load down, and stage intrinsic load deliberately.
-  - Summary: [Cognitive load](https://en.wikipedia.org/wiki/Cognitive_load)
-  - Original: Sweller, J. (1988). Cognitive load during problem solving: effects on learning. *Cognitive Science*, 12(2), 257–285. [doi:10.1207/s15516709cog1202_4](https://doi.org/10.1207/s15516709cog1202_4)
-  - Further: Sweller, J., van Merriënboer, J. J. G. and Paas, F. (1998). Cognitive architecture and instructional design. *Educational Psychology Review*, 10(3), 251–296. [doi:10.1023/A:1022193728205](https://doi.org/10.1023/A:1022193728205)
+  - Summary: [Cognitive load](https://en.wikipedia.org/wiki/Cognitive_load).
+  - Original: Sweller, J. (1988). Cognitive load during problem solving: effects on learning. *Cognitive Science*, 12(2), 257–285. [doi:10.1207/s15516709cog1202_4](https://doi.org/10.1207/s15516709cog1202_4).
+  - Further: Sweller, J., van Merriënboer, J. J. G. and Paas, F. (1998). Cognitive architecture and instructional design. *Educational Psychology Review*, 10(3), 251–296. [doi:10.1023/A:1022193728205](https://doi.org/10.1023/A:1022193728205).
 - **Worked example effect, and the expertise reversal effect (Kalyuga).** Start
   with fully worked designs, then completion problems, then open design. What
   helps a novice hinders an expert, so support fades week by week.
-  - Summaries: [Worked-example effect](https://en.wikipedia.org/wiki/Worked-example_effect), [Expertise reversal effect](https://en.wikipedia.org/wiki/Expertise_reversal_effect)
-  - Originals: Sweller, J. and Cooper, G. A. (1985). The use of worked examples as a substitute for problem solving in learning algebra. *Cognition and Instruction*, 2(1), 59–89. [doi:10.1207/s1532690xci0201_3](https://doi.org/10.1207/s1532690xci0201_3). Kalyuga, S., Ayres, P., Chandler, P. and Sweller, J. (2003). The expertise reversal effect. *Educational Psychologist*, 38(1), 23–31. [doi:10.1207/S15326985EP3801_4](https://doi.org/10.1207/S15326985EP3801_4)
-  - On fading support: Renkl, A. and Atkinson, R. K. (2003). Structuring the transition from example study to problem solving in cognitive skill acquisition. *Educational Psychologist*, 38(1), 15–22. [doi:10.1207/S15326985EP3801_3](https://doi.org/10.1207/S15326985EP3801_3)
+  - Summaries: [Worked-example effect](https://en.wikipedia.org/wiki/Worked-example_effect), [Expertise reversal effect](https://en.wikipedia.org/wiki/Expertise_reversal_effect).
+  - Originals: Sweller, J. and Cooper, G. A. (1985). The use of worked examples as a substitute for problem solving in learning algebra. *Cognition and Instruction*, 2(1), 59–89. [doi:10.1207/s1532690xci0201_3](https://doi.org/10.1207/s1532690xci0201_3). Kalyuga, S., Ayres, P., Chandler, P. and Sweller, J. (2003). The expertise reversal effect. *Educational Psychologist*, 38(1), 23–31. [doi:10.1207/S15326985EP3801_4](https://doi.org/10.1207/S15326985EP3801_4).
+  - On fading support: Renkl, A. and Atkinson, R. K. (2003). Structuring the transition from example study to problem solving in cognitive skill acquisition. *Educational Psychologist*, 38(1), 15–22. [doi:10.1207/S15326985EP3801_3](https://doi.org/10.1207/S15326985EP3801_3).
 - **Constructive alignment (Biggs).** ILOs, activities and assessment stated in
   the same terms. Supports P10.
-  - Summary: [Constructive alignment](https://en.wikipedia.org/wiki/Constructive_alignment)
-  - Original: Biggs, J. (1996). Enhancing teaching through constructive alignment. *Higher Education*, 32(3), 347–364. [doi:10.1007/BF00138871](https://doi.org/10.1007/BF00138871)
+  - Summary: [Constructive alignment](https://en.wikipedia.org/wiki/Constructive_alignment).
+  - Original: Biggs, J. (1996). Enhancing teaching through constructive alignment. *Higher Education*, 32(3), 347–364. [doi:10.1007/BF00138871](https://doi.org/10.1007/BF00138871).
 - **SOLO taxonomy (Biggs and Collis).** A defensible language for the pass and
   excellence split in P10: applying a procedure correctly is one level, relating
   it to the theory that justifies it is the next.
-  - Summary: [Structure of observed learning outcome](https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome)
-  - Original: Biggs, J. B. and Collis, K. F. (1982). *Evaluating the Quality of Learning: The SOLO Taxonomy*. Academic Press. [doi:10.1016/C2013-0-10375-3](https://doi.org/10.1016/C2013-0-10375-3)
+  - Summary: [Structure of observed learning outcome](https://en.wikipedia.org/wiki/Structure_of_observed_learning_outcome).
+  - Original: Biggs, J. B. and Collis, K. F. (1982). *Evaluating the Quality of Learning: The SOLO Taxonomy*. Academic Press. [doi:10.1016/C2013-0-10375-3](https://doi.org/10.1016/C2013-0-10375-3).
 - **Variation theory (Marton).** Understanding comes from what is varied against
   a fixed background. Revisiting three systems (P9) is what makes the invariant
   principles visible.
-  - Summary: [Phenomenography](https://en.wikipedia.org/wiki/Phenomenography), from which variation theory grew
-  - Original: Marton, F. and Pang, M. F. (2006). On some necessary conditions of learning. *Journal of the Learning Sciences*, 15(2), 193–220. [doi:10.1207/s15327809jls1502_2](https://doi.org/10.1207/s15327809jls1502_2)
+  - Summary: [Phenomenography](https://en.wikipedia.org/wiki/Phenomenography), from which variation theory grew.
+  - Original: Marton, F. and Pang, M. F. (2006). On some necessary conditions of learning. *Journal of the Learning Sciences*, 15(2), 193–220. [doi:10.1207/s15327809jls1502_2](https://doi.org/10.1207/s15327809jls1502_2).
 - **Predict, observe, explain (White and Gunstone).** Behind P12.
-  - Summary: [Predict, Observe, Explain (NZCER)](https://arbs.nzcer.org.nz/predict-observe-explain-poe)
-  - Original: White, R. and Gunstone, R. (1992). *Probing Understanding*. Falmer Press; reissued by Routledge, 2014. [doi:10.4324/9780203761342](https://doi.org/10.4324/9780203761342)
+  - Summary: [Predict, Observe, Explain (NZCER)](https://arbs.nzcer.org.nz/predict-observe-explain-poe).
+  - Original: White, R. and Gunstone, R. (1992). *Probing Understanding*. Falmer Press; reissued by Routledge, 2014. [doi:10.4324/9780203761342](https://doi.org/10.4324/9780203761342).
 - **Peer instruction (Mazur).** For the in-lecture activity in pairs and threes.
-  - Summary: [Peer instruction](https://en.wikipedia.org/wiki/Peer_instruction)
-  - Original: Crouch, C. H. and Mazur, E. (2001). Peer Instruction: ten years of experience and results. *American Journal of Physics*, 69(9), 970–977. [doi:10.1119/1.1374249](https://doi.org/10.1119/1.1374249)
+  - Summary: [Peer instruction](https://en.wikipedia.org/wiki/Peer_instruction).
+  - Original: Crouch, C. H. and Mazur, E. (2001). Peer Instruction: ten years of experience and results. *American Journal of Physics*, 69(9), 970–977. [doi:10.1119/1.1374249](https://doi.org/10.1119/1.1374249).
 - **Productive failure (Kapur).** Letting students attempt a design before being
   given the tool can prepare them to learn it. A candidate for the opening of
   some lectures.
-  - Summary: [Manu Kapur](https://www.manukapur.com/)
-  - Original: Kapur, M. (2008). Productive failure. *Cognition and Instruction*, 26(3), 379–424. [doi:10.1080/07370000802212669](https://doi.org/10.1080/07370000802212669)
-  - Further: Kapur, M. (2016). Examining productive failure, productive success, unproductive failure, and unproductive success in learning. *Educational Psychologist*, 51(2), 289–299. [doi:10.1080/00461520.2016.1155457](https://doi.org/10.1080/00461520.2016.1155457)
+  - Summary: [Manu Kapur](https://www.manukapur.com/).
+  - Original: Kapur, M. (2008). Productive failure. *Cognition and Instruction*, 26(3), 379–424. [doi:10.1080/07370000802212669](https://doi.org/10.1080/07370000802212669).
+  - Further: Kapur, M. (2016). Examining productive failure, productive success, unproductive failure, and unproductive success in learning. *Educational Psychologist*, 51(2), 289–299. [doi:10.1080/00461520.2016.1155457](https://doi.org/10.1080/00461520.2016.1155457).
 - **Threshold concepts (Meyer and Land).** Some ideas are gateways and are worth
   dwelling on: feedback itself, stability margin as robustness, the cost of
   bandwidth.
-  - Summary: [Threshold knowledge](https://en.wikipedia.org/wiki/Threshold_knowledge)
-  - Original: Meyer, J. H. F. and Land, R. (2005). Threshold concepts and troublesome knowledge (2). *Higher Education*, 49(3), 373–388. [doi:10.1007/s10734-004-6779-5](https://doi.org/10.1007/s10734-004-6779-5)
+  - Summary: [Threshold knowledge](https://en.wikipedia.org/wiki/Threshold_knowledge).
+  - Original: Meyer, J. H. F. and Land, R. (2005). Threshold concepts and troublesome knowledge (2). *Higher Education*, 49(3), 373–388. [doi:10.1007/s10734-004-6779-5](https://doi.org/10.1007/s10734-004-6779-5).
 - **Retrieval practice and spacing.** Behind P11.
-  - Summaries: [Testing effect](https://en.wikipedia.org/wiki/Testing_effect), [Spacing effect](https://en.wikipedia.org/wiki/Spacing_effect)
-  - Originals: Roediger, H. L. and Butler, A. C. (2011). The critical role of retrieval practice in long-term retention. *Trends in Cognitive Sciences*, 15(1), 20–27. [doi:10.1016/j.tics.2010.09.003](https://doi.org/10.1016/j.tics.2010.09.003). Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T. and Rothstein, T. (2006). Distributed practice in verbal recall tasks. *Psychological Bulletin*, 132(3), 354–380. [doi:10.1037/0033-2909.132.3.354](https://doi.org/10.1037/0033-2909.132.3.354)
+  - Summaries: [Testing effect](https://en.wikipedia.org/wiki/Testing_effect), [Spacing effect](https://en.wikipedia.org/wiki/Spacing_effect).
+  - Originals: Roediger, H. L. and Butler, A. C. (2011). The critical role of retrieval practice in long-term retention. *Trends in Cognitive Sciences*, 15(1), 20–27. [doi:10.1016/j.tics.2010.09.003](https://doi.org/10.1016/j.tics.2010.09.003). Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T. and Rothstein, T. (2006). Distributed practice in verbal recall tasks. *Psychological Bulletin*, 132(3), 354–380. [doi:10.1037/0033-2909.132.3.354](https://doi.org/10.1037/0033-2909.132.3.354).
 - **Conceptual change, and teaching through misconceptions.** Behind P13.
-  - Summary: [Conceptual change](https://en.wikipedia.org/wiki/Conceptual_change)
-  - Originals: Posner, G. J., Strike, K. A., Hewson, P. W. and Gertzog, W. A. (1982). Accommodation of a scientific conception. *Science Education*, 66(2), 211–227. [doi:10.1002/sce.3730660207](https://doi.org/10.1002/sce.3730660207). Muller, D. A., Bewes, J., Sharma, M. D. and Reimann, P. (2008). Saying the wrong thing: improving learning with multimedia by including misconceptions. *Journal of Computer Assisted Learning*, 24(2), 144–155. [doi:10.1111/j.1365-2729.2007.00248.x](https://doi.org/10.1111/j.1365-2729.2007.00248.x)
+  - Summary: [Conceptual change](https://en.wikipedia.org/wiki/Conceptual_change).
+  - Originals: Posner, G. J., Strike, K. A., Hewson, P. W. and Gertzog, W. A. (1982). Accommodation of a scientific conception. *Science Education*, 66(2), 211–227. [doi:10.1002/sce.3730660207](https://doi.org/10.1002/sce.3730660207). Muller, D. A., Bewes, J., Sharma, M. D. and Reimann, P. (2008). Saying the wrong thing: improving learning with multimedia by including misconceptions. *Journal of Computer Assisted Learning*, 24(2), 144–155. [doi:10.1111/j.1365-2729.2007.00248.x](https://doi.org/10.1111/j.1365-2729.2007.00248.x).
 - **Authentic learning and situated cognition.** Behind P15: knowledge learned in
   the context where it is used transfers better than knowledge learned abstractly.
-  - Summaries: [Authentic learning](https://en.wikipedia.org/wiki/Authentic_learning), [Situated cognition](https://en.wikipedia.org/wiki/Situated_cognition)
-  - Originals: Brown, J. S., Collins, A. and Duguid, P. (1989). Situated cognition and the culture of learning. *Educational Researcher*, 18(1), 32–42. [doi:10.3102/0013189X018001032](https://doi.org/10.3102/0013189X018001032). Herrington, J. and Oliver, R. (2000). An instructional design framework for authentic learning environments. *Educational Technology Research and Development*, 48(3), 23–48. [doi:10.1007/BF02319856](https://doi.org/10.1007/BF02319856)
+  - Summaries: [Authentic learning](https://en.wikipedia.org/wiki/Authentic_learning), [Situated cognition](https://en.wikipedia.org/wiki/Situated_cognition).
+  - Originals: Brown, J. S., Collins, A. and Duguid, P. (1989). Situated cognition and the culture of learning. *Educational Researcher*, 18(1), 32–42. [doi:10.3102/0013189X018001032](https://doi.org/10.3102/0013189X018001032). Herrington, J. and Oliver, R. (2000). An instructional design framework for authentic learning environments. *Educational Technology Research and Development*, 48(3), 23–48. [doi:10.1007/BF02319856](https://doi.org/10.1007/BF02319856).
 - **Low floor, high ceiling, wide walls (Papert, Resnick).** Behind P8: an
   activity everyone can start and reach a result in, with room for the quickest
   to go much further, and more than one route through it.
-  - Summary: [Designing for wide walls (Resnick)](https://mres.medium.com/designing-for-wide-walls-323bdb4e7277)
-  - Originals: Papert, S. (1980). *Mindstorms: Children, Computers, and Powerful Ideas*. Basic Books. Resnick, M. and Silverman, B. (2005). Some reflections on designing construction kits for kids. *Proceedings of the 2005 Conference on Interaction Design and Children*, 117–122. [doi:10.1145/1109540.1109556](https://doi.org/10.1145/1109540.1109556)
+  - Summary: [Designing for wide walls (Resnick)](https://mres.medium.com/designing-for-wide-walls-323bdb4e7277).
+  - Originals: Papert, S. (1980). *Mindstorms: Children, Computers, and Powerful Ideas*. Basic Books. Resnick, M. and Silverman, B. (2005). Some reflections on designing construction kits for kids. *Proceedings of the 2005 Conference on Interaction Design and Children*, 117–122. [doi:10.1145/1109540.1109556](https://doi.org/10.1145/1109540.1109556).
 - **Multimedia learning (Mayer).** How words and figures are best combined.
   Supports P4 and P14.
-  - Original: Mayer, R. E. (2009). *Multimedia Learning*, 2nd edition. Cambridge University Press. [doi:10.1017/CBO9780511811678](https://doi.org/10.1017/CBO9780511811678)
+  - Original: Mayer, R. E. (2009). *Multimedia Learning*, 2nd edition. Cambridge University Press. [doi:10.1017/CBO9780511811678](https://doi.org/10.1017/CBO9780511811678).
 - **Universal design for learning, and web accessibility.** Behind P14.
-  - Summaries: [Universal Design for Learning](https://en.wikipedia.org/wiki/Universal_Design_for_Learning), [CAST UDL guidelines](https://udlguidelines.cast.org/)
-  - Standard: [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/)
+  - Summaries: [Universal Design for Learning](https://en.wikipedia.org/wiki/Universal_Design_for_Learning), [CAST UDL guidelines](https://udlguidelines.cast.org/).
+  - Standard: [Web Content Accessibility Guidelines 2.2](https://www.w3.org/TR/WCAG22/).
 
 ## Preparation before week 1
 
@@ -721,8 +721,8 @@ of them can be summarised by AI:
 
 | Format | Use it for | AI grouping and summary |
 |---|---|---|
-| **Q&A, switched on for every slide** | The live chat. Students post questions whenever they arise, anonymously, and upvote each other's, so the most wanted rise to the top | No |
-| **Open Ended slides**, at planned moments | Anything you want summarised: results at an activity's floor, what's still unclear, explanations after a prediction | Yes, on request |
+| **Q&A, switched on for every slide** | The live chat. Students post questions whenever they arise, anonymously, and upvote each other's, so the most wanted rise to the top. | No |
+| **Open Ended slides**, at planned moments | Anything you want summarised: results at an activity's floor, what's still unclear, explanations after a prediction. | Yes, on request |
 
 A lecture's rhythm then runs:
 

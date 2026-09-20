@@ -127,7 +127,7 @@ Three ways of saying the same true thing, in descending order of damage:
 | Don't write | Because | Write |
 |---|---|---|
 | "Not marked" | Reads as "does not matter". | "Formative", plus the feedback it earns. |
-| "Doesn't count" | Same, and worse: it's the word a student uses for work they can skip. | "Doesn't contribute to your grade — **but** it's how the coursework gets built." |
+| "Doesn't count" | Same, and worse: it's the word a student uses for work they can skip. | "Doesn't contribute to your grade — **but** it's how the coursework gets built.". |
 | "Optional" | Only the laboratory and the consolidation activities genuinely are. | Say plainly whether it is expected. |
 
 The rule: **never state what formative work isn't without stating, in the same
@@ -143,9 +143,9 @@ cycle, applied to a system or axis students haven't built in lectures.
 
 | Option | What it is | For | Against |
 |---|---|---|---|
-| **A. Per-student variant** | A system with parameters generated from each student's number | Each student's numbers are their own and can be checked automatically | Close to the lecture work, so tests transfer (P5) less |
-| **B. A new system or axis** | For example, an axis of the Quanser helicopter or a multirotor loop not built in lectures | Tests transfer; can draw on laboratory data | Depends on every student getting rig time in good time |
-| **C. Shared with Part A** | Part A models an aircraft (ILOs 1 to 3); Part B designs its flight control (ILOs 4 to 6) | One authentic story across the coursework | Needs agreement with the Part A staff, and couples the two parts |
+| **A. Per-student variant** | A system with parameters generated from each student's number. | Each student's numbers are their own and can be checked automatically. | Close to the lecture work, so tests transfer (P5) less. |
+| **B. A new system or axis** | For example, an axis of the Quanser helicopter or a multirotor loop not built in lectures. | Tests transfer; can draw on laboratory data. | Depends on every student getting rig time in good time. |
+| **C. Shared with Part A** | Part A models an aircraft (ILOs 1 to 3); Part B designs its flight control (ILOs 4 to 6). | One authentic story across the coursework. | Needs agreement with the Part A staff, and couples the two parts. |
 
 **Proposal: integrated but separate (C, with A inside it).** Parts A and B stay
 separate sections, taught, marked and weighted separately, but tell one story.
@@ -186,9 +186,9 @@ against the final submission.
 
 | Checkpoint | Contents | Feedback |
 |---|---|---|
-| **1. Requirements and model** | Requirements, the plant model and its assumptions | Automated checks against each student's parameters; lecturer's cohort notes |
-| **2. Design and analysis** | A first design, with its margins and step response | Automated checks; **peer review** (AP8), in which each student reviews two others against rubric criteria |
-| **3. Draft paper** | The paper in draft, with code | Automated checks; lecturer's cohort notes on common strengths and gaps |
+| **1. Requirements and model** | Requirements, the plant model and its assumptions. | Automated checks against each student's parameters; lecturer's cohort notes. |
+| **2. Design and analysis** | A first design, with its margins and step response. | Automated checks; **peer review** (AP8), in which each student reviews two others against rubric criteria. |
+| **3. Draft paper** | The paper in draft, with code. | Automated checks; lecturer's cohort notes on common strengths and gaps. |
 
 Alongside them:
 
@@ -218,10 +218,10 @@ and a bank of example feedback statements for marking at scale.
 
 | Criterion | Weight | Assesses | ILOs |
 |---|---|---|---|
-| 1. Model validation and requirements | 20% | Requirements; model validation; uncertainty and assumptions | 6, 5, 4 |
-| 2. Control design and analysis | 35% | Design method; stability and robustness; verification, including of AI-generated work | 5, 4, 6 |
-| 3. Theory, argument and critique | 30% | Explanation through theory; decisions and argument; limitations and transfer | 4, 5, 6 |
-| 4. Communication and reproducibility | 15% | Structure and writing; figures and referencing; code and statements | All |
+| 1. Model validation and requirements | 20% | Requirements; model validation; uncertainty and assumptions. | 6, 5, 4 |
+| 2. Control design and analysis | 35% | Design method; stability and robustness; verification, including of AI-generated work. | 5, 4, 6 |
+| 3. Theory, argument and critique | 30% | Explanation through theory; decisions and argument; limitations and transfer. | 4, 5, 6 |
+| 4. Communication and reproducibility | 15% | Structure and writing; figures and referencing; code and statements. | All |
 
 **Why this shape.** Criteria 1, 2 and 4 reward applied design and its evidence,
 so sound applied work passes (P10). Criterion 3 rewards understanding, so it
@@ -289,10 +289,10 @@ immune, so these concentrate on what matters most.
 
 | You may | You may not |
 |---|---|
-| Discuss concepts, lectures, example sheets and the methods the brief asks for | Share your design, parameter values, code or text for Part B |
-| Help each other get software working, and debug lecture and starter code | Use another student's code, figures or text, or let them use yours |
-| Take part in the structured peer review, and act on the feedback | Work on another student's variant |
-| Use AI tools as the brief permits, and declare them | Submit AI output you haven't verified, and can't explain in your paper |
+| Discuss concepts, lectures, example sheets and the methods the brief asks for | Share your design, parameter values, code or text for Part B. |
+| Help each other get software working, and debug lecture and starter code | Use another student's code, figures or text, or let them use yours. |
+| Take part in the structured peer review, and act on the feedback | Work on another student's variant. |
+| Use AI tools as the brief permits, and declare them | Submit AI output you haven't verified, and can't explain in your paper. |
 
 If in doubt, name it in the collaboration statement. Acknowledged discussion is
 never misconduct.
@@ -418,8 +418,8 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
 
   | Checkpoint | After | Week | Covers |
   |---|---|---|---|
-  | 1. Requirements and model | Act I (weeks 1–4) | end of 4 | Sections 1–2 |
-  | 2. Design and analysis | Act II (weeks 7–8) | end of 8 | Sections 3–4, and the peer review |
+  | 1. Requirements and model | Act I (weeks 1–4). | end of 4 | Sections 1–2 |
+  | 2. Design and analysis | Act II (weeks 7–8). | end of 8 | Sections 3–4, and the peer review. |
   | 3. Draft paper | Week 9 | end of 9 | The whole paper |
 
   Checkpoint 3 at week 9 rather than 10 leaves a clear week to act on its
@@ -468,13 +468,13 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
   results are written up. All must be settled before this year's submission.
 ## References
 
-- Villarroel, V., Bloxham, S., Bruna, D., Bruna, C. and Herrera-Seda, C. (2018). Authentic assessment: creating a blueprint for course design. *Assessment & Evaluation in Higher Education*, 43(5), 840–854. [doi:10.1080/02602938.2017.1412396](https://doi.org/10.1080/02602938.2017.1412396)
-- Hattie, J. and Timperley, H. (2007). The power of feedback. *Review of Educational Research*, 77(1), 81–112. [doi:10.3102/003465430298487](https://doi.org/10.3102/003465430298487)
-- Carless, D. and Boud, D. (2018). The development of student feedback literacy: enabling uptake of feedback. *Assessment & Evaluation in Higher Education*, 43(8), 1315–1325. [doi:10.1080/02602938.2018.1463354](https://doi.org/10.1080/02602938.2018.1463354)
-- Tai, J., Ajjawi, R., Boud, D., Dawson, P. and Panadero, E. (2018). Developing evaluative judgement: enabling students to make decisions about the quality of work. *Higher Education*, 76(3), 467–481. [doi:10.1007/s10734-017-0220-3](https://doi.org/10.1007/s10734-017-0220-3)
-- Boud, D. (2000). Sustainable assessment: rethinking assessment for the learning society. *Studies in Continuing Education*, 22(2), 151–167. [doi:10.1080/713695728](https://doi.org/10.1080/713695728)
-- Dawson, P. (2020). *Defending Assessment Security in a Digital World: Preventing E-Cheating and Supporting Academic Integrity in Higher Education*. Routledge. [doi:10.4324/9780429324178](https://doi.org/10.4324/9780429324178)
-- Bretag, T., Harper, R., Burton, M., Ellis, C., Newton, P., van Haeringen, K., Saddiqui, S. and Rozenberg, P. (2019). Contract cheating and assessment design: exploring the relationship. *Assessment & Evaluation in Higher Education*, 44(5), 676–691. [doi:10.1080/02602938.2018.1527892](https://doi.org/10.1080/02602938.2018.1527892)
+- Villarroel, V., Bloxham, S., Bruna, D., Bruna, C. and Herrera-Seda, C. (2018). Authentic assessment: creating a blueprint for course design. *Assessment & Evaluation in Higher Education*, 43(5), 840–854. [doi:10.1080/02602938.2017.1412396](https://doi.org/10.1080/02602938.2017.1412396).
+- Hattie, J. and Timperley, H. (2007). The power of feedback. *Review of Educational Research*, 77(1), 81–112. [doi:10.3102/003465430298487](https://doi.org/10.3102/003465430298487).
+- Carless, D. and Boud, D. (2018). The development of student feedback literacy: enabling uptake of feedback. *Assessment & Evaluation in Higher Education*, 43(8), 1315–1325. [doi:10.1080/02602938.2018.1463354](https://doi.org/10.1080/02602938.2018.1463354).
+- Tai, J., Ajjawi, R., Boud, D., Dawson, P. and Panadero, E. (2018). Developing evaluative judgement: enabling students to make decisions about the quality of work. *Higher Education*, 76(3), 467–481. [doi:10.1007/s10734-017-0220-3](https://doi.org/10.1007/s10734-017-0220-3).
+- Boud, D. (2000). Sustainable assessment: rethinking assessment for the learning society. *Studies in Continuing Education*, 22(2), 151–167. [doi:10.1080/713695728](https://doi.org/10.1080/713695728).
+- Dawson, P. (2020). *Defending Assessment Security in a Digital World: Preventing E-Cheating and Supporting Academic Integrity in Higher Education*. Routledge. [doi:10.4324/9780429324178](https://doi.org/10.4324/9780429324178).
+- Bretag, T., Harper, R., Burton, M., Ellis, C., Newton, P., van Haeringen, K., Saddiqui, S. and Rozenberg, P. (2019). Contract cheating and assessment design: exploring the relationship. *Assessment & Evaluation in Higher Education*, 44(5), 676–691. [doi:10.1080/02602938.2018.1527892](https://doi.org/10.1080/02602938.2018.1527892).
 - University of Sydney. [The two-lane approach to assessment](https://educational-innovation.sydney.edu.au/teaching@sydney/frequently-asked-questions-about-the-two-lane-approach-to-assessment-in-the-age-of-ai/).
 - University of Bristol. [Using AI in assessment](https://www.bristol.ac.uk/bilt/sharing-practice/guides/guidance-on-ai/using-ai-in-assessment/) (staff) and [Using AI in assessments and for studying](https://www.bristol.ac.uk/students/support/academic-advice/using-artificial-intelligence/) (students).
 - Blackboard. [Grade journals](https://help.blackboard.com/Learn/Instructor/Ultra/Interact/Journals/Grade_Journals) and [Peer review for qualitative peer assessments](https://help.blackboard.com/Learn/Instructor/Ultra/Assignments/Self_and_Peer_Assessment/Peer_Review_for_Qualitative_Peer_Assessments).

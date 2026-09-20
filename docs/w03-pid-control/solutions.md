@@ -17,7 +17,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 ## Q1. Forms of the PID controller {#q1}
 
 1. Expanding the standard form gives \(K_p = K_c = 2\), \(K_i = K_c/T_i = 0.5\ \text{s}^{-1}\) and \(K_d = K_cT_d = 0.5\) s.
-2. Over a common denominator,
+2. Over a common denominator,.
 
     $$
     C(s) = K_c\,\frac{T_iT_d s^2 + T_i s + 1}{T_i s} = \frac{2(s^2 + 4s + 1)}{4s},
@@ -30,7 +30,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 ## Q2. Steady-state errors on the pitch loop {#q2}
 
 1. **Zero.** The plant contains an integrator, so the loop is type 1, and a type 1 loop tracks a step with zero steady-state error.
-2. The velocity constant is
+2. The velocity constant is.
 
     $$
     K_v = \lim_{s\to 0} sL(s) = K_p\,\frac{40}{2 \times 10} = 2K_p = 3\ \text{s}^{-1}.
@@ -50,7 +50,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 
 ## Q3. Proportional design on a roll loop {#q3}
 
-1. The phase is −180° where \(\tan^{-1}(\omega/3) + \tan^{-1}(\omega/15) = 90^\circ\). That needs \((\omega/3)(\omega/15) = 1\), so \(\omega_{180} = \sqrt{45} = 6.71\) rad/s. There
+1. The phase is −180° where \(\tan^{-1}(\omega/3) + \tan^{-1}(\omega/15) = 90^\circ\). That needs \((\omega/3)(\omega/15) = 1\), so \(\omega_{180} = \sqrt{45} = 6.71\) rad/s. There.
 
     $$
     |G_\phi(j\omega_{180})| = \frac{81}{\sqrt{45}\,\sqrt{54}\,\sqrt{270}} = \frac{81}{810} = 0.1,
@@ -58,7 +58,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 
     so the gain margin with \(K_p = 1\) is 10, or 20 dB.
 
-2. A 45° phase margin needs \(\tan^{-1}(\omega/3) + \tan^{-1}(\omega/15) = 45^\circ\). Using the tangent identity,
+2. A 45° phase margin needs \(\tan^{-1}(\omega/3) + \tan^{-1}(\omega/15) = 45^\circ\). Using the tangent identity,.
 
     $$
     \frac{\omega/3 + \omega/15}{1 - \omega^2/45} = 1 \quad\Rightarrow\quad \omega^2 + 18\omega - 45 = 0,
@@ -86,7 +86,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 
 1. With \(C = K_p\), the loop phase is \(-180^\circ - \tan^{-1}(\omega\tau)\). That is below −180° at every frequency, so no gain gives a positive phase margin. The characteristic polynomial tells the same story. It is \(m\tau s^3 + m s^2 + K_p = 0\), which has no \(s^1\) term, so by the Routh criterion it is unstable for every \(K_p\).
 
-2. At 4 rad/s the plant phase is \(-180^\circ - \tan^{-1}(0.2) = -191.3^\circ\). The controller must supply \(45^\circ + 11.3^\circ = 56.3^\circ\) of lead. Conveniently,
+2. At 4 rad/s the plant phase is \(-180^\circ - \tan^{-1}(0.2) = -191.3^\circ\). The controller must supply \(45^\circ + 11.3^\circ = 56.3^\circ\) of lead. Conveniently,.
 
     $$
     \tan(56.3^\circ) = \tan(45^\circ + 11.3^\circ) = \frac{1 + 0.2}{1 - 0.2} = 1.5,
@@ -104,7 +104,7 @@ These are worked solutions to the [example sheet](example-sheet.md). Every numbe
 
 3. The thrust shortfall is \(\Delta T = 0.05 \times 1.5 \times 9.81 = 0.736\) N. It enters before the plant's double integrator, so the PD controller settles with \(z_{ss} = \Delta T/K_p = 0.054\) m. The multirotor hovers 5.4 cm low.
 
-4. The integral term costs \(\tan^{-1}\!\big(1/(4 \times 2.5)\big) = 5.7^\circ\) at 4 rad/s. For the ideal PID,
+4. The integral term costs \(\tan^{-1}\!\big(1/(4 \times 2.5)\big) = 5.7^\circ\) at 4 rad/s. For the ideal PID,.
 
     $$
     \frac{C(j4)}{K_p} = 1 + \frac{1}{j4T_i} + j4T_d = 1 + j\,(4T_d - 0.1).

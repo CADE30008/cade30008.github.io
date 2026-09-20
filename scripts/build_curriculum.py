@@ -543,11 +543,11 @@ def schedule_table(weeks: list[dict], term: dict) -> str:
         if w is None:
             what = "*Revision week*" if n == term["revision_week"] else ""
         elif w["kind"] == "consolidation":
-            what = f"[Consolidation week](../{w['slug']}/index.md): no lecture; recommended activities"
+            what = f"[Consolidation week](../{w['slug']}/index.md): no lecture; recommended activities."
         else:
             what = f"[{w['title']}](../{w['slug']}/index.md)"
             if w.get("second_hour"):
-                what += f"; then {w['second_hour'][0].lower() + w['second_hour'][1:]}"
+                what += f"; then {w['second_hour'][0].lower() + w['second_hour'][1:]}."
         ev = cw.get(n, {}).get("event", "")
         if ev == "Deadline":
             d = term["coursework"]["deadline"]
@@ -565,7 +565,7 @@ def workload_block(wl: dict) -> str:
         "| In a week with a lecture | Hours |", "|---|---|",
         f"| The lecture, on Tuesday | {lw['lecture']:g} |",
         f"| Independent learning: go back over the handout and do the week's challenge ({hrs(parts['close_the_loop'])}), "
-        f"work the example sheet ({hrs(parts['examples'])}), and look at next week's case ({hrs(parts['next_case'])}) | {lw['independent']:g} |",
+        f"work the example sheet ({hrs(parts['examples'])}), and look at next week's case ({hrs(parts['next_case'])}). | {lw['independent']:g} |",
         f"| Coursework | {lw['coursework']:g} |",
         f"| **Total** | **{wl['typical']:g}** |", "",
         f"**Consolidation week** has no lecture. Instead, {cons['consolidation']:g} hours of recommended activities that "
@@ -584,8 +584,8 @@ def workload_block(wl: dict) -> str:
 def activities_block(w: dict, wl: dict) -> str:
     cons = wl["consolidation"]
     rows = ["| Activity | Time | What to do |", "|---|---|---|"]
-    rows += [f"| **{a['title']}** | {hrs(a['hours'])} | {a['what']} |" for a in w["activities"]]
-    rows += [f"| **Coursework** | {hrs(cons['coursework'])} | {w['coursework']} |",
+    rows += [f"| **{a['title']}** | {hrs(a['hours'])} | {stop(a['what'])} |" for a in w["activities"]]
+    rows += [f"| **Coursework** | {hrs(cons['coursework'])} | {stop(w['coursework'])} |",
              f"| **Total** | {hrs(cons['consolidation'] + cons['coursework'])} | |"]
     return "\n".join(rows)
 
@@ -719,7 +719,7 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
         for n in w.get("needs", []):
             if not n.get("done"):
                 who = "**Steve**" if n["who"] == "steve" else "can be built"
-                needs.append(f"| {w['week']} | {n['what']} | {who} |")
+                needs.append(f"| {w['week']} | {stop(n['what'])} | {who} |")
     blockers = (["| Week | What's missing | Who |", "|---|---|---|", *needs] if needs
                 else ["Nothing outstanding is recorded."])
 
@@ -875,6 +875,18 @@ def week_svg(wl: dict, term: dict) -> str:
           f'<text x="{x0 + m["laboratory"] * px + 16:.1f}" y="{y4 + 24}" font-size="13" fill="{MUTED}">'
           f'in total, whenever you like, weeks {term["laboratory"]["from_week"]} to {term["laboratory"]["to_week"]}</text>']
     return "\n".join(o) + "\n</svg>\n"
+
+
+
+def stop(text: str) -> str:
+    """End a sentence-shaped string with a full stop, per the house style.
+
+    Only for cells and bullets that are prose. A week's *title* is a name and
+    never takes one, which is why this is applied at each site rather than to
+    every generated string.
+    """
+    t = text.rstrip()
+    return t if not t or t[-1] in ".!?:;" else t + "."
 
 
 def replace_between(path: Path, start: str, end: str, new: str) -> bool:

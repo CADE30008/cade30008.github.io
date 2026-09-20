@@ -60,9 +60,9 @@ We control the pitch attitude of a small fixed-wing UAV with its elevator. Three
 
 | Effect | Transfer function | Meaning |
 |---|---|---|
-| Pitch-rate response | \(\dfrac{q}{\delta_e} = \dfrac{2}{0.5s + 1}\) | 1 rad of elevator gives 2 rad/s of pitch rate, with a 0.5 s time constant |
-| Elevator servo | \(\dfrac{1}{0.1s + 1}\) | The servo lags its command by about 0.1 s |
-| Attitude | \(\dfrac{\theta}{q} = \dfrac{1}{s}\) | Attitude is the integral of pitch rate |
+| Pitch-rate response | \(\dfrac{q}{\delta_e} = \dfrac{2}{0.5s + 1}\) | 1 rad of elevator gives 2 rad/s of pitch rate, with a 0.5 s time constant. |
+| Elevator servo | \(\dfrac{1}{0.1s + 1}\) | The servo lags its command by about 0.1 s. |
+| Attitude | \(\dfrac{\theta}{q} = \dfrac{1}{s}\) | Attitude is the integral of pitch rate. |
 
 Multiplying them out gives the plant
 
@@ -150,7 +150,7 @@ The **type** of the loop is the number of integrators in \(L(s)\). Each one remo
 
 | Input to the pitch loop | Steady-state error with P control | With integral action |
 |---|---|---|
-| Step in \(\theta_{ref}\) | 0, because \(G\) is type 1 | 0 |
+| Step in \(\theta_{ref}\) | 0, because \(G\) is type 1. | 0 |
 | Ramp \(\theta_{ref} = \Omega t\), a steady pitch-over | \(\Omega / K_v\), with \(K_v = \lim_{s\to0} sL(s) = 2K_p\) | 0 |
 | Step disturbance \(d\) at the elevator | \(d / K_p\) | 0 |
 
@@ -351,9 +351,9 @@ Rate-limiting large reference changes also helps, because it keeps the actuator 
 
 | Term | Bode plot | Step response | Cost |
 |---|---|---|---|
-| P, \(K_p\) | Slides the magnitude up or down; phase unchanged | Faster, but less damped as the gain rises | Can't give speed and damping together |
-| I, \(K_i = K_p/T_i\) | Unlimited gain at low frequency; lag near \(1/T_i\) | Removes offsets from constant disturbances | Phase lag at crossover, a slower tail, windup |
-| D, \(K_d = K_pT_d\) | Phase lead around \(1/T_d\) | Allows a higher crossover with the same damping | Noise gain \(K_p(N+1)\); kick unless it acts on the measurement |
+| P, \(K_p\) | Slides the magnitude up or down; phase unchanged. | Faster, but less damped as the gain rises. | Can't give speed and damping together. |
+| I, \(K_i = K_p/T_i\) | Unlimited gain at low frequency; lag near \(1/T_i\). | Removes offsets from constant disturbances. | Phase lag at crossover, a slower tail, windup. |
+| D, \(K_d = K_pT_d\) | Phase lead around \(1/T_d\). | Allows a higher crossover with the same damping. | Noise gain \(K_p(N+1)\); kick unless it acts on the measurement. |
 
 - Design \(L(j\omega)\): the crossover frequency sets speed, and the phase margin sets damping.
 - Integrators in the controller, before the disturbance, remove constant disturbance errors. Integrators in the plant don't.

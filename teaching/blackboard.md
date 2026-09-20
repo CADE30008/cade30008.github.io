@@ -39,14 +39,14 @@ Items, in this order:
 
 | # | Type | Title | Content or settings |
 |---|---|---|---|
-| 1 | Link | **Start here: Preparing for Control** | `https://cade30008.github.io/preparing/` — Description: "What to install, how to check your device, and what to do before week 1." |
-| 2 | Link | **Check your device** | `https://cade30008.github.io/preparing/#check` — Description: "Run the check in your browser or on your computer. It should report a phase margin of 43.21°." |
-| 3 | Link | **MATLAB Onramp** | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "About two hours. Sign in with your University email address." |
+| 1 | Link | **Start here: Preparing for Control**. | `https://cade30008.github.io/preparing/` — Description: "What to install, how to check your device, and what to do before week 1.". |
+| 2 | Link | **Check your device** | `https://cade30008.github.io/preparing/#check` — Description: "Run the check in your browser or on your computer. It should report a phase margin of 43.21°.". |
+| 3 | Link | **MATLAB Onramp** | `https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted` — Description: "About two hours. Sign in with your University email address.". |
 | 4 | Link | **Simulink Onramp** | `https://matlabacademy.mathworks.com/details/simulink-onramp/simulink` |
-| 5 | Link | **Control Design Onramp with Simulink** | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` |
+| 5 | Link | **Control Design Onramp with Simulink**. | `https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls` |
 | 6 | Assignment | **Onramp certificates** | See below |
 | 7 | Numbas activity | **Diagnostic quiz** | See below. Questions in `private/diagnostic/week1-diagnostic.md` |
-| 8 | Link | **How this unit uses AI** | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why." |
+| 8 | Link | **How this unit uses AI**. | `https://cade30008.github.io/ai/` — Description: "What you may and may not use AI for, and why.". |
 
 ### Item 6: Onramp certificates (assignment)
 
@@ -96,12 +96,12 @@ with, in this order:
 
 | Type | Title | Content |
 |---|---|---|
-| Link | **Handout** | the week's page on the live site |
-| Link | **Slides** | the deck on the live site |
-| Link | **Example sheet** | on the live site |
-| Numbas activity or link | **This week's challenge** | Numbas, which is integrated; or MATLAB Grader for code, once its integration is set up |
-| Link | **Solutions** | on the live site; release when the week's sheet is due, if held back |
-| Text | **Coursework this week** | the step for the week from `curriculum/term.yaml`, pasted |
+| Link | **Handout** | the week's page on the live site. |
+| Link | **Slides** | the deck on the live site. |
+| Link | **Example sheet** | on the live site. |
+| Numbas activity or link | **This week's challenge** | Numbas, which is integrated; or MATLAB Grader for code, once its integration is set up. |
+| Link | **Solutions** | on the live site; release when the week's sheet is due, if held back. |
+| Text | **Coursework this week** | the step for the week from `curriculum/term.yaml`, pasted. |
 
 Week 1 additionally needs the **MATLAB Drive** links for the lecture: the
 read-only data and Live Script folder, and the writable gains folder (run sheet,

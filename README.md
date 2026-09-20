@@ -21,14 +21,14 @@ Then open `http://localhost:8011`.
 
 | Path | Contents |
 |---|---|
-| `docs/` | The site. Each week has a folder `wNN-topic`; a lecture week's holds its handout (`index.md`), example sheet, solutions, figures and code |
-| `docs/applets/` | Interactive applets, in plain HTML and JavaScript |
-| `slides/` | Lecture decks, one folder per lecture week, matching `docs/` |
-| `curriculum/` | What each week is (`weeks.yaml`), and term-level facts: the coursework, the laboratory, the workload model (`term.yaml`). The source for the lecture map, the term map and the generated tables |
-| `teaching/` | Lecturer run sheets, one per lecture week |
-| `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check |
-| `scripts/` | Build, sync-check, PDF and test scripts |
-| `AGENTS.md` | How to edit the materials, by hand or with an AI assistant |
+| `docs/` | The site. Each week has a folder `wNN-topic`; a lecture week's holds its handout (`index.md`), example sheet, solutions, figures and code. |
+| `docs/applets/` | Interactive applets, in plain HTML and JavaScript. |
+| `slides/` | Lecture decks, one folder per lecture week, matching `docs/`. |
+| `curriculum/` | What each week is (`weeks.yaml`), and term-level facts: the coursework, the laboratory, the workload model (`term.yaml`). The source for the lecture map, the term map and the generated tables. |
+| `teaching/` | Lecturer run sheets, one per lecture week. |
+| `models/` | Design scripts that produce every number and figure, plus the MATLAB cross-check. |
+| `scripts/` | Build, sync-check, PDF and test scripts. |
+| `AGENTS.md` | How to edit the materials, by hand or with an AI assistant. |
 
 ## Course structure
 
@@ -53,13 +53,13 @@ The documents that say how the course is designed and kept consistent:
 
 | Document | What it's for |
 |---|---|
-| [PEDAGOGY.md](PEDAGOGY.md) | How these materials are meant to teach, as numbered principles, and the reasoning behind them |
-| [CURRICULUM.md](CURRICULUM.md) | What the unit teaches, in what order, and why, with the options that were weighed |
-| [curriculum/weeks.yaml](curriculum/weeks.yaml) | Every week's outcomes, activities, case, hook, cliffhanger and reading, from which much of the site is generated |
-| [ASSESSMENT.md](ASSESSMENT.md) | How the coursework is designed, and how submissions are checked |
-| [AGENTS.md](AGENTS.md) | How the materials are built, checked and edited, by a person or an AI assistant |
-| [CONTENT.md](CONTENT.md) | What is written, and what isn't yet |
-| [LICENSE.md](LICENSE.md) | The full licence terms |
+| [PEDAGOGY.md](PEDAGOGY.md) | How these materials are meant to teach, as numbered principles, and the reasoning behind them. |
+| [CURRICULUM.md](CURRICULUM.md) | What the unit teaches, in what order, and why, with the options that were weighed. |
+| [curriculum/weeks.yaml](curriculum/weeks.yaml) | Every week's outcomes, activities, case, hook, cliffhanger and reading, from which much of the site is generated. |
+| [ASSESSMENT.md](ASSESSMENT.md) | How the coursework is designed, and how submissions are checked. |
+| [AGENTS.md](AGENTS.md) | How the materials are built, checked and edited, by a person or an AI assistant. |
+| [CONTENT.md](CONTENT.md) | What is written, and what isn't yet. |
+| [LICENSE.md](LICENSE.md) | The full licence terms. |
 
 For lecturers, planning views:
 
@@ -72,22 +72,22 @@ For lecturers, planning views:
 
 | Command | What it does |
 |---|---|
-| `npm run new:lesson <week> <topic> "<title>"` | Scaffold a lecture week as `wNN-topic`: handout, example sheet, solutions and deck |
-| `npm run slides` | Build each deck to HTML and PDF in `docs/slides/` |
-| `npm run site` | Build the site into `site/` |
-| `npm run pdf` | Print handouts, example sheets and solutions to PDF |
-| `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc |
-| `npm run check` | Check slides against handouts |
-| `npm run sync:accept` | Record the current state as in sync, after reviewing |
-| `npm run curriculum` | Check the week-by-week plan and term facts against each other and the site; regenerate the term map, lecture map, workload and tables |
-| `npm run numbas` | Build a Numbas `.exam` from a quiz's YAML, re-checking every numeric answer |
-| `npm run models` | Rerun the design scripts and compare Python with MATLAB |
-| `npm run stills` | Recapture applet stills for print |
-| `npm test` | Applet maths tests, then the sync check |
-| `npm run build` | Curriculum check, slides, site, PDFs, then the sync check |
-| `npm run serve` | The **in-progress** site, everything, at `http://localhost:8011` |
-| `npm run live` | Build the **live** site — only what `publish.yaml` lists — into `.live/site`, and check its links |
-| `npm run preview:live` | Build the live site and serve it at `http://localhost:8012`, exactly as it will be published |
+| `npm run new:lesson <week> <topic> "<title>"` | Scaffold a lecture week as `wNN-topic`: handout, example sheet, solutions and deck. |
+| `npm run slides` | Build each deck to HTML and PDF in `docs/slides/`. |
+| `npm run site` | Build the site into `site/`. |
+| `npm run pdf` | Print handouts, example sheets and solutions to PDF. |
+| `npm run doc:pdf -- a.md b.md -o out.pdf` | Print Markdown documents, such as proposals and rubrics, to one PDF. Needs pandoc. |
+| `npm run check` | Check slides against handouts. |
+| `npm run sync:accept` | Record the current state as in sync, after reviewing. |
+| `npm run curriculum` | Check the week-by-week plan and term facts against each other and the site; regenerate the term map, lecture map, workload and tables. |
+| `npm run numbas` | Build a Numbas `.exam` from a quiz's YAML, re-checking every numeric answer. |
+| `npm run models` | Rerun the design scripts and compare Python with MATLAB. |
+| `npm run stills` | Recapture applet stills for print. |
+| `npm test` | Applet maths tests, then the sync check. |
+| `npm run build` | Curriculum check, slides, site, PDFs, then the sync check. |
+| `npm run serve` | The **in-progress** site, everything, at `http://localhost:8011`. |
+| `npm run live` | Build the **live** site — only what `publish.yaml` lists — into `.live/site`, and check its links. |
+| `npm run preview:live` | Build the live site and serve it at `http://localhost:8012`, exactly as it will be published. |
 
 Stop `npm run serve` before running `npm run build`, because both use `site/`.
 

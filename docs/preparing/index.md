@@ -44,9 +44,9 @@ MATLAB.
 
 | Tool | What it's for | Where to get it |
 |---|---|---|
-| MATLAB, with the Control System Toolbox | The main tool for the course | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html){ .go }. Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes |
-| Simulink | Block-diagram simulation, for activities and the Quanser laboratory | Comes with MATLAB. Select it when you install |
-| Python, with the `control` package | A free alternative for everything except Simulink | Install it on your computer, or run it in your browser on this page |
+| MATLAB, with the Control System Toolbox | The main tool for the course. | Bristol students can get it through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html){ .go }. Install it, or use [MATLAB Online](https://matlab.mathworks.com/) in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes. |
+| Simulink | Block-diagram simulation, for activities and the Quanser laboratory. | Comes with MATLAB. Select it when you install. |
+| Python, with the `control` package | A free alternative for everything except Simulink. | Install it on your computer, or run it in your browser on this page. |
 
 ## Which device? {#devices}
 
@@ -55,9 +55,9 @@ threes, so if you don't have one, you'll share with someone who does.
 
 | Device | MATLAB and Simulink | Python | Onramp courses |
 |---|---|---|---|
-| Windows, macOS or Linux laptop | Install them, or use MATLAB Online | Install it, or run it in the browser | Yes |
-| Chromebook | MATLAB Online, in a [supported browser](https://www.mathworks.com/support/requirements/browser-requirements.html) | Run it in the browser | In a supported browser |
-| iPad or other tablet | Not supported online. [MATLAB Mobile](https://www.mathworks.com/products/matlab-mobile.html) covers the basics, but not Simulink | Run it in the browser | No |
+| Windows, macOS or Linux laptop | Install them, or use MATLAB Online. | Install it, or run it in the browser. | Yes |
+| Chromebook | MATLAB Online, in a [supported browser](https://www.mathworks.com/support/requirements/browser-requirements.html). | Run it in the browser. | In a supported browser. |
+| iPad or other tablet | Not supported online. [MATLAB Mobile](https://www.mathworks.com/products/matlab-mobile.html) covers the basics, but not Simulink. | Run it in the browser. | No |
 
 If you only have a tablet, you can do the Python work on it, but pair up with
 someone who has a laptop for MATLAB, Simulink and the Onramp courses.
@@ -151,13 +151,13 @@ All checks passed
 
 | Where | What you see | What to do |
 |---|---|---|
-| MATLAB | `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected |
-| MATLAB | `Unrecognized function or variable 'tf'` | The Control System Toolbox isn't installed, or isn't on the path. Add it as above |
-| MATLAB | It won't start, or the licence is refused | Sign in with the MathWorks account linked to your University email address, through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html) |
-| Python, on your computer | `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script |
-| Python, on your computer | `python: command not found` | Python isn't installed, or isn't on your path. Try `python3`, or install it again |
-| Python, in the browser | The run stalls, or reports an error | Use an up-to-date browser, and try another network: some block large downloads. It downloads several megabytes the first time |
-| Any | Anything else | Pair up with someone whose set-up works so you're not held up, then get it fixed properly, below |
+| MATLAB | `[FAIL] Control System Toolbox` or `[FAIL] Simulink` | Add the missing product. In MATLAB, go to **Home › Add-Ons › Get Add-Ons**, or reinstall with it selected. |
+| MATLAB | `Unrecognized function or variable 'tf'` | The Control System Toolbox isn't installed, or isn't on the path. Add it as above. |
+| MATLAB | It won't start, or the licence is refused. | Sign in with the MathWorks account linked to your University email address, through the University's [MATLAB licence](https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html). |
+| Python, on your computer | `[FAIL] packages`, or a `ModuleNotFoundError` | Run `pip install control matplotlib` with the same Python you used to run the script. |
+| Python, on your computer | `python: command not found` | Python isn't installed, or isn't on your path. Try `python3`, or install it again. |
+| Python, in the browser | The run stalls, or reports an error. | Use an up-to-date browser, and try another network: some block large downloads. It downloads several megabytes the first time. |
+| Any | Anything else | Pair up with someone whose set-up works so you're not held up, then get it fixed properly, below. |
 
 ### Getting help with your device {#help}
 

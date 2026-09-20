@@ -76,12 +76,12 @@ builds on them.
 | 3 | [PID, properly](../w03-pid-control/index.md) |  |
 | 4 | [Stability and margins](../w04-stability-margins/index.md) | Checkpoint 1 |
 | 5 | [Guest lecture](../w05-guest-lecture/index.md) |  |
-| 6 | [Consolidation week](../w06-consolidation/index.md): no lecture; recommended activities |  |
+| 6 | [Consolidation week](../w06-consolidation/index.md): no lecture; recommended activities. |  |
 | 7 | [Robustness and trade-offs](../w07-robustness/index.md) |  |
 | 8 | [Loop shaping](../w08-loop-shaping/index.md) | Checkpoint 2 |
 | 9 | [Flight control architecture](../w09-flight-control-architecture/index.md) | Checkpoint 3 |
 | 10 | [State space and state feedback](../w10-state-space/index.md) |  |
-| 11 | [What comes next](../w11-beyond-this-course/index.md); then coursework Q&A | **Due Thursday of week 11** |
+| 11 | [What comes next](../w11-beyond-this-course/index.md); then coursework Q&A. | **Due Thursday of week 11** |
 | 12 | *Revision week* |  |
 
 The Quanser laboratory is open access from week 1 to week 6: you choose when to go.
@@ -155,7 +155,7 @@ hours, every week from 1 to 11.
 | In a week with a lecture | Hours |
 |---|---|
 | The lecture, on Tuesday | 2 |
-| Independent learning: go back over the handout and do the week's challenge (45 min), work the example sheet (1 h), and look at next week's case (15 min) | 2 |
+| Independent learning: go back over the handout and do the week's challenge (45 min), work the example sheet (1 h), and look at next week's case (15 min). | 2 |
 | Coursework | 2 |
 | **Total** | **6** |
 

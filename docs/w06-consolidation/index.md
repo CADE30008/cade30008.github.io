@@ -27,12 +27,12 @@ week: four of consolidation and two of coursework.
 <!-- activities:start -->
 | Activity | Time | What to do |
 |---|---|---|
-| **The consolidation challenge** | 1 h | A Numbas and MATLAB Grader challenge that revisits weeks 1 to 4, spaced and mixed, with feedback on every question. Retrieval, not new material |
-| **Explain it back** | 45 min | For each of weeks 1 to 4, answer that week's design question in a paragraph, in your own words and without notes. Then check it against the handout |
-| **Rework, don't reread** | 1 h | Redo one example-sheet question from each of weeks 2 to 4 from a blank page, then compare with the solutions. Where you got stuck is what to go back to |
-| **Map the cycle** | 30 min | Place every idea and tool from weeks 1 to 4 on the design cycle, and say what each one is for |
-| **Revisit the cases** | 30 min | With the tools you now have, explain what went wrong in week 1's open-loop flight and in the YF-22 accident from week 4 |
-| **Ready for week 7** | 15 min | A short self-check on what week 7 builds on: reading margins from a Bode plot, and what the loop gain is. If it's shaky, go back to week 4's handout |
+| **The consolidation challenge** | 1 h | A Numbas and MATLAB Grader challenge that revisits weeks 1 to 4, spaced and mixed, with feedback on every question. Retrieval, not new material. |
+| **Explain it back** | 45 min | For each of weeks 1 to 4, answer that week's design question in a paragraph, in your own words and without notes. Then check it against the handout. |
+| **Rework, don't reread** | 1 h | Redo one example-sheet question from each of weeks 2 to 4 from a blank page, then compare with the solutions. Where you got stuck is what to go back to. |
+| **Map the cycle** | 30 min | Place every idea and tool from weeks 1 to 4 on the design cycle, and say what each one is for. |
+| **Revisit the cases** | 30 min | With the tools you now have, explain what went wrong in week 1's open-loop flight and in the YF-22 accident from week 4. |
+| **Ready for week 7** | 15 min | A short self-check on what week 7 builds on: reading margins from a Bode plot, and what the loop gain is. If it's shaky, go back to week 4's handout. |
 | **Coursework** | 2 h | Act on checkpoint 1's feedback, and start your design (section 3) with weeks 3 and 4's tools. If you're behind, this is the week to catch up; if you don't get to it, spread it across weeks 7 to 9. |
 | **Total** | 6 h | |
 <!-- activities:end -->

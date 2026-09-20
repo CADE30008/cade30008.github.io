@@ -6,8 +6,8 @@ This repository holds two kinds of work, under two licences.
 
 | | Licence | What it covers |
 |---|---|---|
-| **Teaching material** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Words, figures, decks, example sheets, planning and process documents |
-| **Software** | [MIT](https://opensource.org/license/mit) | Scripts, applets, models, build tooling |
+| **Teaching material** | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Words, figures, decks, example sheets, planning and process documents. |
+| **Software** | [MIT](https://opensource.org/license/mit) | Scripts, applets, models, build tooling. |
 
 Both require attribution. They are split because CC BY is a content licence
 with no patent grant and no warranty disclaimer, which makes it an awkward
@@ -79,13 +79,13 @@ Nothing below is ours to license.
 
 | Excluded | Why | Where |
 |---|---|---|
-| University of Bristol and Bristol Flight Lab names, logos, wordmarks and visual identity | University brand assets and trade marks. Neither CC BY nor MIT grants trade mark rights | Everything under `theme/`, which is [flightlab-zensical-theme](https://github.com/BristolFlightLab/flightlab-zensical-theme) and carries its own notice, and `docs/assets/brand/` |
-| Quanser materials — laboratory guides, Simulink models, QUARC software and licence files | Third-party copyright, and the QUARC licences are confidential | `private/quanser/`, which git ignores |
-| Assessment material — briefs, marking schemes, per-student parameters, previous years' coursework | Not published, and some of it is third-party | `private/`, which git ignores |
-| University of Bristol marking criteria, policies and guidance | University documents, under their own terms | quoted in `ASSESSMENT.md` |
-| MathWorks material — MATLAB, Simulink, Onramp courses, toolbox documentation | Third-party, used under the University's licence | referenced throughout |
-| Third-party libraries | Their own licences apply | `node_modules/`, `requirements.txt`, and anything loaded from a CDN |
-| Quotations, figures and data from published work | Copyright of their authors, used by citation | cited at the point of use |
+| University of Bristol and Bristol Flight Lab names, logos, wordmarks and visual identity | University brand assets and trade marks. Neither CC BY nor MIT grants trade mark rights. | Everything under `theme/`, which is [flightlab-zensical-theme](https://github.com/BristolFlightLab/flightlab-zensical-theme) and carries its own notice, and `docs/assets/brand/`. |
+| Quanser materials — laboratory guides, Simulink models, QUARC software and licence files | Third-party copyright, and the QUARC licences are confidential. | `private/quanser/`, which git ignores. |
+| Assessment material — briefs, marking schemes, per-student parameters, previous years' coursework | Not published, and some of it is third-party. | `private/`, which git ignores. |
+| University of Bristol marking criteria, policies and guidance | University documents, under their own terms. | quoted in `ASSESSMENT.md` |
+| MathWorks material — MATLAB, Simulink, Onramp courses, toolbox documentation | Third-party, used under the University's licence. | referenced throughout |
+| Third-party libraries | Their own licences apply. | `node_modules/`, `requirements.txt`, and anything loaded from a CDN. |
+| Quotations, figures and data from published work | Copyright of their authors, used by citation. | cited at the point of use. |
 
 If you reuse this material, remove the University branding and the Flight Lab
 identity, or replace them with your own. The content is yours to use; the

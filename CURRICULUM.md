@@ -40,9 +40,9 @@ stands, and is stronger for it.*
 | Course | Taught hours | Shape |
 |---|---|---|
 | [MIT 16.30](https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/pages/calendar/) Feedback Control Systems | 24 | 24 one-hour lectures |
-| [Caltech CDS 110](https://murray.cds.caltech.edu/CDS_110/ChE_105,_Spring_2024) Introduction to Feedback Control | ~30 | Ten weeks, Åström and Murray |
-| [MIT 16.06](https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/pages/syllabus/) Principles of Automatic Control | ~39 | Three lectures and a recitation a week |
-| **This unit, control half** | **4.5** | Nine lectures of two 15-minute Learn slots; 9 counting the whole taught hour |
+| [Caltech CDS 110](https://murray.cds.caltech.edu/CDS_110/ChE_105,_Spring_2024) Introduction to Feedback Control | ~30 | Ten weeks, Åström and Murray. |
+| [MIT 16.06](https://ocw.mit.edu/courses/16-06-principles-of-automatic-control-fall-2012/pages/syllabus/) Principles of Automatic Control | ~39 | Three lectures and a recitation a week. |
+| **This unit, control half** | **4.5** | Nine lectures of two 15-minute Learn slots; 9 counting the whole taught hour. |
 
 We have under a fifth of MIT 16.30's lecturing and about a seventh of
 Caltech's — or, counting the whole taught hour, about a third and a quarter.
@@ -76,15 +76,15 @@ what the assessment tests (P10), so everything taught must serve at least one.
 
 | # | Capability | ILO |
 |---|---|---|
-| C1 | Turn a vague need ("it should feel responsive") into measurable requirements, and justify them from the vehicle's role and handling qualities | 6 |
-| C2 | Get a model — from physics, from data, or from someone else — and say how far to trust it | 4, 6 |
-| C3 | Design a feedback controller that meets stated requirements, classically, and explain why it works in both the time and frequency domains | 5 |
-| C4 | Establish that a loop is stable, and how stable, and say what that does and does not guarantee | 4 |
-| C5 | Reason about the fundamental trade-offs — bandwidth against noise against actuator effort — and say which one a design is making | 4, 5 |
-| C6 | Design a state-feedback controller for a small multi-state system, and say what it buys over a classical design | 5 |
-| C7 | Place a controller within an aircraft's flight control architecture — SAS, autopilot, modes, pilot — and say what each layer is responsible for | 6 |
-| C8 | Verify a design against every requirement, including with realistic effects the model left out | 4, 5, 6 |
-| C9 | Use MATLAB and Simulink, including their AI tools, to do all of the above, and check what those tools produce | all |
+| C1 | Turn a vague need ("it should feel responsive") into measurable requirements, and justify them from the vehicle's role and handling qualities. | 6 |
+| C2 | Get a model — from physics, from data, or from someone else — and say how far to trust it. | 4, 6 |
+| C3 | Design a feedback controller that meets stated requirements, classically, and explain why it works in both the time and frequency domains. | 5 |
+| C4 | Establish that a loop is stable, and how stable, and say what that does and does not guarantee. | 4 |
+| C5 | Reason about the fundamental trade-offs — bandwidth against noise against actuator effort — and say which one a design is making. | 4, 5 |
+| C6 | Design a state-feedback controller for a small multi-state system, and say what it buys over a classical design. | 5 |
+| C7 | Place a controller within an aircraft's flight control architecture — SAS, autopilot, modes, pilot — and say what each layer is responsible for. | 6 |
+| C8 | Verify a design against every requirement, including with realistic effects the model left out. | 4, 5, 6 |
+| C9 | Use MATLAB and Simulink, including their AI tools, to do all of the above, and check what those tools produce. | all |
 
 **What distinguishes a first** (P10, the aims): the same capabilities, plus the
 ability to say *why* — to connect a design decision to the theory that justifies
@@ -110,14 +110,14 @@ unit exists to unlock:
 
 | Concept | Why it is a threshold |
 |---|---|
-| **Feedback as a trade**, not a fix | Students arrive thinking feedback removes error. It moves it: S + T = 1 |
-| **A requirement is a design input** | Until this lands, tuning is guessing. Week 1's cliffhanger |
-| **A model is a claim with a range of validity** | Separates people who design from people who tune. Week 1's other cliffhanger |
-| **Loop gain is where the design lives** | Reorganises the Bode plot from a thing you draw into a thing you shape |
-| **Stability margin is distance, not safety** | The misconception P13 already names |
-| **Bandwidth costs something** | Noise, actuator effort, unmodelled dynamics. Every design is a choice about it |
-| **State is what the system remembers** | The door into modern control; without it, state space is just matrices |
-| **Control is layered** | Inner and outer loops, modes, the pilot. How an aircraft's control actually works |
+| **Feedback as a trade**, not a fix | Students arrive thinking feedback removes error. It moves it: S + T = 1. |
+| **A requirement is a design input** | Until this lands, tuning is guessing. Week 1's cliffhanger. |
+| **A model is a claim with a range of validity** | Separates people who design from people who tune. Week 1's other cliffhanger. |
+| **Loop gain is where the design lives** | Reorganises the Bode plot from a thing you draw into a thing you shape. |
+| **Stability margin is distance, not safety** | The misconception P13 already names. |
+| **Bandwidth costs something** | Noise, actuator effort, unmodelled dynamics. Every design is a choice about it. |
+| **State is what the system remembers** | The door into modern control; without it, state space is just matrices. |
+| **Control is layered** | Inner and outer loops, modes, the pilot. How an aircraft's control actually works. |
 
 **Tier 2 — taught tools.** Introduced in the Learn slots, practised in the
 case hour, fully treated in the handout: system identification by fit; PID
@@ -142,11 +142,11 @@ flight control software.
 
 | Course | Order | What it tells us |
 |---|---|---|
-| **MIT 16.30** | Root locus → frequency response → Bode design → **twelve lectures of state space** (controllability, pole placement, estimators, LQR, LQG) → digital → nonlinear → anti-windup | A full semester, and half of it is state space. We cannot and should not attempt this |
-| **Caltech CDS 110** | Modelling → linear systems → **state feedback** → estimation → trajectory generation and MPC → *then* frequency domain → robustness → PID last | Modern-first. Elegant, and matches Åström and Murray, but assumes students arrive fresher than ours |
-| **MIT 16.06** | Feedback properties → performance measures → stability → root locus → Nyquist → frequency design → state space | Classical-first, aerospace framing. The closest in spirit to us |
-| **TU Delft AE4301** (MSc) | PID, MPC, adaptive, robust; Nyquist, Bode, Lyapunov; GNC; sensors | Where Bristol's planned year 4 unit sits, not us |
-| **Michigan AEROSP 341** | Equations of motion → linearisation → modes → linear systems → simulation | What Tom's half does. Confirms lectures 4 and 5 are the wrong half |
+| **MIT 16.30** | Root locus → frequency response → Bode design → **twelve lectures of state space** (controllability, pole placement, estimators, LQR, LQG) → digital → nonlinear → anti-windup. | A full semester, and half of it is state space. We cannot and should not attempt this. |
+| **Caltech CDS 110** | Modelling → linear systems → **state feedback** → estimation → trajectory generation and MPC → *then* frequency domain → robustness → PID last. | Modern-first. Elegant, and matches Åström and Murray, but assumes students arrive fresher than ours. |
+| **MIT 16.06** | Feedback properties → performance measures → stability → root locus → Nyquist → frequency design → state space. | Classical-first, aerospace framing. The closest in spirit to us. |
+| **TU Delft AE4301** (MSc) | PID, MPC, adaptive, robust; Nyquist, Bode, Lyapunov; GNC; sensors. | Where Bristol's planned year 4 unit sits, not us. |
+| **Michigan AEROSP 341** | Equations of motion → linearisation → modes → linear systems → simulation. | What Tom's half does. Confirms lectures 4 and 5 are the wrong half. |
 
 **Conclusions.**
 
@@ -174,10 +174,10 @@ lecture map shows them together.
 
 | Act | Weeks | By the end of the act |
 |---|---|---|
-| **I — the loop you can build, and how close to the edge it is** | 1 The design cycle, end to end · 2 Requirements and models you can trust · 3 PID, properly · 4 Stability and margins | Every student has been round the whole cycle twice — once on hardware they watched, once properly — and can say how stable their loop is and what that does and doesn't guarantee |
-| *Break* | 5 Guest lecture · 6 Consolidation week | Act I consolidated before anything new |
-| **II — designing for a model that's wrong** | 7 Robustness and trade-offs · 8 Loop shaping | They can design to a specification, and for uncertainty, rather than tune |
-| **III — aircraft and modern methods** | 9 Flight control architecture · 10 State space and state feedback · 11 What comes next | They can place a controller in an aircraft's architecture, design by state feedback, and see what lies beyond the unit |
+| **I — the loop you can build, and how close to the edge it is** | 1 The design cycle, end to end · 2 Requirements and models you can trust · 3 PID, properly · 4 Stability and margins. | Every student has been round the whole cycle twice — once on hardware they watched, once properly — and can say how stable their loop is and what that does and doesn't guarantee. |
+| *Break* | 5 Guest lecture · 6 Consolidation week. | Act I consolidated before anything new. |
+| **II — designing for a model that's wrong** | 7 Robustness and trade-offs · 8 Loop shaping. | They can design to a specification, and for uncertainty, rather than tune. |
+| **III — aircraft and modern methods** | 9 Flight control architecture · 10 State space and state feedback · 11 What comes next. | They can place a controller in an aircraft's architecture, design by state feedback, and see what lies beyond the unit. |
 
 **Stability and margins moved into act I on 19 September**, when the calendar
 fixed the consolidation week at week 6. Act I then ends at week 4, so the
@@ -207,7 +207,7 @@ AQ2):
 | Checkpoint | Week | After | Paper sections |
 |---|---|---|---|
 | 1. Requirements and model | end of 4 | Act I | 1–2 |
-| 2. Design and analysis | end of 8 | Act II | 3–4, plus peer review |
+| 2. Design and analysis | end of 8 | Act II | 3–4, plus peer review. |
 | 3. Draft paper | end of 9 | Architecture | All |
 
 The consolidation week sits between checkpoints 1 and 2, and its two coursework
@@ -226,29 +226,29 @@ act, which is what makes comparison possible (variation theory):
 
 | System | Weeks | Why there |
 |---|---|---|
-| Quanser 3-DoF | 1, 2, 4, 10, and the laboratory | Real hardware, really unstable open loop. Genuinely multi-axis, which makes it the natural state-space case |
-| Fixed-wing | 2, 3, 4, 8, 9 | The coursework plant. Carries the aircraft-specific material |
-| Multirotor | 7, and example sheets throughout | Fast, open-loop unstable, easy to reason about. Robustness bites visibly |
+| Quanser 3-DoF | 1, 2, 4, 10, and the laboratory. | Real hardware, really unstable open loop. Genuinely multi-axis, which makes it the natural state-space case. |
+| Fixed-wing | 2, 3, 4, 8, 9 | The coursework plant. Carries the aircraft-specific material. |
+| Multirotor | 7, and example sheets throughout. | Fast, open-loop unstable, easy to reason about. Robustness bites visibly. |
 
 **The real-world cases (P15).** One per week where the lesson is precise; none
 where it would be decoration:
 
 | Case | Week | The control lesson, stated precisely |
 |---|---|---|
-| YF-22 (1992) | 4 | Rate limiting and loop delay produce a PIO that linear margins don't predict |
-| Ingenuity flight 6 (2021) | 7 | Margins and robustness bought survival when the model's assumptions broke |
-| 737 MAX MCAS | 9 | Authority, sensing redundancy, and the pilot as a loop element — **to find** a primary source |
-| Air France 447 | 9 | Automation handing back a degraded aircraft — **to find** a primary source |
-| X-15 3-65-97 (1967) | 11 | An adaptive system entering a limit cycle; why adaptive and learned control are hard to certify |
+| YF-22 (1992) | 4 | Rate limiting and loop delay produce a PIO that linear margins don't predict. |
+| Ingenuity flight 6 (2021) | 7 | Margins and robustness bought survival when the model's assumptions broke. |
+| 737 MAX MCAS | 9 | Authority, sensing redundancy, and the pilot as a loop element — **to find** a primary source. |
+| Air France 447 | 9 | Automation handing back a degraded aircraft — **to find** a primary source. |
+| X-15 3-65-97 (1967) | 11 | An adaptive system entering a limit cycle; why adaptive and learned control are hard to certify. |
 
 **Emerging trends.**
 
 | Trend | Where | How much |
 |---|---|---|
-| **Agentic AI for model-based design** — Simulink Agentic Toolkit, MATLAB MCP server | The week 5 guest lecture; a theme throughout (PEDAGOGY's course themes); permitted in the coursework (Category 3) | A thread, not a topic. Students *use* it, and verification of its output is taught and assessed |
-| **Model-based design** | Every case hour; week 1's live demonstration is model-based design in miniature | A thread |
-| **Reinforcement learning and learned control** | Week 11 | About ten minutes. Framed by the X-15: what it is, where it is genuinely used, and why certification is the hard part |
-| **Digital implementation** | Week 3's handout; week 11 | Enough to know that what runs is discrete, and what that costs |
+| **Agentic AI for model-based design** — Simulink Agentic Toolkit, MATLAB MCP server | The week 5 guest lecture; a theme throughout (PEDAGOGY's course themes); permitted in the coursework (Category 3). | A thread, not a topic. Students *use* it, and verification of its output is taught and assessed. |
+| **Model-based design** | Every case hour; week 1's live demonstration is model-based design in miniature. | A thread |
+| **Reinforcement learning and learned control** | Week 11 | About ten minutes. Framed by the X-15: what it is, where it is genuinely used, and why certification is the hard part. |
+| **Digital implementation** | Week 3's handout; week 11. | Enough to know that what runs is discrete, and what that costs. |
 
 ---
 
@@ -260,9 +260,9 @@ checks them. It warns on three:
 
 | Week | Verdict | What to do |
 |---|---|---|
-| 4 Stability and margins | Borderline: two notations, $L(j\omega)$ and encirclement | $L(j\omega)$ is tier 0 in principle. Check the week 1 diagnostic before deciding |
-| 7 Robustness | Fits only if S and T are taught as one idea | Teach them as a pair from the start — "the two ways a loop responds". That is also the better way: S + T = 1 *is* the threshold |
-| 10 State space | At budget only because observers and controllability are handout-only; two tools, pole placement and LQR | See below. **Steve to spend time on this week when we reach it** |
+| 4 Stability and margins | Borderline: two notations, $L(j\omega)$ and encirclement. | $L(j\omega)$ is tier 0 in principle. Check the week 1 diagnostic before deciding. |
+| 7 Robustness | Fits only if S and T are taught as one idea. | Teach them as a pair from the start — "the two ways a loop responds". That is also the better way: S + T = 1 *is* the threshold. |
+| 10 State space | At budget only because observers and controllability are handout-only; two tools, pole placement and LQR. | See below. **Steve to spend time on this week when we reach it**. |
 
 **Week 10 is the problem**, and it is the one every benchmark agrees on: state
 space is big. Three ways to fit it:
@@ -284,10 +284,10 @@ classical–modern balance is to be reviewed again (below).
 
 | | Option | What changes | Buys | Costs |
 |---|---|---|---|---|
-| A | Classical only | State space drops to week 11 | Depth. Two full weeks on design | **Fails ILO 5**, which says "classical and modern". Not viable without a catalogue change |
-| **B** | **Balanced — agreed** | As §5. One scoped state-space week | Covers every ILO; aircraft architecture gets a full week | State space is thin — the door, not the building |
-| C | Modern-first (Caltech's order) | State space in act I, frequency domain later | Mathematically cleaner; state space properly taught | Fights the prerequisite, fights P2, and fights the classical coursework |
-| D | Depth over coverage | Six topics, two weeks each on the hardest | Real mastery of margins and state space | Architecture (ILO 6) becomes reading only — the one thing no benchmark teaches, and our differentiator |
+| A | Classical only | State space drops to week 11. | Depth. Two full weeks on design. | **Fails ILO 5**, which says "classical and modern". Not viable without a catalogue change. |
+| **B** | **Balanced — agreed** | As §5. One scoped state-space week. | Covers every ILO; aircraft architecture gets a full week. | State space is thin — the door, not the building. |
+| C | Modern-first (Caltech's order) | State space in act I, frequency domain later. | Mathematically cleaner; state space properly taught. | Fights the prerequisite, fights P2, and fights the classical coursework. |
+| D | Depth over coverage | Six topics, two weeks each on the hardest. | Real mastery of margins and state space. | Architecture (ILO 6) becomes reading only — the one thing no benchmark teaches, and our differentiator. |
 
 **To review in future: the classical–modern balance.** Option B gives modern
 control one week of nine lecture weeks. That is defensible for an introductory
@@ -312,10 +312,10 @@ week 3):
 
 | Lever | What gives | Keep |
 |---|---|---|
-| **1. Example sheets** | Trim to the questions that rehearse the coursework; mark the rest as extension | The weekly challenge, which is the retrieval |
-| **2. Handout asides** | Fold more away as optional | The threshold concepts |
-| **3. Part 4 pre-reading** | Drop it in the heaviest weeks | The cliffhanger itself, which is in the room |
-| **Never** | The coursework step, the case hour, or the consolidation week | They are what the assessment and the second half rest on |
+| **1. Example sheets** | Trim to the questions that rehearse the coursework; mark the rest as extension. | The weekly challenge, which is the retrieval. |
+| **2. Handout asides** | Fold more away as optional. | The threshold concepts |
+| **3. Part 4 pre-reading** | Drop it in the heaviest weeks. | The cliffhanger itself, which is in the room. |
+| **Never** | The coursework step, the case hour, or the consolidation week. | They are what the assessment and the second half rest on. |
 
 ---
 
@@ -342,16 +342,16 @@ half's footing.
 
 | # | Decision | Status |
 |---|---|---|
-| D1 | Option A to D | **B, agreed 18 September** |
-| D2 | Week 10 state space: scope hard, two weeks, or earlier? | **Deferred** — Steve to work through it when we reach it. Scoped hard for now |
-| D2a | Does Part B require state space? (AQ15) | **Optional and rewarded, for now.** May be removed from the coursework; stays in the lectures |
-| D3 | Guest lecture topic: agentic AI for model-based design? | Open. Recommended, if MathWorks can do it |
-| D4 | Reinforcement learning | Open. Recommended in, briefly, in week 11 |
-| D5 | The two flight-dynamics placeholders | **Retired, 18 September** |
-| D7 | This year one lecture over | **Resolved, 19 September:** cover found for week 2, so one lecture a week |
-| D8 | Classical–modern balance | **To review in future**, once the year 4 unit exists |
-| D9 | Design to the University calendar, "Week n" student-facing | **Agreed, 19 September** |
-| D10 | Stability and margins into act I, so consolidation week closes an act | **Made 19 September, for Steve's review** |
+| D1 | Option A to D. | **B, agreed 18 September**. |
+| D2 | Week 10 state space: scope hard, two weeks, or earlier? | **Deferred** — Steve to work through it when we reach it. Scoped hard for now. |
+| D2a | Does Part B require state space? (AQ15). | **Optional and rewarded, for now.** May be removed from the coursework; stays in the lectures. |
+| D3 | Guest lecture topic: agentic AI for model-based design? | Open. Recommended, if MathWorks can do it. |
+| D4 | Reinforcement learning | Open. Recommended in, briefly, in week 11. |
+| D5 | The two flight-dynamics placeholders. | **Retired, 18 September** |
+| D7 | This year one lecture over. | **Resolved, 19 September:** cover found for week 2, so one lecture a week. |
+| D8 | Classical–modern balance | **To review in future**, once the year 4 unit exists. |
+| D9 | Design to the University calendar, "Week n" student-facing. | **Agreed, 19 September** |
+| D10 | Stability and margins into act I, so consolidation week closes an act. | **Made 19 September, for Steve's review**. |
 
 ## Sources
 

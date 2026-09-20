@@ -45,11 +45,11 @@ a test flight in closed loop, then a test of the e-stop under power.
 | Existing lab material to adapt | `private/quanser/Quanser Lab/Quanser Lab 1 - System ID and PID/` |
 | System-ID Live Script to adapt | `.../solution_files/s_1_system_identification.mlx` |
 | Rig Simulink models | `.../m_part1.slx`, `.../m_part3.slx` |
-| Student Live Script | MATLAB Drive, read-only folder — **to build** |
-| Measured response data | MATLAB Drive, read-only folder — **recorded on the day** |
-| Submission folder | MATLAB Drive, writable — **to create** |
-| Gain filter and selection tool | `scripts/gains.py` — **built**, see below |
-| Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig** |
+| Student Live Script | MATLAB Drive, read-only folder — **to build**. |
+| Measured response data | MATLAB Drive, read-only folder — **recorded on the day**. |
+| Submission folder | MATLAB Drive, writable — **to create**. |
+| Gain filter and selection tool | `scripts/gains.py` — **built**, see below. |
+| Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig**. |
 
 Everything marked "to build" is a prerequisite, not a nice-to-have.
 
@@ -116,11 +116,11 @@ meaningless (P12).
 
 | At | Min | What | On screen |
 |---|---|---|---|
-| 0 | 5 | Welcome, and **the hook**. What the unit is, how the two halves fit, how a session runs (P17) and how today differs | Deck: unit map |
-| 5 | 15 | Why control exists. The design cycle as the spine of everything after today (P1) | Deck: the cycle |
-| 20 | 10 | The rig: what it is, how it is driven, how it is made safe | Camera on rig |
-| 30 | 15 | **The open-loop flight attempt.** Vote first on how long they last (P12), then a volunteer flies it on two joysticks | Camera, with the vote on screen |
-| 45 | 15 | What a requirement is. Agree the requirement we design to today | Deck; requirement written up and left up |
+| 0 | 5 | Welcome, and **the hook**. What the unit is, how the two halves fit, how a session runs (P17) and how today differs. | Deck: unit map |
+| 5 | 15 | Why control exists. The design cycle as the spine of everything after today (P1). | Deck: the cycle |
+| 20 | 10 | The rig: what it is, how it is driven, how it is made safe. | Camera on rig |
+| 30 | 15 | **The open-loop flight attempt.** Vote first on how long they last (P12), then a volunteer flies it on two joysticks. | Camera, with the vote on screen. |
+| 45 | 15 | What a requirement is. Agree the requirement we design to today. | Deck; requirement written up and left up. |
 
 The open-loop attempt is the session. Protect its 15 minutes: if hour 1 is
 running late, cut the design-cycle block, not this.
@@ -129,10 +129,10 @@ running late, cut the design-cycle block, not this.
 
 | At | Min | What | On screen |
 |---|---|---|---|
-| 0 | 10 | **System ID** from the measured response. Floor: manual second-order fit. Ceiling: `tfest` | Live Script |
-| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. Submit gains to MATLAB Drive | Live Script; requirement still visible |
-| 25 | 15 | **Fly the submitted gains**, three rounds | Camera, with the display name on screen |
-| 40 | 10 | **The cliffhanger,** and set the independent work | Deck |
+| 0 | 10 | **System ID** from the measured response. Floor: manual second-order fit. Ceiling: `tfest`. | Live Script |
+| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. Submit gains to MATLAB Drive. | Live Script; requirement still visible. |
+| 25 | 15 | **Fly the submitted gains**, three rounds. | Camera, with the display name on screen. |
+| 40 | 10 | **The cliffhanger,** and set the independent work. | Deck |
 
 **System ID, the floor.** Oscillation period gives the damped frequency, the
 ratio of successive peaks gives the damping ratio, the steady state gives the
@@ -166,10 +166,10 @@ Set the independent work in the last two minutes, by P17's three parts.
 
 | Likely failure | What to do |
 |---|---|
-| Rig won't run, or fails mid-session | Fall back to the recorded response and a recorded flight. Everything after system ID works unchanged; only the live flying is lost. Have the recording on the machine, not in the cloud |
-| MATLAB Drive submission folder fails, or students can't write to it | Take gains verbally from four or five pairs and type them in. The three rounds still work with a handful of submissions |
-| Students can't get MATLAB working in the room | Pair them with someone who can. This is why the device check exists; note who, and chase before week 2 |
-| Running late at the 25-minute mark of hour 2 | Cut round 1 to two sets. Never cut the cliffhanger |
+| Rig won't run, or fails mid-session | Fall back to the recorded response and a recorded flight. Everything after system ID works unchanged; only the live flying is lost. Have the recording on the machine, not in the cloud. |
+| MATLAB Drive submission folder fails, or students can't write to it | Take gains verbally from four or five pairs and type them in. The three rounds still work with a handful of submissions. |
+| Students can't get MATLAB working in the room | Pair them with someone who can. This is why the device check exists; note who, and chase before week 2. |
+| Running late at the 25-minute mark of hour 2 | Cut round 1 to two sets. Never cut the cliffhanger. |
 
 ## After
 
