@@ -295,7 +295,10 @@ def main() -> None:
 
     n = len(quiz["questions"])
     marks = sum(len(q.get("answers", [])) or 1 for q in quiz["questions"])
-    print(f"\n{len(problems)} error(s); {n} questions, {marks} marks -> {out}")
+    print(f"\n{len(problems)} error(s); {n} questions, {marks} marks")
+    print(f"  upload to Numbas:  {out}")
+    if md.exists():
+        print(f"  read, don't upload: {md}")
     sys.exit(1 if problems else 0)
 
 

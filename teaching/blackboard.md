@@ -79,7 +79,9 @@ the integration (PEDAGOGY.md, "Preparation before week 1").
   tells me what to spend time on in the first weeks. Do it on your own and
   without looking things up. You'll get feedback on every question."
 - **Upload the ready-made quiz.** `npm run numbas` writes
-  `private/diagnostic/week1-diagnostic.exam` from the questions in
+  `private/diagnostic/week1-diagnostic.exam` — **the `.exam`, not the `.md`
+  beside it**, which is the readable draft and will be rejected with "Didn't
+  parse all input at line 1". It is built from the questions in
   `week1-diagnostic.yaml`. Upload that to the Numbas editor, check it there —
   [numbas.mathcentre.ac.uk](https://numbas.mathcentre.ac.uk) is a good place to
   try it — then publish it and add it through the Numbas link in Blackboard,
