@@ -19,10 +19,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Scoped per job, not workflow-wide: the build job only ever reads, and a job
+# that cannot deploy cannot deploy by accident. Only one workflow in this
+# repository may write to Pages - two racing for one deployment presents as a
+# flaky deploy rather than an obvious error.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -51,6 +53,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
