@@ -628,7 +628,7 @@ def oxford(items: list[str]) -> str:
 
 
 def reading_page(weeks: list[dict], sources: dict) -> str:
-    """The textbook page: what the library has, and which sections go with which week."""
+    """The recommended-reading page: what the library has, and which sections go with which part of the unit."""
     src = sources["dorf"]
     rows = ["| Edition | Year | Print copies | eBook copies |", "|---|---|---|---|"]
     rows += [f"| {a['edition']}th | {a['year']} | {a['print']} | {a['ebook'] or '—'} |" for a in src["availability"]]
@@ -683,8 +683,8 @@ def textbook_block(sources: dict, cohort: int) -> str:
         "    really need all of it — that takes a copy away from someone else for a",
         "    day. If everything is out, come back in an hour; it usually isn't for long.",
         "",
-        "Which sections go with which week, and what the library holds, are on",
-        "[The textbook](../reading.md).",
+        "Which sections go with which part of the unit, and what the library",
+        "holds, are on [Recommended reading](../reading.md).",
     ])
 
 

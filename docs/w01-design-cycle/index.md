@@ -116,7 +116,7 @@ fortnight, alone, with no feedback — which is the same work, done harder.
 Nothing formative is randomised: everyone gets the same questions, and you're
 welcome to work through them sitting next to each other.
 
-## The textbook {#textbook}
+## A recommended textbook {#textbook}
 
 <!-- textbook:start -->
 You don't have to buy a book. Each week's handout is the authoritative
@@ -138,8 +138,8 @@ land, and more worked examples — not as a substitute for the handout.
     really need all of it — that takes a copy away from someone else for a
     day. If everything is out, come back in an hour; it usually isn't for long.
 
-Which sections go with which week, and what the library holds, are on
-[The textbook](../reading.md).
+Which sections go with which part of the unit, and what the library
+holds, are on [Recommended reading](../reading.md).
 <!-- textbook:end -->
 
 ## Your week {#workload}

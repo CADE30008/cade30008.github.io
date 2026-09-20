@@ -168,8 +168,9 @@ instead and interpolate:
 - \( \zeta = 0.4 \) → about 25%
 - \( \zeta = 0.7 \) → about 5%
 
-Less damping, more overshoot, and the curve is steep — which is why phase
-margin, its frequency-domain cousin, is worth watching closely in week 4.
+Less damping, more overshoot, and the curve is steep. That steepness is
+why phase margin — the frequency-domain cousin of damping — is worth
+watching closely once we get to it.
 
 ### 5. Steady state
 
@@ -207,7 +208,7 @@ A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop.
 - \( \dfrac{4}{s^2 + s} \)
     <br>*Shown if chosen:* That's the open loop \( G \) with its denominator multiplied out. The loop hasn't been closed: there is no \( +4 \) contributed by the feedback path.
 - \( \dfrac{s^2 + s}{s^2 + s + 4} \)
-    <br>*Shown if chosen:* Very close, and a useful thing to have derived: that's the *sensitivity* \( S = 1/(1+G) \), which maps the reference to the **error**. The question asked for reference to **output**, which is \( T = G/(1+G) \). Note \( S + T = 1 \) — worth remembering.
+    <br>*Shown if chosen:* Very close, and worth having derived: that is the transfer function from the reference to the **error**, \( E/R = 1/(1+G) \), not to the output. The question asked for reference to output, which is \( T = G/(1+G) \). The two add to one, \( E/R + T = 1 \), which is a relationship this unit will come back to and give a name.
 
 *Checks:* \( G/(1+G) \), the step everything in the unit builds on
 
@@ -292,7 +293,7 @@ A gain of 20 dB is a factor of:
 - 20
     <br>*Shown if chosen:* Decibels are a logarithmic scale, so the number is never the factor itself. If it were, the scale would be doing nothing.
 - 100
-    <br>*Shown if chosen:* That's the answer for \( 10\log_{10} \), the **power** definition. A gain is an amplitude ratio, so it's \( 20\log_{10} \). ×100 would be 40 dB.
+    <br>*Shown if chosen:* A factor of 100 is 40 dB, not 20 — you have gone one decade too far. Each ×10 adds 20 dB, so ×10 is 20 dB and ×100 is 40 dB. If you doubled the decibels when you meant to square the factor, that is the usual way round it happens.
 
 *Checks:* the decibel scale, used on every Bode plot in the unit
 
@@ -340,7 +341,8 @@ pull in opposite directions. There is no setting that wins both, only a
 choice about where to sit.
 
 **Feedback is a trade, not a fix.** It is the first idea this unit is
-built on, and where week 7 picks up.
+built on, and the lecture on robustness is where that trade gets made
+deliberately rather than by accident.
 <!-- questions:end -->
 
 ## Reading the results

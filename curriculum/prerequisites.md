@@ -57,17 +57,22 @@ Genuinely new in FDAC Control, and worth pitching as such.
 one convention. Where it disagrees with itself, we pick one and say what else
 they may have seen.
 
+The settled conventions, and what students see, are in
+[docs/notation.md](../docs/notation.md); that page is the source of truth and
+deliberately does not name DCLS, because students arrive from more than one
+programme. This table is the working record of *why* each choice was made.
+
 | Quantity | We write | They wrote | Note |
 |---|---|---|---|
 | Natural frequency | ωₙ | **ω₀** in signals and vibrations, **wₙ** in Acar's slides, **ωₙ** in the example sheets and the assessment | Ours matches what they were examined on. Say once, at first use, that they may have seen ω₀. |
 | Damping ratio | ζ | ζ | Universal. No issue. |
 | Damped frequency | ωd | ωd | |
-| PID gains | K_P, K_I, K_D | **uppercase in the assessment**, lowercase in Acar's slides | Match the assessment. |
+| PID gains | K_p, K_i, K_d, upright subscripts | **uppercase in the assessment**, lowercase in Acar's slides | Lowercase, following MATLAB's `pid` object. Uppercase noted as a variant. |
 | Controller | C(s) | **C(s) in the assessment; C(s) is the *output* in example sheet C1** | A genuine collision inside DCLS. We use C(s) for the controller and must say so explicitly the first time. |
 | Plant | G(s) | G(s), P(s) | |
 | Closed loop | T(s) | T(s) | |
 | Output | y, Y(s) | Y(s), and C(s) in one sheet | Never use C for an output. |
-| Bode ordinate | **gain**, in dB | "Gain dB" nearly always | We had "magnitude". Use gain. |
+| Bode ordinate | **magnitude**, in dB | "Gain dB" nearly always | Following MATLAB and Dorf. *Gain* is kept for the loop gain, the DC gain and the gain margin, so it cannot also name the axis. |
 | Decibels | 20 log₁₀ | 20 log₁₀ only | The power definition, 10 log₁₀, never appears. Don't assume they know it. |
 | Transient metrics | Mp, tp, tr, ts, yss | same | ts to a 2% band. |
 | Steady-state error | e_ss | ess | |
@@ -84,5 +89,5 @@ lectures, and **Norman Nise, *Control Systems Engineering*** for the antenna
 azimuth and steady-state error material.
 
 Dorf being their text as well as ours is worth saying to students: the sections
-on [the textbook page](../docs/reading.md) are a continuation of a book they
+on [the recommended reading page](../docs/reading.md) are a continuation of a book they
 have already been pointed at, not a new purchase.

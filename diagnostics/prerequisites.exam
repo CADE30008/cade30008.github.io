@@ -237,7 +237,7 @@
             "licence": "None specified"
           },
           "statement": "<p>A second-order system with \\( \\zeta = 0.4 \\) is given a step. Its percentage overshoot is closest to:</p>",
-          "advice": "<p>Exactly, \\( M_\\mathrm{p} = e^{-\\pi\\zeta/\\sqrt{1-\\zeta^2}} \\), which for \\( \\zeta = 0.4 \\) gives 0.254, so about 25%.</p><p>In practice nobody evaluates that in a design meeting. Carry three anchors instead and interpolate:</p><ol><li>\\( \\zeta = 0.2 \\) → about 50%</li><li>\\( \\zeta = 0.4 \\) → about 25%</li><li>\\( \\zeta = 0.7 \\) → about 5%</li></ol><p>Less damping, more overshoot, and the curve is steep — which is why phase margin, its frequency-domain cousin, is worth watching closely in week 4.</p>",
+          "advice": "<p>Exactly, \\( M_\\mathrm{p} = e^{-\\pi\\zeta/\\sqrt{1-\\zeta^2}} \\), which for \\( \\zeta = 0.4 \\) gives 0.254, so about 25%.</p><p>In practice nobody evaluates that in a design meeting. Carry three anchors instead and interpolate:</p><ol><li>\\( \\zeta = 0.2 \\) → about 50%</li><li>\\( \\zeta = 0.4 \\) → about 25%</li><li>\\( \\zeta = 0.7 \\) → about 5%</li></ol><p>Less damping, more overshoot, and the curve is steep. That steepness is why phase margin — the frequency-domain cousin of damping — is worth watching closely once we get to it.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},
@@ -385,7 +385,7 @@
                 "<p>Right. \\( T = G/(1+G) \\), then multiply top and bottom by \\( s(s+1) \\) to clear the fraction within a fraction.</p>",
                 "<p>A sign error: this is \\( G/(1-G) \\), which is <em>positive</em> feedback. The sign is the whole point — this version has a pole in the right half plane and would run away.</p>",
                 "<p>That's the open loop \\( G \\) with its denominator multiplied out. The loop hasn't been closed: there is no \\( +4 \\) contributed by the feedback path.</p>",
-                "<p>Very close, and a useful thing to have derived: that's the <em>sensitivity</em> \\( S = 1/(1+G) \\), which maps the reference to the <strong>error</strong>. The question asked for reference to <strong>output</strong>, which is \\( T = G/(1+G) \\). Note \\( S + T = 1 \\) — worth remembering.</p>"
+                "<p>Very close, and worth having derived: that is the transfer function from the reference to the <strong>error</strong>, \\( E/R = 1/(1+G) \\), not to the output. The question asked for reference to output, which is \\( T = G/(1+G) \\). The two add to one, \\( E/R + T = 1 \\), which is a relationship this unit will come back to and give a name.</p>"
               ]
             }
           ]
@@ -546,7 +546,7 @@
                 "<p>That's about 6 dB. The two worth knowing are 6 dB ≈ ×2 and 20 dB = ×10 exactly.</p>",
                 "<p>Right. \\( 20\\log_{10}(10) = 20 \\) dB, so every 20 dB is another factor of ten.</p>",
                 "<p>Decibels are a logarithmic scale, so the number is never the factor itself. If it were, the scale would be doing nothing.</p>",
-                "<p>That's the answer for \\( 10\\log_{10} \\), the <strong>power</strong> definition. A gain is an amplitude ratio, so it's \\( 20\\log_{10} \\). ×100 would be 40 dB.</p>"
+                "<p>A factor of 100 is 40 dB, not 20 — you have gone one decade too far. Each ×10 adds 20 dB, so ×10 is 20 dB and ×100 is 40 dB. If you doubled the decibels when you meant to square the factor, that is the usual way round it happens.</p>"
               ]
             }
           ]
@@ -559,7 +559,7 @@
             "licence": "None specified"
           },
           "statement": "<p>Which of these does negative feedback <em>not</em> do, on its own?</p>",
-          "advice": "<p>Feedback compares the reference with the <strong>measurement</strong>, not with the truth. Anything the sensor reports — real motion or noise — is treated identically, so noise is driven into the actuator and back out into the output.</p><p>That is why more gain is not always better. Raising the loop gain suppresses disturbances <em>and</em> amplifies the effect of noise, and the two pull in opposite directions. There is no setting that wins both, only a choice about where to sit.</p><p><strong>Feedback is a trade, not a fix.</strong> It is the first idea this unit is built on, and where week 7 picks up.</p>",
+          "advice": "<p>Feedback compares the reference with the <strong>measurement</strong>, not with the truth. Anything the sensor reports — real motion or noise — is treated identically, so noise is driven into the actuator and back out into the output.</p><p>That is why more gain is not always better. Raising the loop gain suppresses disturbances <em>and</em> amplifies the effect of noise, and the two pull in opposite directions. There is no setting that wins both, only a choice about where to sit.</p><p><strong>Feedback is a trade, not a fix.</strong> It is the first idea this unit is built on, and the lecture on robustness is where that trade gets made deliberately rather than by accident.</p>",
           "rulesets": {},
           "extensions": [],
           "builtin_constants": {},

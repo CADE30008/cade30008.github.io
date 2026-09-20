@@ -23,9 +23,9 @@ reading any book, so when MATLAB names something, we use its name: the
 controller is `C`, the plant is `G`, a Bode plot's vertical axis is
 **magnitude** in decibels.
 
-Where MATLAB is silent we follow Dorf and Bishop, which is
-[the textbook](reading.md) for this unit. Where the two disagree we say so
-below rather than picking silently.
+Where MATLAB is silent we follow Dorf and Bishop, the
+[recommended textbook for further reading](reading.md). Where the two disagree
+we say so below rather than picking silently.
 
 Two house rules:
 
@@ -35,6 +35,19 @@ Two house rules:
   replaced by a number? If yes it stays italic.
 - **Every question and worked example defines its symbols**, even the obvious
   ones. It costs a line and removes all doubt.
+- **An equation always carries its left-hand side.** You will see
+  \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\), never a bare
+  \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\) with the name left in the prose.
+
+!!! note "The \((s)\) often goes missing, and that's normal"
+    Once it is clear that everything is a function of \(s\), almost everyone
+    drops it: \(L = CG\) rather than \(L(s) = C(s)G(s)\), and \(T = L/(1+L)\)
+    rather than the full form. We do it too, in slides especially, where space
+    is short.
+
+    It means the same thing. Watch for the one place it matters: \(G(0)\) and
+    \(G(j\omega)\) are *particular values* of \(G(s)\), so when an argument is
+    written explicitly it is usually there for a reason.
 
 ## Signals round the loop
 
@@ -55,8 +68,8 @@ Two house rules:
 | \(C(s)\) | The controller: what you design. | \(G_\mathrm{c}(s)\) in Dorf, \(K(s)\), \(D(s)\). Note some courses use \(C\) for the *output* — here it is always the controller. |
 | \(H(s)\) | The sensor, in the feedback path. Usually 1. | |
 | \(L(s) = C(s)G(s)\) | Loop gain, or open-loop transfer function — what you get going once round the loop. | \(G_\mathrm{ol}\), \(GH\). |
-| \(T(s)\) | Closed-loop transfer function, reference to output. | Complementary sensitivity, from week 7. |
-| \(S(s)\) | Sensitivity, reference to error. Introduced in week 7. \(S + T = 1\). | |
+| \(T(s)\) | Closed-loop transfer function, reference to output. | Also called the complementary sensitivity, once sensitivity has been introduced. |
+| \(S(s)\) | Sensitivity: reference to error, \(S(s) = 1/(1 + L(s))\). It and \(T\) satisfy \(S + T = 1\). | |
 
 ## Second-order response
 
@@ -64,8 +77,8 @@ Two house rules:
 |---|---|---|
 | \(\zeta\) | Damping ratio. | Universal; no competing symbol. |
 | \(\omega_\mathrm{n}\) | Natural frequency, rad/s. | **\(\omega_0\)** and **\(w_\mathrm{n}\)** are both common, and you may well have seen either. |
-| \(\omega_\mathrm{d}\) | Damped frequency, \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\). | |
-| \(M_\mathrm{p}\) | Maximum, or percent, overshoot. | **P.O.** in Dorf. \(M_\mathrm{p}\) also means the *resonant peak* on a Bode plot in some books — context decides. |
+| \(\omega_\mathrm{d}\) | Damped frequency, \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\) — the frequency a ringing response actually oscillates at. | |
+| \(M_\mathrm{p}\) | Overshoot: how far the step response goes past its final value, as a percentage of it. | **P.O.**, and *percent overshoot* written out. Beware: some books use \(M_\mathrm{p}\) for the *resonant peak* of a frequency response instead, which is a different quantity — context decides. |
 | \(t_\mathrm{r}\) | Rise time. | \(T_\mathrm{r}\). |
 | \(t_\mathrm{p}\) | Peak time. | \(T_\mathrm{p}\). |
 | \(t_\mathrm{s}\) | Settling time, to a 2% band unless said otherwise. | \(T_\mathrm{s}\), which also means sample time — we use \(t_\mathrm{s}\) to keep them apart. |
@@ -79,8 +92,8 @@ Two house rules:
 | \(K_\mathrm{p}\) | Proportional gain. | \(K_P\) uppercase in Dorf and in many courses. Same thing. |
 | \(K_\mathrm{i}\) | Integral gain. | \(K_I\). |
 | \(K_\mathrm{d}\) | Derivative gain. | \(K_D\). |
-| \(T_\mathrm{i}\) | Integral time, \(K_\mathrm{p}/K_\mathrm{i}\). | Used in the *standard* form of PID; see week 3. |
-| \(T_\mathrm{d}\) | Derivative time, \(K_\mathrm{d}/K_\mathrm{p}\). | |
+| \(T_\mathrm{i}\) | Integral time, \(T_\mathrm{i} = K_\mathrm{p}/K_\mathrm{i}\). | Used in the *standard* form of PID, below. |
+| \(T_\mathrm{d}\) | Derivative time, \(T_\mathrm{d} = K_\mathrm{d}/K_\mathrm{p}\). | |
 | \(N\) | Derivative filter ratio. We use \(N = 10\) throughout. | \(1/T_\mathrm{f}\) forms appear too. |
 | \(K_\mathrm{u}\) | Ultimate gain, in Ziegler–Nichols tuning. | \(K_\mathrm{cr}\), critical gain. |
 
@@ -96,7 +109,8 @@ $$
 C(s) = K_\mathrm{p}\left(1 + \frac{1}{T_\mathrm{i}s} + T_\mathrm{d}s\right).
 $$
 
-Same controller, different parameters. Week 3 converts between them.
+Same controller, different parameters, and converting between them is a skill
+the unit will ask for.
 
 ## Frequency domain
 
@@ -106,7 +120,7 @@ Same controller, different parameters. Week 3 converts between them.
 | \(\lvert G(j\omega)\rvert\) | **Magnitude** — the vertical axis of a Bode plot, in decibels. | Very often called **gain**, and written "Gain (dB)". We say magnitude, because *gain* is already doing three other jobs: loop gain, DC gain and gain margin. MATLAB and Dorf both label the axis Magnitude. |
 | \(\angle G(j\omega)\) | Phase, in degrees. | \(\arg G(j\omega)\), \(\phi\), \(\Phi\). |
 | dB | Decibels, \(20\log_{10}\lvert G\rvert\) for a gain. | The \(10\log_{10}\) form is for *power*; we never use it. |
-| \(\omega_\mathrm{c}\) | Corner, or break, frequency of a first-order factor. | \(\omega_\mathrm{b}\), \(1/\tau\). |
+| \(\omega_\mathrm{c}\) | Corner, or break, frequency of a first-order factor: \(\omega_\mathrm{c} = 1/\tau\). | \(\omega_\mathrm{b}\). |
 | \(\omega_\mathrm{gc}\) | Gain crossover: where \(\lvert L \rvert = 1\), i.e. 0 dB. | \(\omega_\mathrm{c}\) in some books, which is why we keep \(\omega_\mathrm{c}\) for the corner. |
 | \(\omega_\mathrm{pc}\) | Phase crossover: where \(\angle L = -180^\circ\). | \(\omega_{180}\). |
 | GM | Gain margin — how much the loop gain can rise before instability. | \(G_\mathrm{m}\), \(K_\mathrm{g}\). |

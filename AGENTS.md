@@ -150,6 +150,28 @@ Generated blocks obey the same rule, so it has to be applied in the generator, n
 
 **Slide bullets are exempt.** A deck is display text, not prose, and terminal punctuation on a projected bullet is noise. The decks currently carry none; keep it that way.
 
+### Never write a bare equation
+
+**An equation always carries its left-hand side.** Write \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\), never \(\omega_\mathrm{n}\sqrt{1-\zeta^2}\) with the name in the prose. The reader should be able to take the equation out of the sentence and still know what it says — and an expression floating without its subject is the commonest way a student copies the wrong thing into their notes.
+
+This applies in tables and definitions as much as in display maths.
+
+### Don't refer to week numbers in student-facing material
+
+**No "we meet this in week 7", "see week 3", "covered in week 4."** Week numbers move between years, and students arriving from different programmes do not share a schedule. The material should read the same whenever it is met and whoever is reading it.
+
+- Prefer naming the **idea**: "when we come to robustness", "the lecture on loop shaping".
+- If a pointer to a session is genuinely needed, say **lecture**, not week.
+- Better still, link the page and let the navigation say where it sits.
+
+The schedule and term map are the exception: they are *about* the calendar, and they are generated from `curriculum/term.yaml`.
+
+### Dorf is recommended, not required
+
+**Never call it "the textbook."** It is *a recommended textbook for further reading*. There is no required text for this unit, the handouts are authoritative, and a definite article implies an obligation students do not have.
+
+The same restraint applies in a diagnostic or a quiz: point at the **concept** — "the standard second-order form" — not at a book, a section number or another unit's notes. Students taking this unit arrive from more than one programme, so a reference to a specific prior course excludes some of them.
+
 ### Subscripts
 
 **A descriptive subscript is upright; a variable or index subscript is italic.**

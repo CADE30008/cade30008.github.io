@@ -1,9 +1,9 @@
 ---
-title: The textbook
-description: Dorf and Bishop's Modern Control Systems, what the library has, and which sections go with which week of CADE30008.
+title: Recommended reading
+description: Dorf and Bishop's Modern Control Systems — a recommended text for further reading, what the library has, and which sections go with which part of the unit.
 ---
 
-# The textbook
+# Recommended reading
 
 **You don't have to buy a book for this unit.** Each week's handout is the
 authoritative version of what you need, and it stands on its own.

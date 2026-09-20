@@ -186,8 +186,9 @@ questions:
       - \( \zeta = 0.4 \) → about 25%
       - \( \zeta = 0.7 \) → about 5%
 
-      Less damping, more overshoot, and the curve is steep — which is why phase
-      margin, its frequency-domain cousin, is worth watching closely in week 4.
+      Less damping, more overshoot, and the curve is steep. That steepness is
+      why phase margin — the frequency-domain cousin of damping — is worth
+      watching closely once we get to it.
 
   - id: steady-state
     name: Steady state
@@ -248,10 +249,11 @@ questions:
           feedback path.
       - text: "\\( \\dfrac{s^2 + s}{s^2 + s + 4} \\)"
         why: >-
-          Very close, and a useful thing to have derived: that's the
-          *sensitivity* \( S = 1/(1+G) \), which maps the reference to the
-          **error**. The question asked for reference to **output**, which is
-          \( T = G/(1+G) \). Note \( S + T = 1 \) — worth remembering.
+          Very close, and worth having derived: that is the transfer function
+          from the reference to the **error**, \( E/R = 1/(1+G) \), not to the
+          output. The question asked for reference to output, which is
+          \( T = G/(1+G) \). The two add to one, \( E/R + T = 1 \), which is a
+          relationship this unit will come back to and give a name.
     advice: |
       - Write the closed-loop form: \( T = \dfrac{G}{1+G} \).
       - Substitute: \( T = \dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \).
@@ -364,9 +366,10 @@ questions:
           itself. If it were, the scale would be doing nothing.
       - text: "100"
         why: >-
-          That's the answer for \( 10\log_{10} \), the **power** definition. A
-          gain is an amplitude ratio, so it's \( 20\log_{10} \). ×100 would be
-          40 dB.
+          A factor of 100 is 40 dB, not 20 — you have gone one decade too far.
+          Each ×10 adds 20 dB, so ×10 is 20 dB and ×100 is 40 dB. If you doubled
+          the decibels when you meant to square the factor, that is the usual
+          way round it happens.
     advice: |
       For a gain — an amplitude ratio, which is what a Bode magnitude plot
       shows — the definition is \( 20\log_{10}|G| \).
@@ -421,4 +424,5 @@ questions:
       choice about where to sit.
 
       **Feedback is a trade, not a fix.** It is the first idea this unit is
-      built on, and where week 7 picks up.
+      built on, and the lecture on robustness is where that trade gets made
+      deliberately rather than by accident.
