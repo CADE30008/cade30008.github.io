@@ -225,18 +225,10 @@ def advice_html(q: dict) -> str:
     there is no per-choice feedback to carry them.
     """
     parts = [html(q["advice"])]
-    if q.get("worked"):
-        # Plainly headed, not folded. <details> is well-formed here but Numbas
-        # strips it, so the fold silently did nothing. Only markup that survives
-        # its sanitiser is used now: a rule, a heading, and paragraphs.
-        #
-        # The cost is length, so the short advice above stays first and the
-        # heading gives the eye somewhere to stop.
-        parts.append(
-            '<hr style="border:0;border-top:1px solid #d9dcdb;margin:1em 0">'
-            '<p style="font-weight:700">Full working, step by step</p>'
-            + html(q["worked"])
-        )
+    # The worked solution does NOT go here. Numbas never displays a question's
+    # `advice`, not even after Reveal answers - confirmed by uploading a probe
+    # with marker text in every field. It goes in the part's `steps` instead,
+    # which renders as a labelled box behind a "Show steps" button.
     if q.get("common_errors"):
         rows = "".join(f"<li><strong>{emphasis(e['value'])}</strong> — {emphasis(e['why'])}</li>"
                        for e in q["common_errors"])
@@ -244,8 +236,32 @@ def advice_html(q: dict) -> str:
     return "".join(parts)
 
 
+def steps_for(q: dict) -> list[dict]:
+    """The worked solution, as a Numbas `steps` block.
+
+    `steps` is the only place a long explanation reliably renders: it appears
+    in its own box behind a "Show steps" button, with the penalty set to zero so
+    it costs the student nothing.
+
+    Note it sits *above* the answer options and can be opened before answering.
+    For a formative diagnostic with no marks and no randomisation that is an
+    acceptable trade, and arguably the right one.
+    """
+    if not q.get("worked"):
+        return []
+    return [{
+        "type": "information",
+        "marks": 0,
+        "prompt": '<p style="font-weight:700">Working, step by step</p>' + html(q["worked"]),
+    }]
+
+
 def question(q: dict) -> dict:
     parts = [choice_part(q)] if q["type"] == "choice" else number_parts(q)
+    # Attach the working to the first part; a question has one worked solution.
+    if steps := steps_for(q):
+        parts[0]["steps"] = steps
+        parts[0]["stepsPenalty"] = 0
     return {
         "name": q["name"],
         "tags": [],
@@ -295,12 +311,29 @@ def exam(quiz: dict) -> str:
         "timing": {"allowPause": True, "timeout": {"action": "none", "message": ""},
                    "timedwarning": {"action": "none", "message": ""}},
         "feedback": {
-            "showactualmark": True,
-            "showtotalmark": True,
-            "showanswerstate": True,
+            # Numbas replaced the old booleans with a timing per kind of
+            # feedback: "always", "oncompletion", "inreview" or "never". We
+            # were writing the deprecated keys, so everything not named here
+            # fell back to its default of "inreview" - which is why the advice
+            # never appeared during an attempt.
+            #
+            # This is formative, so everything that can be immediate is.
+            "showactualmarkwhen": "always",
+            "showtotalmarkwhen": "always",
+            "showanswerstatewhen": "always",
+            "showpartfeedbackmessageswhen": "always",
+            # These two accept only "inreview" or "never" - Numbas has no
+            # setting that shows them mid-attempt. Hence the worked solution
+            # living in each part's `steps` instead, which is available on
+            # demand. `enterreviewmodeimmediately` then makes the advice
+            # visible the moment the quiz is ended, rather than never.
+            "showexpectedanswerswhen": "inreview",
+            "showadvicewhen": "inreview",
+            "enterreviewmodeimmediately": True,
             "allowrevealanswer": True,
-            "advicethreshold": 0,
             "intro": html(quiz["description"]),
+            "end_message": "",
+            "results_options": {"printquestions": True, "printadvice": True},
             "feedbackmessages": [],
         },
         "rulesets": {},

@@ -235,6 +235,38 @@ are known to survive. Inline `style` on those survives too. **Anything else,
 test by uploading before relying on it**, because the failure is silent rather
 than an error.
 
+### Worked solutions go in `steps`, never in `advice`
+
+A question's `advice` is where Numbas itself says to put a worked solution, and
+it is the wrong place for ours. Confirmed from the editor source
+(`editor/static/js/exam/edit.js`):
+
+```js
+this.reveal_choices = ['inreview', 'never'];
+this.showadvicewhen = Editor.choiceObservable(this.reveal_choices);
+```
+
+**`showadvicewhen` has only two legal values.** Unlike the score and feedback
+timings, which also accept `always` and `oncompletion`, advice can be shown
+*only* in review mode. There is no setting that puts it in front of a student
+who is working through the quiz — not even "Reveal answers", which is not
+review mode. Advice that is uploaded and visible in the editor therefore still
+renders nowhere, with no error.
+
+So the working lives in each part's `steps`, behind Numbas's own "Show steps"
+button, with `stepsPenalty: 0`. That is available during the attempt, which is
+when it is wanted. The trade is that steps sit *above* the answers and can be
+opened before answering; for a formative quiz with no marks that is acceptable.
+
+Two related traps in the same settings block:
+
+- The old booleans (`showactualmark`, `advicethreshold` and friends) are
+  deprecated. Numbas now takes a *timing* per kind of feedback. Any key not
+  written falls back to `inreview`, so writing the old names looks like it
+  works and silently hides everything else.
+- On "Reveal answers" Numbas lists **every** distractor message, not just the
+  one for the option chosen. Per-option targeting only holds on submit.
+
 ### Links say where they go
 
 Every link in the body text carries a marker saying what a click does. Three of the four are worked out from the address by `docs/javascripts/links.js`, so there is nothing to remember:
