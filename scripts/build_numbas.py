@@ -119,6 +119,10 @@ def emphasis(text: str) -> str:
         return f"\x00{len(stash) - 1}\x00"
 
     text = MATHS.sub(keep, text)
+    # [label](url) -> a link. Numbas keeps <a>, and without this the brackets
+    # reach the student literally.
+    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)",
+                  r'<a href="\2" target="_blank" rel="noopener">\1</a>', text)
     text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
     text = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<em>\1</em>", text)
     return re.sub(r"\x00(\d+)\x00", lambda m: stash[int(m.group(1))], text)

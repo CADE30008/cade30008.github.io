@@ -26,7 +26,9 @@ wastes their time and ours.
   landmarks: −3 dB and −45° at the corner, −20 dB/decade above it, and the
   phase turning over a decade either side. Their handbook draws exactly this
   figure. They call it the **cut-off frequency** and label the ordinate
-  "Gain dB" where we say magnitude.
+  "Gain dB" where we say magnitude. They do **not** meet the term *lag* for a
+  first-order system at all: it appears zero times in their material, which says
+  "first order system" or "low pass". Introduce the word the first time we use it.
 - **The standard second-order form**, and reading ζ and ωₙ out of it.
 - **Transient metrics**: rise time, peak time, settling time to 2%, maximum
   overshoot, steady-state value.

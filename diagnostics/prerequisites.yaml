@@ -30,7 +30,14 @@ description: >-
   Eleven questions on the mathematics and control this unit builds on.
   Formative: it does not contribute to your grade.
 
-  **Press "Show steps" on every question, including the ones you find easy.** It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read even when you were right.
+  **Press "Show steps" on every question, including the ones you find easy.** It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read
+  even when you were right.
+
+  If a symbol or a term here is unfamiliar, it is worth checking the
+  [notation page](https://cade30008.github.io/notation/) and the
+  [glossary](https://cade30008.github.io/glossary/) before deciding you have not
+  met it. Both list the other names the same idea goes by, and a good deal of
+  what looks new is something you already know under a different label.
 
 questions:
   - id: transfer-function
@@ -420,7 +427,10 @@ questions:
           corner, at \( \omega = 100 \), once the −20 dB/decade slope has had a
           full decade to act.
     advice: |
-      A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
+      A **first-order lag** is any system with one pole and no zero,
+      \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \). You may know it as a first-order
+      low-pass, which is the same thing under its signals name. It has three
+      landmarks:
 
       - **well below \( \omega_\mathrm{c} \):** 0 dB and 0°. The system passes the signal through.
       - **at \( \omega_\mathrm{c} \):** \( |G| = \dfrac{1}{\sqrt2} \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.

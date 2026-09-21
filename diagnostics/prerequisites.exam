@@ -2,7 +2,7 @@
 {
   "name": "CADE30008 Control: prerequisite diagnostic",
   "metadata": {
-    "description": "<p>Eleven questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. <strong>Press \"Show steps\" on every question, including the ones you find easy.</strong> It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read even when you were right.</p>",
+    "description": "<p>Eleven questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. <strong>Press \"Show steps\" on every question, including the ones you find easy.</strong> It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read even when you were right. If a symbol or a term here is unfamiliar, it is worth checking the <a href=\"https://cade30008.github.io/notation/\" target=\"_blank\" rel=\"noopener\">notation page</a> and the <a href=\"https://cade30008.github.io/glossary/\" target=\"_blank\" rel=\"noopener\">glossary</a> before deciding you have not met it. Both list the other names the same idea goes by, and a good deal of what looks new is something you already know under a different label.</p>",
     "licence": "None specified"
   },
   "duration": 0,
@@ -45,7 +45,7 @@
     "showadvicewhen": "never",
     "enterreviewmodeimmediately": true,
     "allowrevealanswer": false,
-    "intro": "<p>Eleven questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. <strong>Press \"Show steps\" on every question, including the ones you find easy.</strong> It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read even when you were right.</p>",
+    "intro": "<p>Eleven questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. <strong>Press \"Show steps\" on every question, including the ones you find easy.</strong> It costs you no marks, and it holds the full working along with notes on how the idea is used later. Every option also carries its own feedback, so there is something to read even when you were right. If a symbol or a term here is unfamiliar, it is worth checking the <a href=\"https://cade30008.github.io/notation/\" target=\"_blank\" rel=\"noopener\">notation page</a> and the <a href=\"https://cade30008.github.io/glossary/\" target=\"_blank\" rel=\"noopener\">glossary</a> before deciding you have not met it. Both list the other names the same idea goes by, and a good deal of what looks new is something you already know under a different label.</p>",
     "end_message": "",
     "results_options": {
       "printquestions": true,
@@ -558,7 +558,7 @@
                 {
                   "type": "information",
                   "marks": 0,
-                  "prompt": "<p>A first-order lag \\( \\dfrac{1}{1 + s/\\omega_\\mathrm{c}} \\) has three landmarks:</p><ol><li><strong>well below \\( \\omega_\\mathrm{c} \\):</strong> 0 dB and 0°. The system passes the signal through.</li><li><strong>at \\( \\omega_\\mathrm{c} \\):</strong> \\( |G| = \\dfrac{1}{\\sqrt2} \\), which is −3 dB, and the phase is exactly −45°, halfway to its limit.</li><li><strong>well above \\( \\omega_\\mathrm{c} \\):</strong> falling at −20 dB/decade, phase heading to −90°.</li></ol><p>Here \\( G = \\dfrac{10}{s+10} = \\dfrac{1}{1 + s/10} \\), so \\( \\omega_\\mathrm{c} = 10 \\) rad/s and the question is asking for the corner itself.</p><p><strong>−3 dB and −45° at the corner is the single most reused fact in this unit.</strong> Every first-order lag you meet later is built from it.</p>"
+                  "prompt": "<p>A <strong>first-order lag</strong> is any system with one pole and no zero, \\( \\dfrac{1}{1 + s/\\omega_\\mathrm{c}} \\). You may know it as a first-order low-pass, which is the same thing under its signals name. It has three landmarks:</p><ol><li><strong>well below \\( \\omega_\\mathrm{c} \\):</strong> 0 dB and 0°. The system passes the signal through.</li><li><strong>at \\( \\omega_\\mathrm{c} \\):</strong> \\( |G| = \\dfrac{1}{\\sqrt2} \\), which is −3 dB, and the phase is exactly −45°, halfway to its limit.</li><li><strong>well above \\( \\omega_\\mathrm{c} \\):</strong> falling at −20 dB/decade, phase heading to −90°.</li></ol><p>Here \\( G = \\dfrac{10}{s+10} = \\dfrac{1}{1 + s/10} \\), so \\( \\omega_\\mathrm{c} = 10 \\) rad/s and the question is asking for the corner itself.</p><p><strong>−3 dB and −45° at the corner is the single most reused fact in this unit.</strong> Every first-order lag you meet later is built from it.</p>"
                 }
               ],
               "stepsPenalty": 0

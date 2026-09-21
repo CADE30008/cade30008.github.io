@@ -80,6 +80,7 @@ has a sharper definition you will meet later, that is said.
 | Term | What it means |
 |---|---|
 | **Transfer function** | The relationship between a system's input and its output, written in the Laplace variable $s$. The compact description that most of this course works with. |
+| **First-order lag** | A system with one pole and no zero, $1/(1 + s/\omega_\mathrm{c})$. It passes slow signals through unchanged and attenuates fast ones, falling at 20 dB/decade above its corner. The same object is called a first-order low-pass in signals work. The commonest building block there is: sensors, actuators and filters are mostly lags. |
 | **Pole** | A root of a transfer function's denominator. Poles determine how a system responds on its own: how fast it settles, whether it oscillates, whether it diverges. |
 | **Zero** | A root of the numerator. Zeros shape how the response starts, and a zero in the right half-plane makes a system initially go the wrong way. |
 | **Characteristic equation** | The denominator of the closed-loop transfer function set to zero. Its roots are the closed-loop poles, so it is where stability is decided. |

@@ -341,7 +341,10 @@ A system has transfer function \( G(s) = \dfrac{10}{s+10} \). At a frequency \( 
 
 *Worked route, shown to everyone:*
 
-A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
+A **first-order lag** is any system with one pole and no zero,
+\( \dfrac{1}{1 + s/\omega_\mathrm{c}} \). You may know it as a first-order
+low-pass, which is the same thing under its signals name. It has three
+landmarks:
 
 - **well below \( \omega_\mathrm{c} \):** 0 dB and 0°. The system passes the signal through.
 - **at \( \omega_\mathrm{c} \):** \( |G| = \dfrac{1}{\sqrt2} \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
