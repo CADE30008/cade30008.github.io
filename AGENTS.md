@@ -258,10 +258,21 @@ by uploading: **`<details>` and `<summary>` are stripped**, so a collapsible
 worked solution silently renders as nothing at all — the markup was well formed
 and at the top level, and it still went.
 
-Stick to `p`, `strong`, `em`, `ol`, `ul`, `li`, `hr`, `img` and `table`, which
-are known to survive. Inline `style` on those survives too. **Anything else,
-test by uploading before relying on it**, because the failure is silent rather
-than an error.
+Stick to `p`, `strong`, `em`, `ol`, `ul`, `li`, `hr`, `img`, `table` and `a`,
+which are known to survive. Inline `style` on those survives too. **Anything
+else, test by uploading before relying on it**, because the failure is silent
+rather than an error.
+
+**Code blocks are built from `p`, not `pre`.** `pre` and `code` are not on that
+list, and a stripped tag would run a whole snippet onto one line. `code_html()`
+in the builder emits one `<p>` per line with a monospace inline style and
+`white-space:pre`, which is uglier in source and renders correctly. Confirmed
+by uploading.
+
+**Alt text must be escaped.** Describing a figure means quoting the labels on
+it, and an unescaped `"` closes the attribute early: the rest of the sentence
+becomes junk attributes and Numbas fails the whole question with "SyntaxError:
+The string did not match the expected pattern".
 
 ### Worked solutions go in `steps`, never in `advice`
 
