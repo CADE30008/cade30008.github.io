@@ -6,6 +6,12 @@ node_modules/
 site/
 .cache/
 docs/slides/
+
+# Blackboard packages, built by `npm run bb` from diagnostics/*.yaml.
+# The generator and the README are tracked; its output is not, for the same
+# reason site/ is not.
+diagnostics/blackboard/*.zip
+diagnostics/blackboard/*.txt
 docs/downloads/
 # OS
 .DS_Store

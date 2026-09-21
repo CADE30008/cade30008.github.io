@@ -57,7 +57,8 @@ of the 17 September review asked for.
 | Glossary | drafted | ~80 terms, deliberately ahead of the lectures. |
 | Preparing for Control | **ready to publish** | Listed in `publish.yaml`. MATLAB first; long scripts in scrolling boxes; certificate upload and diagnostic described. Device checks pass, including the browser runner on the live build. Steve to run through before week 1. |
 | Blackboard: Before week 1 | **build sheet ready** | `teaching/blackboard.md`: learning module, links, certificate assignment, diagnostic test, and a check to run in student preview. Not yet built in Blackboard. |
-| Prerequisite diagnostic | **drafted** | Ten questions in `diagnostics/prerequisites.yaml`; `npm run numbas` builds the `.exam` for upload and re-checks every numeric answer. Not yet uploaded or tested in Numbas. |
+| Prerequisite diagnostic | **drafted** | Eleven questions in `diagnostics/prerequisites.yaml`; `npm run numbas` builds the `.exam` for upload and re-checks every numeric answer. Not yet uploaded or tested in Numbas. |
+| Diagnostic in Blackboard Ultra | **to test** | `npm run bb` builds a probe package, a QTI 2.1 package and a question-upload file from the same YAML. Whether Ultra can carry the diagnostic turns on two things neither documented nor tested: whether this installation renders LaTeX, and whether per-option feedback survives a QTI import. Protocol in `diagnostics/blackboard/README.md`. |
 | Live site | **ready, not deployed** | `npm run preview:live` shows it. Deploys on push once the `cade30008` organisation and repository exist. |
 | Run sheets | 1 of 8 | Only `teaching/w01-design-cycle.md`. The pattern is unproven on a normal session. |
 | Applets | 1 | The PID tuner, tested against `models/pitch_numbers.json`. |

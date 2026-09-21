@@ -19,7 +19,7 @@ This file is for anyone editing the course materials, whether by hand or with an
 | `teaching/lNN-topic.md` | Lecturer run sheet: timings, files, contingencies. Not student-facing, not built. | Yes, and after teaching it. |
 | `CONTENT.md` | What actually exists versus what the nav implies, per session. | Yes, with every content change. |
 | `CURRICULUM.md` | The content scope: what the unit teaches, in what order, and why. A proposal until agreed. | Only once a scope decision is agreed. |
-| `diagnostics/<quiz>.yaml` | A quiz's questions, and **public**: formative diagnostics are published, assessed material is not. `npm run numbas` builds the Numbas `.exam` and the readable list from it. | Yes; never edit the `.exam` or the generated list. |
+| `diagnostics/<quiz>.yaml` | A quiz's questions, and **public**: formative diagnostics are published, assessed material is not. `npm run numbas` builds the Numbas `.exam` and the readable list from it; `npm run bb` builds the Blackboard Ultra packages in `diagnostics/blackboard/`. | Yes; never edit the `.exam`, the generated list, or anything under `diagnostics/blackboard/` except its README. |
 | `models/` | Design scripts: the single source of every number and plot. | Yes |
 | `sync.lock.json` | Last confirmed sync state between slides and handouts. | Only through `npm run sync:accept` |
 | `docs/slides/`, `site/` | Build output | Never |
@@ -197,6 +197,19 @@ more to electrical and signal work than to mechanical systems. Documenting a
 word is not the same as writing in it: do not use it in our own prose. Our
 working notes, `PEDAGOGY.md` and `teaching/`, may use whichever word is
 clearer; the rule is about what students read.
+
+### A comment that praises a behaviour stops anyone testing it
+
+Twice in one day a docstring asserted a property the code did not have, and in
+both cases the words were what stopped it being checked. `plantGain()` said
+"there is no fallback value on purpose", which reads as a considered safety
+decision, so two readers accepted it rather than running it. It was a bug, and
+the tool refused to start.
+
+Write what the code does, not why the behaviour is admirable. If a property is
+worth claiming in a comment, it is worth a test or a line in the commit message
+saying how it was checked. "Refuses to invent a plant" and "refuses to run on a
+provisional one" sound alike and are not, and only the first was ever wanted.
 
 ### Settling time always names its band
 

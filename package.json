@@ -20,7 +20,8 @@
     "curriculum": ".venv/bin/python scripts/build_curriculum.py",
     "live": ".venv/bin/python scripts/build_live.py",
     "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python scripts/preview.py .live/site --port ${PORT:-8012}",
-    "numbas": ".venv/bin/python scripts/build_numbas.py"
+    "numbas": ".venv/bin/python scripts/build_numbas.py",
+    "bb": ".venv/bin/python scripts/build_blackboard.py"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.5.1",
