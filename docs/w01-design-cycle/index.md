@@ -1,6 +1,6 @@
 ---
 title: "Week 1: The design cycle, end to end"
-description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
+description: "The control design cycle, run end to end in one session on the laboratory helicopter: identify, design, fly, and find out."
 lesson: w01-design-cycle
 order: 1
 duration: 2 x 50 min
@@ -15,13 +15,11 @@ status: draft
 [Solutions](solutions.md)
 </div>
 
-!!! warning "Not yet written"
-    This week is scoped but not written. Its title, learning outcomes and
-    place in the unit are set; the sections below are placeholders, there so
-    that the navigation, the slide deck and the example sheet exist in their
-    final shape.
-
-One paragraph saying what this lecture does, and how it follows from the last one.
+This session runs the whole control design cycle once, in two hours, on a real
+machine. You will watch somebody fail to fly it by hand, measure what it
+actually does, decide what "good" means, design a controller to meet that, and
+then watch your own gains fly. Everything after today is one of those steps
+done properly.
 
 <!-- outcomes:start -->
 !!! abstract "Learning outcomes"
@@ -35,24 +33,195 @@ One paragraph saying what this lecture does, and how it follows from the last on
 
 ## Where we are {#recap}
 
-What the student already knows that this lecture builds on, and where it came from.
+You arrive with the mathematics this half of the unit is built on: Laplace
+transforms, transfer functions, poles and zeros, the standard second-order form
+and what \( \zeta \) and \( \omega_\mathrm{n} \) do to a response, Bode plots
+built from first- and second-order factors, and PID in its parallel form.
 
-## First idea {#idea-one}
+If any of that feels distant, the [prerequisite
+diagnostic](../preparing/index.md) is eleven questions with worked feedback on
+every option, and it is the fastest way to find out which parts need an hour of
+your attention. It does not contribute to your grade.
 
-The first main idea, developed from what the recap established.
+What is new here is not a technique. It is the shape of the work.
 
-## Second idea {#idea-two}
+## Control is a cycle, not a formula {#design-cycle}
 
-The second main idea, and how it changes the picture.
+Textbooks present control design as a sequence of methods. Practice is a loop,
+and the loop is the reason this unit is ordered the way it is:
 
-## Worked example {#worked-example}
+1. **Understand the plant.** What does the machine actually do when you push
+   it? Not what the datasheet says, and not what the model you were handed
+   says.
+2. **State the requirement.** What counts as good, in numbers, before you
+   design anything.
+3. **Design.** Choose a structure, choose gains, predict what will happen.
+4. **Validate in simulation.** Does the design meet the requirement against
+   your model?
+5. **Test on hardware.** Does it meet the requirement against the machine?
+6. **Go round again**, because step 5 disagrees with step 4. It always does.
 
-A worked example carrying the ideas above through to numbers. Numbers belong in
-a script under `models/`, not typed in here.
+Every week of this unit lives somewhere on that loop. When you meet loop
+shaping in the second act, it is step 3. When you meet model validation, it is
+the gap between 4 and 5. Today you do all six, badly, once, so that the rest of
+the term has somewhere to attach.
+
+## Feedback is a trade, not a fix {#feedback-trade}
+
+The first thing people assume about feedback is that it makes systems better.
+It makes them *different*, and you choose which problems to have.
+
+Close a loop around a plant and you get, for free:
+
+- **disturbance rejection.** A gust pushes the output, the error changes, the
+  controller pushes back.
+- **insensitivity to the plant.** The aircraft burns fuel and gets lighter;
+  the loop barely notices.
+- **the ability to stabilise something unstable**, which is the only reason
+  the machine in the room can fly at all.
+
+And you pay, unavoidably:
+
+- **sensor noise reaches the output.** Feedback acts on what the sensor
+  *says*, and cannot tell noise from motion. Whatever the sensor invents, the
+  controller faithfully corrects for.
+- **the loop can go unstable**, which the open plant could not do.
+- **more gain buys more of both.** Raising the loop gain suppresses
+  disturbances *and* amplifies noise. These pull in opposite directions and no
+  amount of cleverness makes them stop.
+
+Hold on to the third of those. Almost every design decision in this unit is a
+choice about where to spend loop gain, and "turn it up" is only ever half an
+answer.
+
+## The machine {#the-rig}
+
+The laboratory rig is a Quanser 3-DOF helicopter: a beam on a pivot with two
+motors at one end and a counterweight at the other, free to move in
+**elevation** (how high the beam sits), **pitch** (how the motor pair tilts)
+and **travel** (how it swings around).
+
+We use the elevation axis. Its model, linearised about level, is about as
+simple as a plant gets and about as unforgiving:
+
+$$ G(s) = \frac{\varepsilon(s)}{V(s)} = \frac{K}{s^2} $$
+
+A double integrator. Two poles at the origin, nothing pulling it back towards
+level, no damping at all. Push it and it keeps going.
+
+!!! warning "Why you cannot fly it by hand"
+    A double integrator cannot be stabilised by proportional feedback at any
+    gain: the root locus leaves the origin straight up and down and never
+    enters the left half-plane. Rate feedback is not a refinement here, it is
+    the difference between flying and not.
+
+    This is also why the room's first instinct, *turn the gain up*, makes
+    things worse rather than better. Hold that thought until week 3.
+
+## A requirement is a design input {#requirements}
+
+"Make it fly well" is not a requirement. It cannot be met, missed, or argued
+about, which means it cannot be designed to.
+
+A requirement is a number with a test attached. For a step change in commanded
+elevation, the ones that matter today are:
+
+| Quantity | Means | Typical form |
+|---|---|---|
+| Overshoot, \( M_\mathrm{p} \) | How far past the target it goes, as a percentage | "no more than 20%" |
+| Settling time, \( t_\mathrm{s} \) | Until it stays within a band of the final value | "within 2% inside 8 s" |
+| Steady-state error | What is left when it stops moving | "under 1 degree" |
+
+Always say which band a settling time refers to. We use 2% throughout, which
+is what MATLAB's `stepinfo` and Dorf both default to, and a number quoted
+against a different band is not wrong so much as unreadable.
+
+We will agree today's requirement in the room, out loud, before anybody
+designs anything. That order is the point: a requirement chosen after the
+design is a description, not a specification.
+
+## Identifying the plant from what it actually does {#system-id}
+
+You could compute \( K \) from the geometry. We will measure it instead,
+because the number you compute and the number the machine has are not the same
+number, and the whole second half of this unit is about that gap.
+
+The floor is a manual second-order fit from a measured response:
+
+- the **period** of the oscillation gives the damped frequency,
+  \( \omega_\mathrm{d} = 2\pi / T_\mathrm{d} \);
+- the **ratio of successive peaks** gives the damping ratio, by log decrement;
+- the **steady value** gives the gain.
+
+The ceiling is `tfest`, which will fit a model of whatever order you ask for
+in one line. Reach the floor first. A fit you got by hand is one you can
+argue with; a fit that arrived from a function is one you can only accept.
+
+!!! tip "Two honest engineers get two different models"
+    You will not all get the same numbers from the same response, and that is
+    not a failure of technique. Where you read the peaks, how much of the tail
+    you trust, whether you fit before or after the transient — all of it moves
+    the answer. Comparing fits across the room is part of the exercise.
+
+## Tuning, and then flying {#tuning}
+
+With a model and a requirement you can design. In simulation, you will tune a
+PID controller until it meets the requirement you agreed, then submit your
+gains through MATLAB Drive.
+
+We fly them in three rounds:
+
+1. **The extremes**, chosen because they misbehave: the most aggressive, the
+   most sluggish, the most integral. Cause and effect before any good answer.
+2. **The cohort average.** Often worse than most of its parts, which is worth
+   watching: the average of safe designs is not safe by construction.
+3. **The best few.**
+
+Every submission is checked before it reaches the hardware, against your own
+fitted plant, and gains outside the envelope are **refused rather than
+adjusted**. If yours are refused you will be told which limit they missed. We
+do not quietly move anybody's numbers into range: the room would then be
+watching a flight that was not yours.
+
+!!! note "Your name, on screen, in front of everybody"
+    Submissions go into a shared folder that the whole cohort can read, and
+    the name on your file is the name that appears when your gains fly. You
+    may use an alias. Round 1 flies the extremes *because* they misbehave, so
+    somebody's name is going on a public failure — and a public failure that
+    everybody learns from is worth more than a quiet success.
+
+## Where simulation and hardware disagree {#sim-vs-hardware}
+
+Your design will meet the requirement in simulation. Some of them will not
+meet it on the rig. The gap is not carelessness; it is the subject.
+
+Four reasons it happens, all of which get a week of their own later:
+
+- **The model is wrong.** It is a linearisation of one axis of a machine that
+  has three, fitted from one response over a few seconds.
+- **The actuators have limits.** The motors saturate. A controller that
+  demands 30 V from a 24 V amplifier is not the controller that flies.
+- **There is noise.** The encoder quantises, and derivative action amplifies
+  exactly that.
+- **The plant moves.** Trim shifts, friction changes, and nothing about the
+  rig at 14:00 is quite what it was at 13:00.
+
+The cycle's answer is not to build a better model before designing. It is to
+design, test, find out where you were wrong, and go round again — which is
+what step 6 was for.
 
 ## Summary {#summary}
 
-The few things to take away.
+- Control design is a **loop**: understand, specify, design, simulate, test,
+  repeat. Every week of this unit is one step of it.
+- Feedback is a **trade**. It buys disturbance rejection, insensitivity and
+  stabilisation, and it costs you noise on the output and the possibility of
+  instability. More gain buys more of both.
+- A **requirement is a design input**: a number with a test, agreed before the
+  design, not after.
+- A model you **measured** beats a model you assumed, and knowing which one
+  you have is most of engineering judgement.
+- Simulation and hardware disagree. That gap is the unit.
 
 ## How the unit runs {#schedule}
 
