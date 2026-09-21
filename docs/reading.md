@@ -52,22 +52,26 @@ Search the library for "Dorf Modern Control", then open **View All** to see othe
 | [11](w11-beyond-this-course/index.md) | What comes next | **11.4** Observer design<br>**12.5-12.6** The design of robust control systems; robust PID-controlled systems<br>**13.1-13.3** Digital control systems: applications, sampled-data systems |
 <!-- reading:end -->
 
-## The full list is on Blackboard
+## The full list
 
 This page names one book and explains what it is for. **The unit's complete
-reading list lives on Blackboard**, maintained through the library, and it has
-a good deal more on it: alternative textbooks, the flight-dynamics half's
-reading, and the video series below. Editions and availability change during
-the year there and not here, so treat it as the current version.
+reading list is
+[here](https://rl.talis.com/3/bristol/lists/dd40d09f-6b89-46de-becd-40a3d365a0e6.html){ .go }**,
+also linked from Blackboard, and it has a good deal more on it: alternative
+textbooks, the flight-dynamics half's reading, and the video series below.
+Editions and availability change there during the year and not here, so treat
+it as the current version.
 
 Two of the video series on it are worth calling out, because for a lot of
 people they work better than any book:
 
-- **[Brian Douglas, *Control System Lectures*](http://readinglists.bris.ac.uk/items/702c23d8-e618-4dc8-8b96-0d80dfec866b.html).**
-  Short, unhurried videos that build intuition before algebra. If a Bode plot
-  or a root locus has never quite made sense as a picture, start here. He also
-  makes the MATLAB Tech Talks, which cover much of this unit.
-- **[Steve Brunton, *Control Bootcamp*](http://readinglists.bris.ac.uk/items/78aee3f5-6869-4803-bedb-8f96f0ca226e.html).**
+- **Brian Douglas, *Control System Lectures***, at
+  [engineeringmedia.com](https://engineeringmedia.com). Short, unhurried videos
+  that build intuition before algebra. If a Bode plot or a root locus has never
+  quite made sense as a picture, start here. He also makes the MATLAB Tech
+  Talks, which cover much of this unit.
+- **Steve Brunton, *Control Bootcamp***,
+  [a playlist on YouTube](https://youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m).
   A full course, pitched a little higher, and unusually good on state space and
   on why the frequency domain and the time domain are two views of one thing.
 

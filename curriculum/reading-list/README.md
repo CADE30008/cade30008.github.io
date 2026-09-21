@@ -9,6 +9,11 @@ silently diverging.
 |---|---|
 | `bristol-reading-list-2026-09-21.csv` | 21 September 2026 |
 
+The list itself:
+<https://rl.talis.com/3/bristol/lists/dd40d09f-6b89-46de-becd-40a3d365a0e6.html>
+— the UUID in that URL is the CSV's filename, which is how an export is matched
+back to the list it came from.
+
 **Export a fresh copy each year**, in the annual update, and delete nothing:
 the old exports are the record of what a given cohort was pointed at.
 
