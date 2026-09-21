@@ -86,6 +86,7 @@ has a sharper definition you will meet later, that is said.
 | **Stability** | A stable system, disturbed, returns to where it was. An unstable one does not. For a linear system this is exactly the question of whether every pole lies in the left half-plane. |
 | **Marginal stability** | Poles exactly on the boundary: the system neither settles nor diverges, but oscillates forever. A mathematical case rather than a practical one, since nothing real sits exactly on a boundary. |
 | **Damping ratio, $\zeta$** | How quickly oscillation dies away, on a scale where 0 oscillates forever and 1 does not oscillate at all. The Quanser helicopter's elevation axis is around 0.06, which is why it oscillates for so long after a disturbance. |
+| **Ringing** | Informal for a decaying oscillation. You will meet it mostly in electrical and signal work, where a circuit or a trace on a scope rings, and much less for mechanical systems. Control texts say *oscillation*, and so do we, but the two mean the same thing. |
 | **Natural frequency, $\omega_\mathrm{n}$** | How fast an oscillatory system wants to move. Together with the damping ratio it fixes a second-order response entirely. |
 | **Overshoot** | How far past the target the response goes, as a percentage of the step. Set by the damping ratio alone, for a simple second-order system. |
 | **Rise time, settling time, steady-state error** | How fast it gets there, how long until it stops moving, and how far off it ends up. With overshoot, the usual language of a time-domain requirement. |

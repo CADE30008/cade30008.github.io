@@ -76,7 +76,7 @@ Two house rules:
 |---|---|---|
 | \(\zeta\) | Damping ratio. | Universal; no competing symbol. |
 | \(\omega_\mathrm{n}\) | Natural frequency, rad/s. | **\(\omega_0\)** and **\(w_\mathrm{n}\)** are both common, and you may well have seen either. |
-| \(\omega_\mathrm{d}\) | Damped frequency, \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\) — the frequency a decaying oscillation actually runs at. | |
+| \(\omega_\mathrm{d}\) | Damped frequency, \(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\) — the frequency a decaying oscillation actually runs at. | Informally **ringing**, though more in electrical and signal work than for mechanical systems. |
 | \(M_\mathrm{p}\) | Overshoot: how far the step response goes past its final value, as a percentage of it. | **P.O.**, and *percent overshoot* written out. Beware: some books use \(M_\mathrm{p}\) for the *resonant peak* of a frequency response instead, which is a different quantity — context decides. |
 | \(t_\mathrm{r}\) | Rise time. | \(T_\mathrm{r}\). |
 | \(t_\mathrm{p}\) | Peak time. | \(T_\mathrm{p}\). |
