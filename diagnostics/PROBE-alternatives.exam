@@ -1,0 +1,158 @@
+// Numbas version: exam_results_page_options
+{
+  "name": "PROBE: alternative answers",
+  "metadata": {
+    "description": "<p>Throwaway. Do alternative answers give targeted feedback, and do they wrongly award marks?</p>",
+    "licence": "None specified"
+  },
+  "duration": 0,
+  "percentPass": 0,
+  "showQuestionGroupNames": false,
+  "showstudentname": true,
+  "allowPrinting": true,
+  "navigation": {
+    "allowregen": false,
+    "reverse": true,
+    "browse": true,
+    "allowsteps": true,
+    "showfrontpage": true,
+    "showresultspage": "oncompletion",
+    "navigatemode": "sequence",
+    "onleave": {
+      "action": "none",
+      "message": ""
+    },
+    "preventleave": true,
+    "startpassword": ""
+  },
+  "timing": {
+    "allowPause": true,
+    "timeout": {
+      "action": "none",
+      "message": ""
+    },
+    "timedwarning": {
+      "action": "none",
+      "message": ""
+    }
+  },
+  "feedback": {
+    "showactualmarkwhen": "always",
+    "showtotalmarkwhen": "always",
+    "showanswerstatewhen": "always",
+    "showpartfeedbackmessageswhen": "always",
+    "showexpectedanswerswhen": "inreview",
+    "showadvicewhen": "never",
+    "enterreviewmodeimmediately": true,
+    "allowrevealanswer": false,
+    "intro": "<p>One question. Try 0.4, then 0.16, 0.8 and 2 in turn. Two things to watch: does the right MARKER appear for each, and does a wrong value score 1 mark?</p>",
+    "end_message": "",
+    "results_options": {
+      "printquestions": true,
+      "printadvice": true
+    },
+    "feedbackmessages": []
+  },
+  "rulesets": {},
+  "question_groups": [
+    {
+      "name": "",
+      "pickingStrategy": "all-ordered",
+      "questions": [
+        {
+          "name": "Alternative answers probe",
+          "statement": "<p>A damping ratio question, stripped to nothing. The part below accepts 0.4. Three wrong values are set up as alternative answers.</p>",
+          "advice": "",
+          "parts": [
+            {
+              "type": "numberentry",
+              "marks": 1,
+              "prompt": "<p>Enter <strong>0.4</strong> (right), or one of the wrong values <strong>0.16</strong>, <strong>0.8</strong>, <strong>2</strong>. Watch which message appears, <em>and what score you are given</em>.</p>",
+              "minValue": "0.39",
+              "maxValue": "0.41",
+              "correctAnswerFraction": false,
+              "allowFractions": false,
+              "mustBeReduced": false,
+              "showFractionHint": false,
+              "notationStyles": [
+                "plain",
+                "en",
+                "si-en"
+              ],
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "alternatives": [
+                {
+                  "type": "numberentry",
+                  "marks": 1,
+                  "minValue": "0.16",
+                  "maxValue": "0.16",
+                  "correctAnswerFraction": false,
+                  "allowFractions": false,
+                  "mustBeReduced": false,
+                  "showFractionHint": false,
+                  "notationStyles": [
+                    "plain",
+                    "en",
+                    "si-en"
+                  ],
+                  "useAlternativeFeedback": false,
+                  "alternativeFeedbackMessage": "<p>MARKER-ALT-A: you divided by omega_n squared.</p>"
+                },
+                {
+                  "type": "numberentry",
+                  "marks": 1,
+                  "minValue": "0.8",
+                  "maxValue": "0.8",
+                  "correctAnswerFraction": false,
+                  "allowFractions": false,
+                  "mustBeReduced": false,
+                  "showFractionHint": false,
+                  "notationStyles": [
+                    "plain",
+                    "en",
+                    "si-en"
+                  ],
+                  "useAlternativeFeedback": false,
+                  "alternativeFeedbackMessage": "<p>MARKER-ALT-B: you forgot the factor of 2.</p>"
+                },
+                {
+                  "type": "numberentry",
+                  "marks": 1,
+                  "minValue": "2",
+                  "maxValue": "2",
+                  "correctAnswerFraction": false,
+                  "allowFractions": false,
+                  "mustBeReduced": false,
+                  "showFractionHint": false,
+                  "notationStyles": [
+                    "plain",
+                    "en",
+                    "si-en"
+                  ],
+                  "useAlternativeFeedback": false,
+                  "alternativeFeedbackMessage": "<p>MARKER-ALT-C: that is zeta*omega_n, the decay rate.</p>"
+                }
+              ]
+            }
+          ],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "rulesets": {},
+          "tags": [],
+          "extensions": []
+        }
+      ]
+    }
+  ]
+}

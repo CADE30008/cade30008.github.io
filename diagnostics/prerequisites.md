@@ -111,7 +111,6 @@ a reason: without it there is no single transfer function to find, because
 the answer would depend on where the system happened to start. A transfer
 function describes the system, not the situation it was in.
 
-
 **3. Transform the whole equation.**
 
 $$ \dot y + 2y = u \quad \longrightarrow \quad sY(s) + 2Y(s) = U(s). $$

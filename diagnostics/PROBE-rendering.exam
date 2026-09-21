@@ -1,0 +1,118 @@
+// Numbas version: exam_results_page_options
+{
+  "name": "PROBE - where does text appear",
+  "metadata": {
+    "description": "",
+    "licence": "None specified"
+  },
+  "duration": 0,
+  "percentPass": 0,
+  "showQuestionGroupNames": false,
+  "showstudentname": true,
+  "allowPrinting": true,
+  "navigation": {
+    "allowregen": false,
+    "reverse": true,
+    "browse": true,
+    "allowsteps": true,
+    "showfrontpage": true,
+    "showresultspage": "oncompletion",
+    "navigatemode": "sequence",
+    "onleave": {
+      "action": "none",
+      "message": ""
+    },
+    "preventleave": false,
+    "startpassword": ""
+  },
+  "timing": {
+    "allowPause": true,
+    "timeout": {
+      "action": "none",
+      "message": ""
+    },
+    "timedwarning": {
+      "action": "none",
+      "message": ""
+    }
+  },
+  "feedback": {
+    "showactualmark": true,
+    "showtotalmark": true,
+    "showanswerstate": true,
+    "allowrevealanswer": true,
+    "advicethreshold": 100,
+    "intro": "",
+    "feedbackmessages": []
+  },
+  "rulesets": {},
+  "question_groups": [
+    {
+      "name": "",
+      "pickingStrategy": "all-ordered",
+      "questions": [
+        {
+          "name": "Numbas rendering probe",
+          "tags": [],
+          "metadata": {
+            "description": "",
+            "licence": "None specified"
+          },
+          "statement": "<p>MARKER-STATEMENT: where does each block of text appear? Pick either option, submit, then try every button you can see.</p>",
+          "advice": "<p>MARKER-ADVICE: this is the question-level 'advice' field.</p><hr><p style=\"font-weight:700\">MARKER-ADVICE-2: after a horizontal rule.</p>",
+          "rulesets": {},
+          "extensions": [],
+          "builtin_constants": {},
+          "constants": [],
+          "variables": {},
+          "variablesTest": {
+            "condition": "",
+            "maxRuns": 100
+          },
+          "ungrouped_variables": [],
+          "variable_groups": [],
+          "functions": {},
+          "preamble": {
+            "js": "",
+            "css": ""
+          },
+          "parts": [
+            {
+              "type": "1_n_2",
+              "marks": 1,
+              "showCorrectAnswer": true,
+              "showFeedbackIcon": true,
+              "minMarks": 0,
+              "maxMarks": 0,
+              "shuffleChoices": false,
+              "displayType": "radiogroup",
+              "displayColumns": 0,
+              "showCellAnswerState": true,
+              "prompt": "<p>MARKER-PROMPT: this is part prompt text.</p>",
+              "choices": [
+                "<p>Option one</p>",
+                "<p>Option two</p>"
+              ],
+              "matrix": [
+                "1",
+                "0"
+              ],
+              "distractors": [
+                "<p>MARKER-DISTRACTOR-CORRECT: shown when the right option is chosen.</p>",
+                "<p>MARKER-DISTRACTOR-WRONG: shown when the wrong option is chosen.</p>"
+              ],
+              "steps": [
+                {
+                  "type": "information",
+                  "marks": 0,
+                  "prompt": "<p>MARKER-STEPS: this is inside a part 'steps' block.</p>"
+                }
+              ],
+              "stepsPenalty": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
