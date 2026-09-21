@@ -51,5 +51,6 @@ there is real content; `published` means it is on the live site. **9 of 11 weeks
 - `glossary.md`
 - `index.md`
 - `notation.md`
+- `planning/lecture-map.html`
 - `preparing/index.md`
 - `reading.md`

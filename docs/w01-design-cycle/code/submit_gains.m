@@ -28,7 +28,8 @@ arguments
     displayName (1,:) char = defaultName()
 end
 
-K        = plantGain();     % rad/(V s^2), from this session's fit
+plant    = plantGain();     % rad/(V s^2), and where it came from
+K        = plant.K;
 GAIN_MAX = 50;              % each gain, same limit on all three
 ROUTH    = 1.15;            % K*Kd*Kp must beat Ki by this factor
 ZETA_MIN = 0.15;            % of the dominant closed-loop pole pair
@@ -67,7 +68,13 @@ if isempty(problems)
 end
 
 % 3. Damping of the dominant pair, so the arm does not spend the flight
-%    ringing at the ceiling of its travel.
+%    oscillating at the ceiling of its travel.
+%
+%    This uses the plain PID characteristic polynomial, which is the one you
+%    can check by hand. The rig-side tool adds the derivative filter that makes
+%    the demand on the motors finite, which moves the number a little: expect
+%    the report on screen to differ from this in the second decimal place. Both
+%    are right about the same design.
 zeta = NaN;
 if isempty(problems)
     poles = roots([1, K*kd, K*kp, K*ki]);
@@ -84,7 +91,13 @@ if isempty(problems)
     end
 end
 
-fprintf('\n  Kp = %-8.4g Ki = %-8.4g Kd = %-8.4g   (K = %.4g)\n', kp, ki, kd, K);
+fprintf('\n  Checked against K = %.4g rad/(V s^2), %s\n', K, plant.source);
+if contains(lower(plant.source), 'provisional')
+    fprintf(['  That model is PROVISIONAL. Your result may move once the rig''s own\n' ...
+             '  K is fitted, and every submission is re-checked against it before\n' ...
+             '  anything flies.\n']);
+end
+fprintf('  Kp = %-8.4g Ki = %-8.4g Kd = %-8.4g\n', kp, ki, kd);
 if ~isempty(problems)
     fprintf(2, '  NOT submitted. %d problem(s):\n', numel(problems));
     for i = 1:numel(problems)
@@ -120,17 +133,42 @@ if isempty(name); name = 'anonymous'; end
 end
 
 
-function K = plantGain()
-%PLANTGAIN  This session's fitted K, or a refusal.
+function plant = plantGain()
+%PLANTGAIN  The plant to check against, and where it came from.
 %
-% There is no fallback value on purpose. A flight report produced against an
-% invented plant reads exactly like a real one, so the tool would rather stop.
+% Preference order: the model you fitted this session, then the provisional one
+% shipped beside this script. It refuses only when there is neither.
+%
+% Running on a provisional plant is fine here *because this check is advisory*.
+% Every submission is re-checked against the real fitted K before anything
+% reaches the rig, so the authoritative gate is not this one. What a refusal
+% here would cost is your submission: if you cannot write the file, you do not
+% get flown at all. Announce the uncertainty, do not stop the student.
+%
+% Your own fit takes precedence the moment you have one.
 if evalin('base', 'exist(''K_fitted'', ''var'')')
-    K = evalin('base', 'K_fitted');
+    plant = struct('K', evalin('base', 'K_fitted'), 'source', 'your fit from this session');
     return
 end
+
+% A copy of the provisional model travels with this script so it works before
+% anyone has fitted anything. Refresh it from models/elevation_plant.json when
+% that is refitted, or students check against a plant nobody uses any more.
+here = fileparts(mfilename('fullpath'));
+path = fullfile(here, 'elevation_plant.json');
+if isfile(path)
+    d = jsondecode(fileread(path));
+    if isfield(d, 'K') && d.K > 0
+        src = 'provisional';
+        if isfield(d, 'source'); src = char(d.source); end
+        plant = struct('K', double(d.K), 'source', src);
+        return
+    end
+end
+
 error('submit_gains:noPlant', ...
-    ['No fitted plant found. Run the system identification first, so that ' ...
-     'K_fitted\nexists in the workspace. Do not guess a value: gains checked ' ...
-     'against the wrong\nplant pass and then fly badly.']);
+    ['No plant to check against.\n\nEither finish the system identification, so ' ...
+     'that a variable called K_fitted\nexists in the workspace, or put ' ...
+     'elevation_plant.json beside this script.\nThere is no built-in default: ' ...
+     'gains checked against a guessed plant pass here\nand fly badly there.']);
 end

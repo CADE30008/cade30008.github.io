@@ -92,7 +92,10 @@ In [annual-update.md](annual-update.md), and repeated here because this is the
 page someone will be looking at:
 
 1. Copy `templates/` into a new `20xx-yy/` folder.
-2. Put this year's files into each `data/`.
+2. Put this year's files into each `data/`, including a current copy of
+   `models/elevation_plant.json` beside `submit_gains.m`. Without it the
+   student-side check refuses to run before the identification block; with a
+   stale one, students check against a plant nobody uses.
 3. Empty each `submit/`.
 4. Re-share every `data/` and `submit/`, which produces **new links**.
 5. Replace every link in Blackboard, and run the checks above on each one.
