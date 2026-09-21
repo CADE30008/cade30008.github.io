@@ -131,7 +131,13 @@ def check(weeks: list[dict], term: dict) -> None:
     for d in SLIDES.iterdir():
         if d.is_dir() and d.name not in lecture_slugs:
             err(f"slides/{d.name} is not a lecture week in weeks.yaml")
-    known = {"applets", "assets", "downloads", "includes", "javascripts", "planning", "preparing", "slides", "stylesheets"}
+    # "figures" holds the term map and the week graphic outside any week
+    # folder, because published pages point at them and the live build
+    # removes unpublished weeks wholesale. Written at the end of this
+    # script, which is why its absence from this list only showed up on the
+    # second run.
+    known = {"applets", "assets", "downloads", "figures", "includes", "javascripts",
+             "planning", "preparing", "slides", "stylesheets"}
     for d in DOCS.iterdir():
         if d.is_dir() and d.name not in slugs | known:
             err(f"docs/{d.name}/ is neither a week in weeks.yaml nor a known site folder — a leftover?")
