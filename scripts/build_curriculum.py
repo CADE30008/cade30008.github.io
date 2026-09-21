@@ -136,8 +136,10 @@ def check(weeks: list[dict], term: dict) -> None:
     # removes unpublished weeks wholesale. Written at the end of this
     # script, which is why its absence from this list only showed up on the
     # second run.
+    # "laboratory" is the open-access Quanser material, which spans the whole
+    # term rather than sitting in one week's folder.
     known = {"applets", "assets", "downloads", "figures", "includes", "javascripts",
-             "planning", "preparing", "slides", "stylesheets"}
+             "laboratory", "planning", "preparing", "slides", "stylesheets"}
     for d in DOCS.iterdir():
         if d.is_dir() and d.name not in slugs | known:
             err(f"docs/{d.name}/ is neither a week in weeks.yaml nor a known site folder — a leftover?")

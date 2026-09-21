@@ -30,6 +30,14 @@ pages:
   # not stumbled on. It is a planning document and reads like one, with
   # pedagogy codes, hooks written as hooks, and draft markers on the weeks
   # that are not written yet.
+  # The open-access laboratory material. Steve asked for it on the public
+  # site, 21 September. Unlike the run sheet these are for students, so they
+  # are in the navigation too.
+  - laboratory/index.md
+  - laboratory/part1-identify.md
+  - laboratory/part2-design.md
+  - laboratory/part3-validate.md
+  - laboratory/code/index.md
   - planning/lecture-map.html
   # Also not in the nav, and for the same reason: lecturer-facing, useful from
   # a phone in the laboratory, and nothing students need. Steve asked for it to
