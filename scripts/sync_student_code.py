@@ -26,15 +26,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "models"
-DST = ROOT / "docs" / "w01-design-cycle" / "code"
 
-# Canonical in models/, copied into the student bundle.
-FILES = [
-    "heli_plant.m",
-    "heli_envelope.m",
-    "heli_check_one.m",
-    "elevation_plant.json",
-]
+# Canonical in models/, copied into each folder students are handed.
+BUNDLES = {
+    ROOT / "docs" / "w01-design-cycle" / "code": [
+        "heli_plant.m",
+        "heli_envelope.m",
+        "heli_check_one.m",
+        "elevation_plant.json",
+    ],
+    ROOT / "docs" / "laboratory" / "code": [
+        "fit_second_order.m",
+        "heli_plant.m",
+        "heli_envelope.m",
+        "heli_check_one.m",
+        "elevation_plant.json",
+    ],
+}
 
 
 def main() -> int:
@@ -43,31 +51,39 @@ def main() -> int:
                     help="verify without copying; non-zero exit if stale")
     args = ap.parse_args()
 
-    missing = [f for f in FILES if not (SRC / f).exists()]
+    wanted = sorted({f for files in BUNDLES.values() for f in files})
+    missing = [f for f in wanted if not (SRC / f).exists()]
     if missing:
         print(f"Missing from {SRC.relative_to(ROOT)}: {', '.join(missing)}", file=sys.stderr)
         return 2
 
-    DST.mkdir(parents=True, exist_ok=True)
-    stale = []
-    for f in FILES:
-        src, dst = SRC / f, DST / f
-        if not dst.exists() or not filecmp.cmp(src, dst, shallow=False):
-            stale.append(f)
+    total, copied, stale_any = 0, 0, False
+    for dst_dir, files in BUNDLES.items():
+        dst_dir.mkdir(parents=True, exist_ok=True)
+        stale = [f for f in files
+                 if not (dst_dir / f).exists()
+                 or not filecmp.cmp(SRC / f, dst_dir / f, shallow=False)]
+        total += len(files)
+        where = dst_dir.relative_to(ROOT)
+        if args.check:
+            if stale:
+                stale_any = True
+                print(f"{where} is out of date: {', '.join(stale)}", file=sys.stderr)
+            continue
+        for f in stale:
+            shutil.copy2(SRC / f, dst_dir / f)
+        copied += len(stale)
+        print(f"{where}: {len(files)} files, {len(stale)} copied"
+              + (f" ({', '.join(stale)})" if stale else ""))
 
     if args.check:
-        if stale:
-            print(f"Student folder is out of date: {', '.join(stale)}\n"
-                  f"Run: .venv/bin/python scripts/sync_student_code.py", file=sys.stderr)
+        if stale_any:
+            print("Run: .venv/bin/python scripts/sync_student_code.py", file=sys.stderr)
             return 1
-        print(f"{len(FILES)} files, student folder matches models/")
+        print(f"{total} files across {len(BUNDLES)} folders, all match models/")
         return 0
 
-    for f in stale:
-        shutil.copy2(SRC / f, DST / f)
-    print(f"{len(FILES)} files checked, {len(stale)} copied into "
-          f"{DST.relative_to(ROOT)}"
-          + (f": {', '.join(stale)}" if stale else ""))
+    print(f"{total} files checked, {copied} copied")
     return 0
 
 

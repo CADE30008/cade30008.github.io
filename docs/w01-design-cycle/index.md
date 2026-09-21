@@ -13,6 +13,7 @@ status: draft
 [Slides](../slides/w01-design-cycle/index.html)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
+[Code](code/index.md)
 </div>
 
 This session runs the whole control design cycle once, in two hours, on a real
