@@ -58,19 +58,16 @@ stays a record of what the session needs each year.
       the day before, and placed in this week's `data/` folder. **The rig is in
       the laboratory until 12:50 on the day**, so record it there, not in the
       theatre.
-- [ ] MATLAB Drive, per [matlab-drive.md](matlab-drive.md):
-      `CADE30008/<year>/w01-design-cycle/data/` shared **view only**, and
-      `.../submit/` shared **can edit**. Both links on Blackboard.
-- [ ] **Both links tested from a student account, not your own.** As the owner
-      every link works, so testing as yourself proves nothing. Upload a file to
-      `submit/` from that account, confirm it lands, delete it.
-- [ ] **Confirm what `submit/` exposes.** A writable shared folder is readable
-      too, so every student can see every other submission, by whatever name it
-      carries. That is fine — but only if they are told before they upload, so
-      it is on the slide and in the script below.
-- [ ] Gain filter tested on last year's or synthetic submissions, including
-      deliberately bad ones.
-- [ ] Selection tool tested end to end on a dummy folder of submissions.
+- [x] **Gain submission form built and tested end to end**, 21 Sep. A link
+      built by MATLAB pre-filled the form, the submission came back through the
+      export, and `collate_gains` read it as the right name and the right
+      numbers. Field ids are in `docs/w01-design-cycle/code/gain_form.json`,
+      with a note on regenerating them for next year's form.
+- [ ] **Form link on Blackboard**, and the students' code folder distributed.
+- [x] Gain filter tested on synthetic submissions including deliberately bad
+      ones, and the MATLAB and Python envelopes cross-checked against each
+      other on twelve gain sets (`scripts/compare_envelope.py`).
+- [ ] Selection tool tested end to end on a dummy set of submissions.
 - [ ] Preparing for Control page live, and the device check working.
 
 ## In the room
@@ -90,12 +87,14 @@ is the back-row sight line and locating both switches.
 | Existing lab material to adapt | `private/quanser/Quanser Lab/Quanser Lab 1 - System ID and PID/` |
 | System-ID Live Script to adapt | `.../solution_files/s_1_system_identification.mlx` |
 | Rig Simulink models | `.../m_part1.slx`, `.../m_part3.slx` |
-| Student Live Script | `CADE30008/<year>/w01-design-cycle/data/` — **to build**. |
-| Measured response data | same `data/` folder — **recorded on the day**. |
-| Gains submission folder | `CADE30008/<year>/w01-design-cycle/submit/` — **to create**. |
-| Gain filter and selection tool | `scripts/gains.py` — **built**, see below. |
+| Student code folder | `docs/w01-design-cycle/code/` — synced by `scripts/sync_student_code.py`. |
+| Measured response data | recorded on the day; see the checklist above. |
+| Gain submission | Microsoft Form; ids in `docs/w01-design-cycle/code/gain_form.json`. |
+| Collate the form export | `models/collate_gains.m` — **run this one live**. |
+| The envelope, once | `models/heli_check_one.m`, mirrored by `scripts/gains.py`. |
+| Envelope cross-check | `scripts/compare_envelope.py`. |
 | Example submissions, to test against | `examples/gains/` — fixtures only, never student work. |
-| Fitted elevation model | `models/elevation_plant.json` — **provisional, replace from the rig**. |
+| Fitted elevation model | `models/elevation_plant.json` — **the laboratory's fit; replace from this rig**. |
 
 Everything marked "to build" is a prerequisite, not a nice-to-have.
 
@@ -104,40 +103,62 @@ Everything marked "to build" is a prerequisite, not a nice-to-have.
 Say this, in these words or close to them, **before** the first submission goes
 in. It takes fifteen seconds and cannot be said afterwards.
 
-> The drop folder is shared, so everyone in this room can see everyone else's
-> submission. That's deliberate — half the point is seeing the spread. Put
-> whatever name you like on it: your own, or a nickname. If you'd rather not be
-> identifiable, use a nickname, and that's completely fine.
+> The form asks for a display name, and that name goes on the screen when your
+> gains are flown. Put whatever you like: your own name, or a nickname. The
+> form records your University account so I know whose is whose, and that is
+> never shown to the room. Round one is the extremes, chosen because they
+> misbehave, so somebody's name is going on a public failure.
 
 Two reasons it matters. It is the students' data and their choice, and consent
 after the fact is not consent. And a student who would be embarrassed by a
-visibly bad set of gains will otherwise simply not submit — which costs the
-exercise the very spread it depends on.
+visibly bad set of gains will otherwise simply not submit, which costs the
+exercise the spread it depends on.
 
-The alias field exists for exactly this, and it is worth saying that it does.
+The display name field exists for exactly this, and it is worth saying that it
+does.
 
 ## Gains: filtering and choosing
 
-```bash
-python scripts/gains.py check private/gains          # all submissions
-python scripts/gains.py pick  private/gains --round 2
+Submissions arrive as the form's Excel export. In MATLAB, in the room:
+
+```matlab
+flights = collate_gains('~/Downloads/responses.xlsx');
 ```
 
-**Before anything is filtered**, fit `K` from this rig's own step response and
-write it into `models/elevation_plant.json`. The file that ships is a catalogue
-estimate, marked provisional, and the tool prints its source in the banner every
-time it runs — check that banner in the room. It refuses to run at all if the
-file is missing, deliberately: a report produced against a guessed plant reads
-exactly like a real one.
+That is the one to run live: it reads the export, keeps each person's last
+submission, applies the envelope, and returns the flight list in order. The
+Python side reads a folder of files instead and applies the same envelope:
+
+```bash
+.venv/bin/python scripts/gains.py check path/to/responses
+.venv/bin/python scripts/gains.py pick  path/to/responses --round 2
+```
+
+**Before anything is filtered**, fit the rig's own step response with
+`fit_second_order` and write `K`, `wn` and `zeta` into
+`models/elevation_plant.json`, then run
+`.venv/bin/python scripts/sync_student_code.py` so the students' folder matches.
+The file that ships carries the laboratory's stored fit, not this rig today,
+and the tools print their source in the banner every time they run — check that
+banner in the room. They refuse to run at all if the file is missing or carries
+only `K`, deliberately: a report produced against a guessed plant reads exactly
+like a real one.
 
 Every check is a **refusal, never a clamp**. Nothing is quietly adjusted into
 range, so a student whose gains are flown sees their own gains.
 
-**Fallback gains, if nothing passes or the drop folder fails:**
-`Kp = 7.13, Ki = 0.2, Kd = 12.6` — settles in 5.8 s, damping 0.81, peak demand
-10.3 V, phase margin 55°. Found by searching the envelope, so it is inside it by
-construction. Recompute it once the real `K` is in, since these numbers follow
-the fitted plant.
+**Fallback gains, if nothing passes or the form fails:**
+`Kp = 0.71, Ki = 0.59, Kd = 0.91` — settles in 5.9 s, damping 0.66, peak demand
+5.2 V, phase margin 55°. Found by pole placement against the fitted plant and
+checked against the envelope, so it is inside it by construction. Recompute it
+once the rig's own fit is in, since these numbers follow the plant.
+
+!!! danger "The previous fallback would not have flown"
+    `Kp = 7.13, Ki = 0.2, Kd = 12.6` was the fallback while the plant was
+    assumed to be a double integrator. Against the measured plant it is
+    **rejected**: 18.2° of phase margin, and a 23.2 V demand from an amplifier
+    with 11.2 V of usable headroom. If you have that set written down
+    anywhere, throw it away.
 
 **Round 2 is the interesting one.** The average of the cohort's accepted gains
 is checked like any other submission, and it can fail even though every input
@@ -146,17 +167,45 @@ why: it is a better lesson than the flight would have been.
 
 ### The physics, for the room
 
-The elevation axis is a **pure double integrator**, `G(s) = K/s²`. That is why
-the open-loop attempt fails, and why "turn Kp up" makes it worse. With PID the
-characteristic polynomial is `s³ + K·Kd·s² + K·Kp·s + K·Ki`, so Routh gives a
-condition students can check on paper:
+The elevation axis, as measured, is a **stable but very lightly damped second
+order**:
 
-> `Kd > 0`, `Kp > 0`, `Ki > 0`, and **`K·Kd·Kp > Ki`**
+> `G(s) = K·ωₙ² / (s² + 2ζωₙs + ωₙ²)`, with `K ≈ 3.4 deg/V`, `ωₙ ≈ 1.0 rad/s`, `ζ ≈ 0.06`
 
-Scale the whole loop gain by α and it becomes `α·K·Kd·Kp > Ki`: the loop is
-stable for *large* α and unstable for small. **This loop is conditionally
-stable — turning the gain down is what breaks it.** Worth a slide; it is the
-opposite of what everyone expects.
+Disturb it and it does come back, but the oscillation has a six-second period
+and takes about a minute to die away.
+
+**Why "turn Kp up" does not work.** Close a proportional loop alone and the
+characteristic polynomial is `s² + 2ζωₙs + ωₙ²(1 + K·Kp)`. Kp is absent from
+the coefficient of `s`, so the real part of the poles is pinned at `-ζωₙ`
+however hard you push: the locus is a vertical line. Going from Kp = 0.5 to
+Kp = 10 takes the overshoot from 89% to 97% and leaves the settling time at 65
+seconds. Figure: `models/w01_proportional_limit.py`.
+
+That is the motivation for the other two terms, and it is worth doing on the
+board: damping has to come from somewhere other than Kp, which is the
+derivative; the gap to the demand needs something with memory, which is the
+integral.
+
+**With PID**, the characteristic polynomial is
+
+> `s³ + (2ζωₙ + K·ωₙ²·Kd)·s² + (ωₙ² + K·ωₙ²·Kp)·s + K·ωₙ²·Ki`
+
+and Routh on `s³ + a₂s² + a₁s + a₀` asks for all coefficients positive and
+**`a₂·a₁ > a₀`**. That is the condition students can check on paper. Raise Ki
+far enough with Kp and Kd fixed and the loop goes unstable, which is the one
+place integral action is visibly not free.
+
+!!! warning "A claim that used to be here, and was wrong"
+    This file previously said the loop was *conditionally stable*, so that
+    turning the gain **down** was what broke it. That is true of a double
+    integrator and false of this plant: scale a working design's gains down by
+    a factor of a hundred and it stays stable. Do not say it in the room.
+
+**Derivative acts on the measurement, not the error.** That is what Quanser
+do, and it is what the handout means by rate feedback. It matters because the
+demand is rate-limited at 45 deg/s, so derivative on the error would ask for
+`Kd × 45` volts before the arm has moved at all.
 
 ## Hook
 
@@ -193,7 +242,7 @@ running late, cut the design-cycle block, not this.
 | At | Min | What | On screen |
 |---|---|---|---|
 | 0 | 10 | **System ID** from the measured response. Floor: manual second-order fit. Ceiling: `tfest`. | Live Script |
-| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. **Say the visibility line below before anyone uploads**, then submit gains to MATLAB Drive. | Live Script; requirement still visible. |
+| 10 | 15 | **Tune a PID** in simulation against the agreed requirement. **Say the display-name line below before anyone submits**, then `submit_gains` hands them a pre-filled form link. | Live Script; requirement still visible. |
 | 25 | 15 | **Fly the submitted gains**, three rounds. | Camera, with the display name on screen. |
 | 40 | 10 | **The cliffhanger,** and set the independent work. | Deck |
 
@@ -236,14 +285,14 @@ Set the independent work in the last two minutes, by P17's three parts.
 | Likely failure | What to do |
 |---|---|
 | Rig won't run, or fails mid-session | Fall back to the recorded response and a recorded flight. Everything after system ID works unchanged; only the live flying is lost. Have the recording on the machine, not in the cloud. |
-| MATLAB Drive submission folder fails, or students can't write to it | Take gains verbally from four or five pairs and type them in. The three rounds still work with a handful of submissions. |
+| The form fails, or students can't reach it | Take gains verbally from four or five pairs and type them straight into `heli_check_one`. The three rounds still work with a handful of submissions. |
 | Students can't get MATLAB working in the room | Pair them with someone who can. This is why the device check exists; note who, and chase before week 2. |
 | Running late at the 25-minute mark of hour 2 | Cut round 1 to two sets. Never cut the cliffhanger. |
 
 ## After
 
-- [ ] Download the submissions folder; keep it, it is the first cohort data of
-      the year and it says who has MATLAB working.
+- [ ] Export the form's responses; keep them, they are the first cohort data of
+      the year and they say who has MATLAB working.
 - [ ] Post the recorded flight, the data and the Live Script for anyone absent.
 - [ ] Note actual timings against the plan above, and update this file today.
 - [ ] Check who did not submit anything: earliest signal of a student in
