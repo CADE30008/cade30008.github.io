@@ -29,6 +29,20 @@ Name them `<what>-<yyyy-mm-dd>`, so `elevation-step-2V-2026-09-21.csv`. Keep
 every recording, including the bad ones: a run where the arm hit a stop is
 worth having when somebody asks why a fit moved.
 
+## The trim sweep, if you have ten minutes at the rig
+
+The open question about this rig is whether its natural frequency depends on
+where the arm is trimmed. `models/rig_trim_sweep.m` answers it from four or
+five recordings; its help has the procedure, and the short version is:
+
+1. Set **Elevation Input**, let the arm settle for a full minute.
+2. Nudge it by about +0.5 V and leave it.
+3. Record 40 s of the swing, save as `trim-<volts>V-<date>.mat`.
+4. Repeat at roughly 1.0, 1.5, 2.0, 2.5, 3.0 V.
+
+Then `rig_trim_sweep` fits each and says whether the frequency is constant or
+climbing. That decides whether one model covers the working range.
+
 ## Then fit it
 
 ```matlab
