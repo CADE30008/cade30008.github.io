@@ -278,10 +278,19 @@ A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop,
 - Substitute: \( T = \dfrac{\frac{4}{s(s+1)}}{1 + \frac{4}{s(s+1)}} \).
 - Multiply top and bottom by \( s(s+1) \): \( T = \dfrac{4}{s(s+1) + 4} = \dfrac{4}{s^2+s+4} \).
 
-Two habits that save time later. **The closed-loop denominator is
-\( 1 + G \) cleared of fractions**, so you can often write it down without
-the algebra. And **the numerator of \( T \) is the numerator of \( G \)**,
-unchanged: feedback moves poles, never zeros.
+A shortcut worth having, because you will be closing loops constantly
+from here on. Write the plant as \( G = \dfrac{N}{D} \), with
+\( N \) its numerator and \( D \) its denominator. Then
+
+$$ T = \dfrac{G}{1+G} = \dfrac{\frac{N}{D}}{1 + \frac{N}{D}} = \dfrac{N}{D + N}. $$
+
+**Add the numerator of \( G \) to its denominator and you have the
+closed-loop denominator.** Here \( N = 4 \) and \( D = s^2 + s \), so the
+answer is \( \dfrac{4}{s^2 + s + 4} \) on sight, with none of the algebra
+above.
+
+It also shows that the numerator is untouched: **feedback moves poles, but
+never zeros.**
 
 This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect a lively
 response with around 45% overshoot. The Quanser rig in the first session is
