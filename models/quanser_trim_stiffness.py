@@ -42,6 +42,20 @@ contribution**, to under 2%. Either the counterweight was off for this run or
 it was not where the model assumes. It is emphatically not the balanced arm the
 linearised model describes.
 
+Open: which way is the arm unbalanced
+-------------------------------------
+Quanser's constants make the counterweight the heavier end, 0.8787 kg m against
+0.7595 for the body, which would rest with the props UP. Steve reports the rigs
+sit prop-end on the deck when powered off, which is the other way round. So
+either the counterweight is set lighter than the catalogue figure on our rigs,
+or it is adjustable and was moved.
+
+That matters, because "the counterweight contributed nothing" is only one
+reading of the 1.4% match below. A partial counterweight contribution at some
+resting angle would fit too. The sin(eps) mechanism does not depend on which is
+right - the stiffness is still zero at level and grows with angle - but the
+particular m L should not be treated as settled until somebody weighs the arm.
+
 What still does not close
 -------------------------
 The DC gain. This model predicts about 10 deg/V and the data shows 3.47, a

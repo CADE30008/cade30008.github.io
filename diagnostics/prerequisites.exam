@@ -1,6 +1,6 @@
 // Numbas version: exam_results_page_options
 {
-  "name": "CADE30008 Control: prerequisite diagnostic  (draft 1)",
+  "name": "CADE30008 Control: prerequisite diagnostic",
   "metadata": {
     "description": "<p>Ten questions on the mathematics and control this unit builds on. Formative: it does not contribute to your grade. Every question gives you feedback on what you chose and how to get to the answer, so it is worth reading even the ones you got right.</p>",
     "licence": "None specified"
