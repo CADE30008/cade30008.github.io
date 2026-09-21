@@ -348,9 +348,20 @@ questions:
       It also shows that the numerator is untouched: **feedback moves poles, but
       never zeros.**
 
-      This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect a lively
-      response with around 45% overshoot. The Quanser rig in the first session is
-      far less damped still.
+      Both of those hold for **unity feedback**, where the output is fed
+      straight back and compared with the reference. Put a sensor \( H(s) \) in
+      the return path and the closed loop is \( T = \dfrac{G}{1 + GH} \), whose
+      numerator and denominator both pick up parts of \( H \). If there is a
+      controller in the forward path, the shortcut still works provided you
+      apply it to the whole forward path, \( CG \), rather than to the plant
+      alone.
+
+      This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect
+      around 45% overshoot and a couple of seconds of settling. Worth contrasting
+      with the rig you meet in the first session: its elevation axis has no
+      natural frequency and no damping ratio at all, because there is nothing
+      pulling it back towards level. It does not oscillate, it drifts. Closing a
+      loop is what gives it both.
 
   - id: steady-state-error
     name: Steady-state error
