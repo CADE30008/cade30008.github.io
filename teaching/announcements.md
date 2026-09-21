@@ -24,9 +24,9 @@ in *italics*; everything else should stand.
 
 ## Sent: the unit is open
 
-**Scheduled 21 September 2026, to go out 09:00.** This is the text as actually
-sent, not as drafted. Keep it that way: next year's starting point should be
-what worked, not what was proposed.
+**Scheduled 21 September 2026, to go out 09:00**, and corrected in Blackboard
+before it sent. This is the text as actually sent, not as drafted. Keep it that
+way: next year's starting point should be what worked, not what was proposed.
 
 **Subject:** *Welcome to Flight Dynamics & Control!*
 
@@ -41,12 +41,12 @@ what worked, not what was proposed.
 > and tells you whether your laptop is ready. Doing it now means our first
 > session goes on control rather than on installing software.
 >
-> In the same section you'll find links to three MathWorks Onramp courses, two
-> of which cover skills you likely already have, one (only 30 mins), and a short
-> diagnostic quiz on the maths we build on. All are recommended rather than
-> required. Do them now if you have the time; otherwise pick them up when you
-> can. None contribute to your grade, and nothing in the unit assumes you've
-> done them.
+> In the same section you'll find links to three MathWorks Onramp courses. Two
+> cover skills you likely already have; the third takes only 30 minutes. There's
+> also a short diagnostic quiz on the maths we build on. All are recommended
+> rather than required. Do them now if you have the time; otherwise pick them up
+> when you can. None contribute to your grade, and nothing in the unit assumes
+> you've done them.
 >
 > Bring a laptop to sessions if you have one. If you don't, you'll share —
 > activities are done in pairs and threes.
@@ -72,11 +72,10 @@ Worth carrying into the weekly pattern rather than treating as one-off edits.
 - **Send this a week in advance.** It went out the morning before the first
   session, which leaves no time to act on the device check, and the device check
   is the one thing in it with a deadline attached in practice.
-- The Onramp sentence needs a rewrite. Three courses and a quiz are carried in a
-  single clause, and "one (only 30 mins)" has nothing to attach to. Something
-  closer to: *three MathWorks Onramp courses. Two cover skills you likely
-  already have; the third takes only 30 minutes. There is also a short
-  diagnostic quiz on the maths we build on.*
+- The Onramp sentence was caught and fixed before sending, but only just. Three
+  courses and a quiz in one clause is the failure mode to watch: this paragraph
+  carries the most items of any in the announcement, so it is the one to read
+  aloud before scheduling.
 
 ---
 
