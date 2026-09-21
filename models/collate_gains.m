@@ -122,15 +122,31 @@ end
 
 function c = findColumn(names, wanted, optional)
 %FINDCOLUMN  A column whose header matches, ignoring case and punctuation.
+%
+% The export's headers are the question text, verbatim, so "Kp" survives only
+% as long as nobody improves the question to "Kp (proportional gain)". Each
+% candidate term is tried exact, then as a prefix, then anywhere in the header,
+% and the first term to match anything wins.
+%
+% The loops are this way round on purpose. A Microsoft Forms export carries the
+% respondent's own "Name" column alongside our "Display name" question, so a
+% pass that tried every term exactly before trying any term loosely would bind
+% "name" to the wrong column the moment the question was reworded. The more
+% specific term has to be exhausted first, not the stricter test.
 flat = lower(regexprep(names, '[^a-zA-Z0-9]', ''));
-for w = wanted
-    hit = find(strcmp(flat, regexprep(lower(w{1}), '[^a-zA-Z0-9]', '')), 1);
-    if ~isempty(hit); c = names{hit}; return; end
+want = cellfun(@(w) regexprep(lower(w), '[^a-zA-Z0-9]', ''), wanted, ...
+               'UniformOutput', false);
+tests = {@(f, w) strcmp(f, w), @(f, w) startsWith(f, w), @(f, w) contains(f, w)};
+for k = 1:numel(want)
+    for t = tests
+        hit = find(cellfun(@(f) t{1}(f, want{k}), flat), 1);
+        if ~isempty(hit); c = names{hit}; return; end
+    end
 end
 if optional; c = ''; return; end
 error('collate_gains:noColumn', ...
-    ['No column named %s in the export. Found: %s\n' ...
-     'The four questions must be named Display name, Kp, Ki and Kd.'], ...
+    ['No column named %s in the export.\nFound: %s\n' ...
+     'The four questions should be Display name, Kp, Ki and Kd, in that order.'], ...
     strjoin(wanted, ' or '), strjoin(names, ', '));
 end
 
