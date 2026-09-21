@@ -733,13 +733,13 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         # Both quoted: an unquoted value containing a colon is not valid YAML,
         # and the failure surfaces as a build error about byte offsets.
         'title: "How this unit runs"',
-        'description: "What each week covers, what a week is meant to cost you, how '
-        'the coursework builds, and when the laboratory is open."',
+        'description: "What each week covers, what you are expected to put into a '
+        'week, how the coursework builds, and when the laboratory is open."',
         "---", "",
         "# How this unit runs", "",
-        "This page is the shape of the unit in one place: the weeks, what a week is",
-        "meant to cost you, how the coursework builds, and when the laboratory is",
-        "open. It is written in **week numbers**, because those are a property of the",
+        "This page is the shape of the unit in one place: the weeks, what you are",
+        "expected to put into one, how the coursework builds, and when the laboratory",
+        "is open. It is written in **week numbers**, because those are a property of the",
         "unit. Dates, rooms and deadlines live on Blackboard, which is the version to",
         "trust when the two disagree.", "",
         "## The term at a glance", "",
@@ -751,7 +751,7 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "(figures/term-map.svg){ width=\"100%\" }", "",
         "The same thing as a table, if you would rather read it or follow a link:", "",
         *rows, "",
-        "## What a week is meant to cost", "",
+        "## What you are expected to invest", "",
         f"**About {per_week:g} hours in a lecture week**, including the lecture itself:", "",
         f"- **{by_kind['lecture']:g} h** in the room with us;",
         f"- **{by_kind['independent']:g} h** independent: closing the loop on the last session, "
@@ -780,7 +780,7 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "    what the handouts cover. See [Recommended reading](reading.md).",
         "",
         f"    A {wl['working_week']:g}-hour working week across {wl['units_at_once']} units at once is the",
-        "    assumption behind all of it. If a week is costing you far more than this,",
+        "    assumption behind all of it. If a week is taking far more than this,",
         "    that is worth telling us about rather than absorbing.", "",
         "## How the coursework builds", "",
         f"One brief, released in week {cw['steps'][0]['week']} and due in week {cw['deadline']['week']}, "

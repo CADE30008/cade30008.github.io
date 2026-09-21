@@ -1,13 +1,13 @@
 ---
 title: "How this unit runs"
-description: "What each week covers, what a week is meant to cost you, how the coursework builds, and when the laboratory is open."
+description: "What each week covers, what you are expected to put into a week, how the coursework builds, and when the laboratory is open."
 ---
 
 # How this unit runs
 
-This page is the shape of the unit in one place: the weeks, what a week is
-meant to cost you, how the coursework builds, and when the laboratory is
-open. It is written in **week numbers**, because those are a property of the
+This page is the shape of the unit in one place: the weeks, what you are
+expected to put into one, how the coursework builds, and when the laboratory
+is open. It is written in **week numbers**, because those are a property of the
 unit. Dates, rooms and deadlines live on Blackboard, which is the version to
 trust when the two disagree.
 
@@ -34,7 +34,7 @@ The same thing as a table, if you would rather read it or follow a link:
 | **11** | Act 3 | [What comes next](w11-beyond-this-course/index.md) |
 | **12** | | *Revision week. Nothing new.* |
 
-## What a week is meant to cost
+## What you are expected to invest
 
 **About 6 hours in a lecture week**, including the lecture itself:
 
@@ -60,7 +60,7 @@ Plus **4 hours of laboratory** in total, across the open window below.
     what the handouts cover. See [Recommended reading](reading.md).
 
     A 35-hour working week across 3 units at once is the
-    assumption behind all of it. If a week is costing you far more than this,
+    assumption behind all of it. If a week is taking far more than this,
     that is worth telling us about rather than absorbing.
 
 ## How the coursework builds
