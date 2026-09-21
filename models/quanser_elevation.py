@@ -44,6 +44,57 @@ exactly wrong here, and a naive gain-margin test reads every good design as a
 failure. So the envelope below asks how far the loop gain can move in *both*
 directions, which is the honest question for a plant like this.
 
+Where the double integrator comes from, and why it is disputed
+--------------------------------------------------------------
+**Provenance, which this file did not carry until 21 September.** The model
+above is Quanser's own, not an assumption: `HELI3D_ABCD_eqns.m` in
+`private/quanser` (Lab 2, theirs) gives
+
+    A[4,1] = 0                                  no restoring term at level
+    B[4,1] = La*Kf/(m_w*Lw^2 + 2*m_f*La^2)      which is this file's La*Kf/Je
+
+and all six open-loop eigenvalues are at the origin. So elevation linearised
+about **level** is a driven double integrator, exactly as described.
+
+**But the rig does not behave like one, and the laboratory's own material says
+so.** `solution_files/s_1_system_identification.mlx` fits the measured step in
+`d_Part1.mat` and gets a stable, lightly damped second order:
+
+    G(s) = 3.4 / (s^2 + 0.12 s + 1)     deg/V,  omega_n = 1, zeta = 0.06
+
+Refitting that data independently gives a DC gain of 3.47 deg/V and the same
+frequency and damping, so their numbers hold.
+
+**Steve's account of the hardware**, 21 September: the elevation axis oscillates
+about *any* trim point; raising the motor voltage raises the trim elevation;
+disturbing it gives a lightly damped oscillation. That is a stable second-order
+system, not a double integrator, and it matches the data.
+
+**The two are not in conflict about the physics, only about the operating
+point.** The arm's gravity moment goes as cos(elevation), so its *stiffness*
+goes as sin(elevation): zero at level, growing as you move away from it. At
+level there is nothing to oscillate against, which is what Quanser linearise;
+away from level there is, which is what the laboratory measures.
+
+**What is not resolved.** The fitted model has omega_n = 1 at its trim, and
+treats it as constant. The geometry above says omega_n should rise with trim
+elevation, as sqrt(sin(eps)). One dataset at one trim cannot tell those apart,
+and `d_Part3_*.mat` are closed-loop runs, so they do not settle it either.
+
+    The experiment: record open-loop steps to two or three different trim
+    elevations and fit each. If omega_n is the same at all of them, the plant
+    is linear time-invariant over the working range and the laboratory model is
+    simply right. If omega_n rises with trim, the stiffness is geometric and
+    the model is only valid near the trim it was fitted at.
+
+Until that is done, **do not treat either model as settled**. It matters beyond
+bookkeeping: the envelope and the Routh condition in this file follow from
+K/s^2, and week 1's hook - that the machine cannot be flown by hand - is true
+of a double integrator and false of a lightly damped stable system, which can
+be flown badly.
+
+See `models/quanser_trim_stiffness.py` for the geometry and the numbers.
+
 The numbers
 -----------
 `K` is measured, not assumed: week 1's whole first act is fitting it from the
