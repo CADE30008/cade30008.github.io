@@ -82,6 +82,7 @@ extra_javascript = [
   "javascripts/py-runner.js",
   "javascripts/code-scroll.js",
   "javascripts/links.js",
+  "javascripts/analytics.js",
   "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
 ]
 

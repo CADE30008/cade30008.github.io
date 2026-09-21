@@ -14,6 +14,14 @@ Before the first lecture, work through [Preparing for Control](preparing/index.m
 
 Some sections include small interactive applets, such as a PID tuner with sliders. They run entirely in your browser and don't send anything anywhere. The same applets appear in the lecture slides.
 
+## What this site counts
+
+The site counts visits, using [GoatCounter](https://www.goatcounter.com). It sets no cookies. What it stores is a daily tally per page, with the country, browser, screen width and referring site counted separately, so they cannot be combined back into a person.
+
+Your IP address and browser string are held in memory for eight hours, so that reloading a page is not counted twice. Neither is written to disk. GoatCounter's [privacy page](https://www.goatcounter.com/help/privacy) sets out the detail.
+
+I look at this to find out which pages are used and which are ignored. If you block it, nothing else on the site changes.
+
 ## Generative AI
 
 Generative AI tools were used to help develop these learning resources. The
