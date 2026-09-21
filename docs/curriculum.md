@@ -15,6 +15,10 @@ trust when the two disagree.
 
 Eleven weeks of content in 3 acts, then revision.
 
+![The control half week by week: what happens each week, the three acts, the coursework checkpoints and deadline, and the laboratory window](figures/term-map.svg){ width="100%" }
+
+The same thing as a table, if you would rather read it or follow a link:
+
 | Week | | What it covers |
 |---|---|---|
 | **1** | Act 1 | [The design cycle, end to end](w01-design-cycle/index.md) |
@@ -39,6 +43,8 @@ Eleven weeks of content in 3 acts, then revision.
 - **2 h** on the coursework, which is designed to be done a little each week rather than in a block at the end.
 
 Plus **4 hours of laboratory** in total, across the open window below.
+
+![Your week: two hours in the lecture, two on your own and two on the coursework, six in total. The two independent hours are 45 minutes on the handout and the week's challenge, an hour on the example sheet and 15 minutes on next week's case. The consolidation week replaces the lecture and independent hours with four hours of recommended activities. On top of all of it, four hours in the Quanser laboratory at times you choose](figures/your-week.svg){ width="100%" }
 
 !!! info "Why that adds up to less than the credit says"
     Ten credits is 100 notional hours. What is planned above comes to
@@ -89,7 +95,3 @@ term, which is the part people miss: by the time the coursework gets
 difficult, the laboratory has shut. Slots also fill from the back, so the
 people who book late get the worst of both.
 
----
-
-*Generated from the unit's own plan. If something here disagrees with
-Blackboard, Blackboard is this year's version and this is the shape.*

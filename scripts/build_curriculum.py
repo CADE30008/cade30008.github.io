@@ -744,6 +744,12 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "trust when the two disagree.", "",
         "## The term at a glance", "",
         f"Eleven weeks of content in {len(acts)} acts, then revision.", "",
+        # The same figure week 1 carries. Both are written by this script in one
+        # run, from these weeks, so the picture and the table cannot disagree.
+        "![The control half week by week: what happens each week, the three acts, "
+        "the coursework checkpoints and deadline, and the laboratory window]"
+        "(figures/term-map.svg){ width=\"100%\" }", "",
+        "The same thing as a table, if you would rather read it or follow a link:", "",
         *rows, "",
         "## What a week is meant to cost", "",
         f"**About {per_week:g} hours in a lecture week**, including the lecture itself:", "",
@@ -753,6 +759,13 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         f"- **{by_kind['coursework']:g} h** on the coursework, which is designed to be done "
         "a little each week rather than in a block at the end.", "",
         f"Plus **{wl['laboratory']:g} hours of laboratory** in total, across the open window below.", "",
+        "![Your week: two hours in the lecture, two on your own and two on the "
+        "coursework, six in total. The two independent hours are 45 minutes on the "
+        "handout and the week's challenge, an hour on the example sheet and 15 minutes "
+        "on next week's case. The consolidation week replaces the lecture and "
+        "independent hours with four hours of recommended activities. On top of all "
+        "of it, four hours in the Quanser laboratory at times you choose]"
+        "(figures/your-week.svg){ width=\"100%\" }", "",
         '!!! info "Why that adds up to less than the credit says"',
         f"    Ten credits is {wl['notional']:g} notional hours. What is planned above comes to",
         f"    roughly **{planned:g} hours** across the term,",
@@ -786,9 +799,6 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "term, which is the part people miss: by the time the coursework gets",
         "difficult, the laboratory has shut. Slots also fill from the back, so the",
         "people who book late get the worst of both.", "",
-        "---", "",
-        "*Generated from the unit's own plan. If something here disagrees with",
-        "Blackboard, Blackboard is this year's version and this is the shape.*",
     ])
 
 
@@ -1020,6 +1030,12 @@ def main() -> None:
     fig.mkdir(parents=True, exist_ok=True)
     (fig / "term-map.svg").write_text(term_map_svg(weeks, term, acts), encoding="utf-8")
     (fig / "your-week.svg").write_text(week_svg(wl, term), encoding="utf-8")
+    # And again outside the week folders, for pages that are published while
+    # week 1 is not: the live build removes unpublished weeks, figures included.
+    shared = DOCS / "figures"
+    shared.mkdir(parents=True, exist_ok=True)
+    (shared / "term-map.svg").write_text(term_map_svg(weeks, term, acts), encoding="utf-8")
+    (shared / "your-week.svg").write_text(week_svg(wl, term), encoding="utf-8")
     (DOCS / "planning").mkdir(exist_ok=True)
     (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
     (DOCS / "curriculum.md").write_text(curriculum_page(weeks, term, acts, wl) + "\n", encoding="utf-8")
