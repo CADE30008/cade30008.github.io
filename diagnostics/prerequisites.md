@@ -301,11 +301,11 @@ apply it to the whole forward path, \( CG \), rather than to the plant
 alone.
 
 This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect
-around 45% overshoot and a couple of seconds of settling. Worth contrasting
-with the rig you meet in the first session: its elevation axis has no
-natural frequency and no damping ratio at all, because there is nothing
-pulling it back towards level. It does not oscillate, it drifts. Closing a
-loop is what gives it both.
+around 45% overshoot and a couple of seconds of settling. The rig you meet
+in the first session measures near \( \omega_\mathrm{n} = 1 \) rad/s and
+\( \zeta = 0.06 \): slower *and* far less damped, so it swings once every
+six seconds and takes about a minute to go quiet. Low damping and a slow
+response are different faults, and the rig has both.
 
 ### 7. Steady-state error
 

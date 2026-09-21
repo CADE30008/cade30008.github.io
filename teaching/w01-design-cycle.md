@@ -162,8 +162,12 @@ running late, cut the design-cycle block, not this.
 
 **System ID, the floor.** Oscillation period gives the damped frequency, the
 ratio of successive peaks gives the damping ratio, the steady state gives the
-gain. The existing lab material puts this axis near ζ = 0.06, so the ringing is
-readable by eye. Everyone can reach a model; `tfest` is the stretch.
+gain. The existing lab material puts this axis near ζ = 0.06 and ωₙ = 1 rad/s, so the
+oscillation is readable by eye: a 6.3 s period, still visible after a minute.
+Source: Quanser Lab 1's own solution, `solution_files/s_1_system_identification.mlx`, fits the measured `d_Part1.mat` and reports poles at -0.0600 +/- 0.9982j, so zeta = 0.06 and omega_n = 1.0 rad/s.
+Checked against the raw data: the first two peaks give ζ = 0.057 and 0.059, which
+is what a manual log-decrement fit will produce. Below about 0.5° the encoder
+floor takes over and later peaks give nonsense, so tell them to use early peaks. Everyone can reach a model; `tfest` is the stretch.
 
 **The three rounds.** Announce the display name, not the username.
 

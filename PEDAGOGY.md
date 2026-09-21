@@ -774,7 +774,8 @@ second-order fit: the oscillation period gives the damped frequency, the ratio
 of successive peaks gives the damping ratio, the steady state gives the gain.
 Everyone reaches a model, which makes the point that a model is something you
 *get*, not something you are handed (P8's floor). `tfest` is the ceiling. The
-existing laboratory material puts this axis near a damping ratio of 0.06, so
+existing laboratory material puts this axis near a damping ratio of 0.06 and a
+natural frequency of 1 rad/s (Quanser Lab 1's own solution, `solution_files/s_1_system_identification.mlx`, fits the measured `d_Part1.mat` and reports poles at -0.0600 +/- 0.9982j, so zeta = 0.06 and omega_n = 1.0 rad/s), so
 the ringing is readable by eye, and it carries two alternative fits from
 different rigs — a free demonstration that two honest engineers get two
 different models.
