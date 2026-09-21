@@ -25,6 +25,7 @@ import base64
 import json
 import re
 import sys
+from html import escape
 from html import escape as attr
 from pathlib import Path
 
@@ -263,7 +264,27 @@ def steps_html(q: dict) -> str:
     if q.get("worked"):
         parts.append('<p style="font-weight:700">Working, step by step</p>')
         parts.append(html(q["worked"]))
+    if q.get("code"):
+        parts.append(code_html(q["code"], q.get("code_caption", "Try it in MATLAB")))
     return "".join(parts)
+
+
+MONO = ("font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.92em;"
+        "margin:0.1em 0;white-space:pre")
+
+
+def code_html(lines: str, caption: str) -> str:
+    """A runnable snippet, built only from tags Numbas is known to keep.
+
+    No <pre> or <code>: neither is on the list confirmed to survive its
+    sanitiser, and a silently stripped tag here would run the whole snippet
+    together on one line. A run of <p> with a monospace inline style is ugly in
+    source and reliable in the browser, which is the right way round.
+    """
+    rows = "".join(f'<p style="{MONO}">{escape(ln) if ln.strip() else "&nbsp;"}</p>'
+                   for ln in lines.rstrip().split("\n"))
+    return (f'<hr style="border:0;border-top:1px solid #d9dcdb;margin:1em 0">'
+            f'<p style="font-weight:700">{caption}</p>{rows}')
 
 
 def steps_for(q: dict) -> list[dict]:

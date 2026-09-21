@@ -426,6 +426,26 @@ questions:
           **−20 dB, −45°:** The phase is right. −20 dB is the magnitude a *decade* above the
           corner, at \( \omega = 100 \), once the −20 dB/decade slope has had a
           full decade to act.
+    
+    steps_image: diagnostics/figures/first-order-lag.png
+    steps_image_alt: >-
+      Bode plot of a first-order lag with its corner at 10 rad/s. The magnitude
+      is flat at 0 decibels well below the corner, passes 3 decibels down at
+      the corner itself, and falls at 20 decibels per decade above it, with the
+      straight-line asymptotes drawn alongside so the 3 decibel gap between
+      them is visible. The phase runs from 0 degrees, through exactly minus 45
+      degrees at the corner, to minus 90 degrees, and a shaded band shows that
+      almost all of that turn happens within one decade either side.
+    code: |
+      s  = tf('s');
+      wc = 10;
+      G  = wc/(s + wc);            % a first-order lag with its corner at wc
+
+      bode(G), grid on             % the whole picture
+
+      [m, ph] = bode(G, wc);       % and the two numbers at the corner
+      fprintf('%.2f dB, %.1f deg\n', 20*log10(m), ph)
+    code_caption: Check it yourself, in MATLAB
     advice: |
       A **first-order lag** is any system with one pole and no zero,
       \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \). You may know it as a first-order
