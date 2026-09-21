@@ -89,12 +89,12 @@ it twice.
 
 # Control design is a loop
 
-1. **Understand the plant** — what it does, not what the datasheet says
-2. **State the requirement** — in numbers, before designing
-3. **Design** — structure, gains, a prediction
-4. **Validate in simulation** — does it meet the requirement?
-5. **Test on hardware** — does it *really*?
-6. **Go round again** — because 5 disagreed with 4
+1. **Understand the plant.** What it does, not what the datasheet says
+2. **State the requirement.** In numbers, before designing
+3. **Design.** Structure, gains, a prediction
+4. **Validate in simulation.** Does it meet the requirement?
+5. **Test on hardware.** Does it *really*?
+6. **Go round again**, because 5 disagreed with 4
 
 <div class="callout">
 
@@ -381,7 +381,7 @@ description, not a specification.
 
 <div class="callout">
 
-Do it **by hand first**. `tfest` fits any order in one line — reach the floor before the ceiling.
+Do it **by hand first**. `tfest` fits any order in one line, so reach the floor before the ceiling.
 
 </div>
 
@@ -437,8 +437,8 @@ round 1, not after, because round 1 is the one that goes wrong in public.
 
 # Three rounds
 
-1. **The extremes** — most aggressive, most sluggish, most integral
-2. **The cohort average** — often worse than most of its parts
+1. **The extremes.** Most aggressive, most sluggish, most integral
+2. **The cohort average.** Often worse than most of its parts
 3. **The best few**
 
 <!--
@@ -467,10 +467,10 @@ Round 3 rewards the people who did the work. Name them, or their aliases.
 
 # It met the spec. It still might not fly
 
-- **The model is wrong** — one axis, linearised, fitted over seconds
-- **The actuators saturate** — 30 V demanded from a 24 V amplifier is not your controller
-- **There is noise** — the encoder quantises, and D amplifies exactly that
-- **The plant moves** — trim, friction, and the rig at 14:00 is not the rig at 13:00
+- **The model is wrong.** One axis, linearised, fitted over seconds
+- **The actuators saturate.** 30 V from a 24 V amplifier is not your controller
+- **There is noise.** The encoder quantises, and D amplifies exactly that
+- **The plant moves.** Trim, friction, and the rig at 14:00 is not the rig at 13:00
 
 **Each of these gets a week of its own.**
 

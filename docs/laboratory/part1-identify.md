@@ -47,10 +47,10 @@ That is one usable run. Take **at least three**, and take them properly:
 
 - Let the arm settle completely between runs. At this damping a disturbance
   takes about a minute to die away, and a swing left over from the last run
-  lands in this one's fit.
+  ends up in this one's fit.
 - Vary the step: 1.5 V, 2 V, 2.5 V. If the gain you fit is the same each time,
-  the axis is linear over that range, which is worth knowing. If it is not,
-  that is worth knowing more.
+  the axis is linear over that range. If it is not, you have found the limit
+  of the single model you were about to design against.
 
 ## Check it before you leave
 

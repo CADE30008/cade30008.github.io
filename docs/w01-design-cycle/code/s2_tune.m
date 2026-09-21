@@ -54,7 +54,7 @@ fprintf('Stable at every one of them, so there is no ultimate gain to find.\n');
 % The open-loop rule does not apply either: it wants an S-shaped step response
 % to measure a delay and a slope from, and this one oscillates.
 %
-% This is worth knowing for its own sake. A tuning rule is fitted to a class of
+% Notice what that means. A tuning rule is fitted to a class of
 % plants, and outside that class it does not degrade gracefully, it simply has
 % no input. Recognising when a method does not apply is part of the method.
 

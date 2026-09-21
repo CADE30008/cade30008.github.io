@@ -24,7 +24,7 @@ fprintf('controllable: %d of 6, so every pole can be placed anywhere\n', ...
 %   minimise  integral of  x' Q x  +  u' R u
 %
 % Q penalises being in the wrong place, R penalises the effort of fixing it.
-% Bigger R buys you a gentler controller.
+% Raise R and the controller gets gentler.
 
 Q = diag([100, 1, 100, 10, 1, 10]);   % elevation and travel matter most
 R = 0.05 * eye(2);                    % and volts are not free
