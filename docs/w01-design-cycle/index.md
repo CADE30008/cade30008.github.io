@@ -45,6 +45,8 @@ your attention. It does not contribute to your grade.
 
 What is new here is not a technique. It is the shape of the work.
 
+*So what is that shape?*
+
 ## Control is a cycle, not a formula {#design-cycle}
 
 Textbooks present control design as a sequence of methods. Practice is a loop,
@@ -65,6 +67,9 @@ Every week of this unit lives somewhere on that loop. When you meet loop
 shaping in the second act, it is step 3. When you meet model validation, it is
 the gap between 4 and 5. Today you do all six, badly, once, so that the rest of
 the term has somewhere to attach.
+
+*Step 1 is understanding the plant. Before that, one idea the whole loop rests
+on.*
 
 ## Feedback is a trade, not a fix {#feedback-trade}
 
@@ -94,29 +99,110 @@ Hold on to the third of those. Almost every design decision in this unit is a
 choice about where to spend loop gain, and "turn it up" is only ever half an
 answer.
 
+*Enough theory. Here is the machine.*
+
 ## The machine {#the-rig}
 
-The laboratory rig is a Quanser 3-DOF helicopter: a beam on a pivot with two
-motors at one end and a counterweight at the other, free to move in
-**elevation** (how high the beam sits), **pitch** (how the motor pair tilts)
-and **travel** (how it swings around).
+The laboratory rig is a Quanser 3-DOF helicopter: a beam on a pivot, two
+motors and rotors at one end, a counterweight at the other, and the whole
+assembly free to swing around a vertical column.
 
-We use the elevation axis. Its model, linearised about level, is about as
-simple as a plant gets and about as unforgiving:
+<figure markdown="span">
+  ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a circular track](../assets/rig/rig-three-quarter.jpg){ width="100%" }
+  <figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns on the circular track.</figcaption>
+</figure>
 
-$$ G(s) = \frac{\varepsilon(s)}{V(s)} = \frac{K}{s^2} $$
+It moves three ways at once. The conventions are Quanser's, and the signs
+matter as soon as you read a plot:
 
-A double integrator. Two poles at the origin, nothing pulling it back towards
-level, no damping at all. Push it and it keeps going.
+| Axis | Symbol | Positive when |
+|---|---|---|
+| Elevation | \( \varepsilon \) | the body is above horizontal; zero when level |
+| Pitch | \( \rho \) | the front motor is higher than the back motor |
+| Travel | \( \lambda \) | the body rotates counter-clockwise, seen from above |
 
-!!! warning "Why you cannot fly it by hand"
-    A double integrator cannot be stabilised by proportional feedback at any
-    gain: the root locus leaves the origin straight up and down and never
-    enters the left half-plane. Rate feedback is not a refinement here, it is
-    the difference between flying and not.
+Three axes, two motors. You do not command elevation, pitch and travel
+independently: the only quantities you set are the two rotor voltages.
+Elevation comes from their sum, pitch from their difference, and travel is not
+commanded at all. It happens because pitch tilts the thrust sideways and the
+machine slides round the track after it.
 
-    This is also why the room's first instinct, *turn the gain up*, makes
-    things worse rather than better. Hold that thought until week 3.
+That is the shape of the problem. Three things to keep still, two levers, and
+one of them only works through another.
+
+!!! danger "Before anything is switched on"
+    The amplifier's rocker switch on the bench is the emergency stop. If the
+    rig does something you do not like, switch the amplifier off. There is no
+    separate stop button and no software interlock that will save you, so know
+    where the switch is before the motors spin.
+
+    <figure markdown="span">
+      ![The rear panel of the Quanser amplifier, showing the black rocker power switch beside the fuse holders and the mains inlet](../assets/rig/amplifier-power-switch.jpg){ width="62%" }
+    </figure>
+
+### One of you is going to fly it
+
+Not a simulation of it, and not one axis of it: the machine, all three
+degrees of freedom, on two joysticks. The claim made at the top of this
+session is that it cannot be flown by hand. You are about to find out whether
+that is true.
+
+It is worth saying what failure will look like, so that watching it teaches
+something. The beam will not simply fall. It will oscillate, and the
+oscillation will not die away, and every correction made to stop it will
+arrive slightly too late and make it larger. Meanwhile the machine will be
+drifting round the track, because pitch was used to fix elevation.
+
+*Why does a person, who can catch a ball and ride a bicycle, lose to this?*
+
+## One axis, and a model of it {#elevation}
+
+The honest answer is that three coupled axes is too much at once. So we take
+one. Hold pitch and travel still, command elevation alone, and the problem
+becomes something you can write down.
+
+Measured on the rig, the elevation axis is a standard second order:
+
+$$ G(s) = \frac{\varepsilon(s)}{V(s)}
+        = \frac{K\,\omega_\mathrm{n}^{2}}
+               {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}} $$
+
+with \( K \approx 3.4 \) degrees per volt, \( \omega_\mathrm{n} \approx 1.0 \)
+rad/s and \( \zeta \approx 0.06 \), fitted from a step response taken in the
+laboratory. You will fit your own numbers shortly and they will not be exactly
+these.
+
+Read those three numbers and you already know what the machine does. It is
+**stable**: disturb it and it comes back. But \( \zeta = 0.06 \) is almost no
+damping at all. The oscillation has a period of about six seconds and takes
+something like a minute to die away. Nudge the beam and walk away, and it is
+still moving when you get back.
+
+!!! warning "Why turning the gain up will not fix it"
+    The room's first instinct is more proportional gain. Close a proportional
+    loop around this plant and the characteristic polynomial is
+
+    $$ s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}(1 + KK_\mathrm{p}) $$
+
+    \( K_\mathrm{p} \) does not appear in the coefficient of \( s \). The real
+    part of the closed-loop poles is stuck at \( -\zeta\omega_\mathrm{n} \)
+    whatever you do, so the poles slide straight up a vertical line: faster
+    oscillation, less damping, and a settling time that does not move.
+
+    Going from \( K_\mathrm{p} = 0.5 \) to \( K_\mathrm{p} = 10 \) takes the
+    overshoot from 89% to 97% and leaves the settling time at 65 seconds.
+
+<figure markdown="span">
+  ![Two panels. On the left, the closed-loop poles trace a vertical line at a real part of minus 0.06 as proportional gain increases, with the open-loop poles marked on it. On the right, step responses at three proportional gains: all oscillate heavily, higher gain giving more overshoot, and none settling faster than about 65 seconds or reaching the demanded value](figures/proportional-limit.png){ width="100%" }
+  <figcaption>Proportional gain alone moves the poles straight up. The overshoot gets worse, the settling time does not improve, and none of them reaches the demand.</figcaption>
+</figure>
+
+Two things follow, and they are the rest of the controller. Damping has to
+come from somewhere other than \( K_\mathrm{p} \), which is the derivative
+term. And the gap between where it settles and what you asked for has to be
+closed by something with memory, which is the integral term.
+
+*So: what would count as having fixed it?*
 
 ## A requirement is a design input {#requirements}
 
@@ -139,6 +225,8 @@ against a different band is not wrong so much as unreadable.
 We will agree today's requirement in the room, out loud, before anybody
 designs anything. That order is the point: a requirement chosen after the
 design is a description, not a specification.
+
+*You have a target. You still need a model to design against.*
 
 ## Identifying the plant from what it actually does {#system-id}
 
@@ -163,11 +251,15 @@ argue with; a fit that arrived from a function is one you can only accept.
     you trust, whether you fit before or after the transient: all of it moves
     the answer. Comparing fits across the room is part of the exercise.
 
+*Model, requirement, and a controller to find.*
+
 ## Tuning, and then flying {#tuning}
 
 With a model and a requirement you can design. In simulation, you will tune a
 PID controller until it meets the requirement you agreed, then submit your
-gains through MATLAB Drive.
+gains. The Live Script checks them and hands you a link with your numbers
+already filled in; you press Submit yourself, so you see exactly what goes out
+under your name.
 
 We fly them in three rounds:
 
@@ -184,11 +276,14 @@ do not quietly move anybody's numbers into range: the room would then be
 watching a flight that was not yours.
 
 !!! note "Your name, on screen, in front of everybody"
-    Submissions go into a shared folder that the whole cohort can read, and
-    the name on your file is the name that appears when your gains fly. You
-    may use an alias. Round 1 flies the extremes *because* they misbehave, so
-    somebody's name is going on a public failure, and a public failure that
-    everybody learns from is worth more than a quiet success.
+    The form asks for a display name, and that is the name on screen when your
+    gains fly. Choose an alias if you would rather. Your University account is
+    recorded by the form so that I know whose submission is whose, and it is
+    never shown to the room.
+
+    Round 1 flies the extremes *because* they misbehave, so somebody's name is
+    going on a public failure. A public failure everybody learns from is worth
+    more than a quiet success.
 
 ## Where simulation and hardware disagree {#sim-vs-hardware}
 
@@ -209,6 +304,9 @@ Four reasons it happens, all of which get a week of their own later:
 The cycle's answer is not to build a better model before designing. It is to
 design, test, find out where you were wrong, and go round again, which is
 what step 6 was for.
+
+*That is one full turn of the loop. Everything after today is one step of it,
+done properly.*
 
 ## Summary {#summary}
 
@@ -285,7 +383,7 @@ fortnight, alone, with no feedback — which is the same work, done harder.
 Nothing formative is randomised: everyone gets the same questions, and you're
 welcome to work through them sitting next to each other.
 
-## A recommended textbook {#textbook}
+## A recommended textbook {#textbook .no-slides}
 
 <!-- textbook:start -->
 You don't have to buy a book. Each week's handout is the authoritative

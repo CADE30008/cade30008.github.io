@@ -38,11 +38,8 @@ there is real content; `published` means it is on the live site. **9 of 11 weeks
 
 | Week | What's missing | Who |
 |---|---|---|
-| 1 | Measured elevation-axis response from the rig, for students to fit. | **Steve** |
 | 1 | Student Live Script: manual second-order fit, with tfest as the ceiling. | can be built |
-| 1 | Gain filter: reject anything unsafe before it reaches the hardware. | can be built |
 | 1 | Selection tool: pick individuals, the cohort average, and the best few. | can be built |
-| 1 | MATLAB Drive submission folder, tested with a real student account. | **Steve** |
 
 ## Published to the live site
 

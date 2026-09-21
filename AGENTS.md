@@ -184,6 +184,13 @@ Generated blocks obey the same rule, so it has to be applied in the generator, n
 
 **Slide bullets are exempt.** A deck is display text, not prose, and terminal punctuation on a projected bullet is noise. The decks currently carry none; keep it that way.
 
+**Write slide bullets with a hyphen, never an asterisk.** Marp turns a
+`* ` list into an incremental fragment: the bullets are in the HTML but hidden
+until you press the arrow key again, once per bullet. On a projector that
+looks like a broken slide, and you find out in the room. Every deck here uses
+hyphens; week 1 briefly did not, and three bullets vanished from a slide that
+looked finished in the source.
+
 ### Say "oscillates", not "rings"
 
 In anything a student reads. *Ringing* is laboratory and oscilloscope

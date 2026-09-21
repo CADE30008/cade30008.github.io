@@ -91,7 +91,7 @@ weeks:
       do_a: The rig, and how it is made safe — lecturer-led, deliberately
       learn_b: The open-loop flight attempt, after the room votes on how long it will last (P12)
       do_b: What a requirement is; agree the requirement we design to today
-      case: System ID from the rig's response (manual fit; tfest as ceiling), tune a PID in simulation, submit gains through MATLAB Drive, and fly them in three rounds
+      case: System ID from the rig's response (manual fit; tfest as ceiling), tune a PID in simulation, submit gains through the form, and fly them in three rounds
     cliffhanger: There is no right answer until you say what you want — and the simulation disagreed with the hardware.
     out_of_lecture:
       close_the_loop: Prerequisite diagnostic in Numbas, if not already done; finish the tfest fit
@@ -108,11 +108,16 @@ weeks:
       - {source: dorf, sections: "4.1-4.2", title: "Feedback control system characteristics; error signal analysis", note: "why feedback at all"}
     notes: Departs from P17's standard shape, and says so. Plan in teaching/w01-design-cycle.md.
     needs:
-      - {what: "Measured elevation-axis response from the rig, for students to fit", who: steve}
+      - {what: "Measured elevation-axis response from the rig, for students to fit", who: steve, done: true}
       - {what: "Student Live Script: manual second-order fit, with tfest as the ceiling", who: build}
-      - {what: "Gain filter: reject anything unsafe before it reaches the hardware", who: build}
+      - {what: "Gain filter: reject anything unsafe before it reaches the hardware", who: build, done: true}
       - {what: "Selection tool: pick individuals, the cohort average, and the best few", who: build}
-      - {what: "MATLAB Drive submission folder, tested with a real student account", who: steve}
+      # Microsoft Form rather than a shared Drive folder: item-by-item checking
+      # happens in the Live Script before submission, and the form records the
+      # University account without showing it to the room. Field ids are in
+      # docs/w01-design-cycle/code/gain_form.json. Tested end to end on
+      # 21 September, URL through to collated flight list.
+      - {what: "Gain submission form, tested end to end", who: steve, done: true}
 
   - week: 2
     short: Requirements and models
