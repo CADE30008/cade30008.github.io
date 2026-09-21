@@ -31,3 +31,7 @@ pages:
   # pedagogy codes, hooks written as hooks, and draft markers on the weeks
   # that are not written yet.
   - planning/lecture-map.html
+  # Also not in the nav, and for the same reason: lecturer-facing, useful from
+  # a phone in the laboratory, and nothing students need. Steve asked for it to
+  # be published unlinked, 21 September.
+  - planning/w01-run-sheet.md
