@@ -91,6 +91,7 @@ has a sharper definition you will meet later, that is said.
 | **Overshoot** | How far past the target the response goes, as a percentage of the step. Set by the damping ratio alone, for a simple second-order system. |
 | **Rise time, settling time, steady-state error** | How fast it gets there, how long until it stops moving, and how far off it ends up. With overshoot, the usual language of a time-domain requirement. |
 | **Step response** | What the system does when the reference jumps. The most readable single test of a control system, and the one most requirements are written against. |
+| **DC gain** | What a system multiplies a constant input by, once everything has settled. Set $s = 0$ in the transfer function and read off $G(0)$. The name comes from direct current, meaning zero frequency, so it is also the left-hand end of a Bode magnitude plot. It only means anything for a stable system, because an unstable one never settles. |
 
 ## Frequency domain
 

@@ -37,4 +37,5 @@
 *[handling qualities]: how an aircraft behaves to the pilot flying it, against published standards
 *[observer]: something that reconstructs unmeasured states from measured ones
 *[controllability]: whether the inputs can move every state
+*[DC gain]: what a system multiplies a constant input by once it has settled: G(0)
 *[observability]: whether the outputs reveal every state
