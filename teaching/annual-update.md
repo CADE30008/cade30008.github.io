@@ -35,6 +35,10 @@ nav agree with the new calendar.
       Schedule it when you set the calendar in step 1, not when term starts.
 - [ ] **The Onramp courses** — check the three still exist, still have those
       names, and still take about as long. MathWorks retires and renames them.
+- [ ] **Export the Blackboard reading list** afresh into
+      `curriculum/reading-list/`, dated, keeping the old exports. The site
+      describes that list without reproducing it, so a stale description is the
+      failure mode to watch.
 - [ ] **Library holdings** in `curriculum/weeks.yaml` under `sources.dorf`:
       print and eBook counts, and whether a new edition has appeared. If it has,
       check the section numbers against the mapping before trusting it.

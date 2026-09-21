@@ -52,6 +52,28 @@ Search the library for "Dorf Modern Control", then open **View All** to see othe
 | [11](w11-beyond-this-course/index.md) | What comes next | **11.4** Observer design<br>**12.5-12.6** The design of robust control systems; robust PID-controlled systems<br>**13.1-13.3** Digital control systems: applications, sampled-data systems |
 <!-- reading:end -->
 
+## The full list is on Blackboard
+
+This page names one book and explains what it is for. **The unit's complete
+reading list lives on Blackboard**, maintained through the library, and it has
+a good deal more on it: alternative textbooks, the flight-dynamics half's
+reading, and the video series below. Editions and availability change during
+the year there and not here, so treat it as the current version.
+
+Two of the video series on it are worth calling out, because for a lot of
+people they work better than any book:
+
+- **Brian Douglas, *Control System Lectures*.** Short, unhurried videos that
+  build intuition before algebra. If a Bode plot or a root locus has never
+  quite made sense as a picture, start here. He also makes the MATLAB Tech
+  Talks, which cover much of this unit.
+- **Steve Brunton, *Control Bootcamp*.** A full course, pitched a little
+  higher, and unusually good on state space and on why the frequency domain
+  and the time domain are two views of one thing.
+
+Both are free, both are on the Blackboard list, and both are recommended
+rather than required, like everything else here.
+
 ## A free second opinion
 
 If Dorf and Bishop doesn't suit you, a different author's explanation of the
@@ -59,13 +81,16 @@ same idea is often exactly what's needed, and one good one costs nothing:
 
 > Åström, K. J. and Murray, R. M. (2021). *Feedback Systems: An Introduction for
 > Scientists and Engineers*, 2nd edition. Princeton University Press.
-> [fbsbook.org](https://fbsbook.org/)
+> [The authors' page at Caltech](http://www.cds.caltech.edu/~murray/amwiki/){ .go },
+> and the book itself as
+> [one PDF](https://www.cds.caltech.edu/~murray/books/AM08/pdf/fbs-public_24Jul2020.pdf)
+> (33 MB).
 
 The whole book is on that site as a PDF, chapter by chapter or in one file, put
 there by the authors. It is worth reading for two things in particular:
 
-- **Sensitivity, robustness and the limits of what feedback can do** — weeks 7
-  and 8. This is the book's strongest material, and it goes further than Dorf.
+- **Sensitivity, robustness and the limits of what feedback can do.** This is
+  the book's strongest material, and it goes further than Dorf.
 - **A different route through the subject.** It reaches state space early and
   the frequency domain late, the opposite way round from this unit. That makes
   it a genuine second opinion rather than a paraphrase: if an idea hasn't landed
@@ -80,6 +105,6 @@ not as a parallel text to read alongside the handouts.
     *"Copyright in this book is held by Princeton University Press, who have
     kindly agreed to allow us to keep the book available on the web."* That is
     permission to host, not a Creative Commons licence, and it is not the same
-    arrangement as [this site's](about.md#licence). Read and download it from
-    [fbsbook.org](https://fbsbook.org/); don't re-post the PDF, and cite it
-    properly if you use it in your coursework.
+    arrangement as [this site's](about.md#licence). Download it from the
+    authors' own page rather than from anywhere else; don't re-post the PDF,
+    and cite it properly if you use it in your coursework.
