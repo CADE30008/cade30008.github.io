@@ -25,3 +25,8 @@ pages:
   - glossary.md
   - about.md
   - ai.md
+  # Not in the nav, deliberately: reachable by anyone given the link, and
+  # not stumbled on. It is a planning document and reads like one, with
+  # pedagogy codes, hooks written as hooks, and draft markers on the weeks
+  # that are not written yet.
+  - planning/lecture-map.html
