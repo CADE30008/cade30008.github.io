@@ -169,6 +169,8 @@ Checked against the raw data: the first two peaks give ζ = 0.057 and 0.059, whi
 is what a manual log-decrement fit will produce. Below about 0.5° the encoder
 floor takes over and later peaks give nonsense, so tell them to use early peaks. Everyone can reach a model; `tfest` is the stretch.
 
+**The model they fit is the trim, not the rig.** Gravity stiffness on the elevation arm goes as sin(elevation), so it is zero at level and grows with angle: identify at 5° and get ωₙ = 0.84 rad/s, at 10° get 1.19, at 20° get 1.67. Same rig, same method, three correct fits, three different models. That is worth showing rather than hiding, and it is why the encoder needs a tare against a known datum. Quanser's own linearisation is taken about level, where the stiffness is exactly zero, which is why their model has every pole at the origin and no natural frequency to find. Figure: `models/quanser_trim_stiffness.py`.
+
 **The three rounds.** Announce the display name, not the username.
 
 1. **Extremes,** chosen by the selection tool: the most aggressive, the most
