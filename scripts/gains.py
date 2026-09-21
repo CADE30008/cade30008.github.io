@@ -1,16 +1,17 @@
 """Check submitted PID gains before they reach the rig, and choose what to fly.
 
-Week 1 ends with the room submitting gains through MATLAB Drive and watching
-them flown, in three rounds: a few individuals, then the cohort's average, then
-the best few. This is the thing standing between 190 students' arithmetic and a
+Week 1 ends with the room submitting gains through a form and watching them
+flown, in three rounds: a few individuals, then the cohort's average, then the
+best few. This is the thing standing between 190 students' arithmetic and a
 machine flying in front of them.
 
-    D=~/MATLAB\ Drive/CADE30008/2026-27/w01-design-cycle/submit
-    python scripts/gains.py check "$D"
-    python scripts/gains.py pick  "$D" --round 1
+    python scripts/gains.py check path/to/responses
+    python scripts/gains.py pick  path/to/responses --round 1
 
-Point it at the MATLAB Drive folder that syncs to this machine. Student work is
-never copied into this repository; `examples/gains/` holds only fixtures.
+Submissions arrive as the form's export. models/collate_gains.m reads that
+export directly and applies the same envelope; this tool is the Python side
+and reads a folder of per-submission files. Student work is never copied into
+this repository; `examples/gains/` holds only fixtures.
 
 `check` writes a report to the terminal and an accepted list to `--out`, which
 defaults to the current directory and **never** to the folder it read: that
@@ -41,7 +42,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from models.quanser_elevation import (  # noqa: E402
-    STEP_DEG, Envelope, Plant, controller, gain_range, load_plant, routh,
+    CMD_RATE_DEG_S, STEP_DEG, Envelope, Plant, controller, gain_range,
+    load_plant, routh,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -129,16 +131,39 @@ def evaluate(s: Submission, plant: Plant, env: Envelope) -> None:
     passes, ratio = routh(plant, s.kp, s.ki, s.kd)
     s.metrics["routh_ratio"] = ratio
     if not passes:
-        s.reasons.append(f"unstable: needs K*Kd*Kp > Ki, but the ratio is {ratio:.2f}")
+        s.reasons.append("unstable: Routh needs a2*a1 > a0 for the closed loop, "
+                         f"and the ratio is {ratio:.2f}")
         return
     if ratio < env.routh_margin:
-        s.reasons.append(f"too close to unstable: K*Kd*Kp beats Ki by only {ratio:.2f}, "
+        s.reasons.append(f"too close to unstable: the Routh ratio is only {ratio:.2f}, "
                          f"and we fly nothing below {env.routh_margin:g}")
 
     # 3. Closed loop: poles, damping, margins.
+    #
+    # Derivative acts on the measurement, not on the error. That is what the
+    # rig does - Quanser feed back the measured elevation rate - and it is what
+    # the handout means by rate feedback. It matters here for one reason: with
+    # derivative on the error, the demand's own rate goes through Kd, so a
+    # 45 deg/s command asks for Kd * 45 volts before the arm has moved at all.
+    # At Kd = 1.4 that is 63 V from a 24 V amplifier.
+    #
+    # The loop transfer is L = G (C1 + D) either way, so the characteristic
+    # polynomial, the poles, the damping and the margins are all unchanged.
+    # Only the reference path differs:
+    #
+    #     Y/R = G C1 / (1 + G (C1 + D))      U/R = C1 / (1 + G (C1 + D))
+    #
     C = controller(s.kp, s.ki, s.kd)   # filtered derivative, or the effort is an impulse
-    L = C * plant.tf()
-    T = ct.feedback(L, 1)
+    C1 = ct.tf([s.kp, s.ki], [1, 0])   # the part the reference is allowed to see
+    G = plant.tf()
+    L = C * G
+    T = ct.feedback(L, 1)              # poles, damping, margins: unchanged by the split
+    # The reference paths, reduced. Building these as (G C1)/(1 + L) without
+    # minreal leaves the loop's own poles in both numerator and denominator;
+    # they cancel mathematically and do not cancel numerically, and what comes
+    # back is a high-order system that reports itself unstable.
+    y_ref = ct.minreal(G * C1 / (1 + L), verbose=False)
+    u_ref = ct.minreal(C1 / (1 + L), verbose=False)
     poles = T.poles()
     s.metrics["max_real_pole"] = float(np.max(poles.real))
     if np.max(poles.real) >= 0:
@@ -156,7 +181,7 @@ def evaluate(s: Submission, plant: Plant, env: Envelope) -> None:
     s.metrics["gain_up"] = up
     if down < env.gain_down_min:
         s.reasons.append(f"only tolerates the loop gain dropping by {down:.2f}x "
-                         f"(needs {env.gain_down_min:g}x); this loop goes unstable when gain falls")
+                         f"(needs {env.gain_down_min:g}x)")
     if up < env.gain_up_min:
         s.reasons.append(f"only tolerates the loop gain rising by {up:.2f}x (needs {env.gain_up_min:g}x)")
 
@@ -167,9 +192,17 @@ def evaluate(s: Submission, plant: Plant, env: Envelope) -> None:
 
     # 4. What the motors are actually asked to do. A design can be perfectly
     #    stable on paper and still slam the amplifier into its rails.
-    step = np.deg2rad(STEP_DEG)
+    # Degrees, because the fitted K is deg/V. This read np.deg2rad(STEP_DEG)
+    # while the plant was the double integrator in rad/(V s^2); against a
+    # deg/V plant that understates every demand by a factor of 57, and the
+    # amplifier check would pass almost anything.
+    step = float(STEP_DEG)
     t = np.linspace(0, env.settle_max_s * 1.5, 4000)
-    _, v = ct.forced_response(ct.feedback(C, plant.tf()), T=t, U=np.full_like(t, step))
+    # The demand as the rig actually receives it: rate-limited, not a step.
+    # Differentiating a discontinuity asks a 24 V amplifier for hundreds of
+    # volts and rejects every sane design.
+    ref = np.minimum(CMD_RATE_DEG_S * t, step)
+    _, v = ct.forced_response(u_ref, T=t, U=ref)
     peak = float(np.max(np.abs(v)))
     s.metrics["peak_volts"] = peak
     if peak > env.voltage_peak_max:
@@ -185,7 +218,7 @@ def evaluate(s: Submission, plant: Plant, env: Envelope) -> None:
                          f"the rig's guide warns against this above {env.reversals_max}")
 
     # 5. Settling, to 2%. Room time is finite and so is everyone's patience.
-    _, y = ct.forced_response(T, T=t, U=np.full_like(t, step))
+    _, y = ct.forced_response(y_ref, T=t, U=ref)
     outside = np.where(np.abs(y - step) > 0.02 * step)[0]
     settle = float(t[outside[-1]]) if outside.size and outside[-1] + 1 < t.size else float("inf")
     s.metrics["settle_s"] = settle
@@ -206,7 +239,8 @@ def score(s: Submission) -> float:
 
 
 def banner(plant: Plant, env: Envelope) -> str:
-    return (f"Elevation model: K = {plant.K:g} rad/(V s^2), {plant.source}, measured {plant.measured}\n"
+    return (f"Elevation model: K = {plant.K:g} deg/V, wn = {plant.wn:g} rad/s, "
+            f"zeta = {plant.zeta:g}\n  {plant.source}\n  measured {plant.measured}\n"
             f"Envelope: Routh margin {env.routh_margin:g}, damping >= {env.damping_min:g}, "
             f"gain -{env.gain_down_min:g}x/+{env.gain_up_min:g}x, PM >= {env.phase_margin_min:g} deg, "
             f"peak <= {env.voltage_peak_max:.1f} V, settle <= {env.settle_max_s:g} s")

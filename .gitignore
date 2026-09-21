@@ -19,3 +19,4 @@ docs/downloads/
 private/*
 !private/README.md
 __pycache__/
+models/envelope-matlab.json

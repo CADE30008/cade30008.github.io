@@ -20,7 +20,7 @@ function flights = collate_gains(file, opts)
 
 arguments
     file (1,:) char
-    opts.Plant (1,1) double = NaN
+    opts.Plant struct = struct([])
     opts.Keep (1,:) char {mustBeMember(opts.Keep, {'last','all'})} = 'last'
 end
 
@@ -91,11 +91,19 @@ if strcmp(opts.Keep, 'last')
     keep = sort(cell2mat(values(seen)))';
 end
 
-K = plantGain(opts.Plant);
+if isempty(opts.Plant)
+    plant = heli_plant();
+else
+    plant = heli_plant(opts.Plant);
+end
+env = heli_envelope();
+fprintf('\nPlant: K = %g deg/V, wn = %g rad/s, zeta = %g\n', ...
+    plant.K, plant.wn, plant.zeta);
 
 rows = cell(0, 8);
 for i = keep'
-    [ok, why, zeta] = checkGains(kp(i), ki(i), kd(i), K, typed(i,:));
+    [ok, why, m] = checkOne(kp(i), ki(i), kd(i), plant, env, typed(i,:));
+    if isfield(m, 'damping'); zeta = m.damping; else; zeta = NaN; end
     rows(end+1, :) = {numel(rows)+1, name(i), kp(i), ki(i), kd(i), zeta, ...
                       string(ternary(ok, "fly", "hold")), string(why)}; %#ok<AGROW>
 end
@@ -178,64 +186,27 @@ x = str2double(s);
 end
 
 
-function K = plantGain(override)
-%PLANTGAIN  The fitted elevation gain, or the provisional one.
-if ~isnan(override); K = override; return; end
-here = fileparts(mfilename('fullpath'));
-f = fullfile(here, '..', 'docs', 'w01-design-cycle', 'code', 'elevation_plant.json');
-if isfile(f)
-    d = jsondecode(fileread(f));
-    if isfield(d, 'K') && isfinite(d.K) && d.K > 0; K = d.K; return; end
-end
-K = 3.4;
-fprintf(2, ['Using the provisional plant gain K = %.2f. Pass ''Plant'' with the\n' ...
-            'value fitted in the session to check against what was actually flown.\n'], K);
-end
-
-
-function [ok, why, zeta] = checkGains(kp, ki, kd, K, typed)
-%CHECKGAINS  The envelope, stated the same way the student was told it.
+function [ok, why, m] = checkOne(kp, ki, kd, plant, env, typed)
+%CHECKONE  heli_check_one, plus the one thing it cannot know.
 %
-% A rejection quotes what the student actually typed. "Kp is not a number"
-% sends you to the spreadsheet to work out why; quoting the text tells you at
-% a glance whether to say "decimal point, please" or something else.
-GAIN_MAX = 50; ROUTH = 1.15; ZETA_MIN = 0.15;
-zeta = NaN;
-named = struct('Kp', kp, 'Ki', ki, 'Kd', kd);
+% The envelope itself lives in heli_check_one, so this tool and the one the
+% students run cannot drift apart. All this adds is quoting back what was
+% actually typed when a field would not parse, which only the reader of the
+% export has.
 order = ["Kp" "Ki" "Kd"];
+vals  = [kp ki kd];
 for j = 1:3
-    g = order(j);
-    v = named.(g);
-    if ~isfinite(v)
-        ok = false;
+    if ~isfinite(vals(j))
+        ok = false; m = struct();
         if typed(j) == ""
-            why = g + " was left blank";
+            why = order(j) + " was left blank";
         else
-            why = string(sprintf('%s is not a number: "%s"', g, typed(j)));
+            why = string(sprintf('%s is not a number: "%s"', order(j), typed(j)));
         end
         return
     end
-    if v <= 0; ok = false; why = g + " must be above zero"; return; end
-    if v > GAIN_MAX; ok = false; why = g + " is above the limit of " + GAIN_MAX; return; end
 end
-ratio = K * kd * kp / ki;
-if ratio <= 1
-    ok = false; why = sprintf('unstable: K*Kd*Kp/Ki = %.2f', ratio); return
-elseif ratio < ROUTH
-    ok = false; why = sprintf('too close to unstable: ratio %.2f', ratio); return
-end
-p = roots([1, K*kd, K*kp, K*ki]);
-osc = p(abs(imag(p)) > 1e-9);
-if isempty(osc)
-    zeta = 1;
-else
-    [~, j] = max(real(osc));
-    zeta = -real(osc(j)) / abs(osc(j));
-end
-if zeta < ZETA_MIN
-    ok = false; why = sprintf('too lightly damped: zeta = %.3f', zeta); return
-end
-ok = true; why = "";
+[ok, why, m] = heli_check_one(kp, ki, kd, plant, env);
 end
 
 

@@ -41,20 +41,23 @@ function result = heli_check_gains(folder, opts)
 arguments
     folder (1,:) char
     opts.Round (1,1) double {mustBeMember(opts.Round, [0 1 2 3])} = 0
-    opts.K (1,1) double = NaN
+    opts.K = []
 end
 
 env   = envelope();
 plant = plantGain(opts.K);
-K     = plant.K;
+K     = plant.K;   % deg/V, for the banner only
 
-fprintf('Elevation model: K = %.4g rad/(V s^2), %s', K, plant.source);
-if ~isempty(plant.measured); fprintf(', measured %s', plant.measured); end
-fprintf('\n');
-fprintf(['Envelope: Routh margin %.2f, damping >= %.2f, gain -%.1fx/+%.1fx, ' ...
-         'PM >= %.0f deg,\n          peak <= %.1f V, settle <= %.0f s\n\n'], ...
-    env.routhMargin, env.dampingMin, env.gainDownMin, env.gainUpMin, ...
-    env.phaseMarginMin, env.voltagePeakMax, env.settleMaxS);
+fprintf('Elevation model: K = %.4g deg/V, wn = %.4g rad/s, zeta = %.4g\n', ...
+    plant.K, plant.wn, plant.zeta);
+fprintf('  %s\n', plant.source);
+if isfield(plant, 'measured') && ~isempty(plant.measured)
+    fprintf('  measured %s\n', plant.measured);
+end
+fprintf(['Envelope: Routh margin %.2f, damping >= %.2f, PM >= %.0f deg,\n' ...
+         '          peak <= %.1f V for a %g deg demand at %g deg/s, settle <= %.0f s\n\n'], ...
+    env.routhMargin, env.dampingMin, env.phaseMarginMin, ...
+    env.voltagePeakMax, env.stepDeg, env.cmdRateDegS, env.settleMaxS);
 
 [subs, unreadable] = readSubmissions(folder);
 if isempty(subs)
@@ -64,7 +67,7 @@ if isempty(subs)
 end
 
 for i = 1:numel(subs)
-    subs(i) = evaluateOne(subs(i), K, env);
+    subs(i) = evaluateOne(subs(i), plant, env);
 end
 
 ok  = subs(arrayfun(@(s) isempty(s.reasons), subs));
@@ -104,73 +107,32 @@ end
 function env = envelope()
 %ENVELOPE  What we are willing to fly with 190 people in the room.
 %
-% Mirrors models/quanser_elevation.py exactly. If one changes, change both:
-% two tools disagreeing about what is safe is worse than either being wrong.
-V_MAX = 24.0;                 % V, peak the amplifier can deliver
-V_OP  = 8.0;                  % V, provisional operating point
-env = struct( ...
-    'gainMax',        50, ...
-    'routhMargin',    1.15, ...   % K*Kd*Kp must beat Ki by this
-    'dampingMin',     0.15, ...
-    'gainDownMin',    1.5, ...    % may lose a third of the loop gain
-    'gainUpMin',      2.0, ...    % may double it
-    'phaseMarginMin', 20, ...     % deg
-    'voltagePeakMax', 0.7 * (V_MAX - V_OP), ...
-    'reversalsMax',   6, ...
-    'settleMaxS',     12, ...
-    'stepDeg',        7.5, ...    % the guide's standard elevation step
-    'filterN',        10);        % derivative filter, so the demand is finite
+% Delegates to heli_envelope, which is the single definition and is mirrored
+% by Envelope in models/quanser_elevation.py. This used to be a second copy,
+% and a second copy is how the two ended up describing different plants.
+env = heli_envelope();
 end
 
 
 function plant = plantGain(override)
-%PLANTGAIN  The elevation model, and where it came from.
+%PLANTGAIN  The fitted elevation model, or one passed in.
 %
-% Matches models/quanser_elevation.py exactly, which is the point: two tools
-% disagreeing about which plant to filter against is worse than either being
-% wrong on its own.
+%   heli_check_gains(folder)                 elevation_plant.json
+%   heli_check_gains(folder, 'K', struct(...))  these numbers
 %
-% It refuses when there is **nothing**, and runs-but-declares when the value is
-% provisional. Those are different situations. A provisional K still rejects
-% the gains that are obviously unsafe, and the banner says on every run what it
-% was checked against, so nobody mistakes the report for a measured one. A hard
-% refusal here would stop the session rather than degrade it.
-%
-% In order of preference: an explicit K, this session's fit, then the file.
-if ~isnan(override)
-    plant = struct('K', override, 'source', 'passed in explicitly', 'measured', '');
-    return
+% Delegates to heli_plant. The name is kept because callers use it; the model
+% it returns is second order now, with K, wn and zeta, not a lone gain.
+if isstruct(override)
+    plant = heli_plant(override);
+elseif isnumeric(override) && isscalar(override) && ~isnan(override)
+    error('heli_check_gains:scalarK', ...
+        ['A bare K is the old double-integrator model. Pass a struct with K,\n' ...
+         'wn and zeta, or leave it out to read elevation_plant.json.']);
+else
+    plant = heli_plant();
 end
-if evalin('base', 'exist(''K_fitted'', ''var'')')
-    plant = struct('K', evalin('base', 'K_fitted'), ...
-        'source', 'fitted in this session (K_fitted)', 'measured', datestr(now, 'yyyy-mm-dd'));
-    return
 end
 
-here = fileparts(mfilename('fullpath'));
-path = fullfile(here, 'elevation_plant.json');
-if ~isfile(path)
-    error('heli_check_gains:noPlant', ...
-        ['No fitted elevation model at\n    %s\nRecord a step response from ' ...
-         'the rig, fit K, and write it there as\n  {"K": <rad/(V s^2)>, ' ...
-         '"source": "...", "measured": "YYYY-MM-DD"}\nThere is deliberately no ' ...
-         'default: gains must never be checked against a guessed plant.'], path);
-end
-d = jsondecode(fileread(path));
-for key = ["K" "source" "measured"]
-    if ~isfield(d, key)
-        error('heli_check_gains:noPlant', 'elevation_plant.json has no ''%s''', key);
-    end
-end
-if ~(d.K > 0)
-    error('heli_check_gains:noPlant', ...
-        'elevation_plant.json: K must be positive, got %g', d.K);
-end
-plant = struct('K', double(d.K), 'source', char(d.source), 'measured', char(d.measured));
-end
-
-
-% ------------------------------------------------------------------ input
 
 function [subs, unreadable] = readSubmissions(folder)
 %READSUBMISSIONS  Every .json and .csv in the folder, one struct each.
@@ -258,117 +220,46 @@ end
 
 
 % ------------------------------------------------------------- evaluation
-
-function s = evaluateOne(s, K, env)
+function s = evaluateOne(s, plant, env)
 %EVALUATEONE  Fill in s.reasons and s.metrics. Every check is a refusal.
-s.metrics = struct('routhRatio', NaN, 'damping', NaN, 'gainDown', NaN, ...
-    'gainUp', NaN, 'phaseMargin', NaN, 'peakVolts', NaN, 'reversals', NaN, ...
-    'settleS', NaN);
+%
+% The envelope itself is heli_check_one, which is also what the students' own
+% submit_gains runs and what collate_gains applies to the form export. This
+% file used to carry its own copy, built on G = K/s^2 with Routh as
+% K*Kd*Kp > Ki, and that copy went wrong when the plant became second order.
+% Three implementations of one envelope is two too many.
+%
+% scripts/compare_envelope.py checks this against the Python side.
 
-% 1. Finite, strictly positive, and inside the per-gain ceiling. On a double
-%    integrator a non-positive gain is not a gentle controller, it is an
-%    unstable one.
-names = {'Kp', 'Ki', 'Kd'}; vals = [s.kp, s.ki, s.kd];
-for i = 1:3
-    if ~isfinite(vals(i))
-        s.reasons(end+1) = names{i} + " is not a finite number";
-    elseif vals(i) <= 0
-        s.reasons(end+1) = sprintf('%s must be greater than 0, got %g', names{i}, vals(i));
-    elseif vals(i) > env.gainMax
-        s.reasons(end+1) = sprintf('%s above the %g limit, got %g', names{i}, env.gainMax, vals(i));
-    end
+[ok, why, m] = heli_check_one(s.kp, s.ki, s.kd, plant, env);
+
+s.metrics = struct( ...
+    'routhRatio',  valueOr2(m, 'routh_ratio'), ...
+    'damping',     valueOr2(m, 'damping'), ...
+    'phaseMargin', valueOr2(m, 'phase_margin'), ...
+    'peakVolts',   valueOr2(m, 'peak_volts'), ...
+    'reversals',   valueOr2(m, 'reversals'), ...
+    'settleS',     valueOr2(m, 'settle_s'), ...
+    'gainDown',    NaN, ...
+    'gainUp',      NaN);
+
+% gainDown and gainUp are no longer tested. They existed because the double
+% integrator's PID loop was conditionally stable, so a Bode gain margin read
+% below 1 for every good design and the honest question was how far the gain
+% could move in both directions. The second-order loop is not conditionally
+% stable: a working design stays stable over a factor of a thousand either
+% way, checked by sweeping, so the test never binds and reporting a number
+% that always passes would be worse than reporting none.
+
+if ~ok
+    s.reasons(end+1) = string(why);
 end
-if ~isempty(s.reasons); return; end
-
-% 2. The condition students can check by hand, with margin for a rig that is
-%    not exactly the fitted model.
-ratio = K * s.kd * s.kp / s.ki;
-s.metrics.routhRatio = ratio;
-if ratio <= 1
-    s.reasons(end+1) = sprintf('unstable: needs K*Kd*Kp > Ki, but the ratio is %.2f', ratio);
-    return
-elseif ratio < env.routhMargin
-    s.reasons(end+1) = sprintf(['too close to unstable: K*Kd*Kp beats Ki by only ' ...
-        '%.2f, and we fly nothing below %.2f'], ratio, env.routhMargin);
-end
-
-% 3. Closed loop. The derivative is filtered, or the demand on the motors is
-%    an impulse and cannot be computed at all.
-s_ = tf('s');
-Tf = s.kd / (env.filterN * s.kp);
-C  = s.kp + s.ki / s_ + s.kd * s_ / (1 + Tf * s_);
-G  = K / s_^2;
-L  = C * G;
-T  = feedback(L, 1);
-
-p = pole(T);
-if max(real(p)) >= 0
-    s.reasons(end+1) = "closed loop is unstable: a pole is on or right of the imaginary axis";
-    return
-end
-osc = p(abs(imag(p)) > 1e-9);
-if ~isempty(osc)
-    zeta = min(-real(osc) ./ abs(osc));
-    s.metrics.damping = zeta;
-    if zeta < env.dampingMin
-        s.reasons(end+1) = sprintf('too oscillatory: damping %.3f below %.2f', ...
-            zeta, env.dampingMin);
-    end
 end
 
-% How far the loop gain may move in BOTH directions. Not the Bode gain margin:
-% this loop is conditionally stable, so that number is below 1 for every good
-% design and testing it against a floor rejects everything.
-[down, up] = gainRange(L);
-s.metrics.gainDown = down; s.metrics.gainUp = up;
-if down < env.gainDownMin
-    s.reasons(end+1) = sprintf(['only tolerates the loop gain dropping by %.2fx ' ...
-        '(needs %.1fx); this loop goes unstable when gain falls'], down, env.gainDownMin);
-end
-if up < env.gainUpMin
-    s.reasons(end+1) = sprintf('only tolerates the loop gain rising by %.2fx (needs %.1fx)', ...
-        up, env.gainUpMin);
-end
 
-[~, pm] = margin(L);
-s.metrics.phaseMargin = pm;
-if ~isfinite(pm) || pm < env.phaseMarginMin
-    s.reasons(end+1) = sprintf('phase margin %.1f deg below %g', pm, env.phaseMarginMin);
-end
-
-% 4. What the motors are actually asked to do. A design can be perfectly
-%    stable on paper and still slam the amplifier into its rails.
-step = deg2rad(env.stepDeg);
-t = linspace(0, env.settleMaxS * 1.5, 4000);
-v = step * step_(feedback(C, G), t);
-peak = max(abs(v));
-s.metrics.peakVolts = peak;
-if peak > env.voltagePeakMax
-    s.reasons(end+1) = sprintf('demands %.1f V for a %g deg step, above the %.1f V we allow', ...
-        peak, env.stepDeg, env.voltagePeakMax);
-end
-
-sgn = sign(v(abs(v) > 0.02 * max(peak, 1e-9)));
-reversals = sum(diff(sgn) ~= 0);
-s.metrics.reversals = reversals;
-if reversals > env.reversalsMax
-    s.reasons(end+1) = sprintf(['motor demand changes sign %d times; the rig''s ' ...
-        'guide warns against this above %d'], reversals, env.reversalsMax);
-end
-
-% 5. Settling, to 2%. Room time is finite and so is everyone's patience.
-y = step * step_(T, t);
-outside = find(abs(y - step) > 0.02 * step);
-if isempty(outside) || outside(end) >= numel(t)
-    settle = Inf;
-else
-    settle = t(outside(end));
-end
-s.metrics.settleS = settle;
-if settle > env.settleMaxS
-    s.reasons(end+1) = sprintf('takes %.1f s to settle, over the %g s limit', ...
-        settle, env.settleMaxS);
-end
+function v = valueOr2(m, name)
+%VALUEOR2  A metric if the check got far enough to compute it.
+if isfield(m, name); v = m.(name); else; v = NaN; end
 end
 
 
@@ -453,7 +344,7 @@ switch round
         avg = struct('who', sprintf('the cohort''s average of %d', numel(ok)), ...
             'kp', mean([ok.kp]), 'ki', mean([ok.ki]), 'kd', mean([ok.kd]), ...
             'source', '(computed)', 'reasons', strings(0), 'metrics', struct());
-        avg = evaluateOne(avg, K, env);
+        avg = evaluateOne(avg, plant, env);
         fprintf('Round 2 - the average of every accepted submission:\n');
         if isempty(avg.reasons)
             show(avg, 'the average');

@@ -6,43 +6,70 @@ set of gains is safe to put on the hardware.
 
 The physics
 -----------
-Linearised about level, the elevation axis is a **pure double integrator**:
+The elevation axis, **as measured on the rig**, is a stable but very lightly
+damped second order:
 
-    G(s) = eps(s) / V(s) = K / s^2,     K = La * Kf / Je   [rad / (V s^2)]
+    G(s) = eps(s) / V(s) = K wn^2 / (s^2 + 2 zeta wn s + wn^2)
 
-where V is the voltage applied to both motors together, about the operating
-point Vop that holds the arm up. There is no damping term: nothing in the rig
-opposes elevation rate except the air, and at these speeds that is nothing.
+with K about 3.4 deg/V, wn about 1.0 rad/s and zeta about 0.06, where V is the
+voltage applied to both motors together about the operating point that holds
+the arm at its trim. Fitted from the laboratory's own recording; the numbers
+live in elevation_plant.json and are refitted from the rig each year.
 
-That is the whole pedagogical point of week 1. A double integrator has two
-poles at the origin, so it cannot be stabilised by proportional feedback alone
-at any gain - the root locus leaves the origin straight up and down. Rate
-feedback is not a refinement, it is the difference between flying and not. This
-is why the open-loop flight attempt fails, and it is why the room's first
-instinct, "turn Kp up", makes things worse rather than better.
+Read those three numbers and you know what the machine does. It is stable:
+disturb it and it does come back. But zeta = 0.06 is almost no damping, so the
+oscillation has a period of about six seconds and takes something like a
+minute to die away.
+
+**This is not the model Quanser's own linearisation gives**, which is a double
+integrator with no restoring term at all. Both are defensible and the section
+below has the provenance and the unresolved experiment. The short version:
+gravity stiffness on the arm goes as sin(elevation), so it vanishes at level,
+which is exactly where Quanser linearise. The rig is flown about a trim, and
+there it oscillates. We fly the measured model.
 
 For a PID controller C(s) = Kd s + Kp + Ki/s the closed-loop characteristic
 polynomial is
 
-    s^3 + K Kd s^2 + K Kp s + K Ki = 0
+    s^3 + (2 zeta wn + K wn^2 Kd) s^2 + (wn^2 + K wn^2 Kp) s + K wn^2 Ki
 
-and Routh gives a condition students can check on paper, which is worth putting
-on a slide:
+and Routh on s^3 + a2 s^2 + a1 s + a0 asks for all coefficients positive and
 
-    Kd > 0,  Kp > 0,  Ki > 0,  and   K Kd Kp > Ki.
+    a2 a1 > a0
 
-Integral action is therefore not free: raise Ki far enough, with Kp and Kd
-fixed, and the loop goes unstable. That inequality is the reason the filter
-below exists.
+which is a condition a student can check on paper. Integral action is
+therefore not free: raise Ki far enough, with Kp and Kd fixed, and the loop
+goes unstable. That inequality is the reason the filter below exists.
 
-It also says something students find genuinely surprising, and week 1 should
-make them meet it: scale the whole loop gain by alpha and the condition becomes
-alpha K Kd Kp > Ki, so the loop is stable for *large* alpha and unstable for
-small. **This loop is conditionally stable - turning the gain down is what
-breaks it.** The textbook reflex, "if it is oscillating, reduce the gain", is
-exactly wrong here, and a naive gain-margin test reads every good design as a
-failure. So the envelope below asks how far the loop gain can move in *both*
-directions, which is the honest question for a plant like this.
+What proportional gain cannot do
+--------------------------------
+Close a proportional loop alone around this plant and the characteristic
+polynomial is
+
+    s^2 + 2 zeta wn s + wn^2 (1 + K Kp)
+
+Kp does not appear in the coefficient of s. The real part of the closed-loop
+poles is pinned at -zeta wn however hard you push, so the locus is a vertical
+line: the oscillation gets faster, the damping ratio falls as
+zeta / sqrt(1 + K Kp), and the settling time does not move at all. Going from
+Kp = 0.5 to Kp = 10 takes the overshoot from 89% to 97% and leaves the
+settling time at 65 seconds.
+
+So the room's reflex, "turn Kp up", is answered with a number rather than an
+assertion, and the derivative term is motivated rather than announced: damping
+has to come from somewhere, and Kp is not where. See
+models/w01_proportional_limit.py for the figure and the check against MATLAB.
+
+**A correction worth recording.** While this file carried the double
+integrator it also claimed the loop was *conditionally stable*: that scaling
+every gain by alpha gave alpha K Kd Kp > Ki, so the loop was stable for large
+alpha and unstable for small, and that "turning the gain down is what breaks
+it". That is true of a double integrator and **false of this plant**. Scaling
+the gains of a working design down by a factor of a hundred leaves the second
+order loop stable, because the wn^2 term keeps a2 a1 above a0 as the gains
+vanish. Checked numerically, not reasoned about. The envelope below still asks
+how far the loop gain can move in both directions, which remains the honest
+question for a plant whose K is a fit rather than a constant.
 
 Where the double integrator comes from, and why it is disputed
 --------------------------------------------------------------
@@ -87,11 +114,17 @@ and `d_Part3_*.mat` are closed-loop runs, so they do not settle it either.
     simply right. If omega_n rises with trim, the stiffness is geometric and
     the model is only valid near the trim it was fitted at.
 
-Until that is done, **do not treat either model as settled**. It matters beyond
-bookkeeping: the envelope and the Routh condition in this file follow from
-K/s^2, and week 1's hook - that the machine cannot be flown by hand - is true
-of a double integrator and false of a lightly damped stable system, which can
-be flown badly.
+Until that is done, **do not treat the question as settled**, even though the
+code now commits to the measured second order. The envelope and the Routh
+condition follow from that choice, and if the trim sweep shows wn moving with
+trim then every fit is local and a controller designed at one trim is being
+flown at another.
+
+Week 1's hook was rewritten for the same reason. "It cannot be flown by hand"
+is true of a double integrator and false of a lightly damped stable system,
+which can be flown badly. The hook now rests on the volunteer flying all three
+coupled axes, which is hard for reasons that survive either model, and that
+failure is what motivates taking elevation alone.
 
 See `models/quanser_trim_stiffness.py` for the geometry and the numbers.
 
@@ -124,6 +157,16 @@ ROOT = Path(__file__).resolve().parent.parent
 V_MAX = 24.0          # V, peak motor voltage the amplifier can deliver
 V_OP = 8.0            # V, provisional: the operating point that holds it level
 STEP_DEG = 7.5        # deg, the guide's standard elevation step
+# deg/s. Quanser rate-limit the *demand*, not just the output: the block is
+# "Des Position Rate Limiter" in q_heli3d.mdl and the value is CMD_RATE_LIMIT
+# in setup_lab_heli_3d.m, 45*pi/180 rad/s. The guide says why - it "eliminates
+# high-frequency changes ... which places less strain on the actuator".
+#
+# It has to be modelled, not ignored. Checking a PID design against an
+# instantaneous step asks the derivative term to differentiate a discontinuity,
+# which demands hundreds of volts from a 24 V amplifier and rejects every
+# sane design. The rig is never commanded that way.
+CMD_RATE_DEG_S = 45.0
 
 # Derivative filter. An ideal PID is not a real controller: its derivative term
 # is non-proper, so a step demand asks the motors for an impulse, and any
@@ -136,15 +179,29 @@ DERIVATIVE_FILTER_N = 10.0
 
 @dataclass(frozen=True)
 class Plant:
-    """G(s) = K / s^2, with K measured from the rig."""
+    """G(s) = K wn^2 / (s^2 + 2 zeta wn s + wn^2), fitted from the rig.
 
-    K: float                      # rad / (V s^2)
-    source: str                   # where the number came from
+    Second order, not the double integrator Quanser's own linearisation gives.
+    Both are defensible and the section at the top of this file explains why;
+    the short version is that gravity stiffness goes as sin(elevation), so it
+    vanishes at level, which is exactly where Quanser linearise. The rig is
+    flown about a trim, not about level, and there it oscillates.
+
+    K is in degrees per volt, because degrees are what the encoder reports and
+    what a student reads off a plot. Anything comparing against Quanser's
+    rad/(V s^2) has to convert.
+    """
+
+    K: float                      # deg / V
+    wn: float                     # rad / s
+    zeta: float                   # dimensionless
+    source: str                   # where the numbers came from
     measured: str                 # when
 
     def tf(self):
         import control as ct
-        return ct.tf([self.K], [1, 0, 0])
+        return ct.tf([self.K * self.wn**2],
+                     [1, 2 * self.zeta * self.wn, self.wn**2])
 
 
 def controller(kp: float, ki: float, kd: float, n: float = DERIVATIVE_FILTER_N):
@@ -174,7 +231,7 @@ class Envelope:
     kp_max: float = 50.0
     ki_max: float = 50.0
     kd_max: float = 50.0
-    routh_margin: float = 1.15    # K Kd Kp must beat Ki by this factor
+    routh_margin: float = 1.15    # a2 a1 must beat a0 by this factor
     damping_min: float = 0.15     # of the dominant closed-loop pole pair
     # How far the loop gain may move before the closed loop goes unstable, down
     # and up. Not ct.margin's gain margin: on a conditionally stable loop that
@@ -206,24 +263,52 @@ def load_plant(path: Path | None = None) -> Plant:
             "against a guessed plant."
         )
     d = json.loads(path.read_text(encoding="utf-8"))
-    for key in ("K", "source", "measured"):
+    for key in ("K", "wn", "zeta", "source", "measured"):
         if key not in d:
-            raise SystemExit(f"{path.name} has no {key!r}")
-    if not (d["K"] > 0):
-        raise SystemExit(f"{path.name}: K must be positive, got {d['K']}")
-    return Plant(K=float(d["K"]), source=str(d["source"]), measured=str(d["measured"]))
+            raise SystemExit(
+                f"{path.name} has no {key!r}.\n"
+                "A file with only K is the old double-integrator model. The\n"
+                "plant is second order now: refit with models/fit_second_order.m\n"
+                "and write K, wn and zeta."
+            )
+    for key in ("K", "wn"):
+        if not (d[key] > 0):
+            raise SystemExit(f"{path.name}: {key} must be positive, got {d[key]}")
+    if not (0 < d["zeta"] < 1):
+        raise SystemExit(
+            f"{path.name}: zeta must be between 0 and 1, got {d['zeta']}.\n"
+            "The fitted axis is underdamped; a value outside that range means\n"
+            "the fit failed rather than that the rig changed."
+        )
+    return Plant(K=float(d["K"]), wn=float(d["wn"]), zeta=float(d["zeta"]),
+                 source=str(d["source"]), measured=str(d["measured"]))
 
 
 def routh(plant: Plant, kp: float, ki: float, kd: float) -> tuple[bool, float]:
     """The hand-checkable stability condition, and how much room it has.
 
-    Returns (passes, ratio) where ratio = K Kd Kp / Ki. Above 1 is stable;
-    the envelope asks for more than 1 so that a rig which is not quite the
-    fitted model still flies.
+    PID around the second-order plant gives
+
+        s^3 + (2 zeta wn + K wn^2 Kd) s^2 + (wn^2 + K wn^2 Kp) s + K wn^2 Ki
+
+    and Routh on s^3 + a2 s^2 + a1 s + a0 asks for a2 a1 > a0 with all
+    positive. Returns (passes, ratio) where ratio = a2 a1 / a0; above 1 is
+    stable, and the envelope asks for more so that a rig which is not quite
+    the fitted model still flies.
+
+    This replaces the condition K Kd Kp > Ki, which is Routh for the double
+    integrator and was used here while that was the assumed plant. It is not a
+    conservative version of the one above, it is a different inequality, and
+    it accepts gains that this plant would not fly.
     """
     if min(kp, ki, kd) <= 0:
         return False, 0.0
-    return (plant.K * kd * kp) > ki, (plant.K * kd * kp) / ki
+    a2 = 2 * plant.zeta * plant.wn + plant.K * plant.wn**2 * kd
+    a1 = plant.wn**2 + plant.K * plant.wn**2 * kp
+    a0 = plant.K * plant.wn**2 * ki
+    if a0 <= 0:
+        return False, 0.0
+    return (a2 * a1) > a0, (a2 * a1) / a0
 
 
 def gain_range(L, lo: float = 1e-3, hi: float = 1e3, n: int = 400) -> tuple[float, float]:
