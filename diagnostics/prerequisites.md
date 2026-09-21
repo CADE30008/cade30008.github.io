@@ -81,10 +81,6 @@ A system obeys \( \dot y + 2y = u \), starting from rest, so that \( y(0) = 0 \)
 
 *Worked route, shown to everyone:*
 
-- Transform every term, using \( \dot y \to sY \) because the system starts from rest. That gives \( sY + 2Y = U \).
-- Collect \( Y \): \( (s+2)Y = U \).
-- Divide: \( \dfrac{Y}{U} = \dfrac{1}{s+2} \).
-
 The denominator, \( s+2 \), is the characteristic polynomial, and its root
 \( s = -2 \) is the pole. You will do this for every block diagram in the
 unit, so practise until it is quick.
@@ -304,12 +300,11 @@ This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect
 around 45% overshoot and a couple of seconds of settling. The rig you meet
 in the first session measures near \( \omega_\mathrm{n} = 1 \) rad/s and
 \( \zeta = 0.06 \): slower *and* far less damped, so it swings once every
-six seconds and takes about a minute to go quiet. Low damping and a slow
-response are different faults, and the rig has both.
+six seconds and takes about a minute to go quiet. Slow and lightly damped are two separate problems, and the rig has both.
 
 ### 7. Steady-state error
 
-The same unity negative feedback loop, but with a plant \( G(s) = \dfrac{4}{s+1} \). After a unit step in the reference \( R(s) \), what steady-state error \( e_\mathrm{ss} \) remains?
+A plant \( G(s) = \dfrac{4}{s+1} \) sits in a unity negative feedback loop. After a unit step in the reference \( R(s) \), what steady-state error \( e_\mathrm{ss} \) remains?
 
 - steady-state error: **0.2** (tolerance ±0.01)
 - *Common error* 0.25: you used \( \dfrac{1}{G(0)} \). The formula is \( \dfrac{1}{1+G(0)} \), and that extra 1 is the reference itself, since the error is what the reference asks for minus what the loop delivers.
@@ -324,14 +319,10 @@ The same unity negative feedback loop, but with a plant \( G(s) = \dfrac{4}{s+1}
 - A unit step's final error is therefore \( e_\mathrm{ss} = \dfrac{1}{1+G(0)} \).
 - Here \( G(0) = 4 \), so \( e_\mathrm{ss} = \dfrac{1}{5} = 0.2 \), a 20% error that never goes away.
 
-**Why it matters.** The only way to drive that to zero is to make
-\( G(0) \) infinite, which means putting an integrator in the loop: a pole
-at \( s = 0 \). That is exactly what the I in PID does, and it is the
-reason integral action exists at all rather than being an optional extra.
+**Why it matters.** Driving that error to zero needs \( G(0) \) infinite, which means an integrator in the loop: a pole at \( s = 0 \). That is what the I in PID provides. Whether you want it is a design decision rather than a duty, because integral action also slows the loop and can destabilise it. Plenty of working controllers are P or PD and simply live with a small steady error.
 
 Raising the gain instead shrinks the error but never removes it, and costs
-you damping on the way. That trade returns in almost every week of this
-unit.
+you damping on the way. That trade comes back constantly.
 
 ### 8. Reading a Bode plot
 
@@ -359,8 +350,7 @@ A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
 Here \( G = \dfrac{10}{s+10} = \dfrac{1}{1 + s/10} \), so \( \omega_\mathrm{c} = 10 \) rad/s and
 the question is asking for the corner itself.
 
-**−3 dB and −45° at the corner is the single most reused fact in this
-unit.** Every lag you meet in weeks 4 and 8 is built from it.
+**−3 dB and −45° at the corner is the single most reused fact in this unit.** Every first-order lag you meet later is built from it.
 
 ### 9. Decibels
 
@@ -433,7 +423,7 @@ Which of these does negative feedback *not* do, on its own (that is, with a sens
     <br>*Shown if chosen:* **Plant gain changes:** It does do this. It is why a feedback design survives an aircraft getting lighter as it burns fuel, and it is what the sensitivity function measures.
 - Make an unstable plant stable, with a suitable controller
     <br>*Shown if chosen:* **Stabilising an unstable plant:** It does do this, and you will see it in the first session: the Quanser rig cannot be flown open-loop by hand, and closing the loop is what makes it flyable.
-- Remove the effect of sensor noise on the output **← correct**
+- Reduce the effect of sensor noise on the output **← correct**
     <br>*Shown if chosen:* **Sensor noise:** Right, and this is the one that catches people. Feedback acts on what the sensor *says*. It cannot tell noise from real motion, so it faithfully corrects for both.
 
 *Checks:* the unit's first threshold concept, that feedback is a trade rather than a fix
