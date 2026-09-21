@@ -22,7 +22,11 @@ wastes their time and ours.
 - **Poles and zeros**, the s-plane, reading stability from pole locations.
 - **BIBO stability**, by name.
 - **Bode plots** built up from first- and second-order factors, with slopes in
-  dB/decade; integrators and differentiators.
+  dB/decade; integrators and differentiators. Specifically the first-order
+  landmarks: −3 dB and −45° at the corner, −20 dB/decade above it, and the
+  phase turning over a decade either side. Their handbook draws exactly this
+  figure. They call it the **cut-off frequency** and label the ordinate
+  "Gain dB" where we say magnitude.
 - **The standard second-order form**, and reading ζ and ωₙ out of it.
 - **Transient metrics**: rise time, peak time, settling time to 2%, maximum
   overshoot, steady-state value.

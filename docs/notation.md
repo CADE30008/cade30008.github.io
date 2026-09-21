@@ -119,7 +119,7 @@ the unit will ask for.
 | \(\lvert G(j\omega)\rvert\) | **Magnitude** — the vertical axis of a Bode plot, in decibels. | Very often called **gain**, and written "Gain (dB)". We say magnitude, because *gain* is already doing three other jobs: loop gain, DC gain and gain margin. MATLAB and Dorf both label the axis Magnitude. |
 | \(\angle G(j\omega)\) | Phase, in degrees. | \(\arg G(j\omega)\), \(\phi\), \(\Phi\). |
 | dB | Decibels, \(20\log_{10}\lvert G\rvert\) for a gain. | The \(10\log_{10}\) form is for *power*; we never use it. |
-| \(\omega_\mathrm{c}\) | Corner, or break, frequency of a first-order factor: \(\omega_\mathrm{c} = 1/\tau\). | \(\omega_\mathrm{b}\). |
+| \(\omega_\mathrm{c}\) | Corner, or break, frequency of a first-order factor: \(\omega_\mathrm{c} = 1/\tau\). | \(\omega_\mathrm{b}\), and **cut-off frequency**, which is the commoner name in signals and filtering. |
 | \(\omega_\mathrm{gc}\) | Gain crossover: where \(\lvert L \rvert = 1\), i.e. 0 dB. | \(\omega_\mathrm{c}\) in some books, which is why we keep \(\omega_\mathrm{c}\) for the corner. |
 | \(\omega_\mathrm{pc}\) | Phase crossover: where \(\angle L = -180^\circ\). | \(\omega_{180}\). |
 | GM | Gain margin — how much the loop gain can rise before instability. | \(G_\mathrm{m}\), \(K_\mathrm{g}\). |
