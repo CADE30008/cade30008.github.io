@@ -66,16 +66,16 @@ this list; the same source builds the `.exam` file.
 <!-- questions:start -->
 ### 1. From an equation to a transfer function
 
-A system obeys \( \dot y + 2y = u \), starting from rest, where \( u \) is the input and \( y \) the output. What is its transfer function \( Y(s)/U(s) \)?
+A system obeys \( \dot y + 2y = u \), starting from rest, so that \( y(0) = 0 \), where \( u \) is the input and \( y \) the output. What is its transfer function \( \frac{Y(s)}{U(s)} \)?
 
 - \( \dfrac{1}{s+2} \) **← correct**
-    <br>*Shown if chosen:* Right. Every term transforms, the \( s \) stays with \( Y \) on the left, and what's left on top is the coefficient of \( u \).
+    <br>*Shown if chosen:* **\( \frac{1}{s+2} \):** Right. Every term transforms, the \( s \) stays with \( Y \) on the left, and what's left on top is the coefficient of \( u \).
 - \( \dfrac{s}{s+2} \)
-    <br>*Shown if chosen:* The \( s \) from \( \dot y \) has ended up in the numerator. It belongs with \( y \): the left-hand side collects to \( (s+2)Y \), so the numerator is whatever multiplies \( u \), which here is 1.
-- \( \dfrac{2}{s+1} \)
-    <br>*Shown if chosen:* The two coefficients have swapped. The coefficient of \( y \), which is 2, joins \( s \) in the denominator; the coefficient of \( u \), which is 1, is the numerator.
+    <br>*Shown if chosen:* **\( \frac{s}{s+2} \):** The \( s \) from \( \dot y \) has ended up in the numerator. It belongs with \( y \): the left-hand side collects to \( (s+2)Y \), so the numerator is whatever multiplies \( u \), which here is 1.
+- \( \dfrac{2}{s+2} \)
+    <br>*Shown if chosen:* **\( \frac{2}{s+2} \):** The denominator is right, so the left-hand side was collected correctly. The numerator has come from the coefficient of \( y \) instead of the coefficient of \( u \). It is whatever multiplies the *input*, which here is 1.
 - \( s + 2 \)
-    <br>*Shown if chosen:* That's the characteristic polynomial, or equivalently \( U/Y \) — the right answer upside down. A transfer function is always output over input.
+    <br>*Shown if chosen:* **\( s+2 \):** That's the characteristic polynomial, or equivalently \( \frac{U}{Y} \): the right answer upside down. A transfer function is always output over input.
 
 *Checks:* Laplace transform of a derivative with zero initial conditions
 
@@ -83,7 +83,7 @@ A system obeys \( \dot y + 2y = u \), starting from rest, where \( u \) is the i
 
 - Transform every term, using \( \dot y \to sY \) because the system starts from rest. That gives \( sY + 2Y = U \).
 - Collect \( Y \): \( (s+2)Y = U \).
-- Divide: \( Y/U = \dfrac{1}{s+2} \).
+- Divide: \( \dfrac{Y}{U} = \dfrac{1}{s+2} \).
 
 The denominator, \( s+2 \), is the characteristic polynomial, and its root
 \( s = -2 \) is the pole. You will do this for every block diagram in the
@@ -91,21 +91,26 @@ unit, so practise until it is quick.
 
 <details><summary><em>Full working, folded away in the quiz</em></summary>
 
-**1. Write down what the Laplace transform does to each term.**
+**1. Transform the equation, because it turns calculus into algebra.**
 
-For a derivative the transform is
+A differential equation ties a quantity to its own slope, which is awkward
+to rearrange. The Laplace transform turns differentiation into
+multiplication by \( s \), so the equation becomes something you can move
+around like any other. There is one rule to remember:
 
 $$ \mathcal{L}\{\dot y(t)\} = sY(s) - y(0), $$
 
-and for the undifferentiated terms it is just \( \mathcal{L}\{y(t)\} = Y(s) \)
-and \( \mathcal{L}\{u(t)\} = U(s) \).
+and everything without a dot on it simply changes case:
+\( y(t) \to Y(s) \) and \( u(t) \to U(s) \).
 
-**2. Use "starting from rest".**
+**2. Apply \( y(0) = 0 \).**
 
-It means \( y(0) = 0 \), so the \( -y(0) \) term disappears and
-\( \mathcal{L}\{\dot y\} = sY(s) \). Without that condition there is no
-single transfer function to find, because the answer would depend on where
-the system started.
+The \( -y(0) \) term disappears, leaving
+\( \mathcal{L}\{\dot y\} = sY(s) \). That condition is in the question for
+a reason: without it there is no single transfer function to find, because
+the answer would depend on where the system happened to start. A transfer
+function describes the system, not the situation it was in.
+
 
 **3. Transform the whole equation.**
 
@@ -136,13 +141,13 @@ $$ \frac{Y(s)}{U(s)} = \frac{1}{s+2}. $$
 A system has transfer function \( G(s) = \dfrac{5}{s^2 + 2s + 5} \), whose poles are at \( -1 \pm 2j \). Its step response is:
 
 - unstable
-    <br>*Shown if chosen:* Stability is decided by the *real* part, and here it is \( -1 \). A complex pole isn't unstable in itself — it's what makes a response oscillate rather than what makes it grow.
+    <br>*Shown if chosen:* **Unstable:** Stability is decided by the *real* part, and here it is \( -1 \). A complex pole isn't unstable in itself: it's what makes a response oscillate rather than what makes it grow.
 - stable, and settles without oscillating
-    <br>*Shown if chosen:* The stability half is right, but the \( \pm 2j \) has been dropped. A non-zero imaginary part means the response oscillates on its way in, here at 2 rad/s.
+    <br>*Shown if chosen:* **Stable, no oscillation:** The stability half is right, but the \( \pm 2j \) has been dropped. A non-zero imaginary part means the response oscillates on its way in, here at 2 rad/s.
 - stable, with a decaying oscillation **← correct**
-    <br>*Shown if chosen:* Right — and you read both halves. Real part negative, so it decays; imaginary part non-zero, so it oscillates while decaying.
+    <br>*Shown if chosen:* **Stable, decaying oscillation:** Right, and you read both halves. Real part negative, so it decays; imaginary part non-zero, so it oscillates while decaying.
 - an oscillation that never decays
-    <br>*Shown if chosen:* That needs the poles *on* the imaginary axis, at \( \pm 2j \) with no real part at all. The \( -1 \) is what makes it die away.
+    <br>*Shown if chosen:* **Never decays:** That needs the poles *on* the imaginary axis, at \( \pm 2j \) with no real part at all. The \( -1 \) is what makes it die away.
 
 *Checks:* reading stability and oscillation from pole locations
 
@@ -172,7 +177,7 @@ A system has transfer function \( G(s) = \dfrac{25}{s^2 + 4s + 25} \). Comparing
 - *Common error* \( \omega_\mathrm{n} = 25 \): that's \( \omega_\mathrm{n}^2 \). The constant term is the square, so take the root.
 - *Common error* \( \zeta = 0.16 \): you divided 4 by \( \omega_\mathrm{n}^2 \). The middle coefficient is \( 2\zeta\omega_\mathrm{n} \), so divide by \( 2\omega_\mathrm{n} = 10 \).
 - *Common error* \( \zeta = 0.8 \): you divided by \( \omega_\mathrm{n} \) but not by the 2. It is easy to lose; the factor of 2 is there so that \( \zeta = 1 \) is exactly critical damping.
-- *Common error* \( \zeta = 2 \): that's \( \zeta\omega_\mathrm{n} \), which is the decay rate \( \sigma \) — a useful number, but not the damping ratio.
+- *Common error* \( \zeta = 2 \): that's \( \zeta\omega_\mathrm{n} \), which is the decay rate \( \sigma \), a useful number, but not the damping ratio.
 
 *Checks:* the standard second-order form
 
@@ -184,23 +189,24 @@ Match the denominator against the standard form
 - **constant term:** \( \omega_\mathrm{n}^2 = 25 \), so \( \omega_\mathrm{n} = 5 \) rad/s.
 - **middle term:** \( 2\zeta\omega_\mathrm{n} = 4 \), and \( \omega_\mathrm{n} \) is now known, so \( \zeta = 4/(2 \times 5) = 0.4 \).
 
-Always do them in that order — the middle term needs \( \omega_\mathrm{n} \), so
-there is nothing to be gained by starting there. A quick check: \( \zeta \)
+Always do them in that order, because the middle term needs \(
+\omega_\mathrm{n} \) and there is nothing to be gained by starting
+there. A quick check: \( \zeta \)
 between 0 and 1 means an oscillatory response, which matches the complex
 poles this denominator has.
 
 ### 4. Overshoot
 
-A second-order system with damping ratio \( \zeta = 0.4 \) is given a step input. Its overshoot — how far the response goes past its final value, as a percentage of it — is closest to:
+A second-order system with damping ratio \( \zeta = 0.4 \) is given a step input. Its overshoot (how far the response goes past its final value, as a percentage of it) is closest to:
 
 - 5%
-    <br>*Shown if chosen:* That's roughly \( \zeta = 0.7 \) — the value often quoted as a good compromise, so it is an easy one to reach for. This system is less damped than that.
+    <br>*Shown if chosen:* **5%:** That's roughly \( \zeta = 0.7 \), the value often quoted as a good compromise, so it is an easy one to reach for. This system is less damped than that.
 - 10%
-    <br>*Shown if chosen:* That's roughly \( \zeta = 0.6 \). You're in the right region but a little too damped; the relationship is steep here, so small changes in \( \zeta \) move the overshoot a lot.
+    <br>*Shown if chosen:* **10%:** That's roughly \( \zeta = 0.6 \). You're in the right region but a little too damped; the relationship is steep here, so small changes in \( \zeta \) move the overshoot a lot.
 - 25% **← correct**
-    <br>*Shown if chosen:* Right. \( M_\mathrm{p} = 25.4\% \), and the useful thing to carry away is the pairing: \( \zeta = 0.4 \) with about a quarter overshoot.
+    <br>*Shown if chosen:* **25%:** Right. \( M_\mathrm{p} = 25.4\% \), and the useful thing to carry away is the pairing: \( \zeta = 0.4 \) with about a quarter overshoot.
 - 50%
-    <br>*Shown if chosen:* That's roughly \( \zeta = 0.2 \), considerably livelier than this. Half the height of the step as overshoot would be a very underdamped system.
+    <br>*Shown if chosen:* **50%:** That's roughly \( \zeta = 0.2 \), considerably livelier than this. Half the height of the step as overshoot would be a very underdamped system.
 
 *Checks:* the link between damping and overshoot
 
@@ -225,46 +231,45 @@ instead and interpolate:
 - \( \zeta = 0.7 \) → about 5%
 
 Less damping, more overshoot, and the curve is steep. That steepness is
-why phase margin — the frequency-domain cousin of damping — is worth
-watching closely once we get to it.
+why phase margin, the frequency-domain cousin of damping, is worth watching
+closely once we get to it.
 
 ### 5. Steady state
 
 A system has transfer function \( G(s) = \dfrac{3}{s+2} \). What value does its response to a unit step settle to?
 
 - final value: **1.5** (tolerance ±0.01)
-- *Common error* 3: you took the numerator alone. Setting \( s = 0 \) leaves the denominator's constant term too, so it's \( 3/2 \), not 3.
+- *Common error* 3: you took the numerator alone. Setting \( s = 0 \) leaves the denominator's constant term too, so it's \( \frac{3}{2} \), not 3.
 - *Common error* 0: you may have applied \( \lim_{s \to 0} sG(s) \), which is the final value of the *impulse* response. For a step the \( s \) in the theorem cancels the \( 1/s \) of the step itself.
-- *Common error* 0.667: that's \( 2/3 \) — the right two numbers, inverted.
+- *Common error* 0.667: that's \( \frac{2}{3} \), the right two numbers inverted.
 
 *Checks:* the final value theorem, or DC gain
 
 *Worked route, shown to everyone:*
 
 The steady-state value of a step response is just \( G(0) \), the DC gain.
-Set \( s = 0 \): \( G(0) = 3/2 = 1.5 \).
+Set \( s = 0 \): \( G(0) = \frac{3}{2} = 1.5 \).
 
 If you would rather use the final value theorem, the step is \( 1/s \), so
 
 $$ \lim_{s\to0} s \cdot G(s) \cdot \frac{1}{s} = \lim_{s\to0} G(s) = G(0). $$
 
 The \( s \) and the \( 1/s \) cancel, which is why the shortcut works. The
-theorem is only valid when the response actually settles, so check the
-poles are in the left half plane first — here the single pole is at
-\( s = -2 \), so it does.
+theorem is only valid when the response actually settles, so check the poles are in the left half-plane first. Here the single pole
+is at \( s = -2 \), so it does.
 
 ### 6. Closing the loop
 
 A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop, with reference \( R(s) \) and output \( Y(s) \). The closed-loop transfer function \( T(s) = Y(s)/R(s) \) is:
 
 - \( \dfrac{4}{s^2 + s + 4} \) **← correct**
-    <br>*Shown if chosen:* Right. \( T = G/(1+G) \), then multiply top and bottom by \( s(s+1) \) to clear the fraction within a fraction.
+    <br>*Shown if chosen:* **\( \frac{4}{s^2+s+4} \):** Right. \( T = \frac{G}{1+G} \), then multiply top and bottom by \( s(s+1) \) to clear the fraction within a fraction.
 - \( \dfrac{4}{s^2 + s - 4} \)
-    <br>*Shown if chosen:* A sign error: this is \( G/(1-G) \), which is *positive* feedback. The sign is the whole point — this version has a pole in the right half plane and would run away.
+    <br>*Shown if chosen:* **\( \frac{4}{s^2+s-4} \):** A sign error: this is \( \frac{G}{1-G} \), which is *positive* feedback. The sign is the whole point: this version has a pole in the right half-plane and would run away.
 - \( \dfrac{4}{s^2 + s} \)
-    <br>*Shown if chosen:* That's the open loop \( G \) with its denominator multiplied out. The loop hasn't been closed: there is no \( +4 \) contributed by the feedback path.
+    <br>*Shown if chosen:* **\( \frac{4}{s^2+s} \):** That's the open loop \( G \) with its denominator multiplied out. The loop hasn't been closed: there is no \( +4 \) contributed by the feedback path.
 - \( \dfrac{s^2 + s}{s^2 + s + 4} \)
-    <br>*Shown if chosen:* Very close, and worth having derived: that is the transfer function from the reference to the **error**, \( E/R = 1/(1+G) \), not to the output. The question asked for reference to output, which is \( T = G/(1+G) \). The two add to one, \( E/R + T = 1 \), which is a relationship this unit will come back to and give a name.
+    <br>*Shown if chosen:* **\( \frac{s^2+s}{s^2+s+4} \):** Very close, and worth having derived: that is the transfer function from the reference to the **error**, \( \frac{E}{R} = \frac{1}{1+G} \), not to the output. The question asked for reference to output, which is \( T = \frac{G}{1+G} \). The two add to one, \( \frac{E}{R} + T = 1 \), which is a relationship this unit will come back to and give a name.
 
 *Checks:* \( G/(1+G) \), the step everything in the unit builds on
 
@@ -277,7 +282,7 @@ A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop,
 Two habits that save time later. **The closed-loop denominator is
 \( 1 + G \) cleared of fractions**, so you can often write it down without
 the algebra. And **the numerator of \( T \) is the numerator of \( G \)**,
-unchanged — feedback moves poles, never zeros.
+unchanged: feedback moves poles, never zeros.
 
 This one has \( \omega_\mathrm{n} = 2 \) and \( \zeta = 0.25 \), so expect a lively
 response with around 45% overshoot. The Quanser rig in the first session is
@@ -288,17 +293,17 @@ far less damped still.
 The same unity negative feedback loop, but with a plant \( G(s) = \dfrac{4}{s+1} \). After a unit step in the reference \( R(s) \), what steady-state error \( e_\mathrm{ss} \) remains?
 
 - steady-state error: **0.2** (tolerance ±0.01)
-- *Common error* 0.25: you used \( 1/G(0) \). The formula is \( 1/(1+G(0)) \), and that extra 1 is the reference itself — the error is what the reference asks for minus what the loop delivers.
-- *Common error* 0.8: that's the steady-state *output*, \( G(0)/(1+G(0)) \). The error is what's left over: \( 1 - 0.8 = 0.2 \).
-- *Common error* 0: that would need an integrator in the loop. This plant has none — a pole at \( s = -1 \), not at the origin — so a finite error survives.
+- *Common error* 0.25: you used \( \frac{1}{G(0)} \). The formula is \( \frac{1}{1+G(0)} \), and that extra 1 is the reference itself, since the error is what the reference asks for minus what the loop delivers.
+- *Common error* 0.8: that's the steady-state *output*, \( \frac{G(0)}{1+G(0)} \). The error is what's left over: \( 1 - 0.8 = 0.2 \).
+- *Common error* 0: that would need an integrator in the loop. This plant has none: a pole at \( s = -1 \), not at the origin, so a finite error survives.
 
 *Checks:* steady-state error of a type 0 loop, and why integral action exists
 
 *Worked route, shown to everyone:*
 
-- For unity feedback, the error transfer function is \( E/R = S = \dfrac{1}{1+G} \).
+- For unity feedback, the error transfer function is \( \dfrac{E}{R} = S = \dfrac{1}{1+G} \).
 - A unit step's final error is therefore \( e_\mathrm{ss} = \dfrac{1}{1+G(0)} \).
-- Here \( G(0) = 4 \), so \( e_\mathrm{ss} = 1/5 = 0.2 \) — a 20% error that never goes away.
+- Here \( G(0) = 4 \), so \( e_\mathrm{ss} = \frac{1}{5} = 0.2 \), a 20% error that never goes away.
 
 **Why it matters.** The only way to drive that to zero is to make
 \( G(0) \) infinite, which means putting an integrator in the loop: a pole
@@ -306,21 +311,21 @@ at \( s = 0 \). That is exactly what the I in PID does, and it is the
 reason integral action exists at all rather than being an optional extra.
 
 Raising the gain instead shrinks the error but never removes it, and costs
-you damping on the way — the trade you will meet again in almost every week
-of this unit.
+you damping on the way. That trade returns in almost every week of this
+unit.
 
 ### 8. Reading a Bode plot
 
 A system has transfer function \( G(s) = \dfrac{10}{s+10} \). At a frequency \( \omega = 10 \) rad/s, what are the magnitude of \( G(j\omega) \), in decibels, and its phase?
 
 - 0 dB, 0°
-    <br>*Shown if chosen:* Those are the low-frequency values, well *below* the corner. At \( \omega = 10 \) you are standing exactly on the corner, where the asymptotes meet and neither one is accurate.
+    <br>*Shown if chosen:* **0 dB, 0°:** Those are the low-frequency values, well *below* the corner. At \( \omega = 10 \) you are standing exactly on the corner, where the asymptotes meet and neither one is accurate.
 - −3 dB, −45° **← correct**
-    <br>*Shown if chosen:* Right, and these two numbers travel together: every first-order corner is −3 dB and −45°, whatever the frequency. Worth memorising as a pair.
+    <br>*Shown if chosen:* **−3 dB, −45°:** Right, and these two numbers travel together: every first-order corner is −3 dB and −45°, whatever the frequency. Worth memorising as a pair.
 - −6 dB, −90°
-    <br>*Shown if chosen:* −90° is the high-frequency limit, only approached well *above* the corner. At the corner the phase is exactly halfway there.
+    <br>*Shown if chosen:* **−6 dB, −90°:** −90° is the high-frequency limit, only approached well *above* the corner. At the corner the phase is exactly halfway there.
 - −20 dB, −45°
-    <br>*Shown if chosen:* The phase is right. −20 dB is the magnitude a *decade* above the corner, at \( \omega = 100 \), once the −20 dB/decade slope has had a full decade to act.
+    <br>*Shown if chosen:* **−20 dB, −45°:** The phase is right. −20 dB is the magnitude a *decade* above the corner, at \( \omega = 100 \), once the −20 dB/decade slope has had a full decade to act.
 
 *Checks:* the corner frequency of a first-order lag
 
@@ -329,7 +334,7 @@ A system has transfer function \( G(s) = \dfrac{10}{s+10} \). At a frequency \( 
 A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
 
 - **well below \( \omega_\mathrm{c} \):** 0 dB and 0°. The system passes the signal through.
-- **at \( \omega_\mathrm{c} \):** \( |G| = 1/\sqrt2 \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
+- **at \( \omega_\mathrm{c} \):** \( |G| = \frac{1}{\sqrt2} \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
 - **well above \( \omega_\mathrm{c} \):** falling at −20 dB/decade, phase heading to −90°.
 
 Here \( G = 10/(s+10) = 1/(1 + s/10) \), so \( \omega_\mathrm{c} = 10 \) rad/s and
@@ -343,20 +348,20 @@ unit.** Every lag you meet in weeks 4 and 8 is built from it.
 A gain is quoted as 20 dB. As a plain multiplying factor, that is:
 
 - 2
-    <br>*Shown if chosen:* That's about 6 dB. The two worth knowing are 6 dB ≈ ×2 and 20 dB = ×10 exactly.
+    <br>*Shown if chosen:* **2:** That's about 6 dB. Two are worth carrying: 6 dB ≈ ×2, and 20 dB = ×10 exactly.
 - 10 **← correct**
-    <br>*Shown if chosen:* Right. \( 20\log_{10}(10) = 20 \) dB, so every 20 dB is another factor of ten.
+    <br>*Shown if chosen:* **10:** Right. \( 20\log_{10}(10) = 20 \) dB, so every 20 dB is another factor of ten.
 - 20
-    <br>*Shown if chosen:* Decibels are a logarithmic scale, so the number is never the factor itself. If it were, the scale would be doing nothing.
+    <br>*Shown if chosen:* **20:** Decibels are a logarithmic scale, so the number is never the factor itself. If it were, the scale would be doing nothing.
 - 100
-    <br>*Shown if chosen:* A factor of 100 is 40 dB, not 20 — you have gone one decade too far. Each ×10 adds 20 dB, so ×10 is 20 dB and ×100 is 40 dB. If you doubled the decibels when you meant to square the factor, that is the usual way round it happens.
+    <br>*Shown if chosen:* **100:** A factor of 100 is 40 dB, not 20: you have gone one decade too far. Each ×10 adds 20 dB, so ×10 is 20 dB and ×100 is 40 dB. The usual way in is to double the decibels when you meant to multiply the factor by ten.
 
 *Checks:* the decibel scale, used on every Bode plot in the unit
 
 *Worked route, shown to everyone:*
 
-For a gain — an amplitude ratio, which is what a Bode magnitude plot
-shows — the definition is \( 20\log_{10}|G| \).
+For a gain (an amplitude ratio, which is what a Bode magnitude plot shows) the
+definition is \( 20\log_{10}|G| \).
 
 Anchors worth carrying:
 
@@ -390,7 +395,7 @@ Two readings, and the second one is the point of the question.
 
 **The peak is not at \( \omega_\mathrm{n} \).** It sits at
 \( \omega_\mathrm{r} = \omega_\mathrm{n}\sqrt{1 - 2\zeta^2} \), which here is
-4.8 rad/s — close enough to be easy to mistake, and far enough to matter.
+4.8 rad/s, close enough to be easy to mistake and far enough to matter.
 The two coincide only when \( \zeta = 0 \), and above \( \zeta = 0.707 \)
 there is no peak at all.
 
@@ -401,23 +406,23 @@ at or above about 0.7.
 
 ### 11. What feedback is for
 
-Which of these does negative feedback <em>not</em> do, on its own — that is, with a sensor, a controller and a plant, but nothing else added?
+Which of these does negative feedback *not* do, on its own (that is, with a sensor, a controller and a plant, but nothing else added)?
 
 - Reduce the effect of disturbances on the output
-    <br>*Shown if chosen:* It does do this — arguably the main reason feedback exists. A disturbance shows up in the measurement, the error changes, and the controller pushes back.
+    <br>*Shown if chosen:* **Disturbances:** It does do this, and it is arguably the main reason feedback exists. A disturbance shows up in the measurement, the error changes, and the controller pushes back.
 - Reduce the effect of changes in the plant's gain
-    <br>*Shown if chosen:* It does do this. It is why a feedback design survives an aircraft getting lighter as it burns fuel, and it is what the sensitivity function measures.
+    <br>*Shown if chosen:* **Plant gain changes:** It does do this. It is why a feedback design survives an aircraft getting lighter as it burns fuel, and it is what the sensitivity function measures.
 - Make an unstable plant stable, with a suitable controller
-    <br>*Shown if chosen:* It does do this, and you will see it in the first session: the Quanser rig cannot be flown open-loop by hand, and closing the loop is what makes it flyable.
+    <br>*Shown if chosen:* **Stabilising an unstable plant:** It does do this, and you will see it in the first session: the Quanser rig cannot be flown open-loop by hand, and closing the loop is what makes it flyable.
 - Remove the effect of sensor noise on the output **← correct**
-    <br>*Shown if chosen:* Right, and this is the one that catches people. Feedback acts on what the sensor *says*. It cannot tell noise from real motion, so it faithfully corrects for both.
+    <br>*Shown if chosen:* **Sensor noise:** Right, and this is the one that catches people. Feedback acts on what the sensor *says*. It cannot tell noise from real motion, so it faithfully corrects for both.
 
-*Checks:* the unit's first threshold concept — feedback is a trade, not a fix
+*Checks:* the unit's first threshold concept, that feedback is a trade rather than a fix
 
 *Worked route, shown to everyone:*
 
 Feedback compares the reference with the **measurement**, not with the
-truth. Anything the sensor reports — real motion or noise — is treated
+truth. Anything the sensor reports, real motion or noise alike, is treated
 identically, so noise is driven into the actuator and back out into the
 output.
 
