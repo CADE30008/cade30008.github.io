@@ -7,22 +7,57 @@ This session deviates from P17's standard shape, and that is said to students in
 the first two minutes: there is no previous week to retrieve, and the case hour
 is built round the hardware.
 
+## How the session is set up
+
+**This is the standing arrangement, from week 1 onwards**, not a one-off for the
+first session.
+
+The theatre is in use until 12:50 — the AVDASI 2 intro runs 12:00–12:50 in this
+same room — so **technical services bring the rig in at 12:50 and set up from
+there**, continuing through the opening blocks of this session while the
+lecturer presents. Setup is not a reason to start late.
+
+**Everything runs on the TSRs' own laptops.** No laboratory PC is brought over,
+and nothing depends on the lectern machine.
+
+The deadline that matters is not 13:00. Working from the plan below, the rig is
+first on camera at **minute 20** and must be **ready to fly by minute 30**, when
+the open-loop attempt happens. So:
+
+| By | What |
+|---|---|
+| 12:50 | Rig in the room, on its bench |
+| ~13:20 (min 20) | Guarding, tether, camera and feed working — the rig goes on screen |
+| ~13:30 (min 30) | Powered, closed-loop test flight done, switches tested — it flies |
+
+Agree that with the TSRs in the room at 12:50, out loud, so the sequence is
+theirs and not assumed.
+
 ## In advance
 
-- [ ] Technical services: rig released from the laboratory, transported, and
+State as of Mon 21 Sep. Done items are kept rather than deleted, so the list
+stays a record of what the session needs each year.
+
+- [x] Technical services: rig released from the laboratory, transported, and
       returned. Their time, arranged with them; not teaching support.
-- [ ] At least one TA confirmed for the session, to help in the room during the
-      system-ID and tuning blocks, and to watch the e-stop during flights.
-- [ ] Quanser rig booked out of the laboratory and into the theatre, with
+- [x] At least one TA confirmed for the session, to help in the room during the
+      system-ID and tuning blocks, and to watch the switches during flights.
+- [x] Quanser rig booked out of the laboratory and into the theatre, with
       transport and a bench.
-- [ ] Two joysticks, tested with direct per-motor control.
-- [ ] **E-stop fitted to the amplifier and tested.** In reach of the lecturer or TA throughout.
-      Nothing runs before this is confirmed.
-- [ ] Guarding and tether fitted as in the laboratory.
-- [ ] Camera on the rig, feed on the main screen, sight line checked from the
-      back row.
+- [x] Two joysticks, tested with direct per-motor control.
+- [x] **Cutting power: the amplifier switch and the mains switch.** In reach of
+      the lecturer or TA throughout, and identified out loud before anything is
+      powered. Nothing flies until both are located and tested. *No separate
+      e-stop is fitted — decided 21 Sep; these two switches are the means of
+      stopping the rig, so treat them with the seriousness an e-stop would get.*
+- [x] Guarding and tether fitted as in the laboratory.
+- [x] Camera: webcam, tripod and extension cable tested and packed. **Sight line
+      from the back row still to be checked** — it can only be done in the room,
+      so check it while the TSRs set up.
 - [ ] Clean measured elevation response recorded from *this* rig, on the day or
-      the day before, and placed in this week's `data/` folder.
+      the day before, and placed in this week's `data/` folder. **The rig is in
+      the laboratory until 12:50 on the day**, so record it there, not in the
+      theatre.
 - [ ] MATLAB Drive, per [matlab-drive.md](matlab-drive.md):
       `CADE30008/<year>/w01-design-cycle/data/` shared **view only**, and
       `.../submit/` shared **can edit**. Both links on Blackboard.
@@ -40,8 +75,10 @@ is built round the hardware.
 
 ## In the room
 
-Arrive 45 minutes early. Rig, guarding, tether, e-stop, camera, then power, then
-a test flight in closed loop, then a test of the e-stop under power.
+Arrive for 12:50, with the TSRs. Order of work: rig and bench, guarding, tether,
+camera and feed, then power, then a closed-loop test flight, then a test of the
+amplifier and mains switches under power. The lecturer's own job in that window
+is the back-row sight line and locating both switches.
 
 ## Files
 
