@@ -51,6 +51,17 @@ coursework:
 
 laboratory:
   from_week: 1
+  # Six is the number that does the pedagogical work, not the number the rig is
+  # free. Closing the window before the coursework gets hard is what makes
+  # people go early, and going early is what makes the laboratory useful rather
+  # than a panic in week 10.
+  #
+  # In practice access will probably be extended to week 12 once this year is
+  # running, because the rig is there and refusing it is hard to justify to
+  # somebody standing in front of it. That is fine as a concession and wrong as
+  # a default: **reset this to 6 every year.** An extension granted in week 7
+  # is a different thing from a window advertised as twelve weeks in week 1,
+  # and only the first one still makes people book early.
   to_week: 6
   note: Open access and self-scheduled; consolidation week is the last week of the window
   # Booked through a form on Blackboard. The form is per-cohort, so the link

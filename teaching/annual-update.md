@@ -18,7 +18,13 @@ Everything else depends on it. In `curriculum/term.yaml`:
 - [ ] `day`, `time`, `room` — from the timetable, not from memory.
 - [ ] `consolidation_week`, `revision_week`.
 - [ ] `coursework.deadline`, and the week of each checkpoint.
-- [ ] `laboratory.from_week` / `to_week`.
+- [ ] `laboratory.from_week` / `to_week`. **Reset `to_week` to 6**, whatever
+      last year ended up as. The window is short on purpose: closing it before
+      the coursework gets hard is what makes people book early. Access will
+      very likely be extended towards week 12 once the year is running, and
+      that is fine as a concession granted later; it is not the number to
+      advertise in week 1, because a twelve-week window removes the reason to
+      go in week 2.
 - [ ] `cohort` — the registered number. It drives the library-copies note in
       week 1 and the laboratory capacity sums.
 
