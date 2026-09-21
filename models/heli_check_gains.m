@@ -17,9 +17,11 @@ function result = heli_check_gains(folder, opts)
 %   a student whose gains were changed without being told learns the wrong
 %   lesson, and the room watches a flight that was not theirs.
 %
-%   Refuse to guess the plant.  Without a fitted K it stops rather than falling
-%   back on a nominal one. A report produced against an invented plant reads
-%   exactly like a real one.
+%   Refuse to invent a plant, but run on a provisional one.  With no model at
+%   all it stops. With a provisional K it runs and says so in the banner, every
+%   time, so nobody mistakes the report for a measured one. Those are different
+%   situations: a provisional K still catches the gains that are obviously
+%   unsafe, and refusing outright would stop a session rather than degrade it.
 %
 % Nothing is ever written back into the folder it read. That folder is shared
 % with the cohort, so a file listing whose gains passed would publish exactly
@@ -42,10 +44,13 @@ arguments
     opts.K (1,1) double = NaN
 end
 
-env = envelope();
-K   = plantGain(opts.K);
+env   = envelope();
+plant = plantGain(opts.K);
+K     = plant.K;
 
-fprintf('Elevation model: K = %.4g rad/(V s^2)\n', K);
+fprintf('Elevation model: K = %.4g rad/(V s^2), %s', K, plant.source);
+if ~isempty(plant.measured); fprintf(', measured %s', plant.measured); end
+fprintf('\n');
 fprintf(['Envelope: Routh margin %.2f, damping >= %.2f, gain -%.1fx/+%.1fx, ' ...
          'PM >= %.0f deg,\n          peak <= %.1f V, settle <= %.0f s\n\n'], ...
     env.routhMargin, env.dampingMin, env.gainDownMin, env.gainUpMin, ...
@@ -118,17 +123,50 @@ env = struct( ...
 end
 
 
-function K = plantGain(override)
-%PLANTGAIN  This session's fitted K. No fallback, on purpose.
-if ~isnan(override); K = override; return; end
-if evalin('base', 'exist(''K_fitted'', ''var'')')
-    K = evalin('base', 'K_fitted');
+function plant = plantGain(override)
+%PLANTGAIN  The elevation model, and where it came from.
+%
+% Matches models/quanser_elevation.py exactly, which is the point: two tools
+% disagreeing about which plant to filter against is worse than either being
+% wrong on its own.
+%
+% It refuses when there is **nothing**, and runs-but-declares when the value is
+% provisional. Those are different situations. A provisional K still rejects
+% the gains that are obviously unsafe, and the banner says on every run what it
+% was checked against, so nobody mistakes the report for a measured one. A hard
+% refusal here would stop the session rather than degrade it.
+%
+% In order of preference: an explicit K, this session's fit, then the file.
+if ~isnan(override)
+    plant = struct('K', override, 'source', 'passed in explicitly', 'measured', '');
     return
 end
-error('heli_check_gains:noPlant', ...
-    ['No fitted plant. Run the system identification first so that K_fitted ' ...
-     'exists,\nor pass K = ... explicitly. Do not let it guess: gains checked ' ...
-     'against the\nwrong plant pass here and fly badly there.']);
+if evalin('base', 'exist(''K_fitted'', ''var'')')
+    plant = struct('K', evalin('base', 'K_fitted'), ...
+        'source', 'fitted in this session (K_fitted)', 'measured', datestr(now, 'yyyy-mm-dd'));
+    return
+end
+
+here = fileparts(mfilename('fullpath'));
+path = fullfile(here, 'elevation_plant.json');
+if ~isfile(path)
+    error('heli_check_gains:noPlant', ...
+        ['No fitted elevation model at\n    %s\nRecord a step response from ' ...
+         'the rig, fit K, and write it there as\n  {"K": <rad/(V s^2)>, ' ...
+         '"source": "...", "measured": "YYYY-MM-DD"}\nThere is deliberately no ' ...
+         'default: gains must never be checked against a guessed plant.'], path);
+end
+d = jsondecode(fileread(path));
+for key = ["K" "source" "measured"]
+    if ~isfield(d, key)
+        error('heli_check_gains:noPlant', 'elevation_plant.json has no ''%s''', key);
+    end
+end
+if ~(d.K > 0)
+    error('heli_check_gains:noPlant', ...
+        'elevation_plant.json: K must be positive, got %g', d.K);
+end
+plant = struct('K', double(d.K), 'source', char(d.source), 'measured', char(d.measured));
 end
 
 
