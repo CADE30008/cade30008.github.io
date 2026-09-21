@@ -22,37 +22,61 @@ in *italics*; everything else should stand.
 
 ---
 
-## Ready to send now: the unit is open
+## Sent: the unit is open
 
-**Subject:** CADE30008 Control — your Blackboard course is open
+**Scheduled 21 September 2026, to go out 09:00.** This is the text as actually
+sent, not as drafted. Keep it that way: next year's starting point should be
+what worked, not what was proposed.
 
-> Welcome to the control half of Flight Dynamics & Control.
+**Subject:** *Welcome to Flight Dynamics & Control!*
+
+> Welcome to Flight Dynamics & Control!
 >
-> Everything for this half of the unit is now on Blackboard, and the course
-> website is open: **https://cade30008.github.io**
+> Initial resources for the unit are now on Blackboard. Two halves: Flight
+> Dynamics, delivered by Prof. Richardson and Prof. Lowenberg, on Fridays, and
+> Control, delivered by Dr. Bullock and Dr. Nguyen on Tuesdays.
 >
-> **Two minutes, worth doing before we start:** go to *Preparing for Control*
-> and run the device check. It runs a small control example in your browser or
-> in MATLAB and tells you whether your laptop is ready. Doing it now means our
-> first session goes on control rather than on installing software.
+> Two minutes, worth doing before we start: go to Preparing for Control and run
+> the device check. It runs a small control example in your browser or in MATLAB
+> and tells you whether your laptop is ready. Doing it now means our first
+> session goes on control rather than on installing software.
 >
-> **https://cade30008.github.io/preparing/**
->
-> On the same page you'll find the three MathWorks Onramp courses — about four
-> and a half hours in total, and the best preparation there is for this unit —
-> and a short diagnostic quiz on the maths we build on. Both are recommended
-> rather than required. Do them now if you have the time; otherwise pick them up
-> as the unit reaches them. Neither contributes to your grade, and nothing in
-> the unit assumes you've done them.
+> In the same section you'll find links to three MathWorks Onramp courses, two
+> of which cover skills you likely already have, one (only 30 mins), and a short
+> diagnostic quiz on the maths we build on. All are recommended rather than
+> required. Do them now if you have the time; otherwise pick them up when you
+> can. None contribute to your grade, and nothing in the unit assumes you've
+> done them.
 >
 > Bring a laptop to sessions if you have one. If you don't, you'll share —
 > activities are done in pairs and threes.
 >
-> *Steve*
+> See you tomorrow!
+> -Steve
 
-**Before you send it**, check the two links resolve and that the device check
-actually runs — `npm run preview:live` and click through it yourself. The whole
-announcement is an invitation to click, and a broken first click is expensive.
+### What the sent version changed, and why it is better
+
+Worth carrying into the weekly pattern rather than treating as one-off edits.
+
+- **It orients them across the whole unit**, not just our half: both halves,
+  all four names, and which day each runs. The draft opened inside the control
+  half and assumed they knew the rest. First contact is the wrong moment to
+  assume that.
+- **It points at places, not URLs.** "On Blackboard", "Preparing for Control".
+  A named destination survives a moved link, and Blackboard is where they are
+  already going.
+- **It signs off towards the next thing**, not away from it.
+
+### For next year
+
+- **Send this a week in advance.** It went out the morning before the first
+  session, which leaves no time to act on the device check, and the device check
+  is the one thing in it with a deadline attached in practice.
+- The Onramp sentence needs a rewrite. Three courses and a quiz are carried in a
+  single clause, and "one (only 30 mins)" has nothing to attach to. Something
+  closer to: *three MathWorks Onramp courses. Two cover skills you likely
+  already have; the third takes only 30 minutes. There is also a short
+  diagnostic quiz on the maths we build on.*
 
 ---
 

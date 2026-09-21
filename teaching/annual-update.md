@@ -29,6 +29,10 @@ nav agree with the new calendar.
 
 - [ ] **Announcement dates** in [announcements.md](announcements.md): re-anchor
       the Sunday slots to this year's weeks, and clear last year's send log.
+- [ ] **Send the opening announcement a week before the first session.** In
+      2026/27 it went out the morning before, which left no time to act on the
+      device check — the one thing in it that actually wants doing beforehand.
+      Schedule it when you set the calendar in step 1, not when term starts.
 - [ ] **The Onramp courses** — check the three still exist, still have those
       names, and still take about as long. MathWorks retires and renames them.
 - [ ] **Library holdings** in `curriculum/weeks.yaml` under `sources.dorf`:
