@@ -63,13 +63,13 @@ the year there and not here, so treat it as the current version.
 Two of the video series on it are worth calling out, because for a lot of
 people they work better than any book:
 
-- **Brian Douglas, *Control System Lectures*.** Short, unhurried videos that
-  build intuition before algebra. If a Bode plot or a root locus has never
-  quite made sense as a picture, start here. He also makes the MATLAB Tech
-  Talks, which cover much of this unit.
-- **Steve Brunton, *Control Bootcamp*.** A full course, pitched a little
-  higher, and unusually good on state space and on why the frequency domain
-  and the time domain are two views of one thing.
+- **[Brian Douglas, *Control System Lectures*](http://readinglists.bris.ac.uk/items/702c23d8-e618-4dc8-8b96-0d80dfec866b.html).**
+  Short, unhurried videos that build intuition before algebra. If a Bode plot
+  or a root locus has never quite made sense as a picture, start here. He also
+  makes the MATLAB Tech Talks, which cover much of this unit.
+- **[Steve Brunton, *Control Bootcamp*](http://readinglists.bris.ac.uk/items/78aee3f5-6869-4803-bedb-8f96f0ca226e.html).**
+  A full course, pitched a little higher, and unusually good on state space and
+  on why the frequency domain and the time domain are two views of one thing.
 
 Both are free, both are on the Blackboard list, and both are recommended
 rather than required, like everything else here.

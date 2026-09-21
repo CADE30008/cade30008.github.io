@@ -35,9 +35,10 @@ Blackboard:
 
 - **It changes without us.** Library holdings, editions and links are
   maintained centrally; a copy on the site is a copy that goes stale.
-- **Links are institutional.** `readinglists.bris.ac.uk` resolves for Bristol
-  students and not for anyone else, and this site is meant to be readable by
-  people who are neither.
+- **Links are institutional.** `readinglists.bris.ac.uk` items do open for
+  anyone — Talis serves a public "shared item" page, checked 21 Sep 2026 — but
+  what they lead to is the library's holdings, which are not. The list is a
+  Bristol artefact even where its URLs are not.
 - **It is per-cohort.** The site is evergreen; the list is this year's.
 
 So the site names the few things worth naming, says what each is *for*, and
