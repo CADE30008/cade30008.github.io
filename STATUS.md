@@ -48,6 +48,7 @@ there is real content; `published` means it is on the live site. **9 of 11 weeks
 
 - `about.md`
 - `ai.md`
+- `curriculum.md`
 - `glossary.md`
 - `index.md`
 - `notation.md`

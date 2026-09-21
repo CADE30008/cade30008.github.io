@@ -68,6 +68,7 @@ nav = [
     { "Example sheet" = "w11-beyond-this-course/example-sheet.md" },
     { "Solutions" = "w11-beyond-this-course/solutions.md" },
   ] },
+  { "How this unit runs" = "curriculum.md" },
   { "Preparing for Control" = "preparing/index.md" },
   { "Recommended reading" = "reading.md" },
   { "Notation" = "notation.md" },

@@ -19,6 +19,7 @@ site_url: https://cade30008.github.io/
 
 pages:
   - index.md
+  - curriculum.md
   - preparing/index.md
   - reading.md
   - notation.md

@@ -688,6 +688,102 @@ def textbook_block(sources: dict, cohort: int) -> str:
     ])
 
 
+def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
+    """docs/curriculum.md: the shape of the unit, for students.
+
+    The staff lecture map and this page come from the same data and answer
+    different questions. That one says *why* a week is built the way it is:
+    threshold concepts, ILO tags, P-numbers, per-session budgets. This one says
+    what the unit asks of you and when, which is what a student actually needs
+    in week 1 and comes back to in week 7.
+
+    Everything here is in week numbers rather than dates. The weeks are a
+    property of the unit and survive a change of year; the dates belong on
+    Blackboard, and putting them here would make the page wrong every autumn.
+    """
+    by_kind = wl["lecture_week"]
+    per_week = wl["typical"]
+    lab = term["laboratory"]
+    cw = term["coursework"]
+    planned = wl["planned"]
+
+    rows = ["| Week | | What it covers |", "|---|---|---|"]
+    for w in weeks:
+        act = f"Act {w['act']}" if w.get("act") else ""
+        if w["kind"] == "lecture":
+            rows.append(f"| **{w['week']}** | {act} | [{w['title']}]({w['slug']}/index.md) |")
+        elif w["kind"] == "consolidation":
+            rows.append(f"| **{w['week']}** | {act} | *Consolidation week. No lecture: "
+                        f"time to catch up, use the laboratory, and act on feedback.* |")
+        else:
+            rows.append(f"| **{w['week']}** | {act} | *{w['title']}* |")
+    rows.append(f"| **{term['revision_week']}** | | *Revision week. Nothing new.* |")
+
+    spine = ["| Week | What the coursework asks of you |", "|---|---|"]
+    for s in cw["steps"]:
+        event = f"**{s['event']}.** " if s.get("event") else ""
+        spine.append(f"| {s['week']} | {event}{s['step']} |")
+
+    return "\n".join([
+        "---",
+        # Both quoted: an unquoted value containing a colon is not valid YAML,
+        # and the failure surfaces as a build error about byte offsets.
+        'title: "How this unit runs"',
+        'description: "What each week covers, what a week is meant to cost you, how '
+        'the coursework builds, and when the laboratory is open."',
+        "---", "",
+        "# How this unit runs", "",
+        "This page is the shape of the unit in one place: the weeks, what a week is",
+        "meant to cost you, how the coursework builds, and when the laboratory is",
+        "open. It is written in **week numbers**, because those are a property of the",
+        "unit. Dates, rooms and deadlines live on Blackboard, which is the version to",
+        "trust when the two disagree.", "",
+        "## The term at a glance", "",
+        f"Eleven weeks of content in {len(acts)} acts, then revision.", "",
+        *rows, "",
+        "## What a week is meant to cost", "",
+        f"**About {per_week:g} hours in a lecture week**, including the lecture itself:", "",
+        f"- **{by_kind['lecture']:g} h** in the room with us;",
+        f"- **{by_kind['independent']:g} h** independent: closing the loop on the last session, "
+        "the example sheet, and a look ahead at the next case;",
+        f"- **{by_kind['coursework']:g} h** on the coursework, which is designed to be done "
+        "a little each week rather than in a block at the end.", "",
+        f"Plus **{wl['laboratory']:g} hours of laboratory** in total, across the open window below.", "",
+        '!!! info "Why that adds up to less than the credit says"',
+        f"    Ten credits is {wl['notional']:g} notional hours. What is planned above comes to",
+        f"    roughly **{planned:g} hours** across the term,",
+        "    and the gap is deliberate rather than an accounting error.",
+        "",
+        "    Two reasons. Some of it is slack: a week where the example sheet takes",
+        "    longer than it should, or the coursework needs a second attempt, and a",
+        "    plan with no slack in it is a plan that fails in week 5. The rest is",
+        "    **room to go further**, which is what the remaining time is actually for.",
+        "    Dorf and Bishop's worked examples, the reading list on Blackboard, and",
+        "    the video series on it are all there for people who want to push past",
+        "    what the handouts cover. See [Recommended reading](reading.md).",
+        "",
+        f"    A {wl['working_week']:g}-hour working week across {wl['units_at_once']} units at once is the",
+        "    assumption behind all of it. If a week is costing you far more than this,",
+        "    that is worth telling us about rather than absorbing.", "",
+        "## How the coursework builds", "",
+        f"One brief, released in week {cw['steps'][0]['week']} and due in week {cw['deadline']['week']}, "
+        f"on the {cw['deadline']['day']}. It is designed to be built a piece",
+        "at a time, and the checkpoints exist so that you find out whether you are on",
+        "track while there is still time to do something about it.", "",
+        *spine, "",
+        "## The laboratory", "",
+        f"**Open access across weeks {lab['from_week']} to {lab['to_week']}**, self-scheduled, "
+        f"about {wl['laboratory']:g} hours in total.", "",
+        "Book your own time; there is no timetabled slot. The window closes at the",
+        "end of the consolidation week, not at the end of term, which is the part",
+        "people miss: by the time the coursework gets difficult, the laboratory has",
+        "shut.", "",
+        "---", "",
+        "*Generated from the unit's own plan. If something here disagrees with",
+        "Blackboard, Blackboard is this year's version and this is the shape.*",
+    ])
+
+
 def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
     """STATUS.md: one screen saying where this half of the unit actually is.
 
@@ -918,6 +1014,7 @@ def main() -> None:
     (fig / "your-week.svg").write_text(week_svg(wl, term), encoding="utf-8")
     (DOCS / "planning").mkdir(exist_ok=True)
     (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
+    (DOCS / "curriculum.md").write_text(curriculum_page(weeks, term, acts, wl) + "\n", encoding="utf-8")
     if not replace_between(DOCS / "index.md", "<!-- weeks:start -->", "<!-- weeks:end -->", home_table(weeks)):
         err("docs/index.md has no weeks markers")
     published = set(yaml.safe_load((ROOT / "publish.yaml").read_text(encoding="utf-8"))["pages"])
