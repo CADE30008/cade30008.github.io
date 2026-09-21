@@ -799,10 +799,11 @@ winner changes, which motivates the requirements strand and the coursework's
 first criterion. And simulation and hardware disagree, which motivates model
 validation and the virtual flight test.
 
-**Safety.** A student is flying an unstable machine in a room of 200. An e-stop
-on the amplifier, in reach of the lecturer or a TA throughout, is the
-primary measure, and submitted gains are filtered before anything reaches the
-hardware. The rest is in the run sheet.
+**Safety.** A student is flying an unstable machine in a room of 200. There is
+no separate e-stop: the amplifier switch and the mains switch are the means of
+cutting power, both located and tested before anything flies and named out loud
+before power goes on, with a TA watching them throughout. Submitted gains are
+filtered before anything reaches the hardware. The rest is in the run sheet.
 
 **A quote for the PID week.** Åström and Murray open their PID chapter with
 "PID control is by far the most common way of using feedback", above an epigraph

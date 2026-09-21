@@ -53,7 +53,9 @@ nav agree with the new calendar.
       without it for that reason. A previous year's fit is not this year's rig.
 - [ ] Re-run `scripts/gains.py check` on last year's submissions, if kept, and
       confirm the envelope still accepts and rejects the right ones.
-- [ ] QUARC licences current; rig serviced; e-stop tested.
+- [ ] QUARC licences current; rig serviced. **Amplifier switch and mains
+      switch located and tested** — there is no separate e-stop, decided
+      21 September 2026, and these two are what stops the rig.
 - [ ] **MATLAB Drive**, following [matlab-drive.md](matlab-drive.md): copy
       `templates/` to a new `20xx-yy/`, fill each `data/`, empty each `submit/`,
       re-share both — which produces **new links** — then replace every link in
