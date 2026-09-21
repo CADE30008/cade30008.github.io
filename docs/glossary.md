@@ -187,11 +187,6 @@ practical one, since nothing real sits exactly on a boundary.
 oscillates forever and 1 does not oscillate at all. The Quanser helicopter's
 elevation axis is around 0.06, which is why it wobbles for so long after a nudge.
 
-**Ringing.** Informal for a decaying oscillation: a response that overshoots and
-wobbles before it settles. You will hear it constantly in a laboratory and see
-it on an oscilloscope, and almost never read it in a control textbook, which
-says *oscillation*. Both mean the same thing.
-
 **Natural frequency, $\omega_\mathrm{n}$.** How fast an oscillatory system wants to move.
 Together with the damping ratio it fixes a second-order response entirely.
 

@@ -191,10 +191,10 @@ vocabulary, not control vocabulary: Dorf uses it **zero** times in 1024 pages
 against 62 uses of *oscillat\**, and the year-2 material 2 against 74. A
 student who meets it here and nowhere else has to translate.
 
-It is defined in the glossary and given in the notation page's "also written"
-column, because they will certainly hear it spoken. Our own working notes —
-`PEDAGOGY.md`, `teaching/` — may use whichever word is clearer; the rule is
-about what students read.
+The word appears nowhere students read, not even as a synonym: we tried it in
+the glossary and against \(\omega_\mathrm{d}\) on the notation page, and took
+both out. Our own working notes, `PEDAGOGY.md` and `teaching/`, may use
+whichever word is clearer; the rule is about what students read.
 
 ### Settling time always names its band
 
