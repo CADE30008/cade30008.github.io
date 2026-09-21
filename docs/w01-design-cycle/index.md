@@ -160,7 +160,7 @@ argue with; a fit that arrived from a function is one you can only accept.
 !!! tip "Two honest engineers get two different models"
     You will not all get the same numbers from the same response, and that is
     not a failure of technique. Where you read the peaks, how much of the tail
-    you trust, whether you fit before or after the transient — all of it moves
+    you trust, whether you fit before or after the transient: all of it moves
     the answer. Comparing fits across the room is part of the exercise.
 
 ## Tuning, and then flying {#tuning}
@@ -187,7 +187,7 @@ watching a flight that was not yours.
     Submissions go into a shared folder that the whole cohort can read, and
     the name on your file is the name that appears when your gains fly. You
     may use an alias. Round 1 flies the extremes *because* they misbehave, so
-    somebody's name is going on a public failure — and a public failure that
+    somebody's name is going on a public failure, and a public failure that
     everybody learns from is worth more than a quiet success.
 
 ## Where simulation and hardware disagree {#sim-vs-hardware}
@@ -207,7 +207,7 @@ Four reasons it happens, all of which get a week of their own later:
   rig at 14:00 is quite what it was at 13:00.
 
 The cycle's answer is not to build a better model before designing. It is to
-design, test, find out where you were wrong, and go round again — which is
+design, test, find out where you were wrong, and go round again, which is
 what step 6 was for.
 
 ## Summary {#summary}
@@ -253,7 +253,7 @@ builds on them.
 | 11 | [What comes next](../w11-beyond-this-course/index.md); then coursework Q&A. | **Due Thursday of week 11** |
 | 12 | *Revision week* |  |
 
-The Quanser laboratory is open access from week 1 to week 6: you choose when to go.
+The Quanser laboratory is open access from week 1 to week 6: you choose when to go, but the slots are booked. **Book a slot through the form on Blackboard**, and do it early rather than late. The window closes at the end of week 6, which is before the coursework gets hard.
 <!-- schedule:end -->
 
 ## How you're assessed {#assessment}

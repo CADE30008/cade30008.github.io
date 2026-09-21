@@ -81,10 +81,13 @@ track while there is still time to do something about it.
 
 **Open access across weeks 1 to 6**, self-scheduled, about 4 hours in total.
 
-Book your own time; there is no timetabled slot. The window closes at the
-end of the consolidation week, not at the end of term, which is the part
-people miss: by the time the coursework gets difficult, the laboratory has
-shut.
+There is no timetabled slot: **book a slot through the form on Blackboard**, and treat that as
+something to do in the first week rather than the first time you need the rig.
+
+The window closes at the end of the consolidation week, not at the end of
+term, which is the part people miss: by the time the coursework gets
+difficult, the laboratory has shut. Slots also fill from the back, so the
+people who book late get the worst of both.
 
 ---
 

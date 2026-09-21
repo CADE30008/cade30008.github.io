@@ -53,6 +53,9 @@ laboratory:
   from_week: 1
   to_week: 6
   note: Open access and self-scheduled; consolidation week is the last week of the window
+  # Booked through a form on Blackboard. The form is per-cohort, so the link
+  # lives there and not here; this is the instruction, not the address.
+  booking: Book a slot through the form on Blackboard
 
 # The student workload model, settled 19 September and revised the same day for
 # the consolidation week. Deliberately below the notional hours for this half of
