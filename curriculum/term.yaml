@@ -56,6 +56,9 @@ laboratory:
   # Booked through a form on Blackboard. The form is per-cohort, so the link
   # lives there and not here; this is the instruction, not the address.
   booking: Book a slot through the form on Blackboard
+  # Rig time is worked in small groups, and one booking covers the group.
+  # Everyone booking individually would fill the window three times over.
+  group_size: pairs or threes
 
 # The student workload model, settled 19 September and revised the same day for
 # the consolidation week. Deliberately below the notional hours for this half of

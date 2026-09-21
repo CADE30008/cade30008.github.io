@@ -87,8 +87,13 @@ track while there is still time to do something about it.
 
 **Open access across weeks 1 to 6**, self-scheduled, about 4 hours in total.
 
-There is no timetabled slot: **book a slot through the form on Blackboard**, and treat that as
-something to do in the first week rather than the first time you need the rig.
+You work at the rig in **pairs or threes**, and **one of you books for
+the group** rather than everybody booking separately: the window would fill
+three times over otherwise.
+
+There is no timetabled slot, so book a slot through the form on Blackboard,
+and treat that as something to do in the first week rather than the first
+time you need the rig.
 
 The window closes at the end of the consolidation week, not at the end of
 term, which is the part people miss: by the time the coursework gets

@@ -253,7 +253,7 @@ builds on them.
 | 11 | [What comes next](../w11-beyond-this-course/index.md); then coursework Q&A. | **Due Thursday of week 11** |
 | 12 | *Revision week* |  |
 
-The Quanser laboratory is open access from week 1 to week 6: you choose when to go, but the slots are booked. **Book a slot through the form on Blackboard**, and do it early rather than late. The window closes at the end of week 6, which is before the coursework gets hard.
+The Quanser laboratory is open access from week 1 to week 6: you choose when to go, but the slots are booked. You work in pairs or threes, and **one of you books for the group**: book a slot through the form on Blackboard. Do it early rather than late: the window closes at the end of week 6, which is before the coursework gets hard.
 <!-- schedule:end -->
 
 ## How you're assessed {#assessment}

@@ -556,9 +556,10 @@ def schedule_table(weeks: list[dict], term: dict) -> str:
     lab = term["laboratory"]
     rows += ["", f"The Quanser laboratory is open access from week {lab['from_week']} to week "
                  f"{lab['to_week']}: you choose when to go, but the slots are booked. "
-                 f"**{lab['booking']}**, and do it early rather than late. The window "
-                 f"closes at the end of week {lab['to_week']}, which is before the "
-                 "coursework gets hard."]
+                 f"You work in {lab['group_size']}, and **one of you books for the "
+                 f"group**: {lab['booking'][0].lower()}{lab['booking'][1:]}. Do it "
+                 f"early rather than late: the window closes at the end of week "
+                 f"{lab['to_week']}, which is before the coursework gets hard."]
     return "\n".join(rows)
 
 
@@ -791,10 +792,12 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "## The laboratory", "",
         f"**Open access across weeks {lab['from_week']} to {lab['to_week']}**, self-scheduled, "
         f"about {wl['laboratory']:g} hours in total.", "",
-        f"There is no timetabled slot: **{lab['booking'][0].lower()}{lab['booking'][1:]}**, "
-        "and treat that as",
-        "something to do in the first week rather than the first time you need the rig.",
-        "",
+        f"You work at the rig in **{lab['group_size']}**, and **one of you books for",
+        "the group** rather than everybody booking separately: the window would fill",
+        "three times over otherwise.", "",
+        f"There is no timetabled slot, so {lab['booking'][0].lower()}{lab['booking'][1:]},",
+        "and treat that as something to do in the first week rather than the first",
+        "time you need the rig.", "",
         "The window closes at the end of the consolidation week, not at the end of",
         "term, which is the part people miss: by the time the coursework gets",
         "difficult, the laboratory has shut. Slots also fill from the back, so the",
