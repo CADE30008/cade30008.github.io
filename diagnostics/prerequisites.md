@@ -130,7 +130,7 @@ $$ \frac{Y(s)}{U(s)} = \frac{1}{s+2}. $$
 
 - **Shape.** One derivative of \( y \) should give one power of \( s \) in
   the denominator. It does.
-- **Steady state.** Set \( s = 0 \) to get \( Y/U = 1/2 \), so a steady
+- **Steady state.** Set \( s = 0 \) to get \( \frac{Y}{U} = \frac{1}{2} \), so a steady
   input of 1 settles the output at 0.5. Setting \( \dot y = 0 \) in the
   original equation gives \( 2y = u \), and so \( y = 0.5 \). They agree.
 
@@ -187,7 +187,7 @@ Match the denominator against the standard form
 \( s^2 + 2\zeta\omega_\mathrm{n} s + \omega_\mathrm{n}^2 \), one coefficient at a time:
 
 - **constant term:** \( \omega_\mathrm{n}^2 = 25 \), so \( \omega_\mathrm{n} = 5 \) rad/s.
-- **middle term:** \( 2\zeta\omega_\mathrm{n} = 4 \), and \( \omega_\mathrm{n} \) is now known, so \( \zeta = 4/(2 \times 5) = 0.4 \).
+- **middle term:** \( 2\zeta\omega_\mathrm{n} = 4 \), and \( \omega_\mathrm{n} \) is now known, so \( \zeta = \frac{4}{2 \times 5} = 0.4 \).
 
 Always do them in that order, because the middle term needs \(
 \omega_\mathrm{n} \) and there is nothing to be gained by starting
@@ -218,7 +218,7 @@ Exactly, \( M_\mathrm{p} = e^{-\pi\zeta/\sqrt{1-\zeta^2}} \), which for
 You may have met this written as
 \( M_\mathrm{p} = 100e^{-\zeta\omega_\mathrm{n}t_\mathrm{p}}\% \), which is
 the same thing: substitute the peak time
-\( t_\mathrm{p} = \pi/\omega_\mathrm{d} \) and the
+\( t_\mathrm{p} = \frac{\pi}{\omega_\mathrm{d}} \) and the
 \( \omega_\mathrm{n} \) cancels, leaving the form above. That version
 needs the peak time first; this one does not, which is why it is the one
 worth remembering.
@@ -240,7 +240,7 @@ A system has transfer function \( G(s) = \dfrac{3}{s+2} \). What value does its 
 
 - final value: **1.5** (tolerance ±0.01)
 - *Common error* 3: you took the numerator alone. Setting \( s = 0 \) leaves the denominator's constant term too, so it's \( \frac{3}{2} \), not 3.
-- *Common error* 0: you may have applied \( \lim_{s \to 0} sG(s) \), which is the final value of the *impulse* response. For a step the \( s \) in the theorem cancels the \( 1/s \) of the step itself.
+- *Common error* 0: you may have applied \( \lim_{s \to 0} sG(s) \), which is the final value of the *impulse* response. For a step the \( s \) in the theorem cancels the \( \frac{1}{s} \) of the step itself.
 - *Common error* 0.667: that's \( \frac{2}{3} \), the right two numbers inverted.
 
 *Checks:* the final value theorem, or DC gain
@@ -250,17 +250,17 @@ A system has transfer function \( G(s) = \dfrac{3}{s+2} \). What value does its 
 The steady-state value of a step response is just \( G(0) \), the DC gain.
 Set \( s = 0 \): \( G(0) = \frac{3}{2} = 1.5 \).
 
-If you would rather use the final value theorem, the step is \( 1/s \), so
+If you would rather use the final value theorem, the step is \( \frac{1}{s} \), so
 
 $$ \lim_{s\to0} s \cdot G(s) \cdot \frac{1}{s} = \lim_{s\to0} G(s) = G(0). $$
 
-The \( s \) and the \( 1/s \) cancel, which is why the shortcut works. The
+The \( s \) and the \( \frac{1}{s} \) cancel, which is why the shortcut works. The
 theorem is only valid when the response actually settles, so check the poles are in the left half-plane first. Here the single pole
 is at \( s = -2 \), so it does.
 
 ### 6. Closing the loop
 
-A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop, with reference \( R(s) \) and output \( Y(s) \). The closed-loop transfer function \( T(s) = Y(s)/R(s) \) is:
+A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop, with reference \( R(s) \) and output \( Y(s) \). The closed-loop transfer function \( T(s) = \frac{Y(s)}{R(s)} \) is:
 
 - \( \dfrac{4}{s^2 + s + 4} \) **← correct**
     <br>*Shown if chosen:* **\( \frac{4}{s^2+s+4} \):** Right. \( T = \frac{G}{1+G} \), then multiply top and bottom by \( s(s+1) \) to clear the fraction within a fraction.
@@ -271,12 +271,12 @@ A plant \( G(s) = \dfrac{4}{s(s+1)} \) is put in a unity negative feedback loop,
 - \( \dfrac{s^2 + s}{s^2 + s + 4} \)
     <br>*Shown if chosen:* **\( \frac{s^2+s}{s^2+s+4} \):** Very close, and worth having derived: that is the transfer function from the reference to the **error**, \( \frac{E}{R} = \frac{1}{1+G} \), not to the output. The question asked for reference to output, which is \( T = \frac{G}{1+G} \). The two add to one, \( \frac{E}{R} + T = 1 \), which is a relationship this unit will come back to and give a name.
 
-*Checks:* \( G/(1+G) \), the step everything in the unit builds on
+*Checks:* \( \frac{G}{1+G} \), the step everything in the unit builds on
 
 *Worked route, shown to everyone:*
 
 - Write the closed-loop form: \( T = \dfrac{G}{1+G} \).
-- Substitute: \( T = \dfrac{4/(s(s+1))}{1 + 4/(s(s+1))} \).
+- Substitute: \( T = \dfrac{\frac{4}{s(s+1)}}{1 + \frac{4}{s(s+1)}} \).
 - Multiply top and bottom by \( s(s+1) \): \( T = \dfrac{4}{s(s+1) + 4} = \dfrac{4}{s^2+s+4} \).
 
 Two habits that save time later. **The closed-loop denominator is
@@ -337,7 +337,7 @@ A first-order lag \( \dfrac{1}{1 + s/\omega_\mathrm{c}} \) has three landmarks:
 - **at \( \omega_\mathrm{c} \):** \( |G| = \frac{1}{\sqrt2} \), which is −3 dB, and the phase is exactly −45°, halfway to its limit.
 - **well above \( \omega_\mathrm{c} \):** falling at −20 dB/decade, phase heading to −90°.
 
-Here \( G = 10/(s+10) = 1/(1 + s/10) \), so \( \omega_\mathrm{c} = 10 \) rad/s and
+Here \( G = \frac{10}{s+10} = \frac{1}{1 + s/10} \), so \( \omega_\mathrm{c} = 10 \) rad/s and
 the question is asking for the corner itself.
 
 **−3 dB and −45° at the corner is the single most reused fact in this
