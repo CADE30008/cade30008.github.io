@@ -40,6 +40,30 @@ That matters beyond tidiness: this repository is what somebody forking the
 unit gets. A file that exists only in a synced folder on one laptop is not
 part of the unit, it is part of that laptop.
 
+## The links
+
+One base link, and the subfolder links are that plus the folder name, which is
+how MATLAB Drive builds them. **All of them die and are replaced when the
+folder is re-shared for a new cohort**, so they are checked annually:
+[annual-update.md](annual-update.md).
+
+| Links to | Used on |
+|---|---|
+| `.../cade30008-students` | Anywhere the whole unit's files are meant |
+| `.../cade30008-students/w01-design-cycle` | The first session's code page |
+| `.../cade30008-students/lab-quanser` | The laboratory overview, its three part pages, its code page |
+
+The base is `SHARE_URL` in `scripts/sync_drive.py`, and the subfolder links
+are derived from it. **Change it in that one place and run
+`npm run drive -- --bump`**; every page is rewritten between
+`<!-- drive-version:start -->` markers. Nothing is typed into a page by hand,
+which is the only way a dozen links stay consistent.
+
+Nothing in the build checks these links. The site's own link check follows
+internal links and does not reach out to MathWorks, so a dead share link
+fails silently and stays failed until somebody clicks it. That is the reason
+for the annual check rather than a hope that it would be noticed.
+
 ## Versioning
 
 The material is new, so it will change during the year, and a student holding

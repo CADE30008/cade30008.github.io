@@ -70,35 +70,65 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
 # The version is kept in the repository and copied out, so that what is live
 # is visible in a diff rather than only in a synced folder.
 VERSION_FILE = ROOT / "drive" / "VERSION.txt"
+
+# The staff test kit. Authored here for the same reason as everything else:
+# a script that exists only in a synced folder is part of one laptop rather
+# than part of the unit. Not shared with students, and not versioned with
+# them: it is a working tool, not something anybody downloads.
+STAFF_SRC = ROOT / "drive" / "staff"
+STAFF_DST = DRIVE.parent / "cade30008-staff"
+STAFF_FILES = [
+    "README.md",
+    "rig-characterisation/README.md",
+    "rig-characterisation/t1_fit_this_rig.m",
+    "rig-characterisation/t2_fly_these.m",
+    "student-code-test/README.md",
+    "student-code-test/run_all_student_code.m",
+]
 STAMP = re.compile(r"^<!-- version: .* -->$", re.M)
 
-# The one link students are given. Always the top of the student folder, never
-# a deep link into a subfolder: a deep link goes stale the moment the layout
-# moves, and students who bookmark one never see the rest.
+# The share links. The top-level one is the whole student folder; the others
+# are the same link with a subfolder on the end, which is how MATLAB Drive
+# builds them.
+#
+# **Check these annually.** A new cohort folder means a new share id, and a
+# stale link is a dead link rather than a wrong one, so nothing here will
+# notice. teaching/annual-update.md has it on the checklist.
 SHARE_URL = ("https://drive.mathworks.com/sharing/"
              "93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students")
+FOLDER_URL = {folder: f"{SHARE_URL}/{folder}" for folder in
+              ("w01-design-cycle", "lab-quanser")}
 
 # Site pages that show the current version, so a student can compare it with
 # what they downloaded. Filled between markers rather than typed, because a
 # version number that has to be edited in four places is a version number that
 # will disagree with itself.
-SITE_PAGES = [
-    ROOT / "docs/laboratory/index.md",
-    ROOT / "docs/laboratory/code/index.md",
-    ROOT / "docs/w01-design-cycle/code/index.md",
-]
+# Each page names the folder it is about, so it gets that folder's link, with
+# the whole-folder link beside it.
+SITE_PAGES = {
+    ROOT / "docs/laboratory/index.md": "lab-quanser",
+    ROOT / "docs/laboratory/code/index.md": "lab-quanser",
+    ROOT / "docs/laboratory/part1-identify.md": "lab-quanser",
+    ROOT / "docs/laboratory/part2-design.md": "lab-quanser",
+    ROOT / "docs/laboratory/part3-validate.md": "lab-quanser",
+    ROOT / "docs/w01-design-cycle/code/index.md": "w01-design-cycle",
+}
 BLOCK = re.compile(
     r"(<!-- drive-version:start -->).*?(<!-- drive-version:end -->)", re.S)
 
 
+NAMES = {"w01-design-cycle": "the first session's files",
+         "lab-quanser": "the laboratory files"}
+
+
 def stamp_site(version: str, today: str) -> list[str]:
-    """Write the current version into the site pages, between markers."""
-    body = (f"{{{{ }}}}\n**MATLAB Drive files: version {version}**, {today}.\n"
-            f"[Download them all]({SHARE_URL}).\n")
-    body = (f"**MATLAB Drive files: version {version}**, {today}. "
-            f"[Download them all]({SHARE_URL}).")
+    """Write the version and the right download links into the site pages."""
     touched = []
-    for page in SITE_PAGES:
+    for page, folder in SITE_PAGES.items():
+        body = (f"**[Download {NAMES[folder]}]({FOLDER_URL[folder]})** from "
+                f"MATLAB Drive, or [everything for the unit]({SHARE_URL}).\n\n"
+                f"*Version {version}, {today}. If this differs from the version "
+                f"in the folder's own README, download it again.*")
         if not page.exists():
             continue
         text = page.read_text(encoding="utf-8")
@@ -176,6 +206,13 @@ def main() -> int:
             if not dst.exists() or not filecmp.cmp(src, dst, shallow=False):
                 stale.append(f"{folder}/{rel}")
 
+    for rel in STAFF_FILES:
+        src, dst = STAFF_SRC / rel, STAFF_DST / rel
+        if not src.exists():
+            continue
+        if not dst.exists() or not filecmp.cmp(src, dst, shallow=False):
+            stale.append(f"staff/{rel}")
+
     if args.check:
         if stale:
             print("Drive is out of date:")
@@ -201,6 +238,12 @@ def main() -> int:
 
     VERSION_FILE.write_text(version + "\n", encoding="utf-8")
     shutil.copy2(VERSION_FILE, DRIVE / "VERSION.txt")
+
+    for rel in STAFF_FILES:
+        src, dst = STAFF_SRC / rel, STAFF_DST / rel
+        if src.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
     for page in stamp_site(version, today):
         print(f"  site: {page}")
 

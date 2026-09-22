@@ -9,7 +9,9 @@ Everything the session needs, in one folder. Several of these call each other,
 so keep them together.
 
 <!-- drive-version:start -->
-**MATLAB Drive files: version 2026.2**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+**[Download the first session's files](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/w01-design-cycle)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+
+*Version 2026.2, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 | File | What it does |

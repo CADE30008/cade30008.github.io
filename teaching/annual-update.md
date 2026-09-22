@@ -66,20 +66,22 @@ nav agree with the new calendar.
 - [ ] QUARC licences current; rig serviced. **Amplifier switch and mains
       switch located and tested** — there is no separate e-stop, decided
       21 September 2026, and these two are what stops the rig.
-- [ ] **MATLAB Drive**, following [matlab-drive.md](matlab-drive.md): copy
-      `templates/` to a new `20xx-yy/`, fill each `data/`, empty each `submit/`,
-      re-share both — which produces **new links** — then replace every link in
-      Blackboard and test each one **from a student account, not your own**.
+- [ ] **MATLAB Drive**, following [matlab-drive.md](matlab-drive.md): make a
+      new `Control <year>/` with `cade30008-students/` and
+      `cade30008-staff/`, re-share the student folder — which produces a
+      **new share id, and so new links for every subfolder** — then put the
+      new base link into `SHARE_URL` in `scripts/sync_drive.py` and run
+      `npm run drive -- --bump`. That rewrites every link on the site from one
+      place. Then test the links **from a student account, not your own**.
       Leave last year's folder alone: don't delete it, don't re-share it.
+
       Replacing the links is the step that gets skipped, because the old ones
-      still open for you while showing students last year's material.
-
-## 4. Content, from what actually happened
-
-This is the part that gets skipped, and the part that matters. Its input is the
-weekly review ([weekly-review.md](weekly-review.md)) — a term's worth of notes
-on what went wrong in the room.
-
+      still work for you as the owner. **A stale share link is a dead link
+      rather than a wrong one**, so nothing in the build will notice: the
+      site check follows internal links and does not reach out to MathWorks.
+      The index of every link is in
+      [matlab-drive.md](matlab-drive.md#the-links), and it is short enough to
+      click through in a minute.
 - [ ] Read the term's review notes end to end, in one sitting. Patterns are only
       visible in aggregate; individually each one looked like a bad day.
 - [ ] For each recurring problem, decide: **change the material, change the

@@ -1,12 +1,17 @@
-function url = submit_gains(kp, ki, kd, displayName)
+function url = submit_gains(kp, ki, kd, displayName, opts)
 %SUBMIT_GAINS  Check your PID gains, then get a link to submit them.
 %
 %   submit_gains(7.1, 0.6, 0.9)
 %   submit_gains(7.1, 0.6, 0.9, 'Red Baron')
+%   submit_gains(..., 'Open', false)        print the link, do not open it
 %
 % Checks your gains against the same envelope the rig-side tool uses, then
 % opens the unit's submission form with all four boxes already filled in. You
 % press Submit yourself, so you see what goes out under your name.
+%
+% It does not open a window when MATLAB is running with -batch, and 'Open',
+% false stops it too. Automated checks call this function repeatedly, and a
+% browser tab per call is somebody else's afternoon.
 %
 % The name you give is the name on screen when your gains are flown. An alias
 % is fine, and a good one is encouraged. Your University account is recorded by
@@ -29,6 +34,7 @@ arguments
     ki (1,1) double
     kd (1,1) double
     displayName (1,:) char = defaultName()
+    opts.Open (1,1) logical = ~batchStartupOptionUsed
 end
 
 plant = heli_plant();
@@ -66,11 +72,13 @@ fprintf('\n  Inside the envelope. Submitting as: %s\n', strtrim(displayName));
 fprintf('\n  <a href="%s">Open the form with your gains filled in</a>\n', url);
 fprintf('  (or copy this link)\n  %s\n\n', url);
 
-try
-    web(url, '-browser');
-catch
-    % MATLAB Online may not be allowed to open a window. The printed link
-    % above is the fallback, and it is printed first for that reason.
+if opts.Open
+    try
+        web(url, '-browser');
+    catch
+        % MATLAB Online may not be allowed to open a window. The printed link
+        % above is the fallback, and it is printed first for that reason.
+    end
 end
 end
 

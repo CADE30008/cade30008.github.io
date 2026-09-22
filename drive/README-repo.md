@@ -14,7 +14,14 @@ be overwritten the next time the script runs.
 | Goes to the Drive | Authored in |
 |---|---|
 | `README.md`, and one per subfolder | **here**, in `drive/` |
+| `VERSION.txt` | **here** |
 | The `.m`, `.json` and `.mat` files | `docs/`, where the site also serves them |
+| The staff test kit | **here**, in `drive/staff/` |
+
+`drive/staff/` goes to `cade30008-staff/`, which is not shared with students.
+It is the laboratory test kit: the process READMEs and the two scripts that
+only make sense at the rig. It is not versioned with the student material,
+because nobody downloads it.
 
 The code is not duplicated here. It has one home, under `docs/`, because the
 site and the Drive hand out the same files and two copies would drift. This
