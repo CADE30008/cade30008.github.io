@@ -1,4 +1,4 @@
-<!-- version: 2026.17 (2026-09-22) -->
+<!-- version: 2026.18 (2026-09-22) -->
 
 # Laboratory pass — 40 minutes
 
@@ -27,6 +27,13 @@ thing. The first two are five minutes together and both block the lecture.
 stays resident with its clock going, so the next run is a later segment of the
 same recording, and connecting late means the capture begins where you joined
 rather than at zero. Both give a file with no step in it.
+
+**Pressing Stop on the Hardware tab is fine**, and hands the scopes' data
+over the same as a run that times out. You just get a shorter record.
+
+**The scopes log at 20 Hz now**, so a full run is about two thousand rows
+rather than a hundred thousand. Over a hundred samples per cycle of a
+six-second oscillation.
 
 **Leave the stop time at 99.9.** `inf` is tempting while levelling, and it
 removes the only thing that ends a run you are not in control of. It also

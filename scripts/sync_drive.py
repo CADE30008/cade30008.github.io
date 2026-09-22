@@ -93,8 +93,18 @@ VERSION_FILE = ROOT / "drive" / "VERSION.txt"
 # them: it is a working tool, not something anybody downloads.
 STAFF_SRC = ROOT / "drive" / "staff"
 STAFF_DST = DRIVE_ROOT / "cade30008-staff"
+# The shared files go into the staff kit too. They were hand-copied once and
+# then drifted: the kit was enforcing an 11.2 V budget against the repository's
+# 6.02, so a set of gains could pass at the bench and be refused in the room.
 STAFF_FILES = [
     "README.md",
+    "rig-characterisation/heli_envelope.m",
+    "rig-characterisation/heli_plant.m",
+    "rig-characterisation/heli_check_one.m",
+    "rig-characterisation/elevation_plant.json",
+    "rig-characterisation/fit_second_order.m",
+    "rig-characterisation/collate_gains.m",
+    "rig-characterisation/rig_trim_sweep.m",
     # The rig models, so they can be opened at the bench from the staff link
     # without signing in to Drive. Same two files the students get.
     "rig-characterisation/part1_identify.slx",

@@ -241,16 +241,45 @@ does, do not fly it, and say why: it is a better lesson than the flight.
 
 ### Flying the submissions
 
+Export the responses, then run one thing:
+
 ```matlab
-flights = collate_gains('~/Downloads/responses.xlsx')
+cd models
+fly_rounds
 ```
 
-Last submission per person, envelope applied, flyable ones first. Announce the
-display name, never the account.
+With no argument it takes the newest export in `Downloads` whose name contains
+"response", and says which file it chose. Pass the path if you would rather be
+sure.
 
-**Fallback gains**, if nothing passes or the form fails:
-`Kp = 0.71, Ki = 0.59, Kd = 0.91`. Damping 0.66, phase margin 55°, 5.2 V peak,
-settles in 5.9 s.
+It prints the flight list, works out the three rounds, and then shows one set
+of gains a screen at a time: whose they are, what the model predicts, and a
+pause. **ENTER** flies it, **s** skips, **q** stops.
+
+After each flight it asks for the overshoot and the settling time to 2% you
+saw, and writes them beside the prediction into
+`flight-record-<date>.csv`, next to the export. That file is what week 2 opens
+with, so answer it even roughly; ENTER leaves a blank.
+
+Stopping is safe. Every flight is written as it happens, and
+`fly_rounds(export, From = 2)` picks up at round 2.
+
+Display names only on screen. The account the form records is used to tell one
+person's submissions from another's and never shown.
+
+**If nothing passes**, round 1 becomes the fallback gains, announced as yours
+and not theirs: `Kp = 0.71, Ki = 0.59, Kd = 0.91`. Overshoot 16%, damping 0.66,
+phase margin 55°, 5.2 V peak, settles in 5.9 s. They are checked against the
+morning's plant like anything else, so if the rig moved you will be told.
+
+**If the form fails**, take gains verbally and build the list by hand:
+
+```matlab
+flights = table([1;2], ["Falcon"; "Kestrel"], [0.7; 0.6], [0.6; 0.5], [0.9; 0.8], ...
+    [NaN; NaN], ["fly"; "fly"], ["";""], 'VariableNames', ...
+    {'order','name','Kp','Ki','Kd','zeta','verdict','why'});
+fly_rounds(flights)
+```
 
 ---
 

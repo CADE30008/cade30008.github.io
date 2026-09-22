@@ -70,11 +70,18 @@ linearisation gives a double integrator, but that is taken about level, where
 gravity stiffness is exactly zero; the rig is flown about a trim, and there it
 oscillates.
 
-A recording that curves away and keeps going has no settling value in it, so
-there is no `K` to read off, and `fit_second_order` says so rather than
-returning a number. The same goes for a recording where the arm was still
-swinging before the step: the starting trim is then wherever the swing
-happened to be, which moves `K` by about a quarter.
+`fit_second_order` reads `K` from where the arm ends up, and `wn` and `zeta`
+from the swinging on the way. It warns rather than refusing, in two cases that
+both matter:
+
+- **fewer than two peaks**, so `wn` and `zeta` come back as `NaN` and only `K`
+  is a number. Either the step was too small to excite the arm, or it is
+  trimmed somewhere with no oscillation in it;
+- **the arm already swinging before the step**, which makes the starting trim
+  wherever that swing happened to be, and moves `K` by about a quarter.
+
+Neither stops it returning a struct, so read what it prints. Both are worth a
+second recording rather than a fit.
 
 See `models/quanser_trim_stiffness.py` for where the stiffness comes from and
 `models/rig_trim_sweep.m` for the experiment that settles whether one model

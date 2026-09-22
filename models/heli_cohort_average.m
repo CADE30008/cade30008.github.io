@@ -4,10 +4,15 @@ function avg = heli_cohort_average(flights, plant, env)
 %   avg = heli_cohort_average(flights)
 %   avg = heli_cohort_average(flights, heli_plant, heli_envelope)
 %
-% flights is the table collate_gains returns: Kp, Ki, Kd and a verdict column.
-% The average is taken over the sets that passed, because the question round 2
-% asks is what happens when you average designs that were each safe. Including
-% the refused ones would answer a different and duller question.
+% flights is the table collate_gains returns, or any table with Kp, Ki and Kd
+% in it. The average is taken over the sets that passed, because the question
+% round 2 asks is what happens when you average designs that were each safe.
+% Including the refused ones would answer a different and duller question.
+%
+% Which sets passed is decided here, by heli_check_one, and not read off a
+% verdict column. A list typed in by hand when the form has failed carries
+% whatever verdict was typed with it, and an average that quietly included a
+% set the envelope refused would not be the average of safe designs at all.
 %
 % Returns a struct: kp, ki, kd, n, ok, why, metrics, and spread, the standard
 % deviation of each gain across the sets averaged.
@@ -24,7 +29,7 @@ arguments
     env struct = heli_envelope()
 end
 
-need = {'Kp', 'Ki', 'Kd', 'verdict'};
+need = {'Kp', 'Ki', 'Kd'};
 missing = need(~ismember(need, flights.Properties.VariableNames));
 if ~isempty(missing)
     error('heli_cohort_average:badTable', ...
@@ -32,7 +37,10 @@ if ~isempty(missing)
         strjoin(missing, ', '));
 end
 
-flew = string(flights.verdict) == "fly";
+flew = false(height(flights), 1);
+for i = 1:height(flights)
+    flew(i) = heli_check_one(flights.Kp(i), flights.Ki(i), flights.Kd(i), plant, env);
+end
 avg = struct('kp', NaN, 'ki', NaN, 'kd', NaN, 'n', nnz(flew), ...
              'ok', false, 'why', "", 'metrics', struct(), ...
              'spread', [NaN NaN NaN]);

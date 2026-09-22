@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.17, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.18, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -63,9 +63,11 @@ recording is the deliverable.
     Take the levelling in two or three runs instead. It is a few more builds
     and it keeps the net in place.
 
-    It also matters for your data: the scopes hand their signals to the
-    workspace when a run **finishes**. A run that never finishes gives you
-    nothing to save.
+    It matters for your data too. The scopes hand their signals over when a
+    run **ends**, and pressing Stop counts: you get everything up to the
+    moment you stopped. What you do not get is anything from a run still in
+    progress, so a run left going indefinitely is a recording you cannot
+    save until you end it.
 
 ### Getting a recording that is actually complete
 
@@ -77,13 +79,21 @@ file that will not fit:
 2. **Build**, then **Monitor & Tune** to connect.
 3. **Then** start the run. Connecting after a run has begun means the capture
    starts from wherever you joined, not from zero.
-4. Let it finish, or stop it when you have what you need.
+4. Let it run out, or press **Stop** on the Hardware tab when you have what
+   you need. Either ends the run and hands the scopes' data to the workspace;
+   stopping early simply gives you a shorter record.
 5. **`save_recording` straight away**, before anything else. The workspace
    holds one run's worth, and the next run replaces it.
 6. Unload again before the next recording.
 
 `save_recording` warns you if a record does not begin at zero, which is what a
 missed step looks like from the data.
+
+!!! note "The recordings are logged at 20 Hz"
+    Fast enough to see everything this axis does: the oscillation has a period
+    of about six seconds, so that is over a hundred samples a cycle. A full
+    run comes to about two thousand rows rather than a hundred thousand, which
+    is quicker to load and easier to look at.
 
 ## Level it, and write down what that took
 

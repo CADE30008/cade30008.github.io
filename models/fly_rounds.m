@@ -87,8 +87,10 @@ while k <= numel(plan)
     showSet(item, nth, ofN, env, RULE);
 
     if ~item.ok
-        [~, ai] = askLine('ENTER to go on      q stop here', opts.Answers, ai, THIN);
-        rows{end+1} = logFlight(out, item, 'refused', NaN, NaN, ''); %#ok<AGROW>
+        [answer, ai] = askLine('ENTER to go on      q stop here', ...
+            opts.Answers, ai, THIN);
+        [rows{end+1}, out] = logFlight(out, item, 'refused', NaN, NaN, ''); %#ok<AGROW>
+        if strcmpi(answer, 'q'); sayWhereToResume(item, nth); break; end
         k = k + 1;
         continue
     end
@@ -97,27 +99,27 @@ while k <= numel(plan)
         opts.Answers, ai, THIN);
     switch lower(answer)
         case 'q'
-            fprintf('\n  Stopped at round %d, set %d.\n', item.round, nth);
-            fprintf('  To pick up here:  fly_rounds(..., From = %d)\n\n', item.round);
+            sayWhereToResume(item, nth);
             break
         case 's'
-            rows{end+1} = logFlight(out, item, 'no', NaN, NaN, 'skipped'); %#ok<AGROW>
+            [rows{end+1}, out] = logFlight(out, item, 'no', NaN, NaN, 'skipped'); %#ok<AGROW>
         otherwise
             [over, settle, note, ai] = askActuals(item, opts.Answers, ai, THIN);
             saySoFar(item, over, settle);
-            rows{end+1} = logFlight(out, item, 'yes', over, settle, note); %#ok<AGROW>
+            [rows{end+1}, out] = logFlight(out, item, 'yes', over, settle, note); %#ok<AGROW>
     end
     k = k + 1;
 end
+rows = rows(~cellfun(@isempty, rows));
 
 % ---- what happened ------------------------------------------------------
 if isempty(rows)
     record = table();
+    fprintf('\n%s\n  Nothing recorded\n%s\n', RULE, RULE);
 else
     record = vertcat(rows{:});
-end
-fprintf('\n%s\n  %d flight(s) recorded\n%s\n', RULE, height(record), RULE);
-if ~isempty(record)
+    fprintf('\n%s\n  %d set(s) in the record, %d of them flown\n%s\n', ...
+        RULE, height(record), nnz(record.flew == "yes"), RULE);
     disp(record(:, {'round', 'name', 'flew', ...
         'predicted_overshoot_pct', 'actual_overshoot_pct', ...
         'predicted_settle_s', 'actual_settle_s'}));
@@ -214,7 +216,16 @@ for i = 1:n
     [ok(i), ~, m{i}] = heli_check_one(flights.Kp(i), flights.Ki(i), flights.Kd(i), ...
         plant, env);
 end
-flew = find(ok(:) & string(flights.verdict) == "fly");
+said = string(flights.verdict) == "fly";
+flew = find(ok(:) & said);
+
+% A table typed in by hand, when the form has failed, carries whatever verdict
+% was typed with it. Say when the check disagrees rather than dropping the row
+% off the end of the list without a word.
+for i = find(ok(:) ~= said)'
+    fprintf(2, '%s: the list says "%s" and the envelope says "%s". Going with the envelope.\n', ...
+        flights.name(i), flights.verdict(i), ternary(ok(i), 'fly', 'hold'));
+end
 
 plan = emptyPlan();
 
@@ -227,8 +238,8 @@ if isempty(flew)
     plan(end+1) = mkItem(1, 'the fallback, mine and not yours', ...
         'NOBODY''S GAINS PASSED', 0.71, 0.59, 0.91, fok, fwhy, fm);
 else
-    % Aggression is read off settling time, which is a proxy and worth
-    % knowing is one. On the fixture the fastest set is also the one with the
+    % Aggression is read off settling time, which is a proxy for it and not a
+    % measure of it. On the fixture the fastest set is also the one with the
     % least damping and the most overshoot, so the label and the flight
     % agree; the set asking for the most volts was the best damped of the
     % seven, so peak demand would have put "the most aggressive" on screen
@@ -453,8 +464,19 @@ end
 
 % ================================================================ the record
 
-function row = logFlight(out, item, flew, over, settle, note)
+function sayWhereToResume(item, nth)
+fprintf('\n  Stopped at round %d, set %d.\n', item.round, nth);
+fprintf('  To pick up here:  fly_rounds(..., From = %d)\n\n', item.round);
+end
+
+
+function [row, out] = logFlight(out, item, flew, over, settle, note)
 %LOGFLIGHT  One row, written now rather than at the end.
+%
+% A write that fails takes the session's only copy of what the rig did with
+% it, so a failure moves the record rather than ending the round. The usual
+% cause is the file being open in Excel, which locks it, and that is not
+% something to work out at minute 105.
 entry = struct( ...
     'round', item.round, 'label', item.label, 'name', item.name, ...
     'kp', item.kp, 'ki', item.ki, 'kd', item.kd, ...
@@ -467,7 +489,24 @@ entry = struct( ...
     'flew', flew, ...
     'actual_overshoot_pct', over, 'actual_settle_s', settle, ...
     'note', note);
-row = heli_flight_record(out, entry);
+
+try
+    row = heli_flight_record(out, entry);
+    return
+catch first
+    [~, stem, ext] = fileparts(out);
+    elsewhere = fullfile(tempdir, [stem ext]);
+    fprintf(2, '\n  Could not write the record: %s\n', first.message);
+    try
+        row = heli_flight_record(elsewhere, entry);
+        out = elsewhere;
+        fprintf(2, '  The rest of the session goes to %s instead.\n\n', out);
+    catch second
+        row = table.empty(0, 0);
+        fprintf(2, '  Nor to %s: %s\n', elsewhere, second.message);
+        fprintf(2, '  The numbers are on the screen above. Write them down.\n\n');
+    end
+end
 end
 
 
