@@ -12,6 +12,11 @@ function check_scopes(model)
 %
 % Reading it here beats clicking through four scopes, and tells you the
 % variable names at the same time.
+%
+% The decimation column is what the block is set to, and is not necessarily
+% what you get. A recording taken from the rig on 22 September came back at
+% 1000 Hz from scopes set to decimate by 49, so external mode appears to
+% ignore it. Trust the sample count in the file over this column.
 
 if nargin < 1 || isempty(model)
     open = find_system('type', 'block_diagram');

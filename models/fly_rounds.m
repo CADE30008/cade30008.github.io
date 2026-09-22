@@ -362,18 +362,18 @@ function saySoFar(item, over, settle)
 %SAYSOFAR  The model's two numbers against the two just typed in.
 p_over   = fieldOr(item.m, 'overshoot_pct', NaN);
 p_settle = fieldOr(item.m, 'settle_s', NaN);
-fprintf('\n   model  %s overshoot, %s\n', pct(p_over), secs(p_settle));
-fprintf('   rig    %s overshoot, %s\n\n', pct(over), secs(settle));
+fprintf('\n   model    overshoot %-10s settles in %s\n', pct(p_over), secs(p_settle));
+fprintf('   rig      overshoot %-10s settles in %s\n\n', pct(over), secs(settle));
 end
 
 
 function s = pct(v)
-if isfinite(v); s = sprintf('%.0f %%', v); else; s = 'overshoot not read'; end
+if isfinite(v); s = sprintf('%.0f %%', v); else; s = 'not read'; end
 end
 
 
 function s = secs(v)
-if isfinite(v); s = sprintf('settles in %.1f s', v); else; s = 'never settles'; end
+if isfinite(v); s = sprintf('%.1f s', v); else; s = 'never'; end
 end
 
 
@@ -427,7 +427,7 @@ function [over, settle, note, ai] = askActuals(item, answers, ai, THIN)
 %ASKACTUALS  What the rig did, while the numbers are still on the screen.
 fprintf('\n%s\n %s is up:   Kp %.3g   Ki %.3g   Kd %.3g\n', ...
     THIN, upper(item.name), item.kp, item.ki, item.kd);
-fprintf(' the model said %s overshoot, settling in %s\n%s\n', ...
+fprintf(' the model says overshoot %s, settling in %s\n%s\n', ...
     pct(fieldOr(item.m, 'overshoot_pct', NaN)), ...
     secs(fieldOr(item.m, 'settle_s', NaN)), THIN);
 

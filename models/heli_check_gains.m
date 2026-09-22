@@ -95,7 +95,7 @@ end
 
 if opts.Round > 0
     fprintf('\n');
-    flyRound(ok, opts.Round, K, env);
+    flyRound(ok, opts.Round, plant, env);
 end
 
 result = struct('accepted', ok, 'rejected', bad, 'unreadable', {unreadable}, 'K', K);
@@ -263,61 +263,26 @@ if isfield(m, name); v = m.(name); else; v = NaN; end
 end
 
 
-function y = step_(sys, t)
-%STEP_  Unit step response on a given time vector, as a plain column.
-y = step(sys, t);
-y = y(:);
-end
-
-
-function [down, up] = gainRange(L, lo, hi, n)
-%GAINRANGE  How far the loop gain can be scaled, down and up, and stay stable.
-%
-% Swept rather than read off a Bode crossing, because this loop is
-% conditionally stable and the crossing answers a different question.
-arguments
-    L
-    lo (1,1) double = 1e-3
-    hi (1,1) double = 1e3
-    n  (1,1) double = 400
-end
-isStable = @(a) max(real(pole(feedback(a * L, 1)))) < 0;
-if ~isStable(1); down = 1; up = 1; return; end
-alphas = logspace(log10(lo), log10(hi), n);
-i = find(alphas >= 1, 1);
-
-down = Inf;
-for a = flip(alphas(1:i-1))
-    if ~isStable(a); down = 1 / a; break; end
-end
-up = Inf;
-for a = alphas(i:end)
-    if ~isStable(a); up = a; break; end
-end
-end
-
-
 function v = score(s)
 %SCORE  Rank accepted gains: fast, then well damped, then gentle.
 %
-% Only ever applied to gains that already passed, so this is a preference
-% between safe designs and not a safety judgement.
-settle  = valueOr(s.metrics.settleS, 1e9);
-damping = valueOr(s.metrics.damping, 0.7);
-peak    = valueOr(s.metrics.peakVolts, 0);
-v = settle + 2.0 * max(0, 0.7 - damping) * 10 + 0.05 * peak;
-end
-
-
-function v = valueOr(x, fallback)
-if isnan(x); v = fallback; else; v = x; end
+% heli_score is the definition; this only renames the fields, because the
+% metrics struct here uses settleS where heli_check_one returns settle_s.
+v = heli_score(struct('settle_s',   s.metrics.settleS, ...
+                      'damping',    s.metrics.damping, ...
+                      'peak_volts', s.metrics.peakVolts));
 end
 
 
 % --------------------------------------------------------------- the room
 
-function flyRound(ok, round, K, env)
+function flyRound(ok, round, plant, env)
 %FLYROUND  What to fly, and in what order.
+%
+% Round 2 takes the plant because it checks a set of gains nobody submitted.
+% It used to be handed K, the scalar, which is not what evaluateOne wants, and
+% the round fell over with "Unrecognized function or variable 'plant'" the
+% first time it was run against a folder rather than read.
 if isempty(ok)
     fprintf(2, 'Nothing accepted, so there is nothing to fly. Say so, and why.\n');
     return
