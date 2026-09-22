@@ -15,7 +15,7 @@ description: "Between sessions: fit a model to what you recorded, design a contr
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.6, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.7, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **Your own time, no rig.** You leave with gains, a predicted response, and a
@@ -75,6 +75,29 @@ not, because then it is a description and not a specification.
 Expect the last two to disagree, and work out why before you decide which to
 take. One of them will probably ask the motors for more voltage than the
 amplifier has.
+
+## Take the derivative from the rate signal, not from the error
+
+The model brings the measured elevation rate out as `ElevRate(deg/s)` and
+leaves it on a terminator. It is there for you.
+
+Wire your derivative term to **that**, not to the derivative of the error.
+Both are called D and they are not the same thing:
+
+- On the **error**, the derivative sees the demand as well as the machine. A
+  demand that steps or ramps goes straight through \( K_\mathrm{d} \) before
+  the arm has moved at all. The rig ramps its demand at 45 deg/s, so at
+  \( K_\mathrm{d} = 0.9 \) that is about 40 V asked for in the first instant,
+  from an amplifier that has 24.
+- On the **measurement**, the derivative only sees the machine moving, which
+  is the thing you actually wanted to damp.
+
+The loop transfer is the same either way, so your poles, damping and margins
+are unchanged and everything you designed still holds. What changes is what
+the motors are asked for.
+
+This is why the checks in Part 2 pass and a flight can still saturate: the
+check assumes the rate signal, and the wiring is yours.
 
 ## Predict, in writing
 

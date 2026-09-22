@@ -70,29 +70,23 @@ heli_check_one(7.13, 0.20, 12.6)     % expect false: phase margin
 The second is the fallback from when the plant was assumed to be a double
 integrator. It should be refused. If it passes, the model file is wrong.
 
-### 4. What the flown model does with the derivative
+### 4. The derivative, which is now a briefing point rather than a check
 
-**Five minutes, and it decides whether the voltage check means anything.**
+**Answered on 22 September: the controller block in `part3_validate.slx` is
+empty.** The structure is whatever a student wires, not something the rig
+decides. `Elev(deg)` comes back as `elev_output`; `ElevRate(deg/s)` is brought
+out to a terminator.
 
-The envelope assumes the controller differentiates the *measured angle*, not
-the error, which is what the handout calls rate feedback. Open the model you
-will actually fly and confirm it.
+So there is nothing to test here, and something to say instead. The envelope
+assumes the derivative acts on the measured rate. A student who puts a PID on
+the error, which is the obvious thing, asks for about `Kd` times the command
+rate at the first instant: 41 V at Kd = 0.91, from an amplifier with 24. It
+saturates rather than breaking anything, and the flight then has nothing to do
+with the design they checked.
 
-`part3_validate.slx` carries signals named `ElevRate(deg/s)` and `PitchRate(deg/s)`,
-which is the structure the envelope assumes, so this is a confirmation rather
-than a hunt. But the laboratory's own `PID.slx` differentiates the *error*, so
-both structures exist in the material and it is worth ten seconds of looking.
-
-If the flown controller differentiates the error, then for accepted gains the
-demand at the start of a ramped command is roughly `Kd` times the command
-rate: at `Kd = 0.91` and 45 deg/s, about 41 V.
-
-**This is not a safety problem.** The flown model clamps the motor at
-±24 V and the DAC at ±10 V, so it saturates rather than over-driving
-anything. It is a fidelity problem: the flight would be a saturated,
-non-linear one, and it would not match the design anybody predicted. If that
-is the structure, say so in the room rather than pretending the comparison
-holds.
+The laboratory pages say this in Part 2 and Part 3. **Say it in the room too**,
+when the gains go in: take the derivative from the rate signal, it is already
+brought out for you.
 
 ### 5. The submission round trip
 

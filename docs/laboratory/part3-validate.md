@@ -15,7 +15,7 @@ description: "Back at the rig: fly the controller you designed, compare what hap
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.6, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.7, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with a comparison: what you
@@ -27,7 +27,15 @@ before you power anything.
 ## Fly it
 
 1. Amplifier off, then on.
-2. Open `part3_validate.slx` and put your gains in.
+2. Open `part3_validate.slx`. **The Controller block is empty: what goes in it
+   is yours.** Build your controller there.
+
+    Two connections the model has already made for you: `Elev(deg)` comes back
+    into the block as `elev_output`, and `ElevRate(deg/s)` is brought out to a
+    terminator. **Take your derivative term from that rate signal**, not from
+    the derivative of the error. [Part 2](part2-design.md) says why, and the
+    short version is that differentiating the error asks the amplifier for
+    about 40 V it does not have.
 3. Build, hold the arm horizontal, start.
 4. Command the step you designed for, and record.
 

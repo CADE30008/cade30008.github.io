@@ -49,10 +49,23 @@ elseif m.routh_ratio < env.routhMargin
         m.routh_ratio, env.routhMargin); return
 end
 
-% 3. The loop. Derivative acts on the measurement, not the error, which is
-%    what the rig does and what the handout calls rate feedback. The loop
-%    transfer is the same either way, so poles and margins are unchanged;
-%    only the reference paths differ.
+% 3. The loop. Derivative acts on the measurement, not the error.
+%
+%    This is an assumption about the controller, not a fact about the rig.
+%    part3_validate.slx has an EMPTY controller block: the student wires what
+%    goes in it, and the obvious thing to wire is a PID on the error. The
+%    measured rate is brought out to a terminator beside it, which is the hint
+%    and is easy to miss.
+%
+%    It matters because on the error the demand's own rate goes through Kd: at
+%    Kd = 0.91 and the rig's 45 deg/s command ramp, about 41 V from a 24 V
+%    amplifier. The loop transfer is the same either way, so poles, damping
+%    and margins are unchanged and a design checked here still holds; what
+%    changes is what the motors are asked for.
+%
+%    The laboratory pages tell students to take the derivative from the rate
+%    signal, in Part 2 and again in Part 3. If that instruction ever goes, this
+%    check stops describing what will fly.
 G  = tf(K*wn^2, [1, 2*z*wn, wn^2]);
 Tf = kd / (env.derivativeFilterN * kp);          % proper, so the demand is finite
 C  = tf([kp*Tf + kd, kp + ki*Tf, ki], [Tf, 1, 0]);

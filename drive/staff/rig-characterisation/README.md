@@ -1,4 +1,4 @@
-<!-- version: 2026.6 (2026-09-22) -->
+<!-- version: 2026.7 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -9,32 +9,32 @@ Work in this folder. Everything it needs is here.
 
 ---
 
-## 1. Does the flown model differentiate the measurement, or the error?
+## 1. The derivative question — ANSWERED, 22 September
 
-**Two minutes, and it decides whether the voltage check means anything.**
+**Neither. The controller block is empty, and the students build what goes in
+it.** So the structure is whatever they wire, not something the rig decides.
 
-The envelope assumes the controller differentiates the *measured angle*. If it
-differentiates the *error*, then for gains we accept, the demand at the start
+What the model gives them:
+
+| Signal | Where it goes |
+|---|---|
+| `Elev(deg)` from the plant | back into the Controller block as `elev_output` |
+| `ElevRate(deg/s)` | a terminator |
+
+That terminator is the whole point. The measured rate is there, brought out,
+and deliberately not connected: the obvious thing a student does is put a PID
+on the error, and the rate signal is sitting beside it unused.
+
+**Why it matters.** The envelope assumes the derivative acts on the measured
+angle. If a student differentiates the error instead, the demand at the start
 of a ramped command is about `Kd` times the command rate: at Kd = 0.91 and
-45 deg/s, roughly 41 V.
+45 deg/s, roughly 41 V. The model clamps the motor at 24 V and the DAC at 10,
+so it saturates rather than damaging anything, but the flight then has nothing
+to do with the design they checked.
 
-Not dangerous — the model clamps the motor at 24 V and the DAC at 10 V, so it
-saturates rather than over-driving anything. But a saturated flight does not
-match the design anybody predicted, and I would rather say so in the room than
-discover it live.
-
-Open `part3_validate.slx`. Look at what feeds the derivative in the elevation loop.
-
-- **Measured elevation** (there are signals named `ElevRate(deg/s)` and
-  `PitchRate(deg/s)` in there, which is the structure I expect) → we are fine.
-- **The error** → tell me, and I will change the envelope before 13:00.
-
-The laboratory's own `PID.slx` differentiates the error, which is why this is
-worth looking at rather than assuming.
-
-**SEND ME:** measurement, or error.
-
----
+So it is not a question about the rig any more. It is **a requirement on the
+controller they build**, and the laboratory pages now say so in Part 2 and
+Part 3. Nothing further to test here.
 
 ## 2. What voltage holds the arm level?
 
