@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.16, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.17, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -44,34 +44,46 @@ recording is the deliverable.
 
     If you start it that way there is no stop button, because the model is
     running on the hardware and not under MATLAB's control. Your only way out
-    is to switch the amplifier off and wait for the run to time out, which is
-    99 seconds unless somebody changed it. With the rotors already spinning.
+    is to switch the amplifier off and wait for the run to time out.
 
     So: **Build**, wait for it to finish, then **Monitor & Tune** to connect to
     it. Monitor & Tune is the one that leaves you in charge: you can stop it,
     change a value and watch the effect while it runs.
 
-!!! warning "Start it on the floor, not in your hand"
-    The encoder zeroes wherever the arm is when the model starts, so that
-    position becomes the datum for everything afterwards. Resting on the floor
-    is a position the rig chooses and will choose again. A position you hold
-    by eye is not, and two people will not pick the same one.
+!!! warning "The run stops itself at 99.9 seconds, and that is on purpose"
+    It is the safety net behind the caution above: if a model does get started
+    without you in control, it ends by itself in under two minutes rather than
+    running until somebody pulls the plug.
 
-    You are about to find where level is relative to that resting position,
-    which is what makes the two comparable.
+    **Do not set the stop time to `inf`.** It is tempting while you are
+    levelling, because you want to hover and adjust without the run ending
+    under you. The cost is that nothing ever stops on its own, and the
+    amplifier switch becomes the only way out of a mistake.
 
-!!! danger "One run, one recording. Unload in between"
-    **Stopping the model does not unload it.** It stays on the rig with its
-    clock running, so starting again carries on from where it was: the second
-    run might record from 100 s to 131 s, and everything you did in the first
-    is simply not in the file.
+    Take the levelling in two or three runs instead. It is a few more builds
+    and it keeps the net in place.
 
-    That is how you get a recording with no step in it, which then refuses to
-    fit for reasons that look nothing like the cause.
+    It also matters for your data: the scopes hand their signals to the
+    workspace when a run **finishes**. A run that never finishes gives you
+    nothing to save.
 
-    So between runs: **QUARC → Unload**, then build and connect again. And
-    save each recording straight after its run, before starting another.
-    `save_recording` warns you if a record does not begin at zero.
+### Getting a recording that is actually complete
+
+The order matters, and getting it wrong is the commonest way to end up with a
+file that will not fit:
+
+1. **QUARC → Unload**, if anything is loaded. Stopping is not unloading: a
+   stopped model stays on the rig with its clock running.
+2. **Build**, then **Monitor & Tune** to connect.
+3. **Then** start the run. Connecting after a run has begun means the capture
+   starts from wherever you joined, not from zero.
+4. Let it finish, or stop it when you have what you need.
+5. **`save_recording` straight away**, before anything else. The workspace
+   holds one run's worth, and the next run replaces it.
+6. Unload again before the next recording.
+
+`save_recording` warns you if a record does not begin at zero, which is what a
+missed step looks like from the data.
 
 ## Level it, and write down what that took
 

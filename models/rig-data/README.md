@@ -13,17 +13,24 @@ own hardware; student work never enters this repository.
 
 ```matlab
 heli_demo_setup
-% ... fly or step the rig, with logging on ...
-heli_log_session(out.logsout, 'elevation-step-2V', 'models/rig-data')
+% ... fly or step the rig, and let the run finish ...
+heli_log_session([], 'elevation-step-2V', 'models/rig-data')
 ```
+
+The `[]` means "read what the model left in the workspace", which is how the
+laboratory models log. Pass a `Simulink.SimulationData.Dataset` there instead
+if the model you built logs that way.
 
 That writes a `.mat` and a `.csv` with three columns:
 
 | Column | Units |
 |---|---|
 | `time_s` | seconds |
-| `input_V` | volts, the commanded increment |
+| `input_V` | Elevation Input, which is what the fitted `K` is per |
 | `elevation_deg` | degrees |
+
+`input_V` is not the motor voltage. It is the demand one offset block before
+`Velev`, and `K = 3.4 deg/V` was measured by stepping it from 0 to 2.
 
 Name them `<what>-<yyyy-mm-dd>`, so `elevation-step-2V-2026-09-21.csv`. Keep
 every recording, including the bad ones: a run where the arm hit a stop is
@@ -46,19 +53,29 @@ climbing. That decides whether one model covers the working range.
 ## Then fit it
 
 ```matlab
-fit_elevation('models/rig-data/elevation-step-2V-2026-09-21.csv')
+fit_second_order('models/rig-data/elevation-step-2V-2026-09-21.csv')
 ```
 
-That fits `K` and rewrites `models/elevation_plant.json` with the value, the
-file it came from and the date. Both gain checkers read that file, so the whole
-toolchain follows the measurement from that point on.
+That returns `K`, `wn` and `zeta`. It does not write anything: put the three
+numbers into `models/elevation_plant.json` yourself, then run
+`scripts/sync_student_code.py` to push them to the folder students have. Every
+gain checker reads that file, so the whole toolchain follows the measurement
+from that point on.
 
 ## The one thing to watch
 
-The model week 1 uses is a **double integrator**, so a step should give a
-response that curves away and keeps going. If the recording instead rises and
-**settles**, the arm has a restoring term — most likely because it is trimmed
-away from level, where gravity provides stiffness — and a double-integrator fit
-of it is meaningless. `fit_elevation` says so rather than returning a number.
+The model is **second order**, so a step should rise, overshoot and settle
+back, swinging slowly for half a minute on the way. Quanser's own
+linearisation gives a double integrator, but that is taken about level, where
+gravity stiffness is exactly zero; the rig is flown about a trim, and there it
+oscillates.
 
-See `models/quanser_trim_stiffness.py` for why that happens and how large it is.
+A recording that curves away and keeps going has no settling value in it, so
+there is no `K` to read off, and `fit_second_order` says so rather than
+returning a number. The same goes for a recording where the arm was still
+swinging before the step: the starting trim is then wherever the swing
+happened to be, which moves `K` by about a quarter.
+
+See `models/quanser_trim_stiffness.py` for where the stiffness comes from and
+`models/rig_trim_sweep.m` for the experiment that settles whether one model
+covers the working range.

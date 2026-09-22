@@ -1,4 +1,4 @@
-<!-- version: 2026.16 (2026-09-22) -->
+<!-- version: 2026.17 (2026-09-22) -->
 
 # Laboratory pass — 40 minutes
 
@@ -22,6 +22,16 @@ thing. The first two are five minutes together and both block the lecture.
 | At | For | Do |
 |---|---|---|
 | 0 | 5 | Amplifier on, open `part1_identify.slx`, **Build** then **Monitor & Tune**, not Build Deploy & Start |
+
+**Unload between runs, and connect before you start.** A stopped QUARC model
+stays resident with its clock going, so the next run is a later segment of the
+same recording, and connecting late means the capture begins where you joined
+rather than at zero. Both give a file with no step in it.
+
+**Leave the stop time at 99.9.** `inf` is tempting while levelling, and it
+removes the only thing that ends a run you are not in control of. It also
+means the scopes never hand their data to the workspace, because they do that
+when a run finishes.
 | 5 | 2 | **Q1: the derivative question.** `rig-characterisation/README.md` §1 |
 | 7 | 2 | **Q2: what holds it level?** §2 |
 | 9 | 3 | **Level it and calibrate.** §3, the new first thing students do |

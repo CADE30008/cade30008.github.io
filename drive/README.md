@@ -1,8 +1,8 @@
-<!-- version: 2026.16 (2026-09-22) -->
+<!-- version: 2026.17 (2026-09-22) -->
 
 # CADE30008 Flight Dynamics & Control — control half, 2026/27
 
-**Version 2026.16**, 2026-09-22.
+**Version 2026.17**, 2026-09-22.
 
 Everything given out during the control half of this unit. Open any file in
 [MATLAB Online](https://matlab.mathworks.com/): it runs in the browser, so
@@ -25,6 +25,7 @@ something that was fixed a fortnight ago.
 
 | Version | Date | What changed |
 |---|---|---|
+| 2026.17 | 2026-09-22 | Part 1 spells out the order that gets a complete recording: unload, build, connect, then start. And why the run stops itself at 99.9 s. |
 | 2026.16 | 2026-09-22 | `check_recording` names the right cause when a record starts late: the model was never unloaded, not the scopes dropping data. |
 | 2026.15 | 2026-09-22 | `save_recording` warns when a recording does not start at zero, which means the model was never unloaded and the clock carried on from an earlier run. Part 1 says to unload between runs. |
 | 2026.14 | 2026-09-22 | `check_scopes` added: what each scope logs, and whether it is dropping data. |
