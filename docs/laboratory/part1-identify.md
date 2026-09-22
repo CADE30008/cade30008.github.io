@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.13, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.14, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -135,6 +135,12 @@ That is one usable run. Take **at least three**, and take them properly:
     front of the record was thrown away, whether the input changes at all and
     when, how much run there is either side, and whether the arm was still
     swinging beforehand. Quicker than reading the raw arrays.
+
+    `check_scopes` is the companion: it reports what each scope is logging and
+    whether it is dropping any of it. The scopes decimate by 49, so a 100 s
+    run gives about two thousand samples rather than a hundred thousand. That
+    is around 20 Hz, which is plenty for an oscillation with a six-second
+    period, and it is why your file is smaller than you might expect.
 
 !!! tip "If a file is locked between runs"
     The model you downloaded does not write a log file, so this should not

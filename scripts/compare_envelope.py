@@ -37,6 +37,7 @@ TOL = {
     "peak_volts": 2e-2,
     "settle_s": 5e-2,
     "reversals": 0.0,
+    "overshoot_pct": 2e-2,
 }
 
 

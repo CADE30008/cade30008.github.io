@@ -219,6 +219,13 @@ def evaluate(s: Submission, plant: Plant, env: Envelope) -> None:
 
     # 5. Settling, to 2%. Room time is finite and so is everyone's patience.
     _, y = ct.forced_response(y_ref, T=t, U=ref)
+
+    # Overshoot against the same rate-limited demand, so it is smaller than
+    # stepinfo's figure for the closed loop. It decides nothing; it is here so
+    # a flight can be held against the prediction afterwards. Mirrors
+    # models/heli_check_one.m.
+    s.metrics["overshoot_pct"] = max(0.0, 100.0 * (float(np.max(y)) - step) / step)
+
     outside = np.where(np.abs(y - step) > 0.02 * step)[0]
     settle = float(t[outside[-1]]) if outside.size and outside[-1] + 1 < t.size else float("inf")
     s.metrics["settle_s"] = settle

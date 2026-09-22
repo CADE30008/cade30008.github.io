@@ -34,7 +34,7 @@ it is anything students need.
 | `w01-design-cycle` | [https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/w01-design-cycle](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/w01-design-cycle) |
 | `lab-quanser` | [https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser) |
 
-Student files are at **version 2026.13**, 2026-09-22.
+Student files are at **version 2026.14**, 2026-09-22.
 
 !!! warning "The staff link is public, on purpose"
     It is here so the test kit can be fetched on a laboratory
