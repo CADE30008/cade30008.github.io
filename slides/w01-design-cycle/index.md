@@ -571,66 +571,42 @@ Do it as you go and week 11 is assembly, not writing from nothing.
 -->
 
 ---
-
 <!-- handout: ai -->
 
-# AI rewards expertise
+# AI in this unit
 
-- Anyone can produce seemingly passable work — until an expert, or the real world, checks it
-- Experts ask sharper questions, and catch the confident wrong answers
-- Terence Tao and ChatGPT, 20 July 2026: the value was his judgement, not the prompt
-- The fundamentals here are what make you good *with* AI
+- **AI rewards expertise.** Anyone can produce passable-looking work, until an expert or the real world checks it
+- **Learning is how experts are made.** A shortcut to the answer skips the thing you came for
+- **Work, or gym?** If only the result matters it's work. If *doing* it is the point, it's the gym
 
 <div class="callout">
 
-**A design in a domain you don't understand, produced by a tool you don't understand and can't check, runs the risk of being a gamble that it's right.** That's not responsible, not ethical, and not engineering.
+**A design in a domain you don't understand, produced by a tool you don't understand and can't check, is a gamble that it's right.** Not responsible, not ethical, not engineering.
 
 </div>
 
 <!--
-After Sean Goedecke, "LLMs reward expertise", which uses Tao's conversation on
-the Jacobian conjecture as its example. Tao, among other researchers, models
-and critiques genuinely productive uses of LLMs.
+Condensed from five slides to two. This slot is three minutes and the handout
+carries the whole argument with its sources, so say the three lines, land the
+callout, point at the AI page, and move on.
 
-The callout is the one to slow down on. Aviation makes it concrete: somebody
-signs off a control law, and "the tool said so" has never been a defence.
--->
+The three, if you want them: Sean Goedecke on LLMs rewarding expertise, using
+Tao's Jacobian conjecture conversation; Tao and 24 other Fields Medallists in
+September 2026, on training existing to build understanding rather than only
+to produce answers; Schneier's work-or-gym test. All three, with links, are on
+the AI in this course page.
 
----
+Aviation makes the callout concrete: somebody signs off a control law, and
+"the tool said so" has never been a defence.
 
-<!-- handout: ai -->
+One warning worth saying out loud, deliberately not on the website because it
+is about this cohort's assessments rather than about control, and it dates:
 
-# Learning is how experts are made
-
-- Tao and 24 other Fields Medallists, September 2026:
-- training exists to build understanding, not only to produce answers
-- when AI produces the answers directly, the two come apart
-- That's your development — and what we're trying to assess
-
-<!--
-"A severe misalignment of AI in mathematics", on Tao's blog. The point for us is
-the one about training: students are set problems to build skills, and a
-shortcut to the answer skips the building.
--->
-
----
-
-<!-- handout: ai -->
-
-# Work, or gym?
-
-- **Work**: only the result matters. AI is a sensible tool — if you check it and stand behind it
-- **Gym**: doing it is the point. AI is a machine lifting your weights
-- A Simulink error at eleven at night: mostly work
-- Why your loop has less phase margin than you expected: the gym
-- Most of what you do here is the gym
-
-<!--
-After Bruce Schneier's test. The caveat on "work" is mine: in engineering,
-someone is accountable, and your name is on it either way. The coursework's AI
-rules follow the same line: use it where the brief allows, you won't need it,
-and you own what you submit. I used AI to help make these materials; the
-pedagogy and content are mine, and I have checked and rewritten all of it.
+  "The AI category is set per assessment, not per subject. This coursework is
+  Category 3, Selective. You will have met Category 2, Minimal, on other
+  units, including ones in this same field, where it is permitted only for
+  limited and declared purposes. Don't carry last year's rules forward - read
+  the brief."
 -->
 
 ---
@@ -649,38 +625,15 @@ pedagogy and content are mine, and I have checked and rewritten all of it.
 </div>
 
 <!--
-Say this one in your own voice. It is the slide that is meant to be
-aspirational rather than cautionary, so slow down here. Taste is a word
-students are almost never offered about engineering, and it lands.
+Say this one in your own voice, and slow down. It is the aspirational slide
+rather than the cautionary one, and taste is a word students are almost never
+offered about engineering.
 
-The caution belongs here, spoken, not on the slide: work a model produced and
-nobody examined tends to mark poorly, and not as a punishment - the credit
-follows the reasoning, and there isn't any. Say it once, plainly, then move on.
+The caution belongs here, spoken rather than on the slide: work a model
+produced and nobody examined tends to mark poorly, and not as a punishment -
+the credit follows the reasoning, and there isn't any. Say it once, plainly,
+then move on.
 
-And one practical warning worth saying out loud, because it is the way a
-student gets this wrong while trying to get it right:
-
-  "The AI category is set per assessment, not per subject. This coursework is
-  Category 3, Selective. You will have met Category 2, Minimal, on other units,
-  including ones in this same field, where it is permitted only for limited and
-  declared purposes. Don't carry last year's rules forward — read the brief."
-
-Deliberately not on the website: it is about this cohort's assessments rather
-than about control, and it dates.
--->
-
----
-
-<!-- handout: ai -->
-
-# Where this comes from
-
-- **Sean Goedecke**, *LLMs reward expertise*
-- **Terence Tao and 24 other Fields Medallists**, September 2026, on AI and mathematics
-- **Bruce Schneier**, the work-or-gym test, in *The Guardian*
-- All three, with links: the **AI in this course** page
-
-<!--
-Links are on the site rather than read out. The point of the slide is that this
-is a considered position with sources, not a departmental rule.
+I used AI to help make these materials; the pedagogy and content are mine, and
+I have checked and rewritten all of it.
 -->

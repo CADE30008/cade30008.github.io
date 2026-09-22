@@ -30,6 +30,16 @@ change from 2025/26, when a writable `submit/` folder was used, and it removes
 the awkwardness of a shared writable folder being readable by the whole
 cohort.
 
+## The repository is the source
+
+Everything in the student folder is authored here and copied out. The READMEs
+and the version live in `drive/`; the scripts and data live under `docs/`,
+where the site serves the same files. Nothing is authored in the Drive itself.
+
+That matters beyond tidiness: this repository is what somebody forking the
+unit gets. A file that exists only in a synced folder on one laptop is not
+part of the unit, it is part of that laptop.
+
 ## Versioning
 
 The material is new, so it will change during the year, and a student holding

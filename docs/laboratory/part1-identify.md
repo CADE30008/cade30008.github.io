@@ -9,6 +9,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 [Laboratory](index.md)
 [Part 2: design](part2-design.md)
 [Part 3: validate](part3-validate.md)
+[Code](code/index.md)
 </div>
 
 **At the rig, about two hours.** You leave with recordings. You do not leave

@@ -9,6 +9,7 @@ description: "Between sessions: fit a model to what you recorded, design a contr
 [Laboratory](index.md)
 [Part 1: identify](part1-identify.md)
 [Part 3: validate](part3-validate.md)
+[Code](code/index.md)
 </div>
 
 **Your own time, no rig.** You leave with gains, a predicted response, and a
@@ -19,7 +20,7 @@ have to decide what right means first.
 
 ## Fit a model
 
-Start with `lab1_fit.m` from [MATLAB Drive](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students), which walks through the
+Start with `lab1_fit.m` from the [code folder](code/index.md), which walks through the
 manual fit and then the toolbox one. Do the manual fit first even though the
 toolbox is one line: a fit you got by hand is one you can argue with.
 

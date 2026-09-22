@@ -9,6 +9,7 @@ description: "Back at the rig: fly the controller you designed, compare what hap
 [Laboratory](index.md)
 [Part 1: identify](part1-identify.md)
 [Part 2: design](part2-design.md)
+[Code](code/index.md)
 </div>
 
 **At the rig, about two hours.** You leave with a comparison: what you

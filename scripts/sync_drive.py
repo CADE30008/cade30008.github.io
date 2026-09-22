@@ -37,9 +37,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DRIVE = Path.home() / "MATLAB-Drive" / "Teaching" / "Control 2026" / "cade30008-students"
 
+# The READMEs a student reads are authored in drive/, so they are in version
+# control rather than living only in a synced folder on one laptop. The code
+# is not duplicated there: it has one home under docs/, because the site and
+# the Drive hand out the same files.
+AUTHORED = ROOT / "drive"
+
 # Where each student file comes from. Repo path -> path inside the Drive folder.
 BUNDLES: dict[str, list[tuple[Path, str]]] = {
     "w01-design-cycle": [
+        (AUTHORED / "w01-design-cycle/README.md", "README.md"),
         *[(ROOT / "docs/w01-design-cycle/code" / f, f) for f in (
             "s1_identify.m", "s2_tune.m", "tune_sliders.m", "submit_gains.m",
             "gain_form_url.m", "gain_form.json",
@@ -50,6 +57,7 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
         (ROOT / "docs/w01-design-cycle/data/README.md", "data/README.md"),
     ],
     "lab-quanser": [
+        (AUTHORED / "lab-quanser/README.md", "README.md"),
         *[(ROOT / "docs/laboratory/code" / f, f) for f in (
             "lab1_fit.m", "lab2_3dof.m", "lab3_statespace.m", "heli3d_model.m",
             "fit_second_order.m",
@@ -59,7 +67,9 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
     ],
 }
 
-VERSION_FILE = DRIVE / "VERSION.txt"
+# The version is kept in the repository and copied out, so that what is live
+# is visible in a diff rather than only in a synced folder.
+VERSION_FILE = ROOT / "drive" / "VERSION.txt"
 STAMP = re.compile(r"^<!-- version: .* -->$", re.M)
 
 # The one link students are given. Always the top of the student folder, never
@@ -118,19 +128,15 @@ def bump(v: str) -> str:
 
 
 def stamp_readmes(version: str, today: str) -> None:
-    """Put the version in each README's header, where it is visible.
+    """Write the version into the authored READMEs, before they are copied.
 
-    Only the READMEs written for the Drive. A README copied from the
-    repository is left exactly as it was copied: stamping it would make the
-    Drive copy differ from its source, so the next run would see it as changed
-    and copy it again, for ever.
+    The sources are stamped rather than the copies. Stamping a copy would make
+    it differ from its source, so the next run would see it as changed and
+    copy it again, for ever. This way the repository also shows the version
+    that is live, which is the thing you want to see in a diff.
     """
-    copied = {(DRIVE / folder / rel).resolve()
-              for folder, files in BUNDLES.items() for _, rel in files}
     line = f"<!-- version: {version} ({today}) -->"
-    for readme in sorted(DRIVE.rglob("README.md")):
-        if readme.resolve() in copied:
-            continue
+    for readme in sorted(AUTHORED.rglob("README.md")):
         text = readme.read_text(encoding="utf-8")
         if STAMP.search(text):
             text = STAMP.sub(line, text, count=1)
@@ -153,12 +159,17 @@ def main() -> int:
         return 2
 
     missing = [src for files in BUNDLES.values() for src, _ in files if not src.exists()]
+    if not (AUTHORED / "README.md").exists():
+        missing.append(AUTHORED / "README.md")
     if missing:
         for m in missing:
             print(f"Missing: {m.relative_to(ROOT)}", file=sys.stderr)
         return 2
 
     stale: list[str] = []
+    if not (DRIVE / "README.md").exists() or not filecmp.cmp(
+            AUTHORED / "README.md", DRIVE / "README.md", shallow=False):
+        stale.append("README.md")
     for folder, files in BUNDLES.items():
         for src, rel in files:
             dst = DRIVE / folder / rel
@@ -175,18 +186,21 @@ def main() -> int:
         print(f"Drive matches the repository, version {read_version()}")
         return 0
 
+    version = read_version()
+    if args.bump:
+        version = bump(version)
+    today = dt.date.today().isoformat()
+    stamp_readmes(version, today)
+
+    shutil.copy2(AUTHORED / "README.md", DRIVE / "README.md")
     for folder, files in BUNDLES.items():
         for src, rel in files:
             dst = DRIVE / folder / rel
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src, dst)
 
-    version = read_version()
-    if args.bump or stale:
-        version = bump(version) if args.bump else version
-    today = dt.date.today().isoformat()
     VERSION_FILE.write_text(version + "\n", encoding="utf-8")
-    stamp_readmes(version, today)
+    shutil.copy2(VERSION_FILE, DRIVE / "VERSION.txt")
     for page in stamp_site(version, today):
         print(f"  site: {page}")
 
