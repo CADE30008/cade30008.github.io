@@ -69,22 +69,21 @@ if isfile(file)
          'Choose another name, or delete that one first.'], file);
 end
 
-% A record that does not start near zero is a later segment of a run that
-% began earlier. Stopping a QUARC model does not unload it, so the clock keeps
-% going: start it again and the scopes carry on from where they were, and the
-% workspace holds only this segment. Anything you did in an earlier one, a
-% step included, is not in the file.
+% A record that does not start near zero is a run that was already going when
+% external mode connected. The capture begins at the moment you connect, not
+% when the model started, so anything done before that is not in the file, a
+% step included.
 %
 % Worth catching here rather than at a fit. Here you are still at the rig.
 t0 = vars.outputTime(1);
 dt = median(diff(vars.outputTime));
 if t0 > 5 * dt
     fprintf(2, ['\nWARNING: this record starts at %.2f s, not 0.\n\n' ...
-                'It is a later part of a run that began earlier, because the\n' ...
-                'model was still loaded and its clock kept going. Whatever you\n' ...
-                'did before %.2f s, including any step, is not in this file.\n\n' ...
-                'Unload the model, start it again so the clock\n' ...
-                'resets, and take the recording in one go.\n\n'], t0, t0);
+                'The model was already running when external mode connected,\n' ...
+                'so the capture starts where you joined. Whatever you did\n' ...
+                'before %.2f s, including any step, is not in this file.\n\n' ...
+                'Stop the model, connect, then start the run. qc_stop_model\n' ...
+                'stops one from the command line.\n\n'], t0, t0);
 end
 
 save(file, '-struct', 'vars');

@@ -1,8 +1,8 @@
-<!-- version: 2026.18 (2026-09-22) -->
+<!-- version: 2026.19 (2026-09-22) -->
 
 # Week 1 — The design cycle, end to end
 
-**Version 2026.18**, 2026-09-22.
+**Version 2026.19**, 2026-09-22.
 
 The session's files. Work through them in order, one section at a time rather
 than running the whole script at once.

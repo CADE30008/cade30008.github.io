@@ -1,4 +1,4 @@
-<!-- version: 2026.18 (2026-09-22) -->
+<!-- version: 2026.19 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -73,40 +73,16 @@ Nothing further to check here.
 
 **Both models here have file logging off**, so neither writes `results.mat`
 and there is nothing to lock. Nothing is lost by it: the data comes from the
-scopes, which log `inputData`, `elevData`, `pitchData` and `travelData`
-straight to the workspace, and that is what `save_recording` reads.
+scopes, which log straight to the workspace, and that is what
+`save_recording` reads.
 
-It was Simulink's own setting, not QUARC's: **Configuration Parameters ->
-Data Import/Export -> Log Dataset data to file**, which is `LoggingToFile`.
+It was Simulink's own setting, not QUARC's: **Configuration Parameters →
+Data Import/Export → Log Dataset data to file**, which is `LoggingToFile`.
 QUARC has a button that opens that panel, which is why it looked like theirs.
-`part1_identify` had it on and pointed at `results.mat`; `part3_validate`
-already had it off.
 
-**If you meet a bench copy with it still on**, the file is held by the target
-process rather than by MATLAB, which is why Explorer will not delete it
-either, and stopping the model does not release it:
-
-1. Unload the model. Stop is not unload. If the menu item is not where you
-   expect, type `qc_` in the command window and press Tab to list what
-   this install provides.
-2. Still locked: kill the `*.rt-win64.exe` for this model in Task Manager.
-3. Then turn the setting off rather than working around it again:
-   `set_param('part1_identify', 'LoggingToFile', 'off')`.
-
-!!! danger "Unload between runs, or the clock keeps going"
-    Stopping a QUARC model does not unload it. It stays resident with its
-    clock running, so the next run carries on from where the last one stopped
-    and the scopes hand you only that later segment.
-
-    Steve hit this on the first attempt: a recording covering 100.00 to
-    131.32 s of a model whose stop time is 99.9, with the step from the
-    previous segment nowhere in it. The input read 2 for the whole file.
-
-    **Unload between runs.** `save_recording` now warns when a record
-    does not start at zero, which is the symptom.
-
-    It is the same cause as the locked `results.mat`: Stop leaves the model
-    loaded.
+**MATLAB holds the file open**, which is why it could not be deleted or
+renamed from MATLAB's file browser or from Explorer. Turning the setting off
+is the fix; there is nothing to unload.
 
 ## 3. Level it, and check the activity works
 

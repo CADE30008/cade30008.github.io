@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.18, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.19, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -72,30 +72,23 @@ recording is the deliverable.
 ### Getting a recording that is actually complete
 
 The order matters, and getting it wrong is the commonest way to end up with a
-file that will not fit:
+file that will not fit.
 
-1. **Unload** anything already loaded. Stopping is not unloading: a stopped
-   model stays on the rig with its clock running. If you cannot find Unload,
-   type `qc_` in the command window and press Tab to see what this install
-   calls it, or end the model's process in Task Manager.
-2. **Build**, then **Monitor & Tune** to connect.
-3. **Then** start the run. Connecting after a run has begun means the capture
-   starts from wherever you joined, not from zero.
-4. Let it run out, or press **Stop** on the Hardware tab when you have what
-   you need. Either ends the run and hands the scopes' data to the workspace;
-   stopping early simply gives you a shorter record.
-5. **`save_recording` straight away**, before anything else. The workspace
-   holds one run's worth, and the next run replaces it.
-6. Unload again before the next recording.
+1. **Make sure nothing is running.** Press **Stop** on the Hardware tab if the
+   model is live.
+2. **Build.**
+3. **Monitor & Tune** to connect.
+4. **Then start the run.** This is the one that catches people: the recording
+   begins when you *connect*, not when the model started. Connect to a model
+   that is already running and you capture from where you joined.
+5. Let it run out, or press **Stop** when you have what you need. Either ends
+   the run and hands the scopes' data to the workspace.
+6. **`save_recording` straight away**, before anything else. The workspace
+   holds one run's worth and the next run replaces it.
 
-`save_recording` warns you if a record does not begin at zero, which is what a
-missed step looks like from the data.
-
-!!! note "The recordings are logged at 20 Hz"
-    Fast enough to see everything this axis does: the oscillation has a period
-    of about six seconds, so that is over a hundred samples a cycle. A full
-    run comes to about two thousand rows rather than a hundred thousand, which
-    is quicker to load and easier to look at.
+`save_recording` warns you if a record does not begin at zero. That is the
+symptom of joining a run late, and it means whatever you did before you
+connected is not in the file.
 
 ## Level it, and write down what that took
 
@@ -176,17 +169,19 @@ That is one usable run. Take **at least three**, and take them properly:
     `check_scopes` is the companion: it reports what each scope is logging
     and whether it is dropping any of it.
 
-!!! tip "If a file is locked between runs"
+!!! tip "If `results.mat` will not go away"
     The model you downloaded does not write a log file, so this should not
-    happen. If you are working from a copy that was already on the machine, it
-    may: Simulink can archive each run to `results.mat`, and that file is held
-    open by the process running on the rig, so a second run cannot write it
-    and you cannot delete it from the file browser either.
+    happen. A copy that was already on the machine might: Simulink can archive
+    each run to `results.mat`.
 
-    Stopping the model does not release it. It has to be unloaded. Then turn
-    the setting off, in **Configuration Parameters → Data Import/Export → Log
-    Dataset data to file**, rather than fighting it every run. You do not need that archive: your data comes from
-    the scopes, and `save_recording` takes it from there.
+    **MATLAB holds that file open**, which is why you cannot delete or rename
+    it from MATLAB's own file browser, and why Explorer will not either. It is
+    not the rig and not Windows being awkward.
+
+    Turn the archiving off rather than fighting it every run: **Configuration
+    Parameters → Data Import/Export → Log Dataset data to file**. You do not
+    need that archive. Your data comes from the scopes, and `save_recording`
+    takes it from there.
 
 ## Check it before you leave
 
