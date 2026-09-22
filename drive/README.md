@@ -1,8 +1,8 @@
-<!-- version: 2026.8 (2026-09-22) -->
+<!-- version: 2026.9 (2026-09-22) -->
 
 # CADE30008 Flight Dynamics & Control — control half, 2026/27
 
-**Version 2026.8**, 2026-09-22.
+**Version 2026.9**, 2026-09-22.
 
 Everything given out during the control half of this unit. Open any file in
 [MATLAB Online](https://matlab.mathworks.com/): it runs in the browser, so

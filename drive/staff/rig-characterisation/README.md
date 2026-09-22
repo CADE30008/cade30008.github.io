@@ -1,4 +1,4 @@
-<!-- version: 2026.8 (2026-09-22) -->
+<!-- version: 2026.9 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -68,6 +68,28 @@ goes to a motor channel as it stands, the envelope is roughly twice as
 permissive as it should be and I will tighten it before anybody flies.
 
 **SEND ME:** which of those it does. One line.
+
+## If `results.mat` is locked between runs
+
+QUARC archives to `results.mat`, and the **target process** holds that file
+open, not MATLAB. That is why Explorer will not rename or delete it either.
+Stopping the model is not enough: stopping leaves it resident.
+
+1. **`QUARC -> Unload`**, or `qc_unload_model`. Stop, then unload.
+2. Still locked: kill the target executable in Task Manager, the
+   `*.rt-win64.exe` for this model.
+3. Disconnect external mode first if it will not unload.
+
+**Better: turn the archiving off.** Nothing here needs it. The data comes from
+the scopes, which log `inputData` and `elevData` straight to the workspace,
+and that is what `save_recording` reads. Simulink's own MAT-file logging is
+already off in the model; it is QUARC's archiving that writes `results.mat`.
+
+With archiving off there is no file to lock, and nothing to clear between one
+recording and the next, which matters because Part 1 asks for several.
+
+If you would rather keep the archive, give it a name that changes each run so
+nothing is ever reopened.
 
 ## 3. One clean step at the level datum
 
