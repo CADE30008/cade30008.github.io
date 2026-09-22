@@ -1,8 +1,8 @@
-<!-- version: 2026.20 (2026-09-22) -->
+<!-- version: 2026.21 (2026-09-22) -->
 
 # CADE30008 Flight Dynamics & Control — control half, 2026/27
 
-**Version 2026.20**, 2026-09-22.
+**Version 2026.21**, 2026-09-22.
 
 Everything given out during the control half of this unit. Open any file in
 [MATLAB Online](https://matlab.mathworks.com/): it runs in the browser, so
@@ -25,6 +25,7 @@ something that was fixed a fortnight ago.
 
 | Version | Date | What changed |
 |---|---|---|
+| 2026.21 | 2026-09-22 | The models capture a whole run now: the external mode buffer held only 100 seconds, which is why a recording could start at 100.00 with the step missing. |
 | 2026.20 | 2026-09-22 | Levelling: stop the model while the arm is level, then run `level_rig`. Nothing reaches the workspace until a run ends. |
 | 2026.19 | 2026-09-22 | Clearer on getting a complete recording: the capture starts when you connect, so stop, build, connect, then start. |
 | 2026.18 | 2026-09-22 | The scopes log at 20 Hz instead of 1000. A full run is about two thousand rows, still over a hundred samples per oscillation. |
