@@ -1,8 +1,8 @@
-<!-- version: 2026.5 (2026-09-22) -->
+<!-- version: 2026.6 (2026-09-22) -->
 
 # The Quanser laboratory
 
-**Version 2026.5**, 2026-09-22.
+**Version 2026.6**, 2026-09-22.
 
 Files for the open-access laboratory sessions. The three parts of the
 experiment, and what to read before each, are on the
@@ -29,11 +29,11 @@ those. Keep everything in one folder.
 
     Everything else here runs anywhere.
 
-!!! warning "The bench machines have these under their old names"
-    The laboratory's own copies are still called `m_part1.slx` and
-    `m_part3.slx`. The files here are the same models, renamed to match the
-    parts of the experiment. Either works; if you are sitting at a bench
-    machine and cannot find `part1_identify.slx`, look for `m_part1.slx`.
+!!! warning "Use the files you downloaded, not the ones already on the machine"
+    The bench machines carry older copies of these models under different
+    names, `m_part1.slx` and `m_part3.slx`, left from previous years. Work
+    from your own downloaded folder: it is the one these instructions match,
+    and it is the one that has `save_recording` in it.
 
 ## Order
 

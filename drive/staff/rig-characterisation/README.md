@@ -1,4 +1,4 @@
-<!-- version: 2026.5 (2026-09-22) -->
+<!-- version: 2026.6 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -62,7 +62,7 @@ settles.
 3. Let it settle. Give it a full minute: at this damping a disturbance rings
    for about that long, and a leftover swing lands in the fit.
 4. Step `Elevation Input` from 0 to 2. Do not touch anything else.
-5. `s_save` into `data/`.
+5. `save_recording('level-datum')`, which writes into whatever folder you are in.
 
 Then:
 
@@ -90,7 +90,7 @@ is still unknown is how much wn moves across the *whole* range.
 
 1. Elevation Input to 1.0, settle fully, step to 1.5, record 40 s.
 2. Repeat 2.0 → 2.5, and 2.5 → 3.0.
-3. Save each into `data/` as `trim-<volts>V.mat`.
+3. `save_recording('trim-2V')`, and so on.
 
 ```matlab
 rig_trim_sweep('data/*.mat')

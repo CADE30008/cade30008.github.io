@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.5, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.6, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -29,8 +29,7 @@ recording is the deliverable.
 
 1. **The amplifier should be off when you arrive.** If it is on, turn it off,
    then on again. Find the switch and agree who is watching it.
-2. Open MATLAB on the bench machine and open `part1_identify.slx`. The bench machines may still have it under
-   its old name, `m_part1.slx`; it is the same model.
+2. Open MATLAB on the bench machine and open `part1_identify.slx`.
 3. Build it: **Hardware → Build, Deploy & Start → Build**. It takes a minute or
    two.
 4. Set `Yaw Demand = 0` and `Elevation Input = 0` before you start anything.
@@ -49,7 +48,15 @@ recording is the deliverable.
 1. With the arm settled and steady, change `Elevation Input` from 0 to **2**.
 2. Leave it. Do not touch anything for the rest of the run. The model stops
    itself at 100 s.
-3. Save the recording with `s_save`.
+3. Save it with a name you will recognise later:
+
+    ```matlab
+    save_recording('trim-2V')
+    ```
+
+    Not the laboratory's `s_save`, which always writes to `d_Part1.mat`. You
+    are about to take several recordings, and with one filename each
+    overwrites the last.
 
 That is one usable run. Take **at least three**, and take them properly:
 
@@ -66,9 +73,7 @@ This is the part groups skip and then regret. Plot each recording before you
 pack up:
 
 ```matlab
-load('your-recording.mat')
-plot(outputTime, output); grid on
-xlabel('Time (s)'); ylabel('Elevation (deg)')
+plot_recording('trim-2V.mat')
 ```
 
 Three things to confirm on the plot:
