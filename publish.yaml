@@ -46,4 +46,5 @@ pages:
   # committed.
   - staff/index.md
   - staff/w01-run-sheet.md
+  - staff/wiring.md
   - staff/lecture-map.html

@@ -59,3 +59,4 @@ there is real content; `published` means it is on the live site. **9 of 11 weeks
 - `staff/index.md`
 - `staff/lecture-map.html`
 - `staff/w01-run-sheet.md`
+- `staff/wiring.md`
