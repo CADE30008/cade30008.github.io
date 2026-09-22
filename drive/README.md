@@ -1,8 +1,8 @@
-<!-- version: 2026.3 (2026-09-22) -->
+<!-- version: 2026.4 (2026-09-22) -->
 
 # CADE30008 Flight Dynamics & Control — control half, 2026/27
 
-**Version 2026.3**, 2026-09-22.
+**Version 2026.4**, 2026-09-22.
 
 Everything given out during the control half of this unit. Open any file in
 [MATLAB Online](https://matlab.mathworks.com/): it runs in the browser, so
@@ -25,6 +25,7 @@ something that was fixed a fortnight ago.
 
 | Version | Date | What changed |
 |---|---|---|
+| 2026.4 | 2026-09-22 | The two rig Simulink models, `m_part1.slx` and `m_part3.slx`, are in `lab-quanser/`. They only open on a laboratory machine. |
 | 2026.3 | 2026-09-22 | The Drive folder is now `cade30008`, with a clearer landing page. No change to any script or data. |
 | 2026.2 | 2026-09-22 | `s1_identify` now finds the recording wherever you keep it. Plainer wording in the three-axis model about what it is linearised about. |
 | 2026.1 | 2026-09-22 | First release: week 1 session files and the Quanser laboratory files. |

@@ -8,6 +8,11 @@
 //   another site, for reference   a small outward arrow
 //   another site, go there now    the same arrow, in brand red, and underlined
 //
+// Both of the kinds that leave the site also open in a new tab, so that a
+// reader who follows a reference does not lose their place in a handout they
+// were halfway through. The tooltip says so: opening a tab unannounced is
+// disorienting for anyone using a screen reader or a keyboard.
+//
 // Only the last carries an author's judgement, so only the last is written by
 // hand: put { .go } after the link, which attr_list turns into class="go".
 //
@@ -43,8 +48,8 @@ function classify(a) {
 
 function describe(kind, url) {
   const host = url.host.replace(/^www\./, "");
-  if (kind === "go") return `${host} — go there as part of this activity, then come back`;
-  if (kind === "away") return `${host} — for reference; you don't have to follow it now`;
+  if (kind === "go") return `${host} — opens in a new tab; go there as part of this activity, then come back`;
+  if (kind === "away") return `${host} — opens in a new tab; for reference, you don't have to follow it now`;
   return `Downloads ${decodeURIComponent(url.pathname.split("/").pop())}`;
 }
 
@@ -57,6 +62,13 @@ document$.subscribe(() => {
     const kind = classify(a);
     if (!kind) continue;
     a.dataset.link = kind;
+    if (kind === "away" || kind === "go") {
+      a.target = "_blank";
+      // noopener stops the new page reaching back through window.opener;
+      // noreferrer keeps our reader's page out of the other site's logs.
+      a.rel = [a.rel, "noopener", "noreferrer"]
+        .join(" ").trim().split(/\s+/).filter((v, i, all) => all.indexOf(v) === i).join(" ");
+    }
     if (!a.title) a.title = describe(kind, new URL(a.href));
   }
 });

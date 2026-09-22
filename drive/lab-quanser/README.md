@@ -1,8 +1,8 @@
-<!-- version: 2026.3 (2026-09-22) -->
+<!-- version: 2026.4 (2026-09-22) -->
 
 # The Quanser laboratory
 
-**Version 2026.3**, 2026-09-22.
+**Version 2026.4**, 2026-09-22.
 
 Files for the open-access laboratory sessions. The three parts of the
 experiment, and what to read before each, are on the
@@ -16,9 +16,18 @@ Put your own `.mat` recordings in the same folder as these files.
 | `lab2_3dof.m` | All three axes as three loops, with the cascade for travel |
 | `lab3_statespace.m` | The same machine by state feedback, with LQR |
 | `heli3d_model.m` | The linearised six-state model, from the published constants |
+| `m_part1.slx` | The rig model you record from, in Part 1 |
+| `m_part3.slx` | The rig model you fly your controller on, in Part 3 |
 
 `fit_second_order.m`, `heli_*.m` and `elevation_plant.json` are called by
 those. Keep everything in one folder.
+
+!!! warning "The two `.slx` files only open on a laboratory machine"
+    They talk to the hardware through QUARC, which is installed on the bench
+    machines and nowhere else. They will not open in MATLAB Online or on your
+    own laptop, and that is not something you have done wrong.
+
+    Everything else here runs anywhere.
 
 ## Order
 

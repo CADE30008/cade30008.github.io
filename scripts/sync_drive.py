@@ -66,6 +66,12 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
     ],
     "lab-quanser": [
         (AUTHORED / "lab-quanser/README.md", "README.md"),
+        # The rig models. Authored here rather than under docs/ because they
+        # are only usable on a laboratory machine with QUARC, so serving them
+        # from the website would be offering something that cannot be opened.
+        # In-house work, not Quanser's: see the provenance note in private/.
+        (AUTHORED / "lab-quanser/m_part1.slx", "m_part1.slx"),
+        (AUTHORED / "lab-quanser/m_part3.slx", "m_part3.slx"),
         *[(ROOT / "docs/laboratory/code" / f, f) for f in (
             "lab1_fit.m", "lab2_3dof.m", "lab3_statespace.m", "heli3d_model.m",
             "fit_second_order.m",
