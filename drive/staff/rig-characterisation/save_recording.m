@@ -69,8 +69,26 @@ if isfile(file)
          'Choose another name, or delete that one first.'], file);
 end
 
+% A record that does not start near zero is a later segment of a run that
+% began earlier. Stopping a QUARC model does not unload it, so the clock keeps
+% going: start it again and the scopes carry on from where they were, and the
+% workspace holds only this segment. Anything you did in an earlier one, a
+% step included, is not in the file.
+%
+% Worth catching here rather than at a fit. Here you are still at the rig.
+t0 = vars.outputTime(1);
+dt = median(diff(vars.outputTime));
+if t0 > 5 * dt
+    fprintf(2, ['\nWARNING: this record starts at %.2f s, not 0.\n\n' ...
+                'It is a later part of a run that began earlier, because the\n' ...
+                'model was still loaded and its clock kept going. Whatever you\n' ...
+                'did before %.2f s, including any step, is not in this file.\n\n' ...
+                'Unload the model (QUARC > Unload), start it again so the clock\n' ...
+                'resets, and take the recording in one go.\n\n'], t0, t0);
+end
+
 save(file, '-struct', 'vars');
-n = numel(vars.(   'outputTime'));
-fprintf('Saved %s: %d samples over %.1f s, from %s\n', ...
-    file, n, vars.outputTime(end) - vars.outputTime(1), strjoin(found, ', '));
+n = numel(vars.outputTime);
+fprintf('Saved %s: %d samples, %.2f to %.2f s, from %s\n', ...
+    file, n, vars.outputTime(1), vars.outputTime(end), strjoin(found, ', '));
 end

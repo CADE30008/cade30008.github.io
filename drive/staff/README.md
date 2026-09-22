@@ -1,4 +1,4 @@
-<!-- version: 2026.14 (2026-09-22) -->
+<!-- version: 2026.15 (2026-09-22) -->
 
 # Laboratory pass — 40 minutes
 

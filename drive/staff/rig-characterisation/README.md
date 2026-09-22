@@ -1,4 +1,4 @@
-<!-- version: 2026.14 (2026-09-22) -->
+<!-- version: 2026.15 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -90,6 +90,21 @@ either, and stopping the model does not release it:
 2. Still locked: kill the `*.rt-win64.exe` for this model in Task Manager.
 3. Then turn the setting off rather than working around it again:
    `set_param('part1_identify', 'LoggingToFile', 'off')`.
+
+!!! danger "Unload between runs, or the clock keeps going"
+    Stopping a QUARC model does not unload it. It stays resident with its
+    clock running, so the next run carries on from where the last one stopped
+    and the scopes hand you only that later segment.
+
+    Steve hit this on the first attempt: a recording covering 100.00 to
+    131.32 s of a model whose stop time is 99.9, with the step from the
+    previous segment nowhere in it. The input read 2 for the whole file.
+
+    **QUARC → Unload between runs.** `save_recording` now warns when a record
+    does not start at zero, which is the symptom.
+
+    It is the same cause as the locked `results.mat`: Stop leaves the model
+    loaded.
 
 ## 3. Level it, and check the activity works
 

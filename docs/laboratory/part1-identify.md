@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.14, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.15, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -59,6 +59,19 @@ recording is the deliverable.
 
     You are about to find where level is relative to that resting position,
     which is what makes the two comparable.
+
+!!! danger "One run, one recording. Unload in between"
+    **Stopping the model does not unload it.** It stays on the rig with its
+    clock running, so starting again carries on from where it was: the second
+    run might record from 100 s to 131 s, and everything you did in the first
+    is simply not in the file.
+
+    That is how you get a recording with no step in it, which then refuses to
+    fit for reasons that look nothing like the cause.
+
+    So between runs: **QUARC → Unload**, then build and connect again. And
+    save each recording straight after its run, before starting another.
+    `save_recording` warns you if a record does not begin at zero.
 
 ## Level it, and write down what that took
 

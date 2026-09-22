@@ -116,6 +116,15 @@ end
 
 % 5. Settling, to 2% of the demand.
 y  = lsim(minreal(G * C1 / (1 + L), [], false), ref, t);
+
+% Overshoot against the same demand, which is not the textbook step response:
+% the reference ramps at cmdRateDegS, so this is smaller than the figure a
+% student gets from stepinfo on the closed loop. It decides nothing here. It
+% is reported so a flight can be compared with the prediction afterwards, and
+% it reads 0 rather than a negative number when the arm never goes past the
+% demand at all.
+m.overshoot_pct = max(0, 100 * (max(y) - env.stepDeg) / env.stepDeg);
+
 out = find(abs(y - env.stepDeg) > 0.02 * env.stepDeg);
 if isempty(out) || out(end) + 1 >= numel(t)
     m.settle_s = Inf;
