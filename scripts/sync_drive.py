@@ -223,6 +223,34 @@ def bump(v: str) -> str:
         return f"{year}.1"
 
 
+CHANGELOG_ROW = re.compile(r"^\|\s*(\d{4}\.\d+)\s*\|", re.M)
+
+
+def changelog_top() -> str | None:
+    """The version on the newest row of the changelog students read."""
+    readme = AUTHORED / "README.md"
+    if not readme.exists():
+        return None
+    m = CHANGELOG_ROW.search(readme.read_text(encoding="utf-8"))
+    return m.group(1) if m else None
+
+
+def check_changelog(version: str) -> bool:
+    """Does the changelog's newest row agree with the version we just wrote?
+
+    The row is written by hand and the version is incremented by this script,
+    so the two drift the moment somebody guesses the next number. A student
+    told to compare versions cannot do it if the page disagrees with itself.
+    """
+    top = changelog_top()
+    if top == version:
+        return True
+    print(f"\nThe changelog's newest row says {top}, and the version is "
+          f"{version}.\nFix the row in drive/README.md: it is what students "
+          f"read to see what changed.", file=sys.stderr)
+    return False
+
+
 def stamp_readmes(version: str, today: str) -> None:
     """Write the version into the authored READMEs, before they are copied.
 
@@ -307,6 +335,8 @@ def main() -> int:
                 print(f"  {s}")
             print("\nRun: .venv/bin/python scripts/sync_drive.py --bump")
             return 1
+        if not check_changelog(read_version()):
+            return 1
         print(f"Drive matches the repository, version {read_version()}")
         return 0
 
@@ -349,6 +379,7 @@ def main() -> int:
             print(f"  {s}")
     else:
         print("nothing had changed")
+    check_changelog(version)
     if stale and not args.bump:
         print("\nFiles changed but the version did not. If students have already\n"
               "downloaded this, re-run with --bump so they can tell.")

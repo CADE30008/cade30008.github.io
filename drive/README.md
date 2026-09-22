@@ -25,7 +25,7 @@ something that was fixed a fortnight ago.
 
 | Version | Date | What changed |
 |---|---|---|
-| 2026.9 | 2026-09-22 | `part1_identify.slx` no longer writes `results.mat`. That file was held open by the rig's process and blocked the next run. Nothing is lost: the data comes from the scopes. |
+| 2026.10 | 2026-09-22 | `part1_identify.slx` no longer writes `results.mat`. That file was held open by the rig's process and blocked the next run. Nothing is lost: the data comes from the scopes. |
 | 2026.8 | 2026-09-22 | Part 1 and Part 3 warn against **Build, Deploy & Start**: use **Build** then **Monitor & Tune**, or the model runs on the rig with no way to stop it. |
 | 2026.7 | 2026-09-22 | Part 2 and Part 3 now say to take the derivative term from the `ElevRate` signal rather than from the error, and why. |
 | 2026.6 | 2026-09-22 | `save_recording` and `plot_recording` added. Save each run under its own name: the laboratory's `s_save` always wrote `d_Part1.mat`, so a second recording overwrote the first. |
