@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.19, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.20, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -101,7 +101,11 @@ you asked for.
    eye against the marker. Small steps: it is lightly damped, so give it a few
    seconds to settle after each one.
 2. When it sits level and still, note the value that held it.
-3. With the model still running:
+3. **Stop the model while the arm is sitting there.** The scopes hand their
+   data to the workspace when a run ends, not while it runs, so there is
+   nothing to read until you stop. Stopping with the arm level leaves the
+   level angle at the end of the record.
+4. Then:
 
     ```matlab
     level_rig(-1.6)      % the value that held it, whatever yours was

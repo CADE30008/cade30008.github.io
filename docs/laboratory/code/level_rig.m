@@ -12,7 +12,13 @@ function cal = level_rig(elevInputAtLevel, angleAtLevel)
 % The procedure is in the laboratory notes for Part 1. In short: start the
 % model with the arm **resting on the floor**, so the zero is a position the
 % rig chooses rather than one you hold; raise Elevation Input until the arm
-% sits level; then call this with the value that held it.
+% sits level; **stop the model while it is sitting there**; then call this
+% with the value that held it.
+%
+% Stopping first is not optional. The scopes hand elevData to the workspace
+% when a run ends, not while it runs, so there is no angle to read until you
+% have stopped. Stopping with the arm level leaves the level angle at the end
+% of the record, which is what this takes.
 %
 % Writes rig_calibration.mat in the current folder. Two numbers come out of
 % it, and both matter later:
@@ -31,17 +37,21 @@ end
 if isnan(angleAtLevel)
     if ~evalin('base', 'exist(''elevData'', ''var'')')
         error('level_rig:noAngle', ...
-            ['No elevation logged, so the angle cannot be read.\n\n' ...
-             'Either leave the model running so elevData is in the workspace,\n' ...
-             'or pass the angle yourself:  level_rig(%g, <angle>)'], elevInputAtLevel);
+            ['No elevation in the workspace, so the angle cannot be read.\n\n' ...
+             'The scopes hand their data over when a run **ends**. Stop the\n' ...
+             'model while the arm is sitting level, then run this again.\n\n' ...
+             'Or give the angle yourself:  level_rig(%g, <angle>)'], elevInputAtLevel);
     end
     e = evalin('base', 'elevData');
     y = e.signals.values;
+    % The end of the record is the moment you stopped, which is where the
+    % arm was sitting level.
     tail = y(max(1, end - 99) : end);
     angleAtLevel = mean(tail);
     if max(tail) - min(tail) > 1.0
-        fprintf(2, ['The arm was still moving %.1f deg over the last second.\n' ...
-                    'Let it settle before calling this, or the datum moves.\n'], ...
+        fprintf(2, ['The arm was still moving %.1f deg over the last second of\n' ...
+                    'the record. Let it settle before you stop, or the datum\n' ...
+                    'is wherever the swing happened to be.\n'], ...
                 max(tail) - min(tail));
     end
 end

@@ -1,4 +1,4 @@
-<!-- version: 2026.19 (2026-09-22) -->
+<!-- version: 2026.20 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -95,7 +95,10 @@ voltage budget follows from it.
    rig will choose again.
 2. Raise `Elevation Input` slowly until the arm sits level. Small steps, a few
    seconds each.
-3. `level_rig(<the value that held it>)`.
+3. **Stop the model** with the arm sitting level. Nothing reaches the
+   workspace until a run ends, so there is no angle to read before that, and
+   stopping while it is level leaves the level angle at the end of the record.
+4. `level_rig(<the value that held it>)`.
 
 On the reference rig that value is -1.6, giving a trim of 16.4 and 8.6 V of
 head-room, of which the envelope keeps 6.0.
