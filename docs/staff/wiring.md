@@ -115,22 +115,21 @@ alone it enumerates and reads nothing, which looks like a broken encoder.
 Each channel is rated **4 A at ±24 V**, which is the 24 V the flight envelope
 works its head-room against.
 
-!!! danger "Both gain switches must be on 3x, and in this photograph they do not look the same"
-    Each channel has a **Gain** switch marked **1x** and **3x**. The model
-    assumes **3x**: it divides the controller's demand by three before the
-    board, in the block called *cable gain pre-compensation*, so the
-    amplifier's own gain of three puts it back.
+!!! note "Both gain switches on 3x, checked 22 September"
+    Each channel has a **Gain** switch marked **1x** and **3x**, and both are
+    on **3x**. The photograph above makes them look different, which is the
+    angle rather than the rig.
 
-    In the photograph above, **the two switches are not obviously in the same
-    position** — Amplifier 1 shows a red marking that Amplifier 0 does not.
-    Check them both by eye at the bench, because a photograph taken at an
-    angle is not evidence.
+    They have to match, and they have to be 3x. The model divides the
+    controller's demand by three before the board, in the block called *cable
+    gain pre-compensation*, so the amplifier's gain of three puts it back.
 
-    If one is on 1x, that motor receives a third of the voltage the other
-    does. Elevation still works, because it is the sum and simply comes out
-    weaker. **Pitch is the difference, so it ends up with a standing offset**,
-    and the machine drifts round the track with no input. That reads as a
-    faulty rig or a bad controller. It is a switch.
+    Worth knowing for the day one of them gets nudged. If a channel drops to
+    1x, that motor receives a third of the voltage the other does. Elevation
+    still works, because it is the sum and simply comes out weaker.
+    **Pitch is the difference, so it takes a standing offset**, and the
+    machine drifts round the track with nothing commanding it. That looks like
+    a faulty rig or a bad controller, and it is a switch.
 
 !!! warning "The amplifier switch is the emergency stop"
     There is no separate stop button and no software interlock. If the rig

@@ -74,8 +74,10 @@ recording is the deliverable.
 The order matters, and getting it wrong is the commonest way to end up with a
 file that will not fit:
 
-1. **QUARC → Unload**, if anything is loaded. Stopping is not unloading: a
-   stopped model stays on the rig with its clock running.
+1. **Unload** anything already loaded. Stopping is not unloading: a stopped
+   model stays on the rig with its clock running. If you cannot find Unload,
+   type `qc_` in the command window and press Tab to see what this install
+   calls it, or end the model's process in Task Manager.
 2. **Build**, then **Monitor & Tune** to connect.
 3. **Then** start the run. Connecting after a run has begun means the capture
    starts from wherever you joined, not from zero.
@@ -181,10 +183,9 @@ That is one usable run. Take **at least three**, and take them properly:
     open by the process running on the rig, so a second run cannot write it
     and you cannot delete it from the file browser either.
 
-    Stopping the model does not release it. It has to be unloaded, through
-    **QUARC → Unload**. Then turn the setting off, in **Configuration
-    Parameters → Data Import/Export → Log Dataset data to file**, rather than
-    fighting it every run. You do not need that archive: your data comes from
+    Stopping the model does not release it. It has to be unloaded. Then turn
+    the setting off, in **Configuration Parameters → Data Import/Export → Log
+    Dataset data to file**, rather than fighting it every run. You do not need that archive: your data comes from
     the scopes, and `save_recording` takes it from there.
 
 ## Check it before you leave

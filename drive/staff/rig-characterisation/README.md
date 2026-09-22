@@ -86,7 +86,9 @@ already had it off.
 process rather than by MATLAB, which is why Explorer will not delete it
 either, and stopping the model does not release it:
 
-1. `QUARC -> Unload`, or `qc_unload_model`. Stop, then unload.
+1. Unload the model. Stop is not unload. If the menu item is not where you
+   expect, type `qc_` in the command window and press Tab to list what
+   this install provides.
 2. Still locked: kill the `*.rt-win64.exe` for this model in Task Manager.
 3. Then turn the setting off rather than working around it again:
    `set_param('part1_identify', 'LoggingToFile', 'off')`.
@@ -100,7 +102,7 @@ either, and stopping the model does not release it:
     131.32 s of a model whose stop time is 99.9, with the step from the
     previous segment nowhere in it. The input read 2 for the whole file.
 
-    **QUARC → Unload between runs.** `save_recording` now warns when a record
+    **Unload between runs.** `save_recording` now warns when a record
     does not start at zero, which is the symptom.
 
     It is the same cause as the locked `results.mat`: Stop leaves the model
