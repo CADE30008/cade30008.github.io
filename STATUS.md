@@ -18,11 +18,11 @@ can't drift from the site.
 ## Weeks
 
 `draft` is scaffolding only and is skipped by the sync check. `written` means
-there is real content; `published` means it is on the live site. **9 of 11 weeks are still draft.**
+there is real content; `published` means it is on the live site. **8 of 11 weeks are still draft.**
 
 | Week | Date | Session | State | Live |
 |---|---|---|---|---|
-| 1 | 22 Sep | The design cycle, end to end | draft | no |
+| 1 | 22 Sep | The design cycle, end to end | published | yes |
 | 2 | 29 Sep | Requirements and models you can trust | draft | no |
 | 3 | 6 Oct | PID, properly | draft | no |
 | 4 | 13 Oct | Stability and margins | draft | no |
@@ -60,3 +60,8 @@ there is real content; `published` means it is on the live site. **9 of 11 weeks
 - `staff/lecture-map.html`
 - `staff/w01-run-sheet.md`
 - `staff/wiring.md`
+- `w01-design-cycle/code/index.md`
+- `w01-design-cycle/data/README.md`
+- `w01-design-cycle/example-sheet.md`
+- `w01-design-cycle/index.md`
+- `w01-design-cycle/solutions.md`

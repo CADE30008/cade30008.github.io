@@ -4,7 +4,7 @@ description: "The control design cycle, run end to end in one session on the lab
 lesson: w01-design-cycle
 order: 1
 duration: 2 x 50 min
-status: draft
+status: written
 ---
 
 # Week 1: The design cycle, end to end
@@ -147,6 +147,10 @@ Not a simulation of it, and not one axis of it: the machine, all three
 degrees of freedom, on two joysticks. The claim made at the top of this
 session is that it cannot be flown by hand. You are about to find out whether
 that is true.
+
+The task is a simple one: **hold the marked elevation, on the marker, for 30
+seconds.** It ends when the machine leaves that band or goes past the marker.
+The room votes first on how long the attempt will last.
 
 Here is what failure will look like, so you know what to watch. The beam will
 not fall: this axis is stable, and left alone it comes back. It will swing,

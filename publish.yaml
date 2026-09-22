@@ -26,6 +26,16 @@ pages:
   - glossary.md
   - about.md
   - ai.md
+  # Week 1. Published on Steve's instruction, 22 September, the morning it is
+  # taught. Publishing a lecture week means its handout, example sheet and
+  # solutions; the code and data pages go with them because the session cannot
+  # be done without the files they point at.
+  - w01-design-cycle/index.md
+  - w01-design-cycle/example-sheet.md
+  - w01-design-cycle/solutions.md
+  - w01-design-cycle/code/index.md
+  - w01-design-cycle/data/README.md
+
   # The open-access laboratory material. Steve asked for it on the public
   # site, 21 September. Unlike the staff pages these are for students, so they
   # are in the navigation too.
