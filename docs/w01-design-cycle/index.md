@@ -365,7 +365,24 @@ The Quanser laboratory is open access from week 1 to week 6: you choose when to 
 ## How you're assessed {#assessment}
 
 One piece of work carries your grade for this half of the unit: **the
-coursework, due on the Thursday of week 11**. That is the *summative*
+coursework, due on the Thursday of week 11**.
+
+!!! info "The brief is released soon"
+    It goes through external examiner review before it reaches you, which is
+    why it is not out on day one.
+
+    **Not having it yet is not a gap to fill.** What you do in and out of
+    these sessions is the preparation, and the brief asks for the things the
+    sessions teach. Two specific ways to spend the time well until it lands:
+
+    - **Get into the Quanser laboratory early.** It is open access and the
+      slots are booked, and the window closes well before the deadline. The
+      measurements you take there go into the coursework.
+    - **Watch the videos.** Brian Douglas and Steve Brunton, both on the
+      [recommended reading](../reading.md) page. They carry a lot of the
+      independent hours if you learn better watching than reading.
+
+    When the brief arrives it becomes your two coursework hours a week. That is the *summative*
 assessment, and it comes back with individual written feedback against the
 marking rubric.
 
@@ -441,7 +458,12 @@ Why six? A full-time working week is about 35 hours, and you take three units at
 On top of that, **4 hours in the Quanser laboratory**, at times you choose between week 1 and week 6. Over the term that comes to about 70 hours: 20 in lectures, 20 of independent learning, 4 of consolidation, 22 of coursework and 4 in the laboratory.
 <!-- workload:end -->
 
-**Do the coursework in the week, not at the end.** The coursework is set up to
+Those two coursework hours start before the brief does. Until it arrives,
+spend them in the [Quanser laboratory](../laboratory/index.md) and on the
+videos on the [reading page](../reading.md), which is the preparation the
+brief assumes you have done.
+
+**Once the brief is out, do the coursework in the week, not at the end.** The coursework is set up to
 build week by week alongside the lectures: each week's step uses what that
 week's lecture has just covered, while it's fresh, and the checkpoints give you
 feedback while it can still change your design. Many students leave coursework

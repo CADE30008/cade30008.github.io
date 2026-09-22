@@ -544,12 +544,21 @@ students choose when to go, from week 1 to week 6.
 
 ![center h:390](../../docs/w01-design-cycle/figures/your-week.svg)
 
-**Do the coursework in the week.** Leaving it to the end means learning it twice, alone.
+**The brief comes soon.** Until then: get into the Quanser lab early, and watch the videos.
 
 <!--
-The coursework builds week by week; each step uses that week's lecture, and the
-checkpoints give feedback while it can still change the design. Many students
-back-load it. Say plainly why that costs them.
+Two things to say here, and the order matters.
+
+First, what to do *now*, because the coursework is not released yet and the
+honest answer to "what should I be doing?" cannot be "the coursework".
+Front-load the laboratory: it is open access, the slots are booked, and the
+window closes long before the deadline. And point at Brian Douglas and Steve
+Brunton by name. Those two carry a lot of the independent hours for students
+who learn better watching than reading.
+
+Then, what changes when the brief lands: the coursework becomes the two hours,
+and it builds week by week off each lecture. Many students back-load it. Say
+plainly what that costs them, once, and move on.
 -->
 
 ---
@@ -571,6 +580,29 @@ Do it as you go and week 11 is assembly, not writing from nothing.
 -->
 
 ---
+<!-- handout: assessment -->
+
+# The brief comes soon
+
+- It goes through **external examiner review** first, so it is not out today
+- **Until then, the best preparation is the unit itself.** What you do in and out of these sessions is what the coursework asks for
+- **Front-load the laboratory.** It is open access, slots are booked, and the window closes well before the deadline
+- **Watch the videos.** Brian Douglas and Steve Brunton, linked from the reading page
+- When the brief lands, it becomes your two hours a week
+
+<!--
+Say "soon" and mean it, without a date you might miss. External examiner
+review is a real process and students respect a reason; vagueness without one
+reads as disorganisation.
+
+The point to land: not having the brief is not a gap. The laboratory and the
+independent hours are the preparation, and the students who front-load them
+arrive at the brief already holding most of what it asks for. The ones who
+wait will be doing the laboratory and the coursework in the same fortnight.
+-->
+
+---
+
 <!-- handout: ai -->
 
 # AI in this unit
