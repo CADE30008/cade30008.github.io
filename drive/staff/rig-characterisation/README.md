@@ -1,4 +1,4 @@
-<!-- version: 2026.11 (2026-09-22) -->
+<!-- version: 2026.12 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -90,6 +90,37 @@ either, and stopping the model does not release it:
 2. Still locked: kill the `*.rt-win64.exe` for this model in Task Manager.
 3. Then turn the setting off rather than working around it again:
    `set_param('part1_identify', 'LoggingToFile', 'off')`.
+
+## 3. Level it, and check the activity works
+
+**Three minutes, and it is the new first thing students do.** Every rig has
+its own trim, so every group calibrates the one in front of them, and the
+voltage budget follows from it.
+
+1. `Elevation Input = 0`, arm **resting on the floor**, start the model. Not
+   held: the encoder zeroes where it starts, and the floor is a position the
+   rig will choose again.
+2. Raise `Elevation Input` slowly until the arm sits level. Small steps, a few
+   seconds each.
+3. `level_rig(<the value that held it>)`.
+
+On the reference rig that value is -1.6, giving a trim of 16.4 and 8.6 V of
+head-room, of which the envelope keeps 6.0.
+
+**What to check while you are doing it:**
+
+- Does the arm actually reach level, or does it run out of travel first?
+- Is the value repeatable if you start over? Twice is enough to know.
+- Does `level_rig` warn? It complains below 4 V of head-room and above 12,
+  and both usually mean something is wrong rather than unusual.
+
+**SEND ME:** the value for this rig, and whether the two runs agreed.
+
+**Then check the other rigs, if there is time.** The spread across benches is
+the thing I cannot guess at, and it decides whether one envelope serves the
+whole laboratory or each group needs their own. `level_rig` writes
+`rig_calibration.mat` and `heli_envelope` reads it, so per-group already
+works; what I do not know is whether it is needed.
 
 ## 3. One clean step at the level datum
 

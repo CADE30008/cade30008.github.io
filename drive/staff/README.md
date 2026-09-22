@@ -1,4 +1,4 @@
-<!-- version: 2026.11 (2026-09-22) -->
+<!-- version: 2026.12 (2026-09-22) -->
 
 # Laboratory pass — 40 minutes
 
@@ -24,7 +24,8 @@ thing. The first two are five minutes together and both block the lecture.
 | 0 | 5 | Amplifier on, open `part1_identify.slx`, **Build** then **Monitor & Tune**, not Build Deploy & Start |
 | 5 | 2 | **Q1: the derivative question.** `rig-characterisation/README.md` §1 |
 | 7 | 2 | **Q2: what holds it level?** §2 |
-| 9 | 6 | **Record the step at the level datum.** §3. While it settles and runs, start the student checker below |
+| 9 | 3 | **Level it and calibrate.** §3, the new first thing students do |
+| 12 | 6 | **Record the step at the level datum.** §4. While it settles, start the student checker below |
 | 15 | 1 | `student-code-test/` → `run_all_student_code` (32 s, unattended) |
 | 16 | 8 | **Three more recordings at different trims.** §4 |
 | 24 | 4 | Fit them all: `t1_fit_this_rig`, then `rig_trim_sweep` |

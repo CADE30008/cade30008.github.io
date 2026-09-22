@@ -42,6 +42,9 @@ env   = heli_envelope();
 
 fprintf('\nChecking against the fitted elevation model:\n');
 fprintf('  K = %g deg/V,  wn = %g rad/s,  zeta = %g\n', plant.K, plant.wn, plant.zeta);
+if isfield(env, 'trimSource')
+    fprintf('  trim %.1f V, %s\n', env.vElevTrim, env.trimSource);
+end
 
 [ok, why, m] = heli_check_one(kp, ki, kd, plant, env);
 

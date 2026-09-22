@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.11, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.12, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -34,9 +34,7 @@ recording is the deliverable.
    or two. Read the warning below before you click anything.
 4. Connect to it with **Monitor & Tune**.
 5. Set `Yaw Demand = 0` and `Elevation Input = 0` before you start anything.
-6. **Hold the arm horizontal** and start the model. The elevation encoder zeroes
-   itself wherever the arm is when the model starts, so where you hold it *is*
-   your datum. Hold it level and hold it still.
+6. **Let the arm rest on the floor** and start the model. Do not hold it.
 7. If the machine is not facing you, adjust `Yaw Demand` until it is.
 
 !!! danger "Build. Do not Build, Deploy & Start"
@@ -53,10 +51,48 @@ recording is the deliverable.
     it. Monitor & Tune is the one that leaves you in charge: you can stop it,
     change a value and watch the effect while it runs.
 
-!!! warning "The zero you set here is the zero everything else is measured from"
-    If you start the model with the arm drooping, every angle you record is
-    offset, and the gain you fit from it will be wrong. It costs nothing to
-    start again.
+!!! warning "Start it on the floor, not in your hand"
+    The encoder zeroes wherever the arm is when the model starts, so that
+    position becomes the datum for everything afterwards. Resting on the floor
+    is a position the rig chooses and will choose again. A position you hold
+    by eye is not, and two people will not pick the same one.
+
+    You are about to find where level is relative to that resting position,
+    which is what makes the two comparable.
+
+## Level it, and write down what that took
+
+**Every rig is a little different**, and this is where you find out how yours
+differs. The counterweight sits where the last group left it, the arm has its
+own friction, and the loop has to hold all of that up before it does anything
+you asked for.
+
+1. Raise `Elevation Input` slowly until the arm sits **level**. Judge it by
+   eye against the marker. Small steps: it is lightly damped, so give it a few
+   seconds to settle after each one.
+2. When it sits level and still, note the value that held it.
+3. With the model still running:
+
+    ```matlab
+    level_rig(-1.6)      % the value that held it, whatever yours was
+    ```
+
+It writes `rig_calibration.mat` and tells you two things:
+
+- **what the loop spends just staying up.** The demand saturates a fixed
+  distance above the trim, so a rig that needs more to hold level leaves your
+  controller less to work with. The checks later read this file, so your gains
+  are judged against the rig you actually used.
+- **how far above the resting position level is**, which is the offset between
+  the encoder's zero and the datum your model is fitted about.
+
+!!! tip "If the number looks odd"
+    `level_rig` says so. Very little head-room usually means the counterweight
+    is too far in; a lot usually means the arm was not really level. Both are
+    worth a second look before you spend an hour fitting a model to it.
+
+**Keep `rig_calibration.mat` with your recordings.** A set of gains checked
+against a different rig's trim has not really been checked.
 
 ## Record a step
 

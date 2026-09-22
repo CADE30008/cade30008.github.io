@@ -1,8 +1,23 @@
-function e = heli_envelope()
+function e = heli_envelope(cal)
+%
+%   heli_envelope          uses rig_calibration.mat in this folder, if there is one
+%   heli_envelope(cal)     uses the calibration you pass
+%
+% The one per-rig number is the trim: how much of the demand range goes on
+% holding the arm up before the controller gets any. Run level_rig on the
+% machine in front of you and this picks it up. Without it, the reference
+% rig's figure is used, which is the right order and the wrong rig.
 %HELI_ENVELOPE  What we are willing to fly in a room with 190 people in it.
 %
 % Kept in step with Envelope in models/quanser_elevation.py. Change one and
 % change the other, then run models/compare_envelope.m.
+
+if nargin < 1 || isempty(cal)
+    cal = struct([]);
+    if isfile('rig_calibration.mat')
+        cal = load('rig_calibration.mat');
+    end
+end
 
 e = struct( ...
     'gainMax',            50, ...    % each gain, same limit on all three
@@ -43,6 +58,13 @@ e = struct( ...
 % saturates long before they do. This file previously worked the budget out
 % from the motor rail alone, 0.7*(24-8) = 11.2, which is 1.9 times what is
 % actually available, so designs were accepted that would have clipped.
+if isfield(cal, 'vElevTrim') && isfinite(cal.vElevTrim)
+    e.vElevTrim  = cal.vElevTrim;
+    e.trimSource = 'measured on this rig';
+else
+    e.trimSource = 'the reference rig, not this one: run level_rig';
+end
+
 upVelev  = e.vElevSat - e.vElevTrim;
 upMotor  = (e.vMotorSat - e.vElevTrim / 2) * 2;
 e.voltagePeakMax = e.safety * min(upVelev, upMotor);
