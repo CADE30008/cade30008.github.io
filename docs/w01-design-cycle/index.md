@@ -92,7 +92,7 @@ And you pay, unavoidably:
   *says*, and cannot tell noise from motion. Whatever the sensor invents, the
   controller faithfully corrects for.
 - **the loop can go unstable**, which the open plant could not do.
-- **more gain buys more of both.** Raising the loop gain suppresses
+- **more gain brings more of both.** Raising the loop gain suppresses
   disturbances *and* amplifies noise. These pull in opposite directions and no
   amount of cleverness makes them stop.
 
@@ -320,9 +320,9 @@ done properly.*
 
 - Control design is a **loop**: understand, specify, design, simulate, test,
   repeat. Every week of this unit is one step of it.
-- Feedback is a **trade**. It buys disturbance rejection, insensitivity and
+- Feedback is a **trade**. It gives you disturbance rejection, insensitivity and
   stabilisation, and it costs you noise on the output and the possibility of
-  instability. More gain buys more of both.
+  instability. More gain brings more of both.
 - A **requirement is a design input**: a number with a test, agreed before the
   design, not after.
 - A model you **measured** beats a model you assumed, and knowing which one

@@ -127,7 +127,7 @@ and that is the intention: the point is the circuit, not the lap time.
 
 # Feedback
 
-## What it buys, and what it costs
+## What it gives, and what it costs
 
 ---
 
@@ -145,7 +145,7 @@ and that is the intention: the point is the circuit, not the lap time.
 
 - sensor noise reaches the output
 - the loop can go unstable, which the open plant could not
-- **more gain buys more of both**
+- **more gain brings more of both**
 
 <!--
 The last line is the one to hold. Almost every design decision in this unit is
@@ -308,7 +308,7 @@ datasheet and not a derivation. They fit their own shortly and will not get
 exactly these, which is the point of the exercise rather than a flaw in it.
 
 Contrast with the three-axis machine they just watched: one axis, held still,
-is a thing you can write on a slide. That is what simplification buys.
+is a thing you can write on a slide. That is what simplification gets you.
 -->
 
 ---
@@ -329,7 +329,7 @@ absent from the s coefficient, so the real part of the poles is pinned at
 -zeta*omega_n = -0.06 however hard you push.
 
 Numbers, if they want them: Kp from 0.5 to 10 takes overshoot from 89% to 97%
-and leaves settling time at 65 seconds. More gain buys a worse response and not
+and leaves settling time at 65 seconds. More gain gets you a worse response and not
 one second of settling.
 
 Where it goes next: damping has to come from somewhere other than Kp, which is
@@ -460,7 +460,7 @@ and effect before any good answer.
 Round 2 is the one worth pausing on: the average of a set of safe designs is
 not safe by construction, and watching that happen is more convincing than
 being told. If the average turns out fine, say so - it sometimes does, and
-claiming otherwise in front of the evidence would cost more than it buys.
+claiming otherwise in front of the evidence costs more than it is worth.
 
 Round 3 rewards the people who did the work. Name them, or their aliases.
 -->

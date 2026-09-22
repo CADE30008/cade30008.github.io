@@ -191,7 +191,7 @@ they are named here in the same order as the slides and the handout.
 
 !!! warning "That last slot does not fit and you should decide now, not at 14:57"
     Eight slides sit in it: the term map, your week, what counts, four on AI,
-    and the sources. Three minutes buys two or three of them.
+    and the sources. Three minutes covers two or three of them.
 
     The removal candidate is the **four AI slides**. The handout carries that
     argument in full and the [AI in this course](../ai.md) page carries it
