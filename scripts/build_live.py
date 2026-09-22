@@ -57,8 +57,8 @@ def copy_docs(pages: set[str]) -> None:
     for d in list(out.iterdir()):
         if d.is_dir() and re.match(r"^w\d\d-", d.name) and f"{d.name}/index.md" not in pages:
             shutil.rmtree(d)
-    if "planning/lecture-map.html" not in pages and (out / "planning").exists():
-        shutil.rmtree(out / "planning")
+    if "staff/lecture-map.html" not in pages and (out / "staff").exists():
+        shutil.rmtree(out / "staff")
     for md in out.rglob("*.md"):
         rel = md.relative_to(out).as_posix()
         if rel.startswith("includes/"):

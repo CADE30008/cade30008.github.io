@@ -5,9 +5,9 @@ description: "Lecturer's run sheet for the first control session: preflight chec
 
 # Run sheet: the design cycle, end to end
 
-Lecturer-facing. Published so it is reachable from a phone in the laboratory,
-not linked from the navigation. Students do not need it, and nothing here is
-secret.
+Lecturer-facing, part of the [staff area](index.md). Published so it is
+reachable from a phone in the laboratory, not linked from the navigation.
+Students do not need it, and nothing here is secret.
 
 The detailed planning document, with the pedagogy codes and the reasoning
 behind each choice, is `teaching/w01-design-cycle.md` in the repository. This

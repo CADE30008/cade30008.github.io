@@ -120,6 +120,38 @@ BLOCK = re.compile(
 NAMES = {"w01-design-cycle": "the first session's files",
          "lab-quanser": "the laboratory files"}
 
+# The staff area's own table of every Drive link, written from the same place
+# the student pages are, so the two cannot disagree.
+STAFF_PAGE = ROOT / "docs/staff/index.md"
+LINKS_BLOCK = re.compile(
+    r"(<!-- drive-links:start -->).*?(<!-- drive-links:end -->)", re.S)
+
+
+def stamp_staff_page(version: str, today: str) -> bool:
+    """Write the link table into the staff area page."""
+    if not STAFF_PAGE.exists():
+        return False
+    rows = [f"| Everything students get | [{SHARE_URL}]({SHARE_URL}) |"]
+    for folder, url in FOLDER_URL.items():
+        rows.append(f"| `{folder}` | [{url}]({url}) |")
+    body = ("| Folder | Link |\n|---|---|\n" + "\n".join(rows) +
+            f"\n\nStudent files are at **version {version}**, {today}.\n\n"
+            "The staff folder, `cade30008-staff/`, sits beside the student one "
+            "and is **not shared**. It holds the laboratory test kit. If you "
+            "want a link to it here, share it from MATLAB Drive and put the "
+            "URL in `STAFF_SHARE_URL` in `scripts/sync_drive.py`.\n\n"
+            "**Check these annually.** A new cohort folder means a new share "
+            "id, and a stale share link is dead rather than wrong, so nothing "
+            "in the build will notice. See `teaching/annual-update.md`.")
+    text = STAFF_PAGE.read_text(encoding="utf-8")
+    if not LINKS_BLOCK.search(text):
+        return False
+    new = LINKS_BLOCK.sub(lambda m: f"{m.group(1)}\n{body}\n{m.group(2)}", text)
+    if new != text:
+        STAFF_PAGE.write_text(new, encoding="utf-8")
+        return True
+    return False
+
 
 def stamp_site(version: str, today: str) -> list[str]:
     """Write the version and the right download links into the site pages."""
@@ -246,6 +278,8 @@ def main() -> int:
             shutil.copy2(src, dst)
     for page in stamp_site(version, today):
         print(f"  site: {page}")
+    if stamp_staff_page(version, today):
+        print("  site: docs/staff/index.md")
 
     n = sum(len(f) for f in BUNDLES.values())
     print(f"{n} files copied into {DRIVE}")

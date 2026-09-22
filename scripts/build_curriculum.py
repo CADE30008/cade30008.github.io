@@ -18,7 +18,7 @@ Then:
           hook-and-cliffhanger chain, P19's budget, and the workload model's
           sums;
   writes  the term map and the schedule and workload tables in week 1;
-          the lecture map, docs/planning/lecture-map.html; the consolidation
+          the lecture map, docs/staff/lecture-map.html; the consolidation
           week's activity table; each unwritten week's learning outcomes; and
           the home page's week table.
 
@@ -139,7 +139,7 @@ def check(weeks: list[dict], term: dict) -> None:
     # "laboratory" is the open-access Quanser material, which spans the whole
     # term rather than sitting in one week's folder.
     known = {"applets", "assets", "downloads", "figures", "includes", "javascripts",
-             "laboratory", "planning", "preparing", "slides", "stylesheets"}
+             "laboratory", "preparing", "slides", "staff", "stylesheets"}
     for d in DOCS.iterdir():
         if d.is_dir() and d.name not in slugs | known:
             err(f"docs/{d.name}/ is neither a week in weeks.yaml nor a known site folder — a leftover?")
@@ -1047,8 +1047,8 @@ def main() -> None:
     shared.mkdir(parents=True, exist_ok=True)
     (shared / "term-map.svg").write_text(term_map_svg(weeks, term, acts), encoding="utf-8")
     (shared / "your-week.svg").write_text(week_svg(wl, term), encoding="utf-8")
-    (DOCS / "planning").mkdir(exist_ok=True)
-    (DOCS / "planning" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
+    (DOCS / "staff").mkdir(exist_ok=True)
+    (DOCS / "staff" / "lecture-map.html").write_text(lecture_map(weeks, term, acts, wl, sources), encoding="utf-8")
     (DOCS / "curriculum.md").write_text(curriculum_page(weeks, term, acts, wl) + "\n", encoding="utf-8")
     if not replace_between(DOCS / "index.md", "<!-- weeks:start -->", "<!-- weeks:end -->", home_table(weeks)):
         err("docs/index.md has no weeks markers")

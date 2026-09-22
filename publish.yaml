@@ -26,20 +26,24 @@ pages:
   - glossary.md
   - about.md
   - ai.md
-  # Not in the nav, deliberately: reachable by anyone given the link, and
-  # not stumbled on. It is a planning document and reads like one, with
-  # pedagogy codes, hooks written as hooks, and draft markers on the weeks
-  # that are not written yet.
   # The open-access laboratory material. Steve asked for it on the public
-  # site, 21 September. Unlike the run sheet these are for students, so they
+  # site, 21 September. Unlike the staff pages these are for students, so they
   # are in the navigation too.
   - laboratory/index.md
   - laboratory/part1-identify.md
   - laboratory/part2-design.md
   - laboratory/part3-validate.md
   - laboratory/code/index.md
-  - planning/lecture-map.html
-  # Also not in the nav, and for the same reason: lecturer-facing, useful from
-  # a phone in the laboratory, and nothing students need. Steve asked for it to
-  # be published unlinked, 21 September.
-  - planning/w01-run-sheet.md
+
+  # The staff area, at /staff/. Not in the nav, deliberately: reachable by
+  # anyone given the link, and not stumbled on. None of it is secret and none
+  # of it is anything students need. It reads like what it is, with pedagogy
+  # codes, hooks written as hooks, and draft markers on the weeks that are not
+  # written yet.
+  #
+  # Nothing with a student's name on it, and nothing about assessment, goes
+  # anywhere near these pages. That material lives in private/ and is never
+  # committed.
+  - staff/index.md
+  - staff/w01-run-sheet.md
+  - staff/lecture-map.html
