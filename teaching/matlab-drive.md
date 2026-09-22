@@ -7,37 +7,67 @@ and neither is improvised on the morning.
 ## The layout
 
 ```
-CADE30008/                          top level, in Steve's MATLAB Drive
-  2026-27/                          one folder per cohort
-    w01-design-cycle/
-      data/                         read-only  — given to students
-      submit/                       writable   — students put work here
-    w03-pid-control/
-      data/
-      submit/
-    ...
-  templates/                        not shared; the empty week, to copy
+Teaching/Control 2026/              in Steve's MATLAB Drive
+  cade30008-students/               shared view only, one link, the link
+    README.md                       version, changelog, how to check it
+    VERSION.txt                     the current version, one line
+    w01-design-cycle/               the first session's files
+      data/                         the measured recording
+    lab-quanser/                    the open-access laboratory files
+  cade30008-staff/                  not shared; test kit and anything in progress
 ```
 
-Week folder names match `docs/wNN-topic/` exactly. One vocabulary for the site,
-the repository and the Drive means a run sheet can say "week 4's `data/`" and
-nobody has to work out which folder that is.
+**One link, to `cade30008-students/`.** Students are never given a link into a
+subfolder. A deep link goes stale as soon as the layout moves, and anybody who
+bookmarks one never sees the rest of the material.
 
-**A folder per cohort**, not one folder reused. Rolling over is then a copy of
-`templates/` rather than an edit of last year's live folder, last year's
-submissions stay where they were without being reachable by this year's
-students, and — importantly — **the share links change**, which is why they are
-checked annually rather than assumed.
+Folder names match `docs/` exactly, so a run sheet can say "week 1's folder"
+and that means one thing on the site, in the repository and on the Drive.
 
-Weeks that need nothing get no folder. Don't create empty ones; a folder that
-exists implies something is in it.
+**Nothing is submitted into the Drive.** Gains go through the form; the Drive
+is read only in both directions as far as students are concerned. That is a
+change from 2025/26, when a writable `submit/` folder was used, and it removes
+the awkwardness of a shared writable folder being readable by the whole
+cohort.
+
+## Versioning
+
+The material is new, so it will change during the year, and a student holding
+a fortnight-old copy needs to be able to tell.
+
+One version for the whole student folder, `<year>.<n>`, in `VERSION.txt` and
+in every README's header. The same number is written onto the site between
+`<!-- drive-version:start -->` markers, so the two cannot disagree.
+
+```bash
+.venv/bin/python scripts/sync_drive.py --check   # has anything drifted?
+.venv/bin/python scripts/sync_drive.py --bump    # copy, and bump the version
+```
+
+Use `--bump` whenever the files change after students have been given them.
+Without it the copy is silent and a student cannot tell theirs is old.
+
+**Recorded data is forward compatible, and that is a promise worth keeping.**
+The loaders accept the layout the rig's own `s_save` writes, which is fixed by
+the hardware. A recording made under 2026.1 still fits under 2026.9. If that
+ever stops being true it is a fault, not a release.
 
 ## Sharing
 
 | Folder | Shared as | Holds |
 |---|---|---|
-| `data/` | **View only**, link | Live Scripts, measured data, anything given out. |
-| `submit/` | **Can edit**, link | Student submissions. |
+| `cade30008-students/` | **View only**, one link | Everything given out: scripts, models, measured data. |
+| `cade30008-staff/` | **Not shared** | The laboratory test kit, and anything not ready. |
+
+The student link, which is what goes on Blackboard and on the site:
+
+```
+https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students
+```
+
+It is also in `scripts/sync_drive.py` as `SHARE_URL`, which is what writes it
+onto the site. Change it there and re-run the script rather than editing
+pages.
 | everything else | not shared | Working files, previous cohorts, templates. |
 
 Two things follow from `submit/` being writable, and both matter:

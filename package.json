@@ -17,6 +17,7 @@
     "models": ".venv/bin/python models/pitch.py > /dev/null && .venv/bin/python models/example_sheet.py > /dev/null && .venv/bin/python models/compare.py && .venv/bin/python models/diagnostic_bode.py && .venv/bin/python models/diagnostic_poles.py && .venv/bin/python models/diagnostic_overshoot.py && .venv/bin/python models/quanser_trim_stiffness.py && .venv/bin/python models/diagnostic_first_order.py && .venv/bin/python models/w01_proportional_limit.py && .venv/bin/python models/w01_example_sheet.py",
     "stills": "node scripts/capture-stills.mjs",
     "test": "node scripts/test-applets.mjs && npm run check",
+    "drive": ".venv/bin/python scripts/sync_drive.py",
     "curriculum": ".venv/bin/python scripts/build_curriculum.py",
     "live": ".venv/bin/python scripts/build_live.py",
     "preview:live": ".venv/bin/python scripts/build_live.py && .venv/bin/python scripts/preview.py .live/site --port ${PORT:-8012}",

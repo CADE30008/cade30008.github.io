@@ -7,7 +7,7 @@
 % whole thing at once, because the point is what each step shows you.
 
 clear; close all
-load('../data/elevation-step.mat')     % inputTime, input, outputTime, output
+load(findRecording('elevation-step.mat'))   % inputTime, input, outputTime, output
 
 %% Look at it first
 % Before any fitting. A model fitted to a recording you have not looked at is
@@ -165,3 +165,23 @@ title('tfest, against the rig')
 %
 %   K = K_est; wn = wn_est(1); zeta = zeta_est(1);
 %   save('my_model.mat', 'K', 'wn', 'zeta');
+
+
+function p = findRecording(name)
+%FINDRECORDING  Locate the supplied recording, wherever this folder came from.
+%
+% The repository keeps code and data in sibling folders; the MATLAB Drive
+% bundle keeps data inside the week's folder; and plenty of people will put
+% everything in one folder. All three work.
+here = fileparts(mfilename('fullpath'));
+candidates = { fullfile(here, 'data', name)
+               fullfile(here, '..', 'data', name)
+               fullfile(here, name)
+               name };
+for i = 1:numel(candidates)
+    if isfile(candidates{i}); p = candidates{i}; return; end
+end
+error('s1_identify:noData', ...
+    ['Could not find %s.\n\nLooked in:\n  %s\n\nPut it beside this script, ' ...
+     'or in a data folder next to it.'], name, strjoin(candidates(1:3), '\n  '));
+end

@@ -40,9 +40,25 @@ hard, and the last week is always the busy one.
       the rig is not the place to read it.
 - [ ] Bring a laptop if you have one. The bench machines work, but your own
       MATLAB means you can carry on afterwards.
-- [ ] Download the [laboratory software](code/index.md) into a folder you can find.
+- [ ] Download the [laboratory software](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students) from MATLAB Drive into a folder you can find. There is a [file-by-file list](code/index.md) if you only want one of them.
 - [ ] Agree with your group who is driving and who is writing things down.
       Swap half way.
+
+!!! warning "Check the version before each session"
+    All of this is **new for 2026/27**, and it will be corrected and improved
+    during the year, mostly because of things you tell me. So the files change.
+
+    Before each laboratory session, compare the version below with the one at
+    the top of the Drive folder's own README. If they differ, download the
+    folder again.
+
+    **Your recordings do not go stale.** The scripts may change; data you
+    measured will still load and still fit under a later version, because the
+    format is the one the rig's own `s_save` writes.
+
+<!-- drive-version:start -->
+**MATLAB Drive files: version 2026.1**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+<!-- drive-version:end -->
 
 ## Safety briefing
 
@@ -108,4 +124,4 @@ Notice the train track running around the base of one Quanser? This machine was 
 
 A model train ran around the track, linked into the control system for forward and reverse speed. A camera attached to the Quanser spotted a marker on the train, and the two worked together to maintain relative position. This early work built into landing a petrol-powered remote-control helicopter on the roof of a moving Rover 400 on an abandoned Cornish airfield - revolutionary at the time.
 
-*Jones and Richardson. I'll add the reference as soon as I find it.*
+*Jones and Richardson. I'll add the reference as soon as I find a publicly-accessible version.*

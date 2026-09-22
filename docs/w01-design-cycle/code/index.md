@@ -5,8 +5,15 @@ description: "The MATLAB files for the first session: fit the elevation axis, tu
 
 # Session code
 
-Everything the session needs. Download the files into one folder and keep them
-together: several of them call each other.
+**[Download the whole folder from MATLAB Drive](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students)**, which is the easy
+way and gets the laboratory files too. The table below is for when you only
+want one file.
+
+Keep them in one folder: several of them call each other.
+
+<!-- drive-version:start -->
+**MATLAB Drive files: version 2026.1**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+<!-- drive-version:end -->
 
 | File | What it does |
 |---|---|
