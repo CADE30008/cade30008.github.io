@@ -18,7 +18,16 @@ e = struct( ...
     'vOp',                8);        % V that holds the arm at trim, see below
 
 % vOp: Quanser publish "approximately 7.5 V" for the operating voltage, and 8
-% is used here so the headroom comes out on the conservative side. The trim
+% is used here so the headroom comes out on the conservative side.
+%
+% UNVERIFIED, and the one limit here that is not derived from a measurement.
+% part3_validate.slx sums an `elev offset` of 18 into Elevation Input before
+% Velev. If Velev is volts at each motor then the real trim is 18, not 8, the
+% headroom is about 6 V rather than 16, and voltagePeakMax below is roughly
+% twice what it should be. If Velev is a combined demand split between the two
+% motors then 18 is 9 V each, which sits beside Quanser's 7.5 and this is
+% about right. Nothing in the file settles it; following Velev out of the sum
+% block does. Until then, treat peak_volts as indicative. The trim
 % voltage moves with the counterweight position and with how warm the motors
 % are, so chasing the third significant figure would be false precision.
 % Measure it on the day if you want the real number; it will not be 7.5 twice.

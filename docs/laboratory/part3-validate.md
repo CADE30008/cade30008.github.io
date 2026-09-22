@@ -15,7 +15,7 @@ description: "Back at the rig: fly the controller you designed, compare what hap
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.7, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.8, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with a comparison: what you
@@ -36,7 +36,23 @@ before you power anything.
     the derivative of the error. [Part 2](part2-design.md) says why, and the
     short version is that differentiating the error asks the amplifier for
     about 40 V it does not have.
-3. Build, hold the arm horizontal, start.
+3. Build it, then connect with **Monitor & Tune**. Hold the arm horizontal
+   and start.
+
+!!! danger "Build. Do not Build, Deploy & Start"
+    The button you want is **Hardware → Build, Deploy & Start → Build**, which
+    only builds. The one directly above it, **Build, Deploy & Start**, builds
+    *and* starts the model on the rig immediately.
+
+    If you start it that way there is no stop button, because the model is
+    running on the hardware and not under MATLAB's control. Your only way out
+    is to switch the amplifier off and wait for the run to time out, which is
+    99 seconds unless somebody changed it. With the rotors already spinning.
+
+    So: **Build**, wait for it to finish, then **Monitor & Tune** to connect to
+    it. Monitor & Tune is the one that leaves you in charge: you can stop it,
+    change a value and watch the effect while it runs.
+
 4. Command the step you designed for, and record.
 
 Then, before you change anything:

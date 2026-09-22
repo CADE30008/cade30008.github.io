@@ -1,4 +1,4 @@
-<!-- version: 2026.7 (2026-09-22) -->
+<!-- version: 2026.8 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -36,19 +36,38 @@ So it is not a question about the rig any more. It is **a requirement on the
 controller they build**, and the laboratory pages now say so in Part 2 and
 Part 3. Nothing further to test here.
 
-## 2. What voltage holds the arm level?
+## 2. What holds the arm level — PART ANSWERED, and one thing left
 
-**Two minutes.** The envelope assumes 8 V and works the controller's headroom
-out from what is left up to 24. Quanser publish "approximately 7.5". Nobody
-has measured this rig.
+**There is an `elev offset` summed with `Elevation Input` before `Velev`, and
+it is set to 18.** So the trim is built into the model rather than dialled in,
+which answers half the question.
 
-With `part1_identify.slx` running and no controller, raise `Elevation Input` until
-the arm sits level and steady. Read the voltage.
+**What the fitted model is unaffected by.** K = 3.4 deg/V came from a *step*
+in Elevation Input, 0 to 2. A constant offset cancels out of a step response,
+so K, wn and zeta all stand, and every gain we have checked is still checked
+against the right plant. Nothing about the controller design changes.
 
-**SEND ME:** that number. A long way from 8 and the voltage limit moves, and
-some currently accepted gains stop being accepted.
+**What it may change is the voltage headroom**, which is the one envelope
+limit not derived from the fit. The envelope assumes the arm sits at 8 V and
+gives the controller 0.7 of what is left up to 24, which is 11.2 V. Whether
+that is right depends on what `Velev` is measured in, and I cannot tell from
+the file:
 
----
+| If `Velev` is... | Then 18 means | Headroom up | Our 11.2 V is |
+|---|---|---|---|
+| volts at each motor | 18 V per motor | about 6 V to the 24 V rail | **far too generous** |
+| a combined demand, halved between the two | 9 V per motor | about 15 V per motor | about right |
+
+Nine volts per motor sits nicely beside the 7.5 V Quanser publish, so the
+second reading is the likely one. Likely is not checked.
+
+**The check, and it is a look rather than a measurement.** Follow `Velev` out
+of that sum block. If it goes through a gain of 0.5, or fans out to two motor
+channels that each take half, it is a combined demand and we are fine. If it
+goes to a motor channel as it stands, the envelope is roughly twice as
+permissive as it should be and I will tighten it before anybody flies.
+
+**SEND ME:** which of those it does. One line.
 
 ## 3. One clean step at the level datum
 

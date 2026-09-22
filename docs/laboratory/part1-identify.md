@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.7, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.8, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -30,13 +30,28 @@ recording is the deliverable.
 1. **The amplifier should be off when you arrive.** If it is on, turn it off,
    then on again. Find the switch and agree who is watching it.
 2. Open MATLAB on the bench machine and open `part1_identify.slx`.
-3. Build it: **Hardware → Build, Deploy & Start → Build**. It takes a minute or
-   two.
-4. Set `Yaw Demand = 0` and `Elevation Input = 0` before you start anything.
-5. **Hold the arm horizontal** and start the model. The elevation encoder zeroes
+3. Build it: **Hardware → Build, Deploy & Start → Build**. It takes a minute
+   or two. Read the warning below before you click anything.
+4. Connect to it with **Monitor & Tune**.
+5. Set `Yaw Demand = 0` and `Elevation Input = 0` before you start anything.
+6. **Hold the arm horizontal** and start the model. The elevation encoder zeroes
    itself wherever the arm is when the model starts, so where you hold it *is*
    your datum. Hold it level and hold it still.
-6. If the machine is not facing you, adjust `Yaw Demand` until it is.
+7. If the machine is not facing you, adjust `Yaw Demand` until it is.
+
+!!! danger "Build. Do not Build, Deploy & Start"
+    The button you want is **Hardware → Build, Deploy & Start → Build**, which
+    only builds. The one directly above it, **Build, Deploy & Start**, builds
+    *and* starts the model on the rig immediately.
+
+    If you start it that way there is no stop button, because the model is
+    running on the hardware and not under MATLAB's control. Your only way out
+    is to switch the amplifier off and wait for the run to time out, which is
+    99 seconds unless somebody changed it. With the rotors already spinning.
+
+    So: **Build**, wait for it to finish, then **Monitor & Tune** to connect to
+    it. Monitor & Tune is the one that leaves you in charge: you can stop it,
+    change a value and watch the effect while it runs.
 
 !!! warning "The zero you set here is the zero everything else is measured from"
     If you start the model with the arm drooping, every angle you record is
