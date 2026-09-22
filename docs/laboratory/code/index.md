@@ -9,7 +9,7 @@ The laboratory files, in one folder. Put your own `.mat` recordings in the
 same folder as these. Several of them call each other, so keep them together.
 
 <!-- drive-version:start -->
-**[Download the laboratory files](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+**[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
 *Version 2026.3, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->

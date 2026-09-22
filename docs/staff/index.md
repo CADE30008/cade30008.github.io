@@ -29,23 +29,23 @@ it is anything students need.
 <!-- drive-links:start -->
 | Folder | Link |
 |---|---|
-| **Everything**, both folders | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8) |
-| Everything students get | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students) |
-| `w01-design-cycle` | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/w01-design-cycle](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/w01-design-cycle) |
-| `lab-quanser` | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser) |
-| The staff test kit | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-staff](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-staff) |
+| **The staff test kit** | [https://drive.mathworks.com/sharing/a3596484-f0e7-4d6b-bbb8-46d263c3cc4b](https://drive.mathworks.com/sharing/a3596484-f0e7-4d6b-bbb8-46d263c3cc4b) |
+| Everything students get | [https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0) |
+| `w01-design-cycle` | [https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/w01-design-cycle](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/w01-design-cycle) |
+| `lab-quanser` | [https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser) |
 
 Student files are at **version 2026.3**, 2026-09-22.
 
-!!! warning "The share is on the whole folder, staff kit included"
-    The first link above reaches `cade30008-staff/` as well as the
-    students' folder, and it is on this page, which is public to
-    anyone with the address.
+!!! warning "The staff link is public, on purpose"
+    It is here so the test kit can be fetched on a laboratory
+    machine without signing in to MATLAB Drive. That makes
+    `cade30008-staff/` **staff-facing, not private**: working files
+    yes, anything with a student's name on it or anything about
+    assessment no. Those live in `private/` in the repository and
+    are never committed.
 
-    So **`cade30008-staff/` is staff-facing, not private.** Put the
-    laboratory test kit and working files there; put nothing with a
-    student's name on it, and nothing about assessment. Those live
-    in `private/` in the repository and are never committed.
+    The two folders are shared separately and sit in an unshared
+    `Teaching/`, so neither link offers a way up into the other.
 
 **Check these annually.** A new cohort folder means a new share id, and a stale share link is dead rather than wrong, so nothing in the build will notice. See `teaching/annual-update.md`.
 <!-- drive-links:end -->

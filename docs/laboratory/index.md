@@ -41,7 +41,7 @@ hard, and the last week is always the busy one.
       the rig is not the place to read it.
 - [ ] Bring a laptop if you have one. The bench machines work, but your own
       MATLAB means you can carry on afterwards.
-- [ ] Download the [laboratory software](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser) from MATLAB Drive into a folder you can find. The [code page](code/index.md) says what each file is for.
+- [ ] Download the [laboratory software](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser) from MATLAB Drive into a folder you can find. The [code page](code/index.md) says what each file is for.
 - [ ] Agree with your group who is driving and who is writing things down.
       Swap half way.
 
@@ -58,7 +58,7 @@ hard, and the last week is always the busy one.
     format is the one the rig's own `s_save` writes.
 
 <!-- drive-version:start -->
-**[Download the laboratory files](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+**[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
 *Version 2026.3, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->

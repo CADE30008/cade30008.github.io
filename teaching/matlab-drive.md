@@ -7,50 +7,33 @@ and neither is improvised on the morning.
 ## The layout
 
 ```
-Teaching/cade30008/                 in Steve's MATLAB Drive. SHARED, whole
-  README.md                         the landing page for the root link
-  cade30008-students/               what students are given
+Teaching/                           NOT shared
+  cade30008-students/               shared on its own
     README.md                       version, changelog, how to check it
     VERSION.txt                     the current version, one line
     w01-design-cycle/               the first session's files
       data/                         the measured recording
     lab-quanser/                    the open-access laboratory files
-  cade30008-staff/                  the laboratory test kit
+  cade30008-staff/                  shared on its own
+    rig-characterisation/           bench work: fit the rig, fly gains
+    student-code-test/              a copy of what students download
 ```
 
-**The share is on the whole `cade30008` folder**, so the root link reaches the
-staff folder too, and that link is on the public staff page. So
-`cade30008-staff/` is **staff-facing, not private**: fine for the test kit and
-working files, wrong for anything with a student's name on it or anything
-about assessment. Those stay in `private/` and are never committed.
+**Two folders, two shares, and no parent.** They were briefly inside a shared
+`cade30008/`, which meant Drive's web interface offered a breadcrumb up from
+the student folder and from there into the staff one. Sharing the leaves
+rather than the branch removes that: `Teaching/` is not shared, so neither
+link offers a way up or across.
 
-Renaming this folder in Drive breaks `DRIVE_ROOT` in `scripts/sync_drive.py`,
-which is why the script checks the folder exists and says so rather than
-copying nothing and reporting success. It was renamed from "Control 2026" on
-22 September, which is how that check came to exist.
+**The staff link is public, on purpose.** It is on the staff page so the test
+kit can be fetched on a laboratory machine without signing in to MATLAB
+Drive. That makes `cade30008-staff/` staff-*facing*, not private: working
+files yes, anything with a student's name on it or anything about assessment
+no. Those stay in `private/` and are never committed.
 
-**One link, to `cade30008-students/`.** Students are never given a link into a
-subfolder. A deep link goes stale as soon as the layout moves, and anybody who
-bookmarks one never sees the rest of the material.
-
-Folder names match `docs/` exactly, so a run sheet can say "week 1's folder"
-and that means one thing on the site, in the repository and on the Drive.
-
-**Nothing is submitted into the Drive.** Gains go through the form; the Drive
-is read only in both directions as far as students are concerned. That is a
-change from 2025/26, when a writable `submit/` folder was used, and it removes
-the awkwardness of a shared writable folder being readable by the whole
-cohort.
-
-## The repository is the source
-
-Everything in the student folder is authored here and copied out. The READMEs
-and the version live in `drive/`; the scripts and data live under `docs/`,
-where the site serves the same files. Nothing is authored in the Drive itself.
-
-That matters beyond tidiness: this repository is what somebody forking the
-unit gets. A file that exists only in a synced folder on one laptop is not
-part of the unit, it is part of that laptop.
+Renaming either folder in Drive breaks the paths in `scripts/sync_drive.py`,
+which is why the script checks they exist and names the rename as the likely
+cause rather than copying nothing and reporting success.
 
 ## The links
 
@@ -102,24 +85,22 @@ ever stops being true it is a fault, not a release.
 
 | Folder | Shared as | Holds |
 |---|---|---|
-| `cade30008/` | **View only**, root link | Both folders. On the staff page only |
-| `cade30008-students/` | **View only** | Everything given out: scripts, models, measured data |
-| `cade30008-staff/` | Reachable from the root link | The laboratory test kit |
+| `cade30008-students/` | **View only**, its own link | Everything given out: scripts, models, measured data |
+| `cade30008-staff/` | **View only**, its own link | The laboratory test kit |
 
-The student link, which is what goes on Blackboard and on the student-facing
-pages:
+The student link, which goes on Blackboard and on the student-facing pages:
 
 ```
-https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students
+https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0
 ```
 
-The root link, which is on the staff page and nowhere else:
+The staff link, which is on the staff page and nowhere else:
 
 ```
-https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8
+https://drive.mathworks.com/sharing/a3596484-f0e7-4d6b-bbb8-46d263c3cc4b
 ```
 
-Both are in `scripts/sync_drive.py`, as `ROOT_SHARE_URL` and `SHARE_URL`,
+Both are in `scripts/sync_drive.py`, as `SHARE_URL` and `STAFF_SHARE_URL`,
 which is what writes them onto the site. Change it there and re-run the script rather than editing
 pages.
 | everything else | not shared | Working files, previous cohorts, templates. |

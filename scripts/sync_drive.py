@@ -35,10 +35,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-# Renamed from "Control 2026" on 22 September. The share id did not change
-# with the rename, but the folder name is in this path and a rename breaks it
-# silently, so the script checks the folder exists before it copies anything.
-DRIVE_ROOT = Path.home() / "MATLAB-Drive" / "Teaching" / "cade30008"
+# The two folders are siblings in Teaching/, which is not shared, and each is
+# shared on its own. They were briefly inside a shared parent, which meant
+# Drive's web interface offered a breadcrumb up to it and from there into the
+# staff folder. Sharing the leaves rather than the branch removes that.
+#
+# The folder names are in these paths, so renaming either one in Drive breaks
+# the sync silently. The script checks and says so.
+DRIVE_ROOT = Path.home() / "MATLAB-Drive" / "Teaching"
 DRIVE = DRIVE_ROOT / "cade30008-students"
 
 # The READMEs a student reads are authored in drive/, so they are in version
@@ -79,7 +83,6 @@ VERSION_FILE = ROOT / "drive" / "VERSION.txt"
 # a script that exists only in a synced folder is part of one laptop rather
 # than part of the unit. Not shared with students, and not versioned with
 # them: it is a working tool, not something anybody downloads.
-ROOT_README = ROOT / "drive" / "ROOT-README.md"      # -> cade30008/README.md
 STAFF_SRC = ROOT / "drive" / "staff"
 STAFF_DST = DRIVE_ROOT / "cade30008-staff"
 STAFF_FILES = [
@@ -99,12 +102,15 @@ STAMP = re.compile(r"^<!-- version: .* -->$", re.M)
 # **Check these annually.** A new cohort folder means a new share id, and a
 # stale link is a dead link rather than a wrong one, so nothing here will
 # notice. teaching/annual-update.md has it on the checklist.
-# The share is on the WHOLE cade30008 folder, so the root link reaches the
-# staff folder as well as the students'. That is worth keeping in mind before
-# anything goes into cade30008-staff: the root link is on the public staff
-# page, so "staff folder" means staff-facing, not private.
-ROOT_SHARE_URL = "https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8"
-SHARE_URL = f"{ROOT_SHARE_URL}/cade30008-students"
+# One share per folder. Neither reaches the other, and neither offers a way
+# up: Teaching/ is not shared.
+#
+# The staff link is on the public staff page deliberately, so that the kit can
+# be fetched on a laboratory machine without signing in to MATLAB Drive. It is
+# therefore **staff-facing, not private**: working files yes, anything with a
+# student's name on it or anything about assessment no.
+SHARE_URL = "https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0"
+STAFF_SHARE_URL = "https://drive.mathworks.com/sharing/a3596484-f0e7-4d6b-bbb8-46d263c3cc4b"
 FOLDER_URL = {folder: f"{SHARE_URL}/{folder}" for folder in
               ("w01-design-cycle", "lab-quanser")}
 
@@ -140,22 +146,21 @@ def stamp_staff_page(version: str, today: str) -> bool:
     """Write the link table into the staff area page."""
     if not STAFF_PAGE.exists():
         return False
-    rows = [f"| **Everything**, both folders | [{ROOT_SHARE_URL}]({ROOT_SHARE_URL}) |",
+    rows = [f"| **The staff test kit** | [{STAFF_SHARE_URL}]({STAFF_SHARE_URL}) |",
             f"| Everything students get | [{SHARE_URL}]({SHARE_URL}) |"]
     for folder, url in FOLDER_URL.items():
         rows.append(f"| `{folder}` | [{url}]({url}) |")
-    rows.append(f"| The staff test kit | [{ROOT_SHARE_URL}/cade30008-staff]"
-                f"({ROOT_SHARE_URL}/cade30008-staff) |")
     body = ("| Folder | Link |\n|---|---|\n" + "\n".join(rows) +
             f"\n\nStudent files are at **version {version}**, {today}.\n\n"
-            "!!! warning \"The share is on the whole folder, staff kit included\"\n"
-            "    The first link above reaches `cade30008-staff/` as well as the\n"
-            "    students' folder, and it is on this page, which is public to\n"
-            "    anyone with the address.\n\n"
-            "    So **`cade30008-staff/` is staff-facing, not private.** Put the\n"
-            "    laboratory test kit and working files there; put nothing with a\n"
-            "    student's name on it, and nothing about assessment. Those live\n"
-            "    in `private/` in the repository and are never committed.\n\n"
+            "!!! warning \"The staff link is public, on purpose\"\n"
+            "    It is here so the test kit can be fetched on a laboratory\n"
+            "    machine without signing in to MATLAB Drive. That makes\n"
+            "    `cade30008-staff/` **staff-facing, not private**: working files\n"
+            "    yes, anything with a student's name on it or anything about\n"
+            "    assessment no. Those live in `private/` in the repository and\n"
+            "    are never committed.\n\n"
+            "    The two folders are shared separately and sit in an unshared\n"
+            "    `Teaching/`, so neither link offers a way up into the other.\n\n"
             "**Check these annually.** A new cohort folder means a new share "
             "id, and a stale share link is dead rather than wrong, so nothing "
             "in the build will notice. See `teaching/annual-update.md`.")
@@ -233,9 +238,9 @@ def main() -> int:
 
     if not DRIVE.exists():
         print(f"No student folder at\n    {DRIVE}\n"
-              f"Is MATLAB Drive syncing, and is the folder still called\n"
-              f"'{DRIVE_ROOT.name}'? Renaming it in Drive breaks this path and\n"
-              f"nothing else will notice.", file=sys.stderr)
+              f"Is MATLAB Drive syncing, and are the folders still called\n"
+              f"cade30008-students and cade30008-staff? Renaming either breaks\n"
+              f"these paths and nothing else will notice.", file=sys.stderr)
         return 2
 
     missing = [src for files in BUNDLES.values() for src, _ in files if not src.exists()]
@@ -256,10 +261,6 @@ def main() -> int:
             if not dst.exists() or not filecmp.cmp(src, dst, shallow=False):
                 stale.append(f"{folder}/{rel}")
 
-    if ROOT_README.exists() and (
-            not (DRIVE_ROOT / "README.md").exists()
-            or not filecmp.cmp(ROOT_README, DRIVE_ROOT / "README.md", shallow=False)):
-        stale.append("README.md (root)")
     for rel in STAFF_FILES:
         src, dst = STAFF_SRC / rel, STAFF_DST / rel
         if not src.exists():
@@ -292,8 +293,6 @@ def main() -> int:
 
     VERSION_FILE.write_text(version + "\n", encoding="utf-8")
     shutil.copy2(VERSION_FILE, DRIVE / "VERSION.txt")
-    if ROOT_README.exists():
-        shutil.copy2(ROOT_README, DRIVE_ROOT / "README.md")
 
     for rel in STAFF_FILES:
         src, dst = STAFF_SRC / rel, STAFF_DST / rel
