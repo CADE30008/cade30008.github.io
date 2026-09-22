@@ -14,27 +14,40 @@ e = struct( ...
     'cmdRateDegS',        45, ...    % Quanser's own CMD_RATE_LIMIT, in deg/s
     'reversalsMax',       6, ...     % sign changes of the demand in one step
     'settleMaxS',         12, ...    % a flight nobody wants to watch
-    'vMax',               24, ...    % V the amplifier can deliver
-    'vOp',                8);        % V that holds the arm at trim, see below
+    'vElevSat',           25, ...   % V, the saturation Velev passes through
+    'vElevTrim',          16.4, ... % V, what Velev sits at with the arm level
+    'vMotorSat',          24, ...   % V, the per-motor saturation
+    'safety',             0.7);     % of the headroom, kept back
 
-% vOp: Quanser publish "approximately 7.5 V" for the operating voltage, and 8
-% is used here so the headroom comes out on the conservative side.
+% What the controller may ask for, in the units it works in.
 %
-% UNVERIFIED, and the one limit here that is not derived from a measurement.
-% part3_validate.slx sums an `elev offset` of 18 into Elevation Input before
-% Velev. If Velev is volts at each motor then the real trim is 18, not 8, the
-% headroom is about 6 V rather than 16, and voltagePeakMax below is roughly
-% twice what it should be. If Velev is a combined demand split between the two
-% motors then 18 is 9 V each, which sits beside Quanser's 7.5 and this is
-% about right. Nothing in the file settles it; following Velev out of the sum
-% block does. Until then, treat peak_volts as indicative. The trim
-% voltage moves with the counterweight position and with how warm the motors
-% are, so chasing the third significant figure would be false precision.
-% Measure it on the day if you want the real number; it will not be 7.5 twice.
+% Everything here is in **Elevation Input units**, because that is what the
+% fitted K is per: K = 3.4 deg/V came from stepping Elevation Input from 0 to
+% 2. The signal path, measured at the rig on 22 September:
 %
-% The controller may use what is left once the operating point is paid for,
-% with a third held back because the rig's own K is a fit and not a constant.
-% These are motor volts. The flown model divides by the amplifier gain of 3
-% before the DAC, whose own limit is +/-10 V, and clamps the motor at +/-24.
-e.voltagePeakMax = 0.7 * (e.vMax - e.vOp);
+%   Elevation Input + elev offset (18)  ->  Velev
+%   Velev  ->  saturate +/-25  ->  voltage calculations
+%          ->  summed and halved with the elevation motor demand
+%          ->  u_front, u_back  ->  saturate +/-24  ->  gain 1/3 to the DAC
+%
+% An Elevation Input of -1.6 holds the arm level, so Velev trims at 16.4 and
+% each motor sits at about 8.2 V. That is the operating voltage, and it agrees
+% with the 7.5 Quanser publish.
+%
+% Two limits could bind, and it is not the one you would expect:
+%
+%   Velev saturation     25 - 16.4            =  8.6
+%   motor saturation     (24 - 8.2) x 2       = 31.6
+%
+% **Velev binds, at 8.6.** The motors have plenty of room; the demand
+% saturates long before they do. This file previously worked the budget out
+% from the motor rail alone, 0.7*(24-8) = 11.2, which is 1.9 times what is
+% actually available, so designs were accepted that would have clipped.
+upVelev  = e.vElevSat - e.vElevTrim;
+upMotor  = (e.vMotorSat - e.vElevTrim / 2) * 2;
+e.voltagePeakMax = e.safety * min(upVelev, upMotor);
+
+% Kept for anything that still reads them.
+e.vMax = e.vMotorSat;
+e.vOp  = e.vElevTrim / 2;
 end

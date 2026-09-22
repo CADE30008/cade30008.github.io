@@ -15,7 +15,7 @@ description: "Between sessions: fit a model to what you recorded, design a contr
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.10, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.11, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **Your own time, no rig.** You leave with gains, a predicted response, and a
@@ -55,7 +55,7 @@ Before you design anything. A requirement is a number with a test attached.
 
 Something like: *for a 7.5° step in commanded elevation, overshoot no more
 than 20%, settled within 2% inside 8 s, steady-state error under 1°, and peak
-controller demand under 11 V.*
+controller demand under 6 V.*
 
 Then argue with your group about the numbers, and write down where each came
 from. "We agreed it" is an acceptable answer. "It came out of the design" is

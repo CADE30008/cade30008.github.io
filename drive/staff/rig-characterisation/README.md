@@ -1,4 +1,4 @@
-<!-- version: 2026.10 (2026-09-22) -->
+<!-- version: 2026.11 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -36,38 +36,38 @@ So it is not a question about the rig any more. It is **a requirement on the
 controller they build**, and the laboratory pages now say so in Part 2 and
 Part 3. Nothing further to test here.
 
-## 2. What holds the arm level — PART ANSWERED, and one thing left
+## 2. What holds the arm level — ANSWERED, and it moved the envelope
 
-**There is an `elev offset` summed with `Elevation Input` before `Velev`, and
-it is set to 18.** So the trim is built into the model rather than dialled in,
-which answers half the question.
+**An Elevation Input of -1.6 holds the arm level, with the `elev offset DO NOT
+TOUCH` block at 18.** So Velev trims at 16.4, and each motor sits at about
+8.2 V, which agrees with the 7.5 Quanser publish.
 
-**What the fitted model is unaffected by.** K = 3.4 deg/V came from a *step*
-in Elevation Input, 0 to 2. A constant offset cancels out of a step response,
-so K, wn and zeta all stand, and every gain we have checked is still checked
-against the right plant. Nothing about the controller design changes.
+The signal path, traced at the rig:
 
-**What it may change is the voltage headroom**, which is the one envelope
-limit not derived from the fit. The envelope assumes the arm sits at 8 V and
-gives the controller 0.7 of what is left up to 24, which is 11.2 V. Whether
-that is right depends on what `Velev` is measured in, and I cannot tell from
-the file:
+```
+Elevation Input + elev offset (18)  ->  Velev
+Velev -> saturate +/-25 -> voltage calculations
+      -> summed and halved with the elevation motor demand
+      -> u_front, u_back -> saturate +/-24 -> gain 1/3 -> DAC
+```
 
-| If `Velev` is... | Then 18 means | Headroom up | Our 11.2 V is |
-|---|---|---|---|
-| volts at each motor | 18 V per motor | about 6 V to the 24 V rail | **far too generous** |
-| a combined demand, halved between the two | 9 V per motor | about 15 V per motor | about right |
+**The envelope was working the budget out from the wrong limit.** It assumed
+the motors bind and allowed 0.7*(24-8) = 11.2 V. They do not:
 
-Nine volts per motor sits nicely beside the 7.5 V Quanser publish, so the
-second reading is the likely one. Likely is not checked.
+| Limit | Head-room, in Elevation Input units |
+|---|---|
+| Velev, +/-25 against a trim of 16.4 | **8.6** |
+| motors, +/-24 against 8.2 each | 31.6 |
 
-**The check, and it is a look rather than a measurement.** Follow `Velev` out
-of that sum block. If it goes through a gain of 0.5, or fans out to two motor
-channels that each take half, it is a combined demand and we are fine. If it
-goes to a motor channel as it stands, the envelope is roughly twice as
-permissive as it should be and I will tighten it before anybody flies.
+Velev binds, at 8.6, and the motors have room to spare. Keeping 0.7 of it
+gives **6.0 V**, not 11.2, so the old figure was 1.9 times what the rig can
+deliver and designs were being accepted that would have clipped.
 
-**SEND ME:** which of those it does. One line.
+Fixed in both envelopes, and the student design in `s2_tune` was retuned: at
+the old limit it asked for 8.4 V, which would now be refused. The fallback
+gains are unaffected and still pass with room.
+
+Nothing further to check here.
 
 ## `results.mat` — fixed in the supplied models
 

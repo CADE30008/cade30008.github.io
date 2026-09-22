@@ -269,7 +269,17 @@ class Envelope:
     gain_down_min: float = 1.5    # may lose a third of the loop gain
     gain_up_min: float = 2.0      # may double it
     phase_margin_min: float = 20.0                     # degrees
-    voltage_peak_max: float = 0.7 * (V_MAX - V_OP)     # V, controller demand
+    # V of Elevation Input, which is what the fitted K is per. Measured at the
+    # rig, 22 September: an input of -1.6 holds the arm level, and the offset
+    # is 18, so Velev trims at 16.4 and each motor sits at about 8.2 V.
+    #
+    # Velev passes a +/-25 saturation before it is halved to the motors, and
+    # that is what binds: 25 - 16.4 = 8.6 against (24 - 8.2)*2 = 31.6 at the
+    # motors. Keeping 0.7 of it gives 6.02.
+    #
+    # This was 0.7*(24 - 8) = 11.2, worked out from the motor rail alone,
+    # which is 1.9 times what the demand path actually allows.
+    voltage_peak_max: float = 0.7 * (25.0 - 16.4)      # V, controller demand
     reversals_max: int = 6        # sign changes of the demand in one step
     settle_max_s: float = 12.0    # a flight nobody wants to watch
 

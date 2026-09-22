@@ -167,9 +167,11 @@ test. These are defensible:
 | "settle quickly" | Settle within 2% of the demand inside 8 s | Step the demand by 7.5°, record, find the last time outside the band |
 | "don't overshoot much" | Peak overshoot no more than 20% of the commanded change | Same recording, peak value against final value |
 | "accurate" | Steady-state error under 1° thirty seconds after a step | Same recording, mean of the last 5 s against the demand |
-| "shouldn't strain the motors" | Peak controller demand no more than 11 V, and no more than 6 sign changes in one step | Log the controller output, not just the angle |
+| "shouldn't strain the motors" | Peak controller demand no more than 6 V, and no more than 6 sign changes in one step | Log the controller output, not just the angle |
 
-Numbers you had to invent: the 2% band, the 8 s, the 20%, the 1°, the 11 V.
+Numbers you had to invent: the 2% band, the 8 s, the 20%, the 1°. The 6 V
+is the exception: it is measured, not chosen. The demand saturates 8.6 V
+above the trim, and 6 keeps a third of that back.
 None comes from the mathematics.
 
 How to find the right values: ask what the machine is for. The settling time
@@ -203,7 +205,7 @@ without it; 2% and 5% give different numbers for the same response.
     record is the trim.
 
 3. They are refused because they **demand 13.6 V for a 7.5° step, against the
-   11.2 V the envelope allows**. Everything else about them is good: damping
+   6.0 V the envelope allows**. Everything else about them is good: damping
    0.92, phase margin 57°, settling 4.8 s.
 
     `pidtune` was not wrong. It optimised for the specification it was given,

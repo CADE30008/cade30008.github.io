@@ -157,7 +157,7 @@ once the rig's own fit is in, since these numbers follow the plant.
     `Kp = 7.13, Ki = 0.2, Kd = 12.6` was the fallback while the plant was
     assumed to be a double integrator. Against the measured plant it is
     **rejected**: 18.2° of phase margin, and a 23.2 V demand from an amplifier
-    with 11.2 V of usable headroom. If you have that set written down
+    with 6.0 V of usable headroom. If you have that set written down
     anywhere, throw it away.
 
 **Round 2 is the interesting one.** The average of the cohort's accepted gains

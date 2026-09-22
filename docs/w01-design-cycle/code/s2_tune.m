@@ -86,8 +86,13 @@ tune_sliders(K, wn, zeta);
 % and three unknowns, and you can do it on paper.
 
 zc = 0.7;     % damping you want
-wc = 1.0;     % speed you want, rad/s
-p  = 3.0;     % the third pole, well left of the pair
+wc = 0.8;     % speed you want, rad/s
+p  = 2.5;     % the third pole, well left of the pair
+
+% Those three numbers are a starting point, not an answer. Try wc = 1.0 and
+% watch what the check says about volts: the demand path saturates at 8.6 V
+% above the trim, and asking for a faster loop is asking for more of it. The
+% limit is what the rig can actually deliver, not a rule somebody invented.
 
 a  = K * wn^2;
 Kd_design = (2*zc*wc + p - 2*zeta*wn) / a;
