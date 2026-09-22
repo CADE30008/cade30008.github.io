@@ -19,8 +19,15 @@ Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
 # entries match it. A lecture week is a collapsible section whose own link is
 # the handout (navigation.indexes); the guest and consolidation weeks are
 # single pages. Decks are built files, linked from the handout.
+#
+# The order is how a student meets the unit: how it runs and what to do before
+# it starts, then the weeks in sequence, then the laboratory, which spans the
+# term rather than sitting in a week, and then the reference pages nobody
+# reads front to back.
 nav = [
   { "Home" = "index.md" },
+  { "How this unit runs" = "curriculum.md" },
+  { "Preparing for Control" = "preparing/index.md" },
   { "Week 1: The design cycle, end to end" = [
     { "Handout" = "w01-design-cycle/index.md" },
     { "Example sheet" = "w01-design-cycle/example-sheet.md" },
@@ -68,8 +75,6 @@ nav = [
     { "Example sheet" = "w11-beyond-this-course/example-sheet.md" },
     { "Solutions" = "w11-beyond-this-course/solutions.md" },
   ] },
-  { "How this unit runs" = "curriculum.md" },
-  { "Preparing for Control" = "preparing/index.md" },
   { "The Quanser laboratory" = [
     { "Overview" = "laboratory/index.md" },
     { "Part 1: identify" = "laboratory/part1-identify.md" },
