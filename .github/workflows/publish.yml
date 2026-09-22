@@ -7,10 +7,13 @@
 # One-time set-up, in the repository's Settings > Pages: set "Source" to
 # "GitHub Actions".
 #
-# Not yet handled: slides and PDFs. They are built locally and git ignores
-# them. Nothing published so far needs them; the first lecture week that is
-# published will, and adding them is now just a matter of a Node step — the
-# theme comes from a public tag, so CI can read it (README, "The slide theme").
+# Slides are built here. docs/slides/ is git ignored, so without this step the
+# deployed site has no decks and every handout's Slides link is a 404. That is
+# what happened the morning week 1 was published.
+#
+# PDFs are still not built: nothing published links to docs/downloads/, and
+# printing them needs Chrome. Add a step here if a published page ever points
+# at one.
 
 name: Publish the live site
 
@@ -43,7 +46,14 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
       - run: pip install -r requirements.txt
+      - name: Build the decks
+        run: npm run slides -- --html-only
       - name: Build the live site and check its links
         run: python scripts/build_live.py
       - uses: actions/upload-pages-artifact@v3
