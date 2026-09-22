@@ -10,6 +10,7 @@ lesson: w09-flight-control-architecture
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w09-flight-control-architecture/index.html)
+[Slides (PDF)](../slides/w09-flight-control-architecture/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

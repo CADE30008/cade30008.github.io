@@ -9,6 +9,7 @@ lesson: w04-stability-margins
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w04-stability-margins/index.html)
+[Slides (PDF)](../slides/w04-stability-margins/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

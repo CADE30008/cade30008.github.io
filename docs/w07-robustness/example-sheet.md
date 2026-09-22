@@ -9,6 +9,7 @@ lesson: w07-robustness
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w07-robustness/index.html)
+[Slides (PDF)](../slides/w07-robustness/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

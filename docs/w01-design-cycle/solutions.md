@@ -10,6 +10,7 @@ lesson: w01-design-cycle
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w01-design-cycle/index.html)
+[Slides (PDF)](../slides/w01-design-cycle/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). The

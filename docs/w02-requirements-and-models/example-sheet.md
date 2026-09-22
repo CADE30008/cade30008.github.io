@@ -9,6 +9,7 @@ lesson: w02-requirements-and-models
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w02-requirements-and-models/index.html)
+[Slides (PDF)](../slides/w02-requirements-and-models/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

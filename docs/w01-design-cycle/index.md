@@ -11,6 +11,7 @@ status: written
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w01-design-cycle/index.html)
+[Slides (PDF)](../slides/w01-design-cycle/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 [Code](code/index.md)
@@ -112,6 +113,16 @@ assembly free to swing around a vertical column.
   ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a model railway track embedded in the ring around its base](../assets/rig/rig-three-quarter.jpg){ width="100%" }
   <figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns about it.</figcaption>
 </figure>
+
+**It is a tandem-rotor helicopter**, and it is worth seeing it as one before
+you see it as a lab rig. Quanser build the model on the **Boeing HC-1B
+Chinook**: two rotors one behind the other, the machine pitching nose-up and
+nose-down about its centre, and turning by tilting.
+
+Another way in, if helicopters are not your thing: it is **half a quadcopter**.
+Take the four rotors, keep the front and back pair, and throw away the other
+two. What is left can climb, pitch, and turn by pitching, which is exactly
+what this machine does and exactly what it cannot do without.
 
 It moves three ways at once. The conventions are Quanser's, and the signs
 matter as soon as you read a plot:

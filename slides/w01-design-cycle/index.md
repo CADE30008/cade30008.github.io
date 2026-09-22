@@ -179,7 +179,14 @@ in robustness and in loop shaping.
 | **Pitch** ρ | tilt of the motor pair | front motor higher |
 | **Travel** λ | swing about the column | counter-clockwise from above |
 
+**It is a tandem-rotor helicopter.** Quanser model it on the Boeing HC-1B Chinook.
+
 <!--
+Say the Chinook before the axes, not after: two rotors one behind the other,
+and the machine in front of them stops being an odd lab contraption and starts
+being an aircraft with a nose and a tail. That is what makes pitch and travel
+obvious rather than definitions to memorise.
+
 Conventions are Quanser's own, from the Laboratory Guide. Worth being exact
 about the signs now, because a plot with the wrong sign convention wastes
 twenty minutes in the laboratory later.

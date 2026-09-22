@@ -11,6 +11,7 @@ status: draft
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w02-requirements-and-models/index.html)
+[Slides (PDF)](../slides/w02-requirements-and-models/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 </div>

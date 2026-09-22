@@ -10,6 +10,7 @@ lesson: w08-loop-shaping
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w08-loop-shaping/index.html)
+[Slides (PDF)](../slides/w08-loop-shaping/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

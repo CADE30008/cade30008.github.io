@@ -9,6 +9,7 @@ lesson: w11-beyond-this-course
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w11-beyond-this-course/index.html)
+[Slides (PDF)](../slides/w11-beyond-this-course/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

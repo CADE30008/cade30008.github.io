@@ -9,6 +9,7 @@ lesson: w01-design-cycle
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w01-design-cycle/index.html)
+[Slides (PDF)](../slides/w01-design-cycle/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

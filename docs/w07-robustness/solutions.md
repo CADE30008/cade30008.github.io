@@ -10,6 +10,7 @@ lesson: w07-robustness
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w07-robustness/index.html)
+[Slides (PDF)](../slides/w07-robustness/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

@@ -11,6 +11,7 @@ status: draft
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w03-pid-control/index.html)
+[Slides (PDF)](../slides/w03-pid-control/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 </div>

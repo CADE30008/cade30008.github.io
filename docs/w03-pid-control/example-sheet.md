@@ -9,6 +9,7 @@ lesson: w03-pid-control
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w03-pid-control/index.html)
+[Slides (PDF)](../slides/w03-pid-control/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

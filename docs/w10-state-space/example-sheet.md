@@ -9,6 +9,7 @@ lesson: w10-state-space
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w10-state-space/index.html)
+[Slides (PDF)](../slides/w10-state-space/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

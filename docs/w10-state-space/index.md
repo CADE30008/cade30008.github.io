@@ -11,6 +11,7 @@ status: draft
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w10-state-space/index.html)
+[Slides (PDF)](../slides/w10-state-space/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 </div>

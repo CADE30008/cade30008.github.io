@@ -10,6 +10,7 @@ lesson: w10-state-space
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w10-state-space/index.html)
+[Slides (PDF)](../slides/w10-state-space/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

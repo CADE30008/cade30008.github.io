@@ -9,6 +9,7 @@ lesson: w09-flight-control-architecture
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w09-flight-control-architecture/index.html)
+[Slides (PDF)](../slides/w09-flight-control-architecture/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

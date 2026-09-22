@@ -9,6 +9,7 @@ lesson: w08-loop-shaping
 <div class="lesson-links" markdown>
 [Handout](index.md)
 [Slides](../slides/w08-loop-shaping/index.html)
+[Slides (PDF)](../slides/w08-loop-shaping/slides.pdf)
 [Solutions](solutions.md)
 </div>
 

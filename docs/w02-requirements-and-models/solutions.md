@@ -10,6 +10,7 @@ lesson: w02-requirements-and-models
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w02-requirements-and-models/index.html)
+[Slides (PDF)](../slides/w02-requirements-and-models/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

@@ -11,9 +11,11 @@
 # deployed site has no decks and every handout's Slides link is a 404. That is
 # what happened the morning week 1 was published.
 #
-# PDFs are still not built: nothing published links to docs/downloads/, and
-# printing them needs Chrome. Add a step here if a published page ever points
-# at one.
+# The decks are built as HTML and PDF. Every handout links to both, so leaving
+# the PDF out gives a published page a dead link.
+#
+# Handout PDFs, in docs/downloads/, are still not built: nothing published
+# links to them. Add a step here if that changes.
 
 name: Publish the live site
 
@@ -52,8 +54,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: pip install -r requirements.txt
-      - name: Build the decks
-        run: npm run slides -- --html-only
+      - name: Build the decks, HTML and PDF
+        run: npm run slides
       - name: Build the live site and check its links
         run: python scripts/build_live.py
       - uses: actions/upload-pages-artifact@v3

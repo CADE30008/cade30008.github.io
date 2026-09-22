@@ -33,7 +33,7 @@ way: next year's starting point should be what worked, not what was proposed.
 > Welcome to Flight Dynamics & Control!
 >
 > Initial resources for the unit are now on Blackboard. Two halves: Flight
-> Dynamics, delivered by Prof. Richardson and Prof. Lowenberg, on Fridays, and
+> Dynamics, delivered by Prof. Richardson and Prof. Lowenberg, on Thursdays, and
 > Control, delivered by Dr. Bullock and Dr. Nguyen on Tuesdays.
 >
 > Two minutes, worth doing before we start: go to Preparing for Control and run

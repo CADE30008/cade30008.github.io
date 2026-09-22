@@ -11,6 +11,7 @@ status: draft
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w07-robustness/index.html)
+[Slides (PDF)](../slides/w07-robustness/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 </div>

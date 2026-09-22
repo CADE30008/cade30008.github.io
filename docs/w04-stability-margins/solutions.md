@@ -10,6 +10,7 @@ lesson: w04-stability-margins
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w04-stability-margins/index.html)
+[Slides (PDF)](../slides/w04-stability-margins/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every

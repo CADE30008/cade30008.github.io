@@ -11,6 +11,7 @@ status: draft
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w09-flight-control-architecture/index.html)
+[Slides (PDF)](../slides/w09-flight-control-architecture/slides.pdf)
 [Example sheet](example-sheet.md)
 [Solutions](solutions.md)
 </div>

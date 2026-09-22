@@ -71,3 +71,40 @@ that next summer's read-through has context.
 # Lecture notes
 
 Newest at the bottom. Cleared at the start of each year — git keeps them.
+
+### Week 1, Tuesday 22 September 2026
+
+Steve's notes, taken straight after.
+
+- **What ran long:** the start. Too much talking before the hook, and the
+  session's shape went with it. Not a content problem: better preparation is
+  the fix, so that the opening is delivered rather than improvised.
+- **What worked:** the intro landed, and the full-manual Quanser attempt was
+  very well received. That is the part to protect if anything has to give.
+- **What ran short:** everything after the flight. The room only got as far as
+  watching the 2 V elevation step being captured. No fitting, no tuning, no
+  gains flown.
+- **What was promised to make up for it:** the data and a Live Script for
+  students to work through themselves, results collected before the next
+  session, and a short run at the start of the next lecture to pick it up.
+- **One thing to change, and it is not the resources.** The materials are
+  right; the time went at the front. Next year, keep the session as written
+  and hold the opening to its five minutes. Do not build the catch-up slot
+  into the plan, because it exists to repair an overrun rather than to be part
+  of the design.
+
+Two additions to the Quanser introduction, from how it actually went:
+
+- **Say it is a tandem-rotor helicopter first.** Quanser build the model on the
+  **Boeing HC-1B Chinook**. Naming it before the axes turns an odd lab
+  contraption into an aircraft with a nose and a tail, which makes pitch and
+  travel obvious instead of definitions to learn. A photograph would help;
+  see the note below.
+- **"Half a quadcopter" belongs in the handout, not on a slide.** It is a good
+  second way in for anyone who does not think in helicopters, and it is one
+  framing too many for the room.
+
+**Still needed: a Chinook photograph.** Not added, because I have none that is
+ours and the site is CC-BY. US military photographs are public domain, so a US
+Army or Department of Defense image is the clean source; Quanser's own figure
+is not, and neither is a search result.

@@ -10,6 +10,7 @@ lesson: w03-pid-control
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w03-pid-control/index.html)
+[Slides (PDF)](../slides/w03-pid-control/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every number here has been checked by simulation.

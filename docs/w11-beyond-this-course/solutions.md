@@ -10,6 +10,7 @@ lesson: w11-beyond-this-course
 [Example sheet](example-sheet.md)
 [Handout](index.md)
 [Slides](../slides/w11-beyond-this-course/index.html)
+[Slides (PDF)](../slides/w11-beyond-this-course/slides.pdf)
 </div>
 
 These are worked solutions to the [example sheet](example-sheet.md). Every
