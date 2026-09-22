@@ -109,7 +109,7 @@ motors and rotors at one end, a counterweight at the other, and the whole
 assembly free to swing around a vertical column.
 
 <figure markdown="span">
-  ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a circular model railway track laid around its base](../assets/rig/rig-three-quarter.jpg){ width="100%" }
+  ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a model railway track embedded in the ring around its base](../assets/rig/rig-three-quarter.jpg){ width="100%" }
   <figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns about it.</figcaption>
 </figure>
 

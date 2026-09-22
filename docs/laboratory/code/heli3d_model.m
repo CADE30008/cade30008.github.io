@@ -23,11 +23,11 @@ function m = heli3d_model()
 % That last pair is the coupling, and it is the whole difficulty of flying
 % three axes: to go somewhere you tilt, and tilting is also how you stop.
 %
-% A(4,1) is zero, so there is no restoring term on elevation and this model
-% makes that axis a double integrator. That is a consequence of linearising
-% about level, where gravity stiffness is exactly zero. Measured about a trim
-% the same axis oscillates, which is why the single-axis work uses a fitted
-% second order instead. Both are right about the point they describe.
+% A(4,1) is zero, so this model has no restoring term on elevation: about
+% level, it makes that axis a double integrator. Design against it as it
+% stands. If you have fitted your own model from a recording taken about a
+% trim, expect it to look different, and use the one that matches where you
+% are actually flying.
 
 p = params();
 

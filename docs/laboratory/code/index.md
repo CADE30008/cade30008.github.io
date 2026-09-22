@@ -13,7 +13,7 @@ Put your own `.mat` recordings in the same folder as these. Several of them
 call each other, so keep them together.
 
 <!-- drive-version:start -->
-**MATLAB Drive files: version 2026.1**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+**MATLAB Drive files: version 2026.2**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
 <!-- drive-version:end -->
 
 | File | What it does |
@@ -40,12 +40,3 @@ Then the single-axis design, which is the same flow as the first session's
 recordings: they work from the manufacturer's model of the whole machine. Read
 the comments at the top of each before running them, particularly about what
 that model does and does not include.
-
-!!! warning "The two models disagree about the elevation axis, on purpose"
-    `heli3d_model` is linearised about level, where gravity stiffness is
-    exactly zero, so it makes elevation a double integrator. The model you fit
-    from a recording is taken about a trim, where the stiffness is not zero,
-    so it comes out as a lightly damped second order.
-
-    Both are right about the case they describe. Which one you should be using
-    depends on where you are flying, and noticing that is most of the skill.

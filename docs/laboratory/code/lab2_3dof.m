@@ -53,10 +53,9 @@ Kp_pitch = Bt(5,2);     % rad/(V s^2), pitch from the difference
 Ktrav = A(6,2);         % rad/s^2 per rad of pitch
 
 %% The elevation loop
-% A double integrator this time, not the second order you fitted about a trim,
-% because this model is about level. A double integrator cannot be stabilised
-% by proportional feedback at any gain, so the derivative term is not a
-% refinement here.
+% This model is linearised about level, which makes elevation a double
+% integrator. A double integrator cannot be stabilised by proportional
+% feedback at any gain, so the derivative term is not a refinement here.
 
 s = tf('s');
 G_elev = Ke / s^2;

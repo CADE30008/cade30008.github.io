@@ -134,6 +134,14 @@ in the room.** Two trims seven degrees apart do not establish that omega_n is
 constant over the whole working range either, so rig_trim_sweep.m is still
 worth running across a wider spread.
 
+**This is not currently said to students.** The laboratory pages and the Drive
+README used to carry a note that the two models disagree; it came out on
+22 September because presenting an unsettled disagreement to a student who has
+just met the material costs more confusion than it buys. The student text now
+states what `heli3d_model` is, with no framing, and says to use whichever
+model matches where they are flying. Put the note back as a finding once the
+trim sweep has settled it.
+
 Until that is done, **do not treat the question as settled**, even though the
 code now commits to the measured second order. The envelope and the Routh
 condition follow from that choice, and if the trim sweep shows wn moving with

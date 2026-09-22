@@ -263,6 +263,25 @@ What is still true and worth saying: Quanser's linearisation is taken about leve
 
 Keep `models/quanser_trim_stiffness.py` out of the session: it draws the prediction the data has just failed.
 
+!!! note "Not said to students, for now"
+    The student-facing material used to point out that the two models of the
+    elevation axis disagree: Quanser's, linearised about level, makes it a
+    double integrator, and a fit taken about a trim makes it a lightly damped
+    second order. That note is **out of the laboratory pages and the Drive
+    README**, on Steve's call, 22 September: until we have settled which
+    applies where, presenting it as an open disagreement costs more confusion
+    than it buys understanding.
+
+    What the student material says now is the plain fact with no framing:
+    `heli3d_model` is linearised about level and so has no restoring term on
+    elevation, and if your own fit looks different, use the one that matches
+    where you are flying.
+
+    The reasoning is kept in `models/quanser_elevation.py`, along with the
+    measurement that rules out the strong sin(elevation) story, and
+    `models/rig_trim_sweep.m` is the experiment that would settle it. Put the
+    note back once it is settled, as a finding rather than a puzzle.
+
 **The three rounds.** Announce the display name, not the username.
 
 1. **Extremes,** chosen by the selection tool: the most aggressive, the most

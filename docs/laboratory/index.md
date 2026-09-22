@@ -12,7 +12,8 @@ description: "Open-access sessions on the 3-DOF helicopter: identify the machine
 </div>
 
 The laboratory runs one experiment in three parts, and the parts are
-deliberately not all meant to be in the same room on the same afternoon.
+deliberately not all meant to be undertaken in the same room on the same
+afternoon.
 
 | Part | Where | Roughly |
 |---|---|---|
@@ -57,7 +58,7 @@ hard, and the last week is always the busy one.
     format is the one the rig's own `s_save` writes.
 
 <!-- drive-version:start -->
-**MATLAB Drive files: version 2026.1**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
+**MATLAB Drive files: version 2026.2**, 2026-09-22. [Download them all](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
 <!-- drive-version:end -->
 
 ## Safety briefing
@@ -75,7 +76,7 @@ hard, and the last week is always the busy one.
     Beyond that: keep fingers and hair away from the rotors, do not lean over the arm's travel, and although the rotors are guarded do watch your fingers.
 
 !!! tip "Take care, be mindful of others"
-    Bear in mind others will be relying on the equipment, and sharing the lab, so please try to keep it in working order and tidy. Catch the body of the Quanser if you can to avoid bumpy landings, and tell me if anything isn't working.
+    Bear in mind others will be relying on the equipment, and sharing the lab, so please try to keep it in working order and tidy. Catch the body of the Quanser if you can to avoid bumpy landings. The lab is run by technical services: if anything isn't working, email **engf-tech-hub@bristol.ac.uk** and copy me in. Put the course code in the subject, and say which station you were on and what the problem was.
 
 ## What you are building towards
 
@@ -97,7 +98,7 @@ Most groups get one axis working comfortably in their two sessions, three axes c
 ## The rig
 
 <figure markdown="span">
-  ![The Quanser 3-DOF helicopter: a blue beam pivoted on a central column, two ducted rotors at the near end, a counterweight at the far end, above a circular model railway track laid around its base](../assets/rig/rig-oblique.jpg){ width="100%" }
+  ![The Quanser 3-DOF helicopter: a blue beam pivoted on a central column, two ducted rotors at the near end, a counterweight at the far end, above a model railway track embedded in the ring around its base](../assets/rig/rig-oblique.jpg){ width="100%" }
 </figure>
 
 Three angles, two motors.
@@ -120,7 +121,7 @@ have to play with is the headroom between there and the amplifier's limit.
 
 ## Research-grade aerospace machinery
 
-Notice the train track running around the base of one Quanser? This machine was used a while back to model aerial/ground vehicle collaborative control.
+Notice the model railway track embedded in the ring around the base of one Quanser? This machine was used a while back to model aerial/ground vehicle collaborative control.
 
 A model train ran around the track, linked into the control system for forward and reverse speed. A camera attached to the Quanser spotted a marker on the train, and the two worked together to maintain relative position. This early work built into landing a petrol-powered remote-control helicopter on the roof of a moving Rover 400 on an abandoned Cornish airfield - revolutionary at the time.
 
