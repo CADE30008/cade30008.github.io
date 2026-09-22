@@ -12,7 +12,7 @@ description: "Open-access sessions on the 3-DOF helicopter: identify the machine
 </div>
 
 The laboratory runs one experiment in three parts, and the parts are
-deliberately not all in the same room on the same afternoon.
+deliberately not all meant to be in the same room on the same afternoon.
 
 | Part | Where | Roughly |
 |---|---|---|
@@ -28,7 +28,7 @@ a less useful one.
 
 ## Booking
 
-Sessions are booked through the form on Blackboard. **You work in pairs or
+Sessions are booked through the form linked on Blackboard. **You work in pairs or
 threes, and one of you books for the group.**
 
 Book early rather than late. The window closes before the coursework gets
@@ -40,11 +40,11 @@ hard, and the last week is always the busy one.
       the rig is not the place to read it.
 - [ ] Bring a laptop if you have one. The bench machines work, but your own
       MATLAB means you can carry on afterwards.
-- [ ] Download the [laboratory code](code/index.md) into a folder you can find.
+- [ ] Download the [laboratory software](code/index.md) into a folder you can find.
 - [ ] Agree with your group who is driving and who is writing things down.
-      Swap halfway.
+      Swap half way.
 
-## Safety, and it is short
+## Safety briefing
 
 !!! danger "The amplifier switch is how you stop the rig"
     The rocker switch on the amplifier is the emergency stop. **There is no
@@ -52,12 +52,14 @@ hard, and the last week is always the busy one.
     anything, find that switch and make sure whoever is not driving can reach
     it.
 
-    If the rig does something you do not like, switch the amplifier off. Do
-    not try to catch the arm, and do not try to fix it in software while it is
+    If the rig does something you do not like, switch the amplifier off. Do not try to fix it in software while it is
     moving.
 
-Beyond that: keep fingers and hair away from the rotors, do not lean over the
-arm's travel, and leave the guarding where it is.
+!!! warning "Low-flying aircraft"
+    Beyond that: keep fingers and hair away from the rotors, do not lean over the arm's travel, and although the rotors are guarded do watch your fingers.
+
+!!! tip "Take care, be mindful of others"
+    Bear in mind others will be relying on the equipment, and sharing the lab, so please try to keep it in working order and tidy. Catch the body of the Quanser if you can to avoid bumpy landings, and tell me if anything isn't working.
 
 ## What you are building towards
 
@@ -68,19 +70,18 @@ plant, a PID controller, and a requirement you can check. Everything in the
 first session's lecture applies directly.
 
 **Three axes.** The whole machine: elevation, pitch and travel, two motors,
-and the coupling between them. First as three PID loops, which is what most
+and the coupling between them. First as three PID loops, which is what many
 real vehicles fly with and which will show you why decoupling is a design
 decision rather than an approximation. Then as a state-space design against
 the model the manufacturer supplies, which is where the second half of the
 unit is heading.
 
-Most groups get one axis working comfortably in their two sessions. Three
-axes is what the open-access time is for.
+Most groups get one axis working comfortably in their two sessions, three axes can be considered an extension.
 
 ## The rig
 
 <figure markdown="span">
-  ![The Quanser 3-DOF helicopter: a blue beam pivoted on a central column, two ducted rotors at the near end, a counterweight at the far end, standing on a circular track](../assets/rig/rig-oblique.jpg){ width="100%" }
+  ![The Quanser 3-DOF helicopter: a blue beam pivoted on a central column, two ducted rotors at the near end, a counterweight at the far end, above a circular model railway track laid around its base](../assets/rig/rig-oblique.jpg){ width="100%" }
 </figure>
 
 Three angles, two motors.
@@ -89,14 +90,22 @@ Three angles, two motors.
 |---|---|---|
 | Elevation | \( \varepsilon \) | the body is above horizontal; zero when level |
 | Pitch | \( \rho \) | the front motor is higher than the back motor |
-| Travel | \( \lambda \) | the body rotates counter-clockwise, seen from above |
+| Travel | \( \lambda \) | the body rotates counter-clockwise, seen from above. It turns continuously, and wraps back to zero at 360 degrees |
 
-You command two rotor voltages. Elevation comes from their sum and pitch from
+You (usually via a control system running in Simulink) command two rotor voltages. Elevation is affected by their sum and pitch by
 their difference. **Travel is not commanded at all**: it happens because pitch
-tilts the thrust sideways and the machine slides round the track after it.
-That is the coupling, and it is why three axes is harder than three times one
+tilts the thrust sideways and the machine rotates round the track after it.
+This is referred to as _coupling_ of degrees of freedom, and it is why three axes is harder than three times one
 axis.
 
 Each rotor is driven about an operating voltage of roughly 7.5 V, which is
 what holds the arm up. Your controller's output is added to that, so what you
 have to play with is the headroom between there and the amplifier's limit.
+
+## Research-grade aerospace machinery
+
+Notice the train track running around the base of one Quanser? This machine was used a while back to model aerial/ground vehicle collaborative control.
+
+A model train ran around the track, linked into the control system for forward and reverse speed. A camera attached to the Quanser spotted a marker on the train, and the two worked together to maintain relative position. This early work built into landing a petrol-powered remote-control helicopter on the roof of a moving Rover 400 on an abandoned Cornish airfield - revolutionary at the time.
+
+*Jones and Richardson. I'll add the reference as soon as I find it.*

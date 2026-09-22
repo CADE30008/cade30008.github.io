@@ -109,8 +109,8 @@ motors and rotors at one end, a counterweight at the other, and the whole
 assembly free to swing around a vertical column.
 
 <figure markdown="span">
-  ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a circular track](../assets/rig/rig-three-quarter.jpg){ width="100%" }
-  <figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns on the circular track.</figcaption>
+  ![The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a circular model railway track laid around its base](../assets/rig/rig-three-quarter.jpg){ width="100%" }
+  <figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns about it.</figcaption>
 </figure>
 
 It moves three ways at once. The conventions are Quanser's, and the signs
@@ -126,7 +126,7 @@ Three axes, two motors. You do not command elevation, pitch and travel
 independently: the only quantities you set are the two rotor voltages.
 Elevation comes from their sum, pitch from their difference, and travel is not
 commanded at all. It happens because pitch tilts the thrust sideways and the
-machine slides round the track after it.
+machine rotates round after it.
 
 That is the shape of the problem. Three things to keep still, two levers, and
 one of them only works through another.
