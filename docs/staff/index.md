@@ -29,13 +29,23 @@ it is anything students need.
 <!-- drive-links:start -->
 | Folder | Link |
 |---|---|
+| **Everything**, both folders | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8) |
 | Everything students get | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students) |
 | `w01-design-cycle` | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/w01-design-cycle](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/w01-design-cycle) |
 | `lab-quanser` | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser) |
+| The staff test kit | [https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-staff](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-staff) |
 
-Student files are at **version 2026.2**, 2026-09-22.
+Student files are at **version 2026.3**, 2026-09-22.
 
-The staff folder, `cade30008-staff/`, sits beside the student one and is **not shared**. It holds the laboratory test kit. If you want a link to it here, share it from MATLAB Drive and put the URL in `STAFF_SHARE_URL` in `scripts/sync_drive.py`.
+!!! warning "The share is on the whole folder, staff kit included"
+    The first link above reaches `cade30008-staff/` as well as the
+    students' folder, and it is on this page, which is public to
+    anyone with the address.
+
+    So **`cade30008-staff/` is staff-facing, not private.** Put the
+    laboratory test kit and working files there; put nothing with a
+    student's name on it, and nothing about assessment. Those live
+    in `private/` in the repository and are never committed.
 
 **Check these annually.** A new cohort folder means a new share id, and a stale share link is dead rather than wrong, so nothing in the build will notice. See `teaching/annual-update.md`.
 <!-- drive-links:end -->

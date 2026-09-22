@@ -15,7 +15,7 @@ description: "Between sessions: fit a model to what you recorded, design a contr
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/93126ac2-9616-4272-a62c-a7ded0d6f7b8/cade30008-students).
 
-*Version 2026.2, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.3, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **Your own time, no rig.** You leave with gains, a predicted response, and a
