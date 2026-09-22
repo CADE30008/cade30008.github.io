@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.9, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.10, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -83,15 +83,17 @@ That is one usable run. Take **at least three**, and take them properly:
   of the single model you were about to design against.
 
 !!! tip "If a file is locked between runs"
-    QUARC can archive each run to `results.mat`, and the target process holds
-    that file open, so a second run cannot write it and you cannot delete it
-    from the file browser either. Stopping the model is not enough; it has to
-    be **unloaded**.
+    The model you downloaded does not write a log file, so this should not
+    happen. If you are working from a copy that was already on the machine, it
+    may: Simulink can archive each run to `results.mat`, and that file is held
+    open by the process running on the rig, so a second run cannot write it
+    and you cannot delete it from the file browser either.
 
-    You do not need that archive. The scopes log to the workspace, which is
-    where `save_recording` gets the data from, so the simplest answer is to
-    turn QUARC's archiving off and forget about it. Ask a demonstrator if you
-    are not sure where that setting is.
+    Stopping the model does not release it. It has to be unloaded, through
+    **QUARC → Unload**. Then turn the setting off, in **Configuration
+    Parameters → Data Import/Export → Log Dataset data to file**, rather than
+    fighting it every run. You do not need that archive: your data comes from
+    the scopes, and `save_recording` takes it from there.
 
 ## Check it before you leave
 

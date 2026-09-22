@@ -1,8 +1,8 @@
-<!-- version: 2026.9 (2026-09-22) -->
+<!-- version: 2026.10 (2026-09-22) -->
 
 # The Quanser laboratory
 
-**Version 2026.9**, 2026-09-22.
+**Version 2026.10**, 2026-09-22.
 
 Files for the open-access laboratory sessions. The three parts of the
 experiment, and what to read before each, are on the

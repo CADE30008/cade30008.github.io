@@ -1,4 +1,4 @@
-<!-- version: 2026.9 (2026-09-22) -->
+<!-- version: 2026.10 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -69,27 +69,27 @@ permissive as it should be and I will tighten it before anybody flies.
 
 **SEND ME:** which of those it does. One line.
 
-## If `results.mat` is locked between runs
+## `results.mat` — fixed in the supplied models
 
-QUARC archives to `results.mat`, and the **target process** holds that file
-open, not MATLAB. That is why Explorer will not rename or delete it either.
-Stopping the model is not enough: stopping leaves it resident.
+**Both models here have file logging off**, so neither writes `results.mat`
+and there is nothing to lock. Nothing is lost by it: the data comes from the
+scopes, which log `inputData`, `elevData`, `pitchData` and `travelData`
+straight to the workspace, and that is what `save_recording` reads.
 
-1. **`QUARC -> Unload`**, or `qc_unload_model`. Stop, then unload.
-2. Still locked: kill the target executable in Task Manager, the
-   `*.rt-win64.exe` for this model.
-3. Disconnect external mode first if it will not unload.
+It was Simulink's own setting, not QUARC's: **Configuration Parameters ->
+Data Import/Export -> Log Dataset data to file**, which is `LoggingToFile`.
+QUARC has a button that opens that panel, which is why it looked like theirs.
+`part1_identify` had it on and pointed at `results.mat`; `part3_validate`
+already had it off.
 
-**Better: turn the archiving off.** Nothing here needs it. The data comes from
-the scopes, which log `inputData` and `elevData` straight to the workspace,
-and that is what `save_recording` reads. Simulink's own MAT-file logging is
-already off in the model; it is QUARC's archiving that writes `results.mat`.
+**If you meet a bench copy with it still on**, the file is held by the target
+process rather than by MATLAB, which is why Explorer will not delete it
+either, and stopping the model does not release it:
 
-With archiving off there is no file to lock, and nothing to clear between one
-recording and the next, which matters because Part 1 asks for several.
-
-If you would rather keep the archive, give it a name that changes each run so
-nothing is ever reopened.
+1. `QUARC -> Unload`, or `qc_unload_model`. Stop, then unload.
+2. Still locked: kill the `*.rt-win64.exe` for this model in Task Manager.
+3. Then turn the setting off rather than working around it again:
+   `set_param('part1_identify', 'LoggingToFile', 'off')`.
 
 ## 3. One clean step at the level datum
 
