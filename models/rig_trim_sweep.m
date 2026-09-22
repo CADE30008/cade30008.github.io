@@ -41,7 +41,7 @@ function results = rig_trim_sweep(files, opts)
 % untested code driving hardware in front of a class is a bad trade. Four or
 % five runs, ten minutes:
 %
-%   1. Open the laboratory's `m_part1.slx` and connect to the hardware as usual.
+%   1. Open the laboratory's `part1_identify.slx` and connect to the hardware as usual.
 %   2. Set **Elevation Input** to your first voltage. Let the arm settle: give
 %      it a full minute, because at zeta = 0.06 a disturbance rings for about
 %      that long, and a swing left over from the last run lands in this one's

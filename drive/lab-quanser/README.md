@@ -1,8 +1,8 @@
-<!-- version: 2026.4 (2026-09-22) -->
+<!-- version: 2026.5 (2026-09-22) -->
 
 # The Quanser laboratory
 
-**Version 2026.4**, 2026-09-22.
+**Version 2026.5**, 2026-09-22.
 
 Files for the open-access laboratory sessions. The three parts of the
 experiment, and what to read before each, are on the
@@ -16,8 +16,8 @@ Put your own `.mat` recordings in the same folder as these files.
 | `lab2_3dof.m` | All three axes as three loops, with the cascade for travel |
 | `lab3_statespace.m` | The same machine by state feedback, with LQR |
 | `heli3d_model.m` | The linearised six-state model, from the published constants |
-| `m_part1.slx` | The rig model you record from, in Part 1 |
-| `m_part3.slx` | The rig model you fly your controller on, in Part 3 |
+| `part1_identify.slx` | The rig model you record from, in Part 1 |
+| `part3_validate.slx` | The rig model you fly your controller on, in Part 3 |
 
 `fit_second_order.m`, `heli_*.m` and `elevation_plant.json` are called by
 those. Keep everything in one folder.
@@ -28,6 +28,12 @@ those. Keep everything in one folder.
     own laptop, and that is not something you have done wrong.
 
     Everything else here runs anywhere.
+
+!!! warning "The bench machines have these under their old names"
+    The laboratory's own copies are still called `m_part1.slx` and
+    `m_part3.slx`. The files here are the same models, renamed to match the
+    parts of the experiment. Either works; if you are sitting at a bench
+    machine and cannot find `part1_identify.slx`, look for `m_part1.slx`.
 
 ## Order
 

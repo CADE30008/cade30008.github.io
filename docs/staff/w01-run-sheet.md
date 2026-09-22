@@ -78,7 +78,7 @@ The envelope assumes the controller differentiates the *measured angle*, not
 the error, which is what the handout calls rate feedback. Open the model you
 will actually fly and confirm it.
 
-`m_part3.slx` carries signals named `ElevRate(deg/s)` and `PitchRate(deg/s)`,
+`part3_validate.slx` carries signals named `ElevRate(deg/s)` and `PitchRate(deg/s)`,
 which is the structure the envelope assumes, so this is a confirmation rather
 than a hunt. But the laboratory's own `PID.slx` differentiates the *error*, so
 both structures exist in the material and it is worth ten seconds of looking.

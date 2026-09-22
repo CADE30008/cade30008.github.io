@@ -70,8 +70,8 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
         # are only usable on a laboratory machine with QUARC, so serving them
         # from the website would be offering something that cannot be opened.
         # In-house work, not Quanser's: see the provenance note in private/.
-        (AUTHORED / "lab-quanser/m_part1.slx", "m_part1.slx"),
-        (AUTHORED / "lab-quanser/m_part3.slx", "m_part3.slx"),
+        (AUTHORED / "lab-quanser/part1_identify.slx", "part1_identify.slx"),
+        (AUTHORED / "lab-quanser/part3_validate.slx", "part3_validate.slx"),
         *[(ROOT / "docs/laboratory/code" / f, f) for f in (
             "lab1_fit.m", "lab2_3dof.m", "lab3_statespace.m", "heli3d_model.m",
             "fit_second_order.m",
@@ -93,6 +93,10 @@ STAFF_SRC = ROOT / "drive" / "staff"
 STAFF_DST = DRIVE_ROOT / "cade30008-staff"
 STAFF_FILES = [
     "README.md",
+    # The rig models, so they can be opened at the bench from the staff link
+    # without signing in to Drive. Same two files the students get.
+    "rig-characterisation/part1_identify.slx",
+    "rig-characterisation/part3_validate.slx",
     "rig-characterisation/README.md",
     "rig-characterisation/t1_fit_this_rig.m",
     "rig-characterisation/t2_fly_these.m",
@@ -257,6 +261,22 @@ def main() -> int:
             print(f"Missing: {m.relative_to(ROOT)}", file=sys.stderr)
         return 2
 
+    # Anything in the student folder that is not in the manifest is ours and
+    # stale: students cannot write there, so nothing else puts a file in it.
+    # Without this a renamed file lingers for ever beside its replacement,
+    # which is how lab-quanser briefly offered the same model under two names.
+    #
+    # The staff folder is deliberately not pruned. It holds recordings and
+    # working copies that nothing here manages.
+    expected = {DRIVE / "README.md", DRIVE / "VERSION.txt"}
+    for folder, files in BUNDLES.items():
+        expected |= {DRIVE / folder / rel for _, rel in files}
+    orphans = sorted(
+        f for f in DRIVE.rglob("*")
+        if f.is_file()
+        and not f.name.startswith(".")
+        and f.resolve() not in {e.resolve() for e in expected})
+
     stale: list[str] = []
     if not (DRIVE / "README.md").exists() or not filecmp.cmp(
             AUTHORED / "README.md", DRIVE / "README.md", shallow=False):
@@ -275,7 +295,10 @@ def main() -> int:
             stale.append(f"staff/{rel}")
 
     if args.check:
-        if stale:
+        for o in orphans:
+            print(f"Stale in the Drive, not in the manifest: "
+                  f"{o.relative_to(DRIVE)}", file=sys.stderr)
+        if stale or orphans:
             print("Drive is out of date:")
             for s in stale:
                 print(f"  {s}")
@@ -311,6 +334,10 @@ def main() -> int:
         print("  site: docs/staff/index.md")
 
     n = sum(len(f) for f in BUNDLES.values())
+    for o in orphans:
+        o.unlink()
+        print(f"  removed (stale): {o.relative_to(DRIVE)}")
+
     print(f"{n} files copied into {DRIVE}")
     print(f"version {version}, {today}")
     if stale:

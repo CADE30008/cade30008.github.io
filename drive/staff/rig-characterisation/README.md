@@ -1,4 +1,4 @@
-<!-- version: 2026.4 (2026-09-22) -->
+<!-- version: 2026.5 (2026-09-22) -->
 
 # Measuring this rig
 
@@ -23,7 +23,7 @@ saturates rather than over-driving anything. But a saturated flight does not
 match the design anybody predicted, and I would rather say so in the room than
 discover it live.
 
-Open `m_part3.slx`. Look at what feeds the derivative in the elevation loop.
+Open `part3_validate.slx`. Look at what feeds the derivative in the elevation loop.
 
 - **Measured elevation** (there are signals named `ElevRate(deg/s)` and
   `PitchRate(deg/s)` in there, which is the structure I expect) → we are fine.
@@ -42,7 +42,7 @@ worth looking at rather than assuming.
 out from what is left up to 24. Quanser publish "approximately 7.5". Nobody
 has measured this rig.
 
-With `m_part1.slx` running and no controller, raise `Elevation Input` until
+With `part1_identify.slx` running and no controller, raise `Elevation Input` until
 the arm sits level and steady. Read the voltage.
 
 **SEND ME:** that number. A long way from 8 and the voltage limit moves, and

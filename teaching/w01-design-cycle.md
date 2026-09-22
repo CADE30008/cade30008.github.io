@@ -86,7 +86,7 @@ is the back-row sight line and locating both switches.
 | Run sheet | this file |
 | Existing lab material to adapt | `private/quanser/Quanser Lab/Quanser Lab 1 - System ID and PID/` |
 | System-ID Live Script to adapt | `.../solution_files/s_1_system_identification.mlx` |
-| Rig Simulink models | `.../m_part1.slx`, `.../m_part3.slx` |
+| Rig Simulink models | `.../part1_identify.slx`, `.../part3_validate.slx` |
 | Student code folder | `docs/w01-design-cycle/code/` — synced by `scripts/sync_student_code.py`. |
 | Measured response data | recorded on the day; see the checklist above. |
 | Gain submission | Microsoft Form; ids in `docs/w01-design-cycle/code/gain_form.json`. |

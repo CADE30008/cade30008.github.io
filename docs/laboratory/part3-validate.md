@@ -15,7 +15,7 @@ description: "Back at the rig: fly the controller you designed, compare what hap
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.4, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.5, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with a comparison: what you
@@ -27,7 +27,8 @@ before you power anything.
 ## Fly it
 
 1. Amplifier off, then on.
-2. Open `m_part3.slx` and put your gains in.
+2. Open `part3_validate.slx` and put your gains in. The bench machines may still have it under
+   its old name, `m_part3.slx`; it is the same model.
 3. Build, hold the arm horizontal, start.
 4. Command the step you designed for, and record.
 

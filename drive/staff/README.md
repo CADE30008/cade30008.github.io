@@ -1,4 +1,4 @@
-<!-- version: 2026.4 (2026-09-22) -->
+<!-- version: 2026.5 (2026-09-22) -->
 
 # Laboratory pass — 40 minutes
 
@@ -21,7 +21,7 @@ thing. The first two are five minutes together and both block the lecture.
 
 | At | For | Do |
 |---|---|---|
-| 0 | 5 | Amplifier on, open `m_part1.slx`, build |
+| 0 | 5 | Amplifier on, open `part1_identify.slx` (the bench copy is `m_part1.slx`), build |
 | 5 | 2 | **Q1: the derivative question.** `rig-characterisation/README.md` §1 |
 | 7 | 2 | **Q2: what holds it level?** §2 |
 | 9 | 6 | **Record the step at the level datum.** §3. While it settles and runs, start the student checker below |
