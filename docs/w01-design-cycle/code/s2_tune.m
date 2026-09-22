@@ -147,9 +147,10 @@ fprintf('%s %s\n', string(ok_a), why_a);
 %%
 % Read that carefully, because it is the whole session in one result.
 %
-% By every control-engineering measure, |pidtune| wins. Better damping, more
-% phase margin, settles sooner. And it is refused, because it asks the motors
-% for more volts than the amplifier has.
+% |pidtune| gives the better-damped loop: look at the damping ratio and the
+% phase margin. It settles in much the same time as yours and overshoots more,
+% so it is not better at everything. And it is refused outright, because it
+% asks the motors for more volts than the amplifier has.
 %
 % The function was not wrong. It optimised for the specification it was given,
 % and the amplifier was not in it. Nothing you can do inside the loop fixes a

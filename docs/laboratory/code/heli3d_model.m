@@ -69,6 +69,9 @@ p.Lh  = 7.0  * 0.0254;      % pitch pivot to each motor, m
 p.La  = 26.0 * 0.0254;      % elevation pivot to body, m
 p.Lw  = 18.5 * 0.0254;      % elevation pivot to counterweight, m
 p.g   = 9.81;
-p.Vop = 7.5;                % volts that hold the arm up
+p.Vop = 8.0;                % volts that hold the arm up; see heli_envelope.
+                            % Quanser publish about 7.5. Eight is used across
+                            % this repository so the headroom is conservative
+                            % and one number appears everywhere.
 p.Vmax = 24;                % what the amplifier can deliver
 end

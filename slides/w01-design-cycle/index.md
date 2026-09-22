@@ -672,13 +672,3 @@ than about control, and it dates.
 Links are on the site rather than read out. The point of the slide is that this
 is a considered position with sources, not a departmental rule.
 -->
-
----
-
-<!-- handout: summary -->
-
-# Summary
-
-- first takeaway
-- second takeaway
-- third takeaway

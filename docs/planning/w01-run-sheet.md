@@ -70,7 +70,31 @@ heli_check_one(7.13, 0.20, 12.6)     % expect false: phase margin
 The second is the fallback from when the plant was assumed to be a double
 integrator. It should be refused. If it passes, the model file is wrong.
 
-### 4. The submission round trip
+### 4. What the flown model does with the derivative
+
+**Five minutes, and it decides whether the voltage check means anything.**
+
+The envelope assumes the controller differentiates the *measured angle*, not
+the error, which is what the handout calls rate feedback. Open the model you
+will actually fly and confirm it.
+
+`m_part3.slx` carries signals named `ElevRate(deg/s)` and `PitchRate(deg/s)`,
+which is the structure the envelope assumes, so this is a confirmation rather
+than a hunt. But the laboratory's own `PID.slx` differentiates the *error*, so
+both structures exist in the material and it is worth ten seconds of looking.
+
+If the flown controller differentiates the error, then for accepted gains the
+demand at the start of a ramped command is roughly `Kd` times the command
+rate: at `Kd = 0.91` and 45 deg/s, about 41 V.
+
+**This is not a safety problem.** The flown model clamps the motor at
+±24 V and the DAC at ±10 V, so it saturates rather than over-driving
+anything. It is a fidelity problem: the flight would be a saturated,
+non-linear one, and it would not match the design anybody predicted. If that
+is the structure, say so in the room rather than pretending the comparison
+holds.
+
+### 5. The submission round trip
 
 Do this one for real, as a student would.
 
@@ -89,7 +113,7 @@ collate_gains('~/Downloads/responses.xlsx')
 Expect one row, `Preflight`, verdict `fly`. Delete that response afterwards so
 it does not appear in the room.
 
-### 5. The student scripts run start to finish
+### 6. The student scripts run start to finish
 
 ```matlab
 cd docs/w01-design-cycle/code
@@ -102,7 +126,7 @@ of each other. `s2_tune` should end with your design accepted and `pidtune`
 refused for demanding too many volts. That contrast is the session's argument,
 so check it is still there.
 
-### 6. The deck
+### 7. The deck
 
 Open `docs/slides/w01-design-cycle/index.html` and step through it. Three
 things to confirm rather than assume:
@@ -111,7 +135,7 @@ things to confirm rather than assume:
 - the three rig photographs load;
 - the proportional-limit figure is legible from the back of the room.
 
-### 7. The back row
+### 8. The back row
 
 Only checkable in the theatre. Do it while technical services set up: sit in
 the back row and confirm you can see the rig, and the camera feed if you are

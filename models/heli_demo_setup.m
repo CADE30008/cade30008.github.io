@@ -28,7 +28,9 @@ VMAX_AMP    = 24;             % V, peak motor voltage
 % The controller output rides on top of Vop, the voltage that holds the arm
 % level, so the usable swing is NOT symmetric about zero. Saturate on the
 % total, not on the increment, or the limit is wrong in one direction.
-Vop         = 4.0;            % V, trim. Set this from the rig on the day.
+Vop         = 8.0;            % V, trim. Set this from the rig on the day.
+                              % Matches heli_envelope's vOp. Quanser publish
+                              % about 7.5; 8 keeps the headroom conservative.
 V_MIN       = 0;              % V, never drive a motor backwards in the room
 V_MAX       = min(VMAX_AMP, VMAX_DAC * K_AMP);   % V, 24
 

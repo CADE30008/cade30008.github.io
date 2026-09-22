@@ -9,16 +9,23 @@ function tune_sliders(K, wn, zeta)
 % with the plot. Live Script sliders are fine too: Insert > Control, bound to
 % kp, ki and kd.
 %
-% The verdict is the real one. It calls heli_check_one, which is the same
-% function submit_gains calls and the same envelope the rig-side tool applies,
-% so nothing accepted here is refused later.
+% Two models are in play, on purpose.
+%
+% The *response* is simulated against whatever model you pass in, because that
+% is your fit and exploring it is the point.
+%
+% The *verdict* is always taken against the model fitted from the rig on the
+% day, which is what submit_gains and the rig-side tool use. It has to be. If
+% your fit came out high, gains that look fine against it would be refused at
+% submission, or worse, flown against a machine they were never checked
+% against. The panel says which model each number came from.
 
+official = heli_plant();
 if nargin < 3
-    p = heli_plant();
-    K = p.K; wn = p.wn; zeta = p.zeta;
+    K = official.K; wn = official.wn; zeta = official.zeta;
 end
-plant = struct('K', K, 'wn', wn, 'zeta', zeta);
-env   = heli_envelope();
+mine = struct('K', K, 'wn', wn, 'zeta', zeta);
+env  = heli_envelope();
 
 f = uifigure('Name', 'Tune the elevation loop', 'Position', [100 100 980 560]);
 g = uigridlayout(f, [2 2], 'ColumnWidth', {300, '1x'}, 'RowHeight', {'1x', 120});
@@ -87,11 +94,14 @@ s.ki.ValueChangingFcn = @(~,e) live(e, 'ki');
         legend(ax, 'demand', 'response', 'Location', 'southeast');
         ylim(ax, [-2, max(14, 1.3*max(y))]);
 
-        [ok, why, m] = heli_check_one(kp, ki, kd, plant, env);
+        [ok, why, m] = heli_check_one(kp, ki, kd, official, env);
         lines = {sprintf('Kp = %.3f    Ki = %.3f    Kd = %.3f', kp, ki, kd)};
+        lines{end+1} = sprintf(['plot: your fit, K=%.2f wn=%.2f zeta=%.3f   |   ' ...
+            'verdict: the rig''s, K=%.2f wn=%.2f zeta=%.3f'], ...
+            mine.K, mine.wn, mine.zeta, official.K, official.wn, official.zeta);
         lines{end+1} = line1(m, env);
         if ok
-            lines{end+1} = 'INSIDE THE ENVELOPE. submit_gains would accept this.';
+            lines{end+1} = 'INSIDE THE ENVELOPE. submit_gains will accept this.';
             ax.Title.String = 'Inside the envelope';
         else
             lines{end+1} = sprintf('OUTSIDE: %s', why);

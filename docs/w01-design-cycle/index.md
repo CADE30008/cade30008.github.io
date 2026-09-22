@@ -270,9 +270,10 @@ We fly them in three rounds:
    watching: the average of safe designs is not safe by construction.
 3. **The best few.**
 
-Every submission is checked before it reaches the hardware, against your own
-fitted plant, and gains outside the envelope are **refused rather than
-adjusted**. If yours are refused you will be told which limit they missed. We
+Every submission is checked before it reaches the hardware, against the model
+fitted from the rig on the day, and gains outside the envelope are **refused
+rather than adjusted**. Not against your own fit: your fit is an estimate of
+the machine, and what has to survive the flight is the machine. If yours are refused you will be told which limit they missed. We
 do not quietly move anybody's numbers into range: the room would then be
 watching a flight that was not yours.
 

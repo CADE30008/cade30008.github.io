@@ -117,6 +117,20 @@ legend('measured', sprintf('by hand: K=%.2f, \\omega_n=%.2f, \\zeta=%.3f', ...
     K_hand, omega_hand, zeta_hand), 'Location', 'southeast')
 title('Your fit, against the rig')
 
+%% Write your model down
+% Before the next section, on purpose. What follows needs System Identification
+% Toolbox, and if you do not have it this script stops there. Saving here means
+% you can still go on to s2_tune with the fit you did by hand, which is the one
+% that matters anyway.
+
+K = K_hand; wn = omega_hand; zeta = zeta_hand;
+save('my_model.mat', 'K', 'wn', 'zeta');
+fprintf('\nSaved K = %.3f, wn = %.3f, zeta = %.3f to my_model.mat\n', K, wn, zeta);
+
+%%
+% *Compare with the person next to you before you move on.* You will not have
+% the same numbers, and that is the exercise rather than a failure of it.
+
 %% Now the professional version
 % |tfest| fits a transfer function of whatever order you ask for, from the
 % data, in one line. It uses System Identification Toolbox.
@@ -145,13 +159,9 @@ figure
 compare(data, G_est); grid on
 title('tfest, against the rig')
 
-%% Write your model down
-% Everything after this uses these three numbers. Save them.
-
-K = K_hand; wn = omega_hand; zeta = zeta_hand;      % or the tfest ones, if you prefer
-save('my_model.mat', 'K', 'wn', 'zeta');
-fprintf('\nSaved K = %.3f, wn = %.3f, zeta = %.3f to my_model.mat\n', K, wn, zeta);
-
-%%
-% *Compare with the person next to you before you move on.* You will not have
-% the same numbers, and that is the exercise rather than a failure of it.
+%% If you prefer the tfest numbers
+% Overwrite the saved model with them. Either is defensible; say which you
+% used and why.
+%
+%   K = K_est; wn = wn_est(1); zeta = zeta_est(1);
+%   save('my_model.mat', 'K', 'wn', 'zeta');
