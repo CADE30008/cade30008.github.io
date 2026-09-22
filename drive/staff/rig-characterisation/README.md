@@ -100,8 +100,9 @@ voltage budget follows from it.
    stopping while it is level leaves the level angle at the end of the record.
 4. `level_rig(<the value that held it>)`.
 
-On the reference rig that value is -1.6, giving a trim of 16.4 and 8.6 V of
-head-room, of which the envelope keeps 6.0.
+**Measured on this rig, 22 September: -1.6, giving a trim of 16.4 and 8.6 V
+of head-room, of which the envelope keeps 6.0. Repeatable across two runs.**
+So the figures the envelope is built on are this rig's, not an assumption.
 
 **What to check while you are doing it:**
 

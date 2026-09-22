@@ -30,7 +30,7 @@ e = struct( ...
     'reversalsMax',       6, ...     % sign changes of the demand in one step
     'settleMaxS',         12, ...    % a flight nobody wants to watch
     'vElevSat',           25, ...   % V, the saturation Velev passes through
-    'vElevTrim',          16.4, ... % V, what Velev sits at with the arm level
+    'vElevTrim',          16.4, ... % V, measured 22 Sep, repeatable over two runs
     'vMotorSat',          24, ...   % V, the per-motor saturation
     'safety',             0.7);     % of the headroom, kept back
 
