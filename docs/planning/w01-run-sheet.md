@@ -189,6 +189,18 @@ they are named here in the same order as the slides and the handout.
 | **Cliffhanger** | 112 | 5 | The two gaps, and the independent work |
 | | 117 | 3 | How the unit runs; the rest is on the site |
 
+!!! warning "That last slot does not fit and you should decide now, not at 14:57"
+    Eight slides sit in it: the term map, your week, what counts, four on AI,
+    and the sources. Three minutes buys two or three of them.
+
+    The removal candidate is the **four AI slides**. The handout carries that
+    argument in full and the [AI in this course](../ai.md) page carries it
+    again, so one sentence and a pointer does the job. Keep "What counts",
+    because nothing else this term says plainly what carries the grade.
+
+    The alternative is to take the time from round 3 of the flying, which is
+    the wrong trade: the flying is why they turned up.
+
 **Protect the flight attempt.** If hour one is running late, cut the
 design-cycle block, not this. It is the thing the session is built on.
 
@@ -208,9 +220,14 @@ italic lines and on the slides as dividers.
 
 ### Three things to say, in these words
 
-**Before the flight attempt**, remind them of their vote. Afterwards, put the
-actual number next to it on the board, and be specific that the failure is the
-machine's and not the pilot's.
+**Before the flight attempt**, define the task and the losing condition, then
+vote. "Hold the marked elevation, on the marker, for 30 seconds; it ends when
+it leaves plus or minus 10 degrees or goes past the marker." Without a losing
+condition the vote may not resolve: elevation is stable, so the beam will not
+fall, and travel has no stop to hit.
+
+Afterwards, put the actual number next to the vote on the board, and be
+specific that the failure is the machine's and not the pilot's.
 
 **Before anybody submits:**
 

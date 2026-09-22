@@ -44,9 +44,19 @@ content, and does not appear on the slide itself.
 Five minutes, no more. Make the claim flatly and do not justify it yet: the
 whole point is that it stays unproven while they sit through the design cycle.
 
-Take the vote now, on the board, and leave it up: how many seconds before it
-hits a stop? Options: under 5, 5-15, 15-60, over a minute. P12 - committing to
-a prediction out loud is what makes the result land rather than wash over them.
+Define the task and the failure before you take the vote, or the vote may
+never resolve. Elevation is stable, so the beam will not fall, and travel has
+no stop to hit: a cautious volunteer can drift round the track for a minute
+having done nothing wrong.
+
+So set a task with a losing condition in it. Something like: hold the beam at
+the marked elevation, pointing at the marker, for 30 seconds; it is over when
+it leaves plus or minus 10 degrees or goes past the marker. Pick your own
+numbers, say them out loud, then vote on how long they last. Under 5, 5-15,
+15-60, over 30 s and they win.
+
+P12: committing to a prediction out loud is what makes the result register
+rather than wash over them.
 
 Ask for the volunteer now too, so they have half an hour to get nervous, and
 so nobody feels ambushed at minute 30. Pick someone who will enjoy it.
@@ -224,7 +234,9 @@ Physically point at the switch on the actual bench, not just the photograph.
 
 **Open loop. Two joysticks. All three axes.**
 
-Everyone else: watch the elevation, and count.
+Hold the marked elevation, on the marker, for 30 seconds.
+
+Everyone else: count.
 
 </div>
 
@@ -412,7 +424,7 @@ the exercise, not a failure of technique.
 # Tune it, then send it
 
 - Tune in simulation until it meets **the requirement we agreed**
-- The Live Script **checks your gains** and gives you a pre-filled link
+- `s2_tune` **checks your gains** and gives you a pre-filled link
 - You press Submit, so you see what goes out **under your name**
 
 <div class="callout">

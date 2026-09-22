@@ -148,11 +148,11 @@ degrees of freedom, on two joysticks. The claim made at the top of this
 session is that it cannot be flown by hand. You are about to find out whether
 that is true.
 
-It is worth saying what failure will look like, so that watching it teaches
-something. The beam will not simply fall. It will oscillate, and the
-oscillation will not die away, and every correction made to stop it will
-arrive slightly too late and make it larger. Meanwhile the machine will be
-drifting round the track, because pitch was used to fix elevation.
+Here is what failure will look like, so you know what to watch. The beam will
+not fall: this axis is stable, and left alone it comes back. It will swing,
+slowly, with a period of about six seconds, and it will not stop. The pilot
+will correct the height with the sticks, and will then find the machine has
+started round the track, because pitch is what they used to fix the height.
 
 *Why does a person, who can catch a ball and ride a bicycle, lose to this?*
 
@@ -258,9 +258,15 @@ argue with; a fit that arrived from a function is one you can only accept.
 
 With a model and a requirement you can design. In simulation, you will tune a
 PID controller until it meets the requirement you agreed, then submit your
-gains. The Live Script checks them and hands you a link with your numbers
-already filled in; you press Submit yourself, so you see exactly what goes out
-under your name.
+gains. `s2_tune` checks them and hands you a link with your numbers already
+filled in; you press Submit yourself, so you see exactly what goes out under
+your name.
+
+The check simulates what the rig does, which is not quite what `step` does:
+the demand is ramped rather than stepped, and the derivative acts on the
+measured angle rather than on the error. Expect its numbers to differ from
+your own plot by a little. The hardware will differ by more, and that gap is
+the last section of this handout.
 
 We fly them in three rounds:
 

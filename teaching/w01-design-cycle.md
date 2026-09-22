@@ -255,7 +255,13 @@ Checked against the raw data: the first two peaks give ζ = 0.057 and 0.059, whi
 is what a manual log-decrement fit will produce. Below about 0.5° the encoder
 floor takes over and later peaks give nonsense, so tell them to use early peaks. Everyone can reach a model; `tfest` is the stretch.
 
-**The model they fit is the trim, not the rig.** Gravity stiffness on the elevation arm goes as sin(elevation), so it is zero at level and grows with angle: identify at 5° and get ωₙ = 0.84 rad/s, at 10° get 1.19, at 20° get 1.67. Same rig, same method, three correct fits, three different models. That is worth showing rather than hiding, and it is why the encoder needs a tare against a known datum. Quanser's own linearisation is taken about level, where the stiffness is exactly zero, which is why their model has every pole at the origin and no natural frequency to find. Figure: `models/quanser_trim_stiffness.py`.
+**The model they fit is the trim, not the rig** — but do not say the numbers this file used to carry.
+
+It previously read: "gravity stiffness goes as sin(elevation), so identify at 5° and get ωₙ = 0.84, at 10° get 1.19, at 20° get 1.67". **The recording contradicts that.** Before the step the arm swings about the level datum with a period of 5.85 s; after it, at +7°, the period is 6.02 s. The same frequency at level and at seven degrees. If gravity on an offset mass were the only restoring term, the period at level would grow without limit, and it does not: this rig has stiffness at level, which points at the centre of mass sitting below the arm line.
+
+What is still true and worth saying: Quanser's linearisation is taken about level and has every pole at the origin, the rig plainly oscillates, and a fit is taken about a trim. What is **not** established is how much ωₙ moves across the full range, because two trims seven degrees apart do not settle it. `models/rig_trim_sweep.m` is the experiment, and it wants runs from 1 V to 3 V.
+
+Keep `models/quanser_trim_stiffness.py` out of the session: it draws the prediction the data has just failed.
 
 **The three rounds.** Announce the display name, not the username.
 

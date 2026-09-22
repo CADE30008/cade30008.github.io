@@ -28,6 +28,13 @@ function results = rig_trim_sweep(files, opts)
 % It decides something real: whether week 1 can hand students one model, and
 % whether the gain envelope means what it says away from the trim it was set at.
 %
+% Part of it is already answered. In the laboratory's own recording the arm
+% swings with a period of 5.85 s about the level datum and 6.02 s at +7 deg:
+% the same frequency, within 3%. The geometric story in its strong form needs
+% the period at level to grow without limit, so that form is out. Two trims
+% seven degrees apart do not show omega_n is constant across the range, which
+% is what this function is still for. Take the runs over 1 V to 3 V.
+%
 % Taking the recordings
 % ---------------------
 % By hand, at the rig, because that part cannot be tested anywhere else and

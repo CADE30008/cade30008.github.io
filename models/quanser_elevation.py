@@ -114,6 +114,26 @@ and `d_Part3_*.mat` are closed-loop runs, so they do not settle it either.
     simply right. If omega_n rises with trim, the stiffness is geometric and
     the model is only valid near the trim it was fitted at.
 
+**Part of it is already answered, by the recording we have.** Measured on
+d_Part1.mat, 22 September: before the step the arm is swinging about roughly
+-1.5 degrees, close to the encoder's level datum, with a period of 5.85 s;
+after the step it settles at +6.97 degrees and swings with a period of 6.02 s.
+The same frequency at level and at seven degrees, within 3%.
+
+That rules out the strong form of the sin(elevation) story. If the only
+restoring term were gravity on an offset mass, the stiffness would vanish at
+level and the period there would grow without limit. It does not. This rig has
+stiffness at level that a pure balance arm cannot produce, which points at the
+centre of mass sitting below the line of the arm: a pendulum rather than a
+balance.
+
+So the reconciliation offered above is the right shape and the wrong mechanism,
+and models/quanser_trim_stiffness.py predicts numbers this rig does not have
+(omega_n of 0.84, 1.19 and 1.67 at 5, 10 and 20 degrees). **Do not quote those
+in the room.** Two trims seven degrees apart do not establish that omega_n is
+constant over the whole working range either, so rig_trim_sweep.m is still
+worth running across a wider spread.
+
 Until that is done, **do not treat the question as settled**, even though the
 code now commits to the measured second order. The envelope and the Routh
 condition follow from that choice, and if the trim sweep shows wn moving with
