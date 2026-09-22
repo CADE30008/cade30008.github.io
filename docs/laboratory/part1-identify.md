@@ -15,7 +15,7 @@ description: "At the rig: record the elevation axis responding to a step, check 
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.12, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.13, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 **At the rig, about two hours.** You leave with recordings. You do not leave
@@ -96,10 +96,17 @@ against a different rig's trim has not really been checked.
 
 ## Record a step
 
-1. With the arm settled and steady, change `Elevation Input` from 0 to **2**.
-2. Leave it. Do not touch anything for the rest of the run. The model stops
+1. **Leave the input at the value that held it level.** Do not put it back to
+   zero: zero drops the arm off level before you have started, and if the box
+   already holds the value you meant to step *to*, the recording has no step
+   in it at all.
+2. Let it settle. Give it a full minute: at this damping a disturbance rings
+   for about that long, and a swing left over lands in this one's fit.
+3. **Add about 2 to it.** On the reference rig that is -1.6 going to +0.4.
+   Write down both numbers; the difference is the step your fit needs.
+4. Leave it. Do not touch anything for the rest of the run. The model stops
    itself at 100 s.
-3. Save it with a name you will recognise later:
+5. Save it with a name you will recognise later:
 
     ```matlab
     save_recording('trim-2V')
@@ -114,9 +121,20 @@ That is one usable run. Take **at least three**, and take them properly:
 - Let the arm settle completely between runs. At this damping a disturbance
   takes about a minute to die away, and a swing left over from the last run
   ends up in this one's fit.
-- Vary the step: 1.5 V, 2 V, 2.5 V. If the gain you fit is the same each time,
-  the axis is linear over that range. If it is not, you have found the limit
-  of the single model you were about to design against.
+- Vary the size of the step: 1.5, 2, 2.5 **added to your level value**. If the
+  gain you fit is the same each time, the axis is linear over that range. If
+  it is not, you have found the limit of the single model you were about to
+  design against.
+
+!!! tip "If a fit refuses"
+    ```matlab
+    check_recording('your-file.mat')
+    ```
+
+    It says what is wrong, in the order these usually go wrong: whether the
+    front of the record was thrown away, whether the input changes at all and
+    when, how much run there is either side, and whether the arm was still
+    swinging beforehand. Quicker than reading the raw arrays.
 
 !!! tip "If a file is locked between runs"
     The model you downloaded does not write a log file, so this should not

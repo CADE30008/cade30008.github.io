@@ -11,7 +11,7 @@ same folder as these. Several of them call each other, so keep them together.
 <!-- drive-version:start -->
 **[Download the laboratory files](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser)** from MATLAB Drive, or [everything for the unit](https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0).
 
-*Version 2026.12, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
+*Version 2026.13, 2026-09-22. If this differs from the version in the folder's own README, download it again.*
 <!-- drive-version:end -->
 
 | File | What it does |
@@ -19,6 +19,7 @@ same folder as these. Several of them call each other, so keep them together.
 | `level_rig.m` | Find what your rig needs to sit level, and save it |
 | `save_recording.m` | Save a run under a name you choose |
 | `plot_recording.m` | Look at a recording before fitting to it |
+| `check_recording.m` | Say what is wrong with a recording, when a fit refuses |
 | `lab1_fit.m` | Fit every recording you took, and report how much they disagree |
 | `lab2_3dof.m` | All three axes as three loops, with the cascade for travel |
 | `lab3_statespace.m` | The same machine by state feedback, with LQR |

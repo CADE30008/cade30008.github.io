@@ -75,6 +75,7 @@ BUNDLES: dict[str, list[tuple[Path, str]]] = {
         *[(ROOT / "docs/laboratory/code" / f, f) for f in (
             "lab1_fit.m", "lab2_3dof.m", "lab3_statespace.m", "heli3d_model.m",
             "level_rig.m", "save_recording.m", "plot_recording.m",
+            "check_recording.m",
             "fit_second_order.m",
             "heli_check_one.m", "heli_plant.m", "heli_envelope.m",
             "elevation_plant.json",
@@ -100,6 +101,7 @@ STAFF_FILES = [
     "rig-characterisation/part3_validate.slx",
     "rig-characterisation/level_rig.m",
     "rig-characterisation/save_recording.m",
+    "rig-characterisation/check_recording.m",
     "rig-characterisation/plot_recording.m",
     "rig-characterisation/README.md",
     "rig-characterisation/t1_fit_this_rig.m",
