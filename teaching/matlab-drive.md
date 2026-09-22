@@ -54,6 +54,26 @@ are derived from it. **Change it in that one place and run
 `<!-- drive-version:start -->` markers. Nothing is typed into a page by hand,
 which is the only way a dozen links stay consistent.
 
+### Two things about these links, both found the hard way
+
+**A subfolder link needs the reader to be signed in; the folder's own link
+does not.** Checked in a signed-out browser on 22 September: the student
+share's root shows a Sharing Preview listing its contents with no sign-in,
+and `.../<share>/lab-quanser` bounces to a sign-in page. Signed in, both work,
+which is why this is easy to miss.
+
+It matters little in practice, because anyone working in MATLAB Online is
+signed in and every student has an account through the University licence. It
+matters on a phone. So **every page that carries a subfolder link carries the
+folder's own link beside it**, and that is deliberate rather than
+belt-and-braces.
+
+**You cannot check these links with a script.** MATLAB Drive answers 200 to
+everything, including a share id made up on the spot, because the page is a
+JavaScript application that returns its shell before deciding whether the
+share exists. A dead link and a live one are identical to `curl`. The only
+check is a person opening them, ideally signed out.
+
 Nothing in the build checks these links. The site's own link check follows
 internal links and does not reach out to MathWorks, so a dead share link
 fails silently and stays failed until somebody clicks it. That is the reason

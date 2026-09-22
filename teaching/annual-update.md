@@ -78,7 +78,11 @@ nav agree with the new calendar.
       Replacing the links is the step that gets skipped, because the old ones
       still work for you as the owner. **A stale share link is a dead link
       rather than a wrong one**, so nothing in the build will notice: the
-      site check follows internal links and does not reach out to MathWorks.
+      site check follows internal links and does not reach out to MathWorks,
+      and MATLAB Drive answers 200 to any share id at all, including one made
+      up on the spot, so a script could not check them either. Open them.
+      **Open them signed out**, because a subfolder link works when you are
+      signed in and asks a student to sign in when they are not.
       The index of every link is in
       [matlab-drive.md](matlab-drive.md#the-links), and it is short enough to
       click through in a minute.
