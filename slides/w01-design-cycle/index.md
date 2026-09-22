@@ -171,13 +171,13 @@ in robustness and in loop shaping.
 
 # Elevation, pitch, travel
 
-![center h:360](../../docs/assets/rig/rig-front-elevation.jpg)
+![center h:290](../../docs/assets/rig/rig-front-elevation.jpg)
 
 | | | |
 |---|---|---|
-| **Elevation** ε | how high the beam sits | zero when level |
-| **Pitch** ρ | how the motor pair tilts | positive: front motor higher |
-| **Travel** λ | how it swings round | positive: counter-clockwise from above |
+| **Elevation** ε | height of the beam | zero when level |
+| **Pitch** ρ | tilt of the motor pair | front motor higher |
+| **Travel** λ | swing about the column | counter-clockwise from above |
 
 <!--
 Conventions are Quanser's own, from the Laboratory Guide. Worth being exact
