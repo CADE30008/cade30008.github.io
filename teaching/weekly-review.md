@@ -104,10 +104,27 @@ Two additions to the Quanser introduction, from how it actually went:
   second way in for anyone who does not think in helicopters, and it is one
   framing too many for the room.
 
-**Still needed: a Chinook photograph.** Not added, because I have none that is
-ours and the site is CC-BY. US military photographs are public domain, so a US
-Army or Department of Defense image is the clean source; Quanser's own figure
-is not, and neither is a search result.
+**Still needed: a Chinook photograph.** Not added yet, because it has to be
+downloaded and that is Steve's call, but the picture to use is found and
+checked:
+
+> *HC-1B in flight being tested and evaluated*, 1962, 1000x737, 56 KB.
+> <https://commons.wikimedia.org/wiki/File:HC-1B_in_flight_being_tested_and_evaluated.jpg>
+> Licence `PD-USGov-Military-Army`: a work of the US Army, public domain.
+> Source: the Army Center of Military History's *Airmobility*, page 269.
+> Aircraft 61-2410, a prototype.
+
+It is the HC-1B by name and by date, which is the designation Quanser use, so
+the caption can say "HC-1B" without hedging and the slide's claim is a
+photograph of the thing it names rather than a later Chinook standing in.
+Quanser's own figure is not usable, and neither is a search result.
+
+Two things to do with it when it lands. It goes in `docs/assets/aircraft/`
+beside the rig photographs, in the handout under "The machine" and on the rig
+slide. And `LICENSE.md` needs a third-party section: the site is CC BY 4.0 and
+has had nothing in it that is not ours, so the first public-domain image is
+also the first time the licence has to say that third-party material keeps its
+own terms.
 
 **The schedule changed after this session.** Duc was down to take week 2; that
 was reviewed and reversed. Flight dynamics now has both of week 2's slots, with
