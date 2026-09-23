@@ -108,3 +108,15 @@ Two additions to the Quanser introduction, from how it actually went:
 ours and the site is CC-BY. US military photographs are public domain, so a US
 Army or Department of Defense image is the clean source; Quanser's own figure
 is not, and neither is a search result.
+
+**The schedule changed after this session.** Duc was down to take week 2; that
+was reviewed and reversed. Flight dynamics now has both of week 2's slots, with
+Mark delivering two lectures, and control makes the time up in week 3, which
+runs on the Tuesday and again on the Thursday. Nothing is dropped and weeks 4
+onwards are untouched. It is recorded in `curriculum/term.yaml` under
+`schedule`, which is where the term map, week 1's schedule table and STATUS.md
+all read it from, and `teaching/annual-update.md` says to empty it next year.
+The Thursday slot's room and hour are not confirmed yet, so nothing generated
+prints them: the pages say to look on Blackboard, and STATUS.md carries it as a
+blocker. The announcement to send is in `teaching/announcements.md`, and it is
+deliberately held until both facts can go out together.

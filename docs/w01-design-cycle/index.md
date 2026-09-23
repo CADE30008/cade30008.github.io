@@ -357,13 +357,15 @@ builds on them.
 </figure>
 
 <!-- schedule:start -->
-*2026/27. Lectures are on Tuesdays.*
+*2026/27. Lectures are on Tuesdays unless a week below says otherwise.*
+
+**There is no control session in week 2.** Flight dynamics has both of the week's slots. **Week 3 runs twice**, on the Tuesday and Thursday. Blackboard carries the room and the hour for the Thursday of week 3.
 
 | Week | This week | Coursework |
 |---|---|---|
 | 1 | [The design cycle, end to end](../w01-design-cycle/index.md) | Brief released |
-| 2 | [Requirements and models you can trust](../w02-requirements-and-models/index.md) |  |
-| 3 | [PID, properly](../w03-pid-control/index.md) |  |
+| 2 | *No control session. Flight dynamics has both of the week's slots.* |  |
+| 3 | **Tuesday:** [Requirements and models you can trust](../w02-requirements-and-models/index.md)<br>**Thursday (time on Blackboard):** [PID, properly](../w03-pid-control/index.md) |  |
 | 4 | [Stability and margins](../w04-stability-margins/index.md) | Checkpoint 1 |
 | 5 | [Guest lecture](../w05-guest-lecture/index.md) |  |
 | 6 | [Consolidation week](../w06-consolidation/index.md): no lecture; recommended activities. |  |

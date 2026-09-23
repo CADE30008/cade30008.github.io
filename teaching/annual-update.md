@@ -27,6 +27,11 @@ Everything else depends on it. In `curriculum/term.yaml`:
       go in week 2.
 - [ ] `cohort` — the registered number. It drives the library-copies note in
       week 1 and the laboratory capacity sums.
+- [ ] `schedule` — **empty it.** It holds the departures from the timetable in
+      one particular year: which weeks lost their session and which ran twice.
+      Carrying last year's over would move weeks that are not moving, and the
+      note it generates on the site and in week 1's handout would be a
+      confident lie. Fill it again only when a session is actually lost.
 
 Then `npm run curriculum`. It fails until the weeks, folders, pages, decks and
 nav agree with the new calendar.

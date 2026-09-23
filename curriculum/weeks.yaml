@@ -207,6 +207,8 @@ weeks:
       The only lecture with written content, as the former "Lecture 2: Closed-loop
       PID control". It predates P8 and P11–P19 and needs redrafting to P17's shape,
       not editing. The Åström and Murray quote belongs here.
+    needs:
+      - {what: "Confirm the room and hour of the extra Thursday session, and post them to Blackboard", who: steve}
 
   - week: 4
     short: Margins

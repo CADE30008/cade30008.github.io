@@ -62,6 +62,95 @@ def label(w: dict) -> str:
     return f"Week {w['week']}: {w['title']}"
 
 
+# ---------------------------------------------------------------- calendar
+# Content weeks and calendar weeks are the same thing until the timetable is
+# disturbed. term.yaml's `schedule` records this year's disturbances, and
+# everything that shows the term *as a calendar* - the term map, week 1's
+# schedule table, the staff strip, STATUS.md's dates - reads the calendar built
+# here rather than the week numbers. One edit in term.yaml moves them together.
+#
+# Week numbers keep their old meaning everywhere else: they are the sequence of
+# the content, they name the folders, and they are what "Week 2" means on a
+# page. The coursework steps and the laboratory window stay in calendar weeks,
+# because that is what they were always about.
+DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def calendar(weeks: list[dict], term: dict) -> list[dict]:
+    """The twelve calendar weeks, each with the control sessions it holds."""
+    sched = term.get("schedule") or {}
+    moved = {m["week"]: m for m in sched.get("taught", [])}
+    notes = {n["calendar"]: n["why"] for n in sched.get("no_session", [])}
+    rows = [{"n": n, "sessions": [], "why": notes.get(n)} for n in range(1, 13)]
+    for w in weeks:
+        m = moved.get(w["week"], {})
+        n = m.get("calendar", w["week"])
+        if not 1 <= n <= 12:
+            err(f"week {w['week']}: taught in calendar week {n}, which is outside the term")
+            continue
+        rows[n - 1]["sessions"].append({"w": w, "day": m.get("day", term["day"]),
+                                        "time": m.get("time") if m else term["time"],
+                                        "room": m.get("room") if m else term["room"],
+                                        "moved": bool(m)})
+    for r in rows:
+        r["sessions"].sort(key=lambda s: DAYS.index(s["day"]))
+    return rows
+
+
+def check_calendar(rows: list[dict], term: dict) -> None:
+    for r in rows:
+        n, ss = r["n"], r["sessions"]
+        if r["why"] and ss:
+            err(f"calendar week {n} is listed as having no session, but holds "
+                f"{oxford([s['w']['slug'] for s in ss])}")
+        days = [s["day"] for s in ss]
+        if len(set(days)) != len(days):
+            err(f"calendar week {n}: two sessions on the same day ({oxford(sorted(days))})")
+        for s in ss:
+            if s["w"]["kind"] != "consolidation" and n == term["consolidation_week"]:
+                err(f"calendar week {n} is consolidation week and can hold no session")
+            if n == term["revision_week"]:
+                err(f"calendar week {n} is revision week and can hold no session")
+    taught = {s["w"]["week"] for r in rows for s in r["sessions"]}
+    for m in (term.get("schedule") or {}).get("taught", []):
+        if m["week"] not in taught:
+            err(f"schedule: no week {m['week']} to move")
+
+
+def schedule_note(weeks: list[dict], term: dict) -> str:
+    """This year's departures from the timetable, in a sentence or two.
+
+    Empty in a year where nothing moves, which is the point of generating it:
+    the note appears and disappears with term.yaml rather than being remembered
+    or forgotten by hand.
+    """
+    cal = calendar(weeks, term)
+    parts = []
+    for r in cal:
+        if r["why"] and not r["sessions"]:
+            # term.yaml's "why" is written as two sentences, the first naming
+            # the absence and the second giving the reason. Only the reason is
+            # wanted here; the week number supplies the rest.
+            reason = r["why"].split(". ", 1)[-1]
+            parts.append(f"**There is no control session in week {r['n']}.** {reason}")
+        elif len(r["sessions"]) > 1:
+            days = oxford([x["day"] for x in r["sessions"]])
+            parts.append(f"**Week {r['n']} runs twice**, on the {days}.")
+    if not parts:
+        return ""
+    unconfirmed = [f"{x['day']} of week {r['n']}" for r in cal for x in r["sessions"] if not x["time"]]
+    if unconfirmed:
+        parts.append(f"Blackboard carries the room and the hour for the {oxford(unconfirmed)}.")
+    return " ".join(parts)
+
+
+def session_when(s: dict, term: dict) -> str:
+    """"Tuesday", or "Thursday (time on Blackboard)" when the slot isn't confirmed."""
+    if s["time"]:
+        return s["day"]
+    return f"{s['day']} (time on Blackboard)"
+
+
 # ------------------------------------------------------------------- checks
 LECTURE_FIELDS = {"week", "kind", "short", "slug", "title", "act", "question", "focus", "ilos", "capabilities",
                   "threshold", "systems", "case", "outcomes", "hook", "in_lecture", "cliffhanger",
@@ -258,24 +347,35 @@ def e(s) -> str:
     return html.escape(str(s))
 
 
-def session_label(w: dict | None, n: int, term: dict) -> str:
-    if w is None:
-        return "Revision week" if n == term["revision_week"] else ""
+def session_label(s: dict, term: dict, with_day: bool) -> str:
+    w = s["w"]
     if w["kind"] == "consolidation":
         return "Consolidation week · no lecture"
     text = w["title"]
     if w.get("second_hour"):
         text += f" · then {w['second_hour']}"
-    return text
+    return f"{session_when(s, term)} · {text}" if with_day else text
 
 
 def term_map_svg(weeks: list[dict], term: dict, acts: dict) -> str:
-    """The twelve weeks, for week 1's deck and handout. Light and print-safe."""
-    by_week = {w["week"]: w for w in weeks}
+    """The twelve weeks, for week 1's deck and handout. Light and print-safe.
+
+    Rows are a calendar week each and are sized to what the week holds, so a
+    week with two sessions is twice as tall and a week with none still occupies
+    its place. Every y here comes from `y_of`/`h_of` rather than from n * row,
+    which is what lets that vary without the act brackets and the laboratory
+    window sliding off.
+    """
+    cal = calendar(weeks, term)
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
     lab = term["laboratory"]
     W, row, top, x_wk, x_act, x_ses, w_ses, x_cw, w_cw, x_lab, w_lab = 1000, 34, 58, 22, 86, 128, 496, 640, 190, 846, 124
-    H = top + 12 * row + 64
+    h_of = {r["n"]: row * max(1, len(r["sessions"])) for r in cal}
+    y_of, y = {}, top
+    for n in range(1, 13):
+        y_of[n] = y
+        y += h_of[n]
+    H = y + 64
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="Trebuchet MS, Arial, sans-serif" role="img" '
          f'aria-labelledby="t d"><title id="t">The control half, week by week, {term["year"]}</title>'
          f'<desc id="d">Twelve weeks down the page. Each row gives the week, the act, what happens that week, '
@@ -290,37 +390,46 @@ def term_map_svg(weeks: list[dict], term: dict, acts: dict) -> str:
           f'<text x="{x_cw}" y="36" {hdr}>Coursework</text>',
           f'<text x="{x_lab}" y="36" {hdr}>Laboratory</text>',
           f'<line x1="20" y1="46" x2="{W - 20}" y2="46" stroke="{RED}" stroke-width="2"/>']
-    y0 = top + (lab["from_week"] - 1) * row + 3
-    y1 = top + lab["to_week"] * row - 3
+    y0 = y_of[lab["from_week"]] + 3
+    y1 = y_of[lab["to_week"]] + h_of[lab["to_week"]] - 3
     o += [f'<rect x="{x_lab}" y="{y0}" width="{w_lab}" height="{y1 - y0}" rx="6" fill="#fff" stroke="{MUTED}" stroke-width="1.2" stroke-dasharray="5 4"/>',
           f'<text x="{x_lab + w_lab / 2}" y="{(y0 + y1) / 2 - 4}" font-size="14" font-weight="700" fill="{INK}" text-anchor="middle">Quanser</text>',
           f'<text x="{x_lab + w_lab / 2}" y="{(y0 + y1) / 2 + 14}" font-size="13" fill="{MUTED}" text-anchor="middle">open access</text>']
     styles = {"lecture": (RED_TINT, RED, INK, ""), "guest": ("#fff", RED, INK, ""),
               "consolidation": ("#fff", RED, INK, ' stroke-dasharray="5 3"'), None: ("url(#hatch)", RULE, MUTED, "")}
-    for n in range(1, 13):
-        w = by_week.get(n)
-        y = top + (n - 1) * row
-        cy = y + row / 2 + 5
-        fill, stroke, colour, dash = styles[w["kind"] if w else None]
-        o.append(f'<text x="{x_wk + 24}" y="{cy}" font-size="15" font-weight="700" fill="{INK}" text-anchor="middle">{n}</text>')
-        o.append(f'<rect x="{x_ses}" y="{y + 4}" width="{w_ses}" height="{row - 8}" rx="5" fill="{fill}" stroke="{stroke}" stroke-width="1"{dash}/>')
-        o.append(f'<text x="{x_ses + 12}" y="{cy}" font-size="14" fill="{colour}" stroke="{"#fff" if not w else "none"}" '
-                 f'stroke-width="5" paint-order="stroke">{e(session_label(w, n, term))}</text>')
+    for r in cal:
+        n, ss = r["n"], r["sessions"]
+        y = y_of[n]
+        o.append(f'<text x="{x_wk + 24}" y="{y + row / 2 + 5}" font-size="15" font-weight="700" fill="{INK}" text-anchor="middle">{n}</text>')
+        # An empty week still gets a box, so the eye reads "nothing here" rather
+        # than skipping the row: hatched for revision, and named for a week the
+        # timetable took away.
+        boxes = ss or [None]
+        for i, sn in enumerate(boxes):
+            by = y + i * row
+            fill, stroke, colour, dash = styles[sn["w"]["kind"] if sn else None]
+            text = session_label(sn, term, len(ss) > 1 or sn["moved"]) if sn else (r["why"] or ("Revision week" if n == term["revision_week"] else ""))
+            o.append(f'<rect x="{x_ses}" y="{by + 4}" width="{w_ses}" height="{row - 8}" rx="5" fill="{fill}" stroke="{stroke}" stroke-width="1"{dash}/>')
+            o.append(f'<text x="{x_ses + 12}" y="{by + row / 2 + 5}" font-size="{14 if sn else 13}" fill="{colour}" stroke="{"#fff" if not sn else "none"}" '
+                     f'stroke-width="5" paint-order="stroke">{e(text)}</text>')
         ev = cw.get(n, {}).get("event")
         if ev:
             deadline = ev == "Deadline"
             text = f'Due {term["coursework"]["deadline"]["day"]}' if deadline else ev
             o.append(f'<rect x="{x_cw}" y="{y + 5}" width="{w_cw}" height="{row - 10}" rx="12" fill="{RED if deadline else "#fff"}" stroke="{RED}" stroke-width="1.2"/>')
-            o.append(f'<text x="{x_cw + w_cw / 2}" y="{cy - 1}" font-size="13" font-weight="700" fill="{"#fff" if deadline else RED}" text-anchor="middle">{e(text)}</text>')
+            o.append(f'<text x="{x_cw + w_cw / 2}" y="{y + row / 2 + 4}" font-size="13" font-weight="700" fill="{"#fff" if deadline else RED}" text-anchor="middle">{e(text)}</text>')
+    # Acts bracket calendar weeks, so an act that straddles a doubled week has
+    # to be measured in pixels rather than counted in rows.
+    cal_of = {s["w"]["week"]: r["n"] for r in cal for s in r["sessions"]}
     for act in sorted(acts):
-        ws = [w["week"] for w in weeks if w.get("act") == act]
-        a, b = min(ws), max(ws)
-        o.append(f'<line x1="{x_ses - 10}" y1="{top + (a - 1) * row + 6}" x2="{x_ses - 10}" y2="{top + b * row - 6}" stroke="{RED}" stroke-width="2"/>')
-        o.append(f'<text x="{x_act}" y="{top + (a - 1) * row + row / 2 + 5}" font-size="15" font-weight="700" fill="{RED}" text-anchor="middle">{"I" * act}</text>')
-    ly = top + 12 * row + 30
+        ns = [cal_of[w["week"]] for w in weeks if w.get("act") == act and w["week"] in cal_of]
+        a, b = min(ns), max(ns)
+        o.append(f'<line x1="{x_ses - 10}" y1="{y_of[a] + 6}" x2="{x_ses - 10}" y2="{y_of[b] + h_of[b] - 6}" stroke="{RED}" stroke-width="2"/>')
+        o.append(f'<text x="{x_act}" y="{(y_of[a] + y_of[b] + h_of[b]) / 2 + 5}" font-size="15" font-weight="700" fill="{RED}" text-anchor="middle">{"I" * act}</text>')
+    ly = y_of[12] + h_of[12] + 30
     x = x_ses
     for fill, stroke, dash, text in ((RED_TINT, RED, "", "Lecture"), ("#fff", RED, "", "Guest lecture"),
-                                     ("#fff", RED, ' stroke-dasharray="4 2"', "Consolidation"), ("url(#hatch)", RULE, "", "No content")):
+                                     ("#fff", RED, ' stroke-dasharray="4 2"', "Consolidation"), ("url(#hatch)", RULE, "", "No session")):
         o.append(f'<rect x="{x}" y="{ly - 13}" width="18" height="18" rx="4" fill="{fill}" stroke="{stroke}"{dash}/>')
         o.append(f'<text x="{x + 26}" y="{ly + 1}" font-size="13" fill="{MUTED}">{text}</text>')
         x += 150
@@ -361,7 +470,7 @@ def workload_html(wl: dict) -> str:
 <p class="legend wl">{keys} — hours per week, to scale. Dashed underline: laboratory window. Coursework is advised in-week; expect many students to back-load it towards the deadline, which the checkpoints and the consolidation week exist to pull forward.</p>"""
 
 
-def lecture_card(w: dict, term: dict, wl: dict, sources: dict) -> str:
+def lecture_card(w: dict, term: dict, wl: dict, sources: dict, when_of: dict) -> str:
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
     slot_rows = "".join(f'<tr><td class="sl">{name}<small>{mins} min</small></td>'
                         f'<td>{e(w["cliffhanger"] if key == "cliffhanger" else w["in_lecture"][key])}</td></tr>'
@@ -375,7 +484,8 @@ def lecture_card(w: dict, term: dict, wl: dict, sources: dict) -> str:
     b = w["budget"]
     vclass = "ok" if b["verdict"] == "fits" else ("na" if b["verdict"].startswith("awareness") else "warn")
     chips = "".join(f'<span class="chip">{e(t)}</span>' for t in w["threshold"]) or '<span class="muted">none new</span>'
-    when = f"Tuesday · hour 2: {w['second_hour']}" if w.get("second_hour") else "Tuesday"
+    slot = when_of.get(w["week"], term["day"])
+    when = f"{slot} · hour 2: {w['second_hour']}" if w.get("second_hour") else slot
     lw = wl["lecture_week"]
     reading = "".join(f"<li>{e(reading_line(r, sources))}</li>" for r in w.get("reading", [])) or '<li class="muted">none yet</li>'
     return f"""
@@ -427,13 +537,17 @@ def other_card(w: dict, term: dict, wl: dict) -> str:
 
 def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict, sources: dict) -> str:
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
-    by_week = {w["week"]: w for w in weeks}
     lectures = [w for w in weeks if w["kind"] == "lecture"]
+    when_of = {x["w"]["week"]: x["day"] for r in calendar(weeks, term) for x in r["sessions"]}
     strip = []
-    for n in range(1, 13):
-        w = by_week.get(n)
-        k = w["kind"] if w else "none"
-        name = w["short"] if w else ("Revision" if n == term["revision_week"] else "")
+    for r in calendar(weeks, term):
+        n, ss = r["n"], r["sessions"]
+        k = ss[0]["w"]["kind"] if len(ss) == 1 else ("none" if not ss else "lecture")
+        if ss:
+            name = " · ".join(f'{x["day"][:3]} {x["w"]["short"]}' if len(ss) > 1 or x["moved"]
+                                   else x["w"]["short"] for x in ss)
+        else:
+            name = "No session" if r["why"] else ("Revision" if n == term["revision_week"] else "")
         ev = cw.get(n, {}).get("event", "")
         lab = term["laboratory"]["from_week"] <= n <= term["laboratory"]["to_week"]
         strip.append(f'<div class="wk k-{k}"><b>Week {n}</b><span>{e(name)}</span>'
@@ -454,7 +568,7 @@ def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict, sources: di
                 gap = w["week"] - prev_lecture["week"] > 1
                 cards.append(f'<div class="chain"><span>cliffhanger, week {prev_lecture["week"]}</span> {e(prev_lecture["cliffhanger"])} '
                              f'<span>→ hook of week {w["week"]}{" (across the break)" if gap else ""}</span></div>')
-            cards.append(lecture_card(w, term, wl, sources))
+            cards.append(lecture_card(w, term, wl, sources, when_of))
             prev_lecture = w
         else:
             cards.append(other_card(w, term, wl))
@@ -516,7 +630,7 @@ footer{{margin-top:28px;font-size:12px;color:var(--mut)}}
 {workload_html(wl)}
 <h2 class="act">The term</h2>
 <div class="strip">{''.join(strip)}</div>
-<p class="legend">Solid red: a lecture week. Outlined: the guest lecture. Dashed: the consolidation week. Hatched: no content. Red text: coursework. Dashed underline: the laboratory window.</p>
+<p class="legend">Solid red: a lecture week. Outlined: the guest lecture. Dashed: the consolidation week. Hatched: no session. Red text: coursework. Dashed underline: the laboratory window.</p>
 <div class="mxw">{''.join(mat)}</div>
 <p class="legend">Learning outcomes per lecture week per ILO. Colour bar in each card: hook and cliffhanger red, Learn slots purple, Do slots green, the case hour orange, to scale over 110 minutes.</p>
 {''.join(cards)}
@@ -541,21 +655,35 @@ def home_table(weeks: list[dict]) -> str:
     return "\n".join(rows)
 
 
+def session_cell(s: dict, term: dict, prefix_day: bool) -> str:
+    """One session in a calendar table: the link, and the day when it isn't the usual one."""
+    w = s["w"]
+    if w["kind"] == "consolidation":
+        return f"[Consolidation week](../{w['slug']}/index.md): no lecture; recommended activities."
+    what = f"[{w['title']}](../{w['slug']}/index.md)"
+    if w.get("second_hour"):
+        what += f"; then {w['second_hour'][0].lower() + w['second_hour'][1:]}."
+    if prefix_day or s["moved"]:
+        what = f"**{session_when(s, term)}:** {what}"
+    return what
+
+
 def schedule_table(weeks: list[dict], term: dict) -> str:
     """The twelve weeks as a table, for week 1's handout: the text version of the term map."""
-    by_week = {w["week"]: w for w in weeks}
+    cal = calendar(weeks, term)
     cw = {s["week"]: s for s in term["coursework"]["steps"]}
-    rows = [f"*{term['year']}. Lectures are on {term['day']}s.*", "", "| Week | This week | Coursework |", "|---|---|---|"]
-    for n in range(1, 13):
-        w = by_week.get(n)
-        if w is None:
+    rows = [f"*{term['year']}. Lectures are on {term['day']}s unless a week below says otherwise.*", ""]
+    if note := schedule_note(weeks, term):
+        rows += [note, ""]
+    rows += ["| Week | This week | Coursework |", "|---|---|---|"]
+    for r in cal:
+        n, ss = r["n"], r["sessions"]
+        if r["why"]:
+            what = f"*{r['why']}*"
+        elif not ss:
             what = "*Revision week*" if n == term["revision_week"] else ""
-        elif w["kind"] == "consolidation":
-            what = f"[Consolidation week](../{w['slug']}/index.md): no lecture; recommended activities."
         else:
-            what = f"[{w['title']}](../{w['slug']}/index.md)"
-            if w.get("second_hour"):
-                what += f"; then {w['second_hour'][0].lower() + w['second_hour'][1:]}."
+            what = "<br>".join(session_cell(s, term, len(ss) > 1) for s in ss)
         ev = cw.get(n, {}).get("event", "")
         if ev == "Deadline":
             d = term["coursework"]["deadline"]
@@ -753,6 +881,7 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "trust when the two disagree.", "",
         "## The term at a glance", "",
         f"Eleven weeks of content in {len(acts)} acts, then revision.", "",
+        *([note, ""] if (note := schedule_note(weeks, term)) else []),
         # The same figure week 1 carries. Both are written by this script in one
         # run, from these weeks, so the picture and the table cannot disagree.
         "![The control half week by week: what happens each week, the three acts, "
@@ -833,11 +962,13 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
             return "draft"
         return "published" if f"{w['slug']}/index.md" in pages else "written"
 
-    rows = ["| Week | Date | Session | State | Live |", "|---|---|---|---|---|"]
-    for w in weeks:
-        s = state(w)
-        live = "yes" if s == "published" else "no"
-        rows.append(f"| {w['week']} | {week_date(w['week'], term)} | {w['title']} | {s} | {live} |")
+    rows = ["| Week | Taught | Session | State | Live |", "|---|---|---|---|---|"]
+    for r in calendar(weeks, term):
+        for sn in r["sessions"]:
+            w = sn["w"]
+            st = state(w)
+            rows.append(f"| {w['week']} | {session_date(r['n'], sn['day'], term)} | {w['title']} "
+                        f"| {st} | {'yes' if st == 'published' else 'no'} |")
 
     needs = []
     for w in weeks:
@@ -889,10 +1020,16 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
     ])
 
 
-def week_date(week: int, term: dict) -> str:
-    """Week n's lecture date, counted forward from week 1's (term.yaml)."""
-    d = term["week1_date"] + timedelta(weeks=week - 1)
-    return d.strftime("%-d %b")
+def session_date(cal_week: int, day: str, term: dict) -> str:
+    """The date of a session, counted forward from week 1's lecture (term.yaml).
+
+    week1_date is the timetabled day of calendar week 1, so the offset to any
+    other day is the difference in weekday, which keeps a Thursday session in
+    the week it belongs to rather than a week later.
+    """
+    d = (term["week1_date"] + timedelta(weeks=cal_week - 1)
+         + timedelta(days=DAYS.index(day) - DAYS.index(term["day"])))
+    return d.strftime("%a %-d %b")
 
 
 
@@ -1034,6 +1171,7 @@ def main() -> None:
             print(f"error    {x}")
         sys.exit(1)
     check(weeks, term)
+    check_calendar(calendar(weeks, term), term)
     wl = workload(weeks, term)
 
     first = next(w for w in weeks if w["kind"] == "lecture")

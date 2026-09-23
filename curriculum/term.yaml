@@ -32,6 +32,29 @@ cohort: 190
 consolidation_week: 6
 revision_week: 12
 
+# When each week of content is actually taught. Content weeks and calendar
+# weeks are the same thing until the timetable is disturbed; this records the
+# disturbances, and **it is reset every year**.
+#
+# 2026/27, agreed after week 1. The week 2 Tuesday goes to flight dynamics:
+# Mark delivers two lectures in it rather than a guest taking the control
+# session. The control half makes the time up in week 3, which carries two
+# sessions. Weeks 4 onwards are untouched, so the calendar and the content
+# line up again from there.
+schedule:
+  # Calendar weeks with no control session at all, and what to say about it.
+  # A week listed here must hold none.
+  no_session:
+    - {calendar: 2, why: "No control session. Flight dynamics has both of the week's slots."}
+  # Content week -> the calendar week and day it is taught in. A content week
+  # with no entry here is taught in the calendar week of the same number, in
+  # the timetabled slot. Omit "time" when the slot is not confirmed: the
+  # generated pages then name the day and send people to Blackboard for the
+  # hour, rather than printing a guess.
+  taught:
+    - {week: 2, calendar: 3, day: Tuesday, time: "13:00-15:00", room: QB 1.40 Pugsley}
+    - {week: 3, calendar: 3, day: Thursday}
+
 # The coursework follows the calendar. "step" is P17's "feed the design" part
 # for each week.
 coursework:

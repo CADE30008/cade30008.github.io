@@ -525,8 +525,10 @@ made real, and it is worth more than the bullet points.
 <!--
 The cliffhanger. Say it, pause, and do not explain it.
 
-Next week is requirements and models you can trust, which is both halves of
-that sentence taken seriously.
+Requirements and models you can trust is both halves of that sentence taken
+seriously. It is not next week: flight dynamics has both of next week's slots,
+and we run twice the week after. Say so here rather than leaving it to the
+schedule slide.
 -->
 
 ---
@@ -541,6 +543,10 @@ that sentence taken seriously.
 The whole term. Week 5 is the guest lecture; week 6 is consolidation week, with no lecture.
 Coursework is due on the Thursday of week 11. The laboratory is open access:
 students choose when to go, from week 1 to week 6.
+
+Week 2 is empty and week 3 runs twice: flight dynamics takes both of week 2's
+slots and we make the time up on a Tuesday and a Thursday. Point at the two
+rows rather than reading them out, and say that nothing from week 4 on moves.
 -->
 
 ---

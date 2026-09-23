@@ -15,6 +15,8 @@ trust when the two disagree.
 
 Eleven weeks of content in 3 acts, then revision.
 
+**There is no control session in week 2.** Flight dynamics has both of the week's slots. **Week 3 runs twice**, on the Tuesday and Thursday. Blackboard carries the room and the hour for the Thursday of week 3.
+
 ![The control half week by week: what happens each week, the three acts, the coursework checkpoints and deadline, and the laboratory window](figures/term-map.svg){ width="100%" }
 
 The same thing as a table, if you would rather read it or follow a link:

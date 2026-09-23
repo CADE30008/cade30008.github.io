@@ -20,19 +20,19 @@ can't drift from the site.
 `draft` is scaffolding only and is skipped by the sync check. `written` means
 there is real content; `published` means it is on the live site. **8 of 11 weeks are still draft.**
 
-| Week | Date | Session | State | Live |
+| Week | Taught | Session | State | Live |
 |---|---|---|---|---|
-| 1 | 22 Sep | The design cycle, end to end | published | yes |
-| 2 | 29 Sep | Requirements and models you can trust | draft | no |
-| 3 | 6 Oct | PID, properly | draft | no |
-| 4 | 13 Oct | Stability and margins | draft | no |
-| 5 | 20 Oct | Guest lecture | written | no |
-| 6 | 27 Oct | Consolidation week | written | no |
-| 7 | 3 Nov | Robustness and trade-offs | draft | no |
-| 8 | 10 Nov | Loop shaping | draft | no |
-| 9 | 17 Nov | Flight control architecture | draft | no |
-| 10 | 24 Nov | State space and state feedback | draft | no |
-| 11 | 1 Dec | What comes next | draft | no |
+| 1 | Tue 22 Sep | The design cycle, end to end | published | yes |
+| 2 | Tue 6 Oct | Requirements and models you can trust | draft | no |
+| 3 | Thu 8 Oct | PID, properly | draft | no |
+| 4 | Tue 13 Oct | Stability and margins | draft | no |
+| 5 | Tue 20 Oct | Guest lecture | written | no |
+| 6 | Tue 27 Oct | Consolidation week | written | no |
+| 7 | Tue 3 Nov | Robustness and trade-offs | draft | no |
+| 8 | Tue 10 Nov | Loop shaping | draft | no |
+| 9 | Tue 17 Nov | Flight control architecture | draft | no |
+| 10 | Tue 24 Nov | State space and state feedback | draft | no |
+| 11 | Tue 1 Dec | What comes next | draft | no |
 
 ## What a week can't run without
 
@@ -40,6 +40,7 @@ there is real content; `published` means it is on the live site. **8 of 11 weeks
 |---|---|---|
 | 1 | Student Live Script: manual second-order fit, with tfest as the ceiling. | can be built |
 | 1 | Selection tool: pick individuals, the cohort average, and the best few. | can be built |
+| 3 | Confirm the room and hour of the extra Thursday session, and post them to Blackboard. | **Steve** |
 
 ## Published to the live site
 

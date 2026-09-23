@@ -79,6 +79,42 @@ Worth carrying into the weekly pattern rather than treating as one-off edits.
 
 ---
 
+## To send: the schedule change
+
+**Not yet sent.** Hold it until the Thursday slot's room and hour are confirmed
+and on Blackboard, then send both facts together. Sending "there is no lecture
+next week" on its own invites a fortnight of email asking when the replacement
+is.
+
+It breaks the one-ask rule, and it has to. The absence and the replacement are a
+single fact, and splitting them across two announcements is what makes people
+miss the second one.
+
+**Subject:** *CADE30008 Control — no session next week, two the week after*
+
+> A change to the control half's schedule.
+>
+> **Next week there is no control session.** Flight Dynamics has both of the
+> week's slots, and Prof. Lowenberg will use them.
+>
+> **The week after, control runs twice**: the usual Tuesday, and again on
+> *<day, time, room>*. Nothing is dropped and nothing moves after that, so
+> weeks 4 onwards are where they always were.
+>
+> The week-by-week table on the unit site has been updated: *<link to How this
+> unit runs>*.
+>
+> *Steve*
+
+### For next year
+
+This one is a timetable accident, not a pattern. What is worth keeping is the
+shape: name the absence, name the replacement in the same message, and say
+explicitly that the rest of the term is unchanged. The third sentence is the one
+that stops the email.
+
+---
+
 ## The weekly pattern, once teaching starts
 
 Written once, adapted each week. Keep them to four lines.
