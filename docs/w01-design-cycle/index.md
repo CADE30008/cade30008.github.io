@@ -271,11 +271,15 @@ argue with; a fit that arrived from a function is one you can only accept.
 
 ## Tuning, and then flying {#tuning}
 
-With a model and a requirement you can design. In simulation, you will tune a
-PID controller until it meets the requirement you agreed, then submit your
-gains. `s2_tune` checks them and hands you a link with your numbers already
-filled in; you press Submit yourself, so you see exactly what goes out under
-your name.
+With a model and a requirement you can design. In simulation, you tune a PID
+controller until it meets the requirement you agreed, then submit your gains.
+`s2_tune` checks them and hands you a link with your numbers already filled in;
+you press Submit yourself, so you see exactly what goes out under your name.
+
+The files are yours, and the recording comes with them, so none of this depends
+on being in the room when it happens. If you did not get through it in the
+session, or you want to try a second design, run [the session
+code](code/index.md) yourself and submit from there.
 
 The check simulates what the rig does, which is not quite what `step` does:
 the demand is ramped rather than stepped, and the derivative acts on the

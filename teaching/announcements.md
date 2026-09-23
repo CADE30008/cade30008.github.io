@@ -79,6 +79,48 @@ Worth carrying into the weekly pattern rather than treating as one-off edits.
 
 ---
 
+## To send: the fit and tune everyone was promised
+
+**Send as soon as the files are checked**, and before the schedule
+announcement below, because it has a date in it and the schedule one moves that
+date two weeks out.
+
+Week 1 ran out of time: the room watched the 2 V elevation step being captured
+and got no further. What was promised in the room was the data, a script to
+follow, and that the results would be collected before the next session. This
+is that promise, in writing, with a date on it.
+
+Own the overrun in one clause and then move on. The point of the message is the
+task, not the apology.
+
+**Subject:** *CADE30008 Control — the fit and tune, to do before we next meet*
+
+> We ran out of time before we got to the fitting, so here is the part you
+> didn't get to do. It is the most useful hour you can spend on this unit right
+> now, and it feeds the coursework directly.
+>
+> Everything is on the unit site under Session code: the recording we captured
+> in the room, and the scripts that fit a second-order model to it and tune a
+> PID against it. Start with `s1_identify` and run it a section at a time,
+> then `s2_tune`.
+>
+> **Submit your gains by *<date>***, through the link `submit_gains` hands you.
+> It checks them against the flight envelope first, so you will know before you
+> submit whether they can be flown. We fly them at the start of the next
+> session: the extremes, the cohort average, and the best few.
+>
+> Session code: *<link>*
+>
+> *Steve*
+
+### For next year
+
+The fix is not this announcement; it is not needing it. The opening ran long
+and everything after the flight was squeezed. See the week 1 entry in
+[weekly-review.md](weekly-review.md).
+
+---
+
 ## To send: the schedule change
 
 **Not yet sent.** Hold it until the Thursday slot's room and hour are confirmed
