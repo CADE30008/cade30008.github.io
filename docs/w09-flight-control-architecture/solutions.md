@@ -1,5 +1,5 @@
 ---
-title: "Week 9 solutions: Flight control architecture"
+title: "Lecture 7 solutions: Flight control architecture"
 description: "Placeholder solutions for the lecture 6 example sheet."
 lesson: w09-flight-control-architecture
 ---

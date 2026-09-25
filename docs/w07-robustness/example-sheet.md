@@ -1,6 +1,6 @@
 ---
-title: "Week 7 example sheet: Robustness and trade-offs"
-description: "Placeholder example sheet for week 7."
+title: "Lecture 5 example sheet: Robustness and trade-offs"
+description: "Placeholder example sheet for lecture 5."
 lesson: w07-robustness
 ---
 

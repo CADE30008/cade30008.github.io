@@ -5,11 +5,12 @@ description: "What each week covers, what you are expected to put into a week, h
 
 # How this unit runs
 
-This page is the shape of the unit in one place: the weeks, what you are
-expected to put into one, how the coursework builds, and when the laboratory
-is open. It is written in **week numbers**, because those are a property of the
-unit. Dates, rooms and deadlines live on Blackboard, which is the version to
-trust when the two disagree.
+This page is the shape of the unit in one place: the lectures, what you are
+expected to put into a week, how the coursework builds, and when the laboratory
+is open. The lectures are numbered in the order they are given, which is a
+property of the unit; which week each one falls in is the map below, and that
+can move. Dates, rooms and deadlines live on Blackboard, which is the version
+to trust when the two disagree.
 
 ## The term at a glance
 
@@ -19,22 +20,22 @@ Eleven weeks of content in 3 acts, then revision.
 
 ![The control half week by week: what happens each week, the three acts, the coursework checkpoints and deadline, and the laboratory window](figures/term-map.svg){ width="100%" }
 
-The same thing as a table, if you would rather read it or follow a link:
+The lectures in order, if you would rather read them or follow a link:
 
-| Week | | What it covers |
+| | | What it covers |
 |---|---|---|
-| **1** | Act 1 | [The design cycle, end to end](w01-design-cycle/index.md) |
-| **2** | Act 1 | [Requirements and models you can trust](w02-requirements-and-models/index.md) |
-| **3** | Act 1 | [PID, properly](w03-pid-control/index.md) |
-| **4** | Act 1 | [Stability and margins](w04-stability-margins/index.md) |
-| **5** |  | *Guest lecture* |
-| **6** |  | *Consolidation week. No lecture: time to catch up, use the laboratory, and act on feedback.* |
-| **7** | Act 2 | [Robustness and trade-offs](w07-robustness/index.md) |
-| **8** | Act 2 | [Loop shaping](w08-loop-shaping/index.md) |
-| **9** | Act 3 | [Flight control architecture](w09-flight-control-architecture/index.md) |
-| **10** | Act 3 | [State space and state feedback](w10-state-space/index.md) |
-| **11** | Act 3 | [What comes next](w11-beyond-this-course/index.md) |
-| **12** | | *Revision week. Nothing new.* |
+| **Lecture 1** | Act 1 | [The design cycle, end to end](w01-design-cycle/index.md) |
+| **Lecture 2** | Act 1 | [Requirements and models you can trust](w02-requirements-and-models/index.md) |
+| **Lecture 3** | Act 1 | [PID, properly](w03-pid-control/index.md) |
+| **Lecture 4** | Act 1 | [Stability and margins](w04-stability-margins/index.md) |
+|  |  | *Guest lecture* |
+|  |  | *Consolidation week. No lecture: time to catch up, use the laboratory, and act on feedback.* |
+| **Lecture 5** | Act 2 | [Robustness and trade-offs](w07-robustness/index.md) |
+| **Lecture 6** | Act 2 | [Loop shaping](w08-loop-shaping/index.md) |
+| **Lecture 7** | Act 3 | [Flight control architecture](w09-flight-control-architecture/index.md) |
+| **Lecture 8** | Act 3 | [State space and state feedback](w10-state-space/index.md) |
+| **Lecture 9** | Act 3 | [What comes next](w11-beyond-this-course/index.md) |
+| | | *Revision week. Nothing new.* |
 
 ## What you are expected to invest
 

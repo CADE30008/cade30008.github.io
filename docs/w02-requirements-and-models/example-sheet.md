@@ -1,6 +1,6 @@
 ---
-title: "Week 2 example sheet: Requirements and models you can trust"
-description: "Placeholder example sheet for week 2."
+title: "Lecture 2 example sheet: Requirements and models you can trust"
+description: "Placeholder example sheet for lecture 2."
 lesson: w02-requirements-and-models
 ---
 

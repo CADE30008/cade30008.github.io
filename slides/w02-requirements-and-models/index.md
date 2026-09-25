@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 2"
-title: "Week 2: Requirements and models you can trust"
+footer: "Dr. Steve Bullock · Lecture 2"
+title: "Lecture 2: Requirements and models you can trust"
 description: "Placeholder deck for week 2."
 author: "Dr. Steve Bullock"
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Week 8 example sheet: Loop shaping"
-description: "Placeholder example sheet for week 8."
+title: "Lecture 6 example sheet: Loop shaping"
+description: "Placeholder example sheet for lecture 6."
 lesson: w08-loop-shaping
 ---
 

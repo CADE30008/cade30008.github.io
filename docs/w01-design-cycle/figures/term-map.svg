@@ -12,7 +12,7 @@
 <text x="908.0" y="191.0" font-size="13" fill="#5a5a5a" text-anchor="middle">open access</text>
 <text x="46" y="80.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">1</text>
 <rect x="128" y="62" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="80.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">The design cycle, end to end</text>
+<text x="140" y="80.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 1: The design cycle, end to end</text>
 <rect x="640" y="63" width="190" height="24" rx="12" fill="#fff" stroke="#b01c2e" stroke-width="1.2"/>
 <text x="735.0" y="79.0" font-size="13" font-weight="700" fill="#b01c2e" text-anchor="middle">Brief released</text>
 <text x="46" y="114.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">2</text>
@@ -20,12 +20,12 @@
 <text x="140" y="114.0" font-size="13" fill="#5a5a5a" stroke="#fff" stroke-width="5" paint-order="stroke">No control session. Flight dynamics has both of the week&#x27;s slots.</text>
 <text x="46" y="148.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">3</text>
 <rect x="128" y="130" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="148.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Tuesday · Requirements and models you can trust</text>
+<text x="140" y="148.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Tuesday · Lecture 2: Requirements and models you can trust</text>
 <rect x="128" y="164" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="182.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Thursday (time on Blackboard) · PID, properly</text>
+<text x="140" y="182.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Thursday (TBC) · Lecture 3: PID, properly</text>
 <text x="46" y="216.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">4</text>
 <rect x="128" y="198" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="216.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Stability and margins</text>
+<text x="140" y="216.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 4: Stability and margins</text>
 <rect x="640" y="199" width="190" height="24" rx="12" fill="#fff" stroke="#b01c2e" stroke-width="1.2"/>
 <text x="735.0" y="215.0" font-size="13" font-weight="700" fill="#b01c2e" text-anchor="middle">Checkpoint 1</text>
 <text x="46" y="250.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">5</text>
@@ -36,23 +36,23 @@
 <text x="140" y="284.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Consolidation week · no lecture</text>
 <text x="46" y="318.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">7</text>
 <rect x="128" y="300" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="318.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Robustness and trade-offs</text>
+<text x="140" y="318.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 5: Robustness and trade-offs</text>
 <text x="46" y="352.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">8</text>
 <rect x="128" y="334" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="352.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Loop shaping</text>
+<text x="140" y="352.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 6: Loop shaping</text>
 <rect x="640" y="335" width="190" height="24" rx="12" fill="#fff" stroke="#b01c2e" stroke-width="1.2"/>
 <text x="735.0" y="351.0" font-size="13" font-weight="700" fill="#b01c2e" text-anchor="middle">Checkpoint 2</text>
 <text x="46" y="386.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">9</text>
 <rect x="128" y="368" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="386.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Flight control architecture</text>
+<text x="140" y="386.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 7: Flight control architecture</text>
 <rect x="640" y="369" width="190" height="24" rx="12" fill="#fff" stroke="#b01c2e" stroke-width="1.2"/>
 <text x="735.0" y="385.0" font-size="13" font-weight="700" fill="#b01c2e" text-anchor="middle">Checkpoint 3</text>
 <text x="46" y="420.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">10</text>
 <rect x="128" y="402" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="420.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">State space and state feedback</text>
+<text x="140" y="420.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 8: State space and state feedback</text>
 <text x="46" y="454.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">11</text>
 <rect x="128" y="436" width="496" height="26" rx="5" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1"/>
-<text x="140" y="454.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">What comes next · then Coursework Q&amp;A</text>
+<text x="140" y="454.0" font-size="14" fill="#1a1a1a" stroke="none" stroke-width="5" paint-order="stroke">Lecture 9: What comes next · then Coursework Q&amp;A</text>
 <rect x="640" y="437" width="190" height="24" rx="12" fill="#b01c2e" stroke="#b01c2e" stroke-width="1.2"/>
 <text x="735.0" y="453.0" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Due Thursday</text>
 <text x="46" y="488.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="middle">12</text>

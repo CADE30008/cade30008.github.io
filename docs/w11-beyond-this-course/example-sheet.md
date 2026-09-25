@@ -1,6 +1,6 @@
 ---
-title: "Week 11 example sheet: What comes next"
-description: "Placeholder example sheet for week 11."
+title: "Lecture 9 example sheet: What comes next"
+description: "Placeholder example sheet for lecture 9."
 lesson: w11-beyond-this-course
 ---
 

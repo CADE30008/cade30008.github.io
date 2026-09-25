@@ -1,5 +1,5 @@
 ---
-title: "Week 3: PID, properly"
+title: "Lecture 3: PID, properly"
 description: "PID control of aircraft pitch attitude, designed and understood through Bode plots and step responses."
 lesson: w03-pid-control
 order: 3
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 3: PID, properly
+# Lecture 3: PID, properly
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w03-pid-control/index.html)

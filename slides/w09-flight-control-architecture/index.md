@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 9"
-title: "Week 9: Flight control architecture"
+footer: "Dr. Steve Bullock · Lecture 7"
+title: "Lecture 7: Flight control architecture"
 description: "Placeholder deck for week 9."
 author: "Dr. Steve Bullock"
 ---

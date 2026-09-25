@@ -1,5 +1,5 @@
 ---
-title: "Week 4: Stability and margins"
+title: "Lecture 4: Stability and margins"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w04-stability-margins
 order: 4
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 4: Stability and margins
+# Lecture 4: Stability and margins
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w04-stability-margins/index.html)

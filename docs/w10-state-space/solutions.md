@@ -1,5 +1,5 @@
 ---
-title: "Week 10 solutions: State space and state feedback"
+title: "Lecture 8 solutions: State space and state feedback"
 description: "Placeholder solutions for the lecture 8 example sheet."
 lesson: w10-state-space
 ---

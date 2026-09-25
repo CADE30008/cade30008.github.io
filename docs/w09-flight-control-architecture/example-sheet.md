@@ -1,6 +1,6 @@
 ---
-title: "Week 9 example sheet: Flight control architecture"
-description: "Placeholder example sheet for week 9."
+title: "Lecture 7 example sheet: Flight control architecture"
+description: "Placeholder example sheet for lecture 7."
 lesson: w09-flight-control-architecture
 ---
 

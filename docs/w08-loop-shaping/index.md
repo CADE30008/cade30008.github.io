@@ -1,5 +1,5 @@
 ---
-title: "Week 8: Loop shaping"
+title: "Lecture 6: Loop shaping"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w08-loop-shaping
 order: 8
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 8: Loop shaping
+# Lecture 6: Loop shaping
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w08-loop-shaping/index.html)

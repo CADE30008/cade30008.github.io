@@ -1,5 +1,5 @@
 ---
-title: "Week 7: Robustness and trade-offs"
+title: "Lecture 5: Robustness and trade-offs"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w07-robustness
 order: 7
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 7: Robustness and trade-offs
+# Lecture 5: Robustness and trade-offs
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w07-robustness/index.html)

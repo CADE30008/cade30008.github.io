@@ -1,5 +1,5 @@
 ---
-title: "Week 10: State space and state feedback"
+title: "Lecture 8: State space and state feedback"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w10-state-space
 order: 10
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 10: State space and state feedback
+# Lecture 8: State space and state feedback
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w10-state-space/index.html)

@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 10"
-title: "Week 10: State space and state feedback"
+footer: "Dr. Steve Bullock · Lecture 8"
+title: "Lecture 8: State space and state feedback"
 description: "Placeholder deck for week 10."
 author: "Dr. Steve Bullock"
 ---

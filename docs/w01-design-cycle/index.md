@@ -1,5 +1,5 @@
 ---
-title: "Week 1: The design cycle, end to end"
+title: "Lecture 1: The design cycle, end to end"
 description: "The control design cycle, run end to end in one session on the laboratory helicopter: identify, design, fly, and find out."
 lesson: w01-design-cycle
 order: 1
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: written
 ---
 
-# Week 1: The design cycle, end to end
+# Lecture 1: The design cycle, end to end
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w01-design-cycle/index.html)
@@ -367,17 +367,17 @@ builds on them.
 
 | Week | This week | Coursework |
 |---|---|---|
-| 1 | [The design cycle, end to end](../w01-design-cycle/index.md) | Brief released |
+| 1 | [Lecture 1: The design cycle, end to end](../w01-design-cycle/index.md) | Brief released |
 | 2 | *No control session. Flight dynamics has both of the week's slots.* |  |
-| 3 | **Tuesday:** [Requirements and models you can trust](../w02-requirements-and-models/index.md)<br>**Thursday (time on Blackboard):** [PID, properly](../w03-pid-control/index.md) |  |
-| 4 | [Stability and margins](../w04-stability-margins/index.md) | Checkpoint 1 |
+| 3 | **Tuesday** [Lecture 2: Requirements and models you can trust](../w02-requirements-and-models/index.md)<br>**Thursday (TBC)** [Lecture 3: PID, properly](../w03-pid-control/index.md) |  |
+| 4 | [Lecture 4: Stability and margins](../w04-stability-margins/index.md) | Checkpoint 1 |
 | 5 | [Guest lecture](../w05-guest-lecture/index.md) |  |
 | 6 | [Consolidation week](../w06-consolidation/index.md): no lecture; recommended activities. |  |
-| 7 | [Robustness and trade-offs](../w07-robustness/index.md) |  |
-| 8 | [Loop shaping](../w08-loop-shaping/index.md) | Checkpoint 2 |
-| 9 | [Flight control architecture](../w09-flight-control-architecture/index.md) | Checkpoint 3 |
-| 10 | [State space and state feedback](../w10-state-space/index.md) |  |
-| 11 | [What comes next](../w11-beyond-this-course/index.md); then coursework Q&A. | **Due Thursday of week 11** |
+| 7 | [Lecture 5: Robustness and trade-offs](../w07-robustness/index.md) |  |
+| 8 | [Lecture 6: Loop shaping](../w08-loop-shaping/index.md) | Checkpoint 2 |
+| 9 | [Lecture 7: Flight control architecture](../w09-flight-control-architecture/index.md) | Checkpoint 3 |
+| 10 | [Lecture 8: State space and state feedback](../w10-state-space/index.md) |  |
+| 11 | [Lecture 9: What comes next](../w11-beyond-this-course/index.md); then coursework Q&A. | **Due Thursday of week 11** |
 | 12 | *Revision week* |  |
 
 The Quanser laboratory is open access from week 1 to week 6: you choose when to go, but the slots are booked. You work in pairs or threes, and **one of you books for the group**: book a slot through the form on Blackboard. Do it early rather than late: the window closes at the end of week 6, which is before the coursework gets hard.

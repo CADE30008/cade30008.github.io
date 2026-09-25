@@ -1,6 +1,6 @@
 ---
-title: "Week 10 example sheet: State space and state feedback"
-description: "Placeholder example sheet for week 10."
+title: "Lecture 8 example sheet: State space and state feedback"
+description: "Placeholder example sheet for lecture 8."
 lesson: w10-state-space
 ---
 

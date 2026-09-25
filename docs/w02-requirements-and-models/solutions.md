@@ -1,5 +1,5 @@
 ---
-title: "Week 2 solutions: Requirements and models you can trust"
+title: "Lecture 2 solutions: Requirements and models you can trust"
 description: "Placeholder solutions for the lecture 2 example sheet."
 lesson: w02-requirements-and-models
 ---

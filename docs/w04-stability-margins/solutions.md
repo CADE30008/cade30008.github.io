@@ -1,5 +1,5 @@
 ---
-title: "Week 4 solutions: Stability and margins"
+title: "Lecture 4 solutions: Stability and margins"
 description: "Placeholder solutions for the lecture 4 example sheet."
 lesson: w04-stability-margins
 ---

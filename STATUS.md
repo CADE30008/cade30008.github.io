@@ -22,17 +22,17 @@ there is real content; `published` means it is on the live site. **8 of 11 weeks
 
 | Week | Taught | Session | State | Live |
 |---|---|---|---|---|
-| 1 | Tue 22 Sep | The design cycle, end to end | published | yes |
-| 2 | Tue 6 Oct | Requirements and models you can trust | draft | no |
-| 3 | Thu 8 Oct | PID, properly | draft | no |
-| 4 | Tue 13 Oct | Stability and margins | draft | no |
+| 1 | Tue 22 Sep | Lecture 1: The design cycle, end to end | published | yes |
+| 2 | Tue 6 Oct | Lecture 2: Requirements and models you can trust | draft | no |
+| 3 | Thu 8 Oct | Lecture 3: PID, properly | draft | no |
+| 4 | Tue 13 Oct | Lecture 4: Stability and margins | draft | no |
 | 5 | Tue 20 Oct | Guest lecture | written | no |
 | 6 | Tue 27 Oct | Consolidation week | written | no |
-| 7 | Tue 3 Nov | Robustness and trade-offs | draft | no |
-| 8 | Tue 10 Nov | Loop shaping | draft | no |
-| 9 | Tue 17 Nov | Flight control architecture | draft | no |
-| 10 | Tue 24 Nov | State space and state feedback | draft | no |
-| 11 | Tue 1 Dec | What comes next | draft | no |
+| 7 | Tue 3 Nov | Lecture 5: Robustness and trade-offs | draft | no |
+| 8 | Tue 10 Nov | Lecture 6: Loop shaping | draft | no |
+| 9 | Tue 17 Nov | Lecture 7: Flight control architecture | draft | no |
+| 10 | Tue 24 Nov | Lecture 8: State space and state feedback | draft | no |
+| 11 | Tue 1 Dec | Lecture 9: What comes next | draft | no |
 
 ## What a week can't run without
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 3 solutions: PID, properly"
+title: "Lecture 3 solutions: PID, properly"
 description: "Worked solutions to the week 3 example sheet."
 lesson: w03-pid-control
 ---

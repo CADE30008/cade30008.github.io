@@ -21,7 +21,7 @@ it is anything students need.
 
 | | |
 |---|---|
-| [Week 1: the design cycle](w01-run-sheet.md) | Preflight, the setup timeline, the session beat by beat, and what to do when each part fails |
+| [Lecture 1: the design cycle](w01-run-sheet.md) | Preflight, the setup timeline, the session beat by beat, and what to do when each part fails |
 | [How the rig is wired](wiring.md) | Photographs of every connection: motors, encoders, the Q8-USB board and the amplifier, and what to check when something is not working |
 | [Lecture map](lecture-map.html) | The whole term: what each week does, the hooks, the coursework checkpoints, and the draft markers |
 

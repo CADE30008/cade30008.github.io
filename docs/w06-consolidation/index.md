@@ -1,10 +1,10 @@
 ---
-title: "Week 6: Consolidation week"
+title: "Consolidation week"
 description: Recommended consolidation activities for week 6 of CADE30008 Flight Dynamics & Control.
 order: 6
 ---
 
-# Week 6: Consolidation week
+# Consolidation week
 
 There is no lecture this week. Week 6 is the University's consolidation week,
 and it comes at a natural break: weeks 1 to 4 have taken you round the whole

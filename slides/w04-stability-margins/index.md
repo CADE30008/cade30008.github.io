@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 4"
-title: "Week 4: Stability and margins"
+footer: "Dr. Steve Bullock · Lecture 4"
+title: "Lecture 4: Stability and margins"
 description: "Placeholder deck for week 4."
 author: "Dr. Steve Bullock"
 ---

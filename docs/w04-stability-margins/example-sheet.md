@@ -1,6 +1,6 @@
 ---
-title: "Week 4 example sheet: Stability and margins"
-description: "Placeholder example sheet for week 4."
+title: "Lecture 4 example sheet: Stability and margins"
+description: "Placeholder example sheet for lecture 4."
 lesson: w04-stability-margins
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 9: Flight control architecture"
+title: "Lecture 7: Flight control architecture"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w09-flight-control-architecture
 order: 9
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 9: Flight control architecture
+# Lecture 7: Flight control architecture
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w09-flight-control-architecture/index.html)

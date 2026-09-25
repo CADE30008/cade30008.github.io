@@ -1,7 +1,9 @@
 """Check the curriculum and generate everything derived from it.
 
-The control half is designed to the University calendar: week n of teaching
-block 1 is "Week n" on every student-facing page. Two sources:
+The control half is designed to the University calendar. Two numbers run
+through it: the week orders the content and names the folders, and the lecture
+number counts the lectures in the order they are given, which is what students
+see. `number_lectures` and `calendar` derive them. Two sources:
 
   curriculum/weeks.yaml  what each of the eleven content weeks is: the lecture
                          weeks' full scope, the guest week, and the
@@ -58,8 +60,35 @@ def front_matter(path: Path) -> dict:
     return yaml.safe_load(m.group(1)) if m else {}
 
 
+def number_lectures(weeks: list[dict]) -> None:
+    """Give every lecture week its lecture number, in order of delivery.
+
+    Weeks and lectures came apart the moment a session moved out of its own
+    week, and the number a student sees should be the one that survives that:
+    "Lecture 3" is the third lecture whenever it happens to be given, where
+    "Week 3" was a claim about the calendar that the calendar can falsify. So
+    the nav, the page titles, the decks and the sheets are all numbered this
+    way, and only the term map and the schedule table talk in weeks, because
+    those are the two places actually showing a calendar.
+
+    The guest lecture is not numbered: it is not one of the nine, and it
+    carries no handout, deck or sheet to number. Nor is the consolidation
+    week, which has no lecture in it. Both keep their titles, and the nav's
+    order puts them in the right place without a number.
+
+    The week number is untouched. It still orders the weeks, names the
+    folders, and is what the coursework steps and the laboratory window are
+    counted in.
+    """
+    n = 0
+    for w in weeks:
+        if w["kind"] == "lecture":
+            n += 1
+            w["lecture"] = n
+
+
 def label(w: dict) -> str:
-    return f"Week {w['week']}: {w['title']}"
+    return f"Lecture {w['lecture']}: {w['title']}" if "lecture" in w else w["title"]
 
 
 # ---------------------------------------------------------------- calendar
@@ -145,10 +174,8 @@ def schedule_note(weeks: list[dict], term: dict) -> str:
 
 
 def session_when(s: dict, term: dict) -> str:
-    """"Tuesday", or "Thursday (time on Blackboard)" when the slot isn't confirmed."""
-    if s["time"]:
-        return s["day"]
-    return f"{s['day']} (time on Blackboard)"
+    """"Tuesday", or "Thursday (TBC)" when the slot isn't confirmed."""
+    return s["day"] if s["time"] else f"{s['day']} (TBC)"
 
 
 # ------------------------------------------------------------------- checks
@@ -255,14 +282,14 @@ def check(weeks: list[dict], term: dict) -> None:
             fm = front_matter(d)
             if fm.get("title") != lab:
                 err(f"slides/{w['slug']}/index.md: title is {fm.get('title')!r}, expected {lab!r}")
-            if f"Week {w['week']}" not in str(fm.get("footer", "")):
-                err(f"slides/{w['slug']}/index.md: footer should name Week {w['week']}")
+            if f"Lecture {w['lecture']}" not in str(fm.get("footer", "")):
+                err(f"slides/{w['slug']}/index.md: footer should name Lecture {w['lecture']}")
         for kind, word, head in (("example-sheet", "example sheet", "Example sheet"), ("solutions", "solutions", "Solutions")):
             f = DOCS / w["slug"] / f"{kind}.md"
             if not f.exists():
                 err(f"week {w['week']}: no docs/{w['slug']}/{kind}.md")
                 continue
-            want = f"Week {w['week']} {word}: {w['title']}"
+            want = f"Lecture {w['lecture']} {word}: {w['title']}"
             if (got := front_matter(f).get("title")) != want:
                 err(f"docs/{w['slug']}/{kind}.md: title is {got!r}, expected {want!r}")
             if f"# {head}: {w['title']}" not in f.read_text(encoding="utf-8"):
@@ -351,7 +378,7 @@ def session_label(s: dict, term: dict, with_day: bool) -> str:
     w = s["w"]
     if w["kind"] == "consolidation":
         return "Consolidation week · no lecture"
-    text = w["title"]
+    text = label(w)
     if w.get("second_hour"):
         text += f" · then {w['second_hour']}"
     return f"{session_when(s, term)} · {text}" if with_day else text
@@ -489,8 +516,8 @@ def lecture_card(w: dict, term: dict, wl: dict, sources: dict, when_of: dict) ->
     lw = wl["lecture_week"]
     reading = "".join(f"<li>{e(reading_line(r, sources))}</li>" for r in w.get("reading", [])) or '<li class="muted">none yet</li>'
     return f"""
-<section class="card" id="W{w['week']}">
-  <header><div class="num">W{w['week']}</div>
+<section class="card" id="L{w['lecture']}">
+  <header><div class="num">L{w['lecture']}</div>
     <div class="tt"><h3>{e(w['title'])}</h3><p class="q">{e(w['question'])}</p></div><div class="when">{e(when)}</div></header>
   <div class="grid">
     <div class="col id"><dl>
@@ -529,7 +556,7 @@ def other_card(w: dict, term: dict, wl: dict) -> str:
       <table class="sl-t">{acts}<tr><td class="sl">Coursework<small>{hrs(cons["coursework"])}</small></td><td>{e(w['coursework'])}</td></tr></table></div></div>"""
     return f"""
 <section class="card other" id="W{w['week']}">
-  <header><div class="num alt">W{w['week']}</div><div class="tt"><h3>{e(w['title'])}</h3></div>
+  <header><div class="num alt">Wk {w['week']}</div><div class="tt"><h3>{e(w['title'])}</h3></div>
     <div class="when">{"No lecture" if w["kind"] == "consolidation" else "Tuesday · unnumbered guest"}</div></header>
   {body}
 </section>"""
@@ -552,7 +579,7 @@ def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict, sources: di
         lab = term["laboratory"]["from_week"] <= n <= term["laboratory"]["to_week"]
         strip.append(f'<div class="wk k-{k}"><b>Week {n}</b><span>{e(name)}</span>'
                      f'{f"<i>{e(ev)}</i>" if ev else ""}{"<u></u>" if lab else ""}</div>')
-    mat = ['<table class="mx"><tr><th></th>' + "".join(f"<th>W{w['week']}</th>" for w in lectures) + "</tr>"]
+    mat = ['<table class="mx"><tr><th></th>' + "".join(f"<th>L{w['lecture']}</th>" for w in lectures) + "</tr>"]
     for ilo, name in ((4, "ILO 4 — stability and robustness"), (5, "ILO 5 — design, classical and modern"), (6, "ILO 6 — aircraft application")):
         cells = "".join(f'<td class="c{min(c, 3)}">{c or ""}</td>'
                         for c in (sum(1 for o in w["outcomes"] if o["ilo"] == ilo) for w in lectures))
@@ -566,8 +593,8 @@ def lecture_map(weeks: list[dict], term: dict, acts: dict, wl: dict, sources: di
                 prev_act = w["act"]
             if prev_lecture:
                 gap = w["week"] - prev_lecture["week"] > 1
-                cards.append(f'<div class="chain"><span>cliffhanger, week {prev_lecture["week"]}</span> {e(prev_lecture["cliffhanger"])} '
-                             f'<span>→ hook of week {w["week"]}{" (across the break)" if gap else ""}</span></div>')
+                cards.append(f'<div class="chain"><span>cliffhanger, lecture {prev_lecture["lecture"]}</span> {e(prev_lecture["cliffhanger"])} '
+                             f'<span>→ hook of lecture {w["lecture"]}{" (across the break)" if gap else ""}</span></div>')
             cards.append(lecture_card(w, term, wl, sources, when_of))
             prev_lecture = w
         else:
@@ -641,7 +668,7 @@ footer{{margin-top:28px;font-size:12px;color:var(--mut)}}
 
 # ------------------------------------------------------- generated blocks
 def home_table(weeks: list[dict]) -> str:
-    rows = ["| Week | Topic | Materials |", "|---|---|---|"]
+    rows = ["| | Topic | Materials |", "|---|---|---|"]
     for w in weeks:
         s = w["slug"]
         if w["kind"] == "lecture":
@@ -651,7 +678,8 @@ def home_table(weeks: list[dict]) -> str:
             links = f"[Details]({s}/index.md)"
         else:
             links = f"[Recommended activities]({s}/index.md)"
-        rows.append(f"| {w['week']} | {w['title']} | {links} |")
+        head = f"**Lecture {w['lecture']}**" if "lecture" in w else ""
+        rows.append(f"| {head} | {w['title']} | {links} |")
     return "\n".join(rows)
 
 
@@ -660,11 +688,11 @@ def session_cell(s: dict, term: dict, prefix_day: bool) -> str:
     w = s["w"]
     if w["kind"] == "consolidation":
         return f"[Consolidation week](../{w['slug']}/index.md): no lecture; recommended activities."
-    what = f"[{w['title']}](../{w['slug']}/index.md)"
+    what = f"[{label(w)}](../{w['slug']}/index.md)"
     if w.get("second_hour"):
         what += f"; then {w['second_hour'][0].lower() + w['second_hour'][1:]}."
     if prefix_day or s["moved"]:
-        what = f"**{session_when(s, term)}:** {what}"
+        what = f"**{session_when(s, term)}** {what}"
     return what
 
 
@@ -848,17 +876,18 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
     cw = term["coursework"]
     planned = wl["planned"]
 
-    rows = ["| Week | | What it covers |", "|---|---|---|"]
+    rows = ["| | | What it covers |", "|---|---|---|"]
     for w in weeks:
         act = f"Act {w['act']}" if w.get("act") else ""
+        head = f"**Lecture {w['lecture']}**" if "lecture" in w else ""
         if w["kind"] == "lecture":
-            rows.append(f"| **{w['week']}** | {act} | [{w['title']}]({w['slug']}/index.md) |")
+            rows.append(f"| {head} | {act} | [{w['title']}]({w['slug']}/index.md) |")
         elif w["kind"] == "consolidation":
-            rows.append(f"| **{w['week']}** | {act} | *Consolidation week. No lecture: "
+            rows.append(f"| {head} | {act} | *Consolidation week. No lecture: "
                         f"time to catch up, use the laboratory, and act on feedback.* |")
         else:
-            rows.append(f"| **{w['week']}** | {act} | *{w['title']}* |")
-    rows.append(f"| **{term['revision_week']}** | | *Revision week. Nothing new.* |")
+            rows.append(f"| {head} | {act} | *{w['title']}* |")
+    rows.append("| | | *Revision week. Nothing new.* |")
 
     spine = ["| Week | What the coursework asks of you |", "|---|---|"]
     for s in cw["steps"]:
@@ -874,11 +903,12 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         'week, how the coursework builds, and when the laboratory is open."',
         "---", "",
         "# How this unit runs", "",
-        "This page is the shape of the unit in one place: the weeks, what you are",
-        "expected to put into one, how the coursework builds, and when the laboratory",
-        "is open. It is written in **week numbers**, because those are a property of the",
-        "unit. Dates, rooms and deadlines live on Blackboard, which is the version to",
-        "trust when the two disagree.", "",
+        "This page is the shape of the unit in one place: the lectures, what you are",
+        "expected to put into a week, how the coursework builds, and when the laboratory",
+        "is open. The lectures are numbered in the order they are given, which is a",
+        "property of the unit; which week each one falls in is the map below, and that",
+        "can move. Dates, rooms and deadlines live on Blackboard, which is the version",
+        "to trust when the two disagree.", "",
         "## The term at a glance", "",
         f"Eleven weeks of content in {len(acts)} acts, then revision.", "",
         *([note, ""] if (note := schedule_note(weeks, term)) else []),
@@ -887,7 +917,7 @@ def curriculum_page(weeks: list[dict], term: dict, acts: dict, wl: dict) -> str:
         "![The control half week by week: what happens each week, the three acts, "
         "the coursework checkpoints and deadline, and the laboratory window]"
         "(figures/term-map.svg){ width=\"100%\" }", "",
-        "The same thing as a table, if you would rather read it or follow a link:", "",
+        "The lectures in order, if you would rather read them or follow a link:", "",
         *rows, "",
         "## What you are expected to invest", "",
         f"**About {per_week:g} hours in a lecture week**, including the lecture itself:", "",
@@ -967,7 +997,7 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
         for sn in r["sessions"]:
             w = sn["w"]
             st = state(w)
-            rows.append(f"| {w['week']} | {session_date(r['n'], sn['day'], term)} | {w['title']} "
+            rows.append(f"| {w['week']} | {session_date(r['n'], sn['day'], term)} | {label(w)} "
                         f"| {st} | {'yes' if st == 'published' else 'no'} |")
 
     needs = []
@@ -1165,6 +1195,7 @@ def main() -> None:
     weeks, acts, sources = src["weeks"], src["acts"], src.get("sources", {})
     term = yaml.safe_load((CUR / "term.yaml").read_text(encoding="utf-8"))
 
+    number_lectures(weeks)
     check_shape(weeks)
     if errors:
         for x in errors:

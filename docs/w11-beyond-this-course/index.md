@@ -1,5 +1,5 @@
 ---
-title: "Week 11: What comes next"
+title: "Lecture 9: What comes next"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w11-beyond-this-course
 order: 11
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 11: What comes next
+# Lecture 9: What comes next
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w11-beyond-this-course/index.html)

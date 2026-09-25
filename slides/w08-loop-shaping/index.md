@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 8"
-title: "Week 8: Loop shaping"
+footer: "Dr. Steve Bullock · Lecture 6"
+title: "Lecture 6: Loop shaping"
 description: "Placeholder deck for week 8."
 author: "Dr. Steve Bullock"
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Week 1 solutions: The design cycle, end to end"
+title: "Lecture 1 solutions: The design cycle, end to end"
 description: "Worked solutions to the week 1 example sheet."
 lesson: w01-design-cycle
 ---

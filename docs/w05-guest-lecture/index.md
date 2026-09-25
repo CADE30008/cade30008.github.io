@@ -1,10 +1,10 @@
 ---
-title: "Week 5: Guest lecture"
+title: "Guest lecture"
 description: The week 5 guest lecture for CADE30008 Flight Dynamics & Control.
 order: 5
 ---
 
-# Week 5: Guest lecture
+# Guest lecture
 
 !!! warning "To be confirmed"
     The speaker and topic are still to be confirmed.

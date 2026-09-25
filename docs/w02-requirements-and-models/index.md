@@ -1,5 +1,5 @@
 ---
-title: "Week 2: Requirements and models you can trust"
+title: "Lecture 2: Requirements and models you can trust"
 description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet written."
 lesson: w02-requirements-and-models
 order: 2
@@ -7,7 +7,7 @@ duration: 2 x 50 min
 status: draft
 ---
 
-# Week 2: Requirements and models you can trust
+# Lecture 2: Requirements and models you can trust
 
 <div class="lesson-links" markdown>
 [Slides](../slides/w02-requirements-and-models/index.html)

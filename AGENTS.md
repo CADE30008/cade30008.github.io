@@ -26,12 +26,25 @@ This file is for anyone editing the course materials, whether by hand or with an
 
 ## Weeks
 
-The control half is designed to the University calendar. **"Week n" is week n
-of teaching block 1**, and that is how every student-facing page names it; there
-is no separate lecture numbering. Folders are `wNN-topic`, NN the week
-(`docs/w08-loop-shaping/`). Eleven weeks of content: nine lecture weeks, the
-guest lecture in week 5, and the consolidation week in week 6, which has no
-lecture of any kind. Week 12 is revision week and carries nothing.
+The control half is designed to the University calendar, and two numbers run
+through it. **"Week n" is week n of teaching block 1**: it orders the content,
+names the folders (`wNN-topic`, NN the week, `docs/w08-loop-shaping/`), and is
+what the coursework steps and the laboratory window are counted in.
+**"Lecture n" counts the lectures in the order they are given**, and it is what
+students see: the nav, the page titles, the decks and the sheets are all
+numbered that way.
+
+They were the same number until a session moved out of its own week, and they
+can come apart again. The rule is that a student-facing label says *lecture*
+unless the thing it labels is a calendar, which is only the term map and the
+schedule table. Nine lectures, so lecture 9 sits in week 11. The guest lecture
+is not numbered and neither is the consolidation week, which has no lecture of
+any kind; both keep their titles, and the nav's order places them. Week 12 is
+revision week and carries nothing.
+
+Which week each lecture is actually taught in is `schedule` in
+`curriculum/term.yaml`, and `scripts/build_curriculum.py` derives both numbers.
+Never write either by hand.
 
 - **Changing what a week covers** starts in `curriculum/weeks.yaml`. Then run
   `npm run curriculum`: it fails, and says what to fix, until folders, handouts,
@@ -240,7 +253,7 @@ This applies in tables and definitions as much as in display maths.
 
 ### Don't refer to week numbers in student-facing material
 
-**No "we meet this in week 7", "see week 3", "covered in week 4."** Week numbers move between years, and students arriving from different programmes do not share a schedule. The material should read the same whenever it is met and whoever is reading it.
+**No "we meet this in week 7", "see week 3", "covered in lecture 4."** Week and lecture numbers move between years, and students arriving from different programmes do not share a schedule. The material should read the same whenever it is met and whoever is reading it.
 
 - Prefer naming the **idea**: "when we come to robustness", "the lecture on loop shaping".
 - If a pointer to a session is genuinely needed, say **lecture**, not week.

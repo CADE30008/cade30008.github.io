@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 7"
-title: "Week 7: Robustness and trade-offs"
+footer: "Dr. Steve Bullock · Lecture 5"
+title: "Lecture 5: Robustness and trade-offs"
 description: "Placeholder deck for week 7."
 author: "Dr. Steve Bullock"
 ---

@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 3"
-title: "Week 3: PID, properly"
+footer: "Dr. Steve Bullock · Lecture 3"
+title: "Lecture 3: PID, properly"
 description: "PID control of aircraft pitch attitude, through Bode plots and step responses"
 author: "Dr. Steve Bullock"
 ---

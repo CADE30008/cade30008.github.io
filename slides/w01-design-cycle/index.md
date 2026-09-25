@@ -3,8 +3,8 @@ marp: true
 theme: flightlab
 paginate: true
 header: "CADE30008 Flight Dynamics & Control"
-footer: "Dr. Steve Bullock · Week 1"
-title: "Week 1: The design cycle, end to end"
+footer: "Dr. Steve Bullock · Lecture 1"
+title: "Lecture 1: The design cycle, end to end"
 description: "The control design cycle run end to end on the laboratory helicopter: a failed open-loop flight, a measured model of the elevation axis, an agreed requirement, and the room's own gains flown."
 author: "Dr. Steve Bullock"
 ---
@@ -13,7 +13,7 @@ author: "Dr. Steve Bullock"
 
 # The design cycle, end to end
 
-## Week 1 · CADE30008 Flight Dynamics & Control
+## Lecture 1 · CADE30008 Flight Dynamics & Control
 
 Dr. Steve Bullock
 

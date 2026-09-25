@@ -1,7 +1,9 @@
 # The content of the control half of CADE30008, week by week.
 #
 # Designed to the University calendar: week n here is week n of teaching block
-# 1, and "Week n" is how every student-facing page names it. Eleven weeks of
+# 1. It orders the content and names the folders; what students see is
+# "Lecture n", counted over the lecture weeks in order and derived by
+# scripts/build_curriculum.py, so it is not written here. Eleven weeks of
 # content. Weeks with a lecture carry the full scope below; week 5 is the guest
 # lecture, and week 6 is the University's consolidation week, with no lecture
 # and recommended activities instead. Week 12 is revision week and carries no

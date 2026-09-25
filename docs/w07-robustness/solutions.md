@@ -1,5 +1,5 @@
 ---
-title: "Week 7 solutions: Robustness and trade-offs"
+title: "Lecture 5 solutions: Robustness and trade-offs"
 description: "Placeholder solutions for the lecture 5 example sheet."
 lesson: w07-robustness
 ---

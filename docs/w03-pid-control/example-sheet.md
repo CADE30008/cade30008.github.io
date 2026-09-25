@@ -1,5 +1,5 @@
 ---
-title: "Week 3 example sheet: PID, properly"
+title: "Lecture 3 example sheet: PID, properly"
 description: "About an hour of questions on PID control, steady-state error and loop shaping."
 lesson: w03-pid-control
 ---
