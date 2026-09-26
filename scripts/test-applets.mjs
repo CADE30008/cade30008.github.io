@@ -51,4 +51,4 @@ check("Kp = 6.5 flagged unstable", unstable.stable ? 1 : 0, 0, 0);
 console.log(bad ? `\n${bad} checks failed` : "\nall applet checks passed");
 process.exit(bad ? 1 : 0);
 
-// tracking: status=draft version=0 assisted=true
+// tracking: status=draft version=0

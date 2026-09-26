@@ -51,4 +51,4 @@ fclose(fid);
 fprintf('\nwrote %s\n', outFile);
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

@@ -3,7 +3,6 @@ title: "Run sheet: the design cycle, end to end"
 description: "Lecturer's run sheet for the first control session: preflight checks, the setup timeline, the session beat by beat, and what to do when the rig does not cooperate."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Run sheet: the design cycle, end to end

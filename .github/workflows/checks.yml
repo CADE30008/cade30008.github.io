@@ -63,4 +63,4 @@ jobs:
       # bad { .go } is caught on a pull request rather than at deploy time.
       - run: npm run live
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

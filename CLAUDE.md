@@ -22,4 +22,4 @@ programmes and the site outlives the cohort.
 
 Run `npm run check` and `npm run curriculum` before you finish.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

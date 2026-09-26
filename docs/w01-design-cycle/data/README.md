@@ -20,4 +20,4 @@ anything, or use `fit_second_order`, which does it for you.
 Replaced each year with a recording from the rig as it stands. A model fitted
 to last year's rig is a model of last year's rig.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 5."
 lesson: w07-robustness
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: Robustness and trade-offs

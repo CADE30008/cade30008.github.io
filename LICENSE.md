@@ -98,4 +98,4 @@ The site is built with [Zensical](https://zensical.org) and the slides with
 dependencies are listed in `requirements.txt` and `package.json` and are
 licensed by their authors.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

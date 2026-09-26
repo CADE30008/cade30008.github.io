@@ -4,7 +4,6 @@ description: "About an hour of questions on PID control, steady-state error and 
 lesson: w03-pid-control
 status: draft
 version: 0
-assisted: true
 ---
 
 # Example sheet: PID, properly

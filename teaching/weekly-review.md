@@ -138,4 +138,4 @@ prints them: the pages say to look on Blackboard, and STATUS.md carries it as a
 blocker. The announcement to send is in `teaching/announcements.md`, and it is
 deliberately held until both facts can go out together.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

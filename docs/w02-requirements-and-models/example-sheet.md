@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 2."
 lesson: w02-requirements-and-models
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: Requirements and models you can trust

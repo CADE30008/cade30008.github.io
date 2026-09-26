@@ -77,4 +77,4 @@ install, which is where these are tested. If it still will not open, say so
 rather than working around it: a file that does not open for you probably does
 not open for others either.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

@@ -3,7 +3,6 @@ title: "Session code"
 description: "The MATLAB files for the first session: fit the elevation axis, tune a controller, and submit your gains."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Session code

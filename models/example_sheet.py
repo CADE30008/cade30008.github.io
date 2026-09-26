@@ -136,4 +136,4 @@ ans["Q3"]["kp45_max_real_pole"] = max_real_pole(Kp45 * Gr)
 OUT.write_text(json.dumps(ans, indent=2) + "\n")
 print(json.dumps(ans, indent=2))
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

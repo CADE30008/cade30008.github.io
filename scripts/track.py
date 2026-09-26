@@ -32,6 +32,7 @@ would be signing off its own work. See AGENTS.md.
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import json
 import re
@@ -61,8 +62,30 @@ STATES = {**DECLARED, **COMPUTED}
 FIELDS = {
     "status": "How far this has got, and whether the sign-off still holds.",
     "version": "Sign-offs so far. 0 until a person approves it, then 1, 2, 3 as it is approved again.",
-    "assisted": "An AI assistant helped draft this at some point. Never goes back to false.",
+    "parts": "Only on piecewise pages: entries still needing a person's eye, over the number there are.",
     "checked": "Optional. When the facts in here that come from outside the repository were last verified.",
+}
+
+# Fields that used to be here. The stamper removes them, so a retired field
+# leaves the repository rather than lingering on whatever was not touched since.
+#
+# `assisted` recorded that an AI assistant had a hand in a file, computed from
+# git's Co-Authored-By trailers. It was true for all 188 files on the day it
+# was added, so it distinguished nothing, and the disclosure that matters is
+# the note AGENTS.md already requires in the document itself.
+RETIRED = ("assisted",)
+
+# ----------------------------------------------------------- piecewise pages
+# A page that is a hundred independent entries rather than one argument. Change
+# one glossary term and only that term needs reading again; making the whole
+# page lapse would mean re-reading ninety-seven definitions to find the one that
+# moved, which is the sort of check people stop doing.
+#
+# So these are fingerprinted per entry. The value is the element to split on.
+# `rows` means every table row outside the header, keyed by its first cell.
+PIECEWISE = {
+    "docs/glossary.md": "rows",
+    "docs/notation.md": "rows",
 }
 
 # ------------------------------------------------------------- what to track
@@ -102,6 +125,10 @@ SKIP = [
 ]
 
 
+def skip_reason(path: Path) -> str | None:
+    return next((why for pat, why in SKIP if path.match(pat)), None)
+
+
 def tracked() -> tuple[list[Path], list[tuple[Path, str]]]:
     """Every file this covers, and every file it deliberately does not."""
     out = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True, check=True)
@@ -109,11 +136,10 @@ def tracked() -> tuple[list[Path], list[tuple[Path, str]]]:
     for line in out.stdout.splitlines():
         p = Path(line)
         if p.suffix not in COMMENT:
-            reason = next((why for pat, why in SKIP if p.match(pat)), None)
-            if reason:
+            if reason := skip_reason(p):
                 skipped.append((p, reason))
             continue
-        if reason := next((why for pat, why in SKIP if p.match(pat)), None):
+        if reason := skip_reason(p):
             skipped.append((p, reason))
         else:
             keep.append(p)
@@ -154,7 +180,7 @@ def read_meta(path: Path) -> dict:
     text = (ROOT / path).read_text(encoding="utf-8")
     if has_front_matter(path, text):
         fm = FM.match(text).group(1)
-        return {k: parse(v.strip().strip('"')) for k in FIELDS
+        return {k: parse(v.strip().strip('"')) for k in (*FIELDS, *RETIRED)
                 for v in re.findall(rf"^{k}:\s*(.*)$", fm, re.M)}
     if m := re.search(rf"^\S*\s*{MARK}\s*(.*?)(?:\s*\*/|\s*-->)?$", text, re.M):
         return {k: parse(v) for k, v in (kv.split("=", 1) for kv in m.group(1).split() if "=" in kv)}
@@ -186,52 +212,26 @@ def write_meta(path: Path, meta: dict) -> bool:
 
 
 # -------------------------------------------------------------- fingerprints
-def fingerprint(path: Path) -> str:
-    """A hash of the content, with the tracking fields taken out.
+def without_meta(path: Path) -> str:
+    """The file's content with the tracking fields taken out.
 
-    Stamping a file must not invalidate its own sign-off, so the fields this
-    script writes are removed before hashing. Trailing space and runs of blank
-    lines go too, so reformatting does not read as a change of substance.
+    Stamping a file must not invalidate its own sign-off, so everything this
+    script writes comes out before anything is hashed. That caught a real one:
+    the `parts` count is written into the front matter, so a page whose entries
+    had just been approved would immediately report its own prose as changed.
     """
     text = (ROOT / path).read_text(encoding="utf-8")
     if has_front_matter(path, text):
         fm = FM.match(text).group(1)
         for k in FIELDS:
             fm = re.sub(rf"^{k}:.*\n", "", fm, flags=re.M)
-        text = fm + text[FM.match(text).end():]
-    else:
-        text = re.sub(rf"^\S*\s*{MARK}.*$\n?", "", text, flags=re.M)
-    text = re.sub(r"[ \t]+$", "", text, flags=re.M)
-    return hashlib.sha256(re.sub(r"\n{3,}", "\n\n", text).strip().encode()).hexdigest()[:12]
+        return fm + text[FM.match(text).end():]
+    return re.sub(rf"^\S*\s*{MARK}.*$\n?", "", text, flags=re.M)
 
 
-def assisted_paths() -> set[str]:
-    """Every path an AI assistant has had a hand in, taken from git.
-
-    Computed rather than declared. Nobody maintains a disclosure field on two
-    hundred files by hand, and git already knows: the assistant appears as a
-    Co-Authored-By trailer on the commits it helped make.
-
-    git's own author field is no use here. Every commit in this repository is
-    authored by its owner with the assistant in a trailer, so `git blame`
-    attributes all of it to one person and never shows the trailer. That is
-    also the answer to "who was the last author": the question git answers
-    badly, and the question that matters, are not the same one. Who is
-    responsible is the approver in review.lock.json.
-
-    Monotonic on purpose. A later edit by a person does not un-draft what came
-    before it, so this never goes back to false.
-    """
-    out = subprocess.run(
-        ["git", "log", "--format=%x00%(trailers:key=Co-Authored-By,valueonly,separator=;)", "--name-only"],
-        cwd=ROOT, capture_output=True, text=True, check=True)
-    seen, ai = set(), False
-    for line in out.stdout.splitlines():
-        if line.startswith("\0"):
-            ai = bool(line[1:].strip())
-        elif line.strip() and ai:
-            seen.add(line.strip())
-    return seen
+def fingerprint(path: Path) -> str:
+    """A hash of the whole file, for anything that is not piecewise."""
+    return digest(without_meta(path))
 
 
 def load_lock() -> dict:
@@ -242,38 +242,202 @@ def save_lock(lock: dict) -> None:
     LOCK.write_text(json.dumps(dict(sorted(lock.items())), indent=2) + "\n", encoding="utf-8")
 
 
-def resolve(path: Path, meta: dict, lock: dict) -> tuple[str, int]:
-    """The effective status and version: what the file declares, checked."""
+ROW = re.compile(r"^\|(?!\s*-+\s*\|)(.+)\|\s*$", re.M)
+
+
+def parts_of(path: Path) -> tuple[dict[str, str], dict[str, str]]:
+    """A piecewise page's entries: fingerprint by key, and the name to show.
+
+    The key is a slug, because it has to stay the same in the lock while the
+    entry is edited. The label is the first cell as written, because "r-rs" in
+    a report of what to go and read is no help to anyone.
+
+    Table rows, keyed by the first cell with the markup stripped, plus one
+    `(page)` entry for everything that is not a row. Without that last one the
+    prose around the tables would be the only unchecked thing on the page.
+
+    A repeated key would silently drop an entry, so a duplicate is kept under a
+    numbered name rather than overwriting: two glossary terms with the same
+    name is a fault to see, not one to hide.
+    """
+    text = without_meta(path)
+    parts, labels, rest = {}, {}, text
+    for m in ROW.finditer(text):
+        cells = [c.strip() for c in m.group(1).split("|")]
+        name = re.sub(r"[^a-z0-9]+", "-", re.sub(r"[*`\\()$]|\\mathrm|\[|\]", "", cells[0]).lower()).strip("-")
+        if not name or name in ("term", "symbol"):     # the header row
+            continue
+        key, n = name, 2
+        while key in parts:
+            key, n = f"{name}-{n}", n + 1
+        parts[key] = digest(m.group(0))
+        labels[key] = cells[0]
+        rest = rest.replace(m.group(0), "")
+    parts["(page)"] = digest(rest)
+    labels["(page)"] = "the prose around the tables"
+    return parts, labels
+
+
+def digest(text: str) -> str:
+    text = re.sub(r"[ \t]+$", "", text, flags=re.M)
+    return hashlib.sha256(re.sub(r"\n{3,}", "\n\n", text).strip().encode()).hexdigest()[:12]
+
+
+def resolve(path: Path, meta: dict, lock: dict) -> tuple[str, int, list[str]]:
+    """The effective status, version, and which entries still need an eye.
+
+    For an ordinary file the third value is empty and the whole file is one
+    thing. For a piecewise page it names the entries whose fingerprint has
+    moved since they were signed, which is the only part a person has to read.
+    """
     entry = lock.get(str(path))
     declared = meta.get("status") if meta.get("status") in DECLARED else "draft"
+    if str(path) in PIECEWISE:
+        now, _ = parts_of(path)
+        signed = (entry or {}).get("parts", {})
+        stale = sorted(k for k, v in now.items() if signed.get(k) != v)
+        gone = sorted(k for k in signed if k not in now)
+        if not entry:
+            return declared, 0, stale
+        if not stale and not gone:
+            return "approved", entry["version"], []
+        return "lapsed", entry["version"], stale + [f"{k} (removed)" for k in gone]
     if not entry:
-        return declared, 0
+        return declared, 0, []
     if entry["fingerprint"] == fingerprint(path):
-        return "approved", entry["version"]
-    return "lapsed", entry["version"]
+        return "approved", entry["version"], []
+    return "lapsed", entry["version"], []
 
 
 # ----------------------------------------------------------------- commands
-def report(stamp: bool) -> int:
-    files, skipped = tracked()
-    lock, ai = load_lock(), assisted_paths()
-    counts, lapsed, changed, unstamped = {}, [], [], []
-    for p in files:
-        meta = read_meta(p)
-        status, version = resolve(p, meta, lock)
-        counts[status] = counts.get(status, 0) + 1
-        if status == "lapsed":
-            lapsed.append(p)
-        want = {"status": status, "version": version,
-                "assisted": str(p) in ai or bool(meta.get("assisted")), "checked": meta.get("checked")}
-        if stamp:
-            if write_meta(p, want):
-                changed.append(p)
-        elif {k: meta.get(k) for k in ("status", "version", "assisted")} != {
-                k: want[k] for k in ("status", "version", "assisted")}:
-            unstamped.append(p)
+@functools.cache
+def lecture_names() -> dict[str, str]:
+    """Folder slug -> the name a person uses, from curriculum/weeks.yaml.
 
-    print(f"{len(files)} files tracked, {len(skipped)} not:")
+    Read rather than restated, so this cannot start calling something Lecture 5
+    after the curriculum has moved it.
+    """
+    import yaml
+    weeks = yaml.safe_load((ROOT / "curriculum" / "weeks.yaml").read_text(encoding="utf-8"))["weeks"]
+    out, n = {}, 0
+    for w in weeks:
+        if w["kind"] == "lecture":
+            n += 1
+            out[w["slug"]] = f"Lecture {n}"
+        else:
+            out[w["slug"]] = w["title"]
+    return out
+
+
+def group_of(path: Path) -> str:
+    """Which chunk a file belongs to.
+
+    A lecture is its handout, its deck, its sheets, its code and its run sheet,
+    wherever those sit in the tree, because that is the unit a person reviews.
+    Everything else falls into a few named groups rather than one "other": the
+    laboratory and the reference pages are also reviewed as a unit.
+    """
+    # Match on the wNN prefix rather than the whole folder name, so a run sheet
+    # at docs/staff/w01-run-sheet.md lands with its lecture instead of becoming
+    # a group of one.
+    by_number = {slug[:3]: slug for slug in lecture_names()}
+    for part in path.parts:
+        if (m := re.match(r"(w\d\d)-", part)) and m.group(1) in by_number:
+            return by_number[m.group(1)]
+    for folder, name in (("laboratory", "laboratory"), ("preparing", "preparing"),
+                         ("staff", "staff"), ("teaching", "teaching"), ("models", "models"),
+                         ("scripts", "tooling"), ("drive", "drive"), ("curriculum", "curriculum"),
+                         ("diagnostics", "diagnostics"), ("examples", "examples")):
+        if folder in path.parts:
+            return name
+    return "reference" if path.parts[0] == "docs" else "repository"
+
+
+def survey(lock: dict) -> tuple[dict, list, list]:
+    """Every tracked file's state, grouped by lecture."""
+    files, skipped = tracked()
+    groups: dict[str, list] = {}
+    for path in files:
+        meta = read_meta(path)
+        status, version, stale = resolve(path, meta, lock)
+        groups.setdefault(group_of(path), []).append(
+            {"path": path, "meta": meta, "status": status, "version": version, "stale": stale})
+    return groups, files, skipped
+
+
+BAR = {"outline": ".", "scoped": "-", "draft": "o", "approved": "#", "lapsed": "!"}
+
+
+def unapproved_published(lock: dict) -> list[tuple[Path, str, list[str]]]:
+    """Published pages that nobody has signed off, in the order they are listed.
+
+    publish.yaml's order is the order a person would read them: the front of
+    the site, then a lecture's handout before its sheets. Sorting alphabetically
+    would scatter that.
+    """
+    import yaml
+    cfg = yaml.safe_load((ROOT / "publish.yaml").read_text(encoding="utf-8"))
+    out = []
+    for rel in cfg["pages"]:
+        path = Path("docs") / rel
+        if not (ROOT / path).exists():
+            continue
+        # A generated page carries no sign-off of its own: its content comes
+        # from sources that are themselves tracked, and approving output that
+        # the next build rewrites would mean nothing. The gate bites upstream.
+        if skip_reason(path):
+            continue
+        status, _, stale = resolve(path, read_meta(path), lock)
+        if status != "approved":
+            out.append((path, status, stale))
+    return out
+
+
+def report(stamp: bool) -> int:
+    lock = load_lock()
+    groups, files, skipped = survey(lock)
+    counts, changed, unstamped, needs_eye = {}, [], [], []
+
+    for items in groups.values():
+        for it in items:
+            counts[it["status"]] = counts.get(it["status"], 0) + 1
+            if it["status"] == "lapsed" or (it["stale"] and it["version"]):
+                needs_eye.append(it)
+            want = {"status": it["status"], "version": it["version"],
+                    "parts": (f"{len(it['stale'])}/{len(parts_of(it['path'])[0])}"
+                              if str(it["path"]) in PIECEWISE else None),
+                    "checked": it["meta"].get("checked"),
+                    **{k: None for k in RETIRED}}
+            if stamp:
+                if write_meta(it["path"], want):
+                    changed.append(it["path"])
+            elif any(it["meta"].get(k) is not None for k in RETIRED) or \
+                    {k: it["meta"].get(k) for k in ("status", "version", "parts")} != {
+                        k: want[k] for k in ("status", "version", "parts")}:
+                unstamped.append(it["path"])
+
+    # The course, a line per lecture. One character per file, in the order the
+    # files come, so a lecture that is all scaffolding and one that is signed
+    # off do not look alike at a glance.
+    names = lecture_names()
+    print("The course, by lecture:\n")
+    rows = []
+    for name in sorted(groups, key=lambda g: (not g.startswith("w"), g)):
+        items = groups[name]
+        by: dict[str, int] = {}
+        for i in items:
+            by[i["status"]] = by.get(i["status"], 0) + 1
+        rows.append((names.get(name, name), name if name in names else "",
+                     "".join(BAR[i["status"]] for i in items),
+                     ", ".join(f"{n} {st}" for st, n in
+                               sorted(by.items(), key=lambda x: list(STATES).index(x[0])))))
+    w1 = max(len(r[0]) for r in rows)
+    w2 = max(len(r[2]) for r in rows)
+    for title, slug, bar, summary in rows:
+        print(f"  {title:{w1}s}  {bar:{w2}s}  {summary}")
+    print(f"\n  key: {'   '.join(f'{c} {st}' for st, c in BAR.items())}")
+
+    print(f"\n{len(files)} files tracked, {len(skipped)} not:")
     for state in STATES:
         if n := counts.get(state):
             print(f"  {n:4d}  {state:9s} {STATES[state]}")
@@ -283,10 +447,29 @@ def report(stamp: bool) -> int:
     for why, n in sorted(by_reason.items(), key=lambda x: -x[1]):
         print(f"  {n:4d}  {'':9s} not tracked: {why}")
 
-    if lapsed:
-        print(f"\n{len(lapsed)} approved and edited since; re-approve or revert:")
-        for p in lapsed:
-            print(f"  {p}")
+    if needs_eye:
+        print(f"\nNeeds a person's eye ({len(needs_eye)}):")
+        for it in needs_eye:
+            if it["stale"]:
+                labels = parts_of(it["path"])[1]
+                shown = [labels.get(k, k) for k in it["stale"][:6]]
+                more = f", and {len(it['stale']) - 6} more" if len(it["stale"]) > 6 else ""
+                print(f"  {it['path']}: {len(it['stale'])} of "
+                      f"{len(parts_of(it['path'])[0])} entries")
+                print(f"      {'; '.join(shown)}{more}")
+            else:
+                print(f"  {it['path']}: edited since it was signed off")
+
+    # What the live build is waiting on. Publication needs two decisions from a
+    # person, publish.yaml and a sign-off, and this is the second one's queue.
+    if blocking := unapproved_published(lock):
+        print(f"\nBlocking the live site ({len(blocking)}), in review order:")
+        for path, status, stale in blocking:
+            note = f"  ({len(stale)} of its entries)" if stale else ""
+            print(f"  {status:8s} {path}{note}")
+        print("\n  npm run approve -- --by \"Your Name\" \\\n    "
+              + " \\\n    ".join(str(b[0]) for b in blocking))
+
     if changed:
         print(f"\nstamped {len(changed)} files")
     if unstamped:
@@ -296,16 +479,42 @@ def report(stamp: bool) -> int:
 
 
 def approve(paths: list[str], by: str) -> int:
+    """Record a sign-off.
+
+    A piecewise page can be signed whole or one entry at a time: pass
+    `docs/glossary.md` for all of it, or `docs/glossary.md:gain-margin` for the
+    one entry that moved. Either way the version goes up, because a sign-off
+    happened; what differs is how much of the page it covers.
+    """
     lock = load_lock()
     for raw in paths:
-        p = Path(raw).resolve().relative_to(ROOT) if Path(raw).is_absolute() else Path(raw)
-        if not (ROOT / p).exists():
-            print(f"error    no such file: {p}")
+        raw, _, part = raw.partition(":")
+        path = Path(raw).resolve().relative_to(ROOT) if Path(raw).is_absolute() else Path(raw)
+        if not (ROOT / path).exists():
+            print(f"error    no such file: {path}")
             return 1
-        entry = lock.get(str(p), {"version": 0})
-        lock[str(p)] = {"fingerprint": fingerprint(p), "version": entry["version"] + 1,
-                        "approver": by, "date": date.today().isoformat()}
-        print(f"approved {p} as version {lock[str(p)]['version']}, by {by}")
+        key = str(path)
+        entry = lock.get(key, {"version": 0})
+        entry = {**entry, "version": entry["version"] + 1, "approver": by,
+                 "date": date.today().isoformat()}
+        if key in PIECEWISE:
+            now, labels = parts_of(path)
+            if part:
+                if part not in now:
+                    print(f"error    {path} has no entry {part!r}; "
+                          f"npm run track names the ones that need it")
+                    return 1
+                entry["parts"] = {**entry.get("parts", {}), part: now[part]}
+                print(f"approved {path}: {labels[part]}, as version {entry['version']}, by {by}")
+            else:
+                # Entries that have gone are dropped rather than kept: a
+                # sign-off on a page that no longer has them means nothing.
+                entry["parts"] = now
+                print(f"approved {path}: all {len(now)} entries, as version {entry['version']}, by {by}")
+        else:
+            entry["fingerprint"] = fingerprint(path)
+            print(f"approved {path} as version {entry['version']}, by {by}")
+        lock[key] = entry
     save_lock(lock)
     return report(stamp=True)
 
@@ -342,3 +551,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# tracking: status=draft version=0

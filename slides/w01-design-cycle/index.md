@@ -9,7 +9,6 @@ description: "The control design cycle run end to end on the laboratory helicopt
 author: "Dr. Steve Bullock"
 status: draft
 version: 0
-assisted: true
 ---
 
 <!-- _class: title -->

@@ -178,4 +178,4 @@ t = e.Time;
 y = e.Data;
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

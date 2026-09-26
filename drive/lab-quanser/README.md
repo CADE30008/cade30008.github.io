@@ -43,4 +43,4 @@ those. Keep everything in one folder.
 the manufacturer's model of the whole machine. Read the comments at the top of
 each before running it, particularly about what that model leaves out.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

@@ -98,4 +98,4 @@ against a notional 100. Drawn at the top of the lecture map and written into
 week 1's "your week" table by `npm run curriculum`. Example sheets must now be sized to
 about an hour, and the handout's core to about 45 minutes' rereading.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

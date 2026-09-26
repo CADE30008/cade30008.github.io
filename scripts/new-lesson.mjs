@@ -256,4 +256,4 @@ if (written) {
   console.log(`\nAdd "Week ${n}: ${title}" to nav in zensical.toml and an entry to curriculum/weeks.yaml, then run npm run curriculum.`);
 }
 
-// tracking: status=draft version=0 assisted=true
+// tracking: status=draft version=0

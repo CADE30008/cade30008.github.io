@@ -4,7 +4,6 @@ description: "Placeholder solutions for the lecture 8 example sheet."
 lesson: w10-state-space
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Solutions: State space and state feedback

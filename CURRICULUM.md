@@ -365,4 +365,4 @@ half's footing.
 - Meyer, J. H. F. and Land, R. (2005). Threshold concepts and troublesome knowledge (2). *Higher Education*, 49(3), 373–388. [doi:10.1007/s10734-004-6779-5](https://doi.org/10.1007/s10734-004-6779-5).
 - Engineering Council. [AHEP fourth edition: defining characteristics and learning outcomes](http://www.engc.org.uk/media/1bvlh55m/defining-characteristics-and-learning-outcomes-aaqa-first-edition-and-ahep-fourth-edition.pdf). The UK accreditation standard for engineering degrees. Not yet mapped against this unit; worth doing if the programme's accreditation review asks for it.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

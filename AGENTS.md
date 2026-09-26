@@ -83,7 +83,7 @@ everywhere else they are one comment line at the foot of the file.
 |---|---|
 | `status` | How far it has got, and whether the sign-off still holds. |
 | `version` | Sign-offs so far. `0` until a person approves it, then 1, 2, 3 as it is approved again. |
-| `assisted` | An AI assistant has had a hand in it. Computed from git's `Co-Authored-By` trailers, and never goes back to false. |
+| `parts` | Only on piecewise pages: how many of its entries still need a person's eye. |
 | `checked` | Optional. When the facts in here that come from outside the repository were last verified. |
 
 `status` has five values. The first three are a person's judgement and are set
@@ -102,9 +102,36 @@ records a hash of the content in `review.lock.json`; edit the file afterwards
 and the next `npm run track` marks it `lapsed` without being asked. That is the
 whole point: a word in a header is a claim, and a fingerprint is a check.
 
-**Publication is not a status.** [publish.yaml](publish.yaml) decides what is
-live, and a second place to say it would be a second place to be wrong.
-STATUS.md joins the two.
+**Publication is not a status, and it is gated on one.** [publish.yaml](publish.yaml)
+says what is meant to be live; the sign-off says a person has read it. A page
+needs both, and `scripts/build_live.py` fails the build if a listed page is not
+`approved`. It fails rather than dropping the page, because dropping it would
+silently unpublish something students are already using; failing leaves the last
+good deploy up and ships nothing new until the gate is passed.
+
+A generated page carries no sign-off of its own. Its content comes from sources
+that are tracked in their own right, so the gate bites upstream and approving
+output that the next build rewrites would mean nothing.
+
+### Pages made of many small things
+
+A glossary is a hundred independent entries, not one argument. Change one term
+and only that term needs reading again; making the whole page lapse would mean
+re-reading ninety-seven definitions to find the one that moved, which is the
+sort of check people stop doing.
+
+So `docs/glossary.md` and `docs/notation.md` are fingerprinted **per entry**,
+one per table row plus one for the prose around the tables. `npm run track`
+names the entries that have moved, and either the page or a single entry can be
+signed:
+
+```bash
+npm run approve -- --by "Your Name" docs/glossary.md              # all of it
+npm run approve -- --by "Your Name" docs/glossary.md:gain-margin  # one entry
+```
+
+`scripts/track.py`'s `PIECEWISE` says which pages work this way. Add a page
+there when it becomes a list rather than an argument.
 
 Three consequences when editing:
 
@@ -115,9 +142,14 @@ Three consequences when editing:
 - **Editing an approved file is fine**, and it will go `lapsed`. Say so in the
   change; don't re-approve it.
 
+`npm run track` also prints the course by lecture, one character per file, so a
+lecture whose handout is signed off but whose deck is still scaffolding does not
+look finished. STATUS.md carries the same thing as a table.
+
 Left untracked, and reported as such by `npm run track`: generated files,
-binaries, JSON (no comment syntax), and CSV (a header line changes what parsers
-read). `scripts/track.py` holds the list with a reason against each.
+binaries, JSON (no comment syntax), CSV (a header line changes what parsers
+read), and `docs/includes/`, whose contents are appended to every page.
+`scripts/track.py` holds the list with a reason against each.
 
 ## The sync contract
 
@@ -451,4 +483,4 @@ npm run build       # all of the above, curriculum first
 - When reviewing content against those principles, report findings citing principle IDs, in the format `PEDAGOGY.md` gives, and change nothing until a person agrees. Flagging a mismatch is the job; some mismatches are the principle's fault, not the content's.
 - Documents drafted with AI assistance, such as proposals, rubrics and process documents, carry a note in their front-page header saying so, with a footnote that final versions of all process and assignment documents, and of all student-facing and back-office code, will be fully checked manually. Keep the note when editing them, and add it to new ones. Coursework briefs don't carry it.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

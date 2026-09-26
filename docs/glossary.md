@@ -3,7 +3,7 @@ title: Glossary
 description: Plain definitions of the terms used across CADE30008 Flight Dynamics & Control.
 status: draft
 version: 0
-assisted: true
+parts: 88/88
 ---
 
 # Glossary

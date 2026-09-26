@@ -4,7 +4,6 @@ description: Recommended consolidation activities for week 6 of CADE30008 Flight
 order: 6
 status: draft
 version: 0
-assisted: true
 ---
 
 # Consolidation week

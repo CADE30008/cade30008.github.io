@@ -74,4 +74,4 @@ e.vMax = e.vMotorSat;
 e.vOp  = e.vElevTrim / 2;
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

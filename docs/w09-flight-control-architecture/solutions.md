@@ -4,7 +4,6 @@ description: "Placeholder solutions for the lecture 6 example sheet."
 lesson: w09-flight-control-architecture
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Solutions: Flight control architecture

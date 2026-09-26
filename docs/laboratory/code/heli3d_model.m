@@ -76,4 +76,4 @@ p.Vop = 8.0;                % volts that hold the arm up; see heli_envelope.
 p.Vmax = 24;                % what the amplifier can deliver
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

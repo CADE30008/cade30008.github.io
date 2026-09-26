@@ -3,7 +3,6 @@ title: "Laboratory code"
 description: "The MATLAB files for the laboratory sessions: fit your own recordings, design against them, and extend to all three axes."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Laboratory code

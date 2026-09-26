@@ -9,7 +9,6 @@ description: "PID control of aircraft pitch attitude, through Bode plots and ste
 author: "Dr. Steve Bullock"
 status: draft
 version: 0
-assisted: true
 ---
 
 <style>

@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 4."
 lesson: w04-stability-margins
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: Stability and margins

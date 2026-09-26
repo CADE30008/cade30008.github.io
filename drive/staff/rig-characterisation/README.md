@@ -205,4 +205,4 @@ npm run drive -- --bump
 
 The second one is what tells students their copy is stale.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

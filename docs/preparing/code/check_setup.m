@@ -88,4 +88,4 @@ function ok = report(label, ok, detail)
     end
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

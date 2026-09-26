@@ -116,4 +116,4 @@ workload:
     examples: 1.0
     next_case: 0.25
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

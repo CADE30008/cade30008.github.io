@@ -75,4 +75,4 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v4
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

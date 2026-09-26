@@ -3,7 +3,6 @@ title: "How the rig is wired"
 description: "Photographs of the Quanser 3-DOF helicopter's connections: motors, encoders, the Q8-USB board and the VoltPAQ amplifier, with what plugs into what."
 status: draft
 version: 0
-assisted: true
 ---
 
 # How the rig is wired

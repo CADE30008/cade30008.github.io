@@ -173,4 +173,4 @@ Record the check here:
 |---|---|---|---|
 | Before week 1 | | | |
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

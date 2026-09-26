@@ -87,4 +87,4 @@ See `models/quanser_trim_stiffness.py` for where the stiffness comes from and
 `models/rig_trim_sweep.m` for the experiment that settles whether one model
 covers the working range.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

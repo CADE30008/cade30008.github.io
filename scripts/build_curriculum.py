@@ -39,6 +39,9 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import track                                                     # noqa: E402
 CUR = ROOT / "curriculum"
 DOCS = ROOT / "docs"
 SLIDES = ROOT / "slides"
@@ -995,7 +998,20 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
         page = DOCS / w["slug"] / "index.md"
         return front_matter(page).get("status", "draft") if page.exists() else "missing"
 
-    rows = ["| Week | Taught | Session | State | Live |", "|---|---|---|---|---|"]
+    # Every file of a lecture, not just its handout: a handout that is signed
+    # off while its deck and example sheet are scaffolding is not a lecture
+    # that is ready, and one row per week was hiding that.
+    by_group = track.survey(track.load_lock())[0]
+
+    def files_of(w: dict) -> str:
+        items = by_group.get(w["slug"], [])
+        counts: dict[str, int] = {}
+        for i in items:
+            counts[i["status"]] = counts.get(i["status"], 0) + 1
+        return ", ".join(f"{n} {st}" for st, n in
+                         sorted(counts.items(), key=lambda x: list(track.STATES).index(x[0]))) or "none"
+
+    rows = ["| Week | Taught | Session | Handout | Its files | Live |", "|---|---|---|---|---|---|"]
     for r in calendar(weeks, term):
         for sn in r["sessions"]:
             w = sn["w"]
@@ -1004,7 +1020,7 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
             # the second one is a person's.
             live = "yes" if f"{w['slug']}/index.md" in pages else "no"
             rows.append(f"| {w['week']} | {session_date(r['n'], sn['day'], term)} | {label(w)} "
-                        f"| {state(w)} | {live} |")
+                        f"| {state(w)} | {files_of(w)} | {live} |")
 
     needs = []
     for w in weeks:
@@ -1042,9 +1058,12 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
         "",
         "States are `scripts/track.py`'s: `outline` and `scoped` are scaffolding and are",
         "skipped by the sync check, `draft` is written but not signed off, `approved` is",
-        "signed off, and `lapsed` was signed off and has been edited since. Live is",
-        "`publish.yaml`, which is a separate decision and a person's. ",
-        f"**{unwritten} of {len(weeks)} weeks are still unwritten.**",
+        "signed off, and `lapsed` was signed off and has been edited since. **Its files**",
+        "counts everything that lecture owns: handout, deck, example sheet, solutions,",
+        "code and run sheet. Live is `publish.yaml`, and a page needs both that and a",
+        "sign-off before the live build will ship it. ",
+        f"**{unwritten} of {len(weeks)} weeks are still unwritten**, and ",
+        f"{len(track.unapproved_published(track.load_lock()))} published pages are waiting on a sign-off.",
         "",
         *rows,
         "",
@@ -1276,4 +1295,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

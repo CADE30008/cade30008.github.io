@@ -93,4 +93,4 @@ fprintf('Saved %s: %d samples, %.2f to %.2f s, from %s\n', ...
     file, n, vars.outputTime(1), vars.outputTime(end), strjoin(found, ', '));
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

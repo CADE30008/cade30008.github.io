@@ -71,4 +71,4 @@ The three are a loop: the weekly review feeds the annual update, and the annual
 update resets the announcements. Skipping the weekly one doesn't cost anything
 until August, which is exactly why it gets skipped.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

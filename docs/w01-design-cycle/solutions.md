@@ -4,7 +4,6 @@ description: "Worked solutions to the week 1 example sheet."
 lesson: w01-design-cycle
 status: draft
 version: 0
-assisted: true
 ---
 
 # Solutions: The design cycle, end to end

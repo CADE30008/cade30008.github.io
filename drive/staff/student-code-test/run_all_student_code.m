@@ -108,4 +108,4 @@ function s = tf(ok)
 if ok; s = 'ok'; else; s = 'FAILED'; end
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

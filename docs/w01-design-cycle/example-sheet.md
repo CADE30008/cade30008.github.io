@@ -4,7 +4,6 @@ description: "About an hour of questions on reading a second-order response, wha
 lesson: w01-design-cycle
 status: draft
 version: 0
-assisted: true
 ---
 
 # Example sheet: The design cycle, end to end

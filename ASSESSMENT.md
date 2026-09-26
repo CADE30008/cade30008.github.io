@@ -508,4 +508,4 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
 - Blackboard. [Grade journals](https://help.blackboard.com/Learn/Instructor/Ultra/Interact/Journals/Grade_Journals) and [Peer review for qualitative peer assessments](https://help.blackboard.com/Learn/Instructor/Ultra/Assignments/Self_and_Peer_Assessment/Peer_Review_for_Qualitative_Peer_Assessments).
 - Constructive alignment and the SOLO taxonomy are referenced in [PEDAGOGY.md](PEDAGOGY.md).
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

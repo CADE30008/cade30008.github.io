@@ -6,7 +6,6 @@ order: 1
 duration: 2 x 50 min
 status: draft
 version: 0
-assisted: true
 ---
 
 # Lecture 1: The design cycle, end to end

@@ -502,4 +502,4 @@ save(fig, "windup")
 
 print(json.dumps(numbers, indent=2))
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

@@ -9,7 +9,6 @@ description: "Placeholder deck for week 10."
 author: "Dr. Steve Bullock"
 status: scoped
 version: 0
-assisted: true
 ---
 
 <!-- _class: title -->

@@ -157,4 +157,4 @@ legend('measured', 'geometric: \propto sqrt(sin(trim))', 'linear: constant', ...
 title('Does the natural frequency depend on the trim?');
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

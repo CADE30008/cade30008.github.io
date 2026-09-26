@@ -40,13 +40,39 @@ IN_PROGRESS = " · in progress"
 
 problems: list[str] = []
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import track                                                    # noqa: E402
+
+lock = track.load_lock()
+
 
 def published_pages() -> tuple[set[str], str]:
+    """What publish.yaml lists, checked against the approval gate.
+
+    Two decisions, both a person's, and both required: publish.yaml says what
+    is meant to be live, and the sign-off in review.lock.json says it has been
+    read by someone who put their name to it. A page needs both.
+
+    An unapproved page fails the build rather than being dropped from the site.
+    Dropping it would silently unpublish something students are already using;
+    failing it leaves the last good deploy up and releases nothing new until
+    the gate is passed. See scripts/track.py.
+    """
     cfg = yaml.safe_load((ROOT / "publish.yaml").read_text(encoding="utf-8"))
     pages = set(cfg["pages"])
-    for p in pages:
+    for p in sorted(pages):
         if not (DOCS / p).exists():
             problems.append(f"publish.yaml lists {p}, which doesn't exist")
+            continue
+        page = Path("docs") / p
+        if track.skip_reason(page):        # generated; gated on its sources instead
+            continue
+        status, _, stale = track.resolve(page, track.read_meta(page), lock)
+        if status == "approved":
+            continue
+        where = f"; {len(stale)} entries need it" if stale else ""
+        problems.append(f"{p} is {status}, not approved, so it cannot go live{where}. "
+                        f"Review it, then: npm run approve -- --by \"NAME\" docs/{p}")
     return pages, cfg["site_url"]
 
 
@@ -219,4 +245,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

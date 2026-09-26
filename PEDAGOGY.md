@@ -1067,4 +1067,4 @@ Recorded so they are not lost. Numbered for reference in discussion.
   advanced unit exists. Option B gives state space one lecture of nine. See
   [CURRICULUM.md](CURRICULUM.md) §7 for the three questions to ask.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

@@ -6,7 +6,6 @@ order: 3
 duration: 2 x 50 min
 status: draft
 version: 0
-assisted: true
 ---
 
 # Lecture 3: PID, properly

@@ -39,4 +39,4 @@ fprintf(['SEND ME: for the two accepted sets, the overshoot and settling time\n'
          'whole sim-against-hardware story for the session.\n']);
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

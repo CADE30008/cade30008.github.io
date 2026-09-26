@@ -3,7 +3,6 @@ title: "Laboratory part 3: find out what the model left out"
 description: "Back at the rig: fly the controller you designed, compare what happens with what you predicted, and account for the difference."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Part 3: find out what the model left out

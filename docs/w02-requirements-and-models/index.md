@@ -6,7 +6,6 @@ order: 2
 duration: 2 x 50 min
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Lecture 2: Requirements and models you can trust

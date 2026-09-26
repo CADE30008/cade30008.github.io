@@ -6,7 +6,6 @@ order: 9
 duration: 2 x 50 min
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Lecture 7: Flight control architecture

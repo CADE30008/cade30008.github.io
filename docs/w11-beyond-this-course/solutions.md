@@ -4,7 +4,6 @@ description: "Placeholder solutions for the lecture 9 example sheet."
 lesson: w11-beyond-this-course
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Solutions: What comes next

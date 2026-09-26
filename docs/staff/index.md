@@ -3,7 +3,6 @@ title: "Staff area"
 description: "Everything for running the unit in one place: run sheets, the curriculum map, and the MATLAB Drive folders."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Staff area

@@ -43,4 +43,4 @@ for name, key, pv, mv, status in rows:
 print(f"\n{len(rows) - bad}/{len(rows)} numbers agree")
 sys.exit(1 if bad else 0)
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

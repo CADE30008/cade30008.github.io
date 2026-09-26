@@ -33,4 +33,4 @@ if (problems.length) {
   process.exit(1);
 }
 
-// tracking: status=draft version=0 assisted=true
+// tracking: status=draft version=0

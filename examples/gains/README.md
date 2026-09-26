@@ -36,4 +36,4 @@ Kestrel,6.0,0.18,14.0
 everyone can see everyone's submission** — which is why an alias is offered, and
 why students are told that before they upload, not after.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

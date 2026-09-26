@@ -3,7 +3,6 @@ title: "Laboratory part 2: design away from the machine"
 description: "Between sessions: fit a model to what you recorded, design a controller against a requirement you have written down, and predict what will happen before you go back."
 status: draft
 version: 0
-assisted: true
 ---
 
 # Part 2: design away from the machine

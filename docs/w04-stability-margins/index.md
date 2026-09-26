@@ -6,7 +6,6 @@ order: 4
 duration: 2 x 50 min
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Lecture 4: Stability and margins

@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 6."
 lesson: w08-loop-shaping
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: Loop shaping

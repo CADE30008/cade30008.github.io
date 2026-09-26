@@ -3,7 +3,7 @@ title: Notation
 description: Every symbol used in this half of the unit, what it means, and the alternatives you may have met elsewhere.
 status: draft
 version: 0
-assisted: true
+parts: 43/43
 ---
 
 # Notation

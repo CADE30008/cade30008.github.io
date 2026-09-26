@@ -3,7 +3,6 @@ title: AI in this course
 description: How I think about generative AI in engineering and in learning, how I used it to make these materials, and how to send me feedback.
 status: draft
 version: 0
-assisted: true
 ---
 
 # AI in this course

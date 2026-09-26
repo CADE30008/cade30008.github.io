@@ -190,4 +190,4 @@ Step 5 is the one that gets skipped, because the old links still open — for
 *you*. A stale link from last year's folder will show this year's students last
 year's material, or silently accept their work into a folder nobody reads.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

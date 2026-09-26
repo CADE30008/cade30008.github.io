@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 9."
 lesson: w11-beyond-this-course
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: What comes next

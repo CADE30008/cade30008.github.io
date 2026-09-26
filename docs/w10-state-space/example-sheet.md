@@ -4,7 +4,6 @@ description: "Placeholder example sheet for lecture 8."
 lesson: w10-state-space
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Example sheet: State space and state feedback

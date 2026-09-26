@@ -44,4 +44,4 @@ npm run drive -- --bump     # copy out, and bump the version
 The version line in each README is rewritten by the script, so leave it alone;
 what you maintain by hand is the changelog table in `README.md`.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

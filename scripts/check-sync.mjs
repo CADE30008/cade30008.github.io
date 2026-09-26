@@ -201,4 +201,4 @@ if (args.has("--json")) {
 }
 process.exit(errors.length || (args.has("--strict") && warnings.length) ? 1 : 0);
 
-// tracking: status=draft version=0 assisted=true
+// tracking: status=draft version=0

@@ -49,4 +49,4 @@ document$.subscribe(() => {
   }
 });
 
-// tracking: status=draft version=0 assisted=true
+// tracking: status=draft version=0

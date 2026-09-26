@@ -152,4 +152,4 @@ if ~isfolder(DATA_DIR)
     fprintf(2, '  NOTE: %s does not exist yet. Make it before the session.\n', DATA_DIR);
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

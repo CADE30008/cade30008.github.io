@@ -3,4 +3,4 @@ themeSet: node_modules/flightlab-marp-template/themes
 html: true              # needed for applet iframes and <div class="columns">
 allowLocalFiles: true   # lets PDF export read figures from docs/
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

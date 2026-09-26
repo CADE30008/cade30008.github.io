@@ -186,4 +186,4 @@ error('s1_identify:noData', ...
      'or in a data folder next to it.'], name, strjoin(candidates(1:3), '\n  '));
 end
 
-% tracking: status=draft version=0 assisted=true
+% tracking: status=draft version=0

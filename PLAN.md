@@ -90,4 +90,4 @@ Tick milestones and add notes to the log at the bottom as work lands.
   warnings. Applet fixes: label layout, 0.001 slider steps, and no drawing
   while hidden. README added. Dev server restarted for Steve on :8000.
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

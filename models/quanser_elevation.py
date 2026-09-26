@@ -377,4 +377,4 @@ def gain_range(L, lo: float = 1e-3, hi: float = 1e3, n: int = 400) -> tuple[floa
         up = a
     return down, up
 
-# tracking: status=draft version=0 assisted=true
+# tracking: status=draft version=0

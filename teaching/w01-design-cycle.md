@@ -323,4 +323,4 @@ Set the independent work in the last two minutes, by P17's three parts.
 - [ ] Check who did not submit anything: earliest signal of a student in
       difficulty (P16).
 
-<!-- tracking: status=draft version=0 assisted=true -->
+<!-- tracking: status=draft version=0 -->

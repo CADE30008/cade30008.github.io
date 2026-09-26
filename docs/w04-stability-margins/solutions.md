@@ -4,7 +4,6 @@ description: "Placeholder solutions for the lecture 4 example sheet."
 lesson: w04-stability-margins
 status: scoped
 version: 0
-assisted: true
 ---
 
 # Solutions: Stability and margins
