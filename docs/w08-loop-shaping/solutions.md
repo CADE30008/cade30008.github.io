@@ -2,6 +2,9 @@
 title: "Lecture 6 solutions: Loop shaping"
 description: "Placeholder solutions for the lecture 3 example sheet."
 lesson: w08-loop-shaping
+status: scoped
+version: 0
+assisted: true
 ---
 
 # Solutions: Loop shaping

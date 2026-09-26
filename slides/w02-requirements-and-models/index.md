@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 2"
 title: "Lecture 2: Requirements and models you can trust"
 description: "Placeholder deck for week 2."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

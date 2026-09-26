@@ -67,3 +67,5 @@ for (const p of pages) {
 await browser.close();
 server.close();
 process.exit(failed ? 1 : 0);
+
+// tracking: status=draft version=0 assisted=true

@@ -20,3 +20,5 @@ print(f"peak elevator = {np.max(np.abs(u)):.1f} deg")
 
 # (b) Scale Kp, Ki and Kd by the same factor k and search for the largest k
 #     meeting the requirements. Your code here.
+
+# tracking: status=draft version=0 assisted=true

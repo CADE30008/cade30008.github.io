@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 1"
 title: "Lecture 1: The design cycle, end to end"
 description: "The control design cycle run end to end on the laboratory helicopter: a failed open-loop flight, a measured model of the elevation axis, an agreed requirement, and the room's own gains flown."
 author: "Dr. Steve Bullock"
+status: draft
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

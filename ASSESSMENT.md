@@ -507,3 +507,5 @@ the in-lecture build (P8) is what P10 says the coursework must mirror.
 - University of Bristol. [Using AI in assessment](https://www.bristol.ac.uk/bilt/sharing-practice/guides/guidance-on-ai/using-ai-in-assessment/) (staff) and [Using AI in assessments and for studying](https://www.bristol.ac.uk/students/support/academic-advice/using-artificial-intelligence/) (students).
 - Blackboard. [Grade journals](https://help.blackboard.com/Learn/Instructor/Ultra/Interact/Journals/Grade_Journals) and [Peer review for qualitative peer assessments](https://help.blackboard.com/Learn/Instructor/Ultra/Assignments/Self_and_Peer_Assessment/Peer_Review_for_Qualitative_Peer_Assessments).
 - Constructive alignment and the SOLO taxonomy are referenced in [PEDAGOGY.md](PEDAGOGY.md).
+
+<!-- tracking: status=draft version=0 assisted=true -->

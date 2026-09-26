@@ -39,3 +39,5 @@ for (const lesson of lessons) {
   }
 }
 process.exit(failed ? 1 : 0);
+
+// tracking: status=draft version=0 assisted=true

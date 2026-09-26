@@ -15,3 +15,5 @@ info = ct.step_info(T_ref, SettlingTimeThreshold=0.02)
 print(f"PM = {pm:.1f} deg at {wc:.2f} rad/s, GM = {gm:.1f}")
 print(f"rise {info['RiseTime']:.2f} s, overshoot {info['Overshoot']:.1f} %, "
       f"settling {info['SettlingTime']:.2f} s")
+
+# tracking: status=draft version=0 assisted=true

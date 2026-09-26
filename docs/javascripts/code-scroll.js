@@ -48,3 +48,5 @@ document$.subscribe(() => {
     setUp(code);
   }
 });
+
+// tracking: status=draft version=0 assisted=true

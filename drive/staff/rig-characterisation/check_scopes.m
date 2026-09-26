@@ -66,3 +66,5 @@ else
     fprintf('\nNo scope is limiting its data. A short recording is not this.\n');
 end
 end
+
+% tracking: status=draft version=0 assisted=true

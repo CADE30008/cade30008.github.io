@@ -113,3 +113,5 @@ If LaTeX does not render, every equation goes through the WIRIS editor by hand.
 There are 11 questions, 28 options and 11 worked routes, nearly all with
 several equations in them. That is the point at which Numbas is the cheaper
 answer, and the one the question set was written for.
+
+<!-- tracking: status=draft version=0 assisted=true -->

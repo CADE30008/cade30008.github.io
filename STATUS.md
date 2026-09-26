@@ -17,22 +17,25 @@ can't drift from the site.
 
 ## Weeks
 
-`draft` is scaffolding only and is skipped by the sync check. `written` means
-there is real content; `published` means it is on the live site. **8 of 11 weeks are still draft.**
+States are `scripts/track.py`'s: `outline` and `scoped` are scaffolding and are
+skipped by the sync check, `draft` is written but not signed off, `approved` is
+signed off, and `lapsed` was signed off and has been edited since. Live is
+`publish.yaml`, which is a separate decision and a person's. 
+**7 of 11 weeks are still unwritten.**
 
 | Week | Taught | Session | State | Live |
 |---|---|---|---|---|
-| 1 | Tue 22 Sep | Lecture 1: The design cycle, end to end | published | yes |
-| 2 | Tue 6 Oct | Lecture 2: Requirements and models you can trust | draft | no |
+| 1 | Tue 22 Sep | Lecture 1: The design cycle, end to end | draft | yes |
+| 2 | Tue 6 Oct | Lecture 2: Requirements and models you can trust | scoped | no |
 | 3 | Thu 8 Oct | Lecture 3: PID, properly | draft | no |
-| 4 | Tue 13 Oct | Lecture 4: Stability and margins | draft | no |
-| 5 | Tue 20 Oct | Guest lecture | written | no |
-| 6 | Tue 27 Oct | Consolidation week | written | no |
-| 7 | Tue 3 Nov | Lecture 5: Robustness and trade-offs | draft | no |
-| 8 | Tue 10 Nov | Lecture 6: Loop shaping | draft | no |
-| 9 | Tue 17 Nov | Lecture 7: Flight control architecture | draft | no |
-| 10 | Tue 24 Nov | Lecture 8: State space and state feedback | draft | no |
-| 11 | Tue 1 Dec | Lecture 9: What comes next | draft | no |
+| 4 | Tue 13 Oct | Lecture 4: Stability and margins | scoped | no |
+| 5 | Tue 20 Oct | Guest lecture | draft | no |
+| 6 | Tue 27 Oct | Consolidation week | draft | no |
+| 7 | Tue 3 Nov | Lecture 5: Robustness and trade-offs | scoped | no |
+| 8 | Tue 10 Nov | Lecture 6: Loop shaping | scoped | no |
+| 9 | Tue 17 Nov | Lecture 7: Flight control architecture | scoped | no |
+| 10 | Tue 24 Nov | Lecture 8: State space and state feedback | scoped | no |
+| 11 | Tue 1 Dec | Lecture 9: What comes next | scoped | no |
 
 ## What a week can't run without
 

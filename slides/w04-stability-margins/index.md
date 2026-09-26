@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 4"
 title: "Lecture 4: Stability and margins"
 description: "Placeholder deck for week 4."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

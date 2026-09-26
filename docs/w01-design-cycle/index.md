@@ -4,7 +4,9 @@ description: "The control design cycle, run end to end in one session on the lab
 lesson: w01-design-cycle
 order: 1
 duration: 2 x 50 min
-status: written
+status: draft
+version: 0
+assisted: true
 ---
 
 # Lecture 1: The design cycle, end to end

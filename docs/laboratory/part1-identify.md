@@ -1,6 +1,9 @@
 ---
 title: "Laboratory part 1: identify the machine"
 description: "At the rig: record the elevation axis responding to a step, check the recording is usable before you leave, and take away data you can fit."
+status: draft
+version: 0
+assisted: true
 ---
 
 # Part 1: identify the machine

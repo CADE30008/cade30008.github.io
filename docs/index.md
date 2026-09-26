@@ -1,5 +1,8 @@
 ---
 icon: lucide/plane
+status: draft
+version: 0
+assisted: true
 ---
 
 # CADE30008 Flight Dynamics & Control

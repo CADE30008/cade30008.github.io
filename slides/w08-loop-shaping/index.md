@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 6"
 title: "Lecture 6: Loop shaping"
 description: "Placeholder deck for week 8."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

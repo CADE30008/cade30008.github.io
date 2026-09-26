@@ -11,3 +11,5 @@ S = stepinfo(Tref, 'SettlingTimeThreshold', 0.02);
 fprintf('PM = %.1f deg at %.2f rad/s, GM = %.1f\n', Pm, Wcp, Gm)
 fprintf('rise %.2f s, overshoot %.1f %%, settling %.2f s\n', ...
         S.RiseTime, S.Overshoot, S.SettlingTime)
+
+% tracking: status=draft version=0 assisted=true

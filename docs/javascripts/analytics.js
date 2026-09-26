@@ -45,3 +45,5 @@ document$.subscribe(() => {
     referrer: "",
   });
 });
+
+// tracking: status=draft version=0 assisted=true

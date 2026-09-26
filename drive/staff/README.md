@@ -64,3 +64,5 @@ Each section ends with **SEND ME**. The short version, in priority order:
 3. K, wn, zeta from your recording.
 4. Whether `run_all_student_code` printed anything in red.
 5. The trim table, if you got that far.
+
+<!-- tracking: status=draft version=0 assisted=true -->

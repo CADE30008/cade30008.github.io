@@ -985,20 +985,26 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
     without. Granular tasks belong in the repo, not in a scheduler.
     """
     def state(w: dict) -> str:
+        """The tracked state of a week's handout (scripts/track.py).
+
+        Read rather than invented. This used to keep its own words, and by the
+        morning after week 1 was taught it said "published" where CONTENT.md
+        still said "scoped" and the handout itself said "written": three
+        records of one thing, disagreeing.
+        """
         page = DOCS / w["slug"] / "index.md"
-        if not page.exists():
-            return "missing"
-        if front_matter(page).get("status") == "draft":
-            return "draft"
-        return "published" if f"{w['slug']}/index.md" in pages else "written"
+        return front_matter(page).get("status", "draft") if page.exists() else "missing"
 
     rows = ["| Week | Taught | Session | State | Live |", "|---|---|---|---|---|"]
     for r in calendar(weeks, term):
         for sn in r["sessions"]:
             w = sn["w"]
-            st = state(w)
+            # Live comes from publish.yaml, not from the state: whether a page
+            # is written and whether it is released are separate decisions, and
+            # the second one is a person's.
+            live = "yes" if f"{w['slug']}/index.md" in pages else "no"
             rows.append(f"| {w['week']} | {session_date(r['n'], sn['day'], term)} | {label(w)} "
-                        f"| {st} | {'yes' if st == 'published' else 'no'} |")
+                        f"| {state(w)} | {live} |")
 
     needs = []
     for w in weeks:
@@ -1009,7 +1015,7 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
     blockers = (["| Week | What's missing | Who |", "|---|---|---|", *needs] if needs
                 else ["Nothing outstanding is recorded."])
 
-    drafts = sum(1 for w in weeks if state(w) == "draft")
+    unwritten = sum(1 for w in weeks if state(w) in ("outline", "scoped"))
     return "\n".join([
         "# CADE30008 control half: where it is",
         "",
@@ -1034,9 +1040,11 @@ def status_file(weeks: list[dict], term: dict, pages: set[str]) -> str:
         "",
         "## Weeks",
         "",
-        "`draft` is scaffolding only and is skipped by the sync check. `written` means",
-        "there is real content; `published` means it is on the live site. "
-        f"**{drafts} of {len(weeks)} weeks are still draft.**",
+        "States are `scripts/track.py`'s: `outline` and `scoped` are scaffolding and are",
+        "skipped by the sync check, `draft` is written but not signed off, `approved` is",
+        "signed off, and `lapsed` was signed off and has been edited since. Live is",
+        "`publish.yaml`, which is a separate decision and a person's. ",
+        f"**{unwritten} of {len(weeks)} weeks are still unwritten.**",
         "",
         *rows,
         "",
@@ -1258,11 +1266,14 @@ def main() -> None:
           f"({t['lecture']:g} lecture, {t['independent']:g} independent, {t['consolidation']:g} consolidation, "
           f"{t['coursework']:g} coursework, {t['laboratory']:g} laboratory)")
     lectures = [w for w in weeks if w["kind"] == "lecture"]
-    draft = [w["week"] for w in lectures if front_matter(DOCS / w["slug"] / "index.md").get("status") == "draft"]
-    written = f"; {len(lectures) - len(draft)} written, {len(draft)} still draft" if draft else ""
+    draft = [w["week"] for w in lectures
+             if front_matter(DOCS / w["slug"] / "index.md").get("status") in ("outline", "scoped")]
+    written = f"; {len(lectures) - len(draft)} written, {len(draft)} still scaffolding" if draft else ""
     print(f"{len(errors)} error(s), {len(warnings)} warning(s); {len(weeks)} weeks, {len(lectures)} with lectures{written}")
     sys.exit(1 if errors else 0)
 
 
 if __name__ == "__main__":
     main()
+
+# tracking: status=draft version=0 assisted=true

@@ -107,3 +107,5 @@ then re-copy the two folders in here from the Drive and run §1 again.
 It is a copy, and copies go stale. Do not edit anything in here expecting it
 to reach students: the repository is the source, and `npm run drive` is what
 publishes. If something here needs fixing, fix it in the repository.
+
+<!-- tracking: status=draft version=0 assisted=true -->

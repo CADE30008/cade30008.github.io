@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 5"
 title: "Lecture 5: Robustness and trade-offs"
 description: "Placeholder deck for week 7."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

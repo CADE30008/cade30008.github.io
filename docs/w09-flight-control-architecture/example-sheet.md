@@ -2,6 +2,9 @@
 title: "Lecture 7 example sheet: Flight control architecture"
 description: "Placeholder example sheet for lecture 7."
 lesson: w09-flight-control-architecture
+status: scoped
+version: 0
+assisted: true
 ---
 
 # Example sheet: Flight control architecture

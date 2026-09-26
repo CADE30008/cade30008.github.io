@@ -1,6 +1,9 @@
 ---
 title: Recommended reading
 description: Dorf and Bishop's Modern Control Systems — a recommended text for further reading, what the library has, and which sections go with which part of the unit.
+status: draft
+version: 0
+assisted: true
 ---
 
 # Recommended reading

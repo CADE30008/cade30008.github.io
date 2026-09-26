@@ -2,6 +2,9 @@
 title: "Lecture 1 example sheet: The design cycle, end to end"
 description: "About an hour of questions on reading a second-order response, what proportional gain can and cannot do, and turning a vague requirement into a testable one."
 lesson: w01-design-cycle
+status: draft
+version: 0
+assisted: true
 ---
 
 # Example sheet: The design cycle, end to end

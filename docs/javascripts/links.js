@@ -72,3 +72,5 @@ document$.subscribe(() => {
     if (!a.title) a.title = describe(kind, new URL(a.href));
   }
 });
+
+// tracking: status=draft version=0 assisted=true

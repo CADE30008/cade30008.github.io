@@ -89,3 +89,5 @@ Tick milestones and add notes to the log at the bottom as work lands.
   (initial authoring, no prior state), so the check reports 0 errors and 0
   warnings. Applet fixes: label layout, 0.001 slider steps, and no drawing
   while hidden. README added. Dev server restarted for Steve on :8000.
+
+<!-- tracking: status=draft version=0 assisted=true -->

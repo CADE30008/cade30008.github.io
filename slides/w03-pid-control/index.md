@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 3"
 title: "Lecture 3: PID, properly"
 description: "PID control of aircraft pitch attitude, through Bode plots and step responses"
 author: "Dr. Steve Bullock"
+status: draft
+version: 0
+assisted: true
 ---
 
 <style>

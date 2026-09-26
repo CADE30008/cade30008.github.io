@@ -136,3 +136,5 @@ function [sl, lbl] = addSlider(parent, name, lo, hi, val)
 lbl = uilabel(parent, 'Text', name, 'FontWeight', 'bold');
 sl  = uislider(parent, 'Limits', [lo hi], 'Value', val);
 end
+
+% tracking: status=draft version=0 assisted=true

@@ -35,3 +35,5 @@ Kestrel,6.0,0.18,14.0
 `name` or `alias`, whichever a student gives. **The drop folder is shared, so
 everyone can see everyone's submission** — which is why an alias is offered, and
 why students are told that before they upload, not after.
+
+<!-- tracking: status=draft version=0 assisted=true -->

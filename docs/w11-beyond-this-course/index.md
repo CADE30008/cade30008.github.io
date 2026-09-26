@@ -4,7 +4,9 @@ description: "Placeholder. Scoped in curriculum/weeks.yaml; content not yet writ
 lesson: w11-beyond-this-course
 order: 11
 duration: 2 x 50 min
-status: draft
+status: scoped
+version: 0
+assisted: true
 ---
 
 # Lecture 9: What comes next

@@ -2,6 +2,9 @@
 title: "Lecture 3 solutions: PID, properly"
 description: "Worked solutions to the week 3 example sheet."
 lesson: w03-pid-control
+status: draft
+version: 0
+assisted: true
 ---
 
 # Solutions: PID, properly

@@ -73,3 +73,5 @@ e.voltagePeakMax = e.safety * min(upVelev, upMotor);
 e.vMax = e.vMotorSat;
 e.vOp  = e.vElevTrim / 2;
 end
+
+% tracking: status=draft version=0 assisted=true

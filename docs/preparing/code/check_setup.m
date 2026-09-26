@@ -87,3 +87,5 @@ function ok = report(label, ok, detail)
         fprintf('[%s] %s: %s\n', status, label, detail);
     end
 end
+
+% tracking: status=draft version=0 assisted=true

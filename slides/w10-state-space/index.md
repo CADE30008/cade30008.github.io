@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 8"
 title: "Lecture 8: State space and state feedback"
 description: "Placeholder deck for week 10."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

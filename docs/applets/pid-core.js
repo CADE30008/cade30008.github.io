@@ -194,3 +194,5 @@ globalThis.PidCore = {
   PITCH, TF_MIN, filterTime, controllerAt, logspace, loopResponse, margins, simulate, stepMetrics,
 };
 })();
+
+// tracking: status=draft version=0 assisted=true

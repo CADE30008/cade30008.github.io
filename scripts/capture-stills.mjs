@@ -32,3 +32,5 @@ if (problems.length) {
   console.error("applet reported errors:\n  " + problems.join("\n  "));
   process.exit(1);
 }
+
+// tracking: status=draft version=0 assisted=true

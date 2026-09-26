@@ -21,3 +21,5 @@ another unit's notes, no "the textbook". Students arrive from several
 programmes and the site outlives the cohort.
 
 Run `npm run check` and `npm run curriculum` before you finish.
+
+<!-- tracking: status=draft version=0 assisted=true -->

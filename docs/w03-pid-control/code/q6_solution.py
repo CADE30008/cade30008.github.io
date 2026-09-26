@@ -34,3 +34,5 @@ for k in np.arange(0.30, 1.50, 0.01):
 k, pm, wc, u_peak, os_pct = best
 print(f"best k = {k:.2f}: PM {pm:.1f} deg, wc {wc:.2f} rad/s, "
       f"peak elevator {u_peak:.1f} deg, overshoot {os_pct:.1f} %")
+
+# tracking: status=draft version=0 assisted=true

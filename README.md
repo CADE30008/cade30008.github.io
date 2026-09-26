@@ -202,3 +202,5 @@ The repository is public, so no token is needed and CI can build the decks. It w
 © 2026 Dr Steve Bullock, University of Bristol. Teaching material — handouts, slides, example sheets, solutions, figures, glossary and the planning documents — is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Software — `models/`, `scripts/`, `docs/applets/`, `docs/javascripts/` and the lesson `code/` folders — is [MIT](https://opensource.org/license/mit). Both require attribution; MIT carries it in the copyright notice.
 
 University of Bristol and Bristol Flight Lab branding, Quanser and MathWorks material, third-party libraries and everything under `private/` are excluded. See [LICENSE.md](LICENSE.md).
+
+<!-- tracking: status=draft version=0 assisted=true -->

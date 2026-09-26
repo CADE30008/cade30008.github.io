@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 7"
 title: "Lecture 7: Flight control architecture"
 description: "Placeholder deck for week 9."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

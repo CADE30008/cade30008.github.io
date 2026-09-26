@@ -7,6 +7,9 @@ footer: "Dr. Steve Bullock · Lecture 9"
 title: "Lecture 9: What comes next"
 description: "Placeholder deck for week 11."
 author: "Dr. Steve Bullock"
+status: scoped
+version: 0
+assisted: true
 ---
 
 <!-- _class: title -->

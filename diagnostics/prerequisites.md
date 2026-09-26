@@ -459,3 +459,5 @@ For the cohort, before the week 2 lecture:
 | 7 | Steady-state error | Week 3, when integral action arrives |
 | 8, 9 | Bode plots | Week 4 depends on them: point to the glossary and year 2 notes before then |
 | 10 | The idea of feedback itself | Week 1's first Learn slot |
+
+<!-- tracking: status=draft version=0 assisted=true -->

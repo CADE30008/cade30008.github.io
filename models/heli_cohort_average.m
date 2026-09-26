@@ -62,3 +62,5 @@ end
 
 [avg.ok, avg.why, avg.metrics] = heli_check_one(avg.kp, avg.ki, avg.kd, plant, env);
 end
+
+% tracking: status=draft version=0 assisted=true

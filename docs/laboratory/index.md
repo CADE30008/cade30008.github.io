@@ -1,6 +1,9 @@
 ---
 title: "The Quanser laboratory"
 description: "Open-access sessions on the 3-DOF helicopter: identify the machine, design a controller away from it, then come back and find out whether you were right."
+status: draft
+version: 0
+assisted: true
 ---
 
 # The Quanser laboratory

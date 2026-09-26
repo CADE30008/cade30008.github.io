@@ -22,3 +22,5 @@ document$.subscribe(() => {
   MathJax.texReset();
   MathJax.typesetPromise();
 });
+
+// tracking: status=draft version=0 assisted=true

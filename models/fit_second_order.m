@@ -187,3 +187,5 @@ else
     t = pick('time_s'); u = pick('input_v'); y = pick('elevation_deg');
 end
 end
+
+% tracking: status=draft version=0 assisted=true

@@ -87,3 +87,5 @@ fprintf('Saved rig_calibration.mat. Keep it with your recordings: the checks\n')
 fprintf('use it, and a set of gains checked against the wrong rig is not\n');
 fprintf('checked at all.\n');
 end
+
+% tracking: status=draft version=0 assisted=true

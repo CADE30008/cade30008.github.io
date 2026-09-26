@@ -43,3 +43,5 @@ if isfield(d, 'pitch') && isfield(d, 'travel')
     title([file ': the other two axes'], 'Interpreter', 'none')
 end
 end
+
+% tracking: status=draft version=0 assisted=true

@@ -47,3 +47,5 @@ fprintf(['\nIf you are happy with it, write it into elevation_plant.json in\n' .
 fprintf('\nSEND ME: these three numbers, and whether the fitter warned about\n');
 fprintf('the arm already swinging.\n');
 end
+
+% tracking: status=draft version=0 assisted=true

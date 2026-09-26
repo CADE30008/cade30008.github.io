@@ -1,6 +1,9 @@
 ---
 title: Preparing for Control
 description: Check that your device can run the course code, and work through the MathWorks Onramp courses and the diagnostic quiz — recommended before you start, and useful at any point in the unit.
+status: draft
+version: 0
+assisted: true
 ---
 
 # Preparing for Control

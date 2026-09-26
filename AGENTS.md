@@ -73,6 +73,52 @@ lists, built by `scripts/build_live.py`.
 - Blackboard links to the live site; `teaching/blackboard.md` is its build
   sheet, and the live build checks its links.
 
+## Tracking and sign-off
+
+Every file that can carry a header carries three fields, written and checked by
+`npm run track`. In markdown with front matter they are front-matter keys;
+everywhere else they are one comment line at the foot of the file.
+
+| Field | Means |
+|---|---|
+| `status` | How far it has got, and whether the sign-off still holds. |
+| `version` | Sign-offs so far. `0` until a person approves it, then 1, 2, 3 as it is approved again. |
+| `assisted` | An AI assistant has had a hand in it. Computed from git's `Co-Authored-By` trailers, and never goes back to false. |
+| `checked` | Optional. When the facts in here that come from outside the repository were last verified. |
+
+`status` has five values. The first three are a person's judgement and are set
+by hand; the last two are computed and must not be:
+
+| Value | Means | Set by |
+|---|---|---|
+| `outline` | Structure only. No content, and the topic carries no commitment. | a person |
+| `scoped` | Structure agreed. What it covers is settled; nothing is written. | a person |
+| `draft` | Content written, first pass, by whatever hand. Not signed off. | a person |
+| `approved` | A person has read it and signed it off, and it still matches what they signed. | `npm run approve` |
+| `lapsed` | Was approved, and has been edited since. | `npm run track`, on its own |
+
+The sign-off is a fingerprint, not a word. `npm run approve -- --by NAME PATH`
+records a hash of the content in `review.lock.json`; edit the file afterwards
+and the next `npm run track` marks it `lapsed` without being asked. That is the
+whole point: a word in a header is a claim, and a fingerprint is a check.
+
+**Publication is not a status.** [publish.yaml](publish.yaml) decides what is
+live, and a second place to say it would be a second place to be wrong.
+STATUS.md joins the two.
+
+Three consequences when editing:
+
+- **Moving a file along is a person's call.** `npm run track -- --set draft PATH`
+  when a scaffold becomes written. An assistant may propose it; a person runs it.
+- **`npm run approve` is for people only**, like `npm run sync:accept`. An
+  assistant running it would be signing off its own work.
+- **Editing an approved file is fine**, and it will go `lapsed`. Say so in the
+  change; don't re-approve it.
+
+Left untracked, and reported as such by `npm run track`: generated files,
+binaries, JSON (no comment syntax), and CSV (a header line changes what parsers
+read). `scripts/track.py` holds the list with a reason against each.
+
 ## The sync contract
 
 The handout is authoritative for facts: definitions, equations, numbers and design results. Slides may condense and reorder, but they may not say something the handout doesn't.
@@ -383,13 +429,15 @@ npm run serve       # live preview at http://localhost:8011
 npm run pdf         # print handouts and example sheets to PDF
 npm run check       # slide and handout sync check
 npm run curriculum  # check the curriculum; regenerate the term map, planning diagram and tables
+npm run track       # check every file's status and sign-off; -- --stamp writes the headers
+npm run approve     # record a sign-off. People only; see "Tracking and sign-off"
 npm run build       # all of the above, curriculum first
 ```
 
 ## Rules for AI assistants
 
 - Don't edit files under `docs/slides/` or `site/`, or `sync.lock.json` by hand.
-- Don't run `npm run sync:accept` on your own judgement. Report what you changed, and let a person review and accept.
+- Don't run `npm run sync:accept` or `npm run approve` on your own judgement. Report what you changed, and let a person review and accept. Moving a file's `status` along with `--set` is also a person's call.
 - Don't invent numbers. Derive them from the scripts in `models/`, and run any code you add.
 - Keep University of Bristol branding as it is. See the theme repository's `BRAND.md`.
 - This repository is CC BY 4.0; see [LICENSE.md](LICENSE.md). Two consequences when adding material: anything you bring in from elsewhere must be compatible with redistribution under CC BY, or it goes in `private/` and gets added to the exclusion table; and if you add a category of content the licence doesn't mention, add it to LICENSE.md's coverage list in the same change.
@@ -402,3 +450,5 @@ npm run build       # all of the above, curriculum first
 - P19 applies to your own output. A review that proposes only additions isn't finished: name at least one candidate for removal, and say what happened to it.
 - When reviewing content against those principles, report findings citing principle IDs, in the format `PEDAGOGY.md` gives, and change nothing until a person agrees. Flagging a mismatch is the job; some mismatches are the principle's fault, not the content's.
 - Documents drafted with AI assistance, such as proposals, rubrics and process documents, carry a note in their front-page header saying so, with a footnote that final versions of all process and assignment documents, and of all student-facing and back-office code, will be fully checked manually. Keep the note when editing them, and add it to new ones. Coursework briefs don't carry it.
+
+<!-- tracking: status=draft version=0 assisted=true -->

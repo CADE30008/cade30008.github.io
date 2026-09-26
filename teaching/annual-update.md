@@ -150,3 +150,5 @@ better to have them generated and correct than scattered and wrong — but the
 target is that they move to Blackboard and the site keeps only the shape of the
 unit, not its calendar. **Do not add new date-linked content to the site in the
 meantime.**
+
+<!-- tracking: status=draft version=0 assisted=true -->

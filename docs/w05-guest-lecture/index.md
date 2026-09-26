@@ -2,6 +2,9 @@
 title: "Guest lecture"
 description: The week 5 guest lecture for CADE30008 Flight Dynamics & Control.
 order: 5
+status: draft
+version: 0
+assisted: true
 ---
 
 # Guest lecture

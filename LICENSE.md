@@ -97,3 +97,5 @@ The site is built with [Zensical](https://zensical.org) and the slides with
 [Marp](https://marp.app), each under its own licence. Python and JavaScript
 dependencies are listed in `requirements.txt` and `package.json` and are
 licensed by their authors.
+
+<!-- tracking: status=draft version=0 assisted=true -->

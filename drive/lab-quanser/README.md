@@ -42,3 +42,5 @@ those. Keep everything in one folder.
 `lab2_3dof` and `lab3_statespace` do not need your recordings: they work from
 the manufacturer's model of the whole machine. Read the comments at the top of
 each before running it, particularly about what that model leaves out.
+
+<!-- tracking: status=draft version=0 assisted=true -->

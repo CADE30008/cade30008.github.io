@@ -42,3 +42,5 @@ for name, key, pv, mv, status in rows:
     print(f"{name:7} {key:{width}}  python {pv:10.4f}  matlab {mv:10.4f}  {status}")
 print(f"\n{len(rows) - bad}/{len(rows)} numbers agree")
 sys.exit(1 if bad else 0)
+
+# tracking: status=draft version=0 assisted=true

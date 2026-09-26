@@ -115,3 +115,5 @@ document$.subscribe(() => {
     block.append(button, output);
   }
 });
+
+// tracking: status=draft version=0 assisted=true

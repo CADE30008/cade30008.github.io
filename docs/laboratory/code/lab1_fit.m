@@ -86,3 +86,5 @@ save('my_model.mat', 'K', 'wn', 'zeta');
 fprintf('\nSaved the mean: K = %.3f, wn = %.3f, zeta = %.4f\n', K, wn, zeta);
 fprintf('Design against this, then check your design still works at the\n');
 fprintf('extremes of the spread above.\n');
+
+% tracking: status=draft version=0 assisted=true

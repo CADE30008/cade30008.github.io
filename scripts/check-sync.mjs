@@ -111,11 +111,14 @@ for (const md of readdirSync(docs, { recursive: true })) {
   if (String(md).endsWith(".md")) checkHandoutAssets(join(docs, String(md)), errors);
 }
 
-// A week whose handout says `status: draft` has no content to keep in sync yet:
-// checking it would bury real drift under warnings about scaffolding. Remove
-// that line from the front matter when the week is written, and the week is
-// checked from then on. `--all` checks drafts too.
-const isDraft = (file) => /^---\n[\s\S]*?^status:\s*draft\s*$/m.test(readFileSync(file, "utf8"));
+// A week still at `outline` or `scoped` has no content to keep in sync yet:
+// checking it would bury real drift under warnings about scaffolding. Move it
+// to `draft` (npm run track -- --set draft PATH) once it is written, and it is
+// checked from then on. `--all` checks those weeks too.
+//
+// `draft` used to mean both "scaffold, ignore" and "written, not final", which
+// hid the drift on the one written lecture. See scripts/track.py.
+const isDraft = (file) => /^---\n[\s\S]*?^status:\s*(outline|scoped)\s*$/m.test(readFileSync(file, "utf8"));
 const drafts = [];
 
 for (const lesson of lessons) {
@@ -197,3 +200,5 @@ if (args.has("--json")) {
   console.log(`\n${errors.length} error(s), ${warnings.length} warning(s) across ${checked} lesson(s)${draftNote}`);
 }
 process.exit(errors.length || (args.has("--strict") && warnings.length) ? 1 : 0);
+
+// tracking: status=draft version=0 assisted=true
