@@ -14,7 +14,11 @@
    legible. It should not look like a text link: no underline, no colour, and
    the cursor is what says it does something. */
 .md-typeset a.zoomable {
-  display: inline-block;
+  /* block, not inline-block. An inline-block shrinks to its content, so an
+     SVG's width="100%" would resolve against the image's own intrinsic size,
+     about 300px, which is the circularity the note below describes. The
+     wrapper has to fill the figure for the image to fill the wrapper. */
+  display: block;
   border-bottom: 0;
   color: inherit;
   cursor: zoom-in;
