@@ -9,6 +9,24 @@
   padding: 4px;
 }
 
+/* A figure is a link to its own file, wrapped by javascripts/zoom.js, so a
+   reader can open a plot or a block diagram at a size where the labels are
+   legible. It should not look like a text link: no underline, no colour, and
+   the cursor is what says it does something. */
+.md-typeset a.zoomable {
+  display: inline-block;
+  border-bottom: 0;
+  color: inherit;
+  cursor: zoom-in;
+}
+.md-typeset a.zoomable:hover img {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+@media print {
+  .md-typeset a.zoomable { cursor: auto; }
+}
+
 /* A figure is shrink-to-fit. One with a caption is pulled out to the column by
    its text, and one without collapses to the image's intrinsic size - which
    for an SVG carrying only a viewBox is about 300px. The image's own
