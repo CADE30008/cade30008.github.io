@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" font-family="Trebuchet MS, Arial, sans-serif" role="img" aria-labelledby="t d"><title id="t">Your week: 6 hours</title><desc id="d">A week with a lecture is 2 hours of lecture, 2 of independent learning and 2 of coursework, 6 in total. The independent hours are 0.75 h handout and the week's challenge, 1 h example sheet, 0.25 h next week's case. Consolidation week replaces the lecture and independent hours with 4 hours of recommended activities. On top of all of it, 4 hours in the Quanser laboratory, at times you choose.</desc>
+<rect width="1000" height="380" fill="#fff"/>
+<text x="150" y="30" font-size="17" font-weight="700" fill="#1a1a1a">Your week, every week from 1 to 11</text>
+<line x1="150" y1="40" x2="910" y2="40" stroke="#b01c2e" stroke-width="2"/>
+<text x="134" y="90.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="end">A lecture week</text>
+<text x="134" y="108.0" font-size="12.5" fill="#5a5a5a" text-anchor="end">6 hours</text>
+<rect x="150.0" y="62" width="253.3" height="54" fill="#b01c2e" stroke="#b01c2e" stroke-width="1.4"/>
+<text x="276.7" y="84" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">2 h</text>
+<text x="276.7" y="102" font-size="12.5" fill="#fff" text-anchor="middle">In the lecture</text>
+<rect x="403.3" y="62" width="253.3" height="54" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1.4"/>
+<text x="530.0" y="84" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">2 h</text>
+<text x="530.0" y="102" font-size="12.5" fill="#1a1a1a" text-anchor="middle">On your own</text>
+<rect x="656.7" y="62" width="253.3" height="54" fill="#fff" stroke="#b01c2e" stroke-width="1.4"/>
+<text x="783.3" y="84" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">2 h</text>
+<text x="783.3" y="102" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Coursework</text>
+<path d="M 403.3 116 L 150 150 M 656.7 116 L 910 150" stroke="#bfbfbf" stroke-width="1.2" fill="none"/>
+<text x="134" y="176" font-size="13.5" fill="#5a5a5a" text-anchor="end">which is</text>
+<rect x="150.0" y="150" width="285.0" height="44" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="292.5" y="169" font-size="13" font-weight="700" fill="#1a1a1a" text-anchor="middle">45 min</text>
+<text x="292.5" y="185" font-size="11.5" fill="#5a5a5a" text-anchor="middle">Handout and the week&#x27;s challenge</text>
+<rect x="435.0" y="150" width="380.0" height="44" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="625.0" y="169" font-size="13" font-weight="700" fill="#1a1a1a" text-anchor="middle">60 min</text>
+<text x="625.0" y="185" font-size="11.5" fill="#5a5a5a" text-anchor="middle">Example sheet</text>
+<rect x="815.0" y="150" width="95.0" height="44" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="862.5" y="169" font-size="13" font-weight="700" fill="#1a1a1a" text-anchor="middle">15 min</text>
+<text x="862.5" y="185" font-size="10.5" fill="#5a5a5a" text-anchor="middle">Next week&#x27;s case</text>
+<text x="134" y="264.0" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="end">Week 6</text>
+<text x="134" y="282.0" font-size="12.5" fill="#5a5a5a" text-anchor="end">no lecture</text>
+<rect x="150.0" y="236" width="506.7" height="54" fill="#f6e3e5" stroke="#b01c2e" stroke-width="1.4"/>
+<text x="403.3" y="258" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">4 h</text>
+<text x="403.3" y="276" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Recommended activities</text>
+<rect x="656.7" y="236" width="253.3" height="54" fill="#fff" stroke="#b01c2e" stroke-width="1.4"/>
+<text x="783.3" y="258" font-size="14" font-weight="700" fill="#1a1a1a" text-anchor="middle">2 h</text>
+<text x="783.3" y="276" font-size="12.5" fill="#1a1a1a" text-anchor="middle">Coursework</text>
+<rect x="150" y="320" width="506.7" height="38" rx="6" fill="#fff" stroke="#5a5a5a" stroke-width="1.3" stroke-dasharray="5 4"/>
+<text x="403.3" y="344" font-size="13.5" font-weight="700" fill="#1a1a1a" text-anchor="middle">4 h Quanser lab</text>
+<text x="134" y="344" font-size="15" font-weight="700" fill="#1a1a1a" text-anchor="end">On top</text>
+<text x="672.7" y="344" font-size="13" fill="#5a5a5a">in total, whenever you like, weeks 1 to 6</text>
+</svg>

@@ -1,0 +1,386 @@
+/* Course-wide additions on top of the Flight Lab palette (flightlab.css). */
+
+/* Figures: plots are white-background SVGs, so give them a card in dark mode. */
+.md-typeset figure img {
+  border-radius: 4px;
+}
+[data-md-color-scheme="slate"] .md-typeset figure img {
+  background: #fff;
+  padding: 4px;
+}
+
+/* A figure is shrink-to-fit. One with a caption is pulled out to the column by
+   its text, and one without collapses to the image's intrinsic size - which
+   for an SVG carrying only a viewBox is about 300px. The image's own
+   width="100%" then resolves against that, which is circular, and the term
+   map drew at 300px in a 688px column while the identical image elsewhere on
+   the site filled it. */
+.md-typeset figure {
+  width: 100%;
+}
+.md-typeset figcaption {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+/* Interactive applets: an iframe on screen, a still image in print. */
+.md-typeset .applet {
+  margin: 1.5em 0;
+}
+.md-typeset .applet iframe {
+  display: block;
+  width: 100%;
+  height: 700px;          /* fits the applet's medium layout without scrolling */
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  background: #fff;
+}
+.md-typeset .applet .applet-fallback {
+  display: none;
+}
+
+/* Links from a handout to its slides, example sheet and solutions. */
+.md-typeset .lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.md-typeset .lesson-links a {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.md-typeset .lesson-links a:hover {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+/* Python run in the browser (javascripts/py-runner.js). */
+.md-typeset .py-runnable .py-run {
+  margin: 0.2rem 0 0.6rem;
+}
+.md-typeset .py-output {
+  margin-bottom: 1em;
+  padding: 0.4rem 0.8rem;
+  border-left: 0.2rem solid var(--md-default-fg-color--lighter);
+  background: var(--md-code-bg-color);
+}
+.md-typeset .py-output pre {
+  margin: 0;
+  font-size: 0.8em;
+  white-space: pre-wrap;
+}
+.md-typeset .py-output img {
+  display: block;
+  max-width: 100%;
+  margin: 0.6rem 0;
+  background: #fff;
+}
+@media print {
+  .md-typeset .py-run,
+  .md-typeset .py-output {
+    display: none;
+  }
+}
+
+/* Marks and timings on example-sheet questions. */
+.md-typeset .marks {
+  float: right;
+  margin-left: 1rem;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--md-default-fg-color--light);
+}
+
+@media (max-width: 560px) {
+  .md-typeset .applet iframe {
+    height: 1150px;       /* phone layout stacks the plots */
+  }
+}
+
+@media print {
+  .md-typeset .applet iframe,
+  .md-typeset .lesson-links {
+    display: none;
+  }
+  .md-typeset .applet .applet-fallback {
+    display: block;
+    max-width: 100%;
+  }
+  /* Show every code tab, each headed by its language. */
+  .md-typeset .tabbed-set > .tabbed-labels {
+    display: none;
+  }
+  .md-typeset .tabbed-set > .tabbed-content > .tabbed-block {
+    display: block !important;
+  }
+  .md-typeset .tabbed-block .language-python::before,
+  .md-typeset .tabbed-block .language-matlab::before {
+    display: block;
+    margin: 0.6em 0 0.2em;
+    font-size: 0.75em;
+    font-weight: 700;
+  }
+  .md-typeset .tabbed-block .language-python::before { content: "Python"; }
+  .md-typeset .tabbed-block .language-matlab::before { content: "MATLAB"; }
+  .md-typeset details {
+    display: block;
+  }
+  .md-typeset details > :not(summary) {
+    display: block !important;
+  }
+}
+
+/* ---------- This unit's mark ---------- */
+
+/* A step response: rise, overshoot, settle onto the target. The theme provides
+   the mechanism for putting a mark beside Home; the drawing is ours, because it
+   means this course and not Flight Lab generally. Keep it in step with
+   assets/brand/favicon.svg, which is the same path.
+
+   Setting this variable is the whole of the change. The theme hides the stock
+   plane icon itself, inside the same style query that emits the mark, so the
+   two switch together: a browser without style-query support keeps the stock
+   icon rather than losing both and showing nothing. We used to hide the plane
+   here as well, unconditionally, which broke exactly that fallback.
+
+   Everything else that was here - the footer's colour, sizing and focus ring -
+   now lives in the theme. Nothing brand-level should be defined locally again:
+   if a rule would suit another unit, it belongs upstream. */
+:root {
+  --fl-nav-mark: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M7 53 L13 53 C18 53 19 8 27 11 C33 14 32 28 39 26 C45 24 45 20 51 21 L57 21" fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}
+
+/* ---------- Long code in a fixed-height box ---------- */
+
+/* Wrap a code block in <div class="code-scroll" markdown> to cap its height and
+   scroll it, so a long script doesn't push the rest of the page away. Only the
+   highlighted source is capped: output a runner adds below it is left alone.
+
+   javascripts/code-scroll.js adds the classes below to a block that really does
+   overflow, so a short block gets no furniture. */
+.md-typeset .code-scroll .highlight {
+  position: relative;
+}
+.md-typeset .code-scroll .highlight pre > code {
+  max-height: 16rem;
+  overflow: auto;
+  scrollbar-width: thin;                 /* Firefox: a scrollbar that stays put */
+  scrollbar-color: var(--md-default-fg-color--lighter) transparent;
+}
+
+/* WebKit hides overlay scrollbars until something moves, which is the whole
+   problem, so draw one. */
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar {
+  width: 0.55rem;
+}
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar-thumb {
+  background: var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+}
+.md-typeset .code-scroll .highlight pre > code::-webkit-scrollbar-thumb:hover {
+  background: var(--md-default-fg-color--light);
+}
+
+/* A fade and a label while there is more below; both go at the end. */
+.md-typeset .code-scroll--scrollable::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0.55rem;                        /* clear of the scrollbar */
+  bottom: 0;
+  height: 2.2rem;
+  background: linear-gradient(to top, var(--md-code-bg-color), transparent);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.md-typeset .code-scroll__hint {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 0.45rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 1rem;
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.62rem;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.md-typeset .code-scroll--end::after,
+.md-typeset .code-scroll--end .code-scroll__hint {
+  opacity: 0;
+}
+.md-typeset .code-scroll .highlight pre > code:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: -2px;
+}
+
+/* ---------- Where a link goes ---------- */
+
+/* javascripts/links.js sets data-link on each link in the body text, from its
+   address: "file" for something you download from this site, "away" for another
+   site, "go" for another site you are meant to visit as part of the activity.
+   A page on this site gets nothing, because that is the ordinary case and the
+   markers would then be everywhere and mean nothing.
+
+   The theme underlines every link already, so an underline can't carry the
+   difference between "away" and "go". Three things do, and none is colour on
+   its own: the arrow sits in a filled badge rather than bare, that badge is a
+   solid shape which survives a greyscale print, and the link text is set
+   heavier. The glyphs are ::after content, so they are not selectable and don't
+   end up in a copied quotation. */
+.md-content .md-typeset a[data-link]::after {
+  font-size: 0.8em;
+  line-height: 1;
+  margin-left: 0.15em;
+  vertical-align: 0.08em;
+}
+
+/* Leaves the site, for reference. Quiet: most links on a page are this. */
+.md-content .md-typeset a[data-link="away"]::after {
+  content: "↗";
+  color: var(--md-default-fg-color--light);
+}
+
+/* Leaves the site, and the reader is meant to go. Loud enough to interrupt a
+   page of ordinary links, which is why { .go } is used sparingly. */
+.md-content .md-typeset a[data-link="go"] {
+  font-weight: 600;
+}
+.md-content .md-typeset a[data-link="go"]::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0 0.3em;
+  border-radius: 0.25em;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: 0.12em;
+}
+/* The dark scheme's accent is a light red; white on it is too thin to read. */
+[data-md-color-scheme="slate"] .md-content .md-typeset a[data-link="go"]::after {
+  color: #1b1b1b;
+}
+
+/* A file on this site: clicking saves something rather than opening a page. */
+.md-content .md-typeset a[data-link="file"]::after {
+  content: "⤓";
+  color: var(--md-default-fg-color--light);
+  font-size: 0.9em;
+}
+
+/* Two figures side by side, for a comparison the eye has to make in one go.
+   The pair of aircraft under "The machine" is the case it was written for:
+   seen together, the tandem rotors and the four rotors make the same point
+   about the rig, and seen one after the other they do not.
+
+   Stacks below the phone breakpoint, where side by side leaves both too small
+   to pick a rotor out of. */
+.md-typeset .figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.md-typeset .figure-pair img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 44.9em) {
+  .md-typeset .figure-pair {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+
+/* "You do": stop reading and do this. Kept for that one meaning, so students
+   learn it in the first week and find it on every page after. An admonition
+   would be the thirteenth on Lecture 1's page; a band with its own label
+   looks like nothing else on the site.
+
+     <div class="you-do" markdown>
+     **Open `identify_rig.m`** ... what to do, in a sentence or two.
+     [Download the laboratory folder](URL){ .md-button .md-button--primary }
+     </div> */
+.md-typeset .you-do {
+  margin: 1.4em 0;
+  padding: 0.9em 1.1em 0.9em 1.2em;
+  border-left: 0.35rem solid var(--md-accent-fg-color);
+  border-radius: 0.2rem;
+  background: color-mix(in srgb, var(--md-accent-fg-color) 7%, transparent);
+}
+
+.md-typeset .you-do::before {
+  content: "You do";
+  display: inline-block;
+  margin-bottom: 0.5em;
+  padding: 0.05em 0.55em;
+  border-radius: 0.25em;
+  background: var(--md-accent-fg-color);
+  color: #fff;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* As for { .go }: white on the dark scheme's light red is too thin to read. */
+[data-md-color-scheme="slate"] .md-typeset .you-do::before {
+  color: #1b1b1b;
+}
+
+.md-typeset .you-do > :first-child { margin-top: 0; }
+.md-typeset .you-do > :last-child { margin-bottom: 0; }
+.md-typeset .you-do .md-button { margin-top: 0.3em; }
+
+/* On paper the tint may not print, so the bar and the label carry it, and the
+   button becomes its address: a printed button goes nowhere. */
+@media print {
+  .md-typeset .you-do {
+    background: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .md-typeset .you-do .md-button {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-weight: 600;
+  }
+  .md-typeset .you-do .md-button::after {
+    content: " (" attr(href) ")";
+    font-weight: 400;
+    word-break: break-all;
+  }
+}
+
+
+/* The nav's little circled "i" markers, removed.
+   -------------------------------------------------------------------------
+   They are not ours and they are not meant. The theme has a page-status
+   feature driven by a `status:` field in front matter, and the tracking
+   system writes `status: draft` into all 42 pages for its own purposes. The
+   theme read it as a status it knows nothing about, so it drew a marker with
+   no label: hovering gave an empty tooltip. The two pages without the field,
+   "How this unit runs" and "About these materials", were the only ones in the
+   nav without a marker, which is what gave it away.
+
+   Hidden rather than relabelled on purpose. The alternative is to declare the
+   statuses in zensical.toml so the marker says "Draft", but that would tell
+   every student that almost every page they can reach is a draft, which is a
+   message to choose deliberately rather than to inherit from a field that
+   exists for sign-off tracking. */
+.md-status {
+  display: none;
+}

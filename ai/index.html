@@ -1,0 +1,892 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="How I think about generative AI in engineering and in learning, how I use it to make these materials, and how to send me feedback.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/ai/">
+      
+      
+        <link rel="prev" href="../licence/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>AI in this course - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-in-this-course" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI in this course
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-i-think-about-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How I think about AI
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How I think about AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-rewards-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        AI rewards expertise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-or-gym" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Work or gym?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-that-means-in-this-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What that means in this unit
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-these-materials-were-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How these materials were made
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How these materials were made">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-i-work-this-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why I work this way
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-ive-gone-wrong-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where I've gone wrong so far
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tell-me-what-you-think" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tell me what you think
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-i-think-about-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How I think about AI
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How I think about AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ai-rewards-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        AI rewards expertise
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-or-gym" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Work or gym?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-that-means-in-this-unit" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What that means in this unit
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-these-materials-were-made" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How these materials were made
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How these materials were made">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-i-work-this-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why I work this way
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-ive-gone-wrong-so-far" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where I've gone wrong so far
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tell-me-what-you-think" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tell me what you think
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="ai-in-this-course">AI in this course<a class="headerlink" href="#ai-in-this-course" title="Permanent link">&para;</a></h1>
+<p>This page sets out how I think about generative AI in engineering and in learning; my advice for students; how I
+use it to make and maintain these materials; and how you can help improve them.</p>
+<h2 id="how-i-think-about-ai">How I think about AI<a class="headerlink" href="#how-i-think-about-ai" title="Permanent link">&para;</a></h2>
+<h3 id="ai-rewards-expertise">AI rewards expertise<a class="headerlink" href="#ai-rewards-expertise" title="Permanent link">&para;</a></h3>
+<p>Sean Goedecke makes an argument I agree with: language models <em>reward
+expertise</em>.<sup id="fnref:goedecke"><a class="footnote-ref" href="#fn:goedecke">1</a></sup> They let anyone produce seemingly passable work in almost
+any field, but many outputs fall down against an expert eye, and (importantly in
+engineering) against the real world.</p>
+<p>Goedecke's example is Fields Medal-winning mathematician Terence Tao's
+conversation with ChatGPT about the Jacobian conjecture, on 20 July
+2026.<sup id="fnref:tao-chat"><a class="footnote-ref" href="#fn:tao-chat">2</a></sup> Tao's skill is evident, and demonstrates advanced LLM usage, but 
+its utility is highly dependent on human judgement in prompting and evaluating output.</p>
+<p>For you, the engineering student, understanding
+the fundamentals of the discipline is what will make you a good engineer, and 
+a responsible and effective user of whatever tools support you in your work. If you don't, you'll just be wrong faster, and won't know.</p>
+<div class="admonition danger">
+<p>Engineering is a real-world discipline and the quality and diligence of our work
+can have life-or-death impact. Accountability lies with the human-in-the-loop.</p>
+</div>
+<h3 id="work-or-gym">Work or gym?<a class="headerlink" href="#work-or-gym" title="Permanent link">&para;</a></h3>
+<p>In September 2026, Tao and 24 other Fields Medallists published a joint
+declaration on the impact of AI on mathematics, the people within it, and the
+future of the discipline.<sup id="fnref:tao"><a class="footnote-ref" href="#fn:tao">3</a></sup> Part of their argument is about how
+mathematicians are made. Considering this is important in how
+we support and assess our students.</p>
+<p>Bruce Schneier uses an analogy.<sup id="fnref:schneier"><a class="footnote-ref" href="#fn:schneier">4</a></sup> <em>Before using AI on a task, ask
+whether the task is <strong>work</strong> or <strong>gym</strong></em>.</p>
+<ul>
+<li><strong>Work</strong> is a task where only the outcome matters. Nobody cares how it got
+  done, as long as it's done well, noting that - particularly in engineering - accountability matters.</li>
+<li><strong>Gym</strong> is a task where doing it is the point, because doing it is what builds
+  your ability. Sending a machine to lift your weights
+  moves the weights, but you don't change.</li>
+</ul>
+<p>At university, most tasks are gym, even when they look like work. Writing up
+a design feels like work, but the thinking you do to write it clearly is the gym,
+and it's what we're trying to assess.</p>
+<p><em>The same task can be either</em>, depending on why you're doing it. Chasing down an
+obscure Simulink error at eleven at night, when you already understand what your
+model should do, is (mostly) work. Working out why your loop has less phase margin
+than you expected is the gym: the struggle is what <em>changes you</em>.</p>
+<h2 id="what-that-means-in-this-unit">What that means in this unit<a class="headerlink" href="#what-that-means-in-this-unit" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>You may use AI</strong>, including the AI and agentic tools in MATLAB and Simulink,
+  in the ways the coursework brief lists. The coursework is in the University's
+  <a href="https://www.bristol.ac.uk/students/support/academic-advice/using-artificial-intelligence/">Category 3, "Selective"</a>.</li>
+<li><strong>You won't need it.</strong> You can do everything in this unit, to the highest
+  standard, without any AI tool.</li>
+<li><strong>You are responsible for everything you submit</strong>, including anything a tool
+  produces. Checking what an AI tool gives you is now an engineering skill.</li>
+<li><strong>If you can't explain it, you don't understand it yet</strong>.</li>
+</ul>
+<h2 id="how-these-materials-were-made">How these materials were made<a class="headerlink" href="#how-these-materials-were-made" title="Permanent link">&para;</a></h2>
+<p>I use generative AI tools to help create these resources: drafting outlines,
+writing and checking code, building this site, and keeping all of the pieces
+consistent with each other.</p>
+<p>The pedagogy and the content are mine: what is taught, in what order, how, and
+why. I have quality-assured and rewritten all of the content.</p>
+<p>Teaching, and all formative and summative assessment, are carried out by people.
+Automated scripts help with technical checks, such as whether your code runs and
+reproduces your results; those scripts are conventional code, not generative AI,
+and they don't award marks.</p>
+<h3 id="why-i-work-this-way">Why I work this way<a class="headerlink" href="#why-i-work-this-way" title="Permanent link">&para;</a></h3>
+<p>A course like this is a complex learning journey. A series of lectures, with
+handouts, slide decks, example sheets, code in two languages, figures, and interactives;
+a coursework that builds through the term; periodic checks; a hands-on
+laboratory. Every piece has to agree with every other, and has to keep agreeing,
+every year, as I change things.</p>
+<p>That is a great deal of consistency to hold in one head, and it is exactly the
+kind of tracking a language model is good at — provided it works to robust,
+explicit, written guidance, and a subject and teaching expert stays in the loop.</p>
+<p>I have a suite of 'principles' and 'implementation' docs that I use behind the scenes to 
+try to keep the LLM doing things in the way that I want, but it's often a time-consuming battle.</p>
+<p>I use scripts that I've developed with LLM support to check that numbers, figures, slides and handouts agree: every
+number on a slide traces to the handout, every figure to the code that made it,
+and every code snippet has been run, in Python and MATLAB, with both giving the
+same answer. The model tracks; I decide. I use a back-end tool that I and an LLM have 
+developed to keep track of review, approval, and release of materials.</p>
+<p>I'm new to this. I'm using this course to develop principles that I want to
+deploy in other courses, and to share with other educators — <em>as long as it
+supports my students' learning and experience</em>.</p>
+<h3 id="where-ive-gone-wrong-so-far">Where I've gone wrong so far<a class="headerlink" href="#where-ive-gone-wrong-so-far" title="Permanent link">&para;</a></h3>
+<p>It's easy to begin to allow the LLM to think for you - it can provide suggestions, links to 
+learning theory, draft content, all the way to producing the full unit itself. It's especially 
+easy to start to lean on these tools when things get busy and time is short.</p>
+<p>The first few lectures I delivered in this way were in a busy time and I went too far, embarrassed myself, and didn't do my students 
+justice - I'm grateful to those of them who gave constructive feedback that got me back on track.</p>
+<p>My strong recommendation is that it's far better to do fewer things well than try to do everything you can possibly dream of but skimp on the QA.</p>
+<h2 id="tell-me-what-you-think">Tell me what you think<a class="headerlink" href="#tell-me-what-you-think" title="Permanent link">&para;</a></h2>
+<p>I welcome feedback, both specific and general: an error in a derivation, a
+figure that doesn't make sense, a badly posed question, a broken link — or a view
+on whether this whole approach works.</p>
+<ul>
+<li><strong>On GitHub.</strong> If you're comfortable doing so,
+  <a href="https://github.com/CADE30008/cade30008.github.io/issues">raise an issue</a> in
+  the course's repository. An issue is simply a public note describing a
+  problem; you don't need to know how to use git. Say which page, and what's
+  wrong.</li>
+<li><strong>By email.</strong> You're equally welcome to write to me at
+  <a href="mailto:steve.bullock@bristol.ac.uk">steve.bullock@bristol.ac.uk</a>.</li>
+</ul>
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:goedecke">
+<p>Goedecke, S. (2026). <a href="https://www.seangoedecke.com/llms-reward-expertise/">LLMs reward expertise</a>.&#160;<a class="footnote-backref" href="#fnref:goedecke" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tao-chat">
+<p>Tao, T. (2026). <a href="https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56">Jacobian conjecture counterexample</a>, a shared ChatGPT conversation, 20 July 2026.&#160;<a class="footnote-backref" href="#fnref:tao-chat" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tao">
+<p>Tao, T. and 24 other Fields Medallists (2026). <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/">A severe misalignment of AI in mathematics</a>.&#160;<a class="footnote-backref" href="#fnref:tao" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:schneier">
+<p>Schneier, B. (2026). <a href="https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html">Should you use AI for a task? Here's a simple way to decide</a>. First published in <em>The Guardian</em>.&#160;<a class="footnote-backref" href="#fnref:schneier" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../licence/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Licence">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Licence
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

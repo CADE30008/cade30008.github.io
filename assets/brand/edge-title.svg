@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 720">
+  <!-- The slanted edge from the Bristol Flight Lab template, with the mark
+       removed: the roundel, the bird and the aircraft were a bulge off this
+       diagonal, and the wordmark sat beside it. The diagonal is unchanged. -->
+  <rect x="8" y="0" width="382" height="720" fill="#FFFFFF"/>
+  <path d="M-2 -2L326.2 -2L160.12 722L-2 722Z" fill="#B01C2E"/>
+</svg>

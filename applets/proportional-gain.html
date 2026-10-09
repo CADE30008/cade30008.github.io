@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proportional gain on the elevation axis</title>
+<style>
+  :root {
+    --red: #B01C2E; --teal: #00A89E; --blue: #1f6f8b;
+    --ink: #1D1D1B; --muted: #5f6462; --grid: #e3e6e5; --panel: #f6f7f7; --paper: #ffffff;
+    font-family: "Trebuchet MS", "Fira Sans", Helvetica, Arial, sans-serif;
+    font-size: clamp(11px, 1.25vw, 15px);
+    color: var(--ink); background: var(--paper);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { display: flex; }
+  .app { flex: 1; display: grid; grid-template-columns: minmax(12.5rem, 15rem) 1fr; gap: 0.8rem; padding: 0.7rem; min-height: 0; }
+  .controls { background: var(--panel); border-radius: 6px; padding: 0.7rem 0.8rem; display: flex; flex-direction: column; gap: 0.5rem; overflow: auto; }
+  h1 { font-size: 1.05rem; margin: 0 0 0.2rem; color: var(--red); }
+  .slider label { display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; }
+  .slider output { font-variant-numeric: tabular-nums; font-weight: 400; }
+  input[type=range] { width: 100%; accent-color: var(--red); margin: 0.1rem 0 0; }
+  .presets { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  button { font: inherit; font-size: 0.82rem; padding: 0.2rem 0.55rem; border: 1px solid var(--red); background: var(--paper); color: var(--red); border-radius: 999px; cursor: pointer; }
+  button:hover, button:focus-visible { background: var(--red); color: #fff; }
+  table.readout { border-collapse: collapse; font-size: 0.84rem; width: 100%; font-variant-numeric: tabular-nums; }
+  .readout td { padding: 0.1rem 0; }
+  .readout td:last-child { text-align: right; font-weight: 700; }
+  .readout tr.fixed td { color: var(--teal); }
+  .readout tr.fixed td:last-child::after { content: " \2022"; }
+  .note { font-size: 0.8rem; color: var(--muted); margin: 0; line-height: 1.35; }
+  .plots { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 0.8rem; min-height: 0; }
+  /* The characteristic equation, symbols above numbers. One grid for both
+     rows, so every term sits in the same column as the symbol it stands for:
+     two separate rows could not be relied on to line up. */
+  .chareq { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(6, auto);
+            justify-content: center; align-items: baseline; column-gap: 0.45rem; row-gap: 0.1rem;
+            background: var(--panel); border-radius: 6px; padding: 0.5rem 0.7rem 0.6rem; }
+  .chareq span { text-align: center; white-space: nowrap; }
+  .chareq .sym { font-size: 1.02rem; font-style: italic; }
+  .chareq .num { font-size: 0.98rem; font-variant-numeric: tabular-nums; }
+  .chareq .op { font-style: normal; color: var(--muted); }
+  /* ISO 80000-2: a quantity is italic, but a subscript that is a label rather
+     than a quantity is upright, and so is a numeric exponent. The n in omega-n
+     and the p in K-p name things; they do not stand for values. */
+  .chareq .sym sub, .chareq .sym sup { font-style: normal; }
+  /* The s coefficient has no Kp in it. Marked in both rows, because that is
+     the one thing the equation is here to show. */
+  .chareq .held { color: var(--teal); font-weight: 700; }
+  .chareq .cap { grid-column: 1 / -1; font-size: 0.78rem; color: var(--muted);
+                 text-align: center; margin-top: 0.3rem; }
+  .panel { display: grid; grid-template-rows: auto 1fr; min-height: 0; }
+  .panel h2 { font-size: 0.95rem; margin: 0 0 0.2rem; }
+  svg { width: 100%; height: 100%; min-height: 9rem; display: block; overflow: visible; }
+  svg text { font-size: 11px; fill: var(--muted); font-family: inherit; }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem 1rem; align-items: start; overflow: visible; }
+    .controls h1 { grid-column: 1 / -1; margin: 0; }
+    .plots { min-height: 22rem; }
+  }
+  @media (max-width: 560px) {
+    .controls { grid-template-columns: 1fr 1fr; }
+    .plots { grid-template-columns: 1fr; }
+    .panel { min-height: 16rem; }
+  }
+</style>
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Proportional gain">
+    <h1>Turn the gain up</h1>
+
+    <div class="slider">
+      <label for="kp"><span>K<sub>p</sub></span><output id="kp-out" for="kp"></output></label>
+      <input id="kp" type="range" min="0" max="10" step="0.05" value="1"
+             aria-describedby="readout">
+    </div>
+
+    <div class="presets">
+      <button type="button" data-kp="0">0</button>
+      <button type="button" data-kp="0.5">0.5</button>
+      <button type="button" data-kp="1">1</button>
+      <button type="button" data-kp="4">4</button>
+      <button type="button" data-kp="10">10</button>
+    </div>
+
+    <table class="readout" id="readout" aria-live="polite">
+      <tbody>
+        <tr><td>Damping ratio &zeta;&prime;</td><td id="r-zeta"></td></tr>
+        <tr><td>Natural frequency &omega;<sub>n</sub>&prime;</td><td id="r-wn"></td></tr>
+        <tr class="fixed"><td>Decay rate &zeta;&prime;&omega;<sub>n</sub>&prime;</td><td id="r-decay"></td></tr>
+        <tr class="fixed"><td>Pole real part &sigma;</td><td id="r-re"></td></tr>
+        <tr><td>Overshoot M<sub>p</sub></td><td id="r-os"></td></tr>
+        <tr class="fixed"><td>Settles t<sub>s</sub> (2%)</td><td id="r-ts"></td></tr>
+        <tr><td>Steady-state error e<sub>ss</sub></td><td id="r-sse"></td></tr>
+      </tbody>
+    </table>
+
+    <p class="note">The three marked &bull; never move. More gain raises the
+      frequency and lowers the damping by the same factor, so the decay rate is
+      whatever it was and the response takes just as long to stop.</p>
+  </section>
+
+  <section class="plots">
+    <div class="chareq">
+      <span class="sym">s<sup>2</sup></span>
+      <span class="sym op">+</span>
+      <span class="sym held">2&zeta;&omega;<sub>n</sub>s</span>
+      <span class="sym op">+</span>
+      <span class="sym">&omega;<sub>n</sub><sup>2</sup>(1 + KK<sub>p</sub>)</span>
+      <span class="sym op">= 0</span>
+
+      <span class="num">s<sup>2</sup></span>
+      <span class="num op">+</span>
+      <span class="num held" id="eq-b"></span>
+      <span class="num op">+</span>
+      <span class="num" id="eq-c"></span>
+      <span class="num op">= 0</span>
+
+      <span class="cap">K<sub>p</sub> appears in one term only. The other does not move,
+        and neither does the decay.</span>
+    </div>
+    <div class="panel">
+      <h2>Where the poles go</h2>
+      <svg id="poles" viewBox="0 0 320 300" preserveAspectRatio="xMidYMid meet"
+           role="img" aria-label="Closed-loop pole positions as proportional gain changes. The poles move straight up and down a vertical line, so the real part never changes."></svg>
+    </div>
+    <div class="panel">
+      <h2>What that looks like</h2>
+      <svg id="step" viewBox="0 0 320 300" preserveAspectRatio="xMidYMid meet"
+           role="img" aria-label="Step response of the closed loop. More gain gives more overshoot and faster oscillation, inside an envelope that decays at the same rate however high the gain."></svg>
+    </div>
+  </section>
+</main>
+
+<script src="prop-core.js"></script>
+<script>
+(function () {
+  "use strict";
+  var C = window.PropCore;
+  var kpEl = document.getElementById("kp");
+  var out = document.getElementById("kp-out");
+  var svgPoles = document.getElementById("poles");
+  var svgStep = document.getElementById("step");
+  var NS = "http://www.w3.org/2000/svg";
+
+  var KP_MAX = 10;
+  var T_END = 80;
+
+  // Plot box inside the 320x300 viewBox.
+  var L = 44, R = 308, T = 14, B = 266;
+
+  function el(name, attrs) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  }
+  function clear(svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+
+  function axes(svg, xlab, ylab) {
+    svg.appendChild(el("line", { x1: L, y1: B, x2: R, y2: B, stroke: "var(--ink)", "stroke-width": 1 }));
+    svg.appendChild(el("line", { x1: L, y1: T, x2: L, y2: B, stroke: "var(--ink)", "stroke-width": 1 }));
+    var tx = el("text", { x: (L + R) / 2, y: 292, "text-anchor": "middle" });
+    tx.textContent = xlab; svg.appendChild(tx);
+    var ty = el("text", { x: 12, y: (T + B) / 2, "text-anchor": "middle",
+                          transform: "rotate(-90 12 " + ((T + B) / 2) + ")" });
+    ty.textContent = ylab; svg.appendChild(ty);
+  }
+
+  function tick(svg, x, y, label, anchor) {
+    var t = el("text", { x: x, y: y, "text-anchor": anchor || "middle" });
+    t.textContent = label; svg.appendChild(t);
+  }
+
+  function drawPoles(kp) {
+    clear(svgPoles);
+    var xmin = -0.30, xmax = 0.10, ymax = 6.5;
+    var sx = function (v) { return L + (v - xmin) / (xmax - xmin) * (R - L); };
+    var sy = function (v) { return (T + B) / 2 - v / ymax * ((B - T) / 2); };
+
+    // The imaginary axis, so "left half-plane" is visible.
+    svgPoles.appendChild(el("line", { x1: sx(0), y1: T, x2: sx(0), y2: B,
+                                      stroke: "var(--grid)", "stroke-width": 1 }));
+    svgPoles.appendChild(el("line", { x1: L, y1: sy(0), x2: R, y2: sy(0),
+                                      stroke: "var(--grid)", "stroke-width": 1 }));
+
+    // The locus: the vertical line the poles are stuck on.
+    var locus = C.poleLocus(KP_MAX, 120);
+    var up = locus.map(function (p) { return sx(p.re) + "," + sy(p.im); }).join(" ");
+    var dn = locus.map(function (p) { return sx(p.re) + "," + sy(-p.im); }).join(" ");
+    svgPoles.appendChild(el("polyline", { points: up, fill: "none", stroke: "var(--grid)", "stroke-width": 3 }));
+    svgPoles.appendChild(el("polyline", { points: dn, fill: "none", stroke: "var(--grid)", "stroke-width": 3 }));
+
+    var decay = C.PLANT.zeta * C.PLANT.wn;
+    svgPoles.appendChild(el("line", { x1: sx(-decay), y1: T, x2: sx(-decay), y2: B,
+                                      stroke: "var(--teal)", "stroke-width": 1.4,
+                                      "stroke-dasharray": "4 3" }));
+    tick(svgPoles, sx(-decay) + 6, T + 12, "Re = −" + decay.toFixed(2), "start");
+
+    axes(svgPoles, "Real", "Imaginary");
+    tick(svgPoles, sx(-0.30), B + 14, "−0.30");
+    tick(svgPoles, sx(0), B + 14, "0");
+    tick(svgPoles, L - 6, sy(6) + 4, "6", "end");
+    tick(svgPoles, L - 6, sy(0) + 4, "0", "end");
+    tick(svgPoles, L - 6, sy(-6) + 4, "−6", "end");
+
+    var c = C.closedLoop(kp);
+    [c.poleImag, -c.poleImag].forEach(function (im) {
+      svgPoles.appendChild(el("circle", { cx: sx(c.poleReal), cy: sy(im), r: 5.5,
+                                          fill: "var(--red)" }));
+    });
+  }
+
+  function drawStep(kp) {
+    clear(svgStep);
+    var n = 600, t = new Float64Array(n), i;
+    for (i = 0; i < n; i++) t[i] = T_END * i / (n - 1);
+    var ymax = 2.05;
+    var sx = function (v) { return L + v / T_END * (R - L); };
+    var sy = function (v) { return B - v / ymax * (B - T); };
+
+    // The demand, and the envelope the response decays inside.
+    svgStep.appendChild(el("line", { x1: L, y1: sy(1), x2: R, y2: sy(1),
+                                     stroke: "var(--grid)", "stroke-width": 1.5 }));
+    tick(svgStep, R, sy(1) - 5, "demand", "end");
+
+    var c = C.closedLoop(kp);
+    var envUp = [], envDn = [];
+    for (i = 0; i < n; i++) {
+      var e = c.dcGain * Math.exp(-c.decay * t[i]) / Math.sqrt(1 - c.zeta * c.zeta);
+      envUp.push(sx(t[i]) + "," + sy(Math.min(ymax, c.dcGain + e)));
+      envDn.push(sx(t[i]) + "," + sy(Math.max(0, c.dcGain - e)));
+    }
+    svgStep.appendChild(el("polyline", { points: envUp.join(" "), fill: "none",
+                                         stroke: "var(--teal)", "stroke-width": 1.2,
+                                         "stroke-dasharray": "4 3" }));
+    svgStep.appendChild(el("polyline", { points: envDn.join(" "), fill: "none",
+                                         stroke: "var(--teal)", "stroke-width": 1.2,
+                                         "stroke-dasharray": "4 3" }));
+
+    var y = C.stepResponse(kp, t);
+    var pts = [];
+    for (i = 0; i < n; i++) pts.push(sx(t[i]) + "," + sy(Math.max(0, Math.min(ymax, y[i]))));
+    svgStep.appendChild(el("polyline", { points: pts.join(" "), fill: "none",
+                                         stroke: "var(--red)", "stroke-width": 1.8 }));
+
+    axes(svgStep, "Time (s)", "Elevation, for a demand of 1");
+    tick(svgStep, sx(0), B + 14, "0");
+    tick(svgStep, sx(40), B + 14, "40");
+    tick(svgStep, sx(80), B + 14, "80");
+    tick(svgStep, L - 6, sy(0) + 4, "0", "end");
+    tick(svgStep, L - 6, sy(1) + 4, "1", "end");
+    tick(svgStep, L - 6, sy(2) + 4, "2", "end");
+  }
+
+  function show(kp) {
+    var c = C.closedLoop(kp);
+    out.textContent = kp.toFixed(2);
+    document.getElementById("r-zeta").textContent = c.zeta.toFixed(4);
+    document.getElementById("r-wn").textContent = c.wn.toFixed(3) + " rad/s";
+    document.getElementById("r-decay").textContent = c.decay.toFixed(3) + " /s";
+    document.getElementById("r-re").textContent = c.poleReal.toFixed(3);
+    document.getElementById("r-os").textContent = c.overshoot.toFixed(1) + "%";
+    document.getElementById("r-ts").textContent = c.settling.toFixed(1) + " s";
+    document.getElementById("r-sse").textContent = c.ssError.toFixed(1) + "%";
+    var q = C.charEq(kp);
+    var eqb = document.getElementById("eq-b"), eqc = document.getElementById("eq-c");
+    eqb.innerHTML = q.b.toFixed(3) + "s";
+    eqc.textContent = q.c.toFixed(3);
+    eqb.setAttribute("aria-label", q.b.toFixed(3) + " s");
+    eqc.setAttribute("aria-label", q.c.toFixed(3));
+    drawPoles(kp);
+    drawStep(kp);
+  }
+
+  kpEl.addEventListener("input", function () { show(parseFloat(kpEl.value)); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-kp]"), function (b) {
+    b.addEventListener("click", function () {
+      kpEl.value = b.dataset.kp;
+      show(parseFloat(kpEl.value));
+    });
+  });
+
+  // Let the page open the applet at a chosen gain, as the PID tuner does.
+  var q = new URLSearchParams(location.search);
+  if (q.has("kp")) kpEl.value = q.get("kp");
+  show(parseFloat(kpEl.value));
+})();
+</script>
+</body>
+</html>
