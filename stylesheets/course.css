@@ -81,6 +81,87 @@
   color: #fff;
 }
 
+/* One lozenge for a deck in its two formats. "Slides" names the thing once,
+   across the top; the formats are named underneath. Two separate pills both
+   began with the word Slides, which left the reader to notice that the second
+   was the same thing in another file.
+
+   Each format is a full-height target, left and right, so the click area is
+   the half of the lozenge the reader is pointing at rather than the small
+   label at the bottom of it. The title is laid over both halves and takes no
+   pointer events, so a click anywhere in a half reaches that half's link, and
+   :has() shades the title whenever either one is hovered: the whole lozenge
+   responds, and the filled half says which format is about to open.
+
+   The pdf half gets its download glyph from links.js, like every other file
+   link on the site; the html half carries a slideshow mark, because nothing
+   else on the page would say what opens in a browser. */
+.md-typeset .lesson-links .deck {
+  --deck-head: 1.55rem;            /* the title band; the halves clear it */
+  position: relative;
+  display: inline-flex;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 14px;
+  overflow: hidden;
+  line-height: 1.2;
+}
+.md-typeset .lesson-links .deck__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--deck-head);
+  z-index: 1;
+  pointer-events: none;            /* a click here belongs to the half beneath */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--md-primary-fg-color);
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+}
+.md-typeset .lesson-links .deck:has(a:hover) .deck__title {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+.md-typeset .lesson-links .deck a {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.3em;
+  min-width: 4.6rem;
+  border: 0;
+  border-radius: 0;
+  padding: calc(var(--deck-head) + 0.2rem) 0.75rem 0.22rem;
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+/* The divider belongs to the lower half only: the title is one label across
+   the whole lozenge, and a line through it would read as two separate
+   buttons. Drawn as a pseudo-element rather than a border, so it can start
+   below the title band without moving the halves by a pixel. */
+.md-typeset .lesson-links .deck a { position: relative; }
+.md-typeset .lesson-links .deck a + a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: var(--deck-head);
+  bottom: 0;
+  width: 1px;
+  background: var(--md-primary-fg-color);
+}
+.md-typeset .lesson-links .deck svg {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 /* Python run in the browser (javascripts/py-runner.js). */
 .md-typeset .py-runnable .py-run {
   margin: 0.2rem 0 0.6rem;
