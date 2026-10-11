@@ -1,0 +1,1396 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Check that your device can run the course code, and work through the MathWorks Onramp courses and the diagnostic quiz — recommended before you start, and useful at any point in the unit.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/preparing/">
+      
+      
+        <link rel="prev" href="./..">
+      
+      
+        <link rel="next" href="../L00-intro/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Preparing for Control - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preparing-for-control" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Preparing for Control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What you'll use
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Which device?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check your device
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check your device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-matlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MATLAB and Simulink
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Python in your browser, on any device
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Python on your computer
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        If a check fails
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Getting help with your device
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onramps" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MathWorks Onramp courses
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diagnostic quiz
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction and logistics
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Recommended reading
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What you'll use
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Which device?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check your device
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Check your device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#check-matlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MATLAB and Simulink
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Python in your browser, on any device
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Python on your computer
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        If a check fails
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#help" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Getting help with your device
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onramps" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MathWorks Onramp courses
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Diagnostic quiz
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="preparing-for-control">Preparing for Control<a class="headerlink" href="#preparing-for-control" title="Permanent link">&para;</a></h1>
+<p>One thing here takes a few minutes and is worth doing early. The rest is
+recommended up front and useful at any point in the unit.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Start here</p>
+<ol>
+<li><strong><a href="#check">Check your device</a></strong> runs the course code, in your browser or
+   on your computer. A few minutes, and it means lecture time goes on
+   control rather than on installing software.</li>
+<li><strong>Bring a laptop</strong> to lectures if you have one. If you don't, you'll
+   share — activities are done in pairs and threes.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Recommended, and available whenever you want them</p>
+<p>The <strong><a href="#onramps">Onramp courses</a></strong> and the <strong><a href="#diagnostic">diagnostic quiz</a></strong>
+(about 20 minutes) are the best preparation for this unit. Of the three
+Onramps, the 30-minute <strong>Control Design</strong> one is the one worth your time —
+the other two are a refresher if you have used MATLAB and Simulink before,
+and a good starting point if you haven't.</p>
+<p><strong>They are not a gate.</strong> Each Onramp is most useful just before the part of
+the unit that leans on it, and the diagnostic is as useful once you have
+found a gap yourself as it is at the outset. Nothing in the unit assumes you
+have done either, so reach for them when they help.</p>
+<p>Blackboard lists them too, with a circle beside each to tick off as you go.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Links tell you what a click does</p>
+<p>Across this site, a link carries a small marker saying where it goes.
+Hovering over one names the site it leads to. Here is each kind, shown as
+itself:</p>
+<ul>
+<li>The glossary — no marker: another page here, and you're
+  not leaving the site.</li>
+<li><a href="code/check_setup.py">check_setup.py</a> — a file downloads.</li>
+<li><a href="https://www.mathworks.com/products/matlab-mobile.html">MATLAB Mobile</a> —
+  another website, for reference. Follow it if you want to; nothing depends
+  on it.</li>
+<li><a class="go" href="https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted">MATLAB Onramp</a>
+  — another website, and going there is part of the task. Do it, then come
+  back.</li>
+</ul>
+</div>
+<h2 id="software">What you'll use<a class="headerlink" href="#software" title="Permanent link">&para;</a></h2>
+<p>Every example in the course comes in both MATLAB and Python, and for most tasks
+you can use either. Simulink, and the Quanser helicopter in the laboratory, need
+MATLAB.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it's for</th>
+<th>Where to get it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MATLAB, with the Control System Toolbox</td>
+<td>The main tool for the course.</td>
+<td>Bristol students can get it through the University's <a class="go" href="https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html">MATLAB licence</a>. Install it, or use <a href="https://matlab.mathworks.com/">MATLAB Online</a> in a browser. The licence includes the Control System Toolbox, the Aerospace Toolbox and most other toolboxes.</td>
+</tr>
+<tr>
+<td>Simulink</td>
+<td>Block-diagram simulation, for activities and the Quanser laboratory.</td>
+<td>Comes with MATLAB. Select it when you install.</td>
+</tr>
+<tr>
+<td>Python, with the <code>control</code> package</td>
+<td>A free alternative for everything except Simulink.</td>
+<td>Install it on your computer, or run it in your browser on this page.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="devices">Which device?<a class="headerlink" href="#devices" title="Permanent link">&para;</a></h2>
+<p>Bring a laptop to lectures if you have one. Activities are done in pairs and
+threes, so if you don't have one, you'll share with someone who does.</p>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>MATLAB and Simulink</th>
+<th>Python</th>
+<th>Onramp courses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows, macOS or Linux laptop</td>
+<td>Install them, or use MATLAB Online.</td>
+<td>Install it, or run it in the browser.</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Chromebook</td>
+<td>MATLAB Online, in a <a href="https://www.mathworks.com/support/requirements/browser-requirements.html">supported browser</a>.</td>
+<td>Run it in the browser.</td>
+<td>In a supported browser.</td>
+</tr>
+<tr>
+<td>iPad or other tablet</td>
+<td>Not supported online. <a href="https://www.mathworks.com/products/matlab-mobile.html">MATLAB Mobile</a> covers the basics, but not Simulink.</td>
+<td>Run it in the browser.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>If you only have a tablet, you can do the Python work on it, but pair up with
+someone who has a laptop for MATLAB, Simulink and the Onramp courses.</p>
+<h2 id="check">Check your device<a class="headerlink" href="#check" title="Permanent link">&para;</a></h2>
+<p>Each check runs the same small example, the pitch-attitude loop from week 3, in
+MATLAB or in Python. Wherever you run it, it should report a phase margin of 43.21° at 1.559 rad/s and
+a gain margin of 6.00, and draw a step response.</p>
+<h3 id="check-matlab">MATLAB and Simulink<a class="headerlink" href="#check-matlab" title="Permanent link">&para;</a></h3>
+<p>This works in MATLAB on your computer and in MATLAB Online. It was tested with
+MATLAB R2026a; any recent release should work.</p>
+<ol>
+<li>Get MATLAB through the University's licence, with the Control System Toolbox
+   and Simulink.</li>
+<li>Download <a href="code/check_setup.m">check_setup.m</a>, open it in MATLAB and press
+   <strong>Run</strong>. Or create a new script, paste in the code below, and run that.</li>
+</ol>
+<div class="code-scroll">
+<div class="language-matlab highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c">% Check your MATLAB and Simulink set-up for CADE30008.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c">%</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c">% Run it in MATLAB on your own computer or in MATLAB Online. It should finish</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c">% by printing "All checks passed", draw one step-response plot, and build and</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c">% simulate a small Simulink model.</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ver</span><span class="p">(</span><span class="s">'MATLAB'</span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'MATLAB'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">'%s %s'</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Version</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">Release</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">hasControl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">license</span><span class="p">(</span><span class="s">'test'</span><span class="p">,</span><span class="w"> </span><span class="s">'Control_Toolbox'</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="nb">ver</span><span class="p">(</span><span class="s">'control'</span><span class="p">));</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'Control System Toolbox'</span><span class="p">,</span><span class="w"> </span><span class="n">hasControl</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">hasSimulink</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">license</span><span class="p">(</span><span class="s">'test'</span><span class="p">,</span><span class="w"> </span><span class="s">'Simulink'</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="nb">ver</span><span class="p">(</span><span class="s">'simulink'</span><span class="p">));</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'Simulink'</span><span class="p">,</span><span class="w"> </span><span class="n">hasSimulink</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">if</span><span class="w"> </span><span class="n">hasControl</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="c">% The pitch-attitude loop from week 3, with a proportional gain of 1.</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">G</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">0</span><span class="p">]);</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">[</span><span class="n">gm</span><span class="p">,</span><span class="w"> </span><span class="n">pm</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="p">,</span><span class="w"> </span><span class="n">wc</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">margin</span><span class="p">(</span><span class="n">G</span><span class="p">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="n">ok</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">pm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">43.21</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">wc</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.559</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.005</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">gm</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">6.0</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.01</span><span class="p">;</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'loop margins'</span><span class="p">,</span><span class="w"> </span><span class="n">ok</span><span class="p">,</span><span class="w"> </span><span class="nb">sprintf</span><span class="p">(</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="s">'phase margin %.2f deg at %.3f rad/s, gain margin %.2f'</span><span class="p">,</span><span class="w"> </span><span class="n">pm</span><span class="p">,</span><span class="w"> </span><span class="n">wc</span><span class="p">,</span><span class="w"> </span><span class="n">gm</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="c">% The closed loop follows a step with no steady-state error.</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">feedback</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'closed loop'</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dcgain</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-9</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">'steady-state gain %.3f'</span><span class="p">,</span><span class="w"> </span><span class="n">dcgain</span><span class="p">(</span><span class="n">T</span><span class="p">)))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">figure</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="s">step(T,</span><span class="w"> </span><span class="s">10)</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="nb">title</span><span class="p">(</span><span class="s">'Set-up check: closed-loop step response'</span><span class="p">)</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="nb">grid</span><span class="w"> </span><span class="n">on</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="k">end</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="k">if</span><span class="w"> </span><span class="n">hasSimulink</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="c">% Build the same loop in Simulink and simulate it.</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="n">mdl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'cade30008_check'</span><span class="p">;</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">bdIsLoaded</span><span class="p">(</span><span class="n">mdl</span><span class="p">)</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="n">close_system</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="n">new_system</span><span class="p">(</span><span class="n">mdl</span><span class="p">);</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">    </span><span class="n">add_block</span><span class="p">(</span><span class="s">'simulink/Sources/Step'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mdl</span><span class="w"> </span><span class="s">'/Step'</span><span class="p">],</span><span class="w"> </span><span class="s">'Time'</span><span class="p">,</span><span class="w"> </span><span class="s">'0'</span><span class="p">);</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">    </span><span class="n">add_block</span><span class="p">(</span><span class="s">'simulink/Math Operations/Sum'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mdl</span><span class="w"> </span><span class="s">'/Sum'</span><span class="p">],</span><span class="w"> </span><span class="s">'Inputs'</span><span class="p">,</span><span class="w"> </span><span class="s">'+-'</span><span class="p">);</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">    </span><span class="n">add_block</span><span class="p">(</span><span class="s">'simulink/Math Operations/Gain'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mdl</span><span class="w"> </span><span class="s">'/Kp'</span><span class="p">],</span><span class="w"> </span><span class="s">'Gain'</span><span class="p">,</span><span class="w"> </span><span class="s">'1'</span><span class="p">);</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="n">add_block</span><span class="p">(</span><span class="s">'simulink/Continuous/Transfer Fcn'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mdl</span><span class="w"> </span><span class="s">'/G'</span><span class="p">],</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="s">'Numerator'</span><span class="p">,</span><span class="w"> </span><span class="s">'40'</span><span class="p">,</span><span class="w"> </span><span class="s">'Denominator'</span><span class="p">,</span><span class="w"> </span><span class="s">'[1 12 20 0]'</span><span class="p">);</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">    </span><span class="n">add_block</span><span class="p">(</span><span class="s">'simulink/Sinks/Out1'</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">mdl</span><span class="w"> </span><span class="s">'/theta'</span><span class="p">]);</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">    </span><span class="n">add_line</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'Step/1'</span><span class="p">,</span><span class="w"> </span><span class="s">'Sum/1'</span><span class="p">);</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">    </span><span class="n">add_line</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'Sum/1'</span><span class="p">,</span><span class="w"> </span><span class="s">'Kp/1'</span><span class="p">);</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">    </span><span class="n">add_line</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'Kp/1'</span><span class="p">,</span><span class="w"> </span><span class="s">'G/1'</span><span class="p">);</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="n">add_line</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'G/1'</span><span class="p">,</span><span class="w"> </span><span class="s">'theta/1'</span><span class="p">);</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="n">add_line</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'G/1'</span><span class="p">,</span><span class="w"> </span><span class="s">'Sum/2'</span><span class="p">);</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="n">set_param</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="s">'StopTime'</span><span class="p">,</span><span class="w"> </span><span class="s">'30'</span><span class="p">,</span><span class="w"> </span><span class="s">'SaveOutput'</span><span class="p">,</span><span class="w"> </span><span class="s">'on'</span><span class="p">,</span><span class="w"> </span><span class="s">'OutputSaveName'</span><span class="p">,</span><span class="w"> </span><span class="s">'yout'</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="s">'SaveFormat'</span><span class="p">,</span><span class="w"> </span><span class="s">'Dataset'</span><span class="p">,</span><span class="w"> </span><span class="s">'ReturnWorkspaceOutputs'</span><span class="p">,</span><span class="w"> </span><span class="s">'on'</span><span class="p">);</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">    </span><span class="n">Simulink</span><span class="p">.</span><span class="n">BlockDiagram</span><span class="p">.</span><span class="n">arrangeSystem</span><span class="p">(</span><span class="n">mdl</span><span class="p">);</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sim</span><span class="p">(</span><span class="n">mdl</span><span class="p">);</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="n">theta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">yout</span><span class="p">{</span><span class="mi">1</span><span class="p">}.</span><span class="n">Values</span><span class="p">.</span><span class="n">Data</span><span class="p">;</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="n">passed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">report</span><span class="p">(</span><span class="s">'Simulink simulation'</span><span class="p">,</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">theta</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-3</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">        </span><span class="nb">sprintf</span><span class="p">(</span><span class="s">'final pitch attitude %.3f'</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">(</span><span class="k">end</span><span class="p">)))</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">passed</span><span class="p">;</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">usejava</span><span class="p">(</span><span class="s">'desktop'</span><span class="p">)</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="w">        </span><span class="n">open_system</span><span class="p">(</span><span class="n">mdl</span><span class="p">);</span><span class="w">   </span><span class="c">% leave it open to look at; close without saving</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">        </span><span class="n">close_system</span><span class="p">(</span><span class="n">mdl</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="k">end</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="k">if</span><span class="w"> </span><span class="n">passed</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="s">'All checks passed'</span><span class="p">)</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="k">else</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">    </span><span class="nb">disp</span><span class="p">(</span><span class="s">'Some checks failed: see the lines marked FAIL'</span><span class="p">)</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="k">end</span>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="k">function</span><span class="w"> </span>ok<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span>label, ok, detail<span class="p">)</span>
+</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77" href="#__codelineno-0-77"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">nargin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78" href="#__codelineno-0-78"></a><span class="w">        </span><span class="n">detail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">''</span><span class="p">;</span>
+</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79" href="#__codelineno-0-79"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80" href="#__codelineno-0-80"></a><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'ok'</span><span class="p">;</span>
+</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81" href="#__codelineno-0-81"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">~</span><span class="n">ok</span>
+</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">        </span><span class="n">status</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'FAIL'</span><span class="p">;</span>
+</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84" href="#__codelineno-0-84"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">isempty</span><span class="p">(</span><span class="n">detail</span><span class="p">)</span>
+</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85" href="#__codelineno-0-85"></a><span class="w">        </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'[%s] %s\n'</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">);</span>
+</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86" href="#__codelineno-0-86"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87" href="#__codelineno-0-87"></a><span class="w">        </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'[%s] %s: %s\n'</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">detail</span><span class="p">);</span>
+</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88" href="#__codelineno-0-88"></a><span class="w">    </span><span class="k">end</span>
+</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89" href="#__codelineno-0-89"></a><span class="k">end</span>
+</span></code></pre></div>
+</div>
+<p>You should see this, with your own MATLAB version on the first line:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[ok] MATLAB: 26.1 (R2026a)
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[ok] Control System Toolbox
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[ok] Simulink
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>[ok] loop margins: phase margin 43.21 deg at 1.559 rad/s, gain margin 6.00
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[ok] closed loop: steady-state gain 1.000
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[ok] Simulink simulation: final pitch attitude 1.000
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>All checks passed
+</span></code></pre></div>
+<p>You'll also get a step-response plot, and a small Simulink model called
+<code>cade30008_check</code>. Have a look at the model, which is the same loop drawn as
+blocks, then close it without saving.</p>
+<h3 id="check-browser">Python in your browser, on any device<a class="headerlink" href="#check-browser" title="Permanent link">&para;</a></h3>
+<p>Press <strong>Run in your browser</strong>. The first run downloads Python and its packages,
+which can take a minute on a slow connection; after that it's quick. Nothing is
+sent anywhere: the code runs on your own device.</p>
+<div class="py-runnable code-scroll">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">"""Check your Python set-up for CADE30008.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">Run it on your own computer with</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="sd">    python check_setup.py</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">or press "Run in your browser" on the course website. It should finish by</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="sd">printing "All checks passed" and drawing one step-response plot.</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="sd">"""</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">report</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">ok</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="s1">'ok'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'FAIL'</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s2">": </span><span class="si">{</span><span class="n">detail</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">detail</span> <span class="k">else</span> <span class="s2">""</span><span class="p">))</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="n">ok</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">passed</span> <span class="o">=</span> <span class="n">report</span><span class="p">(</span><span class="s2">"Python 3.10 or later"</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>                <span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">control</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ct</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">missing</span><span class="p">:</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    <span class="n">report</span><span class="p">(</span><span class="s2">"packages"</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>           <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">missing</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is missing. Install with: pip install control matplotlib"</span><span class="p">)</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="n">passed</span> <span class="o">&amp;=</span> <span class="n">report</span><span class="p">(</span><span class="s2">"packages"</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>                 <span class="sa">f</span><span class="s2">"numpy </span><span class="si">{</span><span class="n">numpy</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">, scipy </span><span class="si">{</span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">, "</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>                 <span class="sa">f</span><span class="s2">"matplotlib </span><span class="si">{</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">, control </span><span class="si">{</span><span class="n">ct</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="c1"># The pitch-attitude loop from week 3, with a proportional gain of 1.</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="n">G</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="n">gm</span><span class="p">,</span> <span class="n">pm</span><span class="p">,</span> <span class="n">wg</span><span class="p">,</span> <span class="n">wc</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="n">passed</span> <span class="o">&amp;=</span> <span class="n">report</span><span class="p">(</span><span class="s2">"loop margins"</span><span class="p">,</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>                 <span class="nb">abs</span><span class="p">(</span><span class="n">pm</span> <span class="o">-</span> <span class="mf">43.21</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">wc</span> <span class="o">-</span> <span class="mf">1.559</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.005</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gm</span> <span class="o">-</span> <span class="mf">6.0</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">,</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>                 <span class="sa">f</span><span class="s2">"phase margin </span><span class="si">{</span><span class="n">pm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> deg at </span><span class="si">{</span><span class="n">wc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> rad/s, gain margin </span><span class="si">{</span><span class="n">gm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="c1"># The closed loop follows a step with no steady-state error.</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="n">T</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">feedback</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="n">passed</span> <span class="o">&amp;=</span> <span class="n">report</span><span class="p">(</span><span class="s2">"closed loop"</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">dcgain</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">,</span>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>                 <span class="sa">f</span><span class="s2">"steady-state gain </span><span class="si">{</span><span class="n">ct</span><span class="o">.</span><span class="n">dcgain</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">step_response</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Time (s)"</span><span class="p">)</span>
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Pitch attitude (per unit step)"</span><span class="p">)</span>
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Set-up check: closed-loop step response"</span><span class="p">)</span>
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-2-54"><a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>
+</span><span id="__span-2-55"><a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"All checks passed"</span> <span class="k">if</span> <span class="n">passed</span> <span class="k">else</span> <span class="s2">"Some checks failed: see the lines marked FAIL"</span><span class="p">)</span>
+</span><span id="__span-2-56"><a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<p>This is the same script as the one for your computer, below. If it works here but
+not there, the problem is the installation on your computer, not the code.</p>
+<h3 id="check-python">Python on your computer<a class="headerlink" href="#check-python" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Install Python 3.10 or later, from <a class="go" href="https://www.python.org/downloads/">python.org</a>
+   or with <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>.</li>
+<li>
+<p>Install the packages:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>control<span class="w"> </span>matplotlib
+</span></code></pre></div>
+</li>
+<li>
+<p>Download <a href="code/check_setup.py">check_setup.py</a>, and run it from the folder
+   you saved it in:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>check_setup.py
+</span></code></pre></div>
+</li>
+</ol>
+<p>You should see this, though your version numbers will differ, and a window
+showing the step response:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[ok] Python 3.10 or later: 3.12.8
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>[ok] packages: numpy 2.5.3, scipy 1.18.1, matplotlib 3.11.2, control 0.10.2
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[ok] loop margins: phase margin 43.21 deg at 1.559 rad/s, gain margin 6.00
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>[ok] closed loop: steady-state gain 1.000
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>All checks passed
+</span></code></pre></div>
+<h3 id="troubleshooting">If a check fails<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What you see</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MATLAB</td>
+<td><code>[FAIL] Control System Toolbox</code> or <code>[FAIL] Simulink</code></td>
+<td>Add the missing product. In MATLAB, go to <strong>Home › Add-Ons › Get Add-Ons</strong>, or reinstall with it selected.</td>
+</tr>
+<tr>
+<td>MATLAB</td>
+<td><code>Unrecognized function or variable 'tf'</code></td>
+<td>The Control System Toolbox isn't installed, or isn't on the path. Add it as above.</td>
+</tr>
+<tr>
+<td>MATLAB</td>
+<td>It won't start, or the licence is refused.</td>
+<td>Sign in with the MathWorks account linked to your University email address, through the University's <a href="https://www.mathworks.com/academia/tah-portal/university-of-bristol-30911639.html">MATLAB licence</a>.</td>
+</tr>
+<tr>
+<td>Python, on your computer</td>
+<td><code>[FAIL] packages</code>, or a <code>ModuleNotFoundError</code></td>
+<td>Run <code>pip install control matplotlib</code> with the same Python you used to run the script.</td>
+</tr>
+<tr>
+<td>Python, on your computer</td>
+<td><code>python: command not found</code></td>
+<td>Python isn't installed, or isn't on your path. Try <code>python3</code>, or install it again.</td>
+</tr>
+<tr>
+<td>Python, in the browser</td>
+<td>The run stalls, or reports an error.</td>
+<td>Use an up-to-date browser, and try another network: some block large downloads. It downloads several megabytes the first time.</td>
+</tr>
+<tr>
+<td>Any</td>
+<td>Anything else</td>
+<td>Pair up with someone whose set-up works so you're not held up, then get it fixed properly, below.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="help">Getting help with your device<a class="headerlink" href="#help" title="Permanent link">&para;</a></h3>
+<p>A laptop that won't run MATLAB or Python is an IT problem, not a control one,
+and the people who fix those are better at it than I am:</p>
+<ul>
+<li><strong><a href="https://www.bristol.ac.uk/it-services/">IT Services</a></strong> — for installation,
+  licences, accounts and network problems.</li>
+<li><strong>The Student Laptop Clinic</strong>, run by IT Services, for hands-on help with your
+  own machine. Times and places are on the IT Services pages.</li>
+</ul>
+<p>Take the exact error message with you. If you can't get it working before the
+first lecture, come anyway: you'll work in a pair, and no session depends on
+your own machine.</p>
+<h2 id="onramps">MathWorks Onramp courses<a class="headerlink" href="#onramps" title="Permanent link">&para;</a></h2>
+<p>Three free, self-paced courses that run in your browser and check your work as
+you go. Take them in this order. You'll need a laptop or desktop computer, as
+MathWorks online courses don't run on tablets or phones.</p>
+<p><strong>Many students are likely to have used MATLAB and Simulink before, including
+for control</strong>, so these three are not equally useful to everyone.</p>
+<table>
+<thead>
+<tr>
+<th>Course</th>
+<th>Time</th>
+<th>Worth it?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Control Design Onramp with Simulink</strong></td>
+<td>30 min</td>
+<td><strong>Yes — this is the one.</strong> It covers designing a feedback controller, which is what this unit builds on.</td>
+</tr>
+<tr>
+<td>MATLAB Onramp</td>
+<td>2 h</td>
+<td>If you're new to MATLAB, or want a refresher on good practices.</td>
+</tr>
+<tr>
+<td>Simulink Onramp</td>
+<td>2 h</td>
+<td>The same, and worth it before you meet the laboratory rig if blocks are unfamiliar.</td>
+</tr>
+</tbody>
+</table>
+<p>They stop and resume as often as you like, and progress is saved.</p>
+<p><strong>Already done one, in a previous year or another unit?</strong> Upload that
+certificate — an older version of the course counts. And if you have done none
+of them, come to the session anyway: you will be able to follow it, and you will
+work in a pair for the parts that need software.</p>
+<ol>
+<li><a class="go" href="https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted">MATLAB Onramp</a>:
+   the MATLAB language and environment.</li>
+<li><a class="go" href="https://matlabacademy.mathworks.com/details/simulink-onramp/simulink">Simulink Onramp</a>:
+   building and simulating models from blocks.</li>
+<li><a class="go" href="https://matlabacademy.mathworks.com/details/control-design-onramp-with-simulink/controls">Control Design Onramp with Simulink</a>:
+   designing a feedback controller in Simulink.</li>
+</ol>
+<p>Sign in with the MathWorks account linked to your University email address.</p>
+<p><strong>If you finish one, upload the certificate.</strong> MATLAB Academy gives you a
+certificate of completion; download it as a PDF and put it in the <strong>Onramp
+certificates</strong> assignment on Blackboard. There is no deadline, and it doesn't
+contribute to your grade — it tells me how the cohort
+is placed, so I can pitch the software side of each session accordingly. Partial
+is fine and useful: upload one, or two, as you go.</p>
+<h2 id="diagnostic">Diagnostic quiz<a class="headerlink" href="#diagnostic" title="Permanent link">&para;</a></h2>
+<p>A short quiz on the mathematics and control this course builds on — Laplace
+transforms, transfer functions, poles, step responses, Bode plots and basic
+feedback — mostly from the year 2 unit Dynamics and Control of Linear Systems.
+It takes about 20 minutes.</p>
+<p><strong>It's formative: it doesn't contribute to your unit grade.</strong> What it does is
+tell you where you're solid and where to brush up, with automatic feedback on
+every question, and tell us what to spend more time on in the first weeks.
+Everyone gets the same questions. Do it without looking things up — a flattering
+score helps nobody — though you're welcome to sit with someone else and talk it
+through.</p>
+<p>You'll find it on Blackboard. It opens in Numbas, and marks and gives feedback
+on each answer as you go.</p>
+<p><strong>There's no deadline, and it stays open all term.</strong> Sitting it at the start
+tells you what to brush up before you begin. Sitting it later, when something
+hasn't landed and you want to know whether the gap is in this unit or in last
+year's, is just as good a use of it — and the feedback on each question is
+written to be read either way.</p>
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="./.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../L00-intro/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction and logistics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction and logistics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/zoom.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="../javascripts/which-site.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
