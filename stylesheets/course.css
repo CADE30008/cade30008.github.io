@@ -68,6 +68,10 @@
   gap: 0.6rem;
   margin: 0.5rem 0 1.5rem;
 }
+.md-typeset .lesson-links a,
+.md-typeset .lesson-links .deck {
+  vertical-align: middle;
+}
 .md-typeset .lesson-links a {
   display: inline-block;
   padding: 0.35rem 0.8rem;
@@ -100,6 +104,7 @@
   --deck-head: 1.55rem;            /* the title band; the halves clear it */
   position: relative;
   display: inline-flex;
+  min-height: 2.75rem;             /* one height for every lozenge in the row */
   border: 1px solid var(--md-primary-fg-color);
   border-radius: 14px;
   overflow: hidden;
@@ -152,6 +157,15 @@
   width: 1px;
   background: var(--md-primary-fg-color);
 }
+/* A lozenge with one destination and nothing to choose between: the same
+   shape and height as the others, with its name where their title sits. */
+.md-typeset .lesson-links .deck--one a {
+  align-items: center;
+  padding: 0.22rem 1.1rem;
+  font-size: 1em;
+  font-weight: 700;
+}
+
 .md-typeset .lesson-links .deck svg {
   width: 1em;
   height: 1em;
