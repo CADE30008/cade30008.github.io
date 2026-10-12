@@ -1,0 +1,1656 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The control design cycle, run end to end in one session on the laboratory helicopter: identify, design, fly, and find out.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/L01-design-cycle/">
+      
+      
+        <link rel="prev" href="../L00-intro/">
+      
+      
+        <link rel="next" href="../laboratory/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Lecture 1: The design cycle, end to end - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-1-the-design-cycle-end-to-end" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 1: The design cycle, end to end
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction and logistics
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="././" class="md-nav__link md-nav__link--active">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-presentation" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Lecture 1: The design cycle, end to end
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Lecture 1: The design cycle, end to end
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../laboratory/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-joystick" viewBox="0 0 24 24"><path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM6 15v-2M12 15V9"/><circle cx="12" cy="6" r="3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  The Quanser laboratory
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  The Quanser laboratory
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part1-identify/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 1: identify
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part2-design/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sliders" viewBox="0 0 24 24"><path d="M10 8h4M12 21v-9M12 8V3M17 16h4M19 12V3M19 21v-5M3 14h4M5 10V3M5 21v-7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 2: design
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part3-validate/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m16 9-5.5 5.5L8 12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 3: validate
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/code/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 12.5 8 15l2 2.5M14 12.5l2 2.5-2 2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Recommended reading
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Notation
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where we are
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Design is cyclic
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design is cyclic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-cycle-ours" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What we'll add
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-trade" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Feedback is a trade-off, not a fix
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-rig" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The machine
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fly-by-hand" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        One of you is going to fly it
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elevation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Simplifying and modelling
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A requirement is a design input
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Identifying the plant from what it actually does
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tuning, and then flying
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sim-vs-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where simulation and hardware disagree
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Summary
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Further reading
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Lecture 1: The design cycle, end to end
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="lecture-1-the-design-cycle-end-to-end">Lecture 1: The design cycle, end to end<a class="headerlink" href="#lecture-1-the-design-cycle-end-to-end" title="Permanent link">&para;</a></h1>
+<div class="lesson-links">
+<p><span class="deck"><span class="deck__title">Slides</span><a href="../slides/L01-design-cycle/index.html" aria-label="Slides, in your browser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>html</a><a href="../slides/L01-design-cycle/slides.pdf">pdf</a></span>
+<span class="deck deck--one"><a href="../laboratory/code/">Code</a></span></p>
+</div>
+<p>This session runs through the whole control design cycle once, on a real
+physical rig. In the lecture, you will watch somebody try (and likely fail) to fly it by hand, measure what it
+actually does, decide what "good" means, design a controller to meet that, and
+then watch your own gains fly. Everything after today links to one of those steps.</p>
+<!-- outcomes:start -->
+<div class="admonition abstract">
+<p class="admonition-title">Learning outcomes</p>
+<p>By the end of this week you should be able to:</p>
+<ul>
+<li>describe the control design cycle, and say where in it a given design activity sits;</li>
+<li>identify a second-order model from a measured response, by reading its <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr>, <abbr title="how fast an oscillatory system wants to move">natural frequency</abbr> and gain;</li>
+<li>tune a <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> controller in simulation to meet a stated requirement;</li>
+<li>explain why a design that meets its requirement in simulation may not meet it on hardware.</li>
+</ul>
+</div>
+<!-- outcomes:end -->
+
+<div class="admonition note">
+<p class="admonition-title">Definitions</p>
+<p>Spot the tooltips that appear when you hover or hold over the underlined terms? Use these to learn and prompt yourself. Check out the <a href="../glossary/">glossary</a> and <a href="../notation/">notation</a> for more detail.</p>
+</div>
+<h2 id="recap">Where we are<a class="headerlink" href="#recap" title="Permanent link">&para;</a></h2>
+<p>This unit assumes you have the mathematical fundamentals: Laplace
+transforms, transfer functions, poles and zeros, the standard second-order form
+and what <span class="arithmatex">\( \zeta \)</span> and <span class="arithmatex">\( \omega_\mathrm{n} \)</span> do to a response, Bode plots
+built from first- and second-order transfer functions, and <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> in its parallel form.</p>
+<p>The <a href="../preparing/#diagnostic">prerequisite diagnostic</a> can help you work out what needs your attention.</p>
+<h2 id="design-cycle">Design is cyclic<a class="headerlink" href="#design-cycle" title="Permanent link">&para;</a></h2>
+<p>There are many representations of the control system design cycle, the one we'll use here is Dorf and Bishop's, with a couple of additions.</p>
+<figure>
+  <img alt="Seven blocks down the page in three bracketed groups, after Dorf and Bishop's figure 1.17. Group one, establishment of goals, variables to be controlled, and specifications: establish the control goals; identify the variables to be controlled; write the specifications. Group two, system definition and modelling: establish the system configuration; obtain a model of the process, the actuator, and the sensor. Group three, control system design, simulation, and analysis: describe a controller and select key parameters to be adjusted; optimise the parameters and analyse the performance. A return on the left iterates the configuration when the performance does not meet the specifications. When it meets them the flow continues to an eighth block in red, this unit's and not Dorf and Bishop's: test it on the machine. When the machine disagrees, two returns on the right offer two answers: mend the model, going back to the modelling block, or tolerate the mismatch, going back to the controller block, which is robustness. When it agrees, the design is finished." src="figures/design-cycle.svg" width="100%" />
+<br />
+<figcaption>The control system design process, based on Dorf and Bishop - additions in red.</figcaption>
+</figure>
+<p>Some things to highlight:</p>
+<p><strong>The specification comes before the model.</strong> If you want to be formal, steps 1 to 3 are done before anything is measured or derived. In practice, things may be messier.</p>
+<p><strong>Configuration is shown as a separate decision from the controller.</strong> Step 4 chooses
+what you are going to sense and what you are going to drive; step 6 chooses what
+to do with them. Picking a sensor commits you to its noise and its resolution
+long before any gain is chosen. These are often interdependent, hence the cycle.</p>
+<p><strong>The loop runs under a fixed specification.</strong> Step 7 sends
+you back to step 4 when the performance is unsatisfactory, but another other way out is to relax a specification in a considered way.</p>
+<h3 id="design-cycle-ours">What we'll add<a class="headerlink" href="#design-cycle-ours" title="Permanent link">&para;</a></h3>
+<p>Step 8 is ours. Dorf and Bishop iterate within the design: simulate, assess, reconfigure. Hardware testing is implicit, but we're separating it out to make the sim-to-real transition clear.</p>
+<p>You can address discrepancies in two ways. The obvious one
+is to update the model: go back to step 5, measure what you missed, and design
+again against something closer to reality.</p>
+<p>But your model will always contain assumptions, approximations, and uncertainties - they work because the design accounts for
+exactly that. Later in the course we'll quantify <em>uncertainty</em> and <em>robustness</em>.</p>
+<h2 id="feedback-trade">Feedback is a trade-off, not a fix<a class="headerlink" href="#feedback-trade" title="Permanent link">&para;</a></h2>
+<p>Feedback makes system behaviour <em>different</em>, and you choose which problems to have.</p>
+<p>Close a feedback loop around a <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> and you get:</p>
+<ul>
+<li><strong>disturbance rejection.</strong> A gust pushes the output, the error changes, the
+  controller pushes back.</li>
+<li><strong>insensitivity to uncertainty or changes in the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>.</strong> The aircraft burns fuel and gets lighter;
+  the controller deals with this.</li>
+<li><strong>the ability to adjust stability</strong>, which is the only reason
+  the machine in the room can fly at all.</li>
+</ul>
+<p>And you pay, unavoidably:</p>
+<ul>
+<li><strong>sensor noise.</strong> Simple feedback acts on what the sensor
+  <em>says</em>, and cannot distinguish noise from signal. Whatever the sensor says, the
+  controller will correct for.</li>
+<li><strong>the loop can go unstable</strong>, which the open <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> could not do.</li>
+<li><strong>more gain brings more of both.</strong> Raising the loop gain suppresses
+  disturbances <em>and</em> amplifies noise. These pull in opposite directions and no
+  amount of cleverness makes them stop.</li>
+</ul>
+<p>Hold on to the third of those. Almost every design decision in this unit is a
+choice about where to spend loop gain, and "turn it up" is only ever half an
+answer.</p>
+<h2 id="the-rig">The machine<a class="headerlink" href="#the-rig" title="Permanent link">&para;</a></h2>
+<p>The laboratory rig is a Quanser 3-DOF helicopter: a beam on a pivot, two
+motors and rotors at one end, a counterweight at the other, with the whole
+assembly free to swing around a vertical column.</p>
+<figure>
+  <img alt="The Quanser 3-DOF helicopter on its bench: a blue beam pivoted at a central column, two ducted rotors at the near end and a counterweight at the far end, above a model railway track embedded in the ring around its base" src="../assets/rig/rig-three-quarter.jpg" width="66%" />
+<br />
+<figcaption>The rig you will fly. The beam pivots at the column, and the whole assembly turns about it.</figcaption>
+</figure>
+<p><strong>It is a tandem-rotor helicopter</strong>, and it is worth seeing it as one before
+you see it as a lab rig. Quanser based the model on the <strong>Boeing HC-1B
+Chinook</strong>: two rotors one behind the other, the machine pitching nose-up and
+nose-down about its centre, and travelling around the rig.</p>
+<p>Another way to look at it, if helicopters are not your thing: it is <strong>half a quadcopter</strong>.
+A quadcopter's lift is the sum of its four rotors, and it pitches and rolls by driving fore/aft or left/right pairs asymmetrically (yaw is a little more complicated).</p>
+<figure>
+  <div class="figure-pair">
+    <img src="../assets/aircraft/hc-1b-chinook.jpg" alt="A Boeing HC-1B Chinook prototype in flight, photographed from the side and slightly below against a pale sky. It is olive green with a red nose and tail, marked U.S. ARMY 12410. Two large rotors turn one behind the other, the rear one mounted high on a pylon at the tail and the front one above the cockpit, and there is nothing resembling a tail rotor.">
+    <img src="../assets/aircraft/dji-mavic-4-pro.jpg" alt="A grey DJI Mavic 4 Pro quadcopter hovering, photographed from in front and slightly above with farmland far below. Four arms reach out from a central body towards the corners of a square, each ending in a motor whose blades are blurred by rotation. A large camera head is mounted on the nose.">
+  </div>
+  <figcaption>Photographs: HC-1B Chinook prototype 61-2410, 1962, US Army, public domain; DJI Mavic 4 Pro by <a href="https://commons.wikimedia.org/wiki/File:DJI_-_Drohne_Mavic_4_Pro.JPG">C.Stadler/Bwag</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</figcaption>
+</figure>
+
+<p>The rig moves in three degrees of freedom. Quanser's axis conventions:</p>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Symbol</th>
+<th>Positive when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Elevation</td>
+<td><span class="arithmatex">\( \varepsilon \)</span></td>
+<td>the body is above horizontal; zero when level</td>
+</tr>
+<tr>
+<td>Pitch</td>
+<td><span class="arithmatex">\( \rho \)</span></td>
+<td>the front motor is higher than the back motor ('front' per Travel direction)</td>
+</tr>
+<tr>
+<td>Travel</td>
+<td><span class="arithmatex">\( \lambda \)</span></td>
+<td>the body rotates counter-clockwise, seen from above</td>
+</tr>
+</tbody>
+</table>
+<p>Three axes, two motor inputs. You do not command elevation, pitch and travel
+independently: the only quantities you control are the two rotor voltages.
+Elevation comes from their sum, pitch from their difference, and travel is not directly
+commanded at all. It happens because pitch tilts the thrust sideways and the
+machine rotates round after it.</p>
+<div class="admonition danger">
+<p class="admonition-title">Before anything is switched on</p>
+<p>The amplifier's rocker switch on the bench is the emergency stop. If the
+rig does something you do not like, switch the amplifier off. Know
+where the switch is before the motors spin.</p>
+<p><figure markdown="span">
+  <img alt="The rear panel of the Quanser amplifier. A thick red arrow comes up from the bench at the lower left and points to a red circle, which marks a small black rocker switch directly above the mains inlet, where the power cable plugs in. The three larger knobs to its right are fuse holders, not switches" src="../assets/rig/amplifier-power-switch-marked.jpg" width="62%" />
+  <figcaption>Circled: the amplifier's power switch.</figcaption>
+</figure></p>
+</div>
+<h3 id="fly-by-hand">One of you is going to fly it<a class="headerlink" href="#fly-by-hand" title="Permanent link">&para;</a></h3>
+<p>Not a simulation of it, and not just one axis of it: the machine, all three
+degrees of freedom, on two joysticks. The claim made at the top of this
+session is that it cannot be flown by hand. You are about to find out whether
+that is true.</p>
+<p>The task is a simple one: <strong>take off and fly for 10
+seconds.</strong> It ends when you hit an axis limit. We'll vote on how long you think your classmate will last.</p>
+<div class="you-do">
+<p><strong>In the lecture, here's where things get exciting. You should definitely attend for this one.</strong></p>
+</div>
+<h2 id="elevation">Simplifying and modelling<a class="headerlink" href="#elevation" title="Permanent link">&para;</a></h2>
+<p>Three coupled axes, with one of them not directly controllable, is too much for most people, certainly without much practice, and it's quite an ask to dive into controlling automatically. So let's start by simplifying. Holding pitch and travel still, we'll command elevation alone (our Simulink model uses a separate lateral control loop, but we could just bolt them so they're static).</p>
+<p>The elevation axis approximates to a standard second order transfer function:</p>
+<div class="arithmatex">\[ G(s) = \frac{\varepsilon(s)}{V(s)}
+        = \frac{K\,\omega_\mathrm{n}^{2}}
+               {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}} \]</div>
+<p>with <span class="arithmatex">\( K \approx 3.4 \)</span> degrees per volt, <span class="arithmatex">\( \omega_\mathrm{n} \approx 1.0 \)</span>
+rad/s and <span class="arithmatex">\( \zeta \approx 0.06 \)</span>, fitted from a step response taken in the
+laboratory. You will fit your own numbers shortly and they will not be exactly
+these.</p>
+<p>Read those three numbers and you already know what the machine does. It is
+<strong>stable</strong> (positive <span class="arithmatex">\( \zeta \)</span>), but <span class="arithmatex">\( \zeta = 0.06 \)</span> is almost no
+damping at all. The oscillation has a period of about six seconds (<span class="arithmatex">\( T = \frac{2 \pi}{\omega_\mathrm{n}}\)</span>) and takes
+around a minute to die away.</p>
+<p>Let's close a simple proportional feedback loop around it:</p>
+<figure>
+  <img alt="Block diagram of the proportional loop. The demanded elevation enters a summing junction, which subtracts the measured elevation to give the error. The error passes through a block marked Kp, the controller, giving a voltage to the motors. The voltage drives a block marked G of s, the elevation axis, whose output is the measured elevation. That output is fed back to the summing junction, with no sensor model in the path, and the junction is drawn as a circle with a cross in it." src="figures/closed-loop.svg" width="100%" />
+<br />
+<figcaption>Proportional control of the elevation axis, assuming a perfect sensor.</figcaption>
+</figure>
+<p>We'll see in the lecture the effect that this has.</p>
+<div class="admonition warning">
+<p class="admonition-title">Why turning the gain up will not fix it</p>
+<p>A sensible first instinct is more proportional gain. Close a proportional
+loop around this <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> and the <abbr title="the denominator of the closed-loop transfer function, as a polynomial in s; its roots are the closed-loop poles">characteristic polynomial</abbr> is</p>
+<div class="arithmatex">\[ s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}(1 + KK_\mathrm{p}) \]</div>
+<p><span class="arithmatex">\( K_\mathrm{p} \)</span> does not appear in the coefficient of <span class="arithmatex">\( s \)</span>. The real
+part of the closed-loop poles (the roots of the <abbr title="the denominator of the closed-loop transfer function, as a polynomial in s; its roots are the closed-loop poles">characteristic polynomial</abbr>, i.e. where the <abbr title="that same polynomial set to zero, which is where stability is decided">characteristic equation</abbr> = 0) is stuck at <span class="arithmatex">\( -\zeta\omega_\mathrm{n} \)</span>
+whatever you do, so the poles slide straight up a vertical line: faster
+oscillation, less damping, and a settling time that does not move.</p>
+<p>Going from <span class="arithmatex">\( K_\mathrm{p} = 0.5 \)</span> to <span class="arithmatex">\( K_\mathrm{p} = 10 \)</span> takes the
+overshoot from 89% to 97% and leaves the settling time at 65 seconds.</p>
+</div>
+<details class="note">
+<summary>Refresher: where the <abbr title="the denominator of the closed-loop transfer function, as a polynomial in s; its roots are the closed-loop poles">characteristic polynomial</abbr> comes from</summary>
+<p>Inspecting the system block diagram, then some algebra. Worth doing once by hand,
+because every closed loop in this unit is assembled the same way.</p>
+<p><strong>Read the block diagram.</strong> The junction subtracts, the controller
+multiplies, and the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> is the second-order TF <span class="arithmatex">\( G(s) \)</span>:</p>
+<div class="arithmatex">\[ e = \varepsilon_\mathrm{ref} - \varepsilon, \qquad
+   V = K_\mathrm{p}e, \qquad
+   \varepsilon = G(s)\,V \]</div>
+<p><strong>Substitute inwards</strong> until only <span class="arithmatex">\( \varepsilon \)</span> and
+<span class="arithmatex">\( \varepsilon_\mathrm{ref} \)</span> are left:</p>
+<div class="arithmatex">\[ \varepsilon = G K_\mathrm{p}\left(\varepsilon_\mathrm{ref} - \varepsilon\right) \]</div>
+<p><strong>Collect</strong> the <span class="arithmatex">\( \varepsilon \)</span> terms on one side:</p>
+<div class="arithmatex">\[ \varepsilon\left(1 + K_\mathrm{p}G\right) = K_\mathrm{p}G\,\varepsilon_\mathrm{ref}
+   \qquad\Longrightarrow\qquad
+   \frac{\varepsilon}{\varepsilon_\mathrm{ref}} = \frac{K_\mathrm{p}G}{1 + K_\mathrm{p}G} \]</div>
+<p>That fraction is the <strong>closed-loop transfer function</strong>, and it is worth
+recognising on sight: <em>forward path over one plus the loop</em>. It is the
+same shape whatever sits in the two blocks.</p>
+<p><strong>Put the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> in.</strong> With
+<span class="arithmatex">\( G = K\omega_\mathrm{n}^{2} / \left(s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}\right) \)</span>,
+multiply top and bottom by that denominator so the fraction inside the
+fraction disappears:</p>
+<div class="arithmatex">\[ \frac{\varepsilon}{\varepsilon_\mathrm{ref}}
+   = \frac{K_\mathrm{p}K\omega_\mathrm{n}^{2}}
+          {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2} + K_\mathrm{p}K\omega_\mathrm{n}^{2}}
+   = \frac{K_\mathrm{p}K\omega_\mathrm{n}^{2}}
+          {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}\left(1 + KK_\mathrm{p}\right)} \]</div>
+<p><strong>The denominator is the <abbr title="the denominator of the closed-loop transfer function, as a polynomial in s; its roots are the closed-loop poles">characteristic polynomial</abbr></strong>, and setting it to
+zero is the <strong><abbr title="that same polynomial set to zero, which is where stability is decided">characteristic equation</abbr></strong>. Everything about how this loop behaves
+on its own is in there; the numerator only scales what comes out.</p>
+<div class="arithmatex">\[ s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}\left(1 + KK_\mathrm{p}\right) = 0 \]</div>
+<p>Compare it with the standard second-order form
+<span class="arithmatex">\( s^{2} + 2\zeta'\omega_\mathrm{n}'s + \omega_\mathrm{n}'^{2} \)</span>, where the
+primes mark the closed loop: the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>'s own <span class="arithmatex">\( \zeta \)</span> and
+<span class="arithmatex">\( \omega_\mathrm{n} \)</span> are untouched, and tuning will not touch them. The
+constant term gives <span class="arithmatex">\( \omega_\mathrm{n}' \)</span>, after which the <span class="arithmatex">\( s \)</span> term
+gives <span class="arithmatex">\( \zeta' \)</span>. <strong>Look at which of the two coefficients
+<span class="arithmatex">\( K_\mathrm{p} \)</span> appears in before you do it.</strong></p>
+</details>
+<figure>
+  <img alt="Two panels. On the left, the closed-loop poles trace a vertical line at a real part of minus 0.06 as proportional gain increases, with the open-loop poles marked on it. On the right, step responses at three proportional gains: all oscillate heavily, higher gain giving more overshoot, and none settling faster than about 65 seconds or reaching the demanded value" src="figures/proportional-limit.png" width="100%" />
+<br />
+<figcaption>Proportional gain alone moves the poles straight up. The overshoot gets worse, the settling time does not improve, and none of them reaches the demand.</figcaption>
+</figure>
+<p>Move the gain yourself and watch which numbers follow it and which do not.</p>
+<figure class="applet">
+<br />
+<iframe loading="lazy" src="../applets/proportional-gain.html?kp=1" title="Interactive: proportional gain on the rig's elevation axis"></iframe>
+
+  <img class="applet-fallback" src="figures/proportional-limit.png" alt="Still of the proportional gain applet, showing the pole positions on a vertical line and the step response beside them.">
+<br />
+<figcaption>Damping ratio and natural frequency both move with the gain, by the same factor and in opposite directions. The three values marked &bull; are the ones that do not move at all.</figcaption>
+</figure>
+<p>Worth doing deliberately: take the gain from 0 to 10 and watch
+<span class="arithmatex">\( \zeta' \)</span> fall from 0.060 to 0.010 while <span class="arithmatex">\( \omega_\mathrm{n}' \)</span> rises from
+1.0 to 5.9 rad/s (the 'prime' ticks (<span class="arithmatex">\('\)</span>) denote the <strong>closed-loop</strong> values). Their product is 0.060 at both ends, and at every gain in
+between. That product is the real part of the poles, it is the rate the
+envelope decays at, and it is the reason the settling time reads 65 seconds
+wherever you put the slider.</p>
+<p>Damping has to come from somewhere other than <span class="arithmatex">\( K_\mathrm{p} \)</span>, which is only focused 'on the present': we need a
+derivative term, which 'looks into the future' and reduces overshoot; the steady-state error between where it settles and what you asked for
+needs something with memory: that is the integral term, which 'looks into the past'.</p>
+<p><em>So: what would 'fixed' look like?</em></p>
+<h2 id="requirements">A requirement is a design input<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>"Make it fly well" is not a clear requirement. You or a pilot could make subjective comments, and these can get you a long way, but vibes cannot be clearly met, missed, argued about, or worked with analytically, which means they cannot be designed to in the way that we want.</p>
+<p>A validatable requirement is a number with a test attached (we'll look at more complex ones later). For a step change in commanded
+elevation, the ones that matter today are:</p>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Means</th>
+<th>Typical form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overshoot, <span class="arithmatex">\( M_\mathrm{p} \)</span></td>
+<td>How far past the target it goes, as a percentage</td>
+<td>"no more than 20%"</td>
+</tr>
+<tr>
+<td>Settling time, <span class="arithmatex">\( t_\mathrm{s} \)</span></td>
+<td>Until it stays within a band of the final value</td>
+<td>"within 2% in less than 8 s"</td>
+</tr>
+<tr>
+<td>Steady-state error</td>
+<td>What is left when it stops moving</td>
+<td>"less than 1 degree"</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Settling time</p>
+<p>Always say which band a settling time refers to. We use 2% throughout, which is what MATLAB's <code>stepinfo</code> and Dorf both default to.</p>
+</div>
+<div class="you-do">
+<p>We will agree today's requirement in the room, out loud, before anybody designs anything.</p>
+</div>
+<p><em>You have a target. You still need a model to design against.</em></p>
+<h2 id="system-id">Identifying the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> from what it actually does<a class="headerlink" href="#system-id" title="Permanent link">&para;</a></h2>
+<p>You could compute <span class="arithmatex">\( K \)</span> from the geometry and physics (see the Flight Dynamics part of the unit). We will measure it instead,
+because the real world, real fabrication, and real wear and tear, change the properties and the behaviour.</p>
+<div class="you-do">
+<p>We're going to characterise this rig using a <strong>system identification</strong> approach. The lab resources include some sample data that they use if you don't have your own measurements to-hand (we may upload the readings we take in the lecture too).</p>
+<p>Once we've uploaded our in-lecture data and you've downloaded it, <strong>open <code>identify_rig.m</code></strong> from the laboratory folder. It walks you through
+fitting the rig by hand, then automatically, and saves your model down where
+everything else can read it.</p>
+<p><a class="md-button md-button--primary" href="https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/lab-quanser">Download the laboratory folder</a></p>
+<p><strong>Core expectation</strong>: generate a manual second-order fit from a measured response:</p>
+<ul>
+<li>the <strong>period</strong> of the oscillation gives the damped frequency,
+  <span class="arithmatex">\( \omega_\mathrm{d} = 2\pi / T_\mathrm{d} \)</span>;</li>
+<li>the <strong>ratio of successive peaks</strong> gives the <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr>, by log decrement;</li>
+<li>the <strong>steady state value</strong> gives the gain.</li>
+</ul>
+<p><strong>Going further</strong>: <code>tfest</code> will fit a model of whatever order you ask for in
+one line. Do the fit by hand first to get a feel for the process and the system, and check the <code>tfest</code> docs to understand how it works.</p>
+<div class="admonition tip">
+<p class="admonition-title">Variability in models</p>
+<p>You will not all get the same numbers from the same response. Where you read the peaks, how much of the tail
+you trust: all of it affects
+the answer. Comparing fits and getting a 'feel' for what is 'sensible' is part of the exercise.</p>
+</div>
+</div>
+<h2 id="tuning">Tuning, and then flying<a class="headerlink" href="#tuning" title="Permanent link">&para;</a></h2>
+<div class="you-do">
+<div class="admonition warning">
+<p class="admonition-title">To do in the lab</p>
+<p>2026: We didn't get to this section in the lecture because I talk too much. Make sure you work through the lab parts 1-3, these will get you familiar with tuning a <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> controller on the Quansers.</p>
+</div>
+<p>Continue through the lab resources - in simulation, you tune a <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr>
+controller until it meets the requirement you agreed, then submit your gains to me.
+<code>s2_tune</code> checks them and hands you a link with your numbers already filled in (only do this in the lecture - you don't need to submit lab values);
+you press Submit yourself, so you see exactly what goes out under your name.</p>
+<p>The files are yours, and the recording comes with them, so none of this depends
+on being in the room when it happens. If you did not get through it in the
+session, or you want to try a second design, run <a href="../laboratory/code/">the session
+code</a> yourself and submit from there.</p>
+<p>The check simulates what the rig does, which is not quite what <code>step</code> does:
+the demand is ramped rather than stepped, and the derivative acts on the
+measured angle rather than on the error. Expect its numbers to differ from
+your own plot by a little. The hardware will differ by more, and that gap is
+the last section of this handout.</p>
+</div>
+<p>We'll fly three rounds:</p>
+<ol>
+<li><strong>The extremes</strong>, chosen because they misbehave: the most aggressive, the
+   most sluggish, the most integral. Cause and effect before any good answer.</li>
+<li><strong>The cohort average.</strong> Often worse than most of its parts, which is worth
+   watching: the average of safe designs is not safe by construction.</li>
+<li><strong>The best few.</strong></li>
+</ol>
+<p>Every submission is checked before it reaches the hardware, against the model
+fitted from the rig on the day, and gains outside the envelope are <strong>refused
+rather than adjusted</strong>. Not against your own fit: your fit is an estimate of
+the machine, and my real machine has to survive the flight. If yours are refused you will be told which limit they missed.</p>
+<div class="admonition note">
+<p class="admonition-title">Your name, on screen, in front of everybody</p>
+<p>The form asks for a display name, and that is the name on screen when your
+gains fly. Choose an alias if you would rather. Your University account is
+recorded by the form so that I know whose submission is whose, but it is
+never shown to the room.</p>
+</div>
+<h2 id="sim-vs-hardware">Where simulation and hardware disagree<a class="headerlink" href="#sim-vs-hardware" title="Permanent link">&para;</a></h2>
+<p>Your design will meet the requirement in simulation. Some of them will not
+meet it on the rig. The gap is not carelessness; it's one of our core learning outcomes.</p>
+<p>Four reasons it happens, all of which get a week of their own later:</p>
+<ul>
+<li><strong>The model is <del>wrong</del> a simplification.</strong> It is a <strong>linearisation</strong> of <strong>one axis</strong> of a machine that
+  has three, fitted from one response over a few seconds.</li>
+<li><strong>The actuators have limits.</strong> The motors saturate. A controller that
+  demands 30 V from a 24 V amplifier won't get what it wants.</li>
+<li><strong>There is noise.</strong> The encoder quantises (steps in discrete increments), and derivative action amplifies
+  exactly that.</li>
+<li><strong>The <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> moves.</strong> Trim shifts, friction changes, and nothing about the
+  rig at 14:00 is quite what it was at 13:00.</li>
+</ul>
+<p>The cycle's answer is not to build a better model before designing. It is to
+design, test, find out where you were wrong, go round again, and account for uncertainty in your design.</p>
+<p><em>That is one full design cycle. In future lectures we'll look at each step in detail.</em></p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Control design is a <strong>loop</strong>: understand, specify, design, simulate, test,
+  repeat. Every week of this unit is one step of it.</li>
+<li>Feedback is a <strong>tradeoff</strong>. It gives you disturbance rejection, insensitivity and
+  stabilisation, and it costs you noise on the output and the possibility of
+  instability. More gain brings more of both.</li>
+<li>A <strong>requirement is a design input</strong>: a number with a test, agreed before the
+  design, not after.</li>
+<li>A model you <strong>measured</strong> beats a model you assumed (although there is utility in modelling from the fundamentals), and knowing which one
+  you have is important.</li>
+<li>Simulation and hardware often disagree, we can design for this.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">How the unit runs</p>
+<p>The schedule, the assessment, the laboratory and what a week looks
+like are on <a href="../L00-intro/">Introduction and logistics</a>.</p>
+</div>
+<h2 class="no-slides" id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<!-- reading:start -->
+<ul>
+<li>Dorf and Bishop, sections 1.4-1.5: Engineering design, and control system design — the design cycle this unit is built on.</li>
+<li>Dorf and Bishop, sections 4.1-4.2: Feedback control system characteristics; error signal analysis — why feedback at all.</li>
+</ul>
+<p>Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12<sup>th</sup>, 13<sup>th</sup> and 14<sup>th</sup> editions; only the page numbers differ. It is <a href="../reading/">in the library</a>, and is for additional study and consolidation, not a substitute for the handout.</p>
+<!-- reading:end -->
+
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:goedecke">
+<p>Goedecke, S. (2026). <a href="https://www.seangoedecke.com/llms-reward-expertise/">LLMs reward expertise</a>.&#160;<a class="footnote-backref" href="#fnref:goedecke" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tao-chat">
+<p>Tao, T. (2026). <a href="https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56">Jacobian conjecture counterexample</a>, a shared ChatGPT conversation, 20 July 2026.&#160;<a class="footnote-backref" href="#fnref:tao-chat" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tao">
+<p>Tao, T. and 24 other Fields Medallists (2026). <a href="https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/">A severe misalignment of AI in mathematics</a>.&#160;<a class="footnote-backref" href="#fnref:tao" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:schneier">
+<p>Schneier, B. (2026). <a href="https://www.schneier.com/blog/archives/2026/07/should-you-use-ai-for-a-task-heres-a-simple-way-to-decide.html">Should you use AI for a task? Here's a simple way to decide</a>. First published in <em>The Guardian</em>.&#160;<a class="footnote-backref" href="#fnref:schneier" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../L00-intro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction and logistics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introduction and logistics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../laboratory/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/zoom.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="../javascripts/which-site.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

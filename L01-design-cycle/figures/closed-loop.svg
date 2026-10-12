@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 190" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>Proportional control of the elevation axis: the demanded elevation minus the measured elevation gives the error, the error times Kp gives the voltage, and the voltage drives the plant</title>
+  <style>
+    /* Variables are set as the handout sets them, so a symbol reads the same
+       in a figure as in the sentence that discusses it: italic, in the maths
+       serif. A subscript that names something rather than standing for a
+       quantity stays upright, so the p of Kp and the ref of the reference are
+       descriptors, not a p times a K. Labels are the figure's own voice and
+       stay in the sans face. */
+    .m   { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; }
+    .v   { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; font-style: italic; }
+    .d   { font-style: normal; font-size: 12px; }
+    .lbl { font-size: 13px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+  </defs>
+  <rect width="660" height="190" fill="#ffffff"/>
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <!-- demand into the summing junction -->
+    <line x1="14" y1="80" x2="96" y2="80" marker-end="url(#arrow)"/>
+    <circle cx="110" cy="80" r="14"/>
+    <!-- error into the controller -->
+    <line x1="124" y1="80" x2="216" y2="80" marker-end="url(#arrow)"/>
+    <rect x="218" y="52" width="96" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- voltage into the plant -->
+    <line x1="314" y1="80" x2="406" y2="80" marker-end="url(#arrow)"/>
+    <rect x="408" y="52" width="118" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- measured elevation out -->
+    <line x1="526" y1="80" x2="640" y2="80" marker-end="url(#arrow)"/>
+    <!-- feedback straight back to the junction: the sensor is taken as perfect -->
+    <polyline points="590,80 590,160 110,160 110,96" marker-end="url(#arrow)"/>
+  </g>
+  <!-- the summing junction's cross, drawn on the diagonals so it is a symbol
+       rather than a continuation of the signals entering it -->
+  <g stroke="#1D1D1B" stroke-width="1.3" fill="none">
+    <line x1="100.1" y1="70.1" x2="119.9" y2="89.9"/>
+    <line x1="100.1" y1="89.9" x2="119.9" y2="70.1"/>
+  </g>
+  <circle cx="590" cy="80" r="3.5" fill="#1D1D1B"/>
+  <g fill="#1D1D1B">
+    <text x="18" y="68" class="v">ε<tspan class="d" dy="4">ref</tspan></text>
+    <text x="14" y="104" class="lbl">demanded</text>
+    <text x="78" y="66" font-size="14">+</text>
+    <text x="120" y="112" font-size="16">−</text>
+    <text x="160" y="68" class="v">e</text>
+    <text x="150" y="100" class="lbl">error</text>
+    <text x="266" y="87" text-anchor="middle" class="v">K<tspan class="d" dy="4">p</tspan></text>
+    <text x="266" y="126" text-anchor="middle" class="lbl">controller</text>
+    <text x="352" y="68" class="v">V</text>
+    <text x="361" y="100" text-anchor="middle" class="lbl">volts</text>
+    <text x="467" y="87" text-anchor="middle" class="m"><tspan class="v">G</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="467" y="126" text-anchor="middle" class="lbl">elevation axis</text>
+    <text x="604" y="68" class="v">ε</text>
+    <text x="350" y="180" text-anchor="middle" class="lbl">measured elevation, fed back (no sensor model)</text>
+  </g>
+</svg>

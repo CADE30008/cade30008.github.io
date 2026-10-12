@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 606 712" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="15">
+  <title>The control system design process, after Dorf and Bishop figure 1.17. Seven blocks run down the page in three groups. Group one, establishment of goals, variables to be controlled, and specifications: establish the control goals; identify the variables to be controlled; write the specifications. Group two, system definition and modelling: establish the system configuration; obtain a model of the process, the actuator, and the sensor. Group three, control system design, simulation, and analysis: describe a controller and select key parameters to be adjusted; optimise the parameters and analyse the performance. If the performance does not meet the specifications, a return on the left iterates the configuration. If it meets them, the design continues to an eighth block in red, which is this unit's addition and not Dorf and Bishop's: test it on the machine. When the machine disagrees with the simulation, two returns on the right give two answers: mend the model, back to the modelling block, or tolerate the mismatch, back to the controller block, which is robustness. When it agrees, the design is finished.</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#B01C2E"/>
+    </marker>
+  </defs>
+  <rect width="606" height="712" fill="#ffffff"/>
+
+  <!-- the seven blocks, one column, as in figure 1.17 -->
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="#ffffff">
+    <rect x="60" y="40" width="300" height="54" rx="4"/>
+    <rect x="60" y="112" width="300" height="54" rx="4"/>
+    <rect x="60" y="184" width="300" height="54" rx="4"/>
+    <rect x="60" y="256" width="300" height="54" rx="4"/>
+    <rect x="60" y="328" width="300" height="54" rx="4"/>
+    <rect x="60" y="400" width="300" height="54" rx="4"/>
+    <rect x="60" y="472" width="300" height="54" rx="4"/>
+  </g>
+  <g fill="#1D1D1B">
+    <text x="72" y="72" font-weight="700" fill="#B01C2E" font-size="13">1</text><text x="90" y="72">Establish the control goals</text>
+    <text x="72" y="144" font-weight="700" fill="#B01C2E" font-size="13">2</text><text x="90" y="137">Identify the variables</text><text x="90" y="155">to be controlled</text>
+    <text x="72" y="216" font-weight="700" fill="#B01C2E" font-size="13">3</text><text x="90" y="216">Write the specifications</text>
+    <text x="72" y="288" font-weight="700" fill="#B01C2E" font-size="13">4</text><text x="90" y="288">Establish the system configuration</text>
+    <text x="72" y="360" font-weight="700" fill="#B01C2E" font-size="13">5</text><text x="90" y="353">Obtain a model of the process,</text><text x="90" y="371">the actuator, and the sensor</text>
+    <text x="72" y="432" font-weight="700" fill="#B01C2E" font-size="13">6</text><text x="90" y="425">Describe a controller and select</text><text x="90" y="443">key parameters to be adjusted</text>
+    <text x="72" y="504" font-weight="700" fill="#B01C2E" font-size="13">7</text><text x="90" y="497">Optimise the parameters and</text><text x="90" y="515">analyse the performance</text>
+  </g>
+
+  <!-- down the column -->
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <line x1="210" y1="94" x2="210" y2="106" marker-end="url(#a)"/>
+    <line x1="210" y1="166" x2="210" y2="178" marker-end="url(#a)"/>
+    <line x1="210" y1="238" x2="210" y2="250" marker-end="url(#a)"/>
+    <line x1="210" y1="310" x2="210" y2="322" marker-end="url(#a)"/>
+    <line x1="210" y1="382" x2="210" y2="394" marker-end="url(#a)"/>
+    <line x1="210" y1="454" x2="210" y2="466" marker-end="url(#a)"/>
+  </g>
+
+  <!-- the three groups, bracketed on the right as the book does -->
+  <g stroke="#1D1D1B" stroke-width="1.4" fill="none">
+    <path d="M414 40 h-8 M414 40 V238 M414 238 h-8 M414 139 h10"/>
+    <path d="M414 256 h-8 M414 256 V382 M414 382 h-8 M414 319 h10"/>
+    <path d="M414 400 h-8 M414 400 V526 M414 526 h-8 M414 463 h10"/>
+  </g>
+  <g font-size="13.5" fill="#5a5a5a">
+    <text x="432" y="125">(1) Establishment of goals,</text><text x="432" y="143">variables to be controlled,</text><text x="432" y="161">and specifications</text>
+    <text x="432" y="312">(2) System definition</text><text x="432" y="330">and modelling</text>
+    <text x="432" y="456">(3) Control system design,</text><text x="432" y="474">simulation, and analysis</text>
+  </g>
+
+  <!-- Dorf's iteration, on the left -->
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <path d="M150 526 V560 H30 V283 H54" marker-end="url(#a)"/>
+  </g>
+  <text x="36" y="578" font-size="12.5" fill="#5a5a5a">does not meet the specifications:</text>
+  <text x="36" y="594" font-size="12.5" fill="#5a5a5a">iterate the configuration</text>
+
+  <!-- this unit's addition, kept visibly separate -->
+  <g stroke="#B01C2E" stroke-width="1.8" fill="#ffffff">
+    <rect x="60" y="620" width="300" height="54" rx="4" stroke-dasharray="7 5"/>
+  </g>
+  <g fill="#B01C2E">
+    <text x="72" y="652" font-weight="700" font-size="13">8</text><text x="90" y="645">Test it on the machine</text><text x="90" y="663" font-size="13">this unit, not Dorf and Bishop</text>
+  </g>
+  <g stroke="#B01C2E" stroke-width="1.8" fill="none">
+    <line x1="270" y1="526" x2="270" y2="614" marker-end="url(#ar)"/>
+    <path d="M360 647 H392 V355 H366" stroke-dasharray="7 5" marker-end="url(#ar)"/>
+    <path d="M392 427 H366" stroke-dasharray="7 5" marker-end="url(#ar)"/>
+  </g>
+  <g font-size="12.5" fill="#B01C2E">
+    <text x="280" y="556">meets them</text>
+    <text x="400" y="640">the machine disagrees</text>
+    <text x="432" y="348">mend the model</text>
+    <text x="432" y="400">or tolerate the mismatch:</text><text x="432" y="416">robustness</text>
+  </g>
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <line x1="150" y1="674" x2="150" y2="700" marker-end="url(#a)"/>
+  </g>
+  <text x="166" y="698" font-size="13" fill="#5a5a5a">the machine agrees: finalise the design</text>
+</svg>
