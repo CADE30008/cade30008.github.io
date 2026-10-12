@@ -1,0 +1,12 @@
+{
+  "year": "2026/27",
+  "base": "https://forms.cloud.microsoft/Pages/ResponsePage.aspx",
+  "form_id": "MH_ksn3NTkql2rGM8aQVG3vXj38If81EjKXQdhKJJ5xUM1ZLM1ZVVDJXRktTNFpRSDQ2R0ZZOVFWRi4u",
+  "fields": {
+    "display_name": "r4af28b36ad294cc7ab1d63bc018262e2",
+    "kp": "rf8c79b6090b94d7fbfa881ad26b8f951",
+    "ki": "r7a3963dfd2a440bdaeaf815b907e487a",
+    "kd": "r69c68161eca34128ae3e0c248c59412b"
+  },
+  "renewal": "These IDs belong to one form and die with it. To make next year's: build the form with the same four short-text questions in the same order, then Collect responses > Get a link to pre-fill answers, fill the dummy values, and copy each r-parameter out of the URL it gives you. The order of the questions in the form is what the r-parameters are keyed to, not their wording."
+}

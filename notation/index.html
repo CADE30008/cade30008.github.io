@@ -1,0 +1,1518 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Every symbol used in this half of the unit, what it means, and the alternatives you may have met elsewhere.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/notation/">
+      
+      
+        <link rel="prev" href="../ai/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Notation - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Notation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction and logistics
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../laboratory/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-joystick" viewBox="0 0 24 24"><path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM6 15v-2M12 15V9"/><circle cx="12" cy="6" r="3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  The Quanser laboratory
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  The Quanser laboratory
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part1-identify/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 1: identify
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part2-design/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sliders" viewBox="0 0 24 24"><path d="M10 8h4M12 21v-9M12 8V3M17 16h4M19 12V3M19 21v-5M3 14h4M5 10V3M5 21v-7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 2: design
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part3-validate/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m16 9-5.5 5.5L8 12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 3: validate
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/code/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 12.5 8 15l2 2.5M14 12.5l2 2.5-2 2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Recommended reading
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Notation
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Notation
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-chose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How we chose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals-round-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Signals round the loop
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Blocks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Second-order response
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controllers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Frequency domain
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laplace-and-the-s-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Laplace and the s-plane
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-we-chose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How we chose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signals-round-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Signals round the loop
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Blocks
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#second-order-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Second-order response
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Controllers
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Frequency domain
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laplace-and-the-s-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Laplace and the s-plane
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="notation">Notation<a class="headerlink" href="#notation" title="Permanent link">&para;</a></h1>
+<p>Control notation is not standardised. Every textbook makes slightly different
+choices, and you will have met some of these symbols under other names. This
+page lists the symbols we use and <strong>what else the same thing gets called</strong>, so
+that a different book or a different lecturer does not read as a different
+subject.</p>
+<div class="admonition tip">
+<p class="admonition-title">If a symbol here looks unfamiliar, check the last column</p>
+<p>It is probably something you already know under another name. Reading
+across notations is part of becoming fluent, and you will do it constantly
+once you are reading papers and datasheets.</p>
+</div>
+<h2 id="how-we-chose">How we chose<a class="headerlink" href="#how-we-chose" title="Permanent link">&para;</a></h2>
+<p><strong>We follow MATLAB.</strong> You will spend more hours reading MATLAB's output than
+reading any book, so when MATLAB names something, we use its name. The
+controller is <code>C</code>, the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> is <code>G</code>, and a Bode plot's vertical axis is
+<strong>magnitude</strong>, in decibels.</p>
+<p>Where MATLAB is silent we follow Dorf and Bishop, the
+<a href="../reading/">recommended textbook for further reading</a>. Where the two disagree
+we say so below rather than picking silently.</p>
+<p>Three house rules:</p>
+<ul>
+<li><strong>Descriptive subscripts are upright, variable subscripts are italic.</strong> In
+  <span class="arithmatex">\(K_\mathrm{p}\)</span>, the p abbreviates "proportional", so it is upright. In
+  <span class="arithmatex">\(x_i\)</span>, the <span class="arithmatex">\(i\)</span> is an index that ranges over values, so it stays italic.
+  To decide: could the subscript be replaced by a number?</li>
+<li><strong>A prime means the closed loop.</strong> <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_\mathrm{n}\)</span> belong
+  to the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>; <span class="arithmatex">\(\zeta'\)</span> and <span class="arithmatex">\(\omega_\mathrm{n}'\)</span> are what the loop built
+  around it ends up with. Tuning a controller does not change the machine, so
+  the two need separate names.</li>
+<li><strong>Every question and worked example defines its symbols</strong>, even the obvious
+  ones. It costs a line and removes all doubt.</li>
+<li><strong>An equation always carries its left-hand side.</strong> You will see
+  <span class="arithmatex">\(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\)</span>, not a bare
+  <span class="arithmatex">\(\omega_\mathrm{n}\sqrt{1-\zeta^2}\)</span> with its name left in the prose.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">The <span class="arithmatex">\((s)\)</span> often goes missing, and that's normal</p>
+<p>Once it is clear that everything is a function of <span class="arithmatex">\(s\)</span>, almost everyone
+drops it: <span class="arithmatex">\(L = CG\)</span> rather than <span class="arithmatex">\(L(s) = C(s)G(s)\)</span>, and <span class="arithmatex">\(T = L/(1+L)\)</span>
+rather than the full form. We do it too, especially on slides.</p>
+<p>It means the same thing. One place it matters: <span class="arithmatex">\(G(0)\)</span> and <span class="arithmatex">\(G(j\omega)\)</span>
+are <em>particular values</em> of <span class="arithmatex">\(G(s)\)</span>. When an argument is written out
+explicitly, it is usually there for a reason.</p>
+</div>
+<h2 id="signals-round-the-loop">Signals round the loop<a class="headerlink" href="#signals-round-the-loop" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(r\)</span>, <span class="arithmatex">\(R(s)\)</span></td>
+<td>Reference, or setpoint — what you're asking for.</td>
+<td><span class="arithmatex">\(y_\mathrm{d}\)</span>, <span class="arithmatex">\(\theta_\mathrm{ref}\)</span>, "command", "demand".</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(Y(s)\)</span></td>
+<td>Output — what the system actually does.</td>
+<td><span class="arithmatex">\(C(s)\)</span> in some books, which we avoid: here <span class="arithmatex">\(C\)</span> is the controller.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e\)</span>, <span class="arithmatex">\(E(s)\)</span></td>
+<td>Error, <span class="arithmatex">\(e = r - y\)</span> for unity feedback.</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(u\)</span>, <span class="arithmatex">\(U(s)\)</span></td>
+<td>Control signal — what the controller asks the actuator for.</td>
+<td><span class="arithmatex">\(m\)</span> in older texts.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d\)</span>, <span class="arithmatex">\(D(s)\)</span></td>
+<td>Disturbance — anything that moves the output without being asked.</td>
+<td><span class="arithmatex">\(T_\mathrm{d}(s)\)</span> in Dorf, which we avoid because <span class="arithmatex">\(T_\mathrm{d}\)</span> is also derivative time.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n\)</span>, <span class="arithmatex">\(N(s)\)</span></td>
+<td>Measurement noise — what the sensor adds that isn't real.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(G(s)\)</span></td>
+<td>The <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>: what you are controlling.</td>
+<td><span class="arithmatex">\(P(s)\)</span>, <span class="arithmatex">\(G_\mathrm{p}(s)\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(C(s)\)</span></td>
+<td>The controller: what you design.</td>
+<td><span class="arithmatex">\(G_\mathrm{c}(s)\)</span> in Dorf, <span class="arithmatex">\(K(s)\)</span>, <span class="arithmatex">\(D(s)\)</span>. Note some courses use <span class="arithmatex">\(C\)</span> for the <em>output</em> — here it is always the controller.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(H(s)\)</span></td>
+<td>The sensor, in the feedback path. Usually 1.</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(L(s) = C(s)G(s)\)</span></td>
+<td>Loop gain, or open-loop transfer function — what you get going once round the loop.</td>
+<td><span class="arithmatex">\(G_\mathrm{ol}\)</span>, <span class="arithmatex">\(GH\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(T(s)\)</span></td>
+<td>Closed-loop transfer function, reference to output.</td>
+<td>Also called the complementary sensitivity, once sensitivity has been introduced.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(S(s)\)</span></td>
+<td>Sensitivity: reference to error, <span class="arithmatex">\(S(s) = 1/(1 + L(s))\)</span>. It and <span class="arithmatex">\(T\)</span> satisfy <span class="arithmatex">\(S + T = 1\)</span>.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="second-order-response">Second-order response<a class="headerlink" href="#second-order-response" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\zeta\)</span></td>
+<td>Damping ratio.</td>
+<td>Universal; no competing symbol.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega_\mathrm{n}\)</span></td>
+<td>Natural frequency, rad/s.</td>
+<td><strong><span class="arithmatex">\(\omega_0\)</span></strong> and <strong><span class="arithmatex">\(w_\mathrm{n}\)</span></strong> are both common, and you may well have seen either.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega_\mathrm{d}\)</span></td>
+<td>Damped frequency, <span class="arithmatex">\(\omega_\mathrm{d} = \omega_\mathrm{n}\sqrt{1-\zeta^2}\)</span> — the frequency a decaying oscillation actually runs at.</td>
+<td>Informally <strong>ringing</strong>, though more in electrical and signal work than for mechanical systems.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\zeta'\)</span>, <span class="arithmatex">\(\omega_\mathrm{n}'\)</span>, <span class="arithmatex">\(\omega_\mathrm{d}'\)</span></td>
+<td>The same three for the <strong>closed loop</strong>, as against the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>'s own. A prime always means "after the loop is closed": on a proportional loop, <span class="arithmatex">\(\omega_\mathrm{n}'\)</span> rises with gain and <span class="arithmatex">\(\zeta'\)</span> falls, while the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>'s <span class="arithmatex">\(\zeta\)</span> and <span class="arithmatex">\(\omega_\mathrm{n}\)</span> sit exactly where they were.</td>
+<td>Subscript <strong>cl</strong>, <span class="arithmatex">\(\zeta_\mathrm{cl}\)</span>, in some books.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(M_\mathrm{p}\)</span></td>
+<td>Overshoot: how far the step response goes past its final value, as a percentage of it.</td>
+<td><strong>P.O.</strong>, and <em>percent overshoot</em> written out. Beware: some books use <span class="arithmatex">\(M_\mathrm{p}\)</span> for the <em>resonant peak</em> of a frequency response instead, which is a different quantity — context decides.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t_\mathrm{r}\)</span></td>
+<td>Rise time.</td>
+<td><span class="arithmatex">\(T_\mathrm{r}\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t_\mathrm{p}\)</span></td>
+<td>Peak time.</td>
+<td><span class="arithmatex">\(T_\mathrm{p}\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t_\mathrm{s}\)</span></td>
+<td>Settling time, to a 2% band unless said otherwise.</td>
+<td><span class="arithmatex">\(T_\mathrm{s}\)</span>, which also means sample time — we use <span class="arithmatex">\(t_\mathrm{s}\)</span> to keep them apart.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(e_\mathrm{ss}\)</span></td>
+<td>Steady-state error.</td>
+<td><span class="arithmatex">\(e(\infty)\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y_\mathrm{ss}\)</span></td>
+<td>Steady-state output.</td>
+<td><span class="arithmatex">\(y(\infty)\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="controllers">Controllers<a class="headerlink" href="#controllers" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(K_\mathrm{p}\)</span></td>
+<td>Proportional gain.</td>
+<td><span class="arithmatex">\(K_P\)</span> uppercase in Dorf and in many courses. Same thing.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K_\mathrm{i}\)</span></td>
+<td>Integral gain.</td>
+<td><span class="arithmatex">\(K_I\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K_\mathrm{d}\)</span></td>
+<td>Derivative gain.</td>
+<td><span class="arithmatex">\(K_D\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(T_\mathrm{i}\)</span></td>
+<td>Integral time, <span class="arithmatex">\(T_\mathrm{i} = K_\mathrm{p}/K_\mathrm{i}\)</span>.</td>
+<td>Used in the <em>standard</em> form of <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr>, below.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(T_\mathrm{d}\)</span></td>
+<td>Derivative time, <span class="arithmatex">\(T_\mathrm{d} = K_\mathrm{d}/K_\mathrm{p}\)</span>.</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(N\)</span></td>
+<td>Derivative filter ratio. We use <span class="arithmatex">\(N = 10\)</span> throughout.</td>
+<td><span class="arithmatex">\(1/T_\mathrm{f}\)</span> forms appear too.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(K_\mathrm{u}\)</span></td>
+<td>Ultimate gain, in Ziegler–Nichols tuning.</td>
+<td><span class="arithmatex">\(K_\mathrm{cr}\)</span>, critical gain.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parallel form</strong>, which is what we use and what MATLAB's <code>pid</code> object takes:</p>
+<div class="arithmatex">\[
+C(s) = K_\mathrm{p} + \frac{K_\mathrm{i}}{s} + K_\mathrm{d}s.
+\]</div>
+<p><strong>Standard form</strong>, which you will meet in industry and in Dorf:</p>
+<div class="arithmatex">\[
+C(s) = K_\mathrm{p}\left(1 + \frac{1}{T_\mathrm{i}s} + T_\mathrm{d}s\right).
+\]</div>
+<p>Same controller, different parameters, and converting between them is a skill
+the unit will ask for.</p>
+<h2 id="frequency-domain">Frequency domain<a class="headerlink" href="#frequency-domain" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\omega\)</span></td>
+<td>Frequency, <strong>rad/s</strong> unless stated.</td>
+<td><span class="arithmatex">\(f\)</span> in Hz; <span class="arithmatex">\(\omega = 2\pi f\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\lvert G(j\omega)\rvert\)</span></td>
+<td><strong>Magnitude</strong> — the vertical axis of a Bode plot, in decibels.</td>
+<td>Very often called <strong>gain</strong>, and written "Gain (dB)". We say magnitude, because <em>gain</em> is already doing three other jobs: loop gain, <abbr title="what a system multiplies a constant input by once it has settled: G(0)">DC gain</abbr> and gain margin. MATLAB and Dorf both label the axis Magnitude.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\angle G(j\omega)\)</span></td>
+<td>Phase, in degrees.</td>
+<td><span class="arithmatex">\(\arg G(j\omega)\)</span>, <span class="arithmatex">\(\phi\)</span>, <span class="arithmatex">\(\Phi\)</span>.</td>
+</tr>
+<tr>
+<td>dB</td>
+<td>Decibels, <span class="arithmatex">\(20\log_{10}\lvert G\rvert\)</span> for a gain.</td>
+<td>The <span class="arithmatex">\(10\log_{10}\)</span> form is for <em>power</em>; we never use it.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega_\mathrm{c}\)</span></td>
+<td>Corner, or break, frequency of a first-order factor: <span class="arithmatex">\(\omega_\mathrm{c} = 1/\tau\)</span>.</td>
+<td><span class="arithmatex">\(\omega_\mathrm{b}\)</span>, and <strong>cut-off frequency</strong>, which is the commoner name in signals and filtering.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega_\mathrm{gc}\)</span></td>
+<td>Gain crossover: where <span class="arithmatex">\(\lvert L \rvert = 1\)</span>, i.e. 0 dB.</td>
+<td><span class="arithmatex">\(\omega_\mathrm{c}\)</span> in some books, which is why we keep <span class="arithmatex">\(\omega_\mathrm{c}\)</span> for the corner.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\omega_\mathrm{pc}\)</span></td>
+<td>Phase crossover: where <span class="arithmatex">\(\angle L = -180^\circ\)</span>.</td>
+<td><span class="arithmatex">\(\omega_{180}\)</span>.</td>
+</tr>
+<tr>
+<td>GM</td>
+<td>Gain margin — how much the loop gain can rise before instability.</td>
+<td><span class="arithmatex">\(G_\mathrm{m}\)</span>, <span class="arithmatex">\(K_\mathrm{g}\)</span>.</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>Phase margin, in degrees.</td>
+<td><span class="arithmatex">\(P_\mathrm{m}\)</span>, <span class="arithmatex">\(\phi_\mathrm{m}\)</span>, <span class="arithmatex">\(\gamma\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="laplace-and-the-s-plane">Laplace and the s-plane<a class="headerlink" href="#laplace-and-the-s-plane" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Means</th>
+<th>Also written</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(s = \sigma + j\omega\)</span></td>
+<td>The Laplace variable.</td>
+<td></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(j\)</span></td>
+<td><span class="arithmatex">\(\sqrt{-1}\)</span>.</td>
+<td><span class="arithmatex">\(i\)</span> in mathematics and physics. Engineering uses <span class="arithmatex">\(j\)</span> because <span class="arithmatex">\(i\)</span> is current.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(X(s)\)</span></td>
+<td>Laplace transform of <span class="arithmatex">\(x(t)\)</span>. Capital for the transform, lower case for the signal.</td>
+<td><span class="arithmatex">\(\mathcal{L}\{x(t)\}\)</span>.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\dot y\)</span>, <span class="arithmatex">\(\ddot y\)</span></td>
+<td>First and second derivatives with respect to time. <span class="arithmatex">\(\dot y = \mathrm{d}y/\mathrm{d}t\)</span>.</td>
+<td><span class="arithmatex">\(\mathrm{d}y/\mathrm{d}t\)</span> and <span class="arithmatex">\(\mathrm{d}^2y/\mathrm{d}t^2\)</span>, which you will see at least as often. The dot is Newton's; the fraction is Leibniz's. Both are used here, the dot where an equation would otherwise get crowded. A dot always means a time derivative, never anything else.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span></td>
+<td>Real part of a pole — sets how fast a response decays.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Found something we use that isn't here, or a name for it we've missed? Tell
+me — either way it's a gap worth closing.</em></p>
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ai/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AI in this course">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                AI in this course
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/zoom.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="../javascripts/which-site.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

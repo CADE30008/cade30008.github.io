@@ -1,0 +1,1750 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Plain definitions of the terms used across CADE30008 Flight Dynamics & Advanced Control.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/glossary/">
+      
+      
+        <link rel="prev" href="../notation/">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Glossary - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#glossary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Glossary
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction and logistics
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../laboratory/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-joystick" viewBox="0 0 24 24"><path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM6 15v-2M12 15V9"/><circle cx="12" cy="6" r="3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  The Quanser laboratory
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  The Quanser laboratory
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part1-identify/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 1: identify
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part2-design/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sliders" viewBox="0 0 24 24"><path d="M10 8h4M12 21v-9M12 8V3M17 16h4M19 12V3M19 21v-5M3 14h4M5 10V3M5 21v-7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 2: design
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part3-validate/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m16 9-5.5 5.5L8 12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 3: validate
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/code/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 12.5 8 15l2 2.5M14 12.5l2 2.5-2 2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Recommended reading
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Notation
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-unit-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How this unit works
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-design-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The design process
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The feedback loop
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PID control
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#describing-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Describing behaviour
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Frequency domain
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Robustness
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-space-and-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        State space and beyond
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aircraft" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aircraft
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-systems-and-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Our systems and tools
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-unit-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How this unit works
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-design-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The design process
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-feedback-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The feedback loop
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PID control
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#describing-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Describing behaviour
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Frequency domain
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Robustness
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#state-space-and-beyond" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        State space and beyond
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aircraft" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aircraft
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-systems-and-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Our systems and tools
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h1>
+<p>Looking for a <strong>symbol</strong> rather than a word? <a href="../notation/">Notation</a> lists every
+symbol we use, what it means, and the other names you may have met for it.</p>
+<p>Every term this course uses, defined once, in plain words. If a lecture and this
+page disagree, tell us: one of them is wrong.</p>
+<p>Definitions here are working ones. They are meant to be enough to follow the
+argument, not to be the most general statement that could be made. Where a term
+has a sharper definition you will meet later, that is said.</p>
+<div class="admonition tip">
+<p class="admonition-title">How to use this page</p>
+<p>Use your browser's find (<span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-f">F</kbd></span> or <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-f">F</kbd></span>), or the site search, which
+covers this page too. Terms are grouped by where you meet them, not
+alphabetically, so that reading a whole section makes sense on its own.</p>
+</div>
+<h2 id="how-this-unit-works">How this unit works<a class="headerlink" href="#how-this-unit-works" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Formative</strong></td>
+<td>Work that doesn't contribute to your unit grade, but helps you learn and develop your understanding and skills. You may receive formative feedback on some pieces.</td>
+</tr>
+<tr>
+<td><strong>Summative</strong></td>
+<td>Work that counts toward your unit grade.</td>
+</tr>
+<tr>
+<td><strong>Checkpoint</strong></td>
+<td>A point in the term where you're expected — but not required — to submit drafts or reflections. Formative.</td>
+</tr>
+<tr>
+<td><strong>Challenge</strong></td>
+<td>Periodic sets of questions that practice taught material. Formative, automatically marked, with feedback on each question, and the same questions for everyone.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-design-process">The design process<a class="headerlink" href="#the-design-process" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Control design cycle</strong></td>
+<td>The loop this course is built on: state the requirements, get a model, design a controller, analyse it, verify it, implement it, then find out what you got wrong and go round again. Every lecture says where in this cycle it sits.</td>
+</tr>
+<tr>
+<td><strong>Requirement</strong></td>
+<td>A statement of what the control system must achieve, written so that you can test whether it did. "Settles within 2 seconds with no more than 10 per cent overshoot" is a requirement. "Responds nicely" is not.</td>
+</tr>
+<tr>
+<td><strong>Specification</strong></td>
+<td>Used interchangeably with 'requirement' in most control writing. Where this course distinguishes them, a requirement is what the system must do and a specification is the agreed numbers that express it.</td>
+</tr>
+<tr>
+<td><strong>Plant</strong></td>
+<td>The thing being controlled: the aircraft, the helicopter rig, the motor. Everything outside the controller.</td>
+</tr>
+<tr>
+<td><strong>Model</strong></td>
+<td>A mathematical description of the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> that is good enough for the job in hand. Every model is wrong somewhere; the skill is knowing where.</td>
+</tr>
+<tr>
+<td><strong>System identification, or <abbr title="system identification: getting a model from measured data rather than from physics">system ID</abbr></strong></td>
+<td>Getting a model from measured data rather than from physics. You excite the system, record what it does, and fit a model to the recording. The counterpart to deriving a model from first principles, and often the only honest route when the physics is uncertain.</td>
+</tr>
+<tr>
+<td><strong>Model-based design</strong></td>
+<td>The industrial form of the design cycle, in which one set of models carries the work from requirements through simulation and verification to the code that runs on the aircraft. The point is that the model is the shared artifact, not a drawing that gets out of date.</td>
+</tr>
+<tr>
+<td><strong>Verification</strong></td>
+<td>Checking that the design meets its requirements. "Did we build it right?"</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Checking that the model, or the requirements, describe reality. "Did we build the right thing, and does our model of it hold?"</td>
+</tr>
+<tr>
+<td><strong>Operating point, or <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr></strong></td>
+<td>A condition the aircraft is holding steady at: a speed, an altitude, an attitude, with the forces balanced. Models are usually built around one.</td>
+</tr>
+<tr>
+<td><strong>Linearisation</strong></td>
+<td>Replacing the true nonlinear behaviour with a straight-line approximation valid near an operating point. It is what makes almost every tool in this course applicable, and it is the first assumption to question when a design misbehaves far from <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-feedback-loop">The feedback loop<a class="headerlink" href="#the-feedback-loop" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open loop</strong></td>
+<td>The <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> driven directly, with no measurement fed back. The Quanser helicopter cannot be flown open loop, which is why the course starts there.</td>
+</tr>
+<tr>
+<td><strong>Closed loop, or feedback</strong></td>
+<td>The output is measured, compared with what was wanted, and the difference used to drive the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>.</td>
+</tr>
+<tr>
+<td><strong>Reference, or setpoint</strong></td>
+<td>What you want the output to be.</td>
+</tr>
+<tr>
+<td><strong>Error</strong></td>
+<td>Reference minus measured output. What the controller acts on.</td>
+</tr>
+<tr>
+<td><strong>Disturbance</strong></td>
+<td>Anything that pushes the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> around that is not your control input: gusts, turbulence, a shifting load.</td>
+</tr>
+<tr>
+<td><strong>Measurement noise</strong></td>
+<td>Error in the sensor's reading. Feedback acts on it just as readily as on real motion, which is why more gain is not always better.</td>
+</tr>
+<tr>
+<td><strong>Feedforward</strong></td>
+<td>Acting on a known reference or a measured disturbance directly, without waiting for an error to appear. Used alongside feedback, not instead of it.</td>
+</tr>
+<tr>
+<td><strong>Actuator</strong></td>
+<td>What moves the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>: a control surface and its servo, a motor, a thruster.</td>
+</tr>
+<tr>
+<td><strong>Saturation</strong></td>
+<td>An actuator reaching its limit and being unable to give more. The commonest reason a design that worked in simulation fails in reality.</td>
+</tr>
+<tr>
+<td><strong>Rate limit</strong></td>
+<td>A limit on how fast an actuator can move, as distinct from how far. It behaves like a delay that gets worse the harder you push.</td>
+</tr>
+<tr>
+<td><strong>Time delay</strong></td>
+<td>Any lag between a command and its effect: computation, communication, actuator response. Delay costs phase, and phase is what stability margin is made of.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pid-control"><abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> control<a class="headerlink" href="#pid-control" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr></strong></td>
+<td>Proportional–integral–derivative control: the controller formed by adding three terms computed from the error. By a wide margin the most used controller in engineering, and the first one to try.</td>
+</tr>
+<tr>
+<td><strong>Proportional term</strong></td>
+<td>Acts in proportion to the present error. More of it means a faster response and, usually, less stability.</td>
+</tr>
+<tr>
+<td><strong>Integral term</strong></td>
+<td>Acts on the accumulated error over time. It removes steady offsets, at the cost of phase and therefore of stability margin.</td>
+</tr>
+<tr>
+<td><strong>Derivative term</strong></td>
+<td>Acts on how fast the error is changing, which is a crude prediction of where it is going. It adds damping, and it amplifies measurement noise, so it is almost always used with a filter.</td>
+</tr>
+<tr>
+<td><strong>Gains</strong></td>
+<td>The three constants <span class="arithmatex">\(K_\mathrm{p}\)</span>, <span class="arithmatex">\(K_\mathrm{i}\)</span>, <span class="arithmatex">\(K_\mathrm{d}\)</span> that set how much of each term is used. Tuning means choosing them.</td>
+</tr>
+<tr>
+<td><strong>Tuning</strong></td>
+<td>Choosing gains to meet the requirements. It has rules of thumb, it has systematic methods, and it has no single right answer until the requirements are stated.</td>
+</tr>
+<tr>
+<td><strong>Integral windup</strong></td>
+<td>The integral term accumulating while the actuator is saturated and nothing can be done about the error. The result is a large, delayed overshoot when the actuator comes off its limit. Preventing it is called anti-windup.</td>
+</tr>
+<tr>
+<td><strong>Derivative kick</strong></td>
+<td>The large transient the derivative term produces when the reference is stepped, because the error jumps. Fixed by differentiating the measurement rather than the error.</td>
+</tr>
+<tr>
+<td><strong>Ziegler–Nichols</strong></td>
+<td>A classical set of tuning rules from measured characteristics of the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>. Historically important, widely taught, and rarely the best answer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="describing-behaviour">Describing behaviour<a class="headerlink" href="#describing-behaviour" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Transfer function</strong></td>
+<td>The relationship between a system's input and its output, written in the Laplace variable <span class="arithmatex">\(s\)</span>. The compact description that most of this course works with.</td>
+</tr>
+<tr>
+<td><strong>First-order lag</strong></td>
+<td>A system with one pole and no zero, <span class="arithmatex">\(1/(1 + s/\omega_\mathrm{c})\)</span>. It passes slow signals through unchanged and attenuates fast ones, falling at 20 dB/decade above its corner. The same object is called a first-order low-pass in signals work. The commonest building block there is: sensors, actuators and filters are mostly lags.</td>
+</tr>
+<tr>
+<td><strong>Pole</strong></td>
+<td>A root of a transfer function's denominator. Poles determine how a system responds on its own: how fast it settles, whether it oscillates, whether it diverges.</td>
+</tr>
+<tr>
+<td><strong>Zero</strong></td>
+<td>A root of the numerator. Zeros shape how the response starts, and a zero in the right half-plane makes a system initially go the wrong way.</td>
+</tr>
+<tr>
+<td><strong>Characteristic equation</strong></td>
+<td>The <abbr title="the denominator of the closed-loop transfer function, as a polynomial in s; its roots are the closed-loop poles">characteristic polynomial</abbr>, below, set to zero. Its roots are the closed-loop poles, so it is where stability is decided, and writing it down is usually the first thing you do with a loop.</td>
+</tr>
+<tr>
+<td><strong>Characteristic polynomial</strong></td>
+<td>The same denominator, left as a polynomial in <span class="arithmatex">\(s\)</span> rather than set to zero. The polynomial is what you write down and factorise; the <abbr title="that same polynomial set to zero, which is where stability is decided">characteristic equation</abbr> is the question you ask of it, so the two carry the same information. Reading its coefficients is often faster than finding its roots: if a gain is missing from the coefficient of <span class="arithmatex">\(s\)</span>, then no amount of that gain changes how fast the response decays, whatever it does to the frequency.</td>
+</tr>
+<tr>
+<td><strong>Stability</strong></td>
+<td>A stable system, disturbed, returns to where it was. An unstable one does not. For a linear system this is exactly the question of whether every pole lies in the left half-plane.</td>
+</tr>
+<tr>
+<td><strong>Marginal stability</strong></td>
+<td>Poles exactly on the boundary: the system neither settles nor diverges, but oscillates forever. A mathematical case rather than a practical one, since nothing real sits exactly on a boundary.</td>
+</tr>
+<tr>
+<td><strong>Damping ratio, <span class="arithmatex">\(\zeta\)</span></strong></td>
+<td>How quickly oscillation dies away, on a scale where 0 oscillates forever and 1 does not oscillate at all. For a simple second-order system it sets the overshoot, about a quarter at <span class="arithmatex">\(\zeta = 0.4\)</span> and a twentieth at <span class="arithmatex">\(\zeta = 0.7\)</span>. Raising it is not free: more damping also means a slower response, so a design chooses between the two rather than hunting for the highest <span class="arithmatex">\(\zeta\)</span> it can get. The Quanser helicopter's elevation axis measures near 0.06, which is why it swings for so long after a disturbance.</td>
+</tr>
+<tr>
+<td><strong>Ringing</strong></td>
+<td>Informal for a decaying oscillation. You will meet it mostly in electrical and signal work, where a circuit or a trace on a scope rings, and much less for mechanical systems. Control texts say <em>oscillation</em>, and so do we, but the two mean the same thing.</td>
+</tr>
+<tr>
+<td><strong>Natural frequency, <span class="arithmatex">\(\omega_\mathrm{n}\)</span></strong></td>
+<td>How fast an oscillatory system wants to move. Together with the <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr> it fixes a second-order response entirely.</td>
+</tr>
+<tr>
+<td><strong>Overshoot</strong></td>
+<td>How far past the target the response goes, as a percentage of the step. For a simple second-order system the <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr> sets it, and nothing else does; add a third pole or a zero and that stops being true.</td>
+</tr>
+<tr>
+<td><strong>Rise time, settling time, steady-state error</strong></td>
+<td>How fast it gets there, how long until it stops moving, and how far off it ends up. With overshoot, the usual language of a time-domain requirement.</td>
+</tr>
+<tr>
+<td><strong>Step response</strong></td>
+<td>What the system does when the reference jumps. The most readable single test of a control system, and the one most requirements are written against.</td>
+</tr>
+<tr>
+<td><strong>Residual</strong></td>
+<td>What is left when you subtract a model's response from an experimental measurement it is meant to describe.</td>
+</tr>
+<tr>
+<td><strong>Fit percentage, NRMSE</strong></td>
+<td>Normalised root mean squared error (NRMSE), a basic indication of how well a model fits against measured data.</td>
+</tr>
+<tr>
+<td><strong>Range of validity</strong></td>
+<td>The frequencies or times, the amplitudes, and the operating point over which a model has been <em>shown</em> to describe the machine.</td>
+</tr>
+<tr>
+<td><strong><abbr title="what a system multiplies a constant input by once it has settled: G(0)">DC gain</abbr></strong></td>
+<td>What a system multiplies a constant input by, once everything has settled. Set <span class="arithmatex">\(s = 0\)</span> in the transfer function and read off <span class="arithmatex">\(G(0)\)</span>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="frequency-domain">Frequency domain<a class="headerlink" href="#frequency-domain" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frequency response</strong></td>
+<td>How a system responds to sinusoids of each frequency: by how much it magnifies them, and by how much it delays them. A complete description of a linear system, obtained by measurement as readily as by calculation.</td>
+</tr>
+<tr>
+<td><strong>Bode plot</strong></td>
+<td>Magnitude and phase of the frequency response, plotted against frequency on logarithmic axes. The working diagram of classical control design.</td>
+</tr>
+<tr>
+<td><strong>Nyquist plot</strong></td>
+<td>The frequency response drawn as a path in the complex plane. Harder to read than a Bode plot, and it answers the stability question definitively where the Bode plot can mislead.</td>
+</tr>
+<tr>
+<td><strong>Nyquist criterion</strong></td>
+<td>The rule that decides closed-loop stability from the shape of that path, including for plants that are unstable open loop.</td>
+</tr>
+<tr>
+<td><strong>Loop gain</strong></td>
+<td>Controller times <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>, taken round the loop once. Nearly every classical result is a statement about it.</td>
+</tr>
+<tr>
+<td><strong>Crossover frequency</strong></td>
+<td>Where the loop gain passes through 1. Roughly, the fastest the closed loop can be expected to act.</td>
+</tr>
+<tr>
+<td><strong>Bandwidth</strong></td>
+<td>The range of frequencies over which the closed loop follows its reference. More bandwidth means a faster system, more actuator effort, and more noise let through: a choice, not a free good.</td>
+</tr>
+<tr>
+<td><strong>Gain margin</strong></td>
+<td>How much extra gain the loop can take before it goes unstable.</td>
+</tr>
+<tr>
+<td><strong>Phase margin</strong></td>
+<td>How much extra phase lag, or equivalently how much extra delay, the loop can take before it goes unstable.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">A margin is not a safety guarantee</p>
+<p>A loop can have textbook margins and still be fragile, because margins
+measure two particular directions of change and a real <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> varies in
+many. Treat them as a necessary check, not a certificate.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sensitivity</strong></td>
+<td>How much a disturbance, or a change in the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>, reaches the output. Design largely consists of pushing it down where it matters and accepting that it rises elsewhere.</td>
+</tr>
+<tr>
+<td><strong>Complementary sensitivity</strong></td>
+<td>How much of the reference, and of the measurement noise, reaches the output. It and the sensitivity add to one at every frequency, which is the most useful constraint in classical design.</td>
+</tr>
+<tr>
+<td><strong>Loop shaping</strong></td>
+<td>Designing by deciding what you want the loop gain to look like against frequency, then building a controller that produces it.</td>
+</tr>
+<tr>
+<td><strong>Lead and lag compensators</strong></td>
+<td>Simple controllers that add phase where you need it, or gain where you need it, at the cost of the other. The classical alternative to <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr>, and the route into loop shaping.</td>
+</tr>
+<tr>
+<td><strong>Root locus</strong></td>
+<td>A plot of how the closed-loop poles move as a gain is varied. The bridge between the frequency domain and what the response actually looks like.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="robustness">Robustness<a class="headerlink" href="#robustness" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Uncertainty</strong></td>
+<td>What you do not know about the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr>: parameters you measured imprecisely, dynamics you left out, behaviour that changes with flight condition.</td>
+</tr>
+<tr>
+<td><strong>Robustness</strong></td>
+<td>A design's tolerance of that uncertainty. A robust design still meets its requirements when the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> is not quite what the model said.</td>
+</tr>
+<tr>
+<td><strong>Model error</strong></td>
+<td>The difference between the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> and the model of it. Bounding it honestly is more useful than pretending it is zero.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="state-space-and-beyond">State space and beyond<a class="headerlink" href="#state-space-and-beyond" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>State</strong></td>
+<td>The smallest set of numbers that, with the future inputs, determines the system's future entirely. For an aircraft, its velocities, rates and attitude.</td>
+</tr>
+<tr>
+<td><strong>State-space model</strong></td>
+<td>The description of a system as a set of first-order differential equations in its state. It handles many inputs and outputs at once, where a transfer function handles one pair.</td>
+</tr>
+<tr>
+<td><strong>State feedback</strong></td>
+<td>Driving the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> from all of its states at once, rather than from the output error alone.</td>
+</tr>
+<tr>
+<td><strong>Observer, or state estimator</strong></td>
+<td>Something that reconstructs the states you cannot measure from the ones you can, so that state feedback becomes possible.</td>
+</tr>
+<tr>
+<td><strong>Controllability, <abbr title="whether the outputs reveal every state">observability</abbr></strong></td>
+<td>Whether the inputs can move every state, and whether the outputs reveal every state. If either fails, no amount of design effort will fix it.</td>
+</tr>
+<tr>
+<td><strong>Pole placement</strong></td>
+<td>Choosing state feedback gains so that the closed-loop poles land exactly where you want them. Possible, and not always wise.</td>
+</tr>
+<tr>
+<td><strong><abbr title="linear quadratic regulator: state feedback that minimises a weighted sum of state error and control effort">LQR</abbr></strong></td>
+<td>Linear quadratic regulator: state feedback chosen to minimise a weighted sum of state error and control effort. It turns "how aggressive should this be?" into a choice of weights.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="aircraft">Aircraft<a class="headerlink" href="#aircraft" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Handling qualities</strong></td>
+<td>How an aircraft feels and behaves to the pilot flying it, assessed against published standards rather than against opinion. The usual source of a flight control system's requirements.</td>
+</tr>
+<tr>
+<td><strong>Short period, <abbr title="the slow longitudinal exchange of speed and altitude">phugoid</abbr></strong></td>
+<td>The two longitudinal modes of a conventional aircraft: a fast pitching oscillation, and a slow exchange of speed and altitude.</td>
+</tr>
+<tr>
+<td><strong><abbr title="the lateral-directional oscillation coupling yaw and roll">Dutch roll</abbr>, spiral, <abbr title="the rapid damping of roll rate">roll subsidence</abbr></strong></td>
+<td>The three lateral-directional modes: an oscillation coupling yaw and roll, a slow divergence or convergence in bank, and the rapid damping of roll rate.</td>
+</tr>
+<tr>
+<td><strong>Stability augmentation system, or <abbr title="stability augmentation system: feedback that improves an aircraft's natural behaviour">SAS</abbr></strong></td>
+<td>Feedback added to improve an aircraft's natural behaviour, without the pilot handing over control.</td>
+</tr>
+<tr>
+<td><strong>Autopilot mode</strong></td>
+<td>A named behaviour the autopilot can be in, such as holding altitude or tracking a heading, each with its own loop and its own requirements.</td>
+</tr>
+<tr>
+<td><strong>Control authority</strong></td>
+<td>How much the control surfaces can actually do. A design that asks for more than exists is not a design.</td>
+</tr>
+<tr>
+<td><strong>Pilot-induced oscillation, or <abbr title="pilot-induced oscillation: an oscillation sustained by the pilot's own corrections">PIO</abbr></strong></td>
+<td>An oscillation sustained by the pilot's own corrections, usually because delay or a <abbr title="a limit on how fast an actuator can move, as distinct from how far">rate limit</abbr> has put them out of phase with the aircraft. A control problem with a human in the loop.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="our-systems-and-tools">Our systems and tools<a class="headerlink" href="#our-systems-and-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Quanser 3-<abbr title="degree of freedom: one independent way a system can move">DoF</abbr> helicopter</strong></td>
+<td>The laboratory rig: two motors on a beam, free to move in elevation, pitch and travel. Used from week 1 onwards.</td>
+</tr>
+<tr>
+<td><strong>Elevation, pitch, travel</strong></td>
+<td>The rig's three axes: how high the beam is, how the rotor head is tilted, and how far round the base it has rotated.</td>
+</tr>
+<tr>
+<td><strong>MATLAB, Simulink</strong></td>
+<td>The numerical environment and its block-diagram modelling tool, both licensed to you by the University.</td>
+</tr>
+<tr>
+<td><strong>Live Script</strong></td>
+<td>A MATLAB document that mixes text, code and its output. Several of this course's activities are Live Scripts.</td>
+</tr>
+<tr>
+<td><strong>MATLAB Drive</strong></td>
+<td>Cloud storage attached to your MATLAB account, used here to give you data and to collect what you produce in a lecture.</td>
+</tr>
+<tr>
+<td><strong>python-control</strong></td>
+<td>The Python library that does what MATLAB's Control System Toolbox does. This course gives both, and they agree.</td>
+</tr>
+<tr>
+<td><strong>Pyodide</strong></td>
+<td>Python compiled to run in a web browser, which is how the runnable code on this site works without your installing anything.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">This page grows</p>
+<p>Terms are added as lectures introduce them, and every lecture review checks
+this page against the lecture. If a term you need is missing, that is a
+fault worth reporting.</p>
+</div>
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../notation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Notation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Notation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../about/" class="md-footer__link md-footer__link--next" aria-label="Next: About these materials">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                About these materials
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/zoom.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="../javascripts/which-site.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "form": "second-order",
+  "K": 3.4,
+  "wn": 1.0,
+  "zeta": 0.06,
+  "units": {
+    "K": "deg/V",
+    "wn": "rad/s",
+    "zeta": "dimensionless"
+  },
+  "source": "Fitted to the laboratory's own recording d_Part1.mat by models/fit_second_order.m, which returns K = 3.41, wn = 1.00, zeta = 0.065 against the laboratory solution's own 3.40 / 1.00 / 0.060. Rounded here to the laboratory's figures. This is a fit about one trim: gravity stiffness on the arm goes as sin(elevation), so a fit taken at a different trim will differ. See models/quanser_elevation.py for the provenance and the open question, and models/rig_trim_sweep.m for the experiment that settles it.",
+  "measured": "2026-09-21",
+  "replace_me": "Refit from THIS rig's own step response on the day and replace K, wn and zeta. The numbers above come from the laboratory's stored recording, not from the rig as it stands today."
+}
