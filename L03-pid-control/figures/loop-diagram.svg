@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 190" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>Unity-feedback loop with controller C(s), plant G(s) and input disturbance d</title>
+  <style>
+    /* Set as the handout sets them: a variable italic in the maths serif, a
+       subscript that names something upright, labels in the sans face. See
+       "Numbers, figures and code" in AGENTS.md. */
+    .m   { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; }
+    .v   { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; font-style: italic; }
+    .d   { font-style: normal; font-size: 12px; }
+    .lbl { font-size: 13px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+  </defs>
+  <rect width="660" height="190" fill="#ffffff"/>
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <!-- reference into first summing junction -->
+    <line x1="14" y1="80" x2="96" y2="80" marker-end="url(#arrow)"/>
+    <circle cx="110" cy="80" r="14"/>
+    <!-- error into controller -->
+    <line x1="124" y1="80" x2="186" y2="80" marker-end="url(#arrow)"/>
+    <rect x="188" y="52" width="96" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- controller output into second junction -->
+    <line x1="284" y1="80" x2="350" y2="80" marker-end="url(#arrow)"/>
+    <circle cx="364" cy="80" r="14"/>
+    <!-- disturbance from above -->
+    <line x1="364" y1="14" x2="364" y2="64" marker-end="url(#arrow)"/>
+    <!-- into plant -->
+    <line x1="378" y1="80" x2="428" y2="80" marker-end="url(#arrow)"/>
+    <rect x="430" y="52" width="96" height="56" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <!-- output -->
+    <line x1="526" y1="80" x2="640" y2="80" marker-end="url(#arrow)"/>
+    <!-- feedback path -->
+    <polyline points="590,80 590,160 110,160 110,96" marker-end="url(#arrow)"/>
+  </g>
+  <!-- each junction's cross, on the diagonals so it is a symbol rather than a
+       continuation of the signals entering it -->
+  <g stroke="#1D1D1B" stroke-width="1.3" fill="none">
+    <line x1="100.1" y1="70.1" x2="119.9" y2="89.9"/>
+    <line x1="100.1" y1="89.9" x2="119.9" y2="70.1"/>
+    <line x1="354.1" y1="70.1" x2="373.9" y2="89.9"/>
+    <line x1="354.1" y1="89.9" x2="373.9" y2="70.1"/>
+  </g>
+  <circle cx="590" cy="80" r="3.5" fill="#1D1D1B"/>
+  <g fill="#1D1D1B">
+    <text x="18" y="68" class="v">θ<tspan class="d" dy="4">ref</tspan></text>
+    <text x="78" y="66" font-size="14">+</text>
+    <text x="120" y="112" font-size="16">−</text>
+    <text x="146" y="68" class="v">e</text>
+    <text x="236" y="87" text-anchor="middle" class="m"><tspan class="v">C</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="236" y="126" text-anchor="middle" class="lbl">controller</text>
+    <text x="306" y="68" class="v">u</text>
+    <text x="298" y="100" class="lbl">elevator</text>
+    <text x="372" y="28" class="v">d</text>
+    <text x="376" y="58" font-size="14">+</text>
+    <text x="334" y="66" font-size="14">+</text>
+    <text x="478" y="87" text-anchor="middle" class="m"><tspan class="v">G</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="478" y="126" text-anchor="middle" class="lbl">aircraft</text>
+    <text x="612" y="68" class="v">θ</text>
+  </g>
+</svg>
