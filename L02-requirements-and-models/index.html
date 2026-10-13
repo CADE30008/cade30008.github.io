@@ -1,0 +1,2150 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="What a requirement has to say to be testable, and what a model has to carry before anyone designs against it: fit, residuals, trim and the range the linearisation holds over.">
+      
+      
+        <meta name="author" content="Dr. Steve Bullock">
+      
+      
+        <link rel="canonical" href="https://cade30008.github.io/L02-requirements-and-models/">
+      
+      
+        <link rel="prev" href="../L01-design-cycle/">
+      
+      
+        <link rel="next" href="../guest-lecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/brand/favicon.svg">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Lecture 2: Requirements and models you can trust - CADE30008 Flight Dynamics & Advanced Control</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/flightlab.css">
+    
+      <link rel="stylesheet" href="../stylesheets/course.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-2-requirements-and-models-you-can-trust" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-header__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CADE30008 Flight Dynamics & Advanced Control
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 2: Requirements and models you can trust
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="CADE30008 Flight Dynamics &amp; Advanced Control" class="md-nav__button md-logo" aria-label="CADE30008 Flight Dynamics & Advanced Control" data-md-component="logo">
+      
+  <img src="../assets/brand/logo.svg" alt="CADE30008 Flight Dynamics & Advanced Control">
+
+    </a>
+    CADE30008 Flight Dynamics & Advanced Control
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-laptop" viewBox="0 0 24 24"><path d="M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2zM20.054 15.987H3.946"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Preparing for Control
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../L00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction and logistics
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../L01-design-cycle/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-presentation" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Lecture 1: The design cycle, end to end
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Lecture 1: The design cycle, end to end
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="././" class="md-nav__link md-nav__link--active">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-presentation" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Lecture 2: Requirements and models you can trust
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Lecture 2: Requirements and models you can trust
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-mic" viewBox="0 0 24 24"><path d="M12 19v3M19 10v2a7 7 0 0 1-14 0v-2"/><rect width="6" height="13" x="9" y="2" rx="3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Guest lecture
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../laboratory/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-joystick" viewBox="0 0 24 24"><path d="M21 17a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2zM6 15v-2M12 15V9"/><circle cx="12" cy="6" r="3"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  The Quanser laboratory
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  The Quanser laboratory
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part1-identify/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 1: identify
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part2-design/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sliders" viewBox="0 0 24 24"><path d="M10 8h4M12 21v-9M12 8V3M17 16h4M19 12V3M19 21v-5M3 14h4M5 10V3M5 21v-7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 2: design
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/part3-validate/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76"/><path d="m16 9-5.5 5.5L8 12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Part 3: validate
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../laboratory/code/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code" viewBox="0 0 24 24"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10 12.5 8 15l2 2.5M14 12.5l2 2.5-2 2.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Code
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reading/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Recommended reading
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  AI in this course
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sigma" viewBox="0 0 24 24"><path d="M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Notation
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-a" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="m8 13 4-7 4 7M9.1 11h5.7"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Glossary
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  About these materials
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licence/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-scale" viewBox="0 0 24 24"><path d="M12 3v18M19 8l3 8a5 5 0 0 1-6 0zV7"/><path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1M5 8l3 8a5 5 0 0 1-6 0zV7M7 21h10"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Licence
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where we are
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How much of a problem is this?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A requirement is a number, a test, and a reason
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A requirement is a number, a test, and a reason">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What a requirement asks of your model
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Make these testable
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What makes a model trustworthy
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What makes a model trustworthy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Read the residual, not the fit percentage
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linearisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Linearisation holds near the trim, and "near" is a number
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Where the rig's model fits, and where it doesn't
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The case: a pitch model and two flight-test records
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#case-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Validate it, bound it, write the requirement
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Validate it, bound it, write the requirement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Observation 1: What is left after the release has a frequency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#band" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Observation 2: During the fast input, the model is wrong above a frequency
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amplitude" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Observation 3: How hard you push it changes the gain
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Extension: Can I ask my model to do <em>this</em>?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converge" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What the room found
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cliffhanger" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        What this lecture's content cannot do
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Summary
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirement-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The same requirement, written as a loop gain
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fit-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fit metrics, properly
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-qualities" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Handling qualities as a source of requirements
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Further reading
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Lecture 2: Requirements and models you can trust
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="lecture-2-requirements-and-models-you-can-trust">Lecture 2: Requirements and models you can trust<a class="headerlink" href="#lecture-2-requirements-and-models-you-can-trust" title="Permanent link">&para;</a></h1>
+<div class="lesson-links">
+<p><span class="deck"><span class="deck__title">Slides</span><a href="../slides/L02-requirements-and-models/index.html" aria-label="Slides, in your browser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>html</a><a href="../slides/L02-requirements-and-models/slides.pdf">pdf</a></span>
+<span class="deck deck--one"><a href="../laboratory/code/">Code</a></span></p>
+</div>
+<p>There is no right answer until you say what you want. In this session you will write requirements that can be met, missed or argued about, and you will learn what you need to know about a model to understand its utility..</p>
+<!-- outcomes:start -->
+<div class="admonition abstract">
+<p class="admonition-title">Learning outcomes</p>
+<p>By the end of this week you should be able to:</p>
+<ul>
+<li>write measurable time- and frequency-domain requirements, and justify each from a vehicle's role or <abbr title="how an aircraft behaves to the pilot flying it, against published standards">handling qualities</abbr>;</li>
+<li>validate a linear model against measured or flight-test data, quantifying where it fits and where it does not;</li>
+<li>explain linearisation about a <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> condition, and identify when a design leaves the region where it holds;</li>
+<li>state the assumptions a model rests on, and bound its uncertainty for use in design.</li>
+</ul>
+</div>
+<!-- outcomes:end -->
+
+<h2 id="recap">Where we are<a class="headerlink" href="#recap" title="Permanent link">&para;</a></h2>
+<p>You have fitted a second-order model to a measured response, agreed a
+requirement out loud, and designed a controller against that model. Three
+questions before any of today's material, and answer them before you read on:</p>
+<ol>
+<li>You fitted <span class="arithmatex">\( K \)</span>, <span class="arithmatex">\( \omega_\mathrm{n} \)</span> and <span class="arithmatex">\( \zeta \)</span> from one
+   recording. Which of the three do you trust most, and which least?</li>
+<li>A classmate's fit differs from yours by 10% in <span class="arithmatex">\( \zeta \)</span>. Is one of you
+   wrong?</li>
+<li>Your design met the requirement in simulation. What would have to be true
+   for it to meet the requirement on the rig?</li>
+</ol>
+<h2 id="overlay">How much of a problem is this?<a class="headerlink" href="#overlay" title="Permanent link">&para;</a></h2>
+<p>Here is the model, simulated with the step that was actually applied, drawn on
+top of the recording it was fitted to. Note the <strong><abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr></strong> - more on that later.</p>
+<figure>
+  <img alt="Two panels. The upper panel shows the measured elevation and the fitted model's response to the same 2 V step over 60 seconds. For the first two oscillations the two traces lie on top of each other; after about 12 seconds they drift apart in time, and by 30 seconds the model's peaks fall where the measurement's troughs are. The lower panel shows the difference between them: almost nothing for the first ten seconds, then a growing oscillation at the same frequency as the signal, reaching about 1.3 degrees." src="figures/rig-overlay.png" width="100%" />
+<br />
+<figcaption>The fitted model against the recording it came from. The first ten seconds are shaded: that is the window the model's starting state was matched over.</figcaption>
+</figure>
+<div class="you-do">
+<p><strong>Before you read the next paragraph, commit to an answer.</strong> The model and the
+machine disagree. <em><strong>How much of a problem is this?</strong></em></p>
+</div>
+<p>It depends entirely on what you are going to do with the model, and that is the
+first idea of the session. Over the first <strong>10 s</strong> the two traces differ by
+<strong>2.8%</strong> of the 6.80 degrees the step asked for, with a worst case of <strong>0.41
+degrees</strong>. Over the first <strong>60 s</strong> they differ by <strong>8.9%</strong>, worst case <strong>1.33
+degrees</strong>. The model's not bad, it's just a representation over a particular window. Whether it applies depends on what we're using it for.</p>
+<div class="admonition note">
+<p class="admonition-title">This data has a defect</p>
+<p>The arm was already swinging through <strong>4.21 degrees</strong> when the step
+arrived. M.003 is a busy room: four of these rigs close together, a bank
+of TQ modular air-flow benches, and the ventilation, which is the biggest
+single source of disturbance. A step response starts from rest, so a model
+simulated from rest begins in the wrong place.</p>
+<p><code>L02_validate.m</code> fits the starting state along with the rest, over the
+window shaded above: that is how the model and the machine were put in the
+same place, and MATLAB's own <code>compare</code> does the same thing. Retaking it would have been better, which is why
+Part 1 of the laboratory asks you to plot every trace before you leave the
+room and take it again if the arm is still moving.</p>
+<p>A steady start still only gives you one model, fitted at one <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> elevation and
+one step size. How widely it applies is a good question, and no single
+recording answers it. Taking the same step from a different <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>, and
+different step sizes from the same <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>, gives you more of an idea about that.</p>
+</div>
+<p><em>So: what would a requirement have to say for this argument to be settleable?</em></p>
+<h2 id="requirements">A requirement is a number, a test, and a reason<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<p>You already have the first two. A requirement names a quantity, gives it a
+number, and says how you would measure it: "settles within 2% of the demand
+inside 8 seconds, measured from a 7.5 degree step". The third is what separates
+a requirement from a preference.</p>
+<p><strong>Every number in a requirement comes from somewhere, and you have to be able
+to say where.</strong> Here are four possible sources:</p>
+<table>
+<thead>
+<tr>
+<th>Where the number came from</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The vehicle's job</td>
+<td>A surveying aircraft holds a line to a tolerance set by the camera's swath.</td>
+</tr>
+<tr>
+<td>A published handling-qualities criterion</td>
+<td>A closed-loop <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr> inside the band the applicable standard allows for that class of aircraft and that phase of flight.</td>
+</tr>
+<tr>
+<td>A physical limit you measured</td>
+<td>The demand saturates 8.6 V above the <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>, so the controller may ask for no more than 6.0 V.</td>
+</tr>
+<tr>
+<td>An agreement in the room</td>
+<td>"Eight seconds", because nobody could think of a reason for six or ten.</td>
+</tr>
+</tbody>
+</table>
+<p>The last one is legitimate. What is not legitimate is dressing it up as one of
+the first three. Write "agreed, no stronger basis" beside it and revisit it
+when there is one.</p>
+<h3 id="requirements-model">What a requirement asks of your model<a class="headerlink" href="#requirements-model" title="Permanent link">&para;</a></h3>
+<p>A time-domain requirement is also a statement about frequency, whether or not
+it is written that way. For a response dominated by a second-order pair,
+overshoot fixes the <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr> and the settling time then fixes the natural
+frequency:</p>
+<div class="arithmatex">\[ \zeta = \frac{-\ln M_\mathrm{p}}{\sqrt{\pi^{2} + \ln^{2} M_\mathrm{p}}},
+   \qquad
+   \omega_\mathrm{n} = \frac{4}{\zeta\,t_\mathrm{s}} \]</div>
+<p>with <span class="arithmatex">\( M_\mathrm{p} \)</span> the overshoot as a fraction and <span class="arithmatex">\( t_\mathrm{s} \)</span> the
+settling time to 2%. So:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th><span class="arithmatex">\( \zeta \)</span></th>
+<th><span class="arithmatex">\( \omega_\mathrm{n} \)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Settle to 2% in 1.5 s, overshoot at most 10%</td>
+<td>0.591</td>
+<td>4.51 rad/s</td>
+</tr>
+<tr>
+<td>Settle to 2% in 2.0 s, overshoot at most 10%</td>
+<td>0.591</td>
+<td>3.38 rad/s</td>
+</tr>
+<tr>
+<td>Settle to 2% in 3.0 s, overshoot at most 10%</td>
+<td>0.591</td>
+<td>2.26 rad/s</td>
+</tr>
+<tr>
+<td>Settle to 2% in 4.0 s, overshoot at most 20%</td>
+<td>0.456</td>
+<td>2.19 rad/s</td>
+</tr>
+</tbody>
+</table>
+<p>That <span class="arithmatex">\( \omega_\mathrm{n} \)</span> is the frequency the closed loop will be working
+at. Your model has to be right <em>there</em>. A requirement asking for
+4.51 rad/s on a model validated at 2 rad/s will cause you problems, however carefully the simulation was run.</p>
+<h2 id="do-a">Make these testable<a class="headerlink" href="#do-a" title="Permanent link">&para;</a></h2>
+<div class="you-do">
+<p>Here are some things you (or a less-enlightened control designer) might say. Rewrite each one as a
+requirement, and against each one name which of the four sources its number
+came from.</p>
+<ol>
+<li>"It should feel crisp."</li>
+<li>"It mustn't wander off while the camera is running."</li>
+<li>"Don't let it fight the pilot."</li>
+</ol>
+<p>For each, write down one number you had to invent and what you would do to find
+the right value.</p>
+<p><strong>Core expectation</strong>: a quantity, a number and a test for at least one of the
+three.</p>
+<p><strong>Going further</strong>: all three, with its source named for each, and an argument
+about the third, which is the only one of them with a person in the loop.</p>
+</div>
+<p>Compare with the pair next to you: you might not agree, which makes for some good learning.</p>
+<p><em>You have a requirement. Now, what does it take to use it to design against
+a model?</em></p>
+<h2 id="trust">What makes a model trustworthy<a class="headerlink" href="#trust" title="Permanent link">&para;</a></h2>
+<p>Not being right. Nothing is right. A model is trustworthy when we know three
+things:</p>
+<ul>
+<li><strong>Over what range of frequency, or over what time.</strong> The elevation model
+  above holds for 10 s and not for 60 s.</li>
+<li><strong>Over what amplitude, and about what <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>.</strong> Every linearisation is taken
+  about an operating point, and the model is a claim about motion near it.</li>
+<li><strong>How far out it is inside that range.</strong> A number, from a <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>.</li>
+</ul>
+<h3 id="residuals">Read the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>, not the fit percentage<a class="headerlink" href="#residuals" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">A fit percentage hides a great deal</p>
+<p>Two traps, both common.</p>
+<p>MATLAB likes to give you a 'fit percentage', but doesn't tell you much about 
+what it actually is. RMSE (root-mean-squared error) is useful but obscures a lot.</p>
+<p><strong>Fitted over what?</strong> Match the elevation model's starting state over the
+whole 60 s instead of the first 10 s. The 60 s <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> improves a little,
+from 8.9% to 8.3%, and the 10 s <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> more than doubles, from 2.8% to
+6.7%. Least squares spreads the error over whatever you hand it, so you
+have traded accuracy where the model was good for accuracy where it was
+never going to be. The window is part of the answer and has to be quoted
+with it.</p>
+<p><strong>Against what?</strong> A <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> of 5% is unreadable until you say 5% of what.
+Throughout this session it is a percentage of the change the model says the
+input will produce, which is a number you have before you measure anything
+and which is comparable between recordings of different size. A percentage
+of the signal's own range is neither.</p>
+</div>
+<p>Subtract the model's response from the measurement and you get the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>.
+Its size is one piece of information and its <em>shape</em> can tell you even more:</p>
+<table>
+<thead>
+<tr>
+<th>What the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> looks like</th>
+<th>What it is telling you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flat, and the size of the sensor noise</td>
+<td>Nothing systematic left. The model is as good as the measurement.</td>
+</tr>
+<tr>
+<td>A slow drift one way</td>
+<td>Lots of potential causes. Maybe the <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> shifted?</td>
+</tr>
+<tr>
+<td>An oscillation at the signal's own frequency, growing (and then maybe shrinking) with time</td>
+<td>The frequency is out. The two start together and separate by a little each cycle.</td>
+</tr>
+<tr>
+<td>An oscillation at some <em>other</em> frequency</td>
+<td>The <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> has a mode that this model does not represent.</td>
+</tr>
+</tbody>
+</table>
+<p>The last two are the useful ones, and neither is particularly evident in a single fit
+percentage. The earlier figure shows the third case: the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>
+is small for two oscillations, then grows into a wave at the same
+frequency as the signal. A small error in <span class="arithmatex">\( \omega_\mathrm{n} \)</span> accumulates
+as phase, and after enough cycles the model's peaks arrive where the
+measurement's troughs are.</p>
+<h3 id="linearisation">Linearisation holds near the <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr>, and "near" is a number<a class="headerlink" href="#linearisation" title="Permanent link">&para;</a></h3>
+<p>A linear model comes from a nonlinear machine by taking the first term of a
+Taylor expansion about an operating point. That is exact at the operating point
+and approximate away from it, and the question a design has to answer is: how
+far away is still close enough?</p>
+<p>The answer is never just "small". Small compared with what? The honest version names
+a quantity and a number, and the only way to get one is to excite the machine
+at two sizes and compare. You will do exactly that twice today, on two
+different (simulated) machines, and get a different answer each time.</p>
+<p>Four assumptions sit behind the elevation model you fitted, and each one names
+a way it can fail:</p>
+<table>
+<thead>
+<tr>
+<th>The model assumes</th>
+<th>Where that gives way</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The arm swings about a fixed <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> elevation.</td>
+<td>Gravity's restoring moment on an arm goes as <span class="arithmatex">\( \sin\varepsilon \)</span>, so the stiffness, and with it <span class="arithmatex">\( \omega_\mathrm{n} \)</span>, depends on the <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> you fly about.</td>
+</tr>
+<tr>
+<td>The swing about that <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> is small.</td>
+<td>A larger swing covers more of that curve, so the frequency you fit moves with the amplitude you fit it at.</td>
+</tr>
+<tr>
+<td>Friction is viscous, proportional to rate.</td>
+<td>Anything dry or sticking takes a different fraction out of a small swing than a large one.</td>
+</tr>
+<tr>
+<td>Elevation moves on its own.</td>
+<td>The three axes are coupled, and this model only has one input and one output.</td>
+</tr>
+</tbody>
+</table>
+<p>The first two are settled by measurement rather than by argument, which is what
+Part 1 of the laboratory is asking for when it suggests repeating the step from
+a different <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> and at a different size. Two recordings answer a question one
+cannot. (We can also infer from a physics-based model, but who has time for that?)</p>
+<p>What a linear model cannot do, whatever its coefficients:</p>
+<ul>
+<li><strong>change its gain with the size of the input.</strong> Double the input and the
+  output doubles, exactly.</li>
+<li><strong>change its <abbr title="how fast an oscillatory system wants to move">natural frequency</abbr> with the size of the motion.</strong> One set of
+  poles, one frequency, every amplitude.</li>
+</ul>
+<p>So any measured dependence on amplitude is outside the model by construction,
+and no amount of refitting brings it inside.</p>
+<h2 id="do-b">Where the rig's model fits, and where it doesn't<a class="headerlink" href="#do-b" title="Permanent link">&para;</a></h2>
+<div class="you-do">
+<p><strong>Open <a href="code/L02_validate.m"><code>L02_validate.m</code></a></strong> and run it on
+your own recording, or on the sample if you have not got one of your own. It
+starts the model where the arm actually was, draws the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>, and then
+measures the period of the oscillation one cycle at a time.</p>
+<p><a class="md-button md-button--primary" href="https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/L02-requirements-and-models">Download the Lecture 2 folder</a></p>
+<p><strong>Core expectation</strong>: the overlay and the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> table, 2.8% over the first
+10 s against 8.9% over 60 s, and a <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> whose shape you can name. Drag the
+fit window and watch both numbers move.</p>
+<p><strong>Going further</strong>: what the period does as the swing decays, cycle by cycle.
+Predict which way it goes before you look.</p>
+</div>
+<p>The script pairs each recording with the model that was fitted to <strong>it</strong>: your
+own fit against your own recording, and the shipped model against the shipped
+sample. There are four rigs in the laboratory and they do not share a model, so
+crossing the two would make the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> a comparison between two machines
+rather than a statement about either.</p>
+<p><strong>Then</strong> look at what the period does as the swing decays.</p>
+<figure>
+  <img alt="The period of each oscillation plotted against how far the arm swung during that cycle, five points, falling from 6.21 seconds at a swing of 6.0 degrees to about 5.95 seconds at a swing of 1.2 degrees, each point labelled with the time it occurred. A dashed horizontal line near 6.30 seconds marks the single period the fitted model has, above every measured point." src="figures/rig-period.png" width="90%" />
+<br />
+<figcaption>Five cycles of the same recording. The period falls as the swing decays, so the natural frequency you fit depends on the amplitude you fit it at. Times indicate start time of that oscillation in the measured data.</figcaption>
+</figure>
+<p>The period falls from <strong>6.213 s</strong> when the arm is swinging through
+<strong>6.03 degrees</strong> to <strong>5.967 s</strong> when it is swinging through <strong>1.19 degrees</strong>,
+about <strong>4%</strong>. Below a swing of about ten encoder counts, which on this rig is
+<strong>0.086 degrees</strong> each, the peaks are likely disturbances rather than the rig, so
+the measurement stops there.</p>
+<p>Before believing it, check it against something that cannot fail the same way.
+Those five periods are gaps between crossings of the final value, so they are
+only as good as the final value you assumed:</p>
+<table>
+<thead>
+<tr>
+<th>Cycle begins at</th>
+<th>Period</th>
+<th>Swing about the final value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.89 s</td>
+<td>6.213 s</td>
+<td>6.03°</td>
+</tr>
+<tr>
+<td>8.10 s</td>
+<td>6.098 s</td>
+<td>4.22°</td>
+</tr>
+<tr>
+<td>14.20 s</td>
+<td>6.069 s</td>
+<td>2.93°</td>
+</tr>
+<tr>
+<td>20.27 s</td>
+<td>5.933 s</td>
+<td>1.73°</td>
+</tr>
+<tr>
+<td>26.20 s</td>
+<td>5.967 s</td>
+<td>1.19°</td>
+</tr>
+</tbody>
+</table>
+<p>The script also times peak to peak and trough to trough, neither of which uses
+the final value at all. Both fall the same way. Their individual figures move
+by a few hundredths of a second between runs and between implementations,
+because the peak of a signal quantised to 0.086° has a flat top and the exact
+sample you call the peak is a choice. The trend survives all of it; the third
+decimal place does not, so do not quote it.</p>
+<div class="admonition question">
+<p class="admonition-title">Why does it do that?</p>
+<p>Something about this machine depends on how far it is moving. Which
+something is an open question in this laboratory: the obvious candidates
+are the way the restoring moment varies with elevation, and friction. 
+Are there experiments we could do to identify this?</p>
+<p>You do not need the cause to act on the measurement. A linear model has one
+<abbr title="how fast an oscillatory system wants to move">natural frequency</abbr> and this machine does not, so the fit is a claim about
+one amplitude, whatever the reason. Be clear about this when you describe and
+share your models.</p>
+</div>
+<p>Agree with your neighbour on one sentence: <em>the elevation model may be used for
+…</em>. Keep it, because it is the shape of what you write in the second hour.</p>
+<p><em>Now the same job on something you did not fit yourself.</em></p>
+<h2 id="case">The case: a pitch model and two flight-test records<a class="headerlink" href="#case" title="Permanent link">&para;</a></h2>
+<p>A small fixed-wing aircraft. The flight dynamics side of the house has derived
+a third-order pitch model from its geometry and its aerodynamic data and handed it over:</p>
+<div class="arithmatex">\[ G(s) = \frac{\theta(s)}{\delta_\mathrm{e}(s)}
+        = \frac{40}{s\,(s+2)\,(s+10)} \]</div>
+<p>in degrees of attitude per degree of elevator. Pitch rate lags the elevator
+with a time constant of 0.5 s and a steady gain of 2 (deg/s) per degree, the
+servo lags by 0.1 s, and attitude is the integral of pitch rate.</p>
+<p>You have also been handed two flight-test records, 60 s each, logged at 50 Hz,
+with elevator, pitch rate and pitch attitude. Both fly the same test card:</p>
+<ul>
+<li>a <strong>3-2-1-1</strong>: four held elevator segments of 3, 2, 1 and 1 seconds,
+  alternating in sign. It puts energy over about a decade of frequency around
+  the fast pitching motion.</li>
+<li>then a <strong>pulse held for three seconds and released</strong>, which is how a slow
+  mode is excited.</li>
+</ul>
+<p>One record flies the card at 2 degrees of elevator input, the other at 8 degrees. (NB: a 'test card' is the instruction sheet that a pilot uses to fly a defined set of activities, of which a '3-2-1-1' is a classic. An example is in the video below; note that this is roll and yaw not elevator).</p>
+<div align="center"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/u2KBXtpLpTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+<div class="admonition info">
+<p class="admonition-title">These records are synthetic</p>
+<p>They were generated by a model, no
+aircraft was flown. The structure of what you will find is real: all of it
+happens to real models against real flight test, and the reasons are the
+same.</p>
+</div>
+<h2 id="case-build">Validate it, bound it, write the requirement<a class="headerlink" href="#case-build" title="Permanent link">&para;</a></h2>
+<div class="you-do">
+<p><strong>Open <a href="code/L02_uav_case.m"><code>L02_uav_case.m</code></a></strong>, with
+<a href="data/uav-doublets.mat">uav-doublets.mat</a> beside it. You'll either need them in the lab folder, to <a href="https://uk.mathworks.com/help/matlab/matlab_env/files-and-folders-that-matlab-accesses.html">add both folders to your MATLAB workspace</a>.</p>
+<p><a class="md-button md-button--primary" href="https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/L02-requirements-and-models">Download the Lecture 2 folder</a></p>
+<p><strong>Core expectation</strong>, plot the overlaid test data and model response, and their <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>, then review the three findings below.</p>
+<p><strong>Going further</strong>: write the bound the model may be used inside, and check one
+of the requirements you wrote earlier against it.</p>
+<p>Simulate the handed-over model with the elevator that was actually flown,
+subtract, and look at the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> in two windows.</p>
+<figure>
+  <img alt="Two panels over 60 seconds. The upper panel shows measured pitch rate and the model's prediction for the 2 degree test card: they agree closely through the 3-2-1-1 between 2 and 10 seconds and through the pulse from 20 to 23 seconds, but after the pulse is released the measurement makes a slow wave of about plus and minus 0.3 degrees per second while the model stays at zero. The lower panel is the residual, with the gyro noise level marked: sharp excursions of nearly 2 degrees per second during the fast input, then a smooth slow oscillation lasting the rest of the record." src="figures/doublet-small.png" width="100%" />
+<br />
+<figcaption>The 2 degree record. After the elevator is released the experimental pitch rate oscillates but the model's decays to zero.</figcaption>
+</figure>
+<p>Quote the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> against the pitch rate <strong>the model says</strong> the input will
+produce, which is its steady gain of 2.000 (deg/s)/deg times the elevator, so
+4.00 deg/s on the 2 degree record. Normalise by the aircraft's own gain instead
+and you are dividing by the thing you are trying to find out.</p>
+<p>On the 2 degree record the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> is <strong>14.2%</strong> over the 3-2-1-1 and <strong>4.5%</strong>
+after the release, peaking at <strong>0.38 deg/s</strong>. The rate gyro contributes about
+<strong>0.04 deg/s</strong> RMSE, which is <strong>1.0%</strong>, so neither number is noise.</p>
+<h3 id="missing-mode">Observation 1: What is left after the release has a frequency<a class="headerlink" href="#missing-mode" title="Permanent link">&para;</a></h3>
+<p>From 24 seconds the elevator is back at zero and the model's pitch rate decays
+to zero with it. The record does not: it holds a smooth oscillation of period
+<strong>17.9 s</strong>,
+which is <strong>0.35 rad/s</strong>, and amplitude about <strong>0.28 deg/s</strong>.</p>
+<p>You have met that motion in the flight dynamics half of this unit. The
+handed-over model cannot produce it: two real poles and an integrator, so it
+has no oscillation available at any frequency. <strong>A <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> with a frequency in
+it is a mode the model does not have.</strong></p>
+<h3 id="band">Observation 2: During the fast input, the model is wrong above a frequency<a class="headerlink" href="#band" title="Permanent link">&para;</a></h3>
+<p>The larger <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> over the 3-2-1-1 is not a missing mode, it is the model's
+shape. Throw away everything above a cut-off, compare what is left, and the
+error sorts itself by frequency:</p>
+<table>
+<thead>
+<tr>
+<th>Everything below</th>
+<th>Residual, 2 degree record</th>
+<th>Residual, 8 degree record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5 rad/s</td>
+<td>1.0%</td>
+<td>1.8%</td>
+</tr>
+<tr>
+<td>1.0 rad/s</td>
+<td>1.8%</td>
+<td>2.8%</td>
+</tr>
+<tr>
+<td>1.5 rad/s</td>
+<td>3.2%</td>
+<td>3.6%</td>
+</tr>
+<tr>
+<td>2.0 rad/s</td>
+<td>5.1%</td>
+<td>4.6%</td>
+</tr>
+<tr>
+<td>3.0 rad/s</td>
+<td>8.5%</td>
+<td>7.1%</td>
+</tr>
+<tr>
+<td>5.0 rad/s</td>
+<td>12.0%</td>
+<td>10.2%</td>
+</tr>
+<tr>
+<td>10 rad/s</td>
+<td>13.8%</td>
+<td>12.0%</td>
+</tr>
+</tbody>
+</table>
+<p>The model is not wrong. It is wrong <em>above about 2 rad/s</em>, and that is a
+sentence a designer can act on. The two records agree on where the error lives
+and disagree about how much of it there is, which the next section explains.</p>
+<figure>
+  <img alt="Bode magnitude and phase from elevator to pitch rate for the aircraft and for the handed-over model, from 0.01 to 30 radians per second. The two lie on top of each other at low frequency apart from a small resonant peak in the aircraft's magnitude near 0.35 radians per second; they separate above about 2 radians per second, where the aircraft falls faster and its phase runs away towards minus 270 degrees while the model's approaches minus 180. A band from 0.37 to 2.35 radians per second is shaded and labelled as being within 2 decibels and 15 degrees." src="figures/validity-band.png" width="100%" />
+<br />
+<figcaption>The aircraft the records came from, beside the handed-over model. The shaded band is where they agree to within 2 dB and 15 degrees: 0.37 to 2.35 rad/s, about four fifths of a decade.</figcaption>
+</figure>
+<p>The figure compares the frequency-domain response of the
+model with the experimental response of the aircraft. Compare the band it marks, <strong>0.37 to
+2.35 rad/s</strong>, with the cut-off table you built from the data alone. The lower
+edge is the slow mode and the upper edge is where things diverge at higher frequencies. Note we've defined our <abbr title="the frequencies, amplitudes and operating point a model has actually been shown to describe">range of validity</abbr> - 'within 2dB and 15 degrees'.</p>
+<h3 id="amplitude">Observation 3: How hard you push it changes the gain<a class="headerlink" href="#amplitude" title="Permanent link">&para;</a></h3>
+<figure>
+  <img alt="The same two panels for the 8 degree test card. The measured pitch rate reaches about 14.4 degrees per second where the model predicts 16, and the slow wave after the release is about four times the size of the 2 degree record's. The residual panel shows excursions of about 6 degrees per second during the fast input, and sits below zero through each held segment rather than scattering either side of it." src="figures/doublet-large.png" width="100%" />
+<br />
+<figcaption>The 8 degree record. The model now overshoots the measurement at every flat top, in the same direction each time.</figcaption>
+</figure>
+<p>A <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> that sits to one side of zero while the input is held is a gain
+error, and this one appears only on the larger record. Take the pitch rate held
+during the first and longest segment of the 3-2-1-1, and divide by the elevator
+that produced it:</p>
+<table>
+<thead>
+<tr>
+<th>Elevator</th>
+<th>Pitch rate per degree</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 degrees</td>
+<td>1.980 (deg/s)/deg</td>
+</tr>
+<tr>
+<td>8 degrees</td>
+<td>1.798 (deg/s)/deg</td>
+</tr>
+<tr>
+<td>The model, at any amplitude</td>
+<td>2.000 (deg/s)/deg</td>
+</tr>
+</tbody>
+</table>
+<p>The bigger input gets about <strong>9%</strong> less out of each degree. A control surface
+at a large deflection is less effective than the same surface at a small one,
+and no linear model can represent that. So the bound has an amplitude in it as
+well as a band.</p>
+<figure>
+  <img alt="Peak pitch rate per degree of elevator plotted against the input amplitude from 1 to 12 degrees. The aircraft's curve starts at 1.99 and falls steadily to 1.56 by 12 degrees, the fall steepening as the amplitude grows. A dashed horizontal line at 1.99 shows the handed-over model, which has the same gain at every amplitude." src="figures/effective-gain.png" width="90%" />
+<br />
+<figcaption>Drawn from the generating model across amplitudes the two records do not cover. Two records give you the two ends of this; the shape between them is an assumption until somebody flies it.</figcaption>
+</figure>
+<h3 id="ceiling">Extension: Can I ask my model to do <em>this</em>?<a class="headerlink" href="#ceiling" title="Permanent link">&para;</a></h3>
+<p>If you manage to work through the three observations: write the model boundaries
+as three lines that somebody who was not in the room could act on, then take a
+requirement from the first hour, convert it to an <span class="arithmatex">\( \omega_\mathrm{n} \)</span>, and
+say whether you are entitled to demand it of your model.</p>
+<p>A settling time to 2% of 3.0 s with at most 10% overshoot needs
+<span class="arithmatex">\( \omega_\mathrm{n} = 2.26 \)</span> rad/s, which sits inside the band. A settling
+time of 2.0 s needs 3.38 rad/s, which does not. Possible resolutions to the
+second are to relax the requirement (and note clearly your confidence level in the model) 
+or to go and fly more test points. <strong>Don't just design there anyway and report the simulation!</strong></p>
+</div>
+<h2 id="converge">What the room found<a class="headerlink" href="#converge" title="Permanent link">&para;</a></h2>
+<p>Three things to bring back, and one disagreement that is worth having.</p>
+<ul>
+<li><strong>The bound.</strong> Frequencies between the slow mode and about 2 rad/s,
+  elevator inputs of a few degrees, with an error of about 5% inside that.</li>
+<li><strong>The missing mode</strong>, at 0.35 rad/s, which the handed-over model has no
+  way of producing.</li>
+<li><strong>The amplitude.</strong> One gain in the model, two different gains in the data.</li>
+</ul>
+<p>The disagreement: <em>is this model good enough?</em> It depends entirely on the
+requirement, which is why the two halves of this session are one session. The
+same model is fine for a 3 second settling time and unsupported for a
+2 second one. "Good enough" is not a property of a model.</p>
+<h2 id="cliffhanger">What this lecture's content cannot do<a class="headerlink" href="#cliffhanger" title="Permanent link">&para;</a></h2>
+<p>You now have a model you can defend and a requirement you can test. That is
+everything the last two sessions have been asking for, and it is still not a
+controller that works.</p>
+<p>Nothing in today's material predicts what happens next. The model is
+validated, the requirement is met in simulation, the linear analysis is
+correct, and the response still goes a long way past where it was asked to
+stop.</p>
+<p>Ask yourself what the linear model quietly assumed about the elevator, and what
+happens to a controller's memory while the aircraft is not listening.</p>
+<div class="admonition quote">
+<p><strong>A model you trust and a requirement you can test, and the controller
+still saturates.</strong></p>
+</div>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A model has a <strong><abbr title="the frequencies, amplitudes and operating point a model has actually been shown to describe">range of validity</abbr></strong>. It represents the frequencies
+  or the time it holds over, the amplitude and <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> it was taken about, and how
+  far out it is inside that.</li>
+<li><strong>Read the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>'s shape, not just its size.</strong> An oscillation at the signal's own
+  frequency means the frequency is out; a wave at another frequency means a
+  missing mode; flat and noisy at the sensor's own level means the model is as
+  good as the measurement.</li>
+<li><strong>Quote the window.</strong> The same model and the same recording gave 2.8% over
+  10 s and 8.9% over 60 s.</li>
+<li><strong>A fit is limited to its source data.</strong> One recording, steady
+  before the step, gives one model at one <abbr title="a steady condition the aircraft holds, with the forces balanced">trim</abbr> and one step size. Saying how
+  far that model reaches takes a second recording, taken somewhere else.</li>
+<li><strong>A linear model has one gain and one frequency, at every amplitude.</strong> The
+  rig's period moves by 4% as its swing decays; the aircraft's gain falls 9%
+  between 2 and 8 degrees of elevator. Neither is something a refit can mend.</li>
+<li><strong>A requirement names a quantity, a number, a test and a source.</strong> "Agreed in
+  the room" is a legitimate source as long as it is written down as one.</li>
+<li>A requirement is also a frequency. Check it against the band your model was
+  validated over before you design, not after.</li>
+</ul>
+<h2 class="no-slides" id="requirement-loop">The same requirement, written as a loop gain<a class="headerlink" href="#requirement-loop" title="Permanent link">&para;</a></h2>
+<p>The table above stops at <span class="arithmatex">\( \omega_\mathrm{n} \)</span>, which is as far as the room
+needs to go to check a requirement against a validated band. The design work
+that follows wants the same requirement in terms of the loop gain, so here it
+is. Take the closed loop implied by <span class="arithmatex">\( \zeta \)</span> and <span class="arithmatex">\( \omega_\mathrm{n} \)</span>,</p>
+<div class="arithmatex">\[ T(s) = \frac{\omega_\mathrm{n}^{2}}
+                {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}}, \]</div>
+<p>and recover the loop gain that would produce it, <span class="arithmatex">\( L = T/(1-T) \)</span>. Its gain
+crossover <span class="arithmatex">\( \omega_\mathrm{gc} \)</span> and phase margin are:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th><span class="arithmatex">\( \omega_\mathrm{n} \)</span></th>
+<th><span class="arithmatex">\( \omega_\mathrm{gc} \)</span></th>
+<th>Phase margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Settle to 2% in 1.5 s, overshoot at most 10%</td>
+<td>4.51 rad/s</td>
+<td>3.26 rad/s</td>
+<td>58.6°</td>
+</tr>
+<tr>
+<td>Settle to 2% in 2.0 s, overshoot at most 10%</td>
+<td>3.38 rad/s</td>
+<td>2.44 rad/s</td>
+<td>58.6°</td>
+</tr>
+<tr>
+<td>Settle to 2% in 3.0 s, overshoot at most 10%</td>
+<td>2.26 rad/s</td>
+<td>1.63 rad/s</td>
+<td>58.6°</td>
+</tr>
+<tr>
+<td>Settle to 2% in 4.0 s, overshoot at most 20%</td>
+<td>2.19 rad/s</td>
+<td>1.79 rad/s</td>
+<td>48.1°</td>
+</tr>
+</tbody>
+</table>
+<p>The phase margin depends only on the overshoot and the crossover only on both,
+which is the reason a design is usually set up as "a crossover and a margin"
+rather than as a settling time. <code>L02_uav_case.m</code> prints these alongside
+<span class="arithmatex">\( \omega_\mathrm{n} \)</span>.</p>
+<h2 class="no-slides" id="fit-metrics">Fit metrics, properly<a class="headerlink" href="#fit-metrics" title="Permanent link">&para;</a></h2>
+<p>The lecture uses one number: the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>'s RMSE as a percentage of the change
+the input asked for. It is the one worth carrying, because it is comparable
+between recordings. Three others you will meet, and what they do differently.</p>
+<p><strong>Normalised root-mean-square error</strong>, which is what MATLAB's <code>compare</code> reports
+as a fit percentage:</p>
+<div class="arithmatex">\[ \mathrm{NRMSE} = 100\left(1 - \frac{\lVert y - \hat{y}\rVert}
+                                       {\lVert y - \bar{y}\rVert}\right)\% \]</div>
+<p>with <span class="arithmatex">\( y \)</span> the measurement, <span class="arithmatex">\( \hat{y} \)</span> the model's output and
+<span class="arithmatex">\( \bar{y} \)</span> the measurement's mean. It is normalised by the signal's own
+variation, so a quiet recording and a violent one are not comparable, and a
+model that only ever predicts the measurement's mean scores 0% rather than
+something arbitrary.</p>
+<p><strong>Coefficient of determination</strong>, <span class="arithmatex">\( R^{2} \)</span>, is the same quantity squared and
+subtracted from one. It rewards extra parameters, so comparing models of
+different order on <span class="arithmatex">\( R^{2} \)</span> alone always picks the largest one.</p>
+<p><strong>Whiteness of the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr>.</strong> The sharpest test, and the one closest to what
+this session teaches by eye: if anything systematic is left, the <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> is
+correlated with itself at some lag, or with the input. System identification
+packages report both as validation tests. A model whose <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> is white has
+nothing left in it that the data could tell you about.</p>
+<p>None of these replaces plotting the thing. Every one of them returns a single
+number for a <abbr title="what is left when a model's response is subtracted from the measurement it should describe; its shape says which part of the model is wrong">residual</abbr> whose shape was the message.</p>
+<h2 class="no-slides" id="handling-qualities">Handling qualities as a source of requirements<a class="headerlink" href="#handling-qualities" title="Permanent link">&para;</a></h2>
+<p>More on this in Flight Dynamics, but to summarise here: flying qualities criteria exist so that "it feels wrong" becomes something a
+specification can be written against. The structure, which is what to carry away:</p>
+<ul>
+<li><strong>Levels.</strong> Roughly: Level 1 is satisfactory, Level 2 is acceptable with an
+  increase in pilot workload, Level 3 is controllable but not adequately.
+  Requirements are usually written as "Level 1 throughout the operational
+  envelope".</li>
+<li><strong>Flight phase categories.</strong> The same aircraft is held to different numbers
+  in a rapid manoeuvre, in a slow and precise task such as an approach, and in
+  cruise. A requirement that does not say which phase it applies to is
+  incomplete.</li>
+<li><strong>What gets constrained.</strong> For the longitudinal <abbr title="the fast longitudinal pitching oscillation">short period</abbr>, a band on the
+  <abbr title="how quickly an oscillation dies away: 0 oscillates forever, 1 does not oscillate">damping ratio</abbr> and a relationship between the undamped frequency and the
+  normal acceleration per unit angle of attack. The second is the control
+  anticipation parameter, and it exists because a pilot judges an aircraft by
+  how quickly it starts to respond, not only by where it ends up.</li>
+<li><strong>Where the numbers live.</strong> In the standard applicable to the aircraft's
+  class and the programme's contract. The numbers are not reproduced here,
+  because they depend on the class and the phase and a number quoted without
+  both is worse than no number.</li>
+</ul>
+<p>Two consequences for a control design. The criteria constrain the
+<strong>closed-loop</strong> aircraft, the pilot included, so they are requirements on your
+design rather than on the airframe. And a deficiency found in the flight
+dynamics half, a mode that is too lightly damped or too slow, arrives on your
+desk as a requirement: augment it until it meets the criterion.</p>
+<h2 class="no-slides" id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<!-- reading:start -->
+<ul>
+<li>Dorf and Bishop, section 2.3: Linear approximations of physical systems — linearisation about an operating point.</li>
+<li>Dorf and Bishop, sections 2.5-2.6: The transfer function of linear systems; block diagram models.</li>
+<li>Dorf and Bishop, sections 5.2-5.3: Test input signals; performance of second-order systems — where time-domain requirements come from.</li>
+</ul>
+<p>Dorf, R. C. and Bishop, R. H. Modern Control Systems. Pearson. Section numbers are the same in the 12<sup>th</sup>, 13<sup>th</sup> and 14<sup>th</sup> editions; only the page numbers differ. It is <a href="../reading/">in the library</a>, and is for additional study and consolidation, not a substitute for the handout.</p>
+<!-- reading:end -->
+
+<!-- Appended to every page (pymdownx.snippets.auto_append), so each term
+     here is tooltipped site-wide, on every occurrence. That is why terms
+     which are the SUBJECT of a lecture are deliberately absent: the lecture
+     defines them in its own text, and 15 dotted underlines on one page is
+     noise, not help (P19). Keep this list to abbreviations and to terms a
+     reader meets away from the lecture that teaches them. -->
+
+<!-- tracking: status=draft version=0 -->
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../L01-design-cycle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Handout">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Handout
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../guest-lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Guest lecture">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Guest lecture
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Teaching materials &copy; 2026 Dr Steve Bullock, University of Bristol, and licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. Some elements excluded &mdash; see the <a href="/about/#licence">about page</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="../javascripts/py-runner.js"></script>
+      
+        <script src="../javascripts/code-scroll.js"></script>
+      
+        <script src="../javascripts/links.js"></script>
+      
+        <script src="../javascripts/zoom.js"></script>
+      
+        <script src="../javascripts/analytics.js"></script>
+      
+        <script src="../javascripts/which-site.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
