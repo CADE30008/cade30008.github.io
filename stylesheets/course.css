@@ -446,7 +446,21 @@
      <div class="you-do" markdown>
      **Open `identify_rig.m`** ... what to do, in a sentence or two.
      [Download the laboratory folder](URL){ .md-button .md-button--primary }
-     </div> */
+     </div>
+
+   In a handout it may also run long: Lecture 2's case build is one band over
+   four headings and several screens, because the whole of it is the room's
+   turn and breaking the band at each heading would say the opposite. Nothing
+   here limits the length, and nesting headings inside it is fine. The one
+   thing to keep is the meaning: a reader seeing the label stops reading and
+   starts doing, so a band around something they only have to read teaches
+   them to ignore it.
+
+   On a slide the rule is the other way round, because the band becomes
+   `<!-- _class: you-do -->` and the slide stays up while the room works. It
+   has to hold everything they need for the activity in one view: what to do,
+   what counts as done, and how long they have. A student looking up from
+   their screen cannot page back. See AGENTS.md, "Writing style". */
 .md-typeset .you-do {
   margin: 1.4em 0;
   padding: 0.9em 1.1em 0.9em 1.2em;
