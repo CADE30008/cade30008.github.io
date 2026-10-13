@@ -39,10 +39,28 @@
    the site filled it. */
 .md-typeset figure {
   width: 100%;
+  /* The air that separates the whole figure from the text after it. It is
+     deliberately larger than the gap above the caption, so the caption reads
+     as belonging to the picture rather than floating between the two. */
+  margin-bottom: 1.8em;
+}
+/* <figure markdown="span"> makes the newline between the image and the caption
+   a <br>, which draws an empty line box the height of the body's leading: 27px
+   of nothing between every picture and the words describing it. Removing the
+   break is a stylesheet's job rather than an edit to thirty Markdown files,
+   and the caption's own margin then sets the gap. */
+.md-typeset figure br {
+  display: none;
 }
 .md-typeset figcaption {
   max-width: 44rem;
   margin-inline: auto;
+  /* Close to the picture it describes. The theme gives a caption the body's
+     1.8 leading, which is right for a column of prose and loose for two lines
+     of label under an image. */
+  margin-top: 0.45em;
+  margin-bottom: 0;
+  line-height: 1.3;
 }
 
 /* Interactive applets: an iframe on screen, a still image in print. */
