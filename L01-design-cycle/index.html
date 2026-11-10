@@ -505,7 +505,7 @@
     
   
   
-    <span class="md-status md-status--draft"></span>
+    <span class="md-status md-status--approved"></span>
   
 
   
@@ -520,6 +520,77 @@
             
   
   Lecture 3: PID, properly
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../L04-stability-margins/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-presentation" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Lecture 4: Loop shaping: lead and lag
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Lecture 4: Loop shaping: lead and lag
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -597,7 +668,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -627,14 +698,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1466,17 +1537,17 @@ overshoot from 89% to 97% and leaves the settling time at 65 seconds.</p>
 <p>Inspecting the system block diagram, then some algebra. Worth doing once by hand,
 because every closed loop in this unit is assembled the same way.</p>
 <p><strong>Read the block diagram.</strong> The junction subtracts, the controller
-multiplies, and the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> is the second-order TF <span class="arithmatex">\( G(s) \)</span>:</p>
-<div class="arithmatex">\[ e = \varepsilon_\mathrm{ref} - \varepsilon, \qquad
+multiplies, and the <abbr title="the thing being controlled, and everything outside the controller">plant</abbr> is the second-order TF <span class="arithmatex">\( G \)</span>:</p>
+<div class="arithmatex">\[ e = \varepsilon_\mathrm{r} - \varepsilon, \qquad
    V = K_\mathrm{p}e, \qquad
-   \varepsilon = G(s)\,V \]</div>
+   \varepsilon = G\,V \]</div>
 <p><strong>Substitute inwards</strong> until only <span class="arithmatex">\( \varepsilon \)</span> and
-<span class="arithmatex">\( \varepsilon_\mathrm{ref} \)</span> are left:</p>
-<div class="arithmatex">\[ \varepsilon = G K_\mathrm{p}\left(\varepsilon_\mathrm{ref} - \varepsilon\right) \]</div>
+<span class="arithmatex">\( \varepsilon_\mathrm{r} \)</span> are left:</p>
+<div class="arithmatex">\[ \varepsilon = G K_\mathrm{p}\left(\varepsilon_\mathrm{r} - \varepsilon\right) \]</div>
 <p><strong>Collect</strong> the <span class="arithmatex">\( \varepsilon \)</span> terms on one side:</p>
-<div class="arithmatex">\[ \varepsilon\left(1 + K_\mathrm{p}G\right) = K_\mathrm{p}G\,\varepsilon_\mathrm{ref}
+<div class="arithmatex">\[ \varepsilon\left(1 + K_\mathrm{p}G\right) = K_\mathrm{p}G\,\varepsilon_\mathrm{r}
    \qquad\Longrightarrow\qquad
-   \frac{\varepsilon}{\varepsilon_\mathrm{ref}} = \frac{K_\mathrm{p}G}{1 + K_\mathrm{p}G} \]</div>
+   \frac{\varepsilon}{\varepsilon_\mathrm{r}} = \frac{K_\mathrm{p}G}{1 + K_\mathrm{p}G} \]</div>
 <p>That fraction is the <strong>closed-loop transfer function</strong>, and it is worth
 recognising on sight: <em>forward path over one plus the loop</em>. It is the
 same shape whatever sits in the two blocks.</p>
@@ -1484,7 +1555,7 @@ same shape whatever sits in the two blocks.</p>
 <span class="arithmatex">\( G = K\omega_\mathrm{n}^{2} / \left(s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2}\right) \)</span>,
 multiply top and bottom by that denominator so the fraction inside the
 fraction disappears:</p>
-<div class="arithmatex">\[ \frac{\varepsilon}{\varepsilon_\mathrm{ref}}
+<div class="arithmatex">\[ \frac{\varepsilon}{\varepsilon_\mathrm{r}}
    = \frac{K_\mathrm{p}K\omega_\mathrm{n}^{2}}
           {s^{2} + 2\zeta\omega_\mathrm{n}s + \omega_\mathrm{n}^{2} + K_\mathrm{p}K\omega_\mathrm{n}^{2}}
    = \frac{K_\mathrm{p}K\omega_\mathrm{n}^{2}}

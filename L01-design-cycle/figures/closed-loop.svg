@@ -41,7 +41,7 @@
   </g>
   <circle cx="590" cy="80" r="3.5" fill="#1D1D1B"/>
   <g fill="#1D1D1B">
-    <text x="18" y="68" class="v">ε<tspan class="d" dy="4">ref</tspan></text>
+    <text x="18" y="68" class="v">ε<tspan class="d" dy="4">r</tspan></text>
     <text x="14" y="104" class="lbl">demanded</text>
     <text x="78" y="66" font-size="14">+</text>
     <text x="120" y="112" font-size="16">−</text>
@@ -51,7 +51,7 @@
     <text x="266" y="126" text-anchor="middle" class="lbl">controller</text>
     <text x="352" y="68" class="v">V</text>
     <text x="361" y="100" text-anchor="middle" class="lbl">volts</text>
-    <text x="467" y="87" text-anchor="middle" class="m"><tspan class="v">G</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="467" y="87" text-anchor="middle" class="v">G</text>
     <text x="467" y="126" text-anchor="middle" class="lbl">elevation axis</text>
     <text x="604" y="68" class="v">ε</text>
     <text x="350" y="180" text-anchor="middle" class="lbl">measured elevation, fed back (no sensor model)</text>

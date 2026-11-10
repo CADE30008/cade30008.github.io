@@ -18,7 +18,7 @@
         <link rel="prev" href="../L02-requirements-and-models/">
       
       
-        <link rel="next" href="../guest-lecture/">
+        <link rel="next" href="../L04-stability-margins/">
       
       
         
@@ -505,7 +505,7 @@
     
   
   
-    <span class="md-status md-status--draft"></span>
+    <span class="md-status md-status--approved"></span>
   
 
   
@@ -520,6 +520,77 @@
             
   
   Lecture 3: PID, properly
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../L04-stability-margins/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-presentation" viewBox="0 0 24 24"><path d="M2 3h20M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3M7 21l5-5 5 5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+  Lecture 4: Loop shaping: lead and lag
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--approved"></span>
+  
+
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Lecture 4: Loop shaping: lead and lag
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
@@ -597,7 +668,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -627,14 +698,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1023,6 +1094,11 @@
                       
                     
                     
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -1034,6 +1110,25 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Additional resources
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1109,13 +1204,58 @@
 
 <h1 id="lecture-3-pid-properly">Lecture 3: <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr>, properly<a class="headerlink" href="#lecture-3-pid-properly" title="Permanent link">&para;</a></h1>
 <div class="lesson-links">
-<p><span class="deck"><span class="deck__title">Slides</span><a href="../slides/L03-pid-control/index.html" aria-label="Slides, in your browser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>html</a><a href="../slides/L03-pid-control/slides.pdf">pdf</a></span>
-<span class="deck deck--one"><a href="https://drive.mathworks.com/sharing/ad3e3e94-cfda-486b-ad94-d8c0d52afbc0/L03-pid-control">Code</a></span></p>
+<p><span class="deck"><span class="deck__title">Slides</span><a href="../slides/L03-pid-control/index.html" aria-label="Slides, in your browser"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>html</a><a href="../slides/L03-pid-control/slides.pdf">pdf</a></span></p>
 </div>
-<p><em>Handout notes to follow.</em></p>
-<!-- The handout below is held back from the live site until it is signed off;
-     the slides and the code are out. Remove these two markers to release it. -->
-
+<h2 id="sources">Additional resources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h2>
+<p>Additional resources to aid your understanding, alongside the slides: the
+sections of Dorf and Bishop that cover each part of the lecture, and
+short videos from two series worth knowing about.</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Dorf and Bishop</th>
+<th>Videos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What P, I and D each do</td>
+<td><strong>7.6</strong> <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> controllers</td>
+<td>Douglas, <a href="https://www.youtube.com/watch?v=UR0hOmjaHp0"><abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> control, a brief introduction</a><br>Douglas, <a href="https://www.youtube.com/watch?v=XfAt6hNV8XM">Simple examples of <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> control</a><br>Brunton, <a href="https://www.youtube.com/watch?v=vxTJMGqjGdg">cruise control with <abbr title="proportional–integral control: PID without the derivative term">PI</abbr> control</a></td>
+</tr>
+<tr>
+<td>Why feedback at all, before any of the three terms</td>
+<td><strong>4.1–4.2</strong> Feedback control system characteristics</td>
+<td>Douglas, <a href="https://www.youtube.com/watch?v=O-OqgFE9SD4">closed loop control</a><br>Brunton, <a href="https://www.youtube.com/watch?v=y4H03UOjlas">benefits of feedback</a> and <a href="https://www.youtube.com/watch?v=-fNoz5K5FHA">part 2</a></td>
+</tr>
+<tr>
+<td>Steady-state error, and why the integrator removes it</td>
+<td><strong>5.6</strong> The steady-state error of feedback control systems</td>
+<td>Douglas, <a href="https://www.youtube.com/watch?v=PXxveGoNRUw">final value theorem and steady-state error</a></td>
+</tr>
+<tr>
+<td>The same controller seen on a Bode plot</td>
+<td><strong>9.9</strong> <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> controllers in the frequency domain</td>
+<td>Douglas, <a href="https://www.youtube.com/watch?v=_eh1conN6YM">Bode plots, introduction</a><br>Brunton, <a href="https://www.youtube.com/watch?v=e-8y4MTT7NQ">frequency response of a spring-mass-damper</a></td>
+</tr>
+<tr>
+<td>Transfer functions, if those are the shaky part</td>
+<td><strong>2.5–2.6</strong> The transfer function of linear systems</td>
+<td>Douglas, <a href="https://www.youtube.com/watch?v=RJleGwXorUk">transfer functions</a><br>Douglas, <a href="https://www.youtube.com/watch?v=VJ9phDRys_I">the Laplace transform and the role it plays</a><br>Brunton, <a href="https://www.youtube.com/watch?v=0mnTByVKqLM">Laplace transforms and the transfer function</a></td>
+</tr>
+</tbody>
+</table>
+<p>Section numbers are the same in the 12<sup>th</sup>, 13<sup>th</sup> and 14<sup>th</sup> editions of Dorf and
+Bishop; only the pages differ. <a href="../reading/">Recommended reading</a> says what
+the library holds and how to get at it.</p>
+<p>Douglas is <strong><a href="http://youtube.com/controllectures">Control System Lectures</a></strong>,
+short videos that build the picture before the algebra. Brunton is the
+<strong><a href="https://youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m">Control Bootcamp playlist</a></strong>,
+a full course pitched a little higher. Douglas also writes the MATLAB Tech
+Talks, and <strong><a href="https://engineeringmedia.com/videos">engineeringmedia.com/videos</a></strong>
+indexes those by series: <em>Understanding <abbr title="proportional–integral–derivative: the three-term controller, and the most used in engineering">PID</abbr> Control</em>, <em>Control Systems in
+Practice</em> and <em>Trimming and Linearization</em> are the ones closest to this unit.</p>
 <!-- Appended to every page (pymdownx.snippets.auto_append), so each term
      here is tooltipped site-wide, on every occurrence. That is why terms
      which are the SUBJECT of a lecture are deliberately absent: the lecture
@@ -1183,13 +1323,13 @@
         
         
           
-          <a href="../guest-lecture/" class="md-footer__link md-footer__link--next" aria-label="Next: Guest lecture">
+          <a href="../L04-stability-margins/" class="md-footer__link md-footer__link--next" aria-label="Next: Handout">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Guest lecture
+                Handout
               </div>
             </div>
             <div class="md-footer__button md-icon">

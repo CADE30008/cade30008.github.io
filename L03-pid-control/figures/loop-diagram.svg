@@ -45,18 +45,18 @@
   </g>
   <circle cx="590" cy="80" r="3.5" fill="#1D1D1B"/>
   <g fill="#1D1D1B">
-    <text x="18" y="68" class="v">θ<tspan class="d" dy="4">ref</tspan></text>
+    <text x="18" y="68" class="v">θ<tspan class="d" dy="4">r</tspan></text>
     <text x="78" y="66" font-size="14">+</text>
     <text x="120" y="112" font-size="16">−</text>
     <text x="146" y="68" class="v">e</text>
-    <text x="236" y="87" text-anchor="middle" class="m"><tspan class="v">C</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="236" y="87" text-anchor="middle" class="v">C</text>
     <text x="236" y="126" text-anchor="middle" class="lbl">controller</text>
     <text x="306" y="68" class="v">u</text>
     <text x="298" y="100" class="lbl">elevator</text>
     <text x="372" y="28" class="v">d</text>
     <text x="376" y="58" font-size="14">+</text>
     <text x="334" y="66" font-size="14">+</text>
-    <text x="478" y="87" text-anchor="middle" class="m"><tspan class="v">G</tspan>(<tspan class="v">s</tspan>)</text>
+    <text x="478" y="87" text-anchor="middle" class="v">G</text>
     <text x="478" y="126" text-anchor="middle" class="lbl">aircraft</text>
     <text x="612" y="68" class="v">θ</text>
   </g>
