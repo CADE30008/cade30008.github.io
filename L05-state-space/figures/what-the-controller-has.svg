@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>The loop with a controller K: the states run round inside, and all that leaves is y through C</title>
+  <style>
+    .v    { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; font-style: italic; font-size: 24px; }
+    .blk  { font-size: 26px; font-weight: 700; }
+    .d    { font-style: normal; font-size: 18px; font-weight: 700; }
+    .q    { font-size: 34px; font-weight: 700; fill: #1f6f8b; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+    <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="360" fill="#ffffff"/>
+
+  <g stroke="#1D1D1B" stroke-width="2" fill="none">
+    <rect x="96" y="100" width="92" height="56" rx="4" stroke="#B01C2E" stroke-width="2.4"/>
+    <line x1="188" y1="128" x2="266" y2="128" marker-end="url(#arrow)"/>
+    <rect x="268" y="100" width="92" height="56" rx="4" stroke="#B01C2E" stroke-width="2.4"/>
+    <line x1="360" y1="128" x2="414" y2="128" marker-end="url(#arrow)"/>
+    <circle cx="432" cy="128" r="17"/>
+    <line x1="449" y1="128" x2="522" y2="128" marker-end="url(#arrow)"/>
+    <rect x="524" y="94" width="92" height="68" rx="4" stroke="#1D1D1B" stroke-width="2"/>
+    <line x1="616" y1="128" x2="872" y2="128" marker-end="url(#arrow)"/>
+    <!-- the states, fed back through A -->
+    <polyline points="700,128 700,212 616,212" marker-end="url(#arrow)"/>
+    <rect x="520" y="186" width="92" height="52" rx="4" stroke="#B01C2E" stroke-width="2.4"/>
+    <polyline points="520,212 432,212 432,147" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- what actually leaves the machine -->
+  <g stroke="#1f6f8b" stroke-width="2.4" fill="none">
+    <polyline points="790,128 790,296 700,296"/>
+    <rect x="606" y="268" width="92" height="56" rx="4"/>
+    <line x1="606" y1="296" x2="470" y2="296" marker-end="url(#arrowb)"/>
+  </g>
+
+  <!-- and what the controller is given -->
+  <g stroke="#1f6f8b" stroke-width="2.4" fill="none" stroke-dasharray="7 5">
+    <line x1="142" y1="248" x2="142" y2="162" marker-end="url(#arrowb)"/>
+  </g>
+
+  <g fill="#1D1D1B">
+    <text class="blk" x="128" y="137">K</text>
+    <text class="blk" x="300" y="137">B</text>
+    <text class="blk" x="556" y="140" font-size="36">&#8747;</text>
+    <text class="blk" x="552" y="221">A</text>
+    <text class="v" x="214" y="118">u</text>
+    <text class="v" x="884" y="120">x</text>
+    <text class="d" x="404" y="116">+</text>
+    <text class="d" x="442" y="174">+</text>
+    <circle cx="700" cy="128" r="4"/>
+    <circle cx="790" cy="128" r="4"/>
+  </g>
+  <g fill="#1f6f8b">
+    <text class="blk" x="638" y="305">C</text>
+    <text class="v" x="436" y="288">y</text>
+    <text class="q" x="132" y="282">?</text>
+  </g>
+</svg>

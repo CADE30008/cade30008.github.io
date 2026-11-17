@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 330" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>An observer: a copy of the model driven by the same input, corrected by the difference between the measured and the estimated output</title>
+  <style>
+    .v   { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; font-style: italic; font-size: 20px; }
+    .blk { font-size: 19px; }
+    .d   { font-style: normal; font-size: 16px; font-weight: 700; }
+    .lbl { font-size: 14px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+  </defs>
+  <rect width="820" height="330" fill="#ffffff"/>
+
+  <g stroke="#1D1D1B" stroke-width="1.8" fill="none">
+    <!-- the real machine -->
+    <line x1="30" y1="56" x2="118" y2="56" marker-end="url(#arrow)"/>
+    <rect x="120" y="26" width="160" height="60" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <line x1="280" y1="56" x2="770" y2="56" marker-end="url(#arrow)"/>
+
+    <!-- the same input into the copy -->
+    <polyline points="80,56 80,200 118,200" marker-end="url(#arrow)"/>
+    <rect x="120" y="170" width="160" height="60" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <line x1="280" y1="200" x2="438" y2="200" marker-end="url(#arrow)"/>
+    <rect x="440" y="170" width="80" height="60" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <line x1="520" y1="200" x2="624" y2="200" marker-end="url(#arrow)"/>
+
+    <!-- what the machine did, against what the copy expected -->
+    <circle cx="640" cy="200" r="16"/>
+    <polyline points="640,56 640,184" marker-end="url(#arrow)"/>
+    <polyline points="656,200 722,200 722,282 442,282" marker-end="url(#arrow)"/>
+    <rect x="360" y="252" width="80" height="60" rx="4" stroke="#B01C2E" stroke-width="2.2"/>
+    <polyline points="360,282 150,282 150,232" marker-end="url(#arrow)"/>
+  </g>
+
+  <g stroke="#1D1D1B" stroke-width="1.3" fill="none">
+    <line x1="630" y1="190" x2="650" y2="210"/>
+    <line x1="630" y1="210" x2="650" y2="190"/>
+  </g>
+
+  <g fill="#1D1D1B">
+    <text class="v" x="34" y="46">u</text>
+    <text class="blk" x="152" y="62">Plant</text>
+    <text class="blk" x="150" y="206">Model</text>
+    <text class="blk" x="472" y="206">C</text>
+    <text class="blk" x="392" y="288">L</text>
+    <text class="v" x="700" y="46">y</text>
+    <text class="v" x="340" y="190">x&#770;</text>
+    <text class="v" x="560" y="190">y&#770;</text>
+    <text class="v" x="678" y="188">&#949;</text>
+    <text class="d" x="612" y="186">+</text>
+    <text class="d" x="612" y="230">&#8722;</text>
+  </g>
+  <g>
+    <text class="lbl" x="120" y="112">the machine</text>
+    <text class="lbl" x="188" y="256">a copy of it, in software</text>
+    <text class="lbl" x="556" y="250">what the copy got wrong</text>
+  </g>
+</svg>

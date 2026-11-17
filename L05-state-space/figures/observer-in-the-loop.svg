@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif" font-size="17">
+  <title>The observer in the loop: the plant driven by u, the observer fed by u and y, and the feedback gain K acting on the estimate</title>
+  <style>
+    .v    { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", Georgia, "Times New Roman", serif; font-style: italic; font-size: 24px; }
+    .blk  { font-size: 24px; font-weight: 700; }
+    .lbl  { font-size: 15px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1D1D1B"/>
+    </marker>
+    <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f6f8b"/>
+    </marker>
+  </defs>
+  <rect width="900" height="330" fill="#ffffff"/>
+
+  <g stroke="#1D1D1B" stroke-width="2" fill="none">
+    <!-- the loop the machine is in -->
+    <rect x="150" y="48" width="110" height="60" rx="4" stroke="#B01C2E" stroke-width="2.4"/>
+    <line x1="260" y1="78" x2="402" y2="78" marker-end="url(#arrow)"/>
+    <rect x="404" y="48" width="130" height="60" rx="4" stroke="#B01C2E" stroke-width="2.4"/>
+    <line x1="534" y1="78" x2="770" y2="78" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- what the observer is given, and what it returns -->
+  <g stroke="#1f6f8b" stroke-width="2.4" fill="none">
+    <polyline points="330,78 330,216 404,216" marker-end="url(#arrowb)"/>
+    <polyline points="690,78 690,216 536,216" marker-end="url(#arrowb)"/>
+    <rect x="404" y="186" width="130" height="60" rx="4"/>
+    <polyline points="404,216 205,216 205,110" marker-end="url(#arrowb)"/>
+  </g>
+
+  <g fill="#1D1D1B">
+    <text class="blk" x="194" y="86">K</text>
+    <text class="blk" x="440" y="86">Plant</text>
+    <text class="v" x="290" y="66">u</text>
+    <text class="v" x="730" y="66">y</text>
+    <circle cx="330" cy="78" r="4"/>
+    <circle cx="690" cy="78" r="4"/>
+  </g>
+  <g fill="#1f6f8b">
+    <text class="blk" x="422" y="224">Observer</text>
+    <text class="v" x="228" y="166">x&#770;</text>
+  </g>
+  <g>
+    <text class="lbl" x="150" y="136">u = K x&#770;</text>
+    <text class="lbl" x="404" y="274">the copy of the model, and L</text>
+    <text class="lbl" x="560" y="140">the only measurement there is</text>
+  </g>
+</svg>
